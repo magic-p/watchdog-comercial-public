@@ -1,0 +1,2378 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Watchdog Comercial - Estante Magica</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /*  TOKENS  */
+    :root {
+      /* Surfaces  Apple HIG */
+      --bg:        #F5F5F7;
+      --card:      #FFFFFF;
+      --card-sec:  #F9F9FB;
+
+      /* Borders & shadows */
+      --border:    rgba(0,0,0,0.07);
+      --sep:       rgba(60,60,67,0.10);
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.05);
+      --shadow-md: 0 1px 3px rgba(0,0,0,0.05), 0 6px 20px rgba(0,0,0,0.07);
+
+      /* Text  Apple HIG */
+      --t1: #1D1D1F;
+      --t2: #6E6E73;
+      --t3: #AEAEB2;
+      --t4: #D1D1D6;
+
+      /* Semantics  Apple system colors */
+      --red:        #FF3B30;
+      --red-light:  #FFF1F0;
+      --red-mid:    rgba(255,59,48,0.12);
+
+      --orange:     #FF9500;
+      --orange-light: #FFF8EC;
+      --orange-mid: rgba(255,149,0,0.12);
+
+      --green:      #34C759;
+      --green-light:#F0FBF3;
+      --green-mid:  rgba(52,199,89,0.12);
+
+      --blue:       #007AFF;
+      --blue-light: #F0F5FF;
+      --blue-mid:   rgba(0,122,255,0.10);
+
+      /* Typography  system font stack, DM Sans as web fallback */
+      --font: -apple-system, BlinkMacSystemFont, 'DM Sans', 'Segoe UI', system-ui, sans-serif;
+
+      /* Geometry */
+      --radius:    12px;
+      --radius-sm: 8px;
+      --radius-xs: 6px;
+    }
+
+    /*  SCROLLBAR  */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--t4); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--t3); }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--t1);
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+    }
+
+    /*  HEADER  */
+    .header {
+      height: 56px;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(20px) saturate(1.8);
+      -webkit-backdrop-filter: blur(20px) saturate(1.8);
+      border-bottom: 1px solid var(--border);
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-left { display: flex; align-items: center; gap: 10px; }
+
+    .logo {
+      width: 30px; height: 30px;
+      background: var(--t1);
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; color: #fff;
+      letter-spacing: 0.02em;
+      flex-shrink: 0;
+    }
+
+    .header-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--t1);
+      letter-spacing: -0.01em;
+    }
+
+    .header-subtitle {
+      font-size: 11px;
+      color: var(--t2);
+      margin-top: 1px;
+    }
+
+    .header-right { display: flex; align-items: center; gap: 10px; }
+
+    .header-date {
+      font-size: 12px;
+      color: var(--t2);
+    }
+
+    .live-pill {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 11px; font-weight: 600;
+      color: var(--green);
+      background: var(--green-light);
+      border: 1px solid rgba(52,199,89,0.22);
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+    .live-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--green);
+      animation: blink 2.5s ease infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+    /*  LAYOUT  */
+    .main {
+      padding: 28px 28px 0;
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex; flex-direction: column; gap: 20px;
+    }
+
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(10px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    .reveal { opacity:0; animation: fadeUp .45s ease forwards; }
+
+    /*  KPI GRID  */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .kpi-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      padding: 20px 22px 18px;
+      position: relative;
+      transition: box-shadow .18s, transform .18s;
+    }
+    .kpi-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    .kpi-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--t2);
+      margin-bottom: 8px;
+      display: flex; align-items: center; gap: 6px;
+      letter-spacing: 0.01em;
+    }
+
+    /* Status dot  tiny, not intrusive */
+    .kdot {
+      width: 7px; height: 7px; border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .kdot.red    { background: var(--red); }
+    .kdot.orange { background: var(--orange); }
+    .kdot.green  { background: var(--green); }
+    .kdot.blue   { background: var(--blue); }
+
+    .kpi-value {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--t1);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .kpi-value.alert { color: var(--red); }
+    .kpi-value.warn  { color: var(--orange); }
+    .kpi-value.md    { font-size: 30px; padding-top: 5px; }
+
+    .kpi-sub {
+      font-size: 12px;
+      color: var(--t2);
+      line-height: 1.5;
+    }
+    .kpi-sub .up   { color: var(--green); font-weight: 600; }
+    .kpi-sub .down { color: var(--red); font-weight: 600; }
+
+    /*  MID GRID  */
+    .mid-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    /*  CARD  */
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: box-shadow .18s;
+    }
+    .card:hover { box-shadow: var(--shadow-md); }
+
+    .card-hd {
+      padding: 14px 18px 12px;
+      border-bottom: 1px solid var(--sep);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .card-hd-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--t1);
+      display: flex; align-items: center; gap: 6px;
+    }
+
+    /* Apple SF symbol style icon */
+    .hd-icon {
+      width: 22px; height: 22px; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+    .hd-icon.red    { background: var(--red-light);    color: var(--red); }
+    .hd-icon.orange { background: var(--orange-light); color: var(--orange); }
+    .hd-icon.blue   { background: var(--blue-light);   color: var(--blue); }
+    .hd-icon.green  { background: var(--green-light);  color: var(--green); }
+
+    .count-badge {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--t2);
+      background: var(--bg);
+      padding: 2px 8px;
+      border-radius: 100px;
+    }
+
+    .card-bd { padding: 16px 18px; flex: 1; }
+
+    /*  ALERT ROWS  */
+    .alert-item {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--sep);
+      display: flex; gap: 10px; align-items: flex-start;
+    }
+    .alert-item:first-child { padding-top: 0; }
+    .alert-item:last-child  { border-bottom: none; padding-bottom: 0; }
+
+    .alert-stripe {
+      width: 3px; min-height: 100%;
+      border-radius: 2px;
+      flex-shrink: 0;
+      align-self: stretch;
+    }
+    .alert-stripe.red    { background: var(--red); }
+    .alert-stripe.orange { background: var(--orange); }
+    .alert-chip-icon {
+      width: 16px;
+      height: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 10px;
+      line-height: 1;
+      background: rgba(255,255,255,0.6);
+    }
+
+    .status-chip {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 10.5px; font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 100px;
+      margin-bottom: 4px;
+    }
+    .status-chip.red    { background: var(--red-mid);    color: var(--red); }
+    .status-chip.orange { background: var(--orange-mid); color: var(--orange); }
+    .status-chip.green  { background: var(--green-mid);  color: var(--green); }
+    .status-chip.blue   { background: var(--blue-mid);   color: var(--blue); }
+
+    .alert-title {
+      font-size: 13px; font-weight: 600;
+      color: var(--t1); line-height: 1.35;
+      margin-bottom: 3px;
+    }
+    .alert-body {
+      font-size: 11.5px; color: var(--t2); line-height: 1.55;
+    }
+
+    /*  PRIORITY ROWS  */
+    .pri-item {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--sep);
+      display: flex; gap: 12px;
+    }
+    .pri-item:first-child { padding-top: 0; }
+    .pri-item:last-child  { border-bottom: none; padding-bottom: 0; }
+
+    .pri-num {
+      font-size: 22px; font-weight: 300;
+      color: var(--t4); line-height: 1;
+      flex-shrink: 0; width: 22px;
+      padding-top: 2px;
+    }
+
+    .pri-title {
+      font-size: 13px; font-weight: 600;
+      color: var(--t1); line-height: 1.35;
+      margin: 4px 0 6px;
+    }
+
+    .pri-why, .pri-impact {
+      font-size: 11.5px; color: var(--t2);
+      line-height: 1.5;
+      display: flex; gap: 5px; align-items: flex-start;
+    }
+    .pri-why .lbl    { color: var(--t3); flex-shrink: 0; }
+    .pri-impact .lbl { color: var(--green); flex-shrink: 0; font-weight: 600; }
+
+    /*  PROGRESS  */
+    .month-row {
+      display: grid;
+      grid-template-columns: 34px 1fr 48px;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .month-row:last-child { margin-bottom: 0; }
+
+    .month-lbl {
+      font-size: 12px; font-weight: 500; color: var(--t2);
+    }
+
+    .bar-track {
+      height: 4px;
+      background: var(--bg);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%; width: 0%;
+      border-radius: 2px;
+      transition: width 1.2s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .bar-fill.on  { background: var(--blue); }
+    .bar-fill.off { background: var(--t4); }
+
+    .month-val {
+      font-size: 11.5px; font-weight: 500;
+      color: var(--t2); text-align: right;
+    }
+    .month-val.on { color: var(--blue); }
+
+    .prog-footer {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--sep);
+    }
+    .prog-footer-label {
+      font-size: 11px; font-weight: 500; color: var(--t2);
+      margin-bottom: 2px;
+    }
+    .prog-footer-val {
+      font-size: 28px; font-weight: 700;
+      color: var(--t1); letter-spacing: -0.02em;
+    }
+    .prog-footer-sub {
+      font-size: 11px; color: var(--t2);
+      margin-top: 4px; line-height: 1.5;
+    }
+
+    /*  SECTION HEADER  */
+    .section-hd {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 4px;
+    }
+    .section-hd-label {
+      font-size: 13px; font-weight: 600;
+      color: var(--t1);
+    }
+    .section-hd-meta {
+      font-size: 12px; color: var(--t2);
+    }
+
+    /*  TODOS  iOS TABLE  */
+    .todos-wrap {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    .todos-hd {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--sep);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .todos-hd-l { display: flex; align-items: center; gap: 10px; }
+
+    .todos-hd-title {
+      font-size: 13px; font-weight: 600; color: var(--t1);
+    }
+
+    .todos-hd-sub {
+      font-size: 12px; color: var(--t2);
+    }
+
+    .todos-tabs {
+      display: flex;
+      gap: 8px;
+      padding: 10px 18px;
+      border-top: 1px solid var(--sep);
+      background: var(--card-sec);
+    }
+    .todos-tab {
+      border: 1px solid var(--sep);
+      background: var(--card);
+      color: var(--t2);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    .todos-tab.active {
+      border-color: var(--blue);
+      background: var(--blue-light);
+      color: var(--blue);
+    }
+    .todo-pane { display: none; }
+    .todo-pane.active { display: block; }
+
+    .btn-row { display: flex; gap: 8px; }
+
+    /* Buttons  Apple HIG style */
+    .btn {
+      font-family: var(--font);
+      font-size: 13px; font-weight: 500;
+      padding: 7px 14px;
+      border-radius: var(--radius-xs);
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--t2);
+      cursor: pointer;
+      transition: background .12s, color .12s, box-shadow .12s;
+      -webkit-font-smoothing: antialiased;
+    }
+    .btn:hover { background: var(--bg); color: var(--t1); }
+
+    .btn.primary {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .btn.primary:hover {
+      background: #0066DC;
+      box-shadow: 0 2px 8px rgba(0,122,255,0.28);
+    }
+
+    .btn.danger {
+      background: var(--red);
+      border-color: var(--red);
+      color: #fff;
+    }
+    .btn.danger:hover {
+      background: #D70015;
+      box-shadow: 0 2px 8px rgba(255,59,48,0.28);
+    }
+
+    /* iOS-style table */
+    .todo-table { width: 100%; border-collapse: collapse; }
+
+    .todo-table thead th {
+      padding: 8px 14px;
+      font-size: 11px; font-weight: 600;
+      color: var(--t3); text-align: left;
+      text-transform: uppercase; letter-spacing: 0.04em;
+      background: var(--card-sec);
+      border-bottom: 1px solid var(--sep);
+    }
+    .todo-table thead th:first-child { padding-left: 18px; width: 44px; }
+    .todo-table thead th:last-child  { padding-right: 18px; }
+    .todo-table thead th.sortable { cursor: pointer; user-select: none; }
+    .todo-table thead th.sortable:hover { color: var(--t2); }
+    .sort-arrow { margin-left: 3px; opacity: 0.4; }
+    .todo-table thead th.sort-active { color: var(--blue); }
+    .todo-table thead th.sort-active .sort-arrow { opacity: 1; }
+
+    .todo-row {
+      border-bottom: 1px solid var(--sep);
+      transition: background .1s;
+    }
+    .todo-row:hover { background: var(--card-sec); }
+    .todo-row:last-child { border-bottom: none; }
+    .todo-row.done { opacity: .42; }
+    .todo-row.done .todo-task { text-decoration: line-through; color: var(--t2); }
+
+    .todo-table td { padding: 14px; vertical-align: middle; }
+    .todo-table td:first-child { padding-left: 18px; }
+    .todo-table td:last-child  { padding-right: 18px; }
+
+    /* iOS circular checkbox */
+    .chk-wrap { display: flex; align-items: center; justify-content: center; }
+
+    .chk {
+      appearance: none; -webkit-appearance: none;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      border: 2px solid var(--t4);
+      background: transparent;
+      cursor: pointer;
+      position: relative;
+      flex-shrink: 0;
+      transition: border-color .15s, background .15s;
+    }
+    .chk:hover { border-color: var(--green); }
+    .chk:checked { background: var(--green); border-color: var(--green); }
+    .chk:checked::after {
+      content: '';
+      position: absolute;
+      top: 3px; left: 6.5px;
+      width: 5px; height: 9px;
+      border: 2px solid #fff;
+      border-top: none; border-left: none;
+      transform: rotate(45deg);
+    }
+
+    .task-id {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.04em;
+      color: var(--t3); margin-bottom: 2px;
+    }
+    .todo-task {
+      font-size: 14px; font-weight: 500;
+      color: var(--t1); line-height: 1.35;
+    }
+    .todo-comment {
+      font-size: 12px; color: var(--t2);
+      margin-top: 3px; line-height: 1.5;
+    }
+    .todo-warn {
+      font-size: 12px; color: var(--orange);
+      margin-top: 2px;
+    }
+    .todo-owner {
+      font-size: 13px; color: var(--t2); white-space: nowrap;
+    }
+    .todo-date {
+      font-size: 13px; color: var(--t2); white-space: nowrap;
+    }
+
+    /* Status badge  iOS Reminders style */
+    .stag {
+      display: inline-block;
+      font-size: 11px; font-weight: 600;
+      padding: 3px 9px; border-radius: 100px;
+      white-space: nowrap;
+    }
+    .stag.t1   { background: var(--red-mid);    color: var(--red); }
+    .stag.t2   { background: var(--orange-mid); color: var(--orange); }
+    .stag.done { background: var(--green-mid);  color: var(--green); }
+
+    /*  MODAL  */
+    .overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.32);
+      backdrop-filter: blur(8px);
+      z-index: 200;
+      align-items: center; justify-content: center;
+    }
+    .overlay.open { display: flex; }
+
+    .modal {
+      background: var(--card);
+      border-radius: 16px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.08);
+      width: 640px; max-width: 92vw;
+      max-height: 84vh;
+      display: flex; flex-direction: column;
+      animation: fadeUp .2s ease forwards;
+      overflow: hidden;
+    }
+
+    .modal-hd {
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--sep);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .modal-hd-title {
+      font-size: 15px; font-weight: 600; color: var(--t1);
+      letter-spacing: -0.01em;
+    }
+    .modal-x {
+      background: var(--bg); border: none;
+      color: var(--t2); cursor: pointer;
+      font-size: 16px; line-height: 1;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .12s, color .12s;
+    }
+    .modal-x:hover { background: var(--t4); color: var(--t1); }
+
+    .modal-bd { padding: 20px 22px; overflow-y: auto; }
+    .modal-desc {
+      font-size: 13px; color: var(--t2); line-height: 1.65;
+      margin-bottom: 14px;
+    }
+    .modal-desc code {
+      font-family: 'SF Mono', 'Fira Mono', monospace;
+      background: var(--bg); padding: 1px 5px;
+      border-radius: 4px; font-size: 11.5px;
+      color: var(--blue);
+    }
+    .modal-code {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      font-family: 'SF Mono', 'Fira Mono', 'JetBrains Mono', monospace;
+      font-size: 11.5px; color: var(--t1);
+      line-height: 1.65; white-space: pre-wrap;
+      overflow-y: auto; max-height: 300px;
+    }
+    .modal-ft {
+      padding: 14px 22px;
+      border-top: 1px solid var(--sep);
+      display: flex; justify-content: flex-end; gap: 8px;
+    }
+
+    
+    .task-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .task-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .task-field label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--t2);
+    }
+    .task-field input,
+    .task-field select {
+      font-family: var(--font);
+      font-size: 13px;
+      color: var(--t1);
+      border: 1px solid var(--sep);
+      border-radius: var(--radius-xs);
+      padding: 9px 10px;
+      background: var(--card-sec);
+      outline: none;
+    }
+    .task-field input:focus,
+    .task-field select:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 2px var(--blue-mid);
+    }
+    .task-help {
+      font-size: 11px;
+      color: var(--t3);
+      line-height: 1.4;
+    }
+    .task-help.ok { color: var(--green); }
+    .task-help.err { color: var(--red); }
+    .task-form-error {
+      font-size: 12px;
+      color: var(--red);
+      min-height: 16px;
+    }
+
+    /*  TOAST  */
+    .toast {
+      position: fixed; bottom: 24px; right: 24px;
+      background: var(--t1);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 12.5px; font-weight: 500;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      z-index: 300;
+      opacity: 0; transform: translateY(6px);
+      transition: opacity .22s, transform .22s;
+      pointer-events: none;
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    /*  FOOTER  */
+    .footer {
+      margin-top: 24px;
+      padding: 16px 28px;
+      border-top: 1px solid var(--sep);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-l { font-size: 11px; color: var(--t3); line-height: 1.6; }
+    .footer-r { font-size: 11px; color: var(--t3); }
+
+    /*  RESPONSIVE  */
+    @media (max-width: 1080px) {
+      .mid-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 720px) {
+      .main { padding: 16px 16px 0; }
+      .header { padding: 0 16px; }
+      .footer { padding: 14px 16px; flex-direction: column; gap: 4px; align-items: flex-start; }
+      .kpi-grid { grid-template-columns: 1fr 1fr; }
+      .mid-grid { grid-template-columns: 1fr; }
+      .todos-hd { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .kpi-value { font-size: 32px; }
+      .booked-kpis { grid-template-columns: 1fr; }
+      .bucket-table { font-size: 11px; }
+    }
+
+    /* WINS DA SEMANA */
+    .wins-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: box-shadow .18s;
+    }
+    .wins-card:hover { box-shadow: var(--shadow-md); }
+
+    .wins-hd {
+      padding: 14px 18px 12px;
+      border-bottom: 1px solid var(--sep);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .wins-bd { padding: 0 18px; }
+
+    .win-item {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 12px 0; border-bottom: 1px solid var(--sep);
+    }
+    .win-item:last-child { border-bottom: none; }
+
+    .win-emoji { font-size: 20px; flex-shrink: 0; width: 28px; text-align: center; padding-top: 1px; }
+    .win-body  { flex: 1; }
+
+    .win-title { font-size: 13px; font-weight: 600; color: var(--t1); line-height: 1.35; margin-bottom: 3px; }
+    .win-desc  { font-size: 11.5px; color: var(--t2); line-height: 1.55; }
+
+    .win-foot  { margin-top: 5px; display: flex; align-items: center; gap: 8px; }
+    .win-dri   { font-size: 10.5px; font-weight: 600; background: var(--green-mid); color: var(--green); padding: 2px 7px; border-radius: 100px; }
+    .win-date  { font-size: 10.5px; color: var(--t3); }
+
+    /*  CAMPANHAS  */
+    .campanhas-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 700px) { .campanhas-grid { grid-template-columns: 1fr; } }
+
+    .campanha-item {
+      display: flex; flex-direction: column; gap: 4px;
+      padding: 12px 0; border-bottom: 1px solid var(--sep);
+    }
+    .campanha-item:last-child { border-bottom: none; }
+    .campanha-header { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .campanha-title { font-size: 13px; font-weight: 600; color: var(--t1); }
+    .campanha-date  { font-size: 11px; color: var(--t3); }
+    .campanha-segs  { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+    .seg-chip {
+      font-size: 11px; font-weight: 500; padding: 2px 8px;
+      border-radius: 100px; background: var(--blue-mid); color: var(--blue);
+    }
+    .seg-chip.ok  { background: var(--green-mid); color: var(--green); }
+    .seg-chip.warn { background: var(--orange-mid); color: var(--orange); }
+    .seg-chip.pending { background: var(--card-sec); color: var(--t3); }
+    .campanha-total { font-size: 11px; color: var(--t2); margin-top: 2px; }
+
+    .insight-item {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 11px 0; border-bottom: 1px solid var(--sep);
+    }
+    .insight-item:last-child { border-bottom: none; }
+    .insight-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); margin-top: 5px; flex-shrink: 0; }
+    .insight-dot.green  { background: var(--green); }
+    .insight-dot.orange { background: var(--orange); }
+    .insight-dot.gray   { background: var(--t4); }
+    .insight-text { font-size: 12.5px; color: var(--t1); line-height: 1.5; }
+
+    /*  PRIORITY EDIT  */
+    .pri-edit-btn {
+      background: none; border: none; cursor: pointer;
+      color: var(--t3); font-size: 12px; padding: 2px 5px;
+      border-radius: var(--radius-xs);
+      transition: color .14s, background .14s;
+      opacity: 0;
+    }
+    .pri-item:hover .pri-edit-btn { opacity: 1; }
+    .pri-edit-btn:hover { color: var(--blue); background: var(--blue-mid); }
+
+    .pef {
+      margin-top: 10px; display: flex; flex-direction: column; gap: 6px;
+    }
+    .pef textarea {
+      font-family: var(--font); font-size: 12px; color: var(--t1);
+      border: 1px solid var(--sep); border-radius: var(--radius-xs);
+      padding: 6px 8px; resize: vertical; line-height: 1.5; min-height: 44px;
+      background: var(--card-sec); outline: none;
+    }
+    .pef textarea:focus { border-color: var(--blue); }
+    .pef-label {
+      font-size: 10px; color: var(--t3); font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: -2px;
+    }
+    .pef-tier {
+      font-family: var(--font); font-size: 11px; font-weight: 600;
+      border: 1px solid var(--sep); border-radius: 100px;
+      padding: 3px 10px; background: var(--bg); color: var(--t1);
+      cursor: pointer; outline: none;
+    }
+    .pef-actions { display: flex; gap: 6px; margin-top: 2px; }
+
+    /*  TIER SELECT  */
+    .tier-select {
+      font-family: var(--font); font-size: 11px; font-weight: 600;
+      padding: 3px 6px; border-radius: 100px;
+      border: none; cursor: pointer; outline: none;
+      -webkit-appearance: none; appearance: none;
+      transition: box-shadow .14s;
+    }
+    .tier-select.t1   { background: var(--red-mid);    color: var(--red); }
+    .tier-select.t2   { background: var(--orange-mid); color: var(--orange); }
+    .tier-select.done { background: var(--green-mid);  color: var(--green); }
+    .tier-select:hover { box-shadow: 0 0 0 2px var(--t4); }
+    .row-edit-btn {
+      font-family: var(--font);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--sep);
+      background: var(--card);
+      color: var(--t2);
+      cursor: pointer;
+      transition: background .12s, color .12s, border-color .12s;
+    }
+    .row-edit-btn:hover {
+      color: var(--blue);
+      border-color: var(--blue);
+      background: var(--blue-light);
+    }
+
+    /*  COBRAR STATES  */
+    .booked-wrap {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+    .booked-bd {
+      padding: 14px 18px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .booked-kpis {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .booked-kpi {
+      background: var(--card-sec);
+      border: 1px solid var(--sep);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+    }
+    .booked-kpi-label {
+      font-size: 10px;
+      color: var(--t2);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+    .booked-kpi-val {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--t1);
+      letter-spacing: -0.01em;
+    }
+    .bucket-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    .bucket-table th,
+    .bucket-table td {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--sep);
+      text-align: left;
+      vertical-align: middle;
+    }
+    .bucket-table th:last-child,
+    .bucket-table td:last-child { text-align: right; }
+    .bucket-share {
+      display: inline-block;
+      min-width: 58px;
+      text-align: right;
+      color: var(--t2);
+      font-weight: 600;
+    }
+    .bucket-note {
+      font-size: 11px;
+      color: var(--t2);
+      line-height: 1.55;
+    }
+    .booked-alert {
+      display: none;
+      border-radius: var(--radius-sm);
+      background: var(--red-light);
+      border: 1px solid rgba(255,59,48,0.25);
+      color: var(--red);
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.45;
+      padding: 8px 10px;
+    }
+    .booked-alert.show { display: block; }
+
+    /*  READONLY MODE  */
+    .readonly-pill {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 11px; font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 100px;
+      color: var(--t3);
+      background: var(--bg);
+      border: 1px solid var(--border);
+    }
+    body.readonly .btn-row,
+    body.readonly .chk-wrap,
+    body.readonly .tier-select,
+    body.readonly .row-edit-btn { display: none !important; }
+
+    /*  MOTOR STATUS  */
+    .motor-pill {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 11px; font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+    .motor-pill.online {
+      color: var(--green);
+      background: var(--green-light);
+      border: 1px solid rgba(52,199,89,0.22);
+    }
+    .motor-pill.offline {
+      color: var(--t3);
+      background: var(--bg);
+      border: 1px solid var(--border);
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-left">
+    <div class="logo">EM</div>
+    <div>
+      <div class="header-title">Watchdog Comercial</div>
+      <div class="header-subtitle">Estante M&aacute;gica - Chief of Staff - v1.0</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <span class="header-date" id="headerDate"></span>
+    <span class="motor-pill offline" id="motorStatus">&#11044; Motor offline</span>
+    <span class="readonly-pill" id="readonlyPill" style="display:none">&#128274; Somente leitura</span>
+    <div class="live-pill"><span class="live-dot"></span>Ativo</div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- KPI GRID  -->
+  <div class="kpi-grid reveal" style="animation-delay:.06s">
+
+    <div class="kpi-card">
+      <div class="kpi-eyebrow"><span class="kdot red"></span>Meta Escolas &bull; Ago/26</div>
+      <div class="kpi-value" id="kpiMetaEscolas">3.736</div>
+      <div class="kpi-sub">Fev-Ago &bull; &Uacute;nica meta absoluta do time</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-eyebrow"><span class="kdot blue"></span><span id="kpiMetaMensalEyebrow">Meta Fevereiro</span></div>
+      <div class="kpi-value" id="kpiMetaMensal">1.064</div>
+      <div class="kpi-sub" id="kpiMetaMensalSub">Escolas do m&ecirc;s corrente (stretch)</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-eyebrow"><span class="kdot orange"></span>Efetividade SDR Atual</div>
+      <div class="kpi-value alert" id="kpiEfetividadeSDR">—</div>
+      <div class="kpi-sub" id="kpiEfetividadeSDRSub"><span class="up">&uarr; meta 12%</span></div>
+    </div>
+
+  </div>
+
+  <div class="reveal" style="animation-delay:.12s">
+    <div class="booked-wrap">
+      <div class="card-hd">
+        <span class="card-hd-label">
+          <span class="hd-icon blue">R$</span>
+          Meta Booked Revenue (Stretch Oficial)
+        </span>
+        <span class="count-badge">SSOT</span>
+      </div>
+      <div class="booked-bd">
+        <div class="booked-kpis">
+          <div class="booked-kpi">
+            <div class="booked-kpi-label" id="bookedMonthLabel">Meta Oficial (Stretch) - M&ecirc;s</div>
+            <div class="booked-kpi-val" id="bookedStretch">-</div>
+          </div>
+        </div>
+        <div class="booked-alert" id="bookedOpsAlert"></div>
+        <table class="bucket-table">
+          <thead>
+            <tr>
+              <th>Baldinho</th>
+              <th>Meta Stretch</th>
+              <th>Escolas</th>
+              <th>RR</th>
+              <th>RR/SDR/DIA alvo</th>
+            </tr>
+          </thead>
+          <tbody id="bookedBucketsBody"></tbody>
+        </table>
+        <div class="bucket-note">Painel propositalmente mostra apenas meta stretch oficial por baldinho.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MID GRID  -->
+  <div class="mid-grid reveal" style="animation-delay:.18s">
+
+    <!-- ALERTAS -->
+    <div class="card">
+      <div class="card-hd">
+        <span class="card-hd-label">
+          <span class="hd-icon red">&#9888;</span>
+          Alertas Cr&iacute;ticos
+        </span>
+        <span class="count-badge" id="alertCount">0</span>
+      </div>
+      <div class="card-bd" id="criticalAlertsList"></div>
+    </div>
+
+    <!-- TOP 3 -->
+    <div class="card">
+      <div class="card-hd">
+        <span class="card-hd-label">
+          <span class="hd-icon blue">&#9678;</span>
+          Top 3 Prioridades da Semana
+        </span>
+        <span class="count-badge">Somente tarefas desta semana</span>
+      </div>
+      <div class="card-bd" id="top3List"></div>
+    </div>
+
+  </div>
+
+  <!-- WINS  -->
+  <div class="reveal" style="animation-delay:.26s">
+    <div class="wins-card">
+      <div class="wins-hd">
+        <span class="card-hd-label">
+          <span class="hd-icon green">&#10003;</span>
+          Wins da Semana
+        </span>
+        <span class="count-badge" id="winsCount">-</span>
+      </div>
+      <div class="wins-bd" id="winsList"></div>
+    </div>
+  </div>
+
+  <!-- CAMPANHAS & INSIGHTS -->
+  <div class="section-hd reveal" style="animation-delay:.28s">
+    <span class="section-hd-label">Campanhas &amp; Insights</span>
+    <span class="section-hd-meta" id="campanhasCount">-</span>
+  </div>
+
+  <div class="campanhas-grid reveal" style="animation-delay:.32s">
+    <div class="card">
+      <div class="card-hd">
+        <span class="card-hd-label">
+          <span class="hd-icon blue">&#128227;</span>
+          Campanhas Recentes
+        </span>
+      </div>
+      <div class="card-bd" id="campanhasList"><span style="color:var(--t3);font-size:12px">Sem campanhas registradas.</span></div>
+    </div>
+    <div class="card">
+      <div class="card-hd">
+        <span class="card-hd-label">
+          <span class="hd-icon orange">&#128161;</span>
+          Insights do Motor
+        </span>
+      </div>
+      <div class="card-bd" id="insightsList"><span style="color:var(--t3);font-size:12px">Aguardando dados de campanha.</span></div>
+    </div>
+  </div>
+
+  <!-- SECTION HEADER  -->
+  <div class="section-hd reveal" style="animation-delay:.36s">
+    <span class="section-hd-label">Lista de Tarefas</span>
+    <span class="section-hd-meta" id="taskCounter">-</span>
+  </div>
+
+  <!-- TO-DOS  -->
+  <div class="reveal" style="animation-delay:.38s">
+    <div class="todos-wrap">
+      <div class="todos-hd">
+        <div class="todos-hd-l">
+          <span class="todos-hd-title">To-Dos</span>
+          <span class="todos-hd-sub" id="todosHdSub">Daily Gest&atilde;o Comercial</span>
+        </div>
+        <div class="btn-row">
+          <button class="btn" onclick="addTask()">+ Tarefa</button>
+        </div>
+      </div>
+      <div class="todos-tabs" role="tablist" aria-label="Filtro de tarefas">
+        <button id="tabOpen" class="todos-tab active" type="button" role="tab" aria-selected="true" onclick="setTaskView('open')">
+          Tarefas Abertas <span class="count-badge" id="openCounter">0</span>
+        </button>
+        <button id="tabDone" class="todos-tab" type="button" role="tab" aria-selected="false" onclick="setTaskView('done')">
+          Tarefas Conclu&iacute;das <span class="count-badge" id="doneCounter">0</span>
+        </button>
+      </div>
+
+      <div id="openPane" class="todo-pane active">
+        <table class="todo-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Tarefa</th>
+              <th class="sortable" data-sort="owner">Respons&aacute;vel<span class="sort-arrow">↕</span></th>
+              <th class="sortable" data-sort="date">Prazo<span class="sort-arrow">↑</span></th>
+              <th class="sortable" data-sort="tier">Status<span class="sort-arrow">↕</span></th>
+              <th class="sortable" data-sort="priority">Top 3<span class="sort-arrow">↕</span></th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="tbodyOpen"></tbody>
+        </table>
+      </div>
+
+      <div id="donePane" class="todo-pane">
+        <table class="todo-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Tarefa</th>
+              <th class="sortable" data-sort="owner">Respons&aacute;vel<span class="sort-arrow">↕</span></th>
+              <th class="sortable" data-sort="date">Prazo<span class="sort-arrow">↑</span></th>
+              <th class="sortable" data-sort="tier">Status<span class="sort-arrow">↕</span></th>
+              <th class="sortable" data-sort="priority">Top 3<span class="sort-arrow">↕</span></th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="tbodyDone"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-l">
+    Watchdog Comercial v1.1 - Chief of Staff: Claude Sonnet 4.6<br>
+    Comandos: <strong>/analisar</strong> (processar PDFs) &bull; <strong>/publicar</strong> (pipeline completo) &bull; <strong>/hoje</strong> (briefing + zona de esquecimento)
+  </div>
+  <div class="footer-r">Estante M&aacute;gica 2026</div>
+</footer>
+
+<div class="overlay" id="taskOverlay">
+  <div class="modal" style="max-width:560px;">
+    <div class="modal-hd">
+      <span class="modal-hd-title" id="taskModalTitle">Nova tarefa</span>
+      <button class="modal-x" type="button" onclick="closeTaskModal()">&times;</button>
+    </div>
+    <form class="modal-bd task-form" id="taskForm">
+      <div class="task-field">
+        <label for="taskTask">Tarefa</label>
+        <input id="taskTask" type="text" maxlength="180" placeholder="Descreva a tarefa" required />
+      </div>
+      <div class="task-field">
+        <label for="taskOwner">Respons&aacute;vel</label>
+        <select id="taskOwner" required></select>
+      </div>
+      <div class="task-field">
+        <label for="taskDate">Prazo</label>
+        <input id="taskDate" type="text" placeholder="Ex: 25/fev ou 12/03/2026" required />
+        <div class="task-help" id="taskDateHint">Aceita somente formatos: dd/mmm ou dd/mm/aaaa.</div>
+      </div>
+      <div class="task-field">
+        <label for="taskComment">Obs <span style="font-weight:400;color:var(--t3)">(opcional)</span></label>
+        <textarea id="taskComment" rows="2" maxlength="400" placeholder="Contexto, dependências, detalhes..." style="resize:vertical;font-family:var(--font);font-size:13px;padding:7px 10px;border:1px solid var(--border);border-radius:var(--radius-xs);background:var(--bg);color:var(--t1);width:100%;box-sizing:border-box;"></textarea>
+      </div>
+      <div class="task-form-error" id="taskFormError"></div>
+      <div class="modal-ft" style="padding:0; border-top:none; justify-content:space-between;">
+        <button class="btn danger" id="taskDeleteBtn" type="button" style="display:none">Excluir</button>
+        <div style="display:flex; gap:8px;">
+          <button class="btn" type="button" onclick="closeTaskModal()">Cancelar</button>
+          <button class="btn primary" id="taskSubmitBtn" type="submit">Salvar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="saidas/booked_meta.js"></script>
+<script src="saidas/todos_ssot.js"></script>
+<script src="saidas/campanhas_ssot.js"></script>
+<script>
+/*  API  */
+const API_URL = 'http://localhost:5678';
+const HAS_API = true; // sempre tenta; apiPatch() falha silenciosamente se motor parado
+const IS_READONLY = (
+  window.location.protocol !== 'file:' &&
+  window.location.hostname !== 'localhost' &&
+  window.location.hostname !== '127.0.0.1'
+);
+
+async function apiCreate(task) {
+  if (IS_READONLY) return false;
+  try {
+    const r = await fetch(`${API_URL}/api/todos/create`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: task.id, task: task.task, owner: task.owner, date: task.date, comment: task.comment || null })
+    });
+    return r.ok;
+  } catch {
+    return false;
+  }
+}
+
+async function apiPatch(patch) {
+  if (IS_READONLY) return false;
+  try {
+    const r = await fetch(`${API_URL}/api/todos/patch`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(patch)
+    });
+    return r.ok;
+  } catch {
+    return false; // motor não está rodando — falha silenciosa
+  }
+}
+
+function setMotorStatus(online) {
+  const el = document.getElementById('motorStatus');
+  if (!el) return;
+  el.innerHTML = online ? '&#11044; Motor online' : '&#11044; Motor offline';
+  el.classList.toggle('online', online);
+  el.classList.toggle('offline', !online);
+}
+
+/*  DATA  */
+const STORAGE_KEY = 'watchdog_v3';
+
+const BOOKED_META = (window.WATCHDOG_BOOKED_META && typeof window.WATCHDOG_BOOKED_META === 'object')
+  ? window.WATCHDOG_BOOKED_META
+  : null;
+
+const TODOS_SSOT = Array.isArray(window.WATCHDOG_TODOS) ? window.WATCHDOG_TODOS : [];
+const HAS_BACKEND_TODOS = TODOS_SSOT.length > 0;
+
+const CAMPANHAS_DATA = (window.WATCHDOG_CAMPANHAS && typeof window.WATCHDOG_CAMPANHAS === 'object')
+  ? window.WATCHDOG_CAMPANHAS : null;
+
+const FALLBACK_SEED = [];
+
+const SEED = HAS_BACKEND_TODOS ? TODOS_SSOT : FALLBACK_SEED;
+
+const _kpis = (BOOKED_META && BOOKED_META.kpis) ? BOOKED_META.kpis : {};
+const ZOMBIE_DAYS         = _kpis.zombie_days          ?? 3;
+const CAMPANHA_TAXA_VERDE = _kpis.campanha_taxa_verde   ?? 2.0;
+const CAMPANHA_TAXA_AZUL  = _kpis.campanha_taxa_azul    ?? 1.0;
+
+/*  MENSAGENS COBRANA  */
+
+/*  WINS DA SEMANA  */
+const WINS = [];
+
+/*  STATE  */
+
+const OWNER_FALLBACK = 'A definir';
+const DRI_OPTIONS = [
+  'Pedro',
+  'Kaka',
+  'Lili',
+  'Vitória',
+  'Nath Ferreira',
+  'Ana Paula Pimentel',
+  'Bebel Bertuccelli',
+  'Luana',
+  'Leo (Marketing)',
+];
+const OWNER_CANONICAL = {
+  'pedro': 'Pedro',
+  'pedro concy': 'Pedro',
+  'concy': 'Pedro',
+  'kaka': 'Kaka',
+  'karina': 'Kaka',
+  'karina machado': 'Kaka',
+  'lili': 'Lili',
+  'liliane': 'Lili',
+  'vitoria': 'Vitória',
+  'vitória': 'Vitória',
+  'vit': 'Vitória',
+  'nath': 'Nath Ferreira',
+  'nathalia': 'Nath Ferreira',
+  'nath ferreira': 'Nath Ferreira',
+  'nathalia ferreira': 'Nath Ferreira',
+  'ana paula': 'Ana Paula Pimentel',
+  'ana pimentel': 'Ana Paula Pimentel',
+  'ana paula pimentel': 'Ana Paula Pimentel',
+  'pimentel': 'Ana Paula Pimentel',
+  'bebel': 'Bebel Bertuccelli',
+  'bertuccelli': 'Bebel Bertuccelli',
+  'bebel bertuccelli': 'Bebel Bertuccelli',
+  'luana': 'Luana',
+  'lua': 'Luana',
+  'leo': 'Leo (Marketing)',
+  'leo marketing': 'Leo (Marketing)',
+};
+
+let taskFormMode = 'create';
+let editingTaskId = null;
+
+function ownerKey(owner) {
+  return String(owner || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-zA-Z0-9\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+}
+
+function normalizeOwnerName(owner) {
+  const base = String(owner || '').replace(/\s+/g, ' ').trim();
+  if (!base) return OWNER_FALLBACK;
+  const first = base.split(/\s(?:e|&|\+)\s|,|;|\/|\|/i)[0].trim();
+  if (!first) return OWNER_FALLBACK;
+  const key = ownerKey(first);
+  return OWNER_CANONICAL[key] || first;
+}
+
+function normalizePriorityRank(rank) {
+  const n = Number(rank);
+  return [1, 2, 3].includes(n) ? n : null;
+}
+
+function normalizePriorityRanks(list) {
+  const used = new Set();
+  list.forEach(task => {
+    const r = normalizePriorityRank(task.priorityRank);
+    if (r && !used.has(r)) {
+      task.priorityRank = r;
+      used.add(r);
+    } else {
+      task.priorityRank = null;
+    }
+  });
+}
+
+function normalizeTask(task) {
+  return {
+    ...task,
+    owner: normalizeOwnerName(task.owner),
+    date: formatTaskDate(task.date) || String(task.date || '').trim(),
+    priorityRank: normalizePriorityRank(task.priorityRank)
+  };
+}
+
+function tierMeta(task) {
+  if (task.done || task.tier === 'done') return { chipClass: 'green', chipLabel: 'Conclu\u00EDdo' };
+  if (task.tier === 't1') return { chipClass: 'red', chipLabel: 'Tier 1 \u2022 A fazer' };
+  return { chipClass: 'orange', chipLabel: 'Tier 2 \u2022 Fazendo' };
+}
+
+
+const PT_MONTH = {
+  jan: 0, fev: 1, mar: 2, abr: 3, mai: 4, jun: 5,
+  jul: 6, ago: 7, set: 8, out: 9, nov: 10, dez: 11,
+};
+const PT_MONTH_LABEL = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+
+function weekBounds(ref = new Date()) {
+  const d = new Date(ref);
+  const mondayOffset = (d.getDay() + 6) % 7;
+  d.setHours(0, 0, 0, 0);
+  d.setDate(d.getDate() - mondayOffset);
+  const start = d;
+  const end = new Date(start);
+  end.setDate(start.getDate() + 6);
+  end.setHours(23, 59, 59, 999);
+  return { start, end };
+}
+
+function parseTaskDate(raw) {
+  const s = String(raw || '').trim();
+  if (!s || s === '-' || s === '?' || /^a definir$/i.test(s)) return null;
+
+  let m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (m) {
+    const d = new Date(Number(m[3]), Number(m[2]) - 1, Number(m[1]));
+    d.setHours(23, 59, 59, 999);
+    return Number.isNaN(d.getTime()) ? null : d;
+  }
+
+  m = s.match(/^(\d{1,2})\/(\d{1,2})$/);
+  if (m) {
+    const now = new Date();
+    const d = new Date(now.getFullYear(), Number(m[2]) - 1, Number(m[1]));
+    d.setHours(23, 59, 59, 999);
+    return Number.isNaN(d.getTime()) ? null : d;
+  }
+  m = s.match(/^(\d{1,2})\/(jan|fev|mar|abr|mai|jun|jul|ago|set|out|nov|dez)$/i);
+  if (m) {
+    const now = new Date();
+    const day = Number(m[1]);
+    const mon = PT_MONTH[m[2].toLowerCase()];
+    const d = new Date(now.getFullYear(), mon, day);
+    d.setHours(23, 59, 59, 999);
+    return Number.isNaN(d.getTime()) ? null : d;
+  }
+
+  return null;
+}
+
+function formatTaskDate(raw) {
+  const d = parseTaskDate(raw);
+  if (!d) return '';
+  const dd = String(d.getDate()).padStart(2, '0');
+  const mm = PT_MONTH_LABEL[d.getMonth()];
+  return `${dd}/${mm}`;
+}
+function isValidTaskDateInput(raw) {
+  const s = String(raw || '').trim();
+  if (!s) return { ok: false, msg: 'Prazo obrigatório.' };
+  if (!parseTaskDate(s)) return { ok: false, msg: 'Formato inválido. Use dd/mmm, dd/mm ou dd/mm/aaaa.' };
+  return { ok: true, msg: `Prazo válido. Exibição padrão: ${formatTaskDate(s)}.` };
+}
+
+function isTaskInCurrentWeek(task) {
+  const due = parseTaskDate(task.date);
+  if (!due) return false;
+  const { start, end } = weekBounds();
+  return due >= start && due <= end;
+}
+
+function stripLeadingBracketTag(text) {
+  return String(text || '').replace(/^\s*\[[^\]]+\]\s*/, '').trim();
+}
+
+function alertTypeIcon(chip) {
+  const t = String(chip || '').toUpperCase();
+  if (t === 'TAREFA_SEM_DONO') return '\uD83D\uDC64';
+  if (t === 'TAREFA_SEM_PRAZO') return '\uD83D\uDCC5';
+  if (t === 'TAREFA_ATRASADA') return '\u23F0';
+  if (t === 'ALERTA_ZUMBI') return '\uD83E\uDEA6';
+  return '\u26A0';
+}
+
+function normalizeSingleOwner(input) {
+  const val = normalizeOwnerName(input);
+  return val === OWNER_FALLBACK ? 'A definir' : val;
+}
+
+function parseWarnDays(warn) {
+  const s = String(warn || '').toLowerCase();
+  const m = s.match(/(\d+)\s+dias?\s+sem\s+update/);
+  if (!m) return null;
+  return Number(m[1]);
+}
+
+function buildCriticalAlerts(list) {
+  const out = [];
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  list.forEach(t => {
+    if (t.done) return;
+    const owner = normalizeOwnerName(t.owner);
+    const ownerMissing = owner === OWNER_FALLBACK;
+    const title = t.task || 'Tarefa sem t\u00EDtulo';
+
+    if (ownerMissing) {
+      out.push({ key: `sem_dono_${t.id}`, tag: '[CRITICO: TAREFA_SEM_DONO]', chip: 'TAREFA_SEM_DONO', level: 'red', text: `${title} sem respons\u00E1vel definido.` });
+    }
+
+    const due = parseTaskDate(t.date);
+    if (!due) {
+      out.push({ key: `sem_prazo_${t.id}`, tag: '[CRITICO: TAREFA_SEM_PRAZO]', chip: 'TAREFA_SEM_PRAZO', level: 'orange', text: `${owner}: ${title} sem prazo definido.` });
+    } else if (due < today) {
+      out.push({ key: `atrasada_${t.id}`, tag: '[CRITICO: TAREFA_ATRASADA]', chip: 'TAREFA_ATRASADA', level: 'red', text: `${owner}: ${title} atrasada (prazo ${t.date}).` });
+    }
+
+    const warnDays = parseWarnDays(t.warn);
+    const updatedAt = t.updatedAt ? new Date(t.updatedAt) : null;
+    let zombie = false;
+    let zombieInfo = 'sem hist\u00F3rico de atualiza\u00E7\u00E3o';
+
+    if (updatedAt && !Number.isNaN(updatedAt.getTime())) {
+      const days = Math.floor((Date.now() - updatedAt.getTime()) / 86400000);
+      if (days >= ZOMBIE_DAYS) {
+        zombie = true;
+        zombieInfo = `sem atualiza\u00E7\u00E3o h\u00E1 ${days} dias`;
+      }
+    } else if (typeof warnDays === 'number' && warnDays >= ZOMBIE_DAYS) {
+      zombie = true;
+      zombieInfo = `sem atualiza\u00E7\u00E3o h\u00E1 ${warnDays} dias`;
+    }
+
+    if (zombie) {
+      out.push({ key: `zumbi_${t.id}`, tag: '[CRITICO: ALERTA_ZUMBI]', chip: 'ALERTA_ZUMBI', level: 'red', text: `${owner}: ${title} ${zombieInfo}.` });
+    }
+  });
+
+  const uniq = [];
+  const seen = new Set();
+  out.forEach(a => {
+    if (seen.has(a.key)) return;
+    seen.add(a.key);
+    uniq.push(a);
+  });
+  return uniq;
+}
+
+function renderCriticalAlerts() {
+  const host = document.getElementById('criticalAlertsList');
+  const badge = document.getElementById('alertCount');
+  if (!host) return;
+
+  const alerts = buildCriticalAlerts(tasks);
+  if (badge) badge.textContent = String(alerts.length);
+
+  if (!alerts.length) {
+    host.innerHTML = '<div class="alert-item"><div class="alert-stripe orange"></div><div><span class="status-chip orange">Sem Cr\u00EDtico</span><div class="alert-title">Nenhum alerta cr\u00EDtico aberto.</div></div></div>';
+    return;
+  }
+
+  host.innerHTML = alerts.map(a => `
+    <div class="alert-item">
+      <div class="alert-stripe ${a.level}"></div>
+      <div>
+        <span class="status-chip ${a.level}"><span class="alert-chip-icon">${alertTypeIcon(a.chip)}</span>${esc(a.chip)}</span>
+        <div class="alert-title">${esc(stripLeadingBracketTag(a.text))}</div>
+      </div>
+    </div>`).join('');
+}
+
+function enforceWeeklyTop3(list) {
+  list.forEach(t => {
+    if (t.priorityRank && t.done) t.priorityRank = null;
+  });
+  normalizePriorityRanks(list);
+}
+
+function localWeeklyWins(list) {
+  const { start, end } = weekBounds();
+  const wins = [];
+
+  list.forEach(t => {
+    if (!t.done || !t.completedAt) return;
+    const dt = new Date(t.completedAt);
+    if (Number.isNaN(dt.getTime()) || dt < start || dt > end) return;
+
+    const due = parseTaskDate(t.date);
+    const onTime = !!(due && dt <= due);
+    wins.push({
+      emoji: onTime ? '\u2705' : '\uD83C\uDFAF',
+      titulo: `${normalizeOwnerName(t.owner)}: ${t.task}`,
+      desc: onTime ? 'Conclu\u00EDda no prazo do ciclo semanal.' : 'Conclu\u00EDda no ciclo semanal (segunda a domingo).',
+      dri: normalizeOwnerName(t.owner),
+      data: dt.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' }),
+      tipo: onTime ? 'ENTREGA_NO_PRAZO' : 'ENTREGA_CONCLUIDA',
+    });
+  });
+
+  return wins.slice(0, 5);
+}
+
+function renderTopPriorities() {
+  const host = document.getElementById('top3List');
+  if (!host) return;
+  const weekly = tasks.filter(t => !t.done && t.priorityRank);
+  const map = new Map(weekly.map(t => [t.priorityRank, t]));
+  const rows = [1, 2, 3].map(rank => {
+    const t = map.get(rank);
+    if (!t) {
+      return `
+        <div class="pri-item">
+          <div class="pri-num">${rank}</div>
+          <div>
+            <span class="status-chip blue">Aguardando sele\u00E7\u00E3o</span>
+            <div class="pri-title">Selecione uma tarefa na coluna Top 3 da tabela</div>
+            <div class="pri-why"><span class="lbl"></span><span>Defina a ordem ${rank} entre tarefas com prazo nesta semana (seg-dom).</span></div>
+          </div>
+        </div>`;
+    }
+    const meta = tierMeta(t);
+    const detail = t.comment ? esc(t.comment) : `Respons&aacute;vel: ${esc(t.owner)}  Prazo: ${esc(t.date || '')}`;
+    const impact = t.warn ? esc(t.warn) : `Acompanhamento di\u00E1rio por ${esc(t.owner)}.`;
+    return `
+      <div class="pri-item">
+        <div class="pri-num">${rank}</div>
+        <div>
+          <span class="status-chip ${meta.chipClass}">${meta.chipLabel}</span>
+          <div class="pri-title">${esc(t.task)}</div>
+          <div class="pri-why"><span class="lbl"></span><span>${detail}</span></div>
+          <div class="pri-impact"><span class="lbl"></span><span>${impact}</span></div>
+        </div>
+      </div>`;
+  });
+  host.innerHTML = rows.join('');
+}
+
+let tasks = [];
+let taskView = 'open';
+let sortCol = 'date';
+let sortDir = 1;
+
+function setTaskView(view) {
+  taskView = (view === 'done') ? 'done' : 'open';
+  const openPane = document.getElementById('openPane');
+  const donePane = document.getElementById('donePane');
+  const tabOpen = document.getElementById('tabOpen');
+  const tabDone = document.getElementById('tabDone');
+
+  if (openPane) openPane.classList.toggle('active', taskView === 'open');
+  if (donePane) donePane.classList.toggle('active', taskView === 'done');
+  if (tabOpen) {
+    tabOpen.classList.toggle('active', taskView === 'open');
+    tabOpen.setAttribute('aria-selected', taskView === 'open' ? 'true' : 'false');
+  }
+  if (tabDone) {
+    tabDone.classList.toggle('active', taskView === 'done');
+    tabDone.setAttribute('aria-selected', taskView === 'done' ? 'true' : 'false');
+  }
+}
+
+
+function buildOwnerOptions(selectedOwner = '') {
+  const owners = [...DRI_OPTIONS];
+  const selected = normalizeOwnerName(selectedOwner);
+  if (selected && selected !== OWNER_FALLBACK && !owners.includes(selected)) owners.unshift(selected);
+  return [...new Set(owners)];
+}
+
+function openTaskModal(mode = 'create', id = null) {
+  taskFormMode = mode === 'edit' ? 'edit' : 'create';
+  editingTaskId = (taskFormMode === 'edit') ? id : null;
+
+  const overlay = document.getElementById('taskOverlay');
+  const title = document.getElementById('taskModalTitle');
+  const submitBtn = document.getElementById('taskSubmitBtn');
+  const taskInput = document.getElementById('taskTask');
+  const ownerSelect = document.getElementById('taskOwner');
+  const dateInput = document.getElementById('taskDate');
+  const err = document.getElementById('taskFormError');
+  if (!overlay || !title || !submitBtn || !taskInput || !ownerSelect || !dateInput || !err) return;
+
+  const current = (taskFormMode === 'edit') ? tasks.find(t => t.id === id) : null;
+
+  title.textContent = current ? 'Editar tarefa' : 'Nova tarefa';
+  submitBtn.textContent = current ? 'Salvar alterações' : 'Criar tarefa';
+
+  const options = buildOwnerOptions(current ? current.owner : '');
+  ownerSelect.innerHTML = '<option value="">Selecione</option>' + options.map(o => `<option value="${esc(o)}">${esc(o)}</option>`).join('');
+
+  taskInput.value = current ? (current.task || '') : '';
+  ownerSelect.value = current ? (normalizeOwnerName(current.owner) === OWNER_FALLBACK ? '' : normalizeOwnerName(current.owner)) : '';
+  dateInput.value = current ? (current.date || '') : '';
+  const commentInput = document.getElementById('taskComment');
+  if (commentInput) commentInput.value = current ? (current.comment || '') : '';
+  err.textContent = '';
+
+  const deleteBtn = document.getElementById('taskDeleteBtn');
+  if (deleteBtn) {
+    deleteBtn.style.display = taskFormMode === 'edit' ? 'inline-flex' : 'none';
+    deleteBtn.onclick = async () => {
+      if (!editingTaskId) return;
+      const t = tasks.find(x => x.id === editingTaskId);
+      if (!t) return;
+      if (!confirm(`Excluir a tarefa "${t.task}"?`)) return;
+      await apiPatch({ id: editingTaskId, deleted: true });
+      tasks = tasks.filter(x => x.id !== editingTaskId);
+      save();
+      closeTaskModal();
+      renderTasks();
+      toast('Tarefa excluída');
+    };
+  }
+
+  refreshTaskDateHint();
+  overlay.classList.add('open');
+  setTimeout(() => taskInput.focus(), 20);
+}
+
+function closeTaskModal() {
+  const overlay = document.getElementById('taskOverlay');
+  const form = document.getElementById('taskForm');
+  const err = document.getElementById('taskFormError');
+  if (overlay) overlay.classList.remove('open');
+  if (form) form.reset();
+  if (err) err.textContent = '';
+  taskFormMode = 'create';
+  editingTaskId = null;
+}
+
+function refreshTaskDateHint() {
+  const dateInput = document.getElementById('taskDate');
+  const hint = document.getElementById('taskDateHint');
+  if (!dateInput || !hint) return;
+  const check = isValidTaskDateInput(dateInput.value);
+  hint.textContent = check.msg;
+  hint.classList.remove('ok', 'err');
+  hint.classList.add(check.ok ? 'ok' : 'err');
+}
+
+function submitTaskForm(e) {
+  e.preventDefault();
+  const taskInput = document.getElementById('taskTask');
+  const ownerSelect = document.getElementById('taskOwner');
+  const dateInput = document.getElementById('taskDate');
+  const commentInput = document.getElementById('taskComment');
+  const err = document.getElementById('taskFormError');
+  if (!taskInput || !ownerSelect || !dateInput || !err) return;
+
+  const taskName = String(taskInput.value || '').trim();
+  const owner = normalizeSingleOwner(ownerSelect.value);
+  const dateRaw = String(dateInput.value || '').trim();
+  const dueCheck = isValidTaskDateInput(dateRaw);
+
+  if (!taskName) {
+    err.textContent = 'Descrição da tarefa é obrigatória.';
+    return;
+  }
+  if (!ownerSelect.value) {
+    err.textContent = 'Selecione um responsável.';
+    return;
+  }
+  if (!dueCheck.ok) {
+    err.textContent = dueCheck.msg;
+    refreshTaskDateHint();
+    return;
+  }
+
+  const commentVal = commentInput ? (String(commentInput.value || '').trim() || null) : null;
+
+  if (taskFormMode === 'edit' && editingTaskId) {
+    const task = tasks.find(t => t.id === editingTaskId);
+    if (!task) return;
+    task.task = taskName;
+    task.owner = owner;
+    task.date = formatTaskDate(dateRaw);
+    task.comment = commentVal;
+    task.updatedAt = new Date().toISOString();
+    if (task.done) {
+      task.tier = 'done';
+      task.tierLabel = 'Concluído';
+    }
+    apiPatch({ id: task.id, task: task.task, owner: task.owner, date: task.date, comment: commentVal });
+    toast('Tarefa atualizada');
+  } else {
+    const _nums = tasks.map(t => parseInt(String(t.id).replace(/^t0*/,''),10)).filter(n=>!isNaN(n));
+    const _next = (_nums.length ? Math.max(..._nums) : 0) + 1;
+    const newTask = {
+      id: 't' + String(_next).padStart(3, '0'),
+      task: taskName,
+      comment: commentVal,
+      owner,
+      date: formatTaskDate(dateRaw),
+      tier: 't1',
+      tierLabel: 'A fazer',
+      warn: null,
+      done: false,
+      priorityRank: null,
+      updatedAt: new Date().toISOString(),
+    };
+    tasks.push(newTask);
+    apiCreate(newTask);
+    toast('Tarefa adicionada');
+  }
+
+  enforceWeeklyTop3(tasks);
+  save();
+  closeTaskModal();
+  renderTasks();
+}
+function load() {
+  if (HAS_BACKEND_TODOS) {
+    tasks = SEED.map(s => normalizeTask({ ...s }));
+    enforceWeeklyTop3(tasks);
+    return;
+  }
+
+  try {
+    const raw = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+    if (raw && Array.isArray(raw)) {
+      const map = {};
+      raw.forEach(t => map[t.id] = t);
+      tasks = SEED.map(s => {
+        const sv = map[s.id];
+        if (!sv) return normalizeTask({ ...s });
+        const done = !!sv.done;
+        const tier = sv.tier || s.tier;
+        const tierLabel = sv.tierLabel || s.tierLabel;
+        return normalizeTask({ ...s, ...sv,
+          done,
+          tier: done ? 'done' : (tier === 'done' ? 't2' : tier),
+          tierLabel: done ? 'Concluído' : (tier === 't1' ? 'A fazer' : 'Fazendo') });
+      });
+      raw.forEach(t => { if (!SEED.find(s => s.id === t.id)) tasks.push(normalizeTask(t)); });
+    } else {
+      tasks = SEED.map(s => normalizeTask({ ...s }));
+    }
+  } catch {
+    tasks = SEED.map(s => normalizeTask({ ...s }));
+  }
+  enforceWeeklyTop3(tasks);
+}
+
+function save() {
+  // Em modo SSOT: não salva localStorage como fonte primária.
+  // apiPatch() é chamado diretamente nos event listeners de mudança.
+  if (!HAS_BACKEND_TODOS) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+  }
+}
+/*  RENDER  */
+function _sortDateVal(s) {
+  if (!s) return 99999999;
+  const m = String(s).match(/^(\d{1,2})\/([a-zA-Z]{3})/i);
+  if (m) {
+    const mo = PT_MONTH[m[2].toLowerCase()] || 0;
+    return 20260000 + mo * 100 + parseInt(m[1], 10);
+  }
+  const d = new Date(s);
+  return isNaN(d) ? 99999999 : d.getFullYear()*10000 + (d.getMonth()+1)*100 + d.getDate();
+}
+
+function sortedTasks(list) {
+  return [...list].sort((a, b) => {
+    let va, vb, tie = 0;
+    switch (sortCol) {
+      case 'owner':
+        va = (a.owner||'').toLowerCase(); vb = (b.owner||'').toLowerCase();
+        tie = _sortDateVal(a.date) - _sortDateVal(b.date);
+        break;
+      case 'tier':
+        va = a.done ? 99 : (a.tier==='t1'||a.tier===1 ? 1 : 2);
+        vb = b.done ? 99 : (b.tier==='t1'||b.tier===1 ? 1 : 2);
+        break;
+      case 'priority':
+        va = a.priorityRank || 99; vb = b.priorityRank || 99;
+        break;
+      default: // date
+        va = _sortDateVal(a.date); vb = _sortDateVal(b.date);
+        tie = (a.owner||'').toLowerCase() < (b.owner||'').toLowerCase() ? -1 : 1;
+    }
+    if (va < vb) return -1 * sortDir;
+    if (va > vb) return sortDir;
+    return tie;
+  });
+}
+
+function updateSortHeaders() {
+  document.querySelectorAll('th[data-sort]').forEach(th => {
+    const arrow = th.querySelector('.sort-arrow');
+    if (!arrow) return;
+    if (th.dataset.sort === sortCol) {
+      th.classList.add('sort-active');
+      arrow.textContent = sortDir === 1 ? '↑' : '↓';
+    } else {
+      th.classList.remove('sort-active');
+      arrow.textContent = '↕';
+    }
+  });
+}
+
+function renderTasks() {
+  const openBody = document.getElementById('tbodyOpen');
+  const doneBody = document.getElementById('tbodyDone');
+  if (!openBody || !doneBody) return;
+
+  openBody.innerHTML = '';
+  doneBody.innerHTML = '';
+  updateSortHeaders();
+
+  sortedTasks(tasks).forEach(t => {
+    t.owner = normalizeOwnerName(t.owner);
+    t.date = formatTaskDate(t.date) || String(t.date || '').trim();
+    const tr = document.createElement('tr');
+    tr.className = 'todo-row' + (t.done ? ' done' : '');
+    tr.innerHTML = `
+      <td><div class="chk-wrap">
+        <input type="checkbox" class="chk" data-id="${t.id}" ${t.done ? 'checked' : ''} />
+      </div></td>
+      <td>
+        <div class="task-id">${esc(t.id)}</div>
+        <div class="todo-task">${esc(t.task)}</div>
+        ${t.comment ? `<div class="todo-comment">Obs: ${esc(t.comment)}</div>` : ''}
+        ${t.warn    ? `<div class="todo-warn">${esc(t.warn)}</div>` : ''}
+      </td>
+      <td><span class="todo-owner">${esc(t.owner)}</span></td>
+      <td><span class="todo-date">${esc(t.date)}</span></td>
+      <td>
+        <select class="tier-select ${t.done ? 'done' : t.tier}" data-tier-id="${t.id}">
+          <option value="t1" ${(!t.done && t.tier==='t1') ? 'selected' : ''}>A fazer</option>
+          <option value="t2" ${(!t.done && t.tier==='t2') ? 'selected' : ''}>Fazendo</option>
+          <option value="done" ${t.done ? 'selected' : ''}>Conclu\u00EDdo</option>
+        </select>
+      </td>
+      <td>
+        <select class="tier-select" data-priority-id="${t.id}" ${t.done ? 'disabled' : ''}>
+          <option value="" ${!t.priorityRank ? 'selected' : ''}>-</option>
+          <option value="1" ${t.priorityRank===1 ? 'selected' : ''}>Top 1</option>
+          <option value="2" ${t.priorityRank===2 ? 'selected' : ''}>Top 2</option>
+          <option value="3" ${t.priorityRank===3 ? 'selected' : ''}>Top 3</option>
+        </select>
+      </td>
+      <td><button type="button" class="row-edit-btn" data-edit-id="${t.id}">Editar</button></td>
+    `;
+
+    if (t.done) doneBody.appendChild(tr);
+    else openBody.appendChild(tr);
+  });
+
+  document.querySelectorAll('.tier-select[data-tier-id]').forEach(sel => {
+    sel.addEventListener('change', e => {
+      const id = e.target.dataset.tierId;
+      const task = tasks.find(t => t.id === id);
+      if (!task) return;
+      const v = e.target.value;
+      if (v === 'done') {
+        task.done = true;
+        task.tier = 'done';
+        task.tierLabel = 'Conclu\u00EDdo';
+        task.priorityRank = null;
+        task.completedAt = new Date().toISOString();
+        task.updatedAt = new Date().toISOString();
+      } else {
+        task.done = false;
+        task.completedAt = null;
+        task.updatedAt = new Date().toISOString();
+        task.tier = v;
+        task.tierLabel = v === 't1' ? 'A fazer' : 'Fazendo';
+      }
+      apiPatch({ id: task.id, done: task.done, tier: task.tier });
+      enforceWeeklyTop3(tasks);
+      save(); renderTasks();
+    });
+  });
+
+  document.querySelectorAll('select[data-priority-id]').forEach(sel => {
+    sel.addEventListener('change', e => {
+      const id = e.target.dataset.priorityId;
+      const task = tasks.find(t => t.id === id);
+      if (!task || task.done) return;
+      const chosen = e.target.value ? Number(e.target.value) : null;
+      if (chosen) {
+        tasks.forEach(other => {
+          if (other.id !== id && other.priorityRank === chosen) other.priorityRank = null;
+        });
+      }
+      task.priorityRank = chosen;
+      task.updatedAt = new Date().toISOString();
+      apiPatch({ id: task.id, priorityRank: task.priorityRank });
+      enforceWeeklyTop3(tasks);
+      save(); renderTasks();
+    });
+  });
+
+  document.querySelectorAll('.chk').forEach(cb => {
+    cb.addEventListener('change', e => {
+      const id = e.target.dataset.id;
+      const task = tasks.find(t => t.id === id);
+      if (!task) return;
+      task.done = e.target.checked;
+      task.updatedAt = new Date().toISOString();
+      if (task.done) {
+        task.tier = 'done';
+        task.tierLabel = 'Conclu\u00EDdo';
+        task.priorityRank = null;
+        task.completedAt = new Date().toISOString();
+        task.updatedAt = new Date().toISOString();
+      } else {
+        const s = SEED.find(s => s.id === id);
+        task.completedAt = null;
+        task.tier      = s ? (s.tier === 'done' ? 't2' : s.tier) : 't2';
+        task.tierLabel = s ? (s.tier === 't1' ? 'A fazer' : 'Fazendo') : 'A fazer';
+      }
+      apiPatch({ id: task.id, done: task.done, tier: task.tier });
+      enforceWeeklyTop3(tasks);
+      save(); renderTasks(); counter();
+    });
+  });
+
+  document.querySelectorAll('button[data-edit-id]').forEach(btn => {
+    btn.addEventListener('click', e => {
+      const id = e.target.dataset.editId;
+      editTask(id);
+    });
+  });
+  const openCounter = document.getElementById('openCounter');
+  const doneCounter = document.getElementById('doneCounter');
+  if (openCounter) openCounter.textContent = String(tasks.filter(t => !t.done).length);
+  if (doneCounter) doneCounter.textContent = String(tasks.filter(t => t.done).length);
+
+  setTaskView(taskView);
+  renderTopPriorities();
+  renderCriticalAlerts();
+  renderWins();
+  counter();
+}
+
+function counter() {
+  const d = tasks.filter(t => t.done).length;
+  const n = tasks.length;
+  document.getElementById('taskCounter').textContent =
+    `${n} tarefa${n!==1?'s':''} \u2022 ${d} conclu\u00EDda${d!==1?'s':''}`;
+}
+
+function formatBRL(v) {
+  return 'R$ ' + Number(v || 0).toLocaleString('pt-BR');
+}
+
+function renderKpis() {
+  const kpis  = (BOOKED_META && BOOKED_META.kpis) ? BOOKED_META.kpis : {};
+  const month = (BOOKED_META && BOOKED_META.month) ? BOOKED_META.month : null;
+
+  const elEscolas = document.getElementById('kpiMetaEscolas');
+  if (elEscolas && kpis.meta_anual_escolas)
+    elEscolas.textContent = kpis.meta_anual_escolas.toLocaleString('pt-BR');
+
+  const elMensal = document.getElementById('kpiMetaMensal');
+  const elMensalEyebrow = document.getElementById('kpiMetaMensalEyebrow');
+  if (elMensal && kpis.meta_mensal_escolas)
+    elMensal.textContent = kpis.meta_mensal_escolas.toLocaleString('pt-BR');
+  if (elMensalEyebrow && month)
+    elMensalEyebrow.textContent = 'Meta ' + month.charAt(0).toUpperCase() + month.slice(1);
+
+  const elSdr    = document.getElementById('kpiEfetividadeSDR');
+  const elSdrSub = document.getElementById('kpiEfetividadeSDRSub');
+  const metaSdr  = kpis.sdr_meta_pct || 12;
+  const atual    = kpis.efetividade_sdr_pct;
+  if (elSdr) {
+    if (atual != null) {
+      elSdr.textContent = atual.toFixed(2).replace('.', ',') + '%';
+      elSdr.className   = 'kpi-value ' + (atual >= metaSdr ? '' : 'alert');
+    } else {
+      elSdr.textContent = '\u2014';
+      elSdr.className   = 'kpi-value';
+    }
+  }
+  if (elSdrSub) {
+    const gap = atual != null
+      ? ' \u2022 gap de ' + (metaSdr - atual).toFixed(2).replace('.', ',') + ' pp'
+      : '';
+    elSdrSub.innerHTML = `<span class="up">&uarr; meta ${metaSdr}%</span>${gap}`;
+  }
+
+  const elDateSub = document.getElementById('todosHdSub');
+  if (elDateSub) {
+    const now  = new Date();
+    const opts = { day: '2-digit', month: 'short', year: 'numeric' };
+    elDateSub.textContent = 'Daily Gest\u00E3o Comercial \u2014 ' +
+      now.toLocaleDateString('pt-BR', opts);
+  }
+}
+
+function renderBookedMeta() {
+  const stretch = document.getElementById('bookedStretch');
+  const monthLabel = document.getElementById('bookedMonthLabel');
+  const body = document.getElementById('bookedBucketsBody');
+  const opsAlert = document.getElementById('bookedOpsAlert');
+  if (!stretch || !monthLabel || !body || !opsAlert) return;
+
+  if (!BOOKED_META || typeof BOOKED_META.target !== 'number') {
+    stretch.textContent = 'Sem dados';
+    monthLabel.textContent = 'Meta Oficial (Stretch) - aguardando backend';
+    opsAlert.classList.add('show');
+    opsAlert.textContent = 'CRITICO: sem dados do backend para metas mensais e RR/SDR/DIA.';
+    body.innerHTML = '<tr><td colspan="5">Sem dados de meta stretch carregados.</td></tr>';
+    return;
+  }
+
+  const month = BOOKED_META.month || 'M\u00EAs atual';
+  monthLabel.textContent = `Meta Oficial (Stretch) - ${month}`;
+  stretch.textContent = formatBRL(BOOKED_META.target);
+
+  const buckets = Array.isArray(BOOKED_META.buckets) ? BOOKED_META.buckets : [];
+  const missing = buckets.filter(b => typeof b.rr_sdr_dia_target !== 'number');
+  if (missing.length > 0) {
+    opsAlert.classList.add('show');
+    opsAlert.textContent = `CRITICO: RR/SDR/DIA alvo ausente em ${month} para: ${missing.map(b => b.label || 'Baldinho').join(', ')}.`;
+  } else {
+    opsAlert.classList.remove('show');
+    opsAlert.textContent = '';
+  }
+
+  body.innerHTML = buckets.map(b => {
+    const rr = (typeof b.rr_sdr_dia_target === 'number')
+      ? String(b.rr_sdr_dia_target).replace('.', ',')
+      : 'AUSENTE';
+    return `<tr>
+      <td>${esc(b.label || 'Baldinho')}</td>
+      <td>${formatBRL(b.target || 0)}</td>
+      <td>${(typeof b.schools_target === 'number') ? Number(b.schools_target).toLocaleString('pt-BR') : '-'}</td>
+      <td>${(typeof b.rr_target === 'number') ? Number(b.rr_target).toLocaleString('pt-BR') : '-'}</td>
+      <td>${rr}</td>
+    </tr>`;
+  }).join('');
+}
+
+/*  EXPORT  */
+
+function editTask(id) {
+  openTaskModal('edit', id);
+}
+
+function addTask() {
+  if (IS_READONLY) return;
+  openTaskModal('create');
+}
+
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg; el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 2800);
+}
+
+function esc(s) {
+  return String(s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+/*  RENDER WINS  */
+function renderWins() {
+  const el = document.getElementById('winsList');
+  if (!el) return;
+  const backendWins = (BOOKED_META && Array.isArray(BOOKED_META.wins)) ? BOOKED_META.wins : [];
+  const localWins = localWeeklyWins(tasks);
+  const merged = [...localWins, ...backendWins, ...WINS];
+  const seen = new Set();
+  const source = merged.filter(w => {
+    const k = `${w.titulo}|${w.dri}|${w.data}`;
+    if (seen.has(k)) return false;
+    seen.add(k);
+    return true;
+  }).slice(0, 5);
+
+  el.innerHTML = source.map(w => `
+    <div class="win-item">
+      <div class="win-emoji">${w.emoji}</div>
+      <div class="win-body">
+        <div class="win-title">${esc(stripLeadingBracketTag(w.titulo))}</div>
+        <div class="win-desc">${esc(w.desc)}</div>
+        <div class="win-foot">
+          <span class="win-dri">${esc(w.dri)}</span>
+          <span class="win-date">${esc(w.data)}</span>
+        </div>
+      </div>
+    </div>`).join('');
+  const badge = document.getElementById('winsCount');
+  if (badge) badge.textContent = source.length;
+}
+
+function renderCampanhas() {
+  const listEl    = document.getElementById('campanhasList');
+  const insEl     = document.getElementById('insightsList');
+  const countEl   = document.getElementById('campanhasCount');
+  if (!listEl || !insEl) return;
+
+  if (!CAMPANHAS_DATA) {
+    listEl.innerHTML = '<span style="color:var(--t3);font-size:12px">Motor offline — execute o motor para gerar dados.</span>';
+    return;
+  }
+
+  const campanhas = CAMPANHAS_DATA.campanhas || [];
+  const insights  = CAMPANHAS_DATA.insights  || [];
+
+  if (countEl) countEl.textContent = campanhas.length + ' campanha' + (campanhas.length !== 1 ? 's' : '');
+
+  // --- Campanhas ---
+  if (!campanhas.length) {
+    listEl.innerHTML = '<span style="color:var(--t3);font-size:12px">Nenhuma campanha registrada ainda.</span>';
+  } else {
+    listEl.innerHTML = campanhas.map(c => {
+      const segsHtml = (c.segmentos || []).map(s => {
+        if (s.objetivo === 'envio_de_lista') {
+          const lbl = s.levantadas != null ? s.levantadas + ' envios' : 'aguardando';
+          return `<span class="seg-chip pending">${s.nome}: ${lbl}</span>`;
+        }
+        if (s.taxa_pct != null) {
+          const cls = s.taxa_pct >= CAMPANHA_TAXA_VERDE ? 'ok' : s.taxa_pct >= CAMPANHA_TAXA_AZUL ? '' : 'warn';
+          return `<span class="seg-chip ${cls}">${s.nome}: ${s.taxa_pct.toFixed(1)}%</span>`;
+        }
+        return `<span class="seg-chip pending">${s.nome}: aguardando</span>`;
+      }).join('');
+      const status = c.status === 'parcial' ? ' <span style="color:var(--orange);font-size:10px">(parcial)</span>' : '';
+      const total = c.total_levantadas != null
+        ? `${c.total_levantadas} levantadas de ${(c.total_contatos||0).toLocaleString('pt-BR')} contatos (${(c.taxa_geral_pct||0).toFixed(2)}%)`
+        : '';
+      return `<div class="campanha-item">
+        <div class="campanha-header">
+          <span class="campanha-title">${c.canal} — ${c.executor || ''}${status}</span>
+          <span class="campanha-date">${c.data || ''}</span>
+        </div>
+        <div class="campanha-segs">${segsHtml}</div>
+        ${total ? `<div class="campanha-total">${total}</div>` : ''}
+      </div>`;
+    }).join('');
+  }
+
+  // --- Insights ---
+  if (!insights.length) {
+    insEl.innerHTML = '<span style="color:var(--t3);font-size:12px">Aguardando dados de campanha.</span>';
+  } else {
+    insEl.innerHTML = insights.map(txt => {
+      const lower = txt.toLowerCase();
+      const dotCls = lower.includes('melhor') || lower.includes('converteu') ? 'green'
+                   : lower.includes('menor') || lower.includes('revisar')    ? 'orange'
+                   : lower.includes('aguardando')                            ? 'gray'
+                   : '';
+      return `<div class="insight-item">
+        <div class="insight-dot ${dotCls}"></div>
+        <div class="insight-text">${txt}</div>
+      </div>`;
+    }).join('');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (IS_READONLY) {
+    document.body.classList.add('readonly');
+    const rp = document.getElementById('readonlyPill');
+    if (rp) rp.style.display = 'flex';
+    const ms = document.getElementById('motorStatus');
+    if (ms) ms.style.display = 'none';
+  }
+  document.getElementById('headerDate').textContent =
+    new Date().toLocaleDateString('pt-BR',
+      {weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  load();
+  taskView = 'open';
+  renderKpis();
+  renderTasks();
+  renderBookedMeta();
+  renderWins();
+  renderCampanhas();
+
+  document.querySelectorAll('th[data-sort]').forEach(th => {
+    th.addEventListener('click', () => {
+      if (sortCol === th.dataset.sort) { sortDir *= -1; }
+      else { sortCol = th.dataset.sort; sortDir = 1; }
+      renderTasks();
+    });
+  });
+
+  fetch(`${API_URL}/api/todos/patch`, { method: 'OPTIONS' })
+    .then(() => setMotorStatus(true))
+    .catch(() => setMotorStatus(false));
+
+  const exportOverlay = document.getElementById('overlay');
+  const taskOverlay = document.getElementById('taskOverlay');
+  const taskForm = document.getElementById('taskForm');
+  const taskDate = document.getElementById('taskDate');
+
+  if (exportOverlay) {
+    exportOverlay.addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+  }
+  if (taskOverlay) {
+    taskOverlay.addEventListener('click', function(e) {
+      if (e.target === this) closeTaskModal();
+    });
+  }
+  if (taskForm) taskForm.addEventListener('submit', submitTaskForm);
+  if (taskDate) {
+    taskDate.addEventListener('input', refreshTaskDateHint);
+    taskDate.addEventListener('blur', refreshTaskDateHint);
+  }
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
