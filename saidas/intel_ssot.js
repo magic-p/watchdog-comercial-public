@@ -17,7 +17,8 @@ window.WATCHDOG_INTEL = {
       "aplicavel_a": [
         "todos"
       ],
-      "acao_sugerida": "Priorizar WhatsApp em qualquer ciclo de disparo. Aumentar frequência de disparos segmentados antes de qualquer outro canal."
+      "acao_sugerida": "Priorizar WhatsApp em qualquer ciclo de disparo. Aumentar frequência de disparos segmentados antes de qualquer outro canal.",
+      "status": "ativo"
     },
     {
       "id": "insight002",
@@ -35,7 +36,8 @@ window.WATCHDOG_INTEL = {
         "concorrencia",
         "novas"
       ],
-      "acao_sugerida": "Expandir mimo físico para além do chocolate. Testar caneca, aquarela, vale-presente. Priorizar Anos Anteriores como segmento de maior alavancagem."
+      "acao_sugerida": "Expandir mimo físico para além do chocolate. Testar caneca, aquarela, vale-presente. Priorizar Anos Anteriores como segmento de maior alavancagem.",
+      "status": "ativo"
     },
     {
       "id": "insight003",
@@ -50,7 +52,8 @@ window.WATCHDOG_INTEL = {
         "renovacao",
         "anos_anteriores"
       ],
-      "acao_sugerida": "Em campanhas de mimo, priorizar base de renovação para maximizar levantadas por unidade de mimo enviada. Testar volumes maiores na base de renovação antes de anos anteriores."
+      "acao_sugerida": "Em campanhas de mimo, priorizar base de renovação para maximizar levantadas por unidade de mimo enviada. Testar volumes maiores na base de renovação antes de anos anteriores.",
+      "status": "ativo"
     },
     {
       "id": "insight004",
@@ -66,7 +69,8 @@ window.WATCHDOG_INTEL = {
         "anos_anteriores",
         "retracao"
       ],
-      "acao_sugerida": "Sempre executar mala direta com mix de baldinhos. Nunca restringir apenas a Novas. Avaliar combinação mala + mimo para renovação no próximo ciclo."
+      "acao_sugerida": "Sempre executar mala direta com mix de baldinhos. Nunca restringir apenas a Novas. Avaliar combinação mala + mimo para renovação no próximo ciclo.",
+      "status": "ativo"
     },
     {
       "id": "insight005",
@@ -81,7 +85,8 @@ window.WATCHDOG_INTEL = {
         "novas",
         "outbound"
       ],
-      "acao_sugerida": "Garantir que base de Novas e Prioritárias seja processada em janeiro. Monitorar no Watchdog até 31/jan se houve contato com essas bases."
+      "acao_sugerida": "Garantir que base de Novas e Prioritárias seja processada em janeiro. Monitorar no Watchdog até 31/jan se houve contato com essas bases.",
+      "status": "ativo"
     },
     {
       "id": "insight006",
@@ -99,7 +104,8 @@ window.WATCHDOG_INTEL = {
         "novas",
         "concorrencia"
       ],
-      "acao_sugerida": "Usar matriz de oferta por baldinho como regra padrão: Renovação=Presente, AA=Patrocínio, Novas=Presente+Celebridade, Retração=Impacto. Não misturar ofertas sem teste."
+      "acao_sugerida": "Usar matriz de oferta por baldinho como regra padrão: Renovação=Presente, AA=Patrocínio, Novas=Presente+Celebridade, Retração=Impacto. Não misturar ofertas sem teste.",
+      "status": "ativo"
     },
     {
       "id": "insight007",
@@ -113,7 +119,8 @@ window.WATCHDOG_INTEL = {
       "aplicavel_a": [
         "renovacao_lt"
       ],
-      "acao_sugerida": "Manter régua de comunicação permanente para Pública LT. Baixo custo, receita incremental consistente. Não depender do comercial para essa base."
+      "acao_sugerida": "Manter régua de comunicação permanente para Pública LT. Baixo custo, receita incremental consistente. Não depender do comercial para essa base.",
+      "status": "ativo"
     },
     {
       "id": "insight008",
@@ -128,7 +135,8 @@ window.WATCHDOG_INTEL = {
         "novas",
         "outbound"
       ],
-      "acao_sugerida": "Direcionar leads de WhatsApp para Formulário Heróis, não Landing Page. A diferença de ticket é R$ 1.700/lead — impacto enorme em escala."
+      "acao_sugerida": "Direcionar leads de WhatsApp para Formulário Heróis, não Landing Page. A diferença de ticket é R$ 1.700/lead — impacto enorme em escala.",
+      "status": "ativo"
     },
     {
       "id": "insight009",
@@ -142,7 +150,8 @@ window.WATCHDOG_INTEL = {
       "aplicavel_a": [
         "retracao"
       ],
-      "acao_sugerida": "Investigar qualidade da lista de Retração antes de mudar copy. Verificar se contatos são gestores ativos ou listas desatualizadas. Se lista ok, testar abordagem de impacto da Estante (insight006)."
+      "acao_sugerida": "Investigar qualidade da lista de Retração antes de mudar copy. Verificar se contatos são gestores ativos ou listas desatualizadas. Se lista ok, testar abordagem de impacto da Estante (insight006).",
+      "status": "ativo"
     },
     {
       "id": "insight010",
@@ -156,7 +165,8 @@ window.WATCHDOG_INTEL = {
       "aplicavel_a": [
         "todos"
       ],
-      "acao_sugerida": "Qualificação de lista antes do discador. Mimo físico antes da ligação (insight002). Régua de aquecimento digital 72h antes do contato SDR."
+      "acao_sugerida": "Qualificação de lista antes do discador. Mimo físico antes da ligação (insight002). Régua de aquecimento digital 72h antes do contato SDR.",
+      "status": "ativo"
     },
     {
       "id": "insight011",
@@ -171,7 +181,8 @@ window.WATCHDOG_INTEL = {
         "outbound",
         "concorrencia"
       ],
-      "acao_sugerida": "Sempre separar métrica de Outbound entre 'time próprio' e 'Ax' nos relatórios. Decisões de discador e abordagem nunca devem ser baseadas no número consolidado."
+      "acao_sugerida": "Sempre separar métrica de Outbound entre 'time próprio' e 'Ax' nos relatórios. Decisões de discador e abordagem nunca devem ser baseadas no número consolidado.",
+      "status": "ativo"
     },
     {
       "id": "insight012",
@@ -185,7 +196,8 @@ window.WATCHDOG_INTEL = {
       "aplicavel_a": [
         "retracao"
       ],
-      "acao_sugerida": "Monitorar RR/SDR semanal de Retração separadamente do mensal. Alertar quando semana cair abaixo de 70% da meta mesmo que o mês esteja verde."
+      "acao_sugerida": "Monitorar RR/SDR semanal de Retração separadamente do mensal. Alertar quando semana cair abaixo de 70% da meta mesmo que o mês esteja verde.",
+      "status": "ativo"
     },
     {
       "id": "insight013",
@@ -199,7 +211,8 @@ window.WATCHDOG_INTEL = {
       "aplicavel_a": [
         "novas"
       ],
-      "acao_sugerida": "A partir de agora, alertar quando Novas estiver com ritmo abaixo do necessário para fechar no mês. Calcular trajetória diária, não só % YTD."
+      "acao_sugerida": "A partir de agora, alertar quando Novas estiver com ritmo abaixo do necessário para fechar no mês. Calcular trajetória diária, não só % YTD.",
+      "status": "ativo"
     },
     {
       "id": "insight014",
@@ -213,7 +226,8 @@ window.WATCHDOG_INTEL = {
       "aplicavel_a": [
         "todos"
       ],
-      "acao_sugerida": "Não deixar mimo depender de aprovação de ciclo longo. Autorizar Pimentel e Nath a acionar mimo tático com autonomia, reportando resultado em D+3."
+      "acao_sugerida": "Não deixar mimo depender de aprovação de ciclo longo. Autorizar Pimentel e Nath a acionar mimo tático com autonomia, reportando resultado em D+3.",
+      "status": "ativo"
     },
     {
       "id": "insight015",
@@ -227,7 +241,8 @@ window.WATCHDOG_INTEL = {
       "aplicavel_a": [
         "todos"
       ],
-      "acao_sugerida": "Vitória criar separação clara entre 'tag de disparo recebido' e 'tag de levantada confirmada' nos relatórios. Nunca usar número bruto de tags de marketing como proxy de levantadas."
+      "acao_sugerida": "Vitória criar separação clara entre 'tag de disparo recebido' e 'tag de levantada confirmada' nos relatórios. Nunca usar número bruto de tags de marketing como proxy de levantadas.",
+      "status": "ativo"
     },
     {
       "id": "insight016",
@@ -241,24 +256,8 @@ window.WATCHDOG_INTEL = {
       "aplicavel_a": [
         "todos"
       ],
-      "acao_sugerida": "Monitorar ativação separadamente de fechamento no Watchdog. Alertar quando ativação cair abaixo de 80% da meta mesmo que fechamento esteja ok. Mimo para bolsão deve ser padrão, não exceção."
-    },
-    {
-      "id": "insight017",
-      "data": "2026-02-24",
-      "fonte": "Daily Gestão Comercial 24/02/2026 — Gemini (discussão sobre fluxo de levantadas)",
-      "categoria": "comportamento",
-      "gatilho": null,
-      "insight": "Lead que levanta a mão sem atribuição imediata ao SDR responsável esfria em horas. A solução operacional de 'duplo aviso' (fluxo de levantadas + fila Blip para supervisor) com atribuição em horário pico (8h–9h) resolve o problema estruturalmente. Sem esse processo, 27 de 54 levantadas de renovação ficaram sem contato no mesmo dia.",
-      "evidencia": "Daily 24/02: '27 escolas que levantaram a mão no disparo de ontem, mas com as quais o time não conseguiu falar'. Decisão: 'fluxo de levantadas deve ser mantido para controle, mas as mensagens também cairão na fila da Blip para o supervisor'.",
-      "confianca": "alta",
-      "aplicavel_a": [
-        "renovacao",
-        "anos_anteriores",
-        "retracao",
-        "concorrencia"
-      ],
-      "acao_sugerida": "Garantir que o fluxo duplo (levantadas + Blip queue) esteja configurado para cada baldinho antes do próximo disparo. Supervisor deve ser identificado por baldinho e ter acesso ao portal Blip."
+      "acao_sugerida": "Monitorar ativação separadamente de fechamento no Watchdog. Alertar quando ativação cair abaixo de 80% da meta mesmo que fechamento esteja ok. Mimo para bolsão deve ser padrão, não exceção.",
+      "status": "ativo"
     },
     {
       "id": "insight018",
@@ -272,25 +271,8 @@ window.WATCHDOG_INTEL = {
       "aplicavel_a": [
         "anos_anteriores"
       ],
-      "acao_sugerida": "Para campanhas de mimo em AA: segmentar por fase do funil. Base em 'tentativa SDR' não deve receber mesmo disparo da base em 'descarte'. Canal WhatsApp de marketing (número diferente do SDR) aumenta credibilidade nesse segmento."
-    },
-    {
-      "id": "insight019",
-      "data": "2026-02-24",
-      "fonte": "Daily Gestão Comercial 24/02/2026 — Gemini (análise fluxo Blip e atribuição de leads)",
-      "categoria": "comportamento",
-      "gatilho": null,
-      "insight": "Lead que levanta a mão via WhatsApp e tem o ticket Blip fechado antes do contato do SDR não pode ser recuperado pelo mesmo ticket — o SDR precisa iniciar nova conversa. Sem fluxo de atribuição ativa (fila por baldinho + supervisor 8h-9h), leads quentes são sistematicamente perdidos mesmo quando o disparo funciona.",
-      "evidencia": "24/02: 27 escolas de renovação levantaram a mão em 23/02 e não foram contatadas no mesmo dia. Tickets foram fechados antes do SDR entrar em contato. Decisão: fluxo duplo (levantadas + Blip queue para supervisor) implementado como solução estrutural.",
-      "confianca": "alta",
-      "aplicavel_a": [
-        "renovacao",
-        "anos_anteriores",
-        "retracao",
-        "concorrencia",
-        "novas"
-      ],
-      "acao_sugerida": "Fluxo duplo deve ser padrão permanente: levantadas no fluxo de controle + mensagens na fila Blip do supervisor por baldinho. Supervisor atribui às 8h-9h. Nunca depender de distribuição geral automática para leads quentes."
+      "acao_sugerida": "Para campanhas de mimo em AA: segmentar por fase do funil. Base em 'tentativa SDR' não deve receber mesmo disparo da base em 'descarte'. Canal WhatsApp de marketing (número diferente do SDR) aumenta credibilidade nesse segmento.",
+      "status": "ativo"
     },
     {
       "id": "insight020",
@@ -298,13 +280,15 @@ window.WATCHDOG_INTEL = {
       "fonte": "Daily Gestão Comercial 24/02/2026 — análise performance horário SDR (histórico 05/02)",
       "categoria": "comportamento",
       "gatilho": null,
-      "insight": "SDR que entra às 8h tem efetividade 4% maior e taxa de atendidas 18% maior que SDR que entra às 9h. Em Outbound, a diferença sobe para 31% em efetividade e 23% em atendidas. Horários pico de produtividade por agendamento/hora/SDR: 8h (40%), 11h (44%), 16h (40%). Horário mais improdutivo: 13h-14h (~10-11%).",
-      "evidencia": "Teste documentado em 05/02/2026: Time 8h — efetividade 11%, atendidas 54%. Time 9h — efetividade 10%, atendidas 45%. Outbound filtrado: Time 8h 9%/45% vs Time 9h 7%/36% (131%/123%). 65% do time já entrando entre 8h-8h30.",
+      "insight": "Lead que levanta a mão sem atribuição imediata ao SDR esfria em horas. Se o ticket Blip fecha antes do contato, o SDR precisa iniciar nova conversa. A solução estrutural é o fluxo duplo (levantadas + fila Blip) com supervisor atribuindo entre 8h-9h.",
+      "evidencia": "24/02: 27 escolas de renovação levantaram a mão em 23/02 e não foram contatadas no mesmo dia; tickets fechados antes do SDR. Decisão: fluxo duplo + fila supervisor.",
       "confianca": "alta",
       "aplicavel_a": [
         "todos"
       ],
-      "acao_sugerida": "Institucionalizar entrada às 8h como padrão não negociável. Concentrar cold call nos picos 8h, 11h e 16h. Evitar reuniões internas em 13h-14h que comprometem SDRs."
+      "acao_sugerida": "Manter fluxo duplo como padrão: levantadas no fluxo de controle + mensagens na fila Blip por baldinho. Supervisor atribui às 8h-9h. Nunca depender de distribuição geral automática.",
+      "status": "ativo",
+      "nota_status": "Fluxo Blip ajustado em 24/02; mantido como aprendizado histórico."
     },
     {
       "id": "insight021",
@@ -318,7 +302,8 @@ window.WATCHDOG_INTEL = {
       "aplicavel_a": [
         "concorrencia"
       ],
-      "acao_sugerida": "Avaliar alocação adicional de SDRs em Concorrência para março — performance superior justifica investimento antes que a base sature. Manter base cirúrgica como condição de entrada."
+      "acao_sugerida": "Avaliar alocação adicional de SDRs em Concorrência para março — performance superior justifica investimento antes que a base sature. Manter base cirúrgica como condição de entrada.",
+      "status": "ativo"
     },
     {
       "id": "insight022",
@@ -332,7 +317,58 @@ window.WATCHDOG_INTEL = {
       "aplicavel_a": [
         "todos"
       ],
-      "acao_sugerida": "Karina Machado configurar mínimo 2 meios de pagamento alternativos para mimos táticos. Criar protocolo: se cartão/iFood falhar, Pix via financeiro é acionado automaticamente com limite pré-aprovado por Lili, sem nova aprovação."
+      "acao_sugerida": "Karina Machado configurar mínimo 2 meios de pagamento alternativos para mimos táticos. Criar protocolo: se cartão/iFood falhar, Pix via financeiro é acionado automaticamente com limite pré-aprovado por Lili, sem nova aprovação.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight017",
+      "data": "2026-02-24",
+      "fonte": "Daily Gestão Comercial 24/02/2026 — Gemini (discussão sobre fluxo de levantadas)",
+      "categoria": "comportamento",
+      "gatilho": null,
+      "insight": "Lead que levanta a mão sem atribuição imediata ao SDR esfria em horas. Se o ticket Blip fecha antes do contato, o SDR precisa iniciar nova conversa. A solução estrutural é o fluxo duplo (levantadas + fila Blip) com supervisor atribuindo entre 8h-9h.",
+      "evidencia": "24/02: 27 escolas de renovação levantaram a mão em 23/02 e não foram contatadas no mesmo dia; tickets fechados antes do SDR. Decisão: fluxo duplo + fila supervisor.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "renovacao",
+        "anos_anteriores",
+        "retracao",
+        "concorrencia"
+      ],
+      "acao_sugerida": "Manter fluxo duplo como padrão: levantadas no fluxo de controle + mensagens na fila Blip por baldinho. Supervisor atribui às 8h-9h. Nunca depender de distribuição geral automática.",
+      "status": "incorporada",
+      "nota_status": "Fluxo Blip ajustado em 24/02; mantido como aprendizado histórico."
+    },
+    {
+      "id": "insight023",
+      "data": "2026-02-24",
+      "fonte": "CSV 2026 _ Wpp _ Disparos de MKT - 23_02 à 27_02",
+      "categoria": "canal",
+      "gatilho": null,
+      "insight": "Ação caneca (Renovação + AA) é o disparo com maior taxa de levantadas no período: 7,66% (33/431).",
+      "evidencia": "CSV 23-27/02: Ação caneca 33 levantadas / 431 entregues = 7,66% (maior entre os disparos).",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "renovacao",
+        "anos_anteriores"
+      ],
+      "acao_sugerida": "Priorizar caneca em Renovação/AA quando houver budget e capacidade operacional.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight024",
+      "data": "2026-02-24",
+      "fonte": "CSV 2026 _ Wpp _ Disparos de MKT - 23_02 à 27_02",
+      "categoria": "baldinho",
+      "gatilho": null,
+      "insight": "Disparo Outbound teve taxa extremamente baixa: 0,15% (2/1.336).",
+      "evidencia": "CSV 23-27/02: Outbound 2 levantadas / 1.336 entregues = 0,15%.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "outbound"
+      ],
+      "acao_sugerida": "Revisar qualificação de lista e copy de Outbound antes de novo disparo; testar segmentação menor.",
+      "status": "ativo"
     }
   ],
   "criticas_ativas": [
@@ -340,10 +376,10 @@ window.WATCHDOG_INTEL = {
       "id": "alerta001",
       "data": "2026-02-24",
       "titulo": "SDR 12%: efetividade a 2,5x abaixo da meta",
-      "critica": "Com efetividade SDR em 4,76% vs meta de 12%, estamos rodando com o motor comercial no 40% de capacidade. Cada semana assim é conversão perdida de forma permanente — escola que não atende em fevereiro não reabre a conversa até o ano que vem.",
-      "acao_sugerida": "Ana Paula Pimentel revisar cadência de abordagem: qualificar lista antes do discador, inserir aquecimento digital 72h antes da ligação SDR, testar mimo físico em lotes pequenos antes do contato.",
-      "prioridade": "critica",
-      "dri": "Ana Paula Pimentel",
+      "critica": "Efetividade SDR precisa ser atualizada no painel para validar o cenário real. Sem esse dado, o diagnóstico de capacidade fica cego.",
+      "acao_sugerida": "Nath atualizar a efetividade SDR no dashboard hoje e confirmar fonte (data e período).",
+      "prioridade": "alta",
+      "dri": "Nath Ferreira",
       "status": "aberta"
     },
     {
@@ -354,23 +390,24 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Vitoria fechar resultado final da campanha c001 e atualizar historico_campanhas.json. Definir prazo de fechamento de dados: D+3 após disparo.",
       "prioridade": "alta",
       "dri": "Vitoria",
-      "status": "aberta"
+      "status": "arquivado",
+      "nota_status": "Campanha c001 fechada/sem necessidade de acompanhamento ativo."
     },
     {
       "id": "alerta003",
       "data": "2026-02-24",
       "titulo": "Novas: ritmo atual não fecha 238 cadastros até 28/fev",
-      "critica": "Com 157 cadastros em 24/02 e ~4 dias úteis restantes, precisamos de 20/dia para fechar 238. O ritmo do mês foi 9,4/dia. Dobrar o ritmo no final do mês é excepcional, não o esperado. Em 2025 esse mesmo padrão custou R$ 522k.",
-      "acao_sugerida": "Lili confirmar quais escolas têm lista 'dentro de casa' com previsão de envio até 28/02. Acionar WhatsApp urgente para as que estão em etapas avançadas mas sem cadastro fechado.",
+      "critica": "Com 157 cadastros em 24/02 e 4 dias úteis restantes, o ritmo necessário é 20/dia. O ritmo médio de fevereiro foi 9,4/dia — menos da metade. Não existe cenário orgânico de dobrar o ritmo nos últimos 4 dias. Sem lista \"dentro de casa\" acionada hoje + disparo WhatsApp urgente para escolas em etapa avançada, o gap de ~80 cadastros se realiza.",
+      "acao_sugerida": "Lili mapear HOJE escolas com lista dentro de casa e previsão de envio até 28/02. Acionar WhatsApp urgente para escolas em etapa avançada sem cadastro fechado. Pimentel verificar bolsão de FUP de Novas para forçar conversão nas próximas 48h.",
       "prioridade": "critica",
-      "dri": "Lili",
+      "dri": "Liliane Mathias",
       "status": "aberta"
     },
     {
       "id": "alerta004",
       "data": "2026-02-24",
       "titulo": "Retração semana: RR/SDR em 40% — março começa em débito",
-      "critica": "O mês de fevereiro de Retração está verde (107% RR/SDR), mas a semana de 24/02 está em 0,20/0,50 (40%). O resultado mensal está sendo sustentado por estoque de semanas anteriores. Se esse ritmo se repetir em março, o mês começa morto.",
+      "critica": "O mês de fevereiro de Retração está verde (107% RR/SDR), mas a semana de 24/02 está em 0,20/0,50 (40%) no Baldinho Retração. O resultado mensal está sendo sustentado por estoque de semanas anteriores. Se esse ritmo se repetir em março, o mês começa morto.",
       "acao_sugerida": "Nath verificar esforço de SDR em Retração nessa semana: é inércia do time, Ax ou decisão de manter o 0,5 por conta de meta já batida? Definir ritmo mínimo para semana que vem.",
       "prioridade": "alta",
       "dri": "Nath Ferreira",
@@ -381,9 +418,9 @@ window.WATCHDOG_INTEL = {
       "data": "2026-02-24",
       "titulo": "Renovação LT Part: RR/SDR travado em 1,42 há 5 dias",
       "critica": "De 19/02 a 24/02, o RR/SDR da base LT Part ficou em 1,42 — mesmo número, todos os dias. Ou os dados não estão sendo atualizados corretamente, ou o esforço está estagnado. Meta é 2,0.",
-      "acao_sugerida": "Karina ou Pimentel verificar se o dado está sendo registrado corretamente. Se sim, identificar qual ação específica pode mover o RR/SDR LT antes do fechamento do mês.",
+      "acao_sugerida": "Nath verificar se o dado está sendo registrado corretamente. Se sim, identificar qual ação específica pode mover o RR/SDR LT antes do fechamento do mês.",
       "prioridade": "alta",
-      "dri": "Ana Paula Pimentel",
+      "dri": "Nath Ferreira",
       "status": "aberta"
     },
     {
@@ -414,7 +451,8 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Lili mapear HOJE escolas com lista dentro de casa e previsão de envio até 28/02. Acionar WhatsApp urgente para escolas em etapa avançada sem cadastro fechado. Pimentel verificar bolsão de FUP de Novas para forçar conversão nas próximas 48h.",
       "prioridade": "critica",
       "dri": "Liliane Mathias",
-      "status": "aberta"
+      "status": "consolidado_em_alerta003",
+      "nota_status": "Consolidado no alerta003 por redundância de mensagem."
     },
     {
       "id": "alerta009",
@@ -435,7 +473,17 @@ window.WATCHDOG_INTEL = {
       "prioridade": "alta",
       "dri": "Nath Ferreira",
       "status": "aberta"
+    },
+    {
+      "id": "alerta011",
+      "data": "2026-02-24",
+      "titulo": "Outbound WhatsApp com 0,15% de levantadas",
+      "critica": "O disparo Outbound teve 2 levantadas em 1.336 entregues (0,15%). Isso é desempenho estruturalmente baixo e indica falha de segmentação, lista ou copy. Continuar disparando nessa base sem correção consome orçamento e gera custo de oportunidade.",
+      "acao_sugerida": "Vitória revisar segmentação e copy do Outbound; testar micro-lote com lista qualificada antes de novo disparo em massa.",
+      "prioridade": "alta",
+      "dri": "Vitoria",
+      "status": "aberta"
     }
   ],
-  "ultima_atualizacao": "2026-02-24T18:17:57"
+  "ultima_atualizacao": "2026-02-24T20:26:20"
 };
