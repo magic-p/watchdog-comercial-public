@@ -165,7 +165,7 @@ window.WATCHDOG_INTEL = {
       "categoria": "comportamento",
       "gatilho": null,
       "insight": "O time Ax compromete sistematicamente os indicadores de Outbound e Concorrência. Quando excluído, o esforço do time próprio fica em linha com janeiro. Os dados globais de Outbound não são comparáveis entre períodos sem isolar o efeito Ax.",
-      "evidencia": "Daily 24/02: 'Desconsiderando o time de AX, nossas taxas de esforço estão melhores em relação ao desempenho de janeiro/26'. Outbound semana: 57/3.263 (1,7%) com Ax vs perfomance histórica de 50%+ sem Ax.",
+      "evidencia": "Daily 24/02: 'Desconsiderando o time de AX, nossas taxas de esforço estão melhores em relação ao desempenho de janeiro/26'. Outbound semana: 57/3.263 (1,7%) com Ax vs performance histórica de 50%+ sem Ax.",
       "confianca": "alta",
       "aplicavel_a": [
         "outbound",
@@ -214,6 +214,65 @@ window.WATCHDOG_INTEL = {
         "todos"
       ],
       "acao_sugerida": "Não deixar mimo depender de aprovação de ciclo longo. Autorizar Pimentel e Nath a acionar mimo tático com autonomia, reportando resultado em D+3."
+    },
+    {
+      "id": "a015",
+      "data": "2026-02-24",
+      "fonte": "Daily Gestão Comercial 24/02/2026 — Gemini (discussão sobre tags de campanha)",
+      "categoria": "canal",
+      "gatilho": null,
+      "insight": "A tag de marketing no HubSpot/Blip marca todas as escolas que receberam mensagem, não apenas as que levantaram a mão — inflando dados de levantadas em até 4x. Para análise de campanha, a única tag confiável é a tag de levantada (Heróis), que só é acionada quando a escola responde ao disparo.",
+      "evidencia": "Daily 24/02: 54 levantadas reportadas na ação caneca vs ~13 reais de caneca confirmadas. Diferença explicada por sobreposição de tags de ações anteriores.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "todos"
+      ],
+      "acao_sugerida": "Vitória criar separação clara entre 'tag de disparo recebido' e 'tag de levantada confirmada' nos relatórios. Nunca usar número bruto de tags de marketing como proxy de levantadas."
+    },
+    {
+      "id": "a016",
+      "data": "2026-02-24",
+      "fonte": "Daily Gestão Comercial 24/02/2026 — Gemini (análise de ativação bolsão)",
+      "categoria": "baldinho",
+      "gatilho": null,
+      "insight": "O gargalo de geração de receita não é a captação de leads nem o fechamento — é a ativação (conversão de fechado para bolsão). Conversão para Closer pode estar acima da meta enquanto ativação está em 61%. Isso significa que o esforço de SDR e Closer está produzindo mas a cadeia quebra no último elo, represando receita já 'garantida'.",
+      "evidencia": "Daily 24/02: 'taxa de conversão para Closers está acima da meta, mas a conversão para ativação (bolsão) está em 61% da meta' (Nath Ferreira). Ação de mimos para 40 bolsões fechados não convertidos definida como prioridade máxima do dia.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "todos"
+      ],
+      "acao_sugerida": "Monitorar ativação separadamente de fechamento no Watchdog. Alertar quando ativação cair abaixo de 80% da meta mesmo que fechamento esteja ok. Mimo para bolsão deve ser padrão, não exceção."
+    },
+    {
+      "id": "a017",
+      "data": "2026-02-24",
+      "fonte": "Daily Gestão Comercial 24/02/2026 — Gemini (discussão sobre fluxo de levantadas)",
+      "categoria": "comportamento",
+      "gatilho": null,
+      "insight": "Lead que levanta a mão sem atribuição imediata ao SDR responsável esfria em horas. A solução operacional de 'duplo aviso' (fluxo de levantadas + fila Blip para supervisor) com atribuição em horário pico (8h–9h) resolve o problema estruturalmente. Sem esse processo, 27 de 54 levantadas de renovação ficaram sem contato no mesmo dia.",
+      "evidencia": "Daily 24/02: '27 escolas que levantaram a mão no disparo de ontem, mas com as quais o time não conseguiu falar'. Decisão: 'fluxo de levantadas deve ser mantido para controle, mas as mensagens também cairão na fila da Blip para o supervisor'.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "renovacao",
+        "anos_anteriores",
+        "retracao",
+        "concorrencia"
+      ],
+      "acao_sugerida": "Garantir que o fluxo duplo (levantadas + Blip queue) esteja configurado para cada baldinho antes do próximo disparo. Supervisor deve ser identificado por baldinho e ter acesso ao portal Blip."
+    },
+    {
+      "id": "a018",
+      "data": "2026-02-24",
+      "fonte": "Daily Gestão Comercial 24/02/2026 — Gemini (análise caneca AA vs Renovação)",
+      "categoria": "baldinho",
+      "gatilho": "mimo_fisico",
+      "insight": "Caneca Anos Anteriores tem adesão estruturalmente menor que Renovação mesmo com copy similar. A causa não é o mimo — é a fase da base: escolas em 'tentativa' (contato SDR ativo) são abordadas pelos mesmos canais e números, gerando resistência. Antes de qualquer novo disparo para AA em fase SDR, enriquecer a base ou migrar para canal alternativo.",
+      "evidencia": "Daily 24/02: 'baixa adesão se deve ao fato de as escolas estarem em fase de tentativa (contato) e a comunicação estar sendo feita pelos mesmos canais e números, tornando a conversão difícil sem o enriquecimento da base'. Decisão: ampliar caneca para base 'descarte' AA (não para base em SDR ativo).",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "anos_anteriores"
+      ],
+      "acao_sugerida": "Para campanhas de mimo em AA: segmentar por fase do funil. Base em 'tentativa SDR' não deve receber mesmo disparo da base em 'descarte'. Canal WhatsApp de marketing (número diferente do SDR) aumenta credibilidade nesse segmento."
     }
   ],
   "criticas_ativas": [
@@ -266,7 +325,17 @@ window.WATCHDOG_INTEL = {
       "prioridade": "alta",
       "dri": "Ana Paula Pimentel",
       "status": "aberta"
+    },
+    {
+      "id": "cr006",
+      "data": "2026-02-24",
+      "titulo": "Ativação bolsão em 61% da meta — receita fechada não está virando bolsão",
+      "critica": "A conversão para Closer está acima da meta, mas a ativação (bolsão) está em 61%. O esforço de SDR e Closer está funcionando — o gargalo é o último elo da cadeia: escola fecha e não converte para bolsão. Essa é a receita que está 'dentro de casa' e não realizada. Com 4 dias úteis até 28/fev, 40 mimos devem ser enviados hoje para destravar esse funil.",
+      "acao_sugerida": "Karina garantir envio dos 40 mimos para bolsão hoje (via Pix com Rafa se cartão/iFood travar). Confirmar status de cada envio no D+1. Meta: 10 em 10 agendamentos de bolsão recebem mimo antes do contato de ativação.",
+      "prioridade": "critica",
+      "dri": "Karina Machado",
+      "status": "aberta"
     }
   ],
-  "ultima_atualizacao": "2026-02-24T14:00:00"
+  "ultima_atualizacao": "2026-02-24T17:00:00"
 };
