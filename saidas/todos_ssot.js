@@ -198,7 +198,7 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t015",
     "task": "Disparos de 4a (25/fev): caneca reforço + caneca descarte AA",
-    "comment": "Resp Lili (base) + Mkt/Vitória (disparo). Dois disparos: (1) caneca reforço para base atual já disparada, com fluxo Blip ajustado; (2) caneca para base 'descarte' AA selecionada por Lili. Orçamento R$ 1.700. NÃO disparar para AA em fase SDR ativo (a018). Pré-requisito: t012 (fluxo Blip ligado).",
+    "comment": "Resp Lili (base) + Mkt/Vitória (disparo). Dois disparos: (1) caneca reforço para base atual já disparada, com fluxo Blip ajustado; (2) caneca para base 'descarte' AA selecionada por Lili. Orçamento R$ 1.700. NÃO disparar para AA em fase SDR ativo (insight018). Pré-requisito: t012 (fluxo Blip ligado).",
     "owner": "Vitoria",
     "date": "24/fev",
     "tier": "t1",
@@ -226,7 +226,7 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t017",
     "task": "Planejamento março — escalar WhatsApp/Instagram para concorrência e retração",
-    "comment": "Definir calendário e segmentação de disparos para março nas frentes de Concorrência e Retração. Incluir: volume estimado, budget, copy base e KPI de acompanhamento. Baseado em aprendizados a009 (copy retração) e a006 (oferta por baldinho).",
+    "comment": "Definir calendário e segmentação de disparos para março nas frentes de Concorrência e Retração. Incluir: volume estimado, budget, copy base e KPI de acompanhamento. Baseado em aprendizados insight009 (copy retração) e insight006 (oferta por baldinho).",
     "owner": "Kaka",
     "date": "01/mar",
     "tier": "t2",

@@ -1043,6 +1043,19 @@
       background: var(--bg);
       border: 1px solid var(--border);
     }
+    .ssot-pill {
+      font-size: 11px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--sep);
+      background: var(--card-sec);
+      color: var(--t2);
+    }
+    .ssot-pill.warn {
+      color: var(--red);
+      border-color: rgba(255,93,93,0.35);
+      background: rgba(255,93,93,0.08);
+    }
 
   </style>
 </head>
@@ -1060,6 +1073,7 @@
   <div class="header-right">
     <span class="header-date" id="headerDate"></span>
     <span class="motor-pill offline" id="motorStatus">&#11044; Motor offline</span>
+    <span class="ssot-pill" id="ssotStatus" style="display:none">SSOT: ok</span>
     <span class="readonly-pill" id="readonlyPill" style="display:none">&#128274; Somente leitura</span>
     <div class="live-pill"><span class="live-dot"></span>Ativo</div>
   </div>
@@ -1264,7 +1278,7 @@
       <div class="card-hd">
         <span class="card-hd-label">
           <span class="hd-icon" style="color:var(--red)">&#9888;</span>
-          Críticas Ativas · Claudete
+          Alertas da Claudete
         </span>
       </div>
       <div class="card-bd" id="criticasList"><span style="color:var(--t3);font-size:12px">Sem críticas ativas.</span></div>
@@ -1273,7 +1287,7 @@
       <div class="card-hd">
         <span class="card-hd-label">
           <span class="hd-icon" style="color:var(--green)">&#129504;</span>
-          Memória Estratégica
+          Insights da Claudete
         </span>
       </div>
       <div class="card-bd" id="aprendizadosList"><span style="color:var(--t3);font-size:12px">Sem aprendizados registrados.</span></div>
@@ -1382,12 +1396,37 @@ async function apiPatchConfirm(patch, okMsg, errMsg) {
   return ok;
 }
 
+async function applyCreateWithRollback(task, rollbackFn, okMsg, errMsg) {
+  const ok = await apiCreateConfirm(task, okMsg, errMsg);
+  if (!ok && rollbackFn) rollbackFn();
+  return ok;
+}
+
+async function applyPatchWithRollback(patch, rollbackFn, okMsg, errMsg) {
+  const ok = await apiPatchConfirm(patch, okMsg, errMsg);
+  if (!ok && rollbackFn) rollbackFn();
+  return ok;
+}
+
 function setMotorStatus(online) {
   const el = document.getElementById('motorStatus');
   if (!el) return;
   el.innerHTML = online ? '&#11044; Motor online' : '&#11044; Motor offline';
   el.classList.toggle('online', online);
   el.classList.toggle('offline', !online);
+}
+
+function setSsotStatus(hasSsot) {
+  const el = document.getElementById('ssotStatus');
+  if (!el) return;
+  el.style.display = 'inline-flex';
+  if (hasSsot) {
+    el.textContent = 'SSOT: ok';
+    el.classList.remove('warn');
+  } else {
+    el.textContent = 'SSOT: fallback';
+    el.classList.add('warn');
+  }
 }
 
 /*  DATA  */
@@ -1824,11 +1863,12 @@ function openTaskModal(mode = 'create', id = null) {
         const t = tasks.find(x => x.id === editingTaskId);
         if (!t) return;
         if (!confirm(`Excluir a tarefa "${t.task}"?`)) return;
-        await apiPatchConfirm(
+        const ok = await apiPatchConfirm(
           { id: editingTaskId, deleted: true },
           'Tarefa excluída (SSOT ok)',
           'Falha ao excluir no SSOT (motor offline)'
         );
+        if (!ok) return;
         tasks = tasks.filter(x => x.id !== editingTaskId);
         save();
         closeTaskModal();
@@ -1895,6 +1935,7 @@ async function submitTaskForm(e) {
   if (taskFormMode === 'edit' && editingTaskId) {
     const task = tasks.find(t => t.id === editingTaskId);
     if (!task) return;
+    const prev = { ...task };
     task.task = taskName;
     task.owner = owner;
     task.date = formatTaskDate(dateRaw);
@@ -1904,11 +1945,13 @@ async function submitTaskForm(e) {
       task.tier = 'done';
       task.tierLabel = 'Concluído';
     }
-    await apiPatchConfirm(
+    const ok = await applyPatchWithRollback(
       { id: task.id, task: task.task, owner: task.owner, date: task.date, comment: commentVal },
+      () => Object.assign(task, prev),
       'Tarefa atualizada (SSOT ok)',
       'Falha ao salvar no SSOT (motor offline)'
     );
+    if (!ok) { renderTasks(); return; }
   } else {
     const _nums = tasks.map(t => parseInt(String(t.id).replace(/^t0*/,''),10)).filter(n=>!isNaN(n));
     const _next = (_nums.length ? Math.max(..._nums) : 0) + 1;
@@ -1926,11 +1969,13 @@ async function submitTaskForm(e) {
       updatedAt: new Date().toISOString(),
     };
     tasks.push(newTask);
-    await apiCreateConfirm(
+    const ok = await applyCreateWithRollback(
       newTask,
+      () => { tasks = tasks.filter(t => t.id !== newTask.id); },
       'Tarefa adicionada (SSOT ok)',
       'Falha ao criar no SSOT (motor offline)'
     );
+    if (!ok) { renderTasks(); return; }
   }
 
   enforceWeeklyTop3(tasks);
@@ -2082,6 +2127,7 @@ function renderTasks() {
       const id = e.target.dataset.tierId;
       const task = tasks.find(t => t.id === id);
       if (!task) return;
+      const prev = { ...task };
       const v = e.target.value;
       if (v === 'done') {
         task.done = true;
@@ -2097,11 +2143,13 @@ function renderTasks() {
         task.tier = v;
         task.tierLabel = v === 't1' ? 'A fazer' : 'Fazendo';
       }
-      await apiPatchConfirm(
+      const ok = await applyPatchWithRollback(
         { id: task.id, done: task.done, tier: task.tier },
+        () => Object.assign(task, prev),
         'Status atualizado (SSOT ok)',
         'Falha ao salvar status no SSOT'
       );
+      if (!ok) { renderTasks(); return; }
       enforceWeeklyTop3(tasks);
       save(); renderTasks();
     });
@@ -2112,6 +2160,8 @@ function renderTasks() {
       const id = e.target.dataset.priorityId;
       const task = tasks.find(t => t.id === id);
       if (!task || task.done) return;
+      const prev = { ...task };
+      const prevRanks = tasks.map(t => ({ id: t.id, priorityRank: t.priorityRank }));
       const chosen = e.target.value ? Number(e.target.value) : null;
       if (chosen) {
         tasks.forEach(other => {
@@ -2120,11 +2170,19 @@ function renderTasks() {
       }
       task.priorityRank = chosen;
       task.updatedAt = new Date().toISOString();
-      await apiPatchConfirm(
+      const ok = await applyPatchWithRollback(
         { id: task.id, priorityRank: task.priorityRank },
+        () => {
+          Object.assign(task, prev);
+          prevRanks.forEach(pr => {
+            const t = tasks.find(x => x.id === pr.id);
+            if (t) t.priorityRank = pr.priorityRank;
+          });
+        },
         'Prioridade atualizada (SSOT ok)',
         'Falha ao salvar prioridade no SSOT'
       );
+      if (!ok) { renderTasks(); return; }
       enforceWeeklyTop3(tasks);
       save(); renderTasks();
     });
@@ -2135,6 +2193,7 @@ function renderTasks() {
       const id = e.target.dataset.id;
       const task = tasks.find(t => t.id === id);
       if (!task) return;
+      const prev = { ...task };
       task.done = e.target.checked;
       task.updatedAt = new Date().toISOString();
       if (task.done) {
@@ -2149,11 +2208,13 @@ function renderTasks() {
         task.tier      = s ? (s.tier === 'done' ? 't2' : s.tier) : 't2';
         task.tierLabel = s ? (s.tier === 't1' ? 'A fazer' : 'Fazendo') : 'A fazer';
       }
-      await apiPatchConfirm(
+      const ok = await applyPatchWithRollback(
         { id: task.id, done: task.done, tier: task.tier },
+        () => Object.assign(task, prev),
         'Conclusão salva (SSOT ok)',
         'Falha ao salvar conclusão no SSOT'
       );
+      if (!ok) { renderTasks(); counter(); return; }
       enforceWeeklyTop3(tasks);
       save(); renderTasks(); counter();
     });
@@ -2430,6 +2491,7 @@ function renderIntel() {
           ${c.acao_sugerida ? `<div class="critica-acao">→ ${c.acao_sugerida}</div>` : ''}
           <div class="critica-footer">
             <span class="critica-chip ${chipCls}">${label}</span>
+            ${c.id ? `<span class="critica-dri">ID: ${c.id}</span>` : ''}
             ${c.dri ? `<span class="critica-dri">DRI: ${c.dri}</span>` : ''}
             <span class="critica-dri">${c.data || ''}</span>
           </div>
@@ -2450,10 +2512,11 @@ function renderIntel() {
       return `<div class="aprendizado-item">
         <div class="aprendizado-stripe ${stripeCls}"></div>
         <div class="aprendizado-body">
-          <div class="aprendizado-insight">${a.insight}</div>
-          ${a.evidencia ? `<div class="aprendizado-evidencia">&#128202; ${a.evidencia}</div>` : ''}
-          ${a.acao_sugerida ? `<div class="aprendizado-acao">→ ${a.acao_sugerida}</div>` : ''}
-          ${a.fonte ? `<div class="aprendizado-evidencia" style="color:var(--t4);margin-top:3px">Fonte: ${a.fonte}</div>` : ''}
+        <div class="aprendizado-insight">${a.insight}</div>
+        ${a.evidencia ? `<div class="aprendizado-evidencia">&#128202; ${a.evidencia}</div>` : ''}
+        ${a.acao_sugerida ? `<div class="aprendizado-acao">→ ${a.acao_sugerida}</div>` : ''}
+        ${a.fonte ? `<div class="aprendizado-evidencia" style="color:var(--t4);margin-top:3px">Fonte: ${a.fonte}</div>` : ''}
+        ${a.id ? `<div class="aprendizado-evidencia" style="color:var(--t4);margin-top:3px">ID: ${a.id}</div>` : ''}
           ${tags ? `<div class="aprendizado-tags">${tags}</div>` : ''}
         </div>
       </div>`;
@@ -2469,6 +2532,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ms = document.getElementById('motorStatus');
     if (ms) ms.style.display = 'none';
   }
+  setSsotStatus(HAS_BACKEND_TODOS);
   document.getElementById('headerDate').textContent =
     new Date().toLocaleDateString('pt-BR',
       {weekday:'long',year:'numeric',month:'long',day:'numeric'});
@@ -2492,6 +2556,10 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch(`${API_URL}/api/todos/patch`, { method: 'OPTIONS' })
     .then(() => setMotorStatus(true))
     .catch(() => setMotorStatus(false));
+
+  if (!HAS_BACKEND_TODOS) {
+    toast('SSOT não carregou — modo fallback ativo', 'err');
+  }
 
   const exportOverlay = document.getElementById('overlay');
   const taskOverlay = document.getElementById('taskOverlay');

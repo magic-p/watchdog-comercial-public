@@ -6,7 +6,7 @@ window.WATCHDOG_INTEL = {
   },
   "aprendizados": [
     {
-      "id": "a001",
+      "id": "insight001",
       "data": "2026-02-24",
       "fonte": "marketing_inteligencia.md — histórico Mai–Jul 2025",
       "categoria": "canal",
@@ -20,7 +20,7 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Priorizar WhatsApp em qualquer ciclo de disparo. Aumentar frequência de disparos segmentados antes de qualquer outro canal."
     },
     {
-      "id": "a002",
+      "id": "insight002",
       "data": "2026-02-24",
       "fonte": "marketing_inteligencia.md — Ação do Chocolate Dez/2024 + Jul/Ago 2025",
       "categoria": "oferta",
@@ -38,7 +38,7 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Expandir mimo físico para além do chocolate. Testar caneca, aquarela, vale-presente. Priorizar Anos Anteriores como segmento de maior alavancagem."
     },
     {
-      "id": "a003",
+      "id": "insight003",
       "data": "2026-02-24",
       "fonte": "marketing_inteligencia.md — Campanhas WhatsApp Dez/2024",
       "categoria": "baldinho",
@@ -53,7 +53,7 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Em campanhas de mimo, priorizar base de renovação para maximizar levantadas por unidade de mimo enviada. Testar volumes maiores na base de renovação antes de anos anteriores."
     },
     {
-      "id": "a004",
+      "id": "insight004",
       "data": "2026-02-24",
       "fonte": "marketing_inteligencia.md — Mala Direta Mar/2025",
       "categoria": "canal",
@@ -69,7 +69,7 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Sempre executar mala direta com mix de baldinhos. Nunca restringir apenas a Novas. Avaliar combinação mala + mimo para renovação no próximo ciclo."
     },
     {
-      "id": "a005",
+      "id": "insight005",
       "data": "2026-02-24",
       "fonte": "marketing_inteligencia.md — Campanha antecipação 1S 2025",
       "categoria": "timing",
@@ -84,7 +84,7 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Garantir que base de Novas e Prioritárias seja processada em janeiro. Monitorar no Watchdog até 31/jan se houve contato com essas bases."
     },
     {
-      "id": "a006",
+      "id": "insight006",
       "data": "2026-02-24",
       "fonte": "marketing_inteligencia.md — Testes A/B Dez/2024",
       "categoria": "oferta",
@@ -102,7 +102,7 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Usar matriz de oferta por baldinho como regra padrão: Renovação=Presente, AA=Patrocínio, Novas=Presente+Celebridade, Retração=Impacto. Não misturar ofertas sem teste."
     },
     {
-      "id": "a007",
+      "id": "insight007",
       "data": "2026-02-24",
       "fonte": "marketing_inteligencia.md — Renovação Pública LT 2025",
       "categoria": "canal",
@@ -116,7 +116,7 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Manter régua de comunicação permanente para Pública LT. Baixo custo, receita incremental consistente. Não depender do comercial para essa base."
     },
     {
-      "id": "a008",
+      "id": "insight008",
       "data": "2026-02-24",
       "fonte": "marketing_inteligencia.md — Formulários 1S 2025",
       "categoria": "canal",
@@ -131,7 +131,7 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Direcionar leads de WhatsApp para Formulário Heróis, não Landing Page. A diferença de ticket é R$ 1.700/lead — impacto enorme em escala."
     },
     {
-      "id": "a009",
+      "id": "insight009",
       "data": "2026-02-24",
       "fonte": "campanha c001 (2026-02-23) — WhatsApp Vitoria",
       "categoria": "copy",
@@ -142,10 +142,10 @@ window.WATCHDOG_INTEL = {
       "aplicavel_a": [
         "retracao"
       ],
-      "acao_sugerida": "Investigar qualidade da lista de Retração antes de mudar copy. Verificar se contatos são gestores ativos ou listas desatualizadas. Se lista ok, testar abordagem de impacto da Estante (a006)."
+      "acao_sugerida": "Investigar qualidade da lista de Retração antes de mudar copy. Verificar se contatos são gestores ativos ou listas desatualizadas. Se lista ok, testar abordagem de impacto da Estante (insight006)."
     },
     {
-      "id": "a010",
+      "id": "insight010",
       "data": "2026-02-24",
       "fonte": "metas.md + motor_watchdog.py",
       "categoria": "meta",
@@ -156,10 +156,10 @@ window.WATCHDOG_INTEL = {
       "aplicavel_a": [
         "todos"
       ],
-      "acao_sugerida": "Qualificação de lista antes do discador. Mimo físico antes da ligação (a002). Régua de aquecimento digital 72h antes do contato SDR."
+      "acao_sugerida": "Qualificação de lista antes do discador. Mimo físico antes da ligação (insight002). Régua de aquecimento digital 72h antes do contato SDR."
     },
     {
-      "id": "a011",
+      "id": "insight011",
       "data": "2026-02-24",
       "fonte": "Daily comercial 24/02/2026 — Nath Ferreira (histórico 09/02–24/02)",
       "categoria": "comportamento",
@@ -174,7 +174,7 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Sempre separar métrica de Outbound entre 'time próprio' e 'Ax' nos relatórios. Decisões de discador e abordagem nunca devem ser baseadas no número consolidado."
     },
     {
-      "id": "a012",
+      "id": "insight012",
       "data": "2026-02-24",
       "fonte": "Daily comercial 24/02/2026 — histórico semanal Retração",
       "categoria": "baldinho",
@@ -188,7 +188,7 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Monitorar RR/SDR semanal de Retração separadamente do mensal. Alertar quando semana cair abaixo de 70% da meta mesmo que o mês esteja verde."
     },
     {
-      "id": "a013",
+      "id": "insight013",
       "data": "2026-02-24",
       "fonte": "Daily comercial 24/02/2026 — evolução diária Novas",
       "categoria": "timing",
@@ -202,7 +202,7 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "A partir de agora, alertar quando Novas estiver com ritmo abaixo do necessário para fechar no mês. Calcular trajetória diária, não só % YTD."
     },
     {
-      "id": "a014",
+      "id": "insight014",
       "data": "2026-02-24",
       "fonte": "Daily comercial 24/02/2026 — ações da semana",
       "categoria": "comportamento",
@@ -216,7 +216,7 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Não deixar mimo depender de aprovação de ciclo longo. Autorizar Pimentel e Nath a acionar mimo tático com autonomia, reportando resultado em D+3."
     },
     {
-      "id": "a015",
+      "id": "insight015",
       "data": "2026-02-24",
       "fonte": "Daily Gestão Comercial 24/02/2026 — Gemini (discussão sobre tags de campanha)",
       "categoria": "canal",
@@ -230,7 +230,7 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Vitória criar separação clara entre 'tag de disparo recebido' e 'tag de levantada confirmada' nos relatórios. Nunca usar número bruto de tags de marketing como proxy de levantadas."
     },
     {
-      "id": "a016",
+      "id": "insight016",
       "data": "2026-02-24",
       "fonte": "Daily Gestão Comercial 24/02/2026 — Gemini (análise de ativação bolsão)",
       "categoria": "baldinho",
@@ -244,7 +244,7 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Monitorar ativação separadamente de fechamento no Watchdog. Alertar quando ativação cair abaixo de 80% da meta mesmo que fechamento esteja ok. Mimo para bolsão deve ser padrão, não exceção."
     },
     {
-      "id": "a017",
+      "id": "insight017",
       "data": "2026-02-24",
       "fonte": "Daily Gestão Comercial 24/02/2026 — Gemini (discussão sobre fluxo de levantadas)",
       "categoria": "comportamento",
@@ -261,7 +261,7 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Garantir que o fluxo duplo (levantadas + Blip queue) esteja configurado para cada baldinho antes do próximo disparo. Supervisor deve ser identificado por baldinho e ter acesso ao portal Blip."
     },
     {
-      "id": "a018",
+      "id": "insight018",
       "data": "2026-02-24",
       "fonte": "Daily Gestão Comercial 24/02/2026 — Gemini (análise caneca AA vs Renovação)",
       "categoria": "baldinho",
@@ -275,7 +275,7 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Para campanhas de mimo em AA: segmentar por fase do funil. Base em 'tentativa SDR' não deve receber mesmo disparo da base em 'descarte'. Canal WhatsApp de marketing (número diferente do SDR) aumenta credibilidade nesse segmento."
     },
     {
-      "id": "a019",
+      "id": "insight019",
       "data": "2026-02-24",
       "fonte": "Daily Gestão Comercial 24/02/2026 — Gemini (análise fluxo Blip e atribuição de leads)",
       "categoria": "comportamento",
@@ -293,7 +293,7 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Fluxo duplo deve ser padrão permanente: levantadas no fluxo de controle + mensagens na fila Blip do supervisor por baldinho. Supervisor atribui às 8h-9h. Nunca depender de distribuição geral automática para leads quentes."
     },
     {
-      "id": "a020",
+      "id": "insight020",
       "data": "2026-02-24",
       "fonte": "Daily Gestão Comercial 24/02/2026 — análise performance horário SDR (histórico 05/02)",
       "categoria": "comportamento",
@@ -307,7 +307,7 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Institucionalizar entrada às 8h como padrão não negociável. Concentrar cold call nos picos 8h, 11h e 16h. Evitar reuniões internas em 13h-14h que comprometem SDRs."
     },
     {
-      "id": "a021",
+      "id": "insight021",
       "data": "2026-02-24",
       "fonte": "Daily Gestão Comercial 24/02/2026 — análise performance Concorrência fev/2026",
       "categoria": "baldinho",
@@ -321,7 +321,7 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Avaliar alocação adicional de SDRs em Concorrência para março — performance superior justifica investimento antes que a base sature. Manter base cirúrgica como condição de entrada."
     },
     {
-      "id": "a022",
+      "id": "insight022",
       "data": "2026-02-24",
       "fonte": "Daily Gestão Comercial 24/02/2026 — problema operacional meios de pagamento",
       "categoria": "comportamento",
@@ -333,11 +333,109 @@ window.WATCHDOG_INTEL = {
         "todos"
       ],
       "acao_sugerida": "Karina Machado configurar mínimo 2 meios de pagamento alternativos para mimos táticos. Criar protocolo: se cartão/iFood falhar, Pix via financeiro é acionado automaticamente com limite pré-aprovado por Lili, sem nova aprovação."
+    },
+    {
+      "id": "insight023",
+      "data": "2026-02-24",
+      "fonte": "PDF: HOW TO UNDERSTAND ANYTHING (1)",
+      "categoria": "metodo",
+      "gatilho": null,
+      "insight": "Compreensao profunda comeca por decompor o problema em primeiros principios e reconstruir a partir do essencial.",
+      "evidencia": "Secao 'Fundamentos da Compreensao': decomposicao ate a essencia e pensamento de primeiros principios.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "todos"
+      ],
+      "acao_sugerida": "Antes de decidir, listar 3-5 premissas basicas e checar se sao realmente verdadeiras."
+    },
+    {
+      "id": "insight024",
+      "data": "2026-02-24",
+      "fonte": "PDF: HOW TO UNDERSTAND ANYTHING (1)",
+      "categoria": "metodo",
+      "gatilho": null,
+      "insight": "Analogias e reconhecimento de padroes aceleram entendimento ao mapear estruturas conhecidas para um novo dominio.",
+      "evidencia": "Secao 'Reconhecimento de Padroes & Mapeamento por Analogia'.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "todos"
+      ],
+      "acao_sugerida": "Para cada tema novo, identificar 1 sistema conhecido com estrutura parecida e explicitar o paralelo."
+    },
+    {
+      "id": "insight025",
+      "data": "2026-02-24",
+      "fonte": "PDF: HOW TO UNDERSTAND ANYTHING (1)",
+      "categoria": "metodo",
+      "gatilho": null,
+      "insight": "Enquadramento certo muda o resultado: inversao e '5 porques' exp?em causas reais e pontos cegos.",
+      "evidencia": "Secao 'Heuristicas de Enquadramento & Questionamento' (Inversao, 5 Porques).",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "todos"
+      ],
+      "acao_sugerida": "Antes de agir, perguntar: 'Como isso falharia?' e aplicar 5 porques na causa-raiz."
+    },
+    {
+      "id": "insight026",
+      "data": "2026-02-24",
+      "fonte": "PDF: HOW TO UNDERSTAND ANYTHING (1)",
+      "categoria": "metodo",
+      "gatilho": null,
+      "insight": "Entendimento robusto vem da trelica de modelos mentais: integrar lentes de diferentes disciplinas evita vis?o unica e enviesada.",
+      "evidencia": "Secao 'Sintese & Integracao entre Dominios' (Latticework).",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "todos"
+      ],
+      "acao_sugerida": "Ao analisar um problema, aplicar pelo menos 2 lentes distintas (ex.: economia + psicologia)."
+    },
+    {
+      "id": "insight027",
+      "data": "2026-02-24",
+      "fonte": "PDF: HOW TO UNDERSTAND ANYTHING (1)",
+      "categoria": "metodo",
+      "gatilho": null,
+      "insight": "Entendimento so e real quando testado: hipoteses devem ser validadas e falsificadas com evidencias.",
+      "evidencia": "Secao 'Heuristicas de Validacao & Feedback' (teste de hipoteses, falsificacao).",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "todos"
+      ],
+      "acao_sugerida": "Tratar cada conclusao como hipotese e definir um teste minimo que possa refuta-la."
+    },
+    {
+      "id": "insight028",
+      "data": "2026-02-24",
+      "fonte": "PDF: HOW TO UNDERSTAND ANYTHING (1)",
+      "categoria": "metodo",
+      "gatilho": null,
+      "insight": "Externalizar o raciocinio (mapas, fluxos, diagramas) reduz carga mental e exp?e gaps do entendimento.",
+      "evidencia": "Secao 'Ferramentas & Estruturas' (modelos visuais).",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "todos"
+      ],
+      "acao_sugerida": "Para qualquer decisao complexa, desenhar o fluxo em 5 minutos antes de concluir."
+    },
+    {
+      "id": "insight029",
+      "data": "2026-02-24",
+      "fonte": "PDF: HOW TO UNDERSTAND ANYTHING (1)",
+      "categoria": "metodo",
+      "gatilho": null,
+      "insight": "Metacognicao e mentalidade de crescimento melhoram aprendizado continuo: tratar confusao como etapa normal.",
+      "evidencia": "Secao 'Mindset & Metacognicao da Compreensao' (growth mindset).",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "todos"
+      ],
+      "acao_sugerida": "Padronizar o uso de 'ainda' ao descrever lacunas (ex.: 'ainda nao entendi')."
     }
   ],
   "criticas_ativas": [
     {
-      "id": "cr001",
+      "id": "alerta001",
       "data": "2026-02-24",
       "titulo": "SDR 12%: efetividade a 2,5x abaixo da meta",
       "critica": "Com efetividade SDR em 4,76% vs meta de 12%, estamos rodando com o motor comercial no 40% de capacidade. Cada semana assim é conversão perdida de forma permanente — escola que não atende em fevereiro não reabre a conversa até o ano que vem.",
@@ -347,7 +445,7 @@ window.WATCHDOG_INTEL = {
       "status": "aberta"
     },
     {
-      "id": "cr002",
+      "id": "alerta002",
       "data": "2026-02-24",
       "titulo": "Outbound (3.118 contatos) sem resultado registrado",
       "critica": "Campanha c001 disparou para 3.118 contatos de Outbound sem registrar resultado. Se a taxa ficar próxima de Retração (0,71%), estamos falando de ~22 levantadas com custo de dispersão enorme. Se ficar próxima de Renovação LT (2,10%), são ~65 levantadas — diferença que muda o mês.",
@@ -357,7 +455,7 @@ window.WATCHDOG_INTEL = {
       "status": "aberta"
     },
     {
-      "id": "cr003",
+      "id": "alerta003",
       "data": "2026-02-24",
       "titulo": "Novas: ritmo atual não fecha 238 cadastros até 28/fev",
       "critica": "Com 157 cadastros em 24/02 e ~4 dias úteis restantes, precisamos de 20/dia para fechar 238. O ritmo do mês foi 9,4/dia. Dobrar o ritmo no final do mês é excepcional, não o esperado. Em 2025 esse mesmo padrão custou R$ 522k.",
@@ -367,7 +465,7 @@ window.WATCHDOG_INTEL = {
       "status": "aberta"
     },
     {
-      "id": "cr004",
+      "id": "alerta004",
       "data": "2026-02-24",
       "titulo": "Retração semana: RR/SDR em 40% — março começa em débito",
       "critica": "O mês de fevereiro de Retração está verde (107% RR/SDR), mas a semana de 24/02 está em 0,20/0,50 (40%). O resultado mensal está sendo sustentado por estoque de semanas anteriores. Se esse ritmo se repetir em março, o mês começa morto.",
@@ -377,7 +475,7 @@ window.WATCHDOG_INTEL = {
       "status": "aberta"
     },
     {
-      "id": "cr005",
+      "id": "alerta005",
       "data": "2026-02-24",
       "titulo": "Renovação LT Part: RR/SDR travado em 1,42 há 5 dias",
       "critica": "De 19/02 a 24/02, o RR/SDR da base LT Part ficou em 1,42 — mesmo número, todos os dias. Ou os dados não estão sendo atualizados corretamente, ou o esforço está estagnado. Meta é 2,0.",
@@ -387,7 +485,7 @@ window.WATCHDOG_INTEL = {
       "status": "aberta"
     },
     {
-      "id": "cr006",
+      "id": "alerta006",
       "data": "2026-02-24",
       "titulo": "Ativação bolsão em 61% da meta — receita fechada não está virando bolsão",
       "critica": "A conversão para Closer está acima da meta, mas a ativação (bolsão) está em 61%. O esforço de SDR e Closer está funcionando — o gargalo é o último elo da cadeia: escola fecha e não converte para bolsão. Essa é a receita que está 'dentro de casa' e não realizada. Com 4 dias úteis até 28/fev, 40 mimos devem ser enviados hoje para destravar esse funil.",
@@ -397,7 +495,7 @@ window.WATCHDOG_INTEL = {
       "status": "aberta"
     },
     {
-      "id": "cr007",
+      "id": "alerta007",
       "data": "2026-02-24",
       "titulo": "Tags Blip/HubSpot inválidas — medição de levantadas de campanha inflada em até 4x",
       "critica": "Tag de marketing (rastreia todas as escolas que receberam disparo) está sendo usada como proxy de levantadas. Resultado: número de 54 levantadas da caneca 23/02 é não confiável — sobreposição com ações anteriores infla o dado. Todo ROI de campanha calculado com esse número é inválido. Decisões de budget, copy e segmentação baseadas nesse número estão contaminadas.",
@@ -407,7 +505,7 @@ window.WATCHDOG_INTEL = {
       "status": "aberta"
     },
     {
-      "id": "cr008",
+      "id": "alerta008",
       "data": "2026-02-24",
       "titulo": "Novas: ritmo impossível para fechar 238 cadastros — faltam 81 em 4 dias úteis",
       "critica": "Com 157 cadastros em 24/02 e 4 dias úteis restantes, o ritmo necessário é 20/dia. O ritmo médio de fevereiro foi 9,4/dia — menos da metade. Não existe cenário orgânico de dobrar o ritmo nos últimos 4 dias. Sem lista 'dentro de casa' acionada hoje + disparo WhatsApp urgente para escolas em etapa avançada, o gap de ~80 cadastros se realiza.",
@@ -417,7 +515,7 @@ window.WATCHDOG_INTEL = {
       "status": "aberta"
     },
     {
-      "id": "cr009",
+      "id": "alerta009",
       "data": "2026-02-24",
       "titulo": "Fluxo de atribuição de levantadas inexistente — leads quentes perdidos sistematicamente",
       "critica": "27 escolas de renovação levantaram a mão em 23/02 e não receberam contato no mesmo dia. Tickets Blip fechados antes do SDR entrar em contato. O processo atual de distribuição geral automática não está funcionando. Cada lead quente não atendido em 2h tem probabilidade de conversão drasticamente reduzida.",
@@ -427,7 +525,7 @@ window.WATCHDOG_INTEL = {
       "status": "aberta"
     },
     {
-      "id": "cr010",
+      "id": "alerta010",
       "data": "2026-02-24",
       "titulo": "Queda em abordadas de Concorrência e Outbound sem causa confirmada",
       "critica": "Daily 24/02 marcou como 'inadmissível' a queda em abordadas nesses baldinhos. Suspeita de efeito Ax não confirmada. Sem diagnóstico, não há como corrigir. Check diário definido mas sem DRI único e critério objetivo de alerta.",
@@ -437,5 +535,5 @@ window.WATCHDOG_INTEL = {
       "status": "aberta"
     }
   ],
-  "ultima_atualizacao": "2026-02-24T19:30:00"
+  "ultima_atualizacao": "2026-02-24T17:50:04"
 };
