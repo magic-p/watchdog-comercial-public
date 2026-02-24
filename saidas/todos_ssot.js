@@ -158,7 +158,7 @@ window.WATCHDOG_TODOS = [
     "task": "Garantir fluxo novo na Blip ligado antes dos disparos de 4a",
     "comment": "Criar filas específicas na Blip por baldinho + garantir que o fluxo de levantadas esteja integrado ao duplo aviso (fluxo + fila supervisor). Deve estar ativo ANTES dos disparos de quarta (t015 e t020). Pré-requisito: t013 (Pimentel fornecer supervisores por baldinho).",
     "owner": "Vitoria",
-    "date": "25/fev",
+    "date": "24/fev",
     "tier": "t1",
     "tierLabel": "A fazer",
     "warn": null,
