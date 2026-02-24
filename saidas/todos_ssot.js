@@ -5,13 +5,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Comparar performance de SDRs que usam Calix vs discador manual. Frente de concorrência tem apenas 3 pessoas. Suspeita adicional: impacto da migração para o Ax.",
     "owner": "Nath Ferreira",
     "date": "24/fev",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-02-23T00:00:00",
-    "completedAt": null
+    "updatedAt": "2026-02-24T00:00:00",
+    "completedAt": "2026-02-24T00:00:00"
   },
   {
     "id": "t002",
