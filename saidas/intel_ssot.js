@@ -273,6 +273,66 @@ window.WATCHDOG_INTEL = {
         "anos_anteriores"
       ],
       "acao_sugerida": "Para campanhas de mimo em AA: segmentar por fase do funil. Base em 'tentativa SDR' não deve receber mesmo disparo da base em 'descarte'. Canal WhatsApp de marketing (número diferente do SDR) aumenta credibilidade nesse segmento."
+    },
+    {
+      "id": "a019",
+      "data": "2026-02-24",
+      "fonte": "Daily Gestão Comercial 24/02/2026 — Gemini (análise fluxo Blip e atribuição de leads)",
+      "categoria": "comportamento",
+      "gatilho": null,
+      "insight": "Lead que levanta a mão via WhatsApp e tem o ticket Blip fechado antes do contato do SDR não pode ser recuperado pelo mesmo ticket — o SDR precisa iniciar nova conversa. Sem fluxo de atribuição ativa (fila por baldinho + supervisor 8h-9h), leads quentes são sistematicamente perdidos mesmo quando o disparo funciona.",
+      "evidencia": "24/02: 27 escolas de renovação levantaram a mão em 23/02 e não foram contatadas no mesmo dia. Tickets foram fechados antes do SDR entrar em contato. Decisão: fluxo duplo (levantadas + Blip queue para supervisor) implementado como solução estrutural.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "renovacao",
+        "anos_anteriores",
+        "retracao",
+        "concorrencia",
+        "novas"
+      ],
+      "acao_sugerida": "Fluxo duplo deve ser padrão permanente: levantadas no fluxo de controle + mensagens na fila Blip do supervisor por baldinho. Supervisor atribui às 8h-9h. Nunca depender de distribuição geral automática para leads quentes."
+    },
+    {
+      "id": "a020",
+      "data": "2026-02-24",
+      "fonte": "Daily Gestão Comercial 24/02/2026 — análise performance horário SDR (histórico 05/02)",
+      "categoria": "comportamento",
+      "gatilho": null,
+      "insight": "SDR que entra às 8h tem efetividade 4% maior e taxa de atendidas 18% maior que SDR que entra às 9h. Em Outbound, a diferença sobe para 31% em efetividade e 23% em atendidas. Horários pico de produtividade por agendamento/hora/SDR: 8h (40%), 11h (44%), 16h (40%). Horário mais improdutivo: 13h-14h (~10-11%).",
+      "evidencia": "Teste documentado em 05/02/2026: Time 8h — efetividade 11%, atendidas 54%. Time 9h — efetividade 10%, atendidas 45%. Outbound filtrado: Time 8h 9%/45% vs Time 9h 7%/36% (131%/123%). 65% do time já entrando entre 8h-8h30.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "todos"
+      ],
+      "acao_sugerida": "Institucionalizar entrada às 8h como padrão não negociável. Concentrar cold call nos picos 8h, 11h e 16h. Evitar reuniões internas em 13h-14h que comprometem SDRs."
+    },
+    {
+      "id": "a021",
+      "data": "2026-02-24",
+      "fonte": "Daily Gestão Comercial 24/02/2026 — análise performance Concorrência fev/2026",
+      "categoria": "baldinho",
+      "gatilho": null,
+      "insight": "Concorrência em fev/2026 em 124% meta mensal com RR/SDR semanal em 1,00 (182% meta). Exclusão de Mari Soares e isolamento do time Ax restaurou performance para nível superior ao histórico. Base cirúrgica (+100 alunos) + time dedicado = resultado excepcional. O baldinho tem capacidade de escala real quando essas condições se mantêm.",
+      "evidencia": "Concorrência 24/02: 3.404/3.671 alunos (124% YTD). Semana: rr/sdr 1,00/0,55 (182%). Abordadas sem Ax: 37 vs 39 de janeiro — praticamente idêntico ao período de referência. Meta alunos semana: 1.091/1.358 (419% YTD).",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "concorrencia"
+      ],
+      "acao_sugerida": "Avaliar alocação adicional de SDRs em Concorrência para março — performance superior justifica investimento antes que a base sature. Manter base cirúrgica como condição de entrada."
+    },
+    {
+      "id": "a022",
+      "data": "2026-02-24",
+      "fonte": "Daily Gestão Comercial 24/02/2026 — problema operacional meios de pagamento",
+      "categoria": "comportamento",
+      "gatilho": null,
+      "insight": "Dependência de cartão virtual ou iFood como único meio de pagamento para mimos táticos é ponto de falha operacional. Em dias críticos de fechamento, a trava de pagamento atrasa ações que têm janela de horas. Pix com financeiro é alternativa funcional mas exige protocolo pré-aprovado para não criar novo gargalo de aprovação.",
+      "evidencia": "24/02: ação de 40 mimos para bolsão atrasada por problemas com cartão e iFood. Solução emergencial: Pix via Rafa do financeiro. Lili enfatizou que 'o sucesso do dia é enviar os 40 mimos'.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "todos"
+      ],
+      "acao_sugerida": "Karina Machado configurar mínimo 2 meios de pagamento alternativos para mimos táticos. Criar protocolo: se cartão/iFood falhar, Pix via financeiro é acionado automaticamente com limite pré-aprovado por Lili, sem nova aprovação."
     }
   ],
   "criticas_ativas": [
@@ -335,7 +395,47 @@ window.WATCHDOG_INTEL = {
       "prioridade": "critica",
       "dri": "Karina Machado",
       "status": "aberta"
+    },
+    {
+      "id": "cr007",
+      "data": "2026-02-24",
+      "titulo": "Tags Blip/HubSpot inválidas — medição de levantadas de campanha inflada em até 4x",
+      "critica": "Tag de marketing (rastreia todas as escolas que receberam disparo) está sendo usada como proxy de levantadas. Resultado: número de 54 levantadas da caneca 23/02 é não confiável — sobreposição com ações anteriores infla o dado. Todo ROI de campanha calculado com esse número é inválido. Decisões de budget, copy e segmentação baseadas nesse número estão contaminadas.",
+      "acao_sugerida": "Vitória criar tag separada 'disparo_recebido' (distinta da tag Heróis de levantada confirmada) antes do próximo disparo. Revisar retroativamente levantadas das últimas campanhas usando apenas tag Heróis como denominador. Nunca reportar tag de marketing como proxy de levantadas.",
+      "prioridade": "critica",
+      "dri": "Vitória Riente",
+      "status": "aberta"
+    },
+    {
+      "id": "cr008",
+      "data": "2026-02-24",
+      "titulo": "Novas: ritmo impossível para fechar 238 cadastros — faltam 81 em 4 dias úteis",
+      "critica": "Com 157 cadastros em 24/02 e 4 dias úteis restantes, o ritmo necessário é 20/dia. O ritmo médio de fevereiro foi 9,4/dia — menos da metade. Não existe cenário orgânico de dobrar o ritmo nos últimos 4 dias. Sem lista 'dentro de casa' acionada hoje + disparo WhatsApp urgente para escolas em etapa avançada, o gap de ~80 cadastros se realiza.",
+      "acao_sugerida": "Lili mapear HOJE escolas com lista dentro de casa e previsão de envio até 28/02. Acionar WhatsApp urgente para escolas em etapa avançada sem cadastro fechado. Pimentel verificar bolsão de FUP de Novas para forçar conversão nas próximas 48h.",
+      "prioridade": "critica",
+      "dri": "Liliane Mathias",
+      "status": "aberta"
+    },
+    {
+      "id": "cr009",
+      "data": "2026-02-24",
+      "titulo": "Fluxo de atribuição de levantadas inexistente — leads quentes perdidos sistematicamente",
+      "critica": "27 escolas de renovação levantaram a mão em 23/02 e não receberam contato no mesmo dia. Tickets Blip fechados antes do SDR entrar em contato. O processo atual de distribuição geral automática não está funcionando. Cada lead quente não atendido em 2h tem probabilidade de conversão drasticamente reduzida.",
+      "acao_sugerida": "Vitória criar filas Blip por baldinho hoje. Pimentel fornecer nomes dos supervisores por baldinho até 10h. Supervisor com acesso ao portal Blip prioriza atribuição 8h-9h. Confirmar funcionamento antes do disparo de 25/02.",
+      "prioridade": "critica",
+      "dri": "Vitória Riente",
+      "status": "aberta"
+    },
+    {
+      "id": "cr010",
+      "data": "2026-02-24",
+      "titulo": "Queda em abordadas de Concorrência e Outbound sem causa confirmada",
+      "critica": "Daily 24/02 marcou como 'inadmissível' a queda em abordadas nesses baldinhos. Suspeita de efeito Ax não confirmada. Sem diagnóstico, não há como corrigir. Check diário definido mas sem DRI único e critério objetivo de alerta.",
+      "acao_sugerida": "Nath confirmar até 25/02 se queda é Ax ou time próprio. Se Ax: isolar nas métricas e reportar separado. Se time próprio: identificar SDR e causa (horário, lista, sistema). Check diário de abordadas por Nath até 28/02 com reporte na daily.",
+      "prioridade": "alta",
+      "dri": "Nath Ferreira",
+      "status": "aberta"
     }
   ],
-  "ultima_atualizacao": "2026-02-24T17:00:00"
+  "ultima_atualizacao": "2026-02-24T19:30:00"
 };
