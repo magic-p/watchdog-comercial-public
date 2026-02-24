@@ -815,6 +815,61 @@
     .insight-dot.gray   { background: var(--t4); }
     .insight-text { font-size: 12.5px; color: var(--t1); line-height: 1.5; }
 
+    /*  INTEL — MARINA  */
+    .intel-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    @media (max-width: 700px) { .intel-grid { grid-template-columns: 1fr; } }
+
+    .critica-item {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 12px 0; border-bottom: 1px solid var(--sep);
+    }
+    .critica-item:last-child { border-bottom: none; }
+    .critica-stripe {
+      width: 3px; border-radius: 2px; align-self: stretch; flex-shrink: 0;
+      background: var(--red);
+    }
+    .critica-stripe.alta   { background: var(--orange); }
+    .critica-stripe.media  { background: var(--blue); }
+    .critica-body { display: flex; flex-direction: column; gap: 3px; flex: 1; }
+    .critica-title { font-size: 12.5px; font-weight: 600; color: var(--t1); line-height: 1.4; }
+    .critica-text  { font-size: 11.5px; color: var(--t2); line-height: 1.5; }
+    .critica-acao  { font-size: 11px; color: var(--blue); margin-top: 2px; }
+    .critica-footer { display: flex; gap: 6px; align-items: center; margin-top: 4px; flex-wrap: wrap; }
+    .critica-chip {
+      font-size: 10px; font-weight: 600; padding: 1px 6px;
+      border-radius: 100px; background: var(--red-mid, #FFE5E5); color: var(--red);
+      text-transform: uppercase; letter-spacing: .04em;
+    }
+    .critica-chip.alta  { background: var(--orange-mid); color: var(--orange); }
+    .critica-chip.media { background: var(--blue-mid); color: var(--blue); }
+    .critica-dri { font-size: 11px; color: var(--t3); }
+
+    .aprendizado-item {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 12px 0; border-bottom: 1px solid var(--sep);
+    }
+    .aprendizado-item:last-child { border-bottom: none; }
+    .aprendizado-stripe {
+      width: 3px; border-radius: 2px; align-self: stretch; flex-shrink: 0;
+      background: var(--green);
+    }
+    .aprendizado-stripe.media { background: var(--blue); }
+    .aprendizado-stripe.baixa { background: var(--t4); }
+    .aprendizado-body { display: flex; flex-direction: column; gap: 3px; flex: 1; }
+    .aprendizado-insight { font-size: 12.5px; color: var(--t1); line-height: 1.5; }
+    .aprendizado-evidencia { font-size: 11px; color: var(--t3); font-style: italic; }
+    .aprendizado-acao { font-size: 11px; color: var(--blue); margin-top: 2px; }
+    .aprendizado-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 4px; }
+    .aprendizado-tag {
+      font-size: 10px; padding: 1px 6px; border-radius: 100px;
+      background: var(--card-sec); color: var(--t3);
+    }
+
     /*  PRIORITY EDIT  */
     .pri-edit-btn {
       background: none; border: none; cursor: pointer;
@@ -1138,6 +1193,28 @@
     </div>
   </div>
 
+  <!-- MARINA — INTELIGÊNCIA ESTRATÉGICA -->
+  <div class="intel-grid reveal" style="animation-delay:.34s">
+    <div class="card">
+      <div class="card-hd">
+        <span class="card-hd-label">
+          <span class="hd-icon" style="color:var(--red)">&#9888;</span>
+          Críticas Ativas · Marina
+        </span>
+      </div>
+      <div class="card-bd" id="criticasList"><span style="color:var(--t3);font-size:12px">Sem críticas ativas.</span></div>
+    </div>
+    <div class="card">
+      <div class="card-hd">
+        <span class="card-hd-label">
+          <span class="hd-icon" style="color:var(--green)">&#129504;</span>
+          Memória Estratégica
+        </span>
+      </div>
+      <div class="card-bd" id="aprendizadosList"><span style="color:var(--t3);font-size:12px">Sem aprendizados registrados.</span></div>
+    </div>
+  </div>
+
   <!-- SECTION HEADER  -->
   <div class="section-hd reveal" style="animation-delay:.36s">
     <span class="section-hd-label">Lista de Tarefas</span>
@@ -1252,6 +1329,7 @@
 <script src="saidas/booked_meta.js"></script>
 <script src="saidas/todos_ssot.js"></script>
 <script src="saidas/campanhas_ssot.js"></script>
+<script src="saidas/intel_ssot.js"></script>
 <script>
 /*  API  */
 const API_URL = 'http://localhost:5678';
@@ -1310,6 +1388,9 @@ const HAS_BACKEND_TODOS = TODOS_SSOT.length > 0;
 
 const CAMPANHAS_DATA = (window.WATCHDOG_CAMPANHAS && typeof window.WATCHDOG_CAMPANHAS === 'object')
   ? window.WATCHDOG_CAMPANHAS : null;
+
+const INTEL_DATA = (window.WATCHDOG_INTEL && typeof window.WATCHDOG_INTEL === 'object')
+  ? window.WATCHDOG_INTEL : null;
 
 const FALLBACK_SEED = [];
 

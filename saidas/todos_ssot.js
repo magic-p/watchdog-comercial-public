@@ -117,12 +117,12 @@ window.WATCHDOG_TODOS = [
     "comment": "Prioridade 1 da Lili. Diferente de t005 (mimos em retração): aqui foco é em escolas fechadas não convertidas. Definir escala e executar.",
     "owner": "Kaka",
     "date": "26/fev",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "t2",
+    "tierLabel": "Fazendo",
     "warn": null,
     "done": false,
     "priorityRank": 1,
-    "updatedAt": null,
+    "updatedAt": "2026-02-24T00:00:00",
     "completedAt": null
   },
   {
