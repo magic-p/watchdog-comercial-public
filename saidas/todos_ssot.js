@@ -283,7 +283,7 @@ window.WATCHDOG_TODOS = [
     "id": "t021",
     "task": "Avaliar na 4a se vale executar push de reforço nas etapas SDR (último push RR)",
     "comment": "Checkpoint de quarta-feira: Nath avalia RR/SDR do dia e decide com Lili se executa um disparo extra para leads em etapas de SDR. Objetivo: dar último push antes do fechamento de fevereiro. Decisão em 4a → execução no mesmo dia se aprovado.",
-    "owner": "Nath Ferreira",
+    "owner": "Ana Paula Pimentel",
     "date": "25/fev",
     "tier": "t2",
     "tierLabel": "Fazendo",
