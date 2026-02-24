@@ -61,13 +61,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Retração tem desafio histórico de agendamento. Entender se mimos estão sendo usados e com qual resultado.",
     "owner": "Ana Paula Pimentel",
     "date": "24/fev",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-24T00:00:00",
+    "completedAt": "2026-02-24T00:00:00"
   },
   {
     "id": "t006",
