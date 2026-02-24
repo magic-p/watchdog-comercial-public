@@ -270,7 +270,7 @@ window.WATCHDOG_TODOS = [
     "task": "Disparo 4a: fechada > convertida — aguardar oferta Pimentel (bloqueado por t016)",
     "comment": "Disparo de reativação para escolas fechadas não convertidas para bolsão. BLOQUEADO: aguardar Pimentel definir oferta/argumento com time ID (t016). Assim que t016 entregar, Vitória executa o disparo em 4a.",
     "owner": "Vitoria",
-    "date": "25/fev",
+    "date": "24/fev",
     "tier": "t1",
     "tierLabel": "A fazer",
     "warn": null,
