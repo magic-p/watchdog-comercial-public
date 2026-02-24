@@ -187,13 +187,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Apoio para t018 (Pimentel reabrir conversas). 27 renovação + 5 AA levantaram a mão no disparo de caneca (23/02). Vitória extrai do carteiro com números de telefone disponíveis. Entrega imediata — Pimentel precisa para reabrir conversas hoje.",
     "owner": "Vitoria",
     "date": "24/fev",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-24T00:00:00",
+    "completedAt": "2026-02-24T00:00:00"
   },
   {
     "id": "t015",
