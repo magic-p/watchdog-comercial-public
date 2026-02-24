@@ -2360,6 +2360,64 @@ function renderCampanhas() {
   }
 }
 
+function renderIntel() {
+  const criticasEl     = document.getElementById('criticasList');
+  const aprendizadosEl = document.getElementById('aprendizadosList');
+  if (!criticasEl || !aprendizadosEl) return;
+
+  if (!INTEL_DATA) {
+    criticasEl.innerHTML     = '<span style="color:var(--t3);font-size:12px">intel_ssot.js não carregado.</span>';
+    aprendizadosEl.innerHTML = '<span style="color:var(--t3);font-size:12px">intel_ssot.js não carregado.</span>';
+    return;
+  }
+
+  // --- Críticas Ativas ---
+  const criticas = (INTEL_DATA.criticas_ativas || []).filter(c => c.status === 'aberta');
+  if (!criticas.length) {
+    criticasEl.innerHTML = '<span style="color:var(--t3);font-size:12px">Nenhuma crítica ativa no momento.</span>';
+  } else {
+    criticasEl.innerHTML = criticas.map(c => {
+      const stripeCls = c.prioridade === 'critica' ? '' : c.prioridade === 'alta' ? 'alta' : 'media';
+      const chipCls   = stripeCls;
+      const label     = c.prioridade === 'critica' ? 'Crítico' : c.prioridade === 'alta' ? 'Alta' : 'Média';
+      return `<div class="critica-item">
+        <div class="critica-stripe ${stripeCls}"></div>
+        <div class="critica-body">
+          <div class="critica-title">${c.titulo}</div>
+          <div class="critica-text">${c.critica}</div>
+          ${c.acao_sugerida ? `<div class="critica-acao">→ ${c.acao_sugerida}</div>` : ''}
+          <div class="critica-footer">
+            <span class="critica-chip ${chipCls}">${label}</span>
+            ${c.dri ? `<span class="critica-dri">DRI: ${c.dri}</span>` : ''}
+            <span class="critica-dri">${c.data || ''}</span>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  // --- Memória Estratégica (top 6 mais recentes) ---
+  const aprendizados = (INTEL_DATA.aprendizados || [])
+    .slice().reverse().slice(0, 6);
+  if (!aprendizados.length) {
+    aprendizadosEl.innerHTML = '<span style="color:var(--t3);font-size:12px">Sem aprendizados registrados.</span>';
+  } else {
+    aprendizadosEl.innerHTML = aprendizados.map(a => {
+      const stripeCls = a.confianca === 'alta' ? '' : a.confianca === 'media' ? 'media' : 'baixa';
+      const tags = (a.aplicavel_a || []).map(t => `<span class="aprendizado-tag">${t}</span>`).join('');
+      return `<div class="aprendizado-item">
+        <div class="aprendizado-stripe ${stripeCls}"></div>
+        <div class="aprendizado-body">
+          <div class="aprendizado-insight">${a.insight}</div>
+          ${a.evidencia ? `<div class="aprendizado-evidencia">${a.evidencia}</div>` : ''}
+          ${a.acao_sugerida ? `<div class="aprendizado-acao">→ ${a.acao_sugerida}</div>` : ''}
+          ${tags ? `<div class="aprendizado-tags">${tags}</div>` : ''}
+        </div>
+      </div>`;
+    }).join('');
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   if (IS_READONLY) {
     document.body.classList.add('readonly');

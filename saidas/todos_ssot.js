@@ -103,13 +103,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Estratégia funcionou no mês anterior. Objetivo: impulsionar ritmo de abordadas. Valor confirmado: R$ 200 para a última semana.",
     "owner": "Ana Paula Pimentel",
     "date": "26/fev",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-24T00:00:00",
+    "completedAt": "2026-02-24T00:00:00"
   },
   {
     "id": "t009",
