@@ -52,7 +52,48 @@ window.WATCHDOG_BOOKED_META = {
       "rr_sdr_dia_target": 0.25
     }
   ],
-  "wins": [],
+  "wins": [
+    {
+      "emoji": "✅",
+      "titulo": "Nath Ferreira: Investigar impacto do Calix vs discador manual nas abordadas de Concorrência e Outbound — trazer análise para o time",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Nath Ferreira",
+      "data": "24/02",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "🎯",
+      "titulo": "Nath Ferreira: Enviar relatório da base de concorrência e bloqueios de disparo para a Vitoria",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Nath Ferreira",
+      "data": "24/02",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
+      "emoji": "🎯",
+      "titulo": "Ana Paula Pimentel: Comunicar Raíça sobre apoio ao marketing na logística do chocolate (caráter experimental, sem expectativa de mudança de área)",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Ana Paula Pimentel",
+      "data": "24/02",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Kaka: Treinar Raíça para a ação de logística do chocolate",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Kaka",
+      "data": "24/02",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Ana Paula Pimentel: Investigar uso atual de mimos (chocolate) para agendamentos na base de retração",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Ana Paula Pimentel",
+      "data": "24/02",
+      "tipo": "ENTREGA_NO_PRAZO"
+    }
+  ],
   "kpis": {
     "meta_anual_escolas": 3736,
     "meta_mensal_escolas": 953,

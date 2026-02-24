@@ -200,7 +200,7 @@ window.WATCHDOG_TODOS = [
     "task": "Disparos de 4a (25/fev): caneca reforço + caneca descarte AA",
     "comment": "Resp Lili (base) + Mkt/Vitória (disparo). Dois disparos: (1) caneca reforço para base atual já disparada, com fluxo Blip ajustado; (2) caneca para base 'descarte' AA selecionada por Lili. Orçamento R$ 1.700. NÃO disparar para AA em fase SDR ativo (a018). Pré-requisito: t012 (fluxo Blip ligado).",
     "owner": "Vitoria",
-    "date": "25/fev",
+    "date": "24/fev",
     "tier": "t1",
     "tierLabel": "A fazer",
     "warn": null,
