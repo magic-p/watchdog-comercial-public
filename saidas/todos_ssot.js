@@ -47,13 +47,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Dependente de t003 (Pimentel comunicar Raíça hoje).",
     "owner": "Kaka",
     "date": "24/fev",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": 2,
-    "updatedAt": "2026-02-23T00:00:00",
-    "completedAt": null
+    "updatedAt": "2026-02-24T00:00:00",
+    "completedAt": "2026-02-24T00:00:00"
   },
   {
     "id": "t005",
