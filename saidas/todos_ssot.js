@@ -180,17 +180,21 @@ window.WATCHDOG_TODOS = [
   },
   {
     "id": "t009",
-    "tarefa": "Escala de mimo para 41 escolas que já fecharam mas não foram convertidas (chocolate ou régua)",
+    "tarefa": "Enviar 40 mimos para bolsão hoje — 3 levas priorizadas",
     "dono": "Kaka",
-    "prazo": "26/fev",
+    "prazo": "24/fev",
     "status": "PENDENTE",
-    "tier": 2,
-    "nota": "Prioridade 1 da Lili. Diferente de t005 (mimos em retração): aqui foco é em escolas fechadas não convertidas. Definir escala e executar.",
+    "tier": 1,
+    "nota": "Top prioridade Lili (24/02). Breakdown: (1) 10 prioritárias indicadas pela Pimentel; (2) 10 agendamentos do dia; (3) 20 demais fechadas e não convertidas. Se cartão/iFood travar, usar Pix via Rafa (financeiro). Confirmar status de envio D+1.",
     "priority_rank": 1,
     "historico": [
       {
         "data": "2026-02-24",
         "evento": "Reaberto via dashboard"
+      },
+      {
+        "data": "2026-02-24",
+        "evento": "Escopo ampliado: 10 prioritárias Pimentel + 10 agendamentos dia + 20 fechadas não convertidas. Prazo antecipado para hoje."
       }
     ]
   },
@@ -227,12 +231,12 @@ window.WATCHDOG_TODOS = [
   },
   {
     "id": "t012",
-    "tarefa": "Criar filas específicas na Blip por baldinho (com supervisores confirmados)",
+    "tarefa": "Garantir fluxo novo na Blip ligado antes dos disparos de 4a",
     "dono": "Vitória",
     "prazo": "25/fev",
     "status": "PENDENTE",
     "tier": 1,
-    "nota": "Cada baldinho terá fila própria na Blip para que o supervisor atribua levantadas ao SDR responsável em horário pico 8h–9h. Pré-requisito: Pimentel fornecer nomes dos supervisores por baldinho (t013).",
+    "nota": "Criar filas específicas na Blip por baldinho + garantir que o fluxo de levantadas esteja integrado ao duplo aviso (fluxo + fila supervisor). Deve estar ativo ANTES dos disparos de quarta (t015 e t020). Pré-requisito: t013 (Pimentel fornecer supervisores por baldinho).",
     "priority_rank": null,
     "historico": []
   },
@@ -249,23 +253,23 @@ window.WATCHDOG_TODOS = [
   },
   {
     "id": "t014",
-    "tarefa": "Enviar lista de escolas de renovação caneca que responderam (com telefones) para Pimentel",
+    "tarefa": "Extrair do carteiro lista de 27+5 escolas caneca que responderam (com telefones) e enviar para Pimentel",
     "dono": "Vitória",
     "prazo": "24/fev",
     "status": "PENDENTE",
     "tier": 2,
-    "nota": "27 leads de renovação levantaram a mão no disparo de caneca (23/02) mas não foram contatados. Vitória extrai do carteiro a lista com números de telefone para que Pimentel faça contato por ligação hoje.",
+    "nota": "Apoio para t018 (Pimentel reabrir conversas). 27 renovação + 5 AA levantaram a mão no disparo de caneca (23/02). Vitória extrai do carteiro com números de telefone disponíveis. Entrega imediata — Pimentel precisa para reabrir conversas hoje.",
     "priority_rank": null,
     "historico": []
   },
   {
     "id": "t015",
-    "tarefa": "Executar disparo reforço caneca (mesma base, fluxo Blip ajustado) + ampliar para base descarte AA",
+    "tarefa": "Disparos de 4a (25/fev): caneca reforço + caneca descarte AA",
     "dono": "Vitória",
     "prazo": "25/fev",
     "status": "PENDENTE",
     "tier": 1,
-    "nota": "Dois disparos simultâneos: (1) reforço para base caneca já disparada com fluxo Blip corrigido; (2) ampliação para base 'descarte' em Anos Anteriores — seleção de base por Lili. Orçamento disponível: R$ 1.700 (saldo de janeiro). Não disparar para base AA em fase SDR ativo (a018).",
+    "nota": "Resp Lili (base) + Mkt/Vitória (disparo). Dois disparos: (1) caneca reforço para base atual já disparada, com fluxo Blip ajustado; (2) caneca para base 'descarte' AA selecionada por Lili. Orçamento R$ 1.700. NÃO disparar para AA em fase SDR ativo (a018). Pré-requisito: t012 (fluxo Blip ligado).",
     "priority_rank": null,
     "historico": []
   },
@@ -288,6 +292,50 @@ window.WATCHDOG_TODOS = [
     "status": "PENDENTE",
     "tier": 2,
     "nota": "Definir calendário e segmentação de disparos para março nas frentes de Concorrência e Retração. Incluir: volume estimado, budget, copy base e KPI de acompanhamento. Baseado em aprendizados a009 (copy retração) e a006 (oferta por baldinho).",
+    "priority_rank": null,
+    "historico": []
+  },
+  {
+    "id": "t018",
+    "tarefa": "Reabrir conversas Blip das 27+5 levantadas de caneca",
+    "dono": "Ana Paula Pimentel",
+    "prazo": "24/fev",
+    "status": "PENDENTE",
+    "tier": 1,
+    "nota": "27 renovação + 5 AA levantaram a mão no caneca (23/02) e não foram contatados. Pimentel reabre conversas na Blip e retoma contato. Apoio: Nath (abordagem SDR) e Vitória (extração da lista — t014). Prioridade: escolas com mais contexto de conversa já iniciada.",
+    "priority_rank": null,
+    "historico": []
+  },
+  {
+    "id": "t019",
+    "tarefa": "Escalar cenoura para closers — aprovar com Lili",
+    "dono": "Ana Paula Pimentel",
+    "prazo": "25/fev",
+    "status": "PENDENTE",
+    "tier": 2,
+    "nota": "t008 (cenoura ativação) já concluído. Este é específico para closers. Pimentel propõe o modelo (valor, critério, período) e aprova com Lili antes de comunicar ao time.",
+    "priority_rank": null,
+    "historico": []
+  },
+  {
+    "id": "t020",
+    "tarefa": "Disparo 4a: fechada > convertida — aguardar oferta Pimentel (bloqueado por t016)",
+    "dono": "Vitória",
+    "prazo": "25/fev",
+    "status": "PENDENTE",
+    "tier": 1,
+    "nota": "Disparo de reativação para escolas fechadas não convertidas para bolsão. BLOQUEADO: aguardar Pimentel definir oferta/argumento com time ID (t016). Assim que t016 entregar, Vitória executa o disparo em 4a.",
+    "priority_rank": null,
+    "historico": []
+  },
+  {
+    "id": "t021",
+    "tarefa": "Avaliar na 4a se vale executar push de reforço nas etapas SDR (último push RR)",
+    "dono": "Nath Ferreira",
+    "prazo": "25/fev",
+    "status": "PENDENTE",
+    "tier": 2,
+    "nota": "Checkpoint de quarta-feira: Nath avalia RR/SDR do dia e decide com Lili se executa um disparo extra para leads em etapas de SDR. Objetivo: dar último push antes do fechamento de fevereiro. Decisão em 4a → execução no mesmo dia se aprovado.",
     "priority_rank": null,
     "historico": []
   }
