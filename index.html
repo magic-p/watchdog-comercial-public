@@ -871,6 +871,17 @@
       font-size: 10px; padding: 1px 6px; border-radius: 100px;
       background: var(--card-sec); color: var(--t3);
     }
+    .intel-id {
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(120,120,150,0.18);
+      color: var(--t2);
+      border: 1px solid rgba(120,120,150,0.25);
+      display: inline-block;
+    }
+    .intel-id.alerta { background: rgba(255,93,93,0.12); border-color: rgba(255,93,93,0.25); color: var(--red); }
+    .intel-id.insight { background: rgba(78,169,255,0.12); border-color: rgba(78,169,255,0.25); color: var(--blue); }
 
     /*  PRIORITY EDIT  */
     .pri-edit-btn {
@@ -2491,7 +2502,7 @@ function renderIntel() {
           ${c.acao_sugerida ? `<div class="critica-acao">→ ${c.acao_sugerida}</div>` : ''}
           <div class="critica-footer">
             <span class="critica-chip ${chipCls}">${label}</span>
-            ${c.id ? `<span class="critica-dri">ID: ${c.id}</span>` : ''}
+            ${c.id ? `<span class="intel-id alerta">ID: ${c.id}</span>` : ''}
             ${c.dri ? `<span class="critica-dri">DRI: ${c.dri}</span>` : ''}
             <span class="critica-dri">${c.data || ''}</span>
           </div>
@@ -2516,7 +2527,7 @@ function renderIntel() {
         ${a.evidencia ? `<div class="aprendizado-evidencia">&#128202; ${a.evidencia}</div>` : ''}
         ${a.acao_sugerida ? `<div class="aprendizado-acao">→ ${a.acao_sugerida}</div>` : ''}
         ${a.fonte ? `<div class="aprendizado-evidencia" style="color:var(--t4);margin-top:3px">Fonte: ${a.fonte}</div>` : ''}
-        ${a.id ? `<div class="aprendizado-evidencia" style="color:var(--t4);margin-top:3px">ID: ${a.id}</div>` : ''}
+        ${a.id ? `<div class="aprendizado-evidencia" style="margin-top:3px"><span class="intel-id insight">ID: ${a.id}</span></div>` : ''}
           ${tags ? `<div class="aprendizado-tags">${tags}</div>` : ''}
         </div>
       </div>`;
