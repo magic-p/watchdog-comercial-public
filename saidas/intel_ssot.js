@@ -333,104 +333,6 @@ window.WATCHDOG_INTEL = {
         "todos"
       ],
       "acao_sugerida": "Karina Machado configurar mínimo 2 meios de pagamento alternativos para mimos táticos. Criar protocolo: se cartão/iFood falhar, Pix via financeiro é acionado automaticamente com limite pré-aprovado por Lili, sem nova aprovação."
-    },
-    {
-      "id": "insight023",
-      "data": "2026-02-24",
-      "fonte": "PDF: HOW TO UNDERSTAND ANYTHING (1)",
-      "categoria": "metodo",
-      "gatilho": null,
-      "insight": "Compreensao profunda comeca por decompor o problema em primeiros principios e reconstruir a partir do essencial.",
-      "evidencia": "Secao 'Fundamentos da Compreensao': decomposicao ate a essencia e pensamento de primeiros principios.",
-      "confianca": "alta",
-      "aplicavel_a": [
-        "todos"
-      ],
-      "acao_sugerida": "Antes de decidir, listar 3-5 premissas basicas e checar se sao realmente verdadeiras."
-    },
-    {
-      "id": "insight024",
-      "data": "2026-02-24",
-      "fonte": "PDF: HOW TO UNDERSTAND ANYTHING (1)",
-      "categoria": "metodo",
-      "gatilho": null,
-      "insight": "Analogias e reconhecimento de padroes aceleram entendimento ao mapear estruturas conhecidas para um novo dominio.",
-      "evidencia": "Secao 'Reconhecimento de Padroes & Mapeamento por Analogia'.",
-      "confianca": "alta",
-      "aplicavel_a": [
-        "todos"
-      ],
-      "acao_sugerida": "Para cada tema novo, identificar 1 sistema conhecido com estrutura parecida e explicitar o paralelo."
-    },
-    {
-      "id": "insight025",
-      "data": "2026-02-24",
-      "fonte": "PDF: HOW TO UNDERSTAND ANYTHING (1)",
-      "categoria": "metodo",
-      "gatilho": null,
-      "insight": "Enquadramento certo muda o resultado: inversao e '5 porques' exp?em causas reais e pontos cegos.",
-      "evidencia": "Secao 'Heuristicas de Enquadramento & Questionamento' (Inversao, 5 Porques).",
-      "confianca": "alta",
-      "aplicavel_a": [
-        "todos"
-      ],
-      "acao_sugerida": "Antes de agir, perguntar: 'Como isso falharia?' e aplicar 5 porques na causa-raiz."
-    },
-    {
-      "id": "insight026",
-      "data": "2026-02-24",
-      "fonte": "PDF: HOW TO UNDERSTAND ANYTHING (1)",
-      "categoria": "metodo",
-      "gatilho": null,
-      "insight": "Entendimento robusto vem da trelica de modelos mentais: integrar lentes de diferentes disciplinas evita vis?o unica e enviesada.",
-      "evidencia": "Secao 'Sintese & Integracao entre Dominios' (Latticework).",
-      "confianca": "alta",
-      "aplicavel_a": [
-        "todos"
-      ],
-      "acao_sugerida": "Ao analisar um problema, aplicar pelo menos 2 lentes distintas (ex.: economia + psicologia)."
-    },
-    {
-      "id": "insight027",
-      "data": "2026-02-24",
-      "fonte": "PDF: HOW TO UNDERSTAND ANYTHING (1)",
-      "categoria": "metodo",
-      "gatilho": null,
-      "insight": "Entendimento so e real quando testado: hipoteses devem ser validadas e falsificadas com evidencias.",
-      "evidencia": "Secao 'Heuristicas de Validacao & Feedback' (teste de hipoteses, falsificacao).",
-      "confianca": "alta",
-      "aplicavel_a": [
-        "todos"
-      ],
-      "acao_sugerida": "Tratar cada conclusao como hipotese e definir um teste minimo que possa refuta-la."
-    },
-    {
-      "id": "insight028",
-      "data": "2026-02-24",
-      "fonte": "PDF: HOW TO UNDERSTAND ANYTHING (1)",
-      "categoria": "metodo",
-      "gatilho": null,
-      "insight": "Externalizar o raciocinio (mapas, fluxos, diagramas) reduz carga mental e exp?e gaps do entendimento.",
-      "evidencia": "Secao 'Ferramentas & Estruturas' (modelos visuais).",
-      "confianca": "alta",
-      "aplicavel_a": [
-        "todos"
-      ],
-      "acao_sugerida": "Para qualquer decisao complexa, desenhar o fluxo em 5 minutos antes de concluir."
-    },
-    {
-      "id": "insight029",
-      "data": "2026-02-24",
-      "fonte": "PDF: HOW TO UNDERSTAND ANYTHING (1)",
-      "categoria": "metodo",
-      "gatilho": null,
-      "insight": "Metacognicao e mentalidade de crescimento melhoram aprendizado continuo: tratar confusao como etapa normal.",
-      "evidencia": "Secao 'Mindset & Metacognicao da Compreensao' (growth mindset).",
-      "confianca": "alta",
-      "aplicavel_a": [
-        "todos"
-      ],
-      "acao_sugerida": "Padronizar o uso de 'ainda' ao descrever lacunas (ex.: 'ainda nao entendi')."
     }
   ],
   "criticas_ativas": [
@@ -535,5 +437,5 @@ window.WATCHDOG_INTEL = {
       "status": "aberta"
     }
   ],
-  "ultima_atualizacao": "2026-02-24T17:50:04"
+  "ultima_atualizacao": "2026-02-24T18:17:57"
 };
