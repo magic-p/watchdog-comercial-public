@@ -159,13 +159,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Criar filas específicas na Blip por baldinho + garantir que o fluxo de levantadas esteja integrado ao duplo aviso (fluxo + fila supervisor). Deve estar ativo ANTES dos disparos de quarta (t015 e t020). Pré-requisito: t013 (Pimentel fornecer supervisores por baldinho).",
     "owner": "Vitoria",
     "date": "24/fev",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-24T00:00:00",
+    "completedAt": "2026-02-24T00:00:00"
   },
   {
     "id": "t013",

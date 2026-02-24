@@ -717,6 +717,8 @@
       pointer-events: none;
     }
     .toast.show { opacity: 1; transform: translateY(0); }
+    .toast.ok { background: var(--green); }
+    .toast.err { background: var(--red); }
 
     /*  FOOTER  */
     .footer {
@@ -1368,6 +1370,18 @@ async function apiPatch(patch) {
   }
 }
 
+async function apiCreateConfirm(task, okMsg, errMsg) {
+  const ok = await apiCreate(task);
+  toast(ok ? okMsg : errMsg, ok ? 'ok' : 'err');
+  return ok;
+}
+
+async function apiPatchConfirm(patch, okMsg, errMsg) {
+  const ok = await apiPatch(patch);
+  toast(ok ? okMsg : errMsg, ok ? 'ok' : 'err');
+  return ok;
+}
+
 function setMotorStatus(online) {
   const el = document.getElementById('motorStatus');
   if (!el) return;
@@ -1803,21 +1817,24 @@ function openTaskModal(mode = 'create', id = null) {
   err.textContent = '';
 
   const deleteBtn = document.getElementById('taskDeleteBtn');
-  if (deleteBtn) {
-    deleteBtn.style.display = taskFormMode === 'edit' ? 'inline-flex' : 'none';
-    deleteBtn.onclick = async () => {
-      if (!editingTaskId) return;
-      const t = tasks.find(x => x.id === editingTaskId);
-      if (!t) return;
-      if (!confirm(`Excluir a tarefa "${t.task}"?`)) return;
-      await apiPatch({ id: editingTaskId, deleted: true });
-      tasks = tasks.filter(x => x.id !== editingTaskId);
-      save();
-      closeTaskModal();
-      renderTasks();
-      toast('Tarefa excluída');
-    };
-  }
+    if (deleteBtn) {
+      deleteBtn.style.display = taskFormMode === 'edit' ? 'inline-flex' : 'none';
+      deleteBtn.onclick = async () => {
+        if (!editingTaskId) return;
+        const t = tasks.find(x => x.id === editingTaskId);
+        if (!t) return;
+        if (!confirm(`Excluir a tarefa "${t.task}"?`)) return;
+        await apiPatchConfirm(
+          { id: editingTaskId, deleted: true },
+          'Tarefa excluída (SSOT ok)',
+          'Falha ao excluir no SSOT (motor offline)'
+        );
+        tasks = tasks.filter(x => x.id !== editingTaskId);
+        save();
+        closeTaskModal();
+        renderTasks();
+      };
+    }
 
   refreshTaskDateHint();
   overlay.classList.add('open');
@@ -1845,7 +1862,7 @@ function refreshTaskDateHint() {
   hint.classList.add(check.ok ? 'ok' : 'err');
 }
 
-function submitTaskForm(e) {
+async function submitTaskForm(e) {
   e.preventDefault();
   const taskInput = document.getElementById('taskTask');
   const ownerSelect = document.getElementById('taskOwner');
@@ -1887,8 +1904,11 @@ function submitTaskForm(e) {
       task.tier = 'done';
       task.tierLabel = 'Concluído';
     }
-    apiPatch({ id: task.id, task: task.task, owner: task.owner, date: task.date, comment: commentVal });
-    toast('Tarefa atualizada');
+    await apiPatchConfirm(
+      { id: task.id, task: task.task, owner: task.owner, date: task.date, comment: commentVal },
+      'Tarefa atualizada (SSOT ok)',
+      'Falha ao salvar no SSOT (motor offline)'
+    );
   } else {
     const _nums = tasks.map(t => parseInt(String(t.id).replace(/^t0*/,''),10)).filter(n=>!isNaN(n));
     const _next = (_nums.length ? Math.max(..._nums) : 0) + 1;
@@ -1906,8 +1926,11 @@ function submitTaskForm(e) {
       updatedAt: new Date().toISOString(),
     };
     tasks.push(newTask);
-    apiCreate(newTask);
-    toast('Tarefa adicionada');
+    await apiCreateConfirm(
+      newTask,
+      'Tarefa adicionada (SSOT ok)',
+      'Falha ao criar no SSOT (motor offline)'
+    );
   }
 
   enforceWeeklyTop3(tasks);
@@ -2055,7 +2078,7 @@ function renderTasks() {
   });
 
   document.querySelectorAll('.tier-select[data-tier-id]').forEach(sel => {
-    sel.addEventListener('change', e => {
+    sel.addEventListener('change', async e => {
       const id = e.target.dataset.tierId;
       const task = tasks.find(t => t.id === id);
       if (!task) return;
@@ -2074,14 +2097,18 @@ function renderTasks() {
         task.tier = v;
         task.tierLabel = v === 't1' ? 'A fazer' : 'Fazendo';
       }
-      apiPatch({ id: task.id, done: task.done, tier: task.tier });
+      await apiPatchConfirm(
+        { id: task.id, done: task.done, tier: task.tier },
+        'Status atualizado (SSOT ok)',
+        'Falha ao salvar status no SSOT'
+      );
       enforceWeeklyTop3(tasks);
       save(); renderTasks();
     });
   });
 
   document.querySelectorAll('select[data-priority-id]').forEach(sel => {
-    sel.addEventListener('change', e => {
+    sel.addEventListener('change', async e => {
       const id = e.target.dataset.priorityId;
       const task = tasks.find(t => t.id === id);
       if (!task || task.done) return;
@@ -2093,14 +2120,18 @@ function renderTasks() {
       }
       task.priorityRank = chosen;
       task.updatedAt = new Date().toISOString();
-      apiPatch({ id: task.id, priorityRank: task.priorityRank });
+      await apiPatchConfirm(
+        { id: task.id, priorityRank: task.priorityRank },
+        'Prioridade atualizada (SSOT ok)',
+        'Falha ao salvar prioridade no SSOT'
+      );
       enforceWeeklyTop3(tasks);
       save(); renderTasks();
     });
   });
 
   document.querySelectorAll('.chk').forEach(cb => {
-    cb.addEventListener('change', e => {
+    cb.addEventListener('change', async e => {
       const id = e.target.dataset.id;
       const task = tasks.find(t => t.id === id);
       if (!task) return;
@@ -2118,7 +2149,11 @@ function renderTasks() {
         task.tier      = s ? (s.tier === 'done' ? 't2' : s.tier) : 't2';
         task.tierLabel = s ? (s.tier === 't1' ? 'A fazer' : 'Fazendo') : 'A fazer';
       }
-      apiPatch({ id: task.id, done: task.done, tier: task.tier });
+      await apiPatchConfirm(
+        { id: task.id, done: task.done, tier: task.tier },
+        'Conclusão salva (SSOT ok)',
+        'Falha ao salvar conclusão no SSOT'
+      );
       enforceWeeklyTop3(tasks);
       save(); renderTasks(); counter();
     });
@@ -2252,9 +2287,13 @@ function addTask() {
   openTaskModal('create');
 }
 
-function toast(msg) {
+function toast(msg, tone) {
   const el = document.getElementById('toast');
-  el.textContent = msg; el.classList.add('show');
+  if (!el) return;
+  el.textContent = msg;
+  el.classList.remove('ok', 'err');
+  if (tone === 'ok' || tone === 'err') el.classList.add(tone);
+  el.classList.add('show');
   setTimeout(() => el.classList.remove('show'), 2800);
 }
 
