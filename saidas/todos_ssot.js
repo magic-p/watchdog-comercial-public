@@ -33,13 +33,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Ação envolve 41 escolas. Experimental esta semana.",
     "owner": "Ana Paula Pimentel",
     "date": "23/fev",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-24T00:00:00",
+    "completedAt": "2026-02-24T00:00:00"
   },
   {
     "id": "t004",
