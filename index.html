@@ -763,6 +763,7 @@
     }
 
     .wins-bd { padding: 0 18px; }
+    .wins-bd.collapsed { display: none; }
 
     .win-item {
       display: flex; gap: 12px; align-items: flex-start;
@@ -871,6 +872,24 @@
       font-size: 10px; padding: 1px 6px; border-radius: 100px;
       background: var(--card-sec); color: var(--t3);
     }
+    .intel-tabs { display: flex; gap: 6px; margin-bottom: 8px; }
+    .intel-tab {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--sep);
+      background: var(--card-sec);
+      color: var(--t2);
+      cursor: pointer;
+    }
+    .intel-tab.active {
+      background: var(--blue-mid);
+      color: var(--t1);
+      border-color: rgba(78,169,255,0.35);
+    }
+    .intel-tab-panel { display: none; }
+    .intel-tab-panel.active { display: block; }
+    .intel-tabs.alertas { margin-bottom: 8px; }
     .intel-id {
       font-size: 10px;
       padding: 2px 7px;
@@ -1203,7 +1222,10 @@
         </span>
         <span class="count-badge" id="alertCount">0</span>
       </div>
-      <div class="card-bd" id="criticalAlertsList"></div>
+      <div class="card-bd">
+        <div id="criticalAlertTop"></div>
+        <div id="criticalAlertsList"></div>
+      </div>
     </div>
 
   </div>
@@ -1216,9 +1238,12 @@
           <span class="hd-icon green">&#10003;</span>
           Wins da Semana
         </span>
-        <span class="count-badge" id="winsCount">-</span>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <span class="count-badge" id="winsCount">-</span>
+          <button class="btn" id="winsToggle" type="button">Mostrar</button>
+        </div>
       </div>
-      <div class="wins-bd" id="winsList"></div>
+      <div class="wins-bd collapsed" id="winsList"></div>
     </div>
   </div>
 
@@ -1256,33 +1281,6 @@
     </div>
   </div>
 
-  <!-- CAMPANHAS & INSIGHTS -->
-  <div class="section-hd reveal" style="animation-delay:.34s">
-    <span class="section-hd-label">Campanhas &amp; Insights</span>
-    <span class="section-hd-meta" id="campanhasCount">-</span>
-  </div>
-
-  <div class="campanhas-grid reveal" style="animation-delay:.36s">
-    <div class="card">
-      <div class="card-hd">
-        <span class="card-hd-label">
-          <span class="hd-icon blue">&#128227;</span>
-          Campanhas Recentes
-        </span>
-      </div>
-      <div class="card-bd" id="campanhasList"><span style="color:var(--t3);font-size:12px">Sem campanhas registradas.</span></div>
-    </div>
-    <div class="card">
-      <div class="card-hd">
-        <span class="card-hd-label">
-          <span class="hd-icon orange">&#128161;</span>
-          Insights do Motor
-        </span>
-      </div>
-      <div class="card-bd" id="insightsList"><span style="color:var(--t3);font-size:12px">Aguardando dados de campanha.</span></div>
-    </div>
-  </div>
-
   <!-- CLAUDETE — INTELIGÊNCIA ESTRATÉGICA -->
   <div class="intel-grid reveal" style="animation-delay:.38s">
     <div class="card">
@@ -1292,7 +1290,14 @@
           Alertas da Claudete
         </span>
       </div>
-      <div class="card-bd" id="criticasList"><span style="color:var(--t3);font-size:12px">Sem críticas ativas.</span></div>
+      <div class="card-bd">
+        <div class="intel-tabs alertas">
+          <button class="intel-tab active" data-alerta-tab="ativos" type="button">Ativos</button>
+          <button class="intel-tab" data-alerta-tab="arquivados" type="button">Arquivados</button>
+        </div>
+        <div class="intel-tab-panel active" id="criticasList"><span style="color:var(--t3);font-size:12px">Sem alertas ativos.</span></div>
+        <div class="intel-tab-panel" id="criticasArchivedList"><span style="color:var(--t3);font-size:12px">Sem alertas arquivados.</span></div>
+      </div>
     </div>
     <div class="card">
       <div class="card-hd">
@@ -1301,7 +1306,14 @@
           Insights da Claudete
         </span>
       </div>
-      <div class="card-bd" id="aprendizadosList"><span style="color:var(--t3);font-size:12px">Sem aprendizados registrados.</span></div>
+      <div class="card-bd">
+        <div class="intel-tabs">
+          <button class="intel-tab active" data-intel-tab="ativos" type="button">Ativos</button>
+          <button class="intel-tab" data-intel-tab="arquivados" type="button">Arquivados</button>
+        </div>
+        <div class="intel-tab-panel active" id="aprendizadosList"><span style="color:var(--t3);font-size:12px">Sem aprendizados registrados.</span></div>
+        <div class="intel-tab-panel" id="aprendizadosArchivedList"><span style="color:var(--t3);font-size:12px">Sem aprendizados arquivados.</span></div>
+      </div>
     </div>
   </div>
 
@@ -1719,6 +1731,7 @@ function buildCriticalAlerts(list) {
 
 function renderCriticalAlerts() {
   const host = document.getElementById('criticalAlertsList');
+  const topHost = document.getElementById('criticalAlertTop');
   const badge = document.getElementById('alertCount');
   if (!host) return;
 
@@ -1726,8 +1739,21 @@ function renderCriticalAlerts() {
   if (badge) badge.textContent = String(alerts.length);
 
   if (!alerts.length) {
+    if (topHost) topHost.innerHTML = '';
     host.innerHTML = '<div class="alert-item"><div class="alert-stripe orange"></div><div><span class="status-chip orange">Sem Cr\u00EDtico</span><div class="alert-title">Nenhum alerta cr\u00EDtico aberto.</div></div></div>';
     return;
+  }
+
+  if (topHost) {
+    const a = alerts[0];
+    topHost.innerHTML = `
+      <div class="alert-item" style="margin-bottom:10px">
+        <div class="alert-stripe ${a.level}"></div>
+        <div>
+          <span class="status-chip ${a.level}"><span class="alert-chip-icon">${alertTypeIcon(a.chip)}</span>${esc(a.chip)}</span>
+          <div class="alert-title">#1 agora: ${esc(stripLeadingBracketTag(a.text))}</div>
+        </div>
+      </div>`;
   }
 
   host.innerHTML = alerts.map(a => `
@@ -1829,6 +1855,7 @@ function setTaskView(view) {
     tabDone.setAttribute('aria-selected', taskView === 'done' ? 'true' : 'false');
   }
 }
+
 
 
 function buildOwnerOptions(selectedOwner = '') {
@@ -2095,6 +2122,9 @@ function renderTasks() {
   updateSortHeaders();
 
   sortedTasks(tasks).forEach(t => {
+    if (taskView === 'done' && !t.done) return;
+    if (taskView === 'open' && t.done) return;
+
     t.owner = normalizeOwnerName(t.owner);
     t.date = formatTaskDate(t.date) || String(t.date || '').trim();
     const tr = document.createElement('tr');
@@ -2406,89 +2436,28 @@ function renderWins() {
   if (badge) badge.textContent = source.length;
 }
 
-function renderCampanhas() {
-  const listEl    = document.getElementById('campanhasList');
-  const insEl     = document.getElementById('insightsList');
-  const countEl   = document.getElementById('campanhasCount');
-  if (!listEl || !insEl) return;
-
-  if (!CAMPANHAS_DATA) {
-    listEl.innerHTML = '<span style="color:var(--t3);font-size:12px">Motor offline — execute o motor para gerar dados.</span>';
-    return;
-  }
-
-  const campanhas = CAMPANHAS_DATA.campanhas || [];
-  const insights  = CAMPANHAS_DATA.insights  || [];
-
-  if (countEl) countEl.textContent = campanhas.length + ' campanha' + (campanhas.length !== 1 ? 's' : '');
-
-  // --- Campanhas ---
-  if (!campanhas.length) {
-    listEl.innerHTML = '<span style="color:var(--t3);font-size:12px">Nenhuma campanha registrada ainda.</span>';
-  } else {
-    listEl.innerHTML = campanhas.map(c => {
-      const segsHtml = (c.segmentos || []).map(s => {
-        if (s.objetivo === 'envio_de_lista') {
-          const lbl = s.levantadas != null ? s.levantadas + ' envios' : 'aguardando';
-          return `<span class="seg-chip pending">${s.nome}: ${lbl}</span>`;
-        }
-        if (s.taxa_pct != null) {
-          const cls = s.taxa_pct >= CAMPANHA_TAXA_VERDE ? 'ok' : s.taxa_pct >= CAMPANHA_TAXA_AZUL ? '' : 'warn';
-          return `<span class="seg-chip ${cls}">${s.nome}: ${s.taxa_pct.toFixed(1)}%</span>`;
-        }
-        return `<span class="seg-chip pending">${s.nome}: aguardando</span>`;
-      }).join('');
-      const status = c.status === 'parcial' ? ' <span style="color:var(--orange);font-size:10px">(parcial)</span>' : '';
-      const total = c.total_levantadas != null
-        ? `${c.total_levantadas} levantadas de ${(c.total_contatos||0).toLocaleString('pt-BR')} contatos (${(c.taxa_geral_pct||0).toFixed(2)}%)`
-        : '';
-      return `<div class="campanha-item">
-        <div class="campanha-header">
-          <span class="campanha-title">${c.canal} — ${c.executor || ''}${status}</span>
-          <span class="campanha-date">${c.data || ''}</span>
-        </div>
-        <div class="campanha-segs">${segsHtml}</div>
-        ${total ? `<div class="campanha-total">${total}</div>` : ''}
-      </div>`;
-    }).join('');
-  }
-
-  // --- Insights ---
-  if (!insights.length) {
-    insEl.innerHTML = '<span style="color:var(--t3);font-size:12px">Aguardando dados de campanha.</span>';
-  } else {
-    insEl.innerHTML = insights.map(txt => {
-      const lower = txt.toLowerCase();
-      const dotCls = lower.includes('melhor') || lower.includes('converteu') ? 'green'
-                   : lower.includes('menor') || lower.includes('revisar')    ? 'orange'
-                   : lower.includes('aguardando')                            ? 'gray'
-                   : '';
-      return `<div class="insight-item">
-        <div class="insight-dot ${dotCls}"></div>
-        <div style="flex:1">
-          <div class="insight-text">${txt}</div>
-          <div style="font-size:10px;color:var(--t4);margin-top:2px">Calculado a partir dos dados da campanha</div>
-        </div>
-      </div>`;
-    }).join('');
-  }
-}
+function renderCampanhas() {}
 
 function renderIntel() {
   const criticasEl     = document.getElementById('criticasList');
+  const criticasArchEl = document.getElementById('criticasArchivedList');
   const aprendizadosEl = document.getElementById('aprendizadosList');
-  if (!criticasEl || !aprendizadosEl) return;
+  const arquivadosEl   = document.getElementById('aprendizadosArchivedList');
+  if (!criticasEl || !criticasArchEl || !aprendizadosEl || !arquivadosEl) return;
 
   if (!INTEL_DATA) {
-    criticasEl.innerHTML     = '<span style="color:var(--t3);font-size:12px">intel_ssot.js não carregado.</span>';
-    aprendizadosEl.innerHTML = '<span style="color:var(--t3);font-size:12px">intel_ssot.js não carregado.</span>';
+    const msg = '<span style="color:var(--t3);font-size:12px">intel_ssot.js não carregado.</span>';
+    criticasEl.innerHTML = msg;
+    criticasArchEl.innerHTML = msg;
+    aprendizadosEl.innerHTML = msg;
+    arquivadosEl.innerHTML = msg;
     return;
   }
 
-  // --- Críticas Ativas ---
-  const criticas = (INTEL_DATA.criticas_ativas || []).filter(c => c.status === 'aberta');
+  // --- Alertas ativos ---
+  const criticas = (INTEL_DATA.criticas_ativas || []).filter(c => !c.status || c.status === 'aberta');
   if (!criticas.length) {
-    criticasEl.innerHTML = '<span style="color:var(--t3);font-size:12px">Nenhuma crítica ativa no momento.</span>';
+    criticasEl.innerHTML = '<span style="color:var(--t3);font-size:12px">Nenhum alerta ativo no momento.</span>';
   } else {
     criticasEl.innerHTML = criticas.map(c => {
       const stripeCls = c.prioridade === 'critica' ? '' : c.prioridade === 'alta' ? 'alta' : 'media';
@@ -2511,8 +2480,9 @@ function renderIntel() {
     }).join('');
   }
 
-  // --- Memória Estratégica (top 6 mais recentes) ---
+  // --- Insights da Claudete (ativos) ---
   const aprendizados = (INTEL_DATA.aprendizados || [])
+    .filter(a => !a.status || a.status === 'ativo')
     .slice().reverse().slice(0, 6);
   if (!aprendizados.length) {
     aprendizadosEl.innerHTML = '<span style="color:var(--t3);font-size:12px">Sem aprendizados registrados.</span>';
@@ -2528,6 +2498,60 @@ function renderIntel() {
         ${a.acao_sugerida ? `<div class="aprendizado-acao">→ ${a.acao_sugerida}</div>` : ''}
         ${a.fonte ? `<div class="aprendizado-evidencia" style="color:var(--t4);margin-top:3px">Fonte: ${a.fonte}</div>` : ''}
         ${a.id ? `<div class="aprendizado-evidencia" style="margin-top:3px"><span class="intel-id insight">ID: ${a.id}</span></div>` : ''}
+          ${tags ? `<div class="aprendizado-tags">${tags}</div>` : ''}
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  // --- Alertas arquivados ---
+  const criticasArch = (INTEL_DATA.criticas_ativas || []).filter(c => c.status && c.status !== 'aberta');
+  if (!criticasArch.length) {
+    criticasArchEl.innerHTML = '<span style="color:var(--t3);font-size:12px">Sem alertas arquivados.</span>';
+  } else {
+    criticasArchEl.innerHTML = criticasArch.map(c => {
+      const stripeCls = c.prioridade === 'critica' ? '' : c.prioridade === 'alta' ? 'alta' : 'media';
+      const chipCls   = stripeCls;
+      const label     = c.prioridade === 'critica' ? 'Crítico' : c.prioridade === 'alta' ? 'Alta' : 'Média';
+      const statusTxt = c.status ? `Status: ${c.status}` : '';
+      return `<div class="critica-item">
+        <div class="critica-stripe ${stripeCls}"></div>
+        <div class="critica-body">
+          <div class="critica-title">${c.titulo}</div>
+          <div class="critica-text">${c.critica}</div>
+          ${c.acao_sugerida ? `<div class="critica-acao">→ ${c.acao_sugerida}</div>` : ''}
+          <div class="critica-footer">
+            <span class="critica-chip ${chipCls}">${label}</span>
+            ${c.id ? `<span class="intel-id alerta">ID: ${c.id}</span>` : ''}
+            ${c.dri ? `<span class="critica-dri">DRI: ${c.dri}</span>` : ''}
+            <span class="critica-dri">${c.data || ''}</span>
+          </div>
+          ${statusTxt ? `<div class="critica-dri" style="margin-top:4px">`+statusTxt+`</div>` : ''}
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  // --- Insights arquivados ---
+  const arquivados = (INTEL_DATA.aprendizados || [])
+    .filter(a => a.status && a.status !== 'ativo')
+    .slice().reverse().slice(0, 10);
+  if (!arquivados.length) {
+    arquivadosEl.innerHTML = '<span style="color:var(--t3);font-size:12px">Sem aprendizados arquivados.</span>';
+  } else {
+    arquivadosEl.innerHTML = arquivados.map(a => {
+      const stripeCls = a.confianca === 'alta' ? '' : a.confianca === 'media' ? 'media' : 'baixa';
+      const tags = (a.aplicavel_a || []).map(t => `<span class="aprendizado-tag">${t}</span>`).join('');
+      const statusTxt = a.status ? `Status: ${a.status}` : '';
+      return `<div class="aprendizado-item">
+        <div class="aprendizado-stripe ${stripeCls}"></div>
+        <div class="aprendizado-body">
+        <div class="aprendizado-insight">${a.insight}</div>
+        ${a.evidencia ? `<div class="aprendizado-evidencia">&#128202; ${a.evidencia}</div>` : ''}
+        ${a.acao_sugerida ? `<div class="aprendizado-acao">→ ${a.acao_sugerida}</div>` : ''}
+        ${a.fonte ? `<div class="aprendizado-evidencia" style="color:var(--t4);margin-top:3px">Fonte: ${a.fonte}</div>` : ''}
+        ${a.id ? `<div class="aprendizado-evidencia" style="margin-top:3px"><span class="intel-id insight">ID: ${a.id}</span></div>` : ''}
+        ${statusTxt ? `<div class="aprendizado-evidencia" style="margin-top:3px">`+statusTxt+`</div>` : ''}
           ${tags ? `<div class="aprendizado-tags">${tags}</div>` : ''}
         </div>
       </div>`;
@@ -2553,8 +2577,41 @@ document.addEventListener('DOMContentLoaded', () => {
   renderTasks();
   renderBookedMeta();
   renderWins();
-  renderCampanhas();
+  // Campanhas & Insights do motor removidos.
   renderIntel();
+
+  document.querySelectorAll('.intel-tab[data-intel-tab]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.getAttribute('data-intel-tab');
+      document.querySelectorAll('.intel-tab[data-intel-tab]').forEach(b => b.classList.toggle('active', b === btn));
+      document.querySelectorAll('#aprendizadosList, #aprendizadosArchivedList').forEach(p => {
+        const isActive = (target === 'ativos' && p.id === 'aprendizadosList') ||
+          (target === 'arquivados' && p.id === 'aprendizadosArchivedList');
+        p.classList.toggle('active', isActive);
+      });
+    });
+  });
+
+  document.querySelectorAll('.intel-tab[data-alerta-tab]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.getAttribute('data-alerta-tab');
+      document.querySelectorAll('.intel-tab[data-alerta-tab]').forEach(b => b.classList.toggle('active', b === btn));
+      document.querySelectorAll('#criticasList, #criticasArchivedList').forEach(p => {
+        const isActive = (target === 'ativos' && p.id === 'criticasList') ||
+          (target === 'arquivados' && p.id === 'criticasArchivedList');
+        p.classList.toggle('active', isActive);
+      });
+    });
+  });
+
+  const winsToggle = document.getElementById('winsToggle');
+  const winsList = document.getElementById('winsList');
+  if (winsToggle && winsList) {
+    winsToggle.addEventListener('click', () => {
+      const collapsed = winsList.classList.toggle('collapsed');
+      winsToggle.textContent = collapsed ? 'Mostrar' : 'Ocultar';
+    });
+  }
 
   document.querySelectorAll('th[data-sort]').forEach(th => {
     th.addEventListener('click', () => {

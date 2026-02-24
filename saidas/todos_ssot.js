@@ -229,12 +229,12 @@ window.WATCHDOG_TODOS = [
     "comment": "Definir calendário e segmentação de disparos para março nas frentes de Concorrência e Retração. Incluir: volume estimado, budget, copy base e KPI de acompanhamento. Baseado em aprendizados insight009 (copy retração) e insight006 (oferta por baldinho).",
     "owner": "Kaka",
     "date": "01/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "t1",
+    "tierLabel": "A fazer",
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": null,
+    "updatedAt": "2026-02-24T00:00:00",
     "completedAt": null
   },
   {
