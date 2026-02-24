@@ -131,13 +131,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Lili solicitou na reunião de 23/02. Garantir que direção do time esteja alinhada com as bases de maior potencial.",
     "owner": "Nath Ferreira",
     "date": "24/fev",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-24T00:00:00",
+    "completedAt": "2026-02-24T00:00:00"
   },
   {
     "id": "t011",
