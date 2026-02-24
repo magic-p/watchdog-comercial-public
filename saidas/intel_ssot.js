@@ -1,6 +1,6 @@
 window.WATCHDOG_INTEL = {
   "persona": {
-    "nome": "Marina",
+    "nome": "Claudete",
     "papel": "Chief of Staff & Head of Marketing Analytics",
     "ultima_atualizacao": "2026-02-24"
   },
@@ -157,6 +157,63 @@ window.WATCHDOG_INTEL = {
         "todos"
       ],
       "acao_sugerida": "Qualificação de lista antes do discador. Mimo físico antes da ligação (a002). Régua de aquecimento digital 72h antes do contato SDR."
+    },
+    {
+      "id": "a011",
+      "data": "2026-02-24",
+      "fonte": "Daily comercial 24/02/2026 — Nath Ferreira (histórico 09/02–24/02)",
+      "categoria": "comportamento",
+      "gatilho": null,
+      "insight": "O time Ax compromete sistematicamente os indicadores de Outbound e Concorrência. Quando excluído, o esforço do time próprio fica em linha com janeiro. Os dados globais de Outbound não são comparáveis entre períodos sem isolar o efeito Ax.",
+      "evidencia": "Daily 24/02: 'Desconsiderando o time de AX, nossas taxas de esforço estão melhores em relação ao desempenho de janeiro/26'. Outbound semana: 57/3.263 (1,7%) com Ax vs perfomance histórica de 50%+ sem Ax.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "outbound",
+        "concorrencia"
+      ],
+      "acao_sugerida": "Sempre separar métrica de Outbound entre 'time próprio' e 'Ax' nos relatórios. Decisões de discador e abordagem nunca devem ser baseadas no número consolidado."
+    },
+    {
+      "id": "a012",
+      "data": "2026-02-24",
+      "fonte": "Daily comercial 24/02/2026 — histórico semanal Retração",
+      "categoria": "baldinho",
+      "gatilho": null,
+      "insight": "Retração tem padrão de pico no início do mês e queda no final. O resultado mensal pode estar verde enquanto a semana corrente está com RR/SDR em 40% da meta — sinal de que o mês seguinte começa em débito.",
+      "evidencia": "Retração mês (24/02): RR/SDR 0,53/0,50 (107%) 🟢. Retração semana (24/02): RR/SDR 0,20/0,50 (40%) 🔴. Meta mensal de alunos batida, mas ritmo semanal colapsado.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "retracao"
+      ],
+      "acao_sugerida": "Monitorar RR/SDR semanal de Retração separadamente do mensal. Alertar quando semana cair abaixo de 70% da meta mesmo que o mês esteja verde."
+    },
+    {
+      "id": "a013",
+      "data": "2026-02-24",
+      "fonte": "Daily comercial 24/02/2026 — evolução diária Novas",
+      "categoria": "timing",
+      "gatilho": null,
+      "insight": "Novas registrou ritmo médio de 9,4 cadastros/dia no mês de fevereiro. Para fechar a meta de 238 no prazo precisaria de 20/dia nos últimos dias — mais que o dobro do ritmo histórico do mês. O risco de não fechamento é real.",
+      "evidencia": "Evolução cadastros: 10/02=63, 13/02=109, 19/02=126, 20/02=133, 23/02=143, 24/02=157. Ritmo: ~9,4/dia médio. Meta restante: 81 em ~4 dias úteis = 20/dia necessário.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "novas"
+      ],
+      "acao_sugerida": "A partir de agora, alertar quando Novas estiver com ritmo abaixo do necessário para fechar no mês. Calcular trajetória diária, não só % YTD."
+    },
+    {
+      "id": "a014",
+      "data": "2026-02-24",
+      "fonte": "Daily comercial 24/02/2026 — ações da semana",
+      "categoria": "comportamento",
+      "gatilho": "reciprocidade",
+      "insight": "O time já internalizou a lógica de mimo como alavanca de conversão. Caneca, chocolate e vale-presente aparecem como iniciativa do próprio time nas ações da semana — sem precisar de instrução externa. Isso valida que o padrão se tornou cultural.",
+      "evidencia": "Ações 24/02: '40 envios de mimos hoje', 'Reabrir conversas blip das 27+5 levantadas de canecas', 'chocolate para aparição de outbound?' — todas iniciativas espontâneas do time.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "todos"
+      ],
+      "acao_sugerida": "Não deixar mimo depender de aprovação de ciclo longo. Autorizar Pimentel e Nath a acionar mimo tático com autonomia, reportando resultado em D+3."
     }
   ],
   "criticas_ativas": [
@@ -183,13 +240,33 @@ window.WATCHDOG_INTEL = {
     {
       "id": "cr003",
       "data": "2026-02-24",
-      "titulo": "Base de Novas/Prioritárias: risco de processamento tardio repetir 2025",
-      "critica": "Em 2025, processamento tardio de Novas e Prioritárias para final de fevereiro custou R$ 700k+. Fevereiro de 2026 está terminando. Se não houver contato efetivo com essas bases até 28/fev, o padrão vai se repetir.",
-      "acao_sugerida": "Lili confirmar cobertura de base Novas até 28/fev. Se não houver cobertura plena, acionar disparo WhatsApp emergencial para as não-contatadas.",
+      "titulo": "Novas: ritmo atual não fecha 238 cadastros até 28/fev",
+      "critica": "Com 157 cadastros em 24/02 e ~4 dias úteis restantes, precisamos de 20/dia para fechar 238. O ritmo do mês foi 9,4/dia. Dobrar o ritmo no final do mês é excepcional, não o esperado. Em 2025 esse mesmo padrão custou R$ 522k.",
+      "acao_sugerida": "Lili confirmar quais escolas têm lista 'dentro de casa' com previsão de envio até 28/02. Acionar WhatsApp urgente para as que estão em etapas avançadas mas sem cadastro fechado.",
       "prioridade": "critica",
       "dri": "Lili",
       "status": "aberta"
+    },
+    {
+      "id": "cr004",
+      "data": "2026-02-24",
+      "titulo": "Retração semana: RR/SDR em 40% — março começa em débito",
+      "critica": "O mês de fevereiro de Retração está verde (107% RR/SDR), mas a semana de 24/02 está em 0,20/0,50 (40%). O resultado mensal está sendo sustentado por estoque de semanas anteriores. Se esse ritmo se repetir em março, o mês começa morto.",
+      "acao_sugerida": "Nath verificar esforço de SDR em Retração nessa semana: é inércia do time, Ax ou decisão de manter o 0,5 por conta de meta já batida? Definir ritmo mínimo para semana que vem.",
+      "prioridade": "alta",
+      "dri": "Nath Ferreira",
+      "status": "aberta"
+    },
+    {
+      "id": "cr005",
+      "data": "2026-02-24",
+      "titulo": "Renovação LT Part: RR/SDR travado em 1,42 há 5 dias",
+      "critica": "De 19/02 a 24/02, o RR/SDR da base LT Part ficou em 1,42 — mesmo número, todos os dias. Ou os dados não estão sendo atualizados corretamente, ou o esforço está estagnado. Meta é 2,0.",
+      "acao_sugerida": "Karina ou Pimentel verificar se o dado está sendo registrado corretamente. Se sim, identificar qual ação específica pode mover o RR/SDR LT antes do fechamento do mês.",
+      "prioridade": "alta",
+      "dri": "Ana Paula Pimentel",
+      "status": "aberta"
     }
   ],
-  "ultima_atualizacao": "2026-02-24T00:00:00"
+  "ultima_atualizacao": "2026-02-24T14:00:00"
 };
