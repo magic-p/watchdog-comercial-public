@@ -75,13 +75,13 @@ window.WATCHDOG_TODOS = [
     "comment": "1.760 já gasto. Confirmar saldo antes de novos disparos.",
     "owner": "Vitoria",
     "date": "25/fev",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-24T00:00:00",
+    "completedAt": "2026-02-24T00:00:00"
   },
   {
     "id": "t007",
