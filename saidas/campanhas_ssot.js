@@ -82,5 +82,5 @@ window.WATCHDOG_CAMPANHAS = {
     "Aguardando resultado: Outbound",
     "Campanha 2026-02-23: 38 levantadas de 5,315 contatos (0.71%) (resultado parcial)"
   ],
-  "updated": "2026-02-24T10:49:54.759489"
+  "updated": "2026-02-24T11:17:48.496050"
 };
