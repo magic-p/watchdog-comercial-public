@@ -144,7 +144,7 @@ window.WATCHDOG_TODOS = [
     "task": "Fechar Doc de Planejamento de Mkt",
     "comment": "None",
     "owner": "Pedro",
-    "date": "26/fev",
+    "date": "27/fev",
     "tier": "t1",
     "tierLabel": "A fazer",
     "warn": null,

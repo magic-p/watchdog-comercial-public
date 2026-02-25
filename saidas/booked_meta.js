@@ -86,12 +86,12 @@ window.WATCHDOG_BOOKED_META = {
       "tipo": "ENTREGA_NO_PRAZO"
     },
     {
-      "emoji": "✅",
-      "titulo": "Ana Paula Pimentel: Avaliar na 4a se vale executar push de reforço nas etapas SDR (último push RR)",
-      "desc": "Concluida no prazo definido.",
-      "dri": "Ana Paula Pimentel",
+      "emoji": "🎯",
+      "titulo": "Vitoria: Disparo 4a: fechada > convertida — aguardar oferta Pimentel (bloqueado por t016)",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Vitoria",
       "data": "25/02",
-      "tipo": "ENTREGA_NO_PRAZO"
+      "tipo": "ENTREGA_CONCLUIDA"
     }
   ],
   "kpis": {
