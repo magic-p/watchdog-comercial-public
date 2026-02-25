@@ -134,15 +134,79 @@ window.WATCHDOG_CAMPANHAS = {
       "total_levantadas": 80,
       "taxa_geral_pct": 2.43,
       "observacoes": "Resumo consolidado do CSV 23/02?27/02. Taxas calculadas por entregues."
+    },
+    {
+      "id": "c003",
+      "data": "2026-02-25",
+      "canal": "WhatsApp",
+      "executor": "Vitoria",
+      "status": "parcial",
+      "segmentos": [
+        {
+          "nome": "Caneca Reforço — AA Descarte",
+          "baldinho": "anos_anteriores",
+          "objetivo": "levantadas",
+          "contatos": 400,
+          "levantadas": 12,
+          "taxa_pct": null,
+          "nota": "Base de descarte AA — escolas sem contato ativo. Taxa final a calcular com total de entregues confirmado.",
+          "copy_resumo": "Segundo disparo da caneca para base descarte AA. Continuidade da ação de 23/02.",
+          "abordagem": "mimo físico (caneca aquarela) + urgência + condicionamento à adesão"
+        },
+        {
+          "nome": "Caneca Reforço — Renovação (ping novo)",
+          "baldinho": "renovacao",
+          "objetivo": "levantadas",
+          "contatos": null,
+          "levantadas": 5,
+          "taxa_pct": null,
+          "nota": "Base já disparada em 23/02 recebeu ping de reforço.",
+          "abordagem": "reforço de urgência + caneca como benefício condicional à adesão"
+        },
+        {
+          "nome": "Caneca — Concorrência",
+          "baldinho": "concorrencia",
+          "objetivo": "levantadas",
+          "contatos": null,
+          "levantadas": 1,
+          "taxa_pct": null,
+          "nota": "1 levantada nos primeiros 25min."
+        }
+      ],
+      "total_contatos": 1871,
+      "custo_previsto": 707.23,
+      "total_levantadas": 17,
+      "taxa_geral_pct": null,
+      "cpl_parcial": 41.6,
+      "nota_qualitativa": "Resultado parcial — primeiros 25–30 minutos após disparo das 8h. CPL de R$ 41,60 já abaixo do benchmark histórico de R$ 48,60. AA descarte respondendo bem (12/17 = 70% das levantadas). Uma escola (Colégio Degrau) demonstrou alta intenção: 'Que iniciativa bacana! Poderia nos dar mais detalhes sobre como podemos incluir o Colégio Degrau?' — copy comunicou condicionamento corretamente.",
+      "gatilho_identificado": "mimo_fisico",
+      "tags_padroes": [
+        "caneca",
+        "AA_descarte",
+        "reforco",
+        "mimo_fisico",
+        "cpl_abaixo_benchmark"
+      ],
+      "aprendizados_vinculados": [
+        "insight025",
+        "insight026",
+        "insight027"
+      ],
+      "alertas_vinculados": [
+        "alerta012",
+        "alerta013"
+      ],
+      "observacoes": "PARCIAL — registrar resultado final às 17h. Comparar com c001 caneca 23/02: 33 levantadas de 431 entregues = 7,66%. Base 4x maior hoje (1.871). Hipótese Lili: dobrar/triplicar levantadas vs primeiro disparo."
     }
   ],
   "insights": [
     "Melhor taxa: 2026 | MKT | Ação caneca - Renovação e AA com 7.7% via WhatsApp em 2026-02-27",
     "Menor taxa: 2026 | MKT | Levantada - Outbound  com 0.1% — revisar abordagem ou qualidade da lista",
-    "Caneca: Ação Caneca - Renovação teve 2.6x mais levantadas que Ação Caneca - AA (13 vs 5) com copy quase identico — audiencia de renovacao mais responsiva",
+    "Caneca: Ação Caneca - Renovação teve 1.1x mais levantadas que Caneca Reforço — AA Descarte (13 vs 12) com copy quase identico — audiencia de renovacao mais responsiva",
     "Aguardando resultado: Outbound",
     "Campanha 2026-02-23: 38 levantadas de 5,315 contatos (0.71%) (resultado parcial)",
-    "Campanha 2026-02-27: 80 levantadas de 3,298 contatos (2.43%) (resultado parcial)"
+    "Campanha 2026-02-27: 80 levantadas de 3,298 contatos (2.43%) (resultado parcial)",
+    "Campanha 2026-02-25: 17 levantadas de 1,871 contatos (0.00%) (resultado parcial)"
   ],
-  "updated": "2026-02-25T08:57:49.930282"
+  "updated": "2026-02-25T09:13:20.028126"
 };
