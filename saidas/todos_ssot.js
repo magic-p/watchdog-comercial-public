@@ -173,13 +173,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Input necessário para que Vitória crie as filas (t012). Enviar lista simples: baldinho → nome do supervisor.",
     "owner": "Ana Paula Pimentel",
     "date": "24/fev",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-25T00:00:00",
+    "completedAt": "2026-02-25T00:00:00"
   },
   {
     "id": "t014",
