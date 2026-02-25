@@ -299,12 +299,12 @@ window.WATCHDOG_TODOS = [
     "comment": "Hipótese Pedro: alguns closers podem estar pedindo à escola preencher o formulário de adesão sem que ela tenha clareza real de que quer participar. Resultado: escola aparece como fechada, mas não converte (não envia lista). Análise esperada: (1) quebrar taxa fechada→convertida por closer; (2) identificar se há padrão de baixa conversão concentrado em closers específicos; (3) se confirmado, levantar hipótese de abordagem/pressão no fechamento que gera comprometimento frágil.",
     "owner": "Nath Ferreira",
     "date": "06/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "t1",
+    "tierLabel": "A fazer",
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": null,
+    "updatedAt": "2026-02-25T00:00:00",
     "completedAt": null
   },
   {
