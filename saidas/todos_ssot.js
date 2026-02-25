@@ -341,13 +341,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Lili levantou na daily 25/02: há saving de ~R$2k no orçamento de marketing de janeiro. Ideia: voucher mais agressivo (R$300) para escolas AA com receita histórica acima de R$20-40k. Decisão: usar como disparo digital ou boca-a-boca do closer? Pimentel decide e comunica.",
     "owner": "Ana Paula Pimentel",
     "date": "27/fev",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-25T00:00:00",
+    "completedAt": "2026-02-25T00:00:00"
   },
   {
     "id": "t026",
