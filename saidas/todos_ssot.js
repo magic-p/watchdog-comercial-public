@@ -257,13 +257,13 @@ window.WATCHDOG_TODOS = [
     "comment": "t008 (cenoura ativação) já concluído. Este é específico para closers. Pimentel propõe o modelo (valor, critério, período) e aprova com Lili antes de comunicar ao time.",
     "owner": "Ana Paula Pimentel",
     "date": "25/fev",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-25T00:00:00",
+    "completedAt": "2026-02-25T00:00:00"
   },
   {
     "id": "t020",

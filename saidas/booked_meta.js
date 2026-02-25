@@ -55,6 +55,14 @@ window.WATCHDOG_BOOKED_META = {
   "wins": [
     {
       "emoji": "✅",
+      "titulo": "Ana Paula Pimentel: Escalar cenoura para closers — aprovar com Lili",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Ana Paula Pimentel",
+      "data": "25/02",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
       "titulo": "Nath Ferreira: Investigar impacto do Calix vs discador manual nas abordadas de Concorrência e Outbound — trazer análise para o time",
       "desc": "Concluida no prazo definido.",
       "dri": "Nath Ferreira",
@@ -82,14 +90,6 @@ window.WATCHDOG_BOOKED_META = {
       "titulo": "Kaka: Treinar Raíça para a ação de logística do chocolate",
       "desc": "Concluida no prazo definido.",
       "dri": "Kaka",
-      "data": "24/02",
-      "tipo": "ENTREGA_NO_PRAZO"
-    },
-    {
-      "emoji": "✅",
-      "titulo": "Ana Paula Pimentel: Investigar uso atual de mimos (chocolate) para agendamentos na base de retração",
-      "desc": "Concluida no prazo definido.",
-      "dri": "Ana Paula Pimentel",
       "data": "24/02",
       "tipo": "ENTREGA_NO_PRAZO"
     }
