@@ -55,6 +55,14 @@ window.WATCHDOG_BOOKED_META = {
   "wins": [
     {
       "emoji": "🎯",
+      "titulo": "Ana Paula Pimentel: Fornecer nomes dos supervisores de cada baldinho para Vitória configurar filas na Blip",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Ana Paula Pimentel",
+      "data": "25/02",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
+      "emoji": "🎯",
       "titulo": "Vitoria: Disparos de 4a (25/fev): caneca reforço + caneca descarte AA",
       "desc": "Concluida no ciclo semanal (segunda a domingo).",
       "dri": "Vitoria",
@@ -79,19 +87,11 @@ window.WATCHDOG_BOOKED_META = {
     },
     {
       "emoji": "✅",
-      "titulo": "Nath Ferreira: Investigar impacto do Calix vs discador manual nas abordadas de Concorrência e Outbound — trazer análise para o time",
+      "titulo": "Ana Paula Pimentel: Avaliar na 4a se vale executar push de reforço nas etapas SDR (último push RR)",
       "desc": "Concluida no prazo definido.",
-      "dri": "Nath Ferreira",
-      "data": "24/02",
+      "dri": "Ana Paula Pimentel",
+      "data": "25/02",
       "tipo": "ENTREGA_NO_PRAZO"
-    },
-    {
-      "emoji": "🎯",
-      "titulo": "Nath Ferreira: Enviar relatório da base de concorrência e bloqueios de disparo para a Vitoria",
-      "desc": "Concluida no ciclo semanal (segunda a domingo).",
-      "dri": "Nath Ferreira",
-      "data": "24/02",
-      "tipo": "ENTREGA_CONCLUIDA"
     }
   ],
   "kpis": {

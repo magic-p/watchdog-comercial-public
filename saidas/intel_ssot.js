@@ -456,6 +456,56 @@ window.WATCHDOG_INTEL = {
       ],
       "acao_sugerida": "Antes de adotar um argumento como oferta verbal, avaliar se tem volume suficiente para virar disparo digital rastreável. Argumento verbal sem disparo = alcance limitado ao SDR/closer que lembra de usar, sem taxa mensurável. Toda oferta com potencial de conversão deve ter pelo menos um teste de disparo para quantificar o gatilho.",
       "status": "ativo"
+    },
+    {
+      "id": "insight030",
+      "data": "2026-02-25",
+      "fonte": "Transcrição daily 25/02 — Pimentel + Vitória",
+      "categoria": "segmentacao",
+      "gatilho": null,
+      "insight": "A categoria \"descarte\" em AA é mais heterogênea do que o nome sugere. Inclui escolas que pediram para ser contatadas mais tarde — não apenas quem declarou recusa explícita. 90% das levantadas do disparo de caneca 25/02 vieram de escolas descarte. Taxa de resposta alta porque o grupo contém interesse latente, não só rejeição. Análise de campanhas para AA descarte deve considerar esse perfil misto.",
+      "evidencia": "Pimentel na daily 25/02: \"a maioria dos descartes que responderam eram escolas que pediram para ser contatadas mais tarde\". Vitória confirmou: 90% das levantadas (21/23) vieram de descarte.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "anos_anteriores"
+      ],
+      "acao_sugerida": "Ao segmentar base AA descarte para campanhas, distinguir subgrupos: (a) recusa explícita e (b) interesse adiado. Taxa de conversão esperada é estruturalmente diferente entre os dois. Sempre registrar no historico_campanhas qual subgrupo compôs a base.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight031",
+      "data": "2026-02-25",
+      "fonte": "Transcrição daily 25/02 — Nath + Lili",
+      "categoria": "performance",
+      "gatilho": null,
+      "insight": "A curva de reuniões de fev/2026 (\"curva dos sonhos\") superou a referência histórica de anos anteriores. Melhoria confirmada como real por Nath após ajuste dos dias de carnaval (quinta e sexta como meio-dias, pedido das supervisoras). Risco documentado: Nath não garante sustentabilidade após abril — depende de fatores ainda não controlados. A melhoria pode ser estrutural ou conjuntural.",
+      "evidencia": "Nath na daily 25/02: \"melhoria no número de reuniões é real, embora não possa garantir a ascendência após abril\". Lili confirmou que a curva superou referência histórica.",
+      "confianca": "media",
+      "aplicavel_a": [
+        "renovacao",
+        "anos_anteriores",
+        "concorrencia"
+      ],
+      "acao_sugerida": "Monitorar RR/SDR mês a mês com referência histórica como benchmark. Investigar antes de abril quais fatores explicam a melhora — se for ação específica replicável, escalar; se for sazonalidade, preparar para possível queda.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight032",
+      "data": "2026-02-25",
+      "fonte": "Transcrição daily 25/02 — Karina + Lili",
+      "categoria": "canal",
+      "gatilho": null,
+      "insight": "Telefonia está estruturalmente ineficaz como canal de contato para SDRs. Sintomas: (1) SDRs migram espontaneamente para WhatsApp quando não conseguem efetividade via ligação; (2) supervisores compram chips próprios e compartilham instâncias para compensar ausência de infraestrutura; (3) ligação via Blip ainda não foi virada. Solução estrutural (enriquecimento de base de contatos) foi planejada para maio.",
+      "evidencia": "Karina na daily 25/02: \"pessoal tenta WhatsApp quando não conseguem efetividade com a base\". Lili: \"telefonia não resolvida, incluindo não virada para ligação via Blip\". Supervisores comprando chips e compartilhando instâncias.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "anos_anteriores",
+        "outbound",
+        "concorrencia",
+        "retracao"
+      ],
+      "acao_sugerida": "Não basear metas de contato em premissas de efetividade telefônica até a infraestrutura ser resolvida. Enriquecimento de base (maio) deve ser tratado como pré-requisito para escalar outbound com qualidade. Enquanto isso, WhatsApp é o canal de contato mais confiável para SDR.",
+      "status": "ativo"
     }
   ],
   "criticas_ativas": [
@@ -592,5 +642,5 @@ window.WATCHDOG_INTEL = {
       "status": "aberta"
     }
   ],
-  "ultima_atualizacao": "2026-02-25T09:30:00"
+  "ultima_atualizacao": "2026-02-25T11:45:00"
 };
