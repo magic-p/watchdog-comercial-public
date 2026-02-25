@@ -54,6 +54,14 @@ window.WATCHDOG_BOOKED_META = {
   ],
   "wins": [
     {
+      "emoji": "🎯",
+      "titulo": "Vitoria: Disparos de 4a (25/fev): caneca reforço + caneca descarte AA",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Vitoria",
+      "data": "25/02",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
       "emoji": "✅",
       "titulo": "Ana Paula Pimentel: Reunião com time ID — definir argumento e sugestão de ação para FUP (fechada não convertida)",
       "desc": "Concluida no prazo definido.",
@@ -82,14 +90,6 @@ window.WATCHDOG_BOOKED_META = {
       "titulo": "Nath Ferreira: Enviar relatório da base de concorrência e bloqueios de disparo para a Vitoria",
       "desc": "Concluida no ciclo semanal (segunda a domingo).",
       "dri": "Nath Ferreira",
-      "data": "24/02",
-      "tipo": "ENTREGA_CONCLUIDA"
-    },
-    {
-      "emoji": "🎯",
-      "titulo": "Ana Paula Pimentel: Comunicar Raíça sobre apoio ao marketing na logística do chocolate (caráter experimental, sem expectativa de mudança de área)",
-      "desc": "Concluida no ciclo semanal (segunda a domingo).",
-      "dri": "Ana Paula Pimentel",
       "data": "24/02",
       "tipo": "ENTREGA_CONCLUIDA"
     }
