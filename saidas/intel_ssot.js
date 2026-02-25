@@ -423,6 +423,39 @@ window.WATCHDOG_INTEL = {
       ],
       "acao_sugerida": "Estabelecer como regra: agendamento via WhatsApp exige qualificação de voz prévia pela Lua antes de entrar na agenda do Closer. Quando escola só responde via WhatsApp, SDR faz qualificação completa por mensagem + áudio antes de agendar.",
       "status": "ativo"
+    },
+    {
+      "id": "insight028",
+      "data": "2026-02-25",
+      "fonte": "Google Chat — Ana Paula Pimentel para Pedro e Lili · 25/fev",
+      "categoria": "oferta",
+      "gatilho": "reciprocidade_monetaria",
+      "insight": "Hierarquia de eficácia de ofertas de ativação (fechada → convertida) confirmada empiricamente: (1) Voucher R$100 = melhor performer — tangível, imediato, sem fricção; (2) Arte personalizada para redes sociais = funciona para escolas grandes, onde R$100 tem baixo impacto relativo; (3) Caneca aquarela = ação pontual para AA selecionadas; (4) Playlist (filho narrado em áudio) = argumento emocional forte para concorrência, mas sem disparo digital — apenas verbal no momento.",
+      "evidencia": "Pimentel em 25/02: 'O voucher é o que mais está funcionando.' Arte personalizada teve disparo para todas as bases em 24/02. Playlist descrita como 'grande diferencial' mas sem disparo recente.",
+      "confianca": "media",
+      "aplicavel_a": [
+        "bolsao",
+        "anos_anteriores",
+        "renovacao",
+        "concorrencia"
+      ],
+      "acao_sugerida": "Usar voucher como oferta padrão. Para escolas grandes (mensalidade alta, muitos alunos), oferecer arte personalizada como alternativa de prestígio. Para concorrência, considerar escalar playlist como disparo digital — argumento tem força emocional mas alcance atual é limitado ao momento da reunião.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight029",
+      "data": "2026-02-25",
+      "fonte": "Google Chat — Ana Paula Pimentel para Pedro e Lili · 25/fev",
+      "categoria": "operacional",
+      "gatilho": null,
+      "insight": "Playlist (transformar livro da criança em áudio narrado por ela mesma) é apresentada como diferencial emocional para escolas de concorrência, mas não foi convertida em disparo digital. Argumento fica restrito ao que o closer/SDR lembra de mencionar na reunião — sem escala, sem rastreabilidade de resposta. Enquanto o voucher tem disparo e taxa mensurável, a playlist tem potencial não capturado.",
+      "evidencia": "Pimentel em 25/02: 'Aqui tb é labia, não fizemos disparo recente.' Oferta com prazo 'até hoje' (25/02) comunicada verbalmente.",
+      "confianca": "media",
+      "aplicavel_a": [
+        "concorrencia"
+      ],
+      "acao_sugerida": "Pimentel avaliar converter playlist em disparo digital para concorrência no próximo ciclo. Medir taxa de resposta separada de voucher e arte para isolar o gatilho emocional. Não comparar com voucher diretamente — públicos-alvo distintos.",
+      "status": "ativo"
     }
   ],
   "criticas_ativas": [
@@ -559,5 +592,5 @@ window.WATCHDOG_INTEL = {
       "status": "aberta"
     }
   ],
-  "ultima_atualizacao": "2026-02-25T07:00:00"
+  "ultima_atualizacao": "2026-02-25T09:30:00"
 };

@@ -215,13 +215,13 @@ window.WATCHDOG_TODOS = [
     "comment": "FUP = escolas fechadas e não convertidas para bolsão. Objetivo: criar argumento específico e fluxo de abordagem para reativar essas escolas. Resultado da reunião deve alimentar t015 (disparo).",
     "owner": "Ana Paula Pimentel",
     "date": "25/fev",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-25T00:00:00",
+    "completedAt": "2026-02-25T00:00:00"
   },
   {
     "id": "t017",
@@ -268,7 +268,7 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t020",
     "task": "Disparo 4a: fechada > convertida — aguardar oferta Pimentel (bloqueado por t016)",
-    "comment": "Disparo de reativação para escolas fechadas não convertidas para bolsão. BLOQUEADO: aguardar Pimentel definir oferta/argumento com time ID (t016). Assim que t016 entregar, Vitória executa o disparo em 4a.",
+    "comment": "Disparo de reativação para escolas fechadas não convertidas para bolsão. DESBLOQUEADO em 25/02: t016 entregue. Ofertas definidas: voucher R$100 (melhor), arte (grandes), playlist (concorrência), caneca (AA). Vitória pode executar o disparo.",
     "owner": "Vitoria",
     "date": "24/fev",
     "tier": "t1",
@@ -276,7 +276,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": null,
+    "updatedAt": "2026-02-25T00:00:00",
     "completedAt": null
   },
   {

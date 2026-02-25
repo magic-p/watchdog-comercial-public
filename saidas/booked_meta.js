@@ -55,6 +55,14 @@ window.WATCHDOG_BOOKED_META = {
   "wins": [
     {
       "emoji": "✅",
+      "titulo": "Ana Paula Pimentel: Reunião com time ID — definir argumento e sugestão de ação para FUP (fechada não convertida)",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Ana Paula Pimentel",
+      "data": "25/02",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
       "titulo": "Ana Paula Pimentel: Escalar cenoura para closers — aprovar com Lili",
       "desc": "Concluida no prazo definido.",
       "dri": "Ana Paula Pimentel",
@@ -84,14 +92,6 @@ window.WATCHDOG_BOOKED_META = {
       "dri": "Ana Paula Pimentel",
       "data": "24/02",
       "tipo": "ENTREGA_CONCLUIDA"
-    },
-    {
-      "emoji": "✅",
-      "titulo": "Kaka: Treinar Raíça para a ação de logística do chocolate",
-      "desc": "Concluida no prazo definido.",
-      "dri": "Kaka",
-      "data": "24/02",
-      "tipo": "ENTREGA_NO_PRAZO"
     }
   ],
   "kpis": {
