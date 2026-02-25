@@ -149,7 +149,7 @@ window.WATCHDOG_TODOS = [
     "tierLabel": "A fazer",
     "warn": null,
     "done": false,
-    "priorityRank": null,
+    "priorityRank": 2,
     "updatedAt": null,
     "completedAt": null
   },
