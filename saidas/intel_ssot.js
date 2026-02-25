@@ -241,7 +241,7 @@ window.WATCHDOG_INTEL = {
       "aplicavel_a": [
         "todos"
       ],
-      "acao_sugerida": "Vitória criar separação clara entre 'tag de disparo recebido' e 'tag de levantada confirmada' nos relatórios. Nunca usar número bruto de tags de marketing como proxy de levantadas.",
+      "acao_sugerida": "Nunca usar número bruto de tags de marketing como proxy de levantadas. Usar exclusivamente a tag de levantada confirmada em análises de campanha. Toda nova tag criada para rastrear disparos deve ter nomenclatura que a distingue explicitamente de tags de levantada.",
       "status": "ativo"
     },
     {
@@ -385,7 +385,7 @@ window.WATCHDOG_INTEL = {
         "concorrencia",
         "retracao"
       ],
-      "acao_sugerida": "Testar 1 SDR ligando de fora da Goto (celular pessoal ou número alternativo) vs Goto para AA, comparar taxa de contato. Nath isolar nas métricas quantas escolas foram contatadas via WhatsApp vs Goto e qual a taxa de cada canal.",
+      "acao_sugerida": "Toda análise de taxa de contato deve registrar a infraestrutura usada (Goto, Callix, WhatsApp, celular). Antes de escalar disparo com nova infraestrutura, testar recepção em número próprio. Isolar métricas de Goto das demais em relatórios de SDR — números consolidados de contato são inválidos quando a infraestrutura muda.",
       "status": "ativo"
     },
     {
@@ -403,7 +403,7 @@ window.WATCHDOG_INTEL = {
         "retracao",
         "novas"
       ],
-      "acao_sugerida": "Toda copy de mimo físico deve conter CTA explícito de condicionamento ('para garantir a sua caneca, basta...') antes do próximo disparo. Revisar copy atual antes do disparo de 25/02.",
+      "acao_sugerida": "Toda copy de mimo físico deve conter CTA explícito de condicionamento (\"para garantir sua caneca, basta...\"). Regra permanente: mimo sem condicionamento explícito não deve ser disparado. O Closer precisa chegar na reunião com a escola já sabendo que o mimo é condicional — não descobrir na hora.",
       "status": "ativo"
     },
     {
@@ -454,7 +454,7 @@ window.WATCHDOG_INTEL = {
       "aplicavel_a": [
         "concorrencia"
       ],
-      "acao_sugerida": "Pimentel avaliar converter playlist em disparo digital para concorrência no próximo ciclo. Medir taxa de resposta separada de voucher e arte para isolar o gatilho emocional. Não comparar com voucher diretamente — públicos-alvo distintos.",
+      "acao_sugerida": "Antes de adotar um argumento como oferta verbal, avaliar se tem volume suficiente para virar disparo digital rastreável. Argumento verbal sem disparo = alcance limitado ao SDR/closer que lembra de usar, sem taxa mensurável. Toda oferta com potencial de conversão deve ter pelo menos um teste de disparo para quantificar o gatilho.",
       "status": "ativo"
     }
   ],
