@@ -146,21 +146,34 @@ window.WATCHDOG_CAMPANHAS = {
           "nome": "Caneca Reforço — AA Descarte",
           "baldinho": "anos_anteriores",
           "objetivo": "levantadas",
-          "contatos": 400,
+          "escolas": 442,
+          "contatos": null,
           "levantadas": 12,
           "taxa_pct": null,
-          "nota": "Base de descarte AA — escolas sem contato ativo. Taxa final a calcular com total de entregues confirmado.",
+          "nota": "442 escolas AA descartadas (disseram não à EM este ano mas continuam sendo abordadas). As 12 levantadas são do grupo AA consolidado (descarte + de segunda) — maioria atribuída ao descarte. Disagregação por subgrupo a confirmar no resultado final.",
           "copy_resumo": "Segundo disparo da caneca para base descarte AA. Continuidade da ação de 23/02.",
           "abordagem": "mimo físico (caneca aquarela) + urgência + condicionamento à adesão"
         },
         {
-          "nome": "Caneca Reforço — Renovação (ping novo)",
+          "nome": "Caneca Reforço — AA de Segunda",
+          "baldinho": "anos_anteriores",
+          "objetivo": "levantadas",
+          "escolas": 169,
+          "contatos": null,
+          "levantadas": null,
+          "taxa_pct": null,
+          "nota": "169 escolas AA disparadas na segunda-feira (23/02). Reforço da ação de caneca.",
+          "abordagem": "mimo físico (caneca aquarela) + urgência + condicionamento à adesão"
+        },
+        {
+          "nome": "Caneca Reforço — Renovação de Segunda",
           "baldinho": "renovacao",
           "objetivo": "levantadas",
+          "escolas": 157,
           "contatos": null,
           "levantadas": 5,
           "taxa_pct": null,
-          "nota": "Base já disparada em 23/02 recebeu ping de reforço.",
+          "nota": "157 escolas renovação disparadas na segunda-feira (23/02). Reforço da ação de caneca.",
           "abordagem": "reforço de urgência + caneca como benefício condicional à adesão"
         },
         {
@@ -174,6 +187,14 @@ window.WATCHDOG_CAMPANHAS = {
         }
       ],
       "total_contatos": 1871,
+      "total_escolas": 768,
+      "base_escolas_breakdown": {
+        "AA_descarte": 442,
+        "AA_segunda": 169,
+        "renovacao_segunda": 157,
+        "nota": "Descarte = escolas que disseram não à EM em algum momento este ano, mas que a equipe continua abordando ativamente."
+      },
+      "nota_contatos_vs_escolas": "1.871 contatos disparados ≠ 1.871 escolas. Uma escola pode ter múltiplos contatos de gestor no sistema. Total de escolas únicas: 768 (442+169+157). Ratio médio aprox. 2,4 contatos/escola. Ao calcular taxa de conversão, usar escolas como denominador é mais preciso do que contatos.",
       "custo_previsto": 707.23,
       "total_levantadas": 17,
       "taxa_geral_pct": null,
@@ -196,17 +217,17 @@ window.WATCHDOG_CAMPANHAS = {
         "alerta012",
         "alerta013"
       ],
-      "observacoes": "PARCIAL — registrar resultado final às 17h. Comparar com c001 caneca 23/02: 33 levantadas de 431 entregues = 7,66%. Base 4x maior hoje (1.871). Hipótese Lili: dobrar/triplicar levantadas vs primeiro disparo."
+      "observacoes": "PARCIAL — registrar resultado final às 17h. Comparar com c001 caneca 23/02: 33 levantadas de 431 entregues = 7,66%. Base 4x maior hoje (1.871 contatos / 768 escolas). Hipótese Lili: dobrar/triplicar levantadas vs primeiro disparo."
     }
   ],
   "insights": [
     "Melhor taxa: 2026 | MKT | Ação caneca - Renovação e AA com 7.7% via WhatsApp em 2026-02-27",
     "Menor taxa: 2026 | MKT | Levantada - Outbound  com 0.1% — revisar abordagem ou qualidade da lista",
     "Caneca: Ação Caneca - Renovação teve 1.1x mais levantadas que Caneca Reforço — AA Descarte (13 vs 12) com copy quase identico — audiencia de renovacao mais responsiva",
-    "Aguardando resultado: Outbound",
+    "Aguardando resultado: Outbound, Caneca Reforço — AA de Segunda",
     "Campanha 2026-02-23: 38 levantadas de 5,315 contatos (0.71%) (resultado parcial)",
     "Campanha 2026-02-27: 80 levantadas de 3,298 contatos (2.43%) (resultado parcial)",
     "Campanha 2026-02-25: 17 levantadas de 1,871 contatos (0.00%) (resultado parcial)"
   ],
-  "updated": "2026-02-25T09:13:20.028126"
+  "updated": "2026-02-25T09:23:51.349491"
 };
