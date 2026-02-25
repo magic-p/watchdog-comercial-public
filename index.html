@@ -2122,9 +2122,6 @@ function renderTasks() {
   updateSortHeaders();
 
   sortedTasks(tasks).forEach(t => {
-    if (taskView === 'done' && !t.done) return;
-    if (taskView === 'open' && t.done) return;
-
     t.owner = normalizeOwnerName(t.owner);
     t.date = formatTaskDate(t.date) || String(t.date || '').trim();
     const tr = document.createElement('tr');
