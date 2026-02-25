@@ -327,13 +327,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Confirmado na daily 25/02. Disparo para base de Novas fechadas não convertidas, com oferta de voucher R$100. Horário: ~13:30. Vitória executa; Pedro responsável pela copy. Foco em escolas sumidas e em declínio.",
     "owner": "Pedro",
     "date": "25/fev",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-25T00:00:00",
+    "completedAt": "2026-02-25T00:00:00"
   },
   {
     "id": "t025",
