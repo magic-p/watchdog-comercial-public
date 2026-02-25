@@ -355,12 +355,12 @@ window.WATCHDOG_TODOS = [
     "comment": "Gargalo de closer identificado na daily 25/02 como ponto crítico de março. Pimentel sugeriu efetivar mais 2 closers. Lili levantou trade-off: focar bolsões antigos ou reuniões novas? Decisão não finalizada. Plano deve responder: (1) efetivação de closers: sim/não/quantos; (2) alocação: bolsão vs reuniões; (3) critério de priorização de escolas em declínio (~6/closer). Conectado a t022 (análise venda frágil — Nath).",
     "owner": "Ana Paula Pimentel",
     "date": "03/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "t1",
+    "tierLabel": "A fazer",
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": null,
+    "updatedAt": "2026-02-25T00:00:00",
     "completedAt": null
   }
 ];
