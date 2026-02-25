@@ -1688,14 +1688,14 @@ function buildCriticalAlerts(list) {
     const title = t.task || 'Tarefa sem t\u00EDtulo';
 
     if (ownerMissing) {
-      out.push({ key: `sem_dono_${t.id}`, tag: '[CRITICO: TAREFA_SEM_DONO]', chip: 'TAREFA_SEM_DONO', level: 'red', text: `${title} sem respons\u00E1vel definido.` });
+      out.push({ key: `sem_dono_${t.id}`, tag: '[CRITICO: TAREFA_SEM_DONO]', chip: 'TAREFA_SEM_DONO', level: 'red', text: `(${t.id}) ${title} sem respons\u00E1vel definido.` });
     }
 
     const due = parseTaskDate(t.date);
     if (!due) {
-      out.push({ key: `sem_prazo_${t.id}`, tag: '[CRITICO: TAREFA_SEM_PRAZO]', chip: 'TAREFA_SEM_PRAZO', level: 'orange', text: `${owner}: ${title} sem prazo definido.` });
+      out.push({ key: `sem_prazo_${t.id}`, tag: '[CRITICO: TAREFA_SEM_PRAZO]', chip: 'TAREFA_SEM_PRAZO', level: 'orange', text: `(${t.id}) ${owner}: ${title} sem prazo definido.` });
     } else if (due < today) {
-      out.push({ key: `atrasada_${t.id}`, tag: '[CRITICO: TAREFA_ATRASADA]', chip: 'TAREFA_ATRASADA', level: 'red', text: `${owner}: ${title} atrasada (prazo ${t.date}).` });
+      out.push({ key: `atrasada_${t.id}`, tag: '[CRITICO: TAREFA_ATRASADA]', chip: 'TAREFA_ATRASADA', level: 'red', text: `(${t.id}) ${owner}: ${title} atrasada (prazo ${t.date}).` });
     }
 
     const warnDays = parseWarnDays(t.warn);
@@ -1715,7 +1715,7 @@ function buildCriticalAlerts(list) {
     }
 
     if (zombie) {
-      out.push({ key: `zumbi_${t.id}`, tag: '[CRITICO: ALERTA_ZUMBI]', chip: 'ALERTA_ZUMBI', level: 'red', text: `${owner}: ${title} ${zombieInfo}.` });
+      out.push({ key: `zumbi_${t.id}`, tag: '[CRITICO: ALERTA_ZUMBI]', chip: 'ALERTA_ZUMBI', level: 'red', text: `(${t.id}) ${owner}: ${title} ${zombieInfo}.` });
     }
   });
 
@@ -1756,7 +1756,7 @@ function renderCriticalAlerts() {
       </div>`;
   }
 
-  host.innerHTML = alerts.map(a => `
+  host.innerHTML = alerts.slice(1).map(a => `
     <div class="alert-item">
       <div class="alert-stripe ${a.level}"></div>
       <div>
