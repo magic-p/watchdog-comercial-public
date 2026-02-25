@@ -506,6 +506,88 @@ window.WATCHDOG_INTEL = {
       ],
       "acao_sugerida": "Não basear metas de contato em premissas de efetividade telefônica até a infraestrutura ser resolvida. Enriquecimento de base (maio) deve ser tratado como pré-requisito para escalar outbound com qualidade. Enquanto isso, WhatsApp é o canal de contato mais confiável para SDR.",
       "status": "ativo"
+    },
+    {
+      "id": "insight033",
+      "data": "2026-02-25",
+      "fonte": "Investigação Bebel — Anos Anteriores (dez/25–jan/26) · análise funil + 12 áudios SDR",
+      "categoria": "comportamento",
+      "gatilho": null,
+      "insight": "A decisão de agendar reunião em AA é pré-determinada pela pré-disposição da escola — não pelo discurso do SDR. A gestora já chega com a cabeça feita (aberta ou fechada). O SDR tem impacto real em apenas uma variável: antecipar o TIMING do agendamento usando argumento de benefícios com prazo ('garantir benefícios até 6a'). Mudar o script não muda o sim/não — muda o quando.",
+      "evidencia": "Investigação Bebel dez/25: 'sentimento é que o discurso não tem grande impacto na consideração da escola. ele avança quem já está minimamente interessada. SDR influencia na data do agendamento.' Confirmado em áudios: escola aberta fecha mesmo com SDR mediano; escola fechada não abre com SDR excelente.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "anos_anteriores"
+      ],
+      "acao_sugerida": "Não investir em mudanças profundas de script SDR esperando aumentar taxa de conversão de escolas fechadas. Investir em MKT/mimo para mudar a pré-disposição antes do contato SDR. O SDR deve focar no timing — argumento de benefícios com prazo é a alavanca real.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight034",
+      "data": "2026-02-25",
+      "fonte": "Investigação Bebel — Anos Anteriores (dez/25–jan/26) · análise 12 áudios SDR",
+      "categoria": "comportamento",
+      "gatilho": null,
+      "insight": "A pergunta 'como foi sua experiência?' no script SDR é um bug estrutural: abre espaço para a escola insatisfeita detalhar o trauma, e o SDR recebe uma objeção que não sabe resolver. Presente no discurso de 2025 e 2026. A informação coletada está teoricamente disponível no card da escola — não precisa ser perguntada. Além disso, o SDR gasta ~10 minutos coletando infos (experiência, alunos, projetos de leitura) que Bebel concluiu não serem essenciais para o Closer — cujo gancho mais eficaz é o Instagram da escola.",
+      "evidencia": "Investigação Bebel: 'Em ambos, negativo perguntar como foi, não conseguem reverter.' Áudio SDR 2: 'sem despertar interesse, só pega infos (como foi, qtde de alunos, projetos leitura).' Conclusão Bebel: 'pra agendar, o sdr faz perguntas que, a meu ver, não são imprescindíveis.'",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "anos_anteriores"
+      ],
+      "acao_sugerida": "Nunca fazer 'como foi?' com escola que tem feedback negativo registrado no card. Para escolas sem feedback ou com histórico positivo, a pergunta pode ser mantida mas encurtada. O tempo da gestora deve ser usado para criar urgência de agendamento, não para coletar dados que já existem no sistema.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight035",
+      "data": "2026-02-25",
+      "fonte": "Investigação Bebel — Anos Anteriores (dez/25–jan/26) · resumo pós escuta reuniões Closer",
+      "categoria": "comportamento",
+      "gatilho": "orgulho",
+      "insight": "Comentar o Instagram da escola no início da reunião é o gancho de maior impacto documentado no Closer de AA. A escola fica orgulhosa, a defensiva cai, e a conversa começa em modo parceiro — não modo venda. Já é prática espontânea de algumas closers (Marcele). Não é parte do script padrão — depende do closer lembrar de usar.",
+      "evidencia": "Bebel: 'ótimo começar com instagram, escola fica orgulhosa.' Marcele (escola 7): 'marcele começa comentando no instagram e cria uma conexão boa, coord orgulhosa' → escola que tinha objeção de sobrecarga fechou. SDRs também citam o Instagram como melhor gancho nos áudios.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "anos_anteriores",
+        "concorrencia",
+        "retracao"
+      ],
+      "acao_sugerida": "Instagram da escola deve ser consultado e comentado pelo Closer antes de toda reunião de AA — não como opcional, mas como abertura padrão. Criar checklist pré-reunião: (1) consultar Instagram, (2) identificar post recente para comentar, (3) abrir com elogio específico (não genérico). Considerar incluir também no script SDR como isca de encantamento antes do pedido de agendamento.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight036",
+      "data": "2026-02-25",
+      "fonte": "Investigação Bebel — Anos Anteriores (dez/25–jan/26) · emails pós-reunião analisados",
+      "categoria": "comportamento",
+      "gatilho": null,
+      "insight": "O email pós-reunião do Closer está resolvendo o problema errado. A escola que acabou de fechar já conhece o produto — não precisa de brochure. Ela precisa de argumentos prontos para vender internamente ao diretor ou financeiro que não participou da RR. O material atual (19 parágrafos, 'abraços mágicos', apresentação da Estante do zero) não equipa a coord para essa conversa interna. Resultado: a escola fecha com o Closer mas não consegue aprovar internamente — e o bolsão cresce.",
+      "evidencia": "Investigação Bebel: 'a pessoa da reunião sempre precisa aprovar com outra. importância da msg que enviamos pós reunião para serem encaminhadas ou usadas de apoio pra pessoa que vai nos vender internamente na escola.' Emails analisados: brochure genérico com descrição do produto do zero, sem argumentos customizados para aprovação interna.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "anos_anteriores",
+        "concorrencia",
+        "renovacao",
+        "novas"
+      ],
+      "acao_sugerida": "Reescrever template de email pós-RR como kit de aprovação interna: (1) resumo do que foi discutido na reunião (personalizado), (2) três argumentos principais para apresentar ao diretor/financeiro, (3) reversor de objeção de sobrecarga (vídeo de foto/áudio), (4) oferta com prazo. Brochure genérico vira anexo opcional — não o corpo do email.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight037",
+      "data": "2026-02-25",
+      "fonte": "Investigação Bebel — Anos Anteriores (dez/25–jan/26) · áudios Closer negócios fechados",
+      "categoria": "comportamento",
+      "gatilho": "facilidade_operacional",
+      "insight": "A objeção 'muito trabalho para os professores' é a mais recorrente em AA e tem um reversor comprovado com histórico de conversão: a explicação (com vídeo) do processo de envio de materiais por foto e áudio. Closer que usa esse reversor converte escolas que estavam perdidas; quem não usa perde o negócio. O reversor não é usado de forma sistemática — depende do Closer lembrar ou do lead perguntar.",
+      "evidencia": "Escola 7 (Bebel): 'desanimou pela sobrecarga que ficava para os profs → depois que marcele explicou do envio de materiais por foto e áudio elas gostaram, entenderam que vai facilitar bastante → fechou.' Escola AA+Concorrência negócio perdido 7: 'escola com objeção de trabalho animou e fechou com a explicação e vídeo do envio.' Escola 8 (closer): objeção de sobrecarga revertida da mesma forma.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "anos_anteriores",
+        "concorrencia",
+        "retracao"
+      ],
+      "acao_sugerida": "Vídeo de envio por foto/áudio deve ser parte obrigatória do kit do Closer para AA — não recurso de emergência. Usar proativamente antes da objeção aparecer ('uma coisa que as escolas adoram descobrir é como ficou simples enviar...'). Incluir o vídeo no email pós-reunião como item fixo.",
+      "status": "ativo"
     }
   ],
   "criticas_ativas": [
@@ -640,7 +722,27 @@ window.WATCHDOG_INTEL = {
       "prioridade": "alta",
       "dri": "Karina Machado",
       "status": "aberta"
+    },
+    {
+      "id": "alerta014",
+      "data": "2026-02-25",
+      "titulo": "Script SDR com 'como foi?' ainda ativo para escolas com feedback negativo",
+      "critica": "A pergunta 'como foi sua experiência?' está no discurso SDR de 2025 e 2026. Para escolas com feedback negativo registrado no card, ela abre objeção imediata que o SDR não consegue reverter — e que o Closer vai herdar na reunião. A investigação de Bebel documentou isso em dois ciclos consecutivos sem que o script fosse corrigido.",
+      "acao_sugerida": "Lua implementar filtro por histórico de feedback antes do contato SDR: escola com flag negativo não recebe a pergunta 'como foi?' — SDR abre com Instagram ou argumento de benefícios diretamente. Treinamento pontual com supervisores, não reciclagem geral do script.",
+      "prioridade": "alta",
+      "dri": "Luana",
+      "status": "aberta"
+    },
+    {
+      "id": "alerta015",
+      "data": "2026-02-25",
+      "titulo": "Email pós-reunião do Closer é brochure — não prepara escola para aprovação interna",
+      "critica": "O template atual de email pós-RR apresenta a Estante Mágica do zero para uma escola que acabou de fechar. Não inclui argumentos para a coord apresentar ao diretor/financeiro que não participou da reunião. Isso cria um vácuo no momento mais crítico da aprovação interna — e pode estar contribuindo para o gap de bolsão (fechada sem converter).",
+      "acao_sugerida": "Pimentel reescrever template de email pós-RR como kit de aprovação interna: resumo personalizado da conversa + três argumentos para o diretor/financeiro + vídeo de envio por foto/áudio + oferta com prazo. Brochure genérico vira anexo opcional. Implementar antes do próximo ciclo de reuniões de AA.",
+      "prioridade": "alta",
+      "dri": "Ana Paula Pimentel",
+      "status": "aberta"
     }
   ],
-  "ultima_atualizacao": "2026-02-25T11:45:00"
+  "ultima_atualizacao": "2026-02-25T17:00:00"
 };
