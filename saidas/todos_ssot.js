@@ -285,13 +285,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Checkpoint de quarta-feira: Nath avalia RR/SDR do dia e decide com Lili se executa um disparo extra para leads em etapas de SDR. Objetivo: dar último push antes do fechamento de fevereiro. Decisão em 4a → execução no mesmo dia se aprovado.",
     "owner": "Ana Paula Pimentel",
     "date": "25/fev",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-25T00:00:00",
+    "completedAt": "2026-02-25T00:00:00"
   },
   {
     "id": "t022",
