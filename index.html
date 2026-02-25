@@ -1815,14 +1815,14 @@ function renderTopPriorities() {
           </div>
         </div>`;
     }
-    const meta = tierMeta(t);
+    const statusChip = t.done ? { cls: 'green', lbl: 'Conclu\u00EDdo' } : t.tier === 't1' ? { cls: 'red', lbl: 'A fazer' } : { cls: 'orange', lbl: 'Fazendo' };
     const detail = t.comment ? esc(t.comment) : `Respons&aacute;vel: ${esc(t.owner)}  Prazo: ${esc(t.date || '')}`;
     const impact = t.warn ? esc(t.warn) : `Acompanhamento di\u00E1rio por ${esc(t.owner)}.`;
     return `
       <div class="pri-item">
         <div class="pri-num">${rank}</div>
         <div>
-          <span class="status-chip ${meta.chipClass}">${meta.chipLabel}</span>
+          <span class="status-chip ${statusChip.cls}">${statusChip.lbl}</span>
           <div class="pri-title">(${esc(t.id)}) ${esc(t.task)}</div>
           <div class="pri-why"><span class="lbl"></span><span>${detail}</span></div>
           <div class="pri-impact"><span class="lbl"></span><span>${impact}</span></div>
