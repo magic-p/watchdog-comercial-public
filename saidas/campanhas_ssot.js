@@ -73,14 +73,76 @@ window.WATCHDOG_CAMPANHAS = {
       "total_levantadas": 38,
       "taxa_geral_pct": 0.71,
       "observacoes": "Resultado parcial — disparo feito cedo, mais levantadas podem vir ao longo do dia. Cada escola pode ter múltiplos contatos gestores. Caneca Renovação converteu 2.6x mais que Caneca AA com copy quase idêntico."
+    },
+    {
+      "id": "c002",
+      "data": "2026-02-27",
+      "canal": "WhatsApp",
+      "executor": "Vitoria",
+      "status": "parcial",
+      "segmentos": [
+        {
+          "nome": "2026 | MKT | Levantada - Retração",
+          "objetivo": "levantadas",
+          "entregues": 351,
+          "respondidas": 54,
+          "levantadas": 12,
+          "taxa_pct": 3.42
+        },
+        {
+          "nome": "2026 | MKT | Levantada - Renovação LT",
+          "objetivo": "levantadas",
+          "entregues": 518,
+          "respondidas": 86,
+          "levantadas": 19,
+          "taxa_pct": 3.67
+        },
+        {
+          "nome": "2026 | MKT | Lista - Todos menos renovação",
+          "objetivo": "levantadas",
+          "entregues": 84,
+          "respondidas": 9,
+          "levantadas": 3,
+          "taxa_pct": 3.57
+        },
+        {
+          "nome": "2026 | MKT | Ação caneca - Renovação e AA",
+          "objetivo": "levantadas",
+          "entregues": 431,
+          "respondidas": 62,
+          "levantadas": 33,
+          "taxa_pct": 7.66
+        },
+        {
+          "nome": "2026 | MKT | Levantada - Outbound ",
+          "objetivo": "levantadas",
+          "entregues": 1336,
+          "respondidas": 270,
+          "levantadas": 2,
+          "taxa_pct": 0.15
+        },
+        {
+          "nome": "2026 | MKT | Levantada - Concorrência",
+          "objetivo": "levantadas",
+          "entregues": 578,
+          "respondidas": 78,
+          "levantadas": 11,
+          "taxa_pct": 1.9
+        }
+      ],
+      "total_contatos": 3298,
+      "total_levantadas": 80,
+      "taxa_geral_pct": 2.43,
+      "observacoes": "Resumo consolidado do CSV 23/02?27/02. Taxas calculadas por entregues."
     }
   ],
   "insights": [
-    "Melhor taxa: Renovação LT com 2.1% via WhatsApp em 2026-02-23",
-    "Menor taxa: Retração com 0.7% — revisar abordagem ou qualidade da lista",
+    "Melhor taxa: 2026 | MKT | Ação caneca - Renovação e AA com 7.7% via WhatsApp em 2026-02-27",
+    "Menor taxa: 2026 | MKT | Levantada - Outbound  com 0.1% — revisar abordagem ou qualidade da lista",
     "Caneca: Ação Caneca - Renovação teve 2.6x mais levantadas que Ação Caneca - AA (13 vs 5) com copy quase identico — audiencia de renovacao mais responsiva",
     "Aguardando resultado: Outbound",
-    "Campanha 2026-02-23: 38 levantadas de 5,315 contatos (0.71%) (resultado parcial)"
+    "Campanha 2026-02-23: 38 levantadas de 5,315 contatos (0.71%) (resultado parcial)",
+    "Campanha 2026-02-27: 80 levantadas de 3,298 contatos (2.43%) (resultado parcial)"
   ],
-  "updated": "2026-02-24T14:45:14.229439"
+  "updated": "2026-02-25T08:53:56.443148"
 };
