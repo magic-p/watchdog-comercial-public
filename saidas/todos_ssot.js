@@ -201,13 +201,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Resp Lili (base) + Mkt/Vitória (disparo). Dois disparos: (1) caneca reforço para base atual já disparada, com fluxo Blip ajustado; (2) caneca para base 'descarte' AA selecionada por Lili. Orçamento R$ 1.700. NÃO disparar para AA em fase SDR ativo (insight018). Pré-requisito: t012 (fluxo Blip ligado).",
     "owner": "Vitoria",
     "date": "24/fev",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-25T00:00:00",
+    "completedAt": "2026-02-25T00:00:00"
   },
   {
     "id": "t016",
