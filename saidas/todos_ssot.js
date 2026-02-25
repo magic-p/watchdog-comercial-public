@@ -117,13 +117,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Top prioridade Lili (24/02). Breakdown: (1) 10 prioritárias indicadas pela Pimentel; (2) 10 agendamentos do dia; (3) 20 demais fechadas e não convertidas. Se cartão/iFood travar, usar Pix via Rafa (financeiro). Confirmar status de envio D+1.",
     "owner": "Kaka",
     "date": "24/fev",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": 1,
     "updatedAt": "2026-02-25T00:00:00",
-    "completedAt": null
+    "completedAt": "2026-02-25T00:00:00"
   },
   {
     "id": "t010",
