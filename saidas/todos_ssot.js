@@ -310,15 +310,15 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t023",
     "task": "Copy + disparo Fechada→Convertida Renovação (LT + Pública + HT Particular)",
-    "comment": "Confirmado na daily 25/02. Disparo para todas as bases de renovação fechadas não convertidas. Horário: ~13:30. Vitória executa o disparo; Pedro responsável pela copy. Remover escolas no nome de Maria Carol para não chatear.",
+    "comment": "Confirmado na daily 25/02. Disparo para todas as bases de renovação fechadas não convertidas. Vitória executa o disparo; Pedro responsável pela copy. Remover escolas no nome de Maria Carol para não chatear.",
     "owner": "Pedro",
-    "date": "25/fev",
+    "date": "26/fev",
     "tier": "t1",
     "tierLabel": "A fazer",
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": null,
+    "updatedAt": "2026-02-25T00:00:00",
     "completedAt": null
   },
   {
