@@ -369,6 +369,60 @@ window.WATCHDOG_INTEL = {
       ],
       "acao_sugerida": "Revisar qualificação de lista e copy de Outbound antes de novo disparo; testar segmentação menor.",
       "status": "ativo"
+    },
+    {
+      "id": "insight025",
+      "data": "2026-02-25",
+      "fonte": "Google Chat — conversa Lua/Lili/Pedro · 24-25/fev",
+      "categoria": "canal",
+      "gatilho": null,
+      "insight": "Chamadas originadas da Goto aparecem como spam nos telefones das gestoras de escola. Testado pela própria Lua (ligou da Goto para o próprio celular — apareceu como spam). Isso contamina a taxa de contato de AA e possivelmente de outros baldinhos que usam a mesma infraestrutura.",
+      "evidencia": "Relato direto de Lua em 24/02: 'Liguei da goto pro meu telefone e apareceu como spam, temos muitas ferramentas no mercado que bloqueiam isso. Então estamos ligando pelo WhatsApp.' Validado com 2 escolas.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "anos_anteriores",
+        "outbound",
+        "concorrencia",
+        "retracao"
+      ],
+      "acao_sugerida": "Testar 1 SDR ligando de fora da Goto (celular pessoal ou número alternativo) vs Goto para AA, comparar taxa de contato. Nath isolar nas métricas quantas escolas foram contatadas via WhatsApp vs Goto e qual a taxa de cada canal.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight026",
+      "data": "2026-02-25",
+      "fonte": "Google Chat — conversa Lua/Lili/Pedro · 24-25/fev",
+      "categoria": "copy",
+      "gatilho": "mimo_fisico",
+      "insight": "Copy de mimo físico sem CTA de condicionamento explícito cria expectativa errada na escola. Uma gestora foi à RR com o Closer esperando receber a caneca como brinde garantido — não entendeu que precisava tomar uma ação (adesão) para recebê-la. Isso enfraquece o argumento de fechamento do Closer.",
+      "evidencia": "Relato de Lua em 24/02: 'em uma reunião que já aconteceu, a gestora entrou acreditando que a caneca já estava sendo enviada, como se fosse um presente garantido e não um benefício condicionado à adesão ao projeto. Ela disse que não entendeu pela mensagem que precisava realizar alguma ação para garantir o envio.'",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "anos_anteriores",
+        "renovacao",
+        "retracao",
+        "novas"
+      ],
+      "acao_sugerida": "Toda copy de mimo físico deve conter CTA explícito de condicionamento ('para garantir a sua caneca, basta...') antes do próximo disparo. Revisar copy atual antes do disparo de 25/02.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight027",
+      "data": "2026-02-25",
+      "fonte": "Google Chat — conversa Lua/Lili/Pedro · 24-25/fev",
+      "categoria": "comportamento",
+      "gatilho": null,
+      "insight": "Agendamento frio via WhatsApp tem alta taxa de no-show e baixa conversão — não substitui voz no funil de AA. Lua não valida agendamentos feitos só por mensagem sem qualificação de voz prévia. Ocupa a agenda do Closer sem retorno. WhatsApp funciona como canal de levantada e aquecimento, não como substituto de voz para conversão.",
+      "evidencia": "Lua em 24/02: 'agendamentos só por WhatsApp têm baixa eficácia, porque não conseguimos trabalhar objeções e o não tenho interesse aparece muito fácil. Agendamento frio por WhatsApp eu não valido, pois raramente converte e ocupa espaço na agenda da closer. Taxa de noshow alta. Acredito que conversa por voz, a taxa de conversão é bem maior.'",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "anos_anteriores",
+        "outbound",
+        "concorrencia",
+        "retracao"
+      ],
+      "acao_sugerida": "Estabelecer como regra: agendamento via WhatsApp exige qualificação de voz prévia pela Lua antes de entrar na agenda do Closer. Quando escola só responde via WhatsApp, SDR faz qualificação completa por mensagem + áudio antes de agendar.",
+      "status": "ativo"
     }
   ],
   "criticas_ativas": [
@@ -483,7 +537,27 @@ window.WATCHDOG_INTEL = {
       "prioridade": "alta",
       "dri": "Vitoria",
       "status": "aberta"
+    },
+    {
+      "id": "alerta012",
+      "data": "2026-02-25",
+      "titulo": "Goto aparece como spam — taxa de contato AA contaminada por infraestrutura",
+      "critica": "Chamadas da Goto aparecem como spam nos telefones das gestoras. Testado pela própria Lua em 24/02. Isso significa que toda a análise de taxa de contato de AA feita até hoje pode estar subestimando o problema real — o bloqueio é de infraestrutura, não de lista ou copy. Escolas que não atenderam podem não ter visto como 'não interesse', mas como spam bloqueado automaticamente.",
+      "acao_sugerida": "Lua testar hoje 1 SDR ligando de fora da Goto (celular pessoal/número alternativo) para escolas AA que não responderam. Comparar taxa de contato vs Goto. Nath isolar métricas: contatos via WhatsApp vs Goto, taxa de cada. Resultado em D+2.",
+      "prioridade": "alta",
+      "dri": "Luana",
+      "status": "aberta"
+    },
+    {
+      "id": "alerta013",
+      "data": "2026-02-25",
+      "titulo": "Copy da caneca sem CTA de condicionamento — expectativa errada na escola",
+      "critica": "Uma escola foi à RR com o Closer esperando a caneca como brinde garantido, não como benefício condicional à adesão. A copy atual não deixa claro que a escola precisa agir para receber o mimo. Isso enfraquece o argumento do Closer no fechamento e pode estar acontecendo em mais escolas silenciosamente.",
+      "acao_sugerida": "Vitória/Kaka revisar copy do disparo de 25/02 antes de enviar: incluir CTA explícito de condicionamento ('para garantir a sua caneca, basta...'). Regra permanente: todo disparo de mimo físico deve ter o condicionamento explícito na mensagem.",
+      "prioridade": "alta",
+      "dri": "Karina Machado",
+      "status": "aberta"
     }
   ],
-  "ultima_atualizacao": "2026-02-24T20:26:20"
+  "ultima_atualizacao": "2026-02-25T07:00:00"
 };
