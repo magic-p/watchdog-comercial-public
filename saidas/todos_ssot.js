@@ -271,13 +271,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Disparo de reativação para escolas fechadas não convertidas para bolsão. DESBLOQUEADO em 25/02: t016 entregue. Ofertas definidas: voucher R$100 (melhor), arte (grandes), playlist (concorrência), caneca (AA). Vitória pode executar o disparo.",
     "owner": "Vitoria",
     "date": "24/fev",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
     "updatedAt": "2026-02-25T00:00:00",
-    "completedAt": null
+    "completedAt": "2026-02-25T00:00:00"
   },
   {
     "id": "t021",
