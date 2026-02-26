@@ -383,13 +383,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Wydi alinhou com Aninha (Ana Pimentel) em 25/02. Objetivo: dar último push de conversão antes do fim de semana. Urgência até 17h de sexta como 'gordura' para atuação no final do dia. Vitória executa o disparo; Kaka/Pedro responsáveis pela copy. COPY DEFINIDA (Wydi, 26/02): 'vi que não enviou ainda, imagino que esteja corrido, mas não queria que perdesse R$100 que só vai até amanhã' — urgência sem pressão, preocupação sem julgamento. RESTRIÇÃO: budget disponível R$624,92 (~480 escolas). Base precisa ser cirúrgica.",
     "owner": "Kaka",
     "date": "26/fev",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-26T00:00:00",
+    "completedAt": "2026-02-26T00:00:00"
   },
   {
     "id": "t029",
@@ -673,8 +673,8 @@ window.WATCHDOG_TODOS = [
   },
   {
     "id": "t049",
-    "task": "Pedro incluir no hot dog: líder ID empacotar discurso de diferenciais da concorrência com prazo",
-    "comment": "Lili pediu na daily 26/02. Líder ID deve investigar e empacotar o discurso de diferenciais da Estante vs concorrentes — para armar o time de SDR e closers. Prazo a ser definido no hot dog de Pedro. Conectado ao resultado do A/B concorrência (insight042/050): argumento operacional/funcional vence emocional.",
+    "task": "Pedro incluir no Watchdog: líder ID empacotar discurso de diferenciais da concorrência com prazo",
+    "comment": "Lili pediu na daily 26/02. Líder ID deve investigar e empacotar o discurso de diferenciais da Estante vs concorrentes — para armar o time de SDR e closers. Prazo a ser definido no Watchdog de Pedro. Conectado ao resultado do A/B concorrência (insight042/050): argumento operacional/funcional vence emocional.",
     "owner": "Pedro",
     "date": "26/fev",
     "tier": "t1",
