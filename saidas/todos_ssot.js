@@ -537,13 +537,13 @@ window.WATCHDOG_TODOS = [
     "comment": "URGENTE. Daily de 25/02 recomendou playlist para escolas de Concorrência. O A/B de 24/02 (c004) prova o contrário: copy de posicionamento competitivo = 2,42% levantadas, CPL R$22,29 vs playlist = 1,38%, CPL R$39,02. Se o próximo disparo de Concorrência usar playlist, estamos repetindo erro documentado. Corrigir briefing e orientação para o time antes do próximo disparo. Ver insight042.",
     "owner": "Vitoria",
     "date": "26/fev",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-26T00:00:00",
+    "completedAt": "2026-02-26T00:00:00"
   },
   {
     "id": "t041",
