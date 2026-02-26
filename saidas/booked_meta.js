@@ -55,6 +55,14 @@ window.WATCHDOG_BOOKED_META = {
   "wins": [
     {
       "emoji": "🎯",
+      "titulo": "Ana Paula Pimentel: Reabrir conversas Blip das 27+5 levantadas de caneca",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Ana Paula Pimentel",
+      "data": "26/02",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
+      "emoji": "🎯",
       "titulo": "Kaka: Enviar 40 mimos para bolsão hoje — 3 levas priorizadas",
       "desc": "Concluida no ciclo semanal (segunda a domingo).",
       "dri": "Kaka",
@@ -80,14 +88,6 @@ window.WATCHDOG_BOOKED_META = {
     {
       "emoji": "✅",
       "titulo": "Ana Paula Pimentel: Reunião com time ID — definir argumento e sugestão de ação para FUP (fechada não convertida)",
-      "desc": "Concluida no prazo definido.",
-      "dri": "Ana Paula Pimentel",
-      "data": "25/02",
-      "tipo": "ENTREGA_NO_PRAZO"
-    },
-    {
-      "emoji": "✅",
-      "titulo": "Ana Paula Pimentel: Escalar cenoura para closers — aprovar com Lili",
       "desc": "Concluida no prazo definido.",
       "dri": "Ana Paula Pimentel",
       "data": "25/02",

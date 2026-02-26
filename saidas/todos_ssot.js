@@ -425,13 +425,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Linha no CSV '2026 _ Wpp _ Disparos de MKT - 23_02 à 27_02' sem nome, sem tag, 280 entregues, R$151,20 gasto. Provavelmente é t020 (FUP fechada→convertida) ou t024 (Novas voucher R$100), ambos marcados como concluídos em 25/02. Vitória deve identificar, nomear e registrar resultado de conversão.",
     "owner": "Vitoria",
     "date": "26/fev",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-26T00:00:00",
+    "completedAt": "2026-02-26T00:00:00"
   },
   {
     "id": "t032",
