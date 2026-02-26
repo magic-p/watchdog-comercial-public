@@ -635,13 +635,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Definido na daily 26/02. Lili liberou mimo para FUPs e listas, sem corte de alunos. Pimentel comunica formalmente aos closers e ao time de ativação. Escolas prioritárias do bolsão 25 já relataram que mimo é a melhor oferta recebida (insight046). Mimo liberado = alavanca imediata para ativação hoje.",
     "owner": "Ana Paula Pimentel",
     "date": "26/fev",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-26T00:00:00",
+    "completedAt": "2026-02-26T00:00:00"
   },
   {
     "id": "t047",
