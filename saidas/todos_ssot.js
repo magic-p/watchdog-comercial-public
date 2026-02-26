@@ -381,7 +381,7 @@ window.WATCHDOG_TODOS = [
     "id": "t028",
     "task": "Disparo vale R$100 com senso de urgência — prazo para escola até 17h de 26/fev",
     "comment": "Wydi alinhou com Aninha (Ana Pimentel) em 25/02. Objetivo: dar último push de conversão antes do fim de semana. Urgência até 17h de sexta como 'gordura' para atuação no final do dia. Vitória executa o disparo; Kaka/Pedro responsáveis pela copy. COPY DEFINIDA (Wydi, 26/02): 'vi que não enviou ainda, imagino que esteja corrido, mas não queria que perdesse R$100 que só vai até amanhã' — urgência sem pressão, preocupação sem julgamento. RESTRIÇÃO: budget disponível R$624,92 (~480 escolas). Base precisa ser cirúrgica.",
-    "owner": "Vitoria",
+    "owner": "Kaka",
     "date": "26/fev",
     "tier": "t1",
     "tierLabel": "A fazer",
