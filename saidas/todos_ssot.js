@@ -313,13 +313,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Confirmado na daily 25/02. Disparo para todas as bases de renovação fechadas não convertidas. Vitória executa o disparo; Pedro responsável pela copy. Remover escolas no nome de Maria Carol para não chatear.",
     "owner": "Kaka",
     "date": "26/fev",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": 1,
-    "updatedAt": "2026-02-25T00:00:00",
-    "completedAt": null
+    "updatedAt": "2026-02-26T00:00:00",
+    "completedAt": "2026-02-26T00:00:00"
   },
   {
     "id": "t024",
