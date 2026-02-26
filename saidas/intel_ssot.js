@@ -2,7 +2,7 @@ window.WATCHDOG_INTEL = {
   "persona": {
     "nome": "Claudete",
     "papel": "Chief of Staff & Head of Marketing Analytics",
-    "ultima_atualizacao": "2026-02-26T16:00:00"
+    "ultima_atualizacao": "2026-02-26T17:00:00"
   },
   "aprendizados": [
     {
@@ -825,6 +825,22 @@ window.WATCHDOG_INTEL = {
       ],
       "acao_sugerida": "Nao usar playlist em copy escrita (WhatsApp, e-mail, carta). Treinar closers para usar argumento playlist na RR como diferencial emocional de fechamento. Manter posicionamento competitivo direto para prospeccao escrita.",
       "status": "ativo"
+    },
+    {
+      "id": "insight053",
+      "data": "2026-02-26",
+      "fonte": "Resultado real da acao t023+t048 — Kaka enviou 1-a-1 para 24 escolas LT como Lili (26/02)",
+      "categoria": "copy_e_mensagem",
+      "insight": "Abordagem 1-a-1 no WhatsApp como a propria cofundadora (Lili), com copy emocional personalizada + reducao de friccao no pedido (qualquer formato aceito), converte bolsao LT em taxa muito superior a disparos em massa. Resultado preliminar: 37,5% (7 listas + 2 promessas de 24 escolas) no mesmo dia.",
+      "evidencia": "Copy: \"Sou a Lili, cofundadora da Estante Mágica. A [Nome da Escola] já está confirmada no projeto — e mal posso esperar pelo dia em que cada aluno de vocês segurar o próprio livro na noite de autógrafos. Falta só a lista de alunos para darmos seguimento. Me manda do jeito que estiver: Excel, PDF ou foto. Eu mesma faço o cadastro com carinho. Consigo receber hoje?\". Kaka enviou manualmente 1-a-1. 7 listas recebidas + 2 promessas de 24 escolas LT no mesmo dia da acao.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "bolsao_ativacao",
+        "renovacao_lt",
+        "escolas_fechadas_nao_convertidas"
+      ],
+      "acao_sugerida": "Para ativacao de bolsao de alto valor: priorizar abordagem 1-a-1 como cofundador(a) com copy emocional + pedido low friction sobre disparos em massa. Escalar com criterio: selecionar escolas de maior receita potencial para justificar esforco manual.",
+      "status": "ativo"
     }
   ],
   "criticas_ativas": [
@@ -1041,6 +1057,16 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Pimentel avaliar impacto na meta de Concorrência de março e ajustar expectativa. Considerar medidas de gestão para não contaminar o time restante. Planejar onboarding/recomposição se necessário.",
       "prioridade": "alta",
       "dri": "Ana Paula Pimentel",
+      "status": "aberta"
+    },
+    {
+      "id": "alerta022",
+      "data": "2026-02-26",
+      "titulo": "Copy Lili 1-a-1 convertendo 37,5% — escalar para outras escolas LT e alto valor ainda esta semana",
+      "critica": "Abordagem 1-a-1 como Lili gerou 7 listas + 2 promessas de 24 escolas LT no mesmo dia (37,5% preliminar). Há bolsao restante (escolas fechadas nao convertidas) em AA, Retracao e Renovacao HT com potencial similar. Cada dia sem escalar essa abordagem é conversao deixada na mesa.",
+      "acao_sugerida": "Definir proximo lote de escolas de alto valor para abordagem 1-a-1 como Lili. Priorizar: (1) escolas LT restantes que nao responderam ainda; (2) escolas AA bolsao de maior receita historica; (3) Renovacao HT com longa espera. Kaka/Pimentel definem lista ate segunda-feira.",
+      "prioridade": "alta",
+      "dri": "kaka",
       "status": "aberta"
     }
   ],

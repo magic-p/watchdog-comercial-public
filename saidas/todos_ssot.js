@@ -310,7 +310,7 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t023",
     "task": "Copy + disparo Fechada→Convertida Renovação (LT + Pública + HT Particular)",
-    "comment": "Confirmado na daily 25/02. Disparo para todas as bases de renovação fechadas não convertidas. Vitória executa o disparo; Pedro responsável pela copy. Remover escolas no nome de Maria Carol para não chatear.",
+    "comment": "EXECUÇÃO REAL (26/02): ação focou exclusivamente nas 24 escolas LT (base enviada pela Lili via t048). Kaka enviou mensagens individuais 1-a-1 no WhatsApp, como se fosse a própria Lili. Copy: 'Sou a Lili, cofundadora da Estante Mágica. A [Nome da Escola] já está confirmada no projeto — e mal posso esperar pelo dia em que cada aluno de vocês segurar o próprio livro na noite de autógrafos. 🌟 Falta só a lista de alunos para darmos seguimento. Me manda do jeito que estiver: Excel, PDF ou foto. Eu mesma faço o cadastro com carinho. Consigo receber hoje?'. RESULTADO PARCIAL (26/02): 7 listas recebidas + 2 promessas para 27/02 = 9 de 24 escolas = 37,5% de conversão preliminar. Ver insight053.",
     "owner": "Kaka",
     "date": "26/fev",
     "tier": "done",
