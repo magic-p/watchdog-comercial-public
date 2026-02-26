@@ -453,13 +453,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Às 13h, Pimentel consolida: quantas listas chegaram até agora (comercial + ativação). Se abaixo de 15 (50% da meta de 30), decidir ação corretiva imediata para as próximas 4 horas. Mensagem rápida no grupo já resolve. Sem checkpoint, a surpresa aparece tarde demais. Origem: análise Claudete da fala Pimentel 26/02.",
     "owner": "Ana Paula Pimentel",
     "date": "26/fev",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-26T00:00:00",
+    "completedAt": "2026-02-26T00:00:00"
   },
   {
     "id": "t034",
