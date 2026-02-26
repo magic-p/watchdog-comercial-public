@@ -103,6 +103,14 @@ window.WATCHDOG_BOOKED_META = {
     },
     {
       "emoji": "✅",
+      "titulo": "Vitoria: Corrigir orientação de copy para Concorrência: retirar playlist, adotar posicionamento competitivo",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Vitoria",
+      "data": "26/02",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
       "titulo": "Ana Paula Pimentel: Aprovação e escalada da 'cenourinha' para closers — pendente aprovação Lili",
       "desc": "Concluida no prazo definido.",
       "dri": "Ana Paula Pimentel",
