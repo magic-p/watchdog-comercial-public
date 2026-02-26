@@ -408,13 +408,13 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t030",
     "task": "Limpeza CRM: duplicatas base AA + escolas que não querem contato [consolidado de t035]",
-    "comment": "Consolidação de t030 + t035 (pedido Lili/Lua, 26/02). Dois escopos: (1) Duplicatas base AA — 6 de 25 levantadas do c003 (24%) vieram de 'Duplicada'. Verificar se são a mesma escola com 2 registros; se sim, corrigir levantadas de c003 para 19 AA e CPL de R$20,88 para R$24,57. Enquanto não limpar, métricas de AA descarte estão infladas. Alerta017. (2) Escolas que não querem contato — atualizar flag no CRM para não aparecerem em futuras campanhas e disparos. Resultado esperado: base limpa e métricas confiáveis.",
+    "comment": "Consolidação de t030 + t035 (pedido Lili/Lua, 26/02). ENCERRADA 26/02 via decisão da Luana: atualização de base passa a ser regra embarcada no processo de prospecção do SDR — o próprio SDR atualiza o card durante a ligação (gestor saiu, contato errado, mudança de cargo). Não será alocada pessoa dedicada. Ver insight051.",
     "owner": "Vitoria",
     "date": "04/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
     "updatedAt": null,
     "completedAt": null

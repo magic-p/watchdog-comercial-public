@@ -2,7 +2,7 @@ window.WATCHDOG_INTEL = {
   "persona": {
     "nome": "Claudete",
     "papel": "Chief of Staff & Head of Marketing Analytics",
-    "ultima_atualizacao": "2026-02-24"
+    "ultima_atualizacao": "2026-02-26T16:00:00"
   },
   "aprendizados": [
     {
@@ -791,6 +791,40 @@ window.WATCHDOG_INTEL = {
       ],
       "acao_sugerida": "Reservar incentivos financeiros (vale, desconto, patrocínio) para base fria/Outbound. Para Retração e Concorrência, preferir gatilhos de diferenciação, prova social ou mimo físico — que atacam barreira de confiança, não de preço.",
       "status": "ativo"
+    },
+    {
+      "id": "insight051",
+      "data": "2026-02-26",
+      "fonte": "Decisao Luana (Supervisora Comercial) em GChat 26/02 — confirmada por Pedro",
+      "categoria": "operacoes_comerciais",
+      "insight": "Higienizacao de CRM e mais eficiente quando embarcada no processo de prospeccao do SDR do que como tarefa isolada. O SDR ja recebe informacao fresca durante a ligacao (gestor saiu, contato errado, mudanca de cargo) e pode atualizar o card na hora.",
+      "evidencia": "Luana argumentou que alocar pessoa dedicada = ponto extra de contato + risco de desgaste por excesso de abordagem. SDR prospectando ja cobre o enriquecimento organicamente. Decisao: atualizar base vira regra de processo na prospeccao, sem adicionar contato separado.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "base_aa",
+        "base_concorrencia",
+        "base_retracao",
+        "processo_sdr"
+      ],
+      "acao_sugerida": "Incluir campo de atualizacao de dados (gestor, contato, status) como item obrigatorio no encerramento de cada ligacao SDR. Nao alocar pessoa dedicada a enriquecimento de base.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight052",
+      "data": "2026-02-26",
+      "fonte": "Wydi (Supervisora Comercial Ativacao Bolsao) em GChat 26/02 — resposta ao Watchdog",
+      "categoria": "copy_e_mensagem",
+      "insight": "Playlist/trilha sonora personalizada ressoa como argumento diferencial VERBAL do closer na RR, mas nao funciona como copy escrita de prospeccao. Sao dois contextos com mecanismos de conversao estruturalmente diferentes: verbal presencial (RR) vs escrito assincronico (WhatsApp, e-mail).",
+      "evidencia": "Wydi: \"quando ela ressoa na gestao e na reuniao no discurso com o closer\". Pitch verbal: \"Sua escola se destaca e ganha mais matriculas pq o fruto do ano letivo alem de se transformar um livro tem uma musica composta exclusivamente pra ela. Entao reforca visibilidade da escola!\". A/B c004 (24/02): playlist como copy escrita = 1,38% levantadas vs posicionamento competitivo = 2,42%. O A/B mediu escrita; o insight da Wydi e sobre verbal presencial — contextos nao comparaveis.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "concorrencia",
+        "copy_escrita",
+        "pitch_closer",
+        "ativacao"
+      ],
+      "acao_sugerida": "Nao usar playlist em copy escrita (WhatsApp, e-mail, carta). Treinar closers para usar argumento playlist na RR como diferencial emocional de fechamento. Manter posicionamento competitivo direto para prospeccao escrita.",
+      "status": "ativo"
     }
   ],
   "criticas_ativas": [
@@ -986,7 +1020,8 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Vitória corrigir briefing e orientação de copy para Concorrência antes do próximo disparo. Compartilhar resultado do A/B com quem elabora os dailies e briefings (Nath/Vitória). Ver insight042 e t040.",
       "prioridade": "critica",
       "dri": "Vitória",
-      "status": "aberta"
+      "status": "incorporada",
+      "nota_fechamento": "Resolvido 26/02: Wydi esclareceu que playlist funciona no verbal do closer (RR), nao em copy escrita. A diaria recomendava para o discurso verbal — nao e contradicao com o A/B, e contexto diferente. Ver insight052."
     },
     {
       "id": "alerta020",
