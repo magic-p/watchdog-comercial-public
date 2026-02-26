@@ -607,13 +607,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Definido na daily 26/02. WA de ontem não teve bom resultado (base bolsão). Solução: Vitória prepara copy para WhatsApp Business que o time usa manualmente — reforçando gatilho R$100. Copy deve ser simples, pessoal, adaptável por closer/ativador. Diferente de t028 (disparo massa via plataforma).",
     "owner": "Vitoria",
     "date": "26/fev",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-26T00:00:00",
+    "completedAt": "2026-02-26T00:00:00"
   },
   {
     "id": "t045",
