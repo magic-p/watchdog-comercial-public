@@ -311,7 +311,7 @@ window.WATCHDOG_TODOS = [
     "id": "t023",
     "task": "Copy + disparo Fechada→Convertida Renovação (LT + Pública + HT Particular)",
     "comment": "Confirmado na daily 25/02. Disparo para todas as bases de renovação fechadas não convertidas. Vitória executa o disparo; Pedro responsável pela copy. Remover escolas no nome de Maria Carol para não chatear.",
-    "owner": "Pedro",
+    "owner": "Kaka",
     "date": "26/fev",
     "tier": "t1",
     "tierLabel": "A fazer",
