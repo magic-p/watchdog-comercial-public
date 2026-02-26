@@ -588,6 +588,56 @@ window.WATCHDOG_INTEL = {
       ],
       "acao_sugerida": "Vídeo de envio por foto/áudio deve ser parte obrigatória do kit do Closer para AA — não recurso de emergência. Usar proativamente antes da objeção aparecer ('uma coisa que as escolas adoram descobrir é como ficou simples enviar...'). Incluir o vídeo no email pós-reunião como item fixo.",
       "status": "ativo"
+    },
+    {
+      "id": "insight038",
+      "data": "2026-02-25",
+      "fonte": "Google Chat — Wydi + Lili · 25/fev (update de fim de dia)",
+      "categoria": "oferta",
+      "gatilho": "beneficio_financeiro",
+      "insight": "Vale presente R$100 tem efetividade superior a playlist e post de Instagram para ativação de bolsão (fechada → convertida). Confirmado empiricamente em campo pela supervisora Wydi durante ação de mimos 25/02.",
+      "evidencia": "Wydi em 25/02: 'Continuamos com as ações de vale presente 100 reais que normalmente funciona bem quando temos efetividade, mais até do que com playlist e post do instagram.'",
+      "confianca": "media",
+      "aplicavel_a": [
+        "bolsao",
+        "renovacao",
+        "anos_anteriores",
+        "novas"
+      ],
+      "acao_sugerida": "Para ativação de bolsão, usar vale R$100 como oferta padrão. Playlist e post Instagram como complemento ou fallback para escolas com perfil específico. Confirmar em mais ciclos para elevar confiança.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight039",
+      "data": "2026-02-25",
+      "fonte": "Google Chat — Wydi + Lili · 25/fev (update de fim de dia)",
+      "categoria": "oferta",
+      "gatilho": "reciprocidade",
+      "insight": "Taxa de reversão de sumiço via mimo físico (presencial/iFood) = ~20%. De 20 casos de sumiço abordados com mimo, 4 resultaram em contato reagendado com gestão. Primeiro benchmark documentado para esse perfil específico — não é conversão total, é retomada de contato qualificado.",
+      "evidencia": "Wydi em 25/02: '28 escolas com recebimento de mimo, dessas: 20 eram casos de sumiço. 10 se mantiveram sem efetividade; 4 tiveram contatos reagendados para amanhã diretamente com a gestão. Grau de reversão 20%.'",
+      "confianca": "media",
+      "aplicavel_a": [
+        "bolsao",
+        "anos_anteriores",
+        "renovacao"
+      ],
+      "acao_sugerida": "Usar 20% como benchmark de reversão de sumiço via mimo. Calibrar expectativa operacional: de cada 10 mimos enviados para sumiços, esperar ~2 retornos com gestão. Para aumentar a taxa, investigar se o perfil dos 10 sem efetividade tem padrão de baldinho, tempo de sumiço ou tipo de contato.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight040",
+      "data": "2026-02-25",
+      "fonte": "Google Chat — Luana + Lili · 25/fev",
+      "categoria": "canal",
+      "gatilho": "mimo_fisico",
+      "insight": "2 fechamentos confirmados em AA via campanha da caneca — as gestoras agendaram contato pelo WhatsApp e fecharam. Confirma que caneca gera conversão real de escola que estava fria, não apenas levantadas. O mecanismo: escola responde ao disparo de WhatsApp e toma iniciativa de agendar via mensagem.",
+      "evidencia": "Luana em 25/02: 'as duas gestoras que agendaram contato pelo wpp fecharam pela campanha da caneca.'",
+      "confianca": "media",
+      "aplicavel_a": [
+        "anos_anteriores"
+      ],
+      "acao_sugerida": "Registrar caneca AA descarte como campanha com conversão comprovada (não só levantada). Ao calcular ROI da campanha, incluir esses fechamentos no numerador. Testar repetição para base AA descarte em março.",
+      "status": "ativo"
     }
   ],
   "criticas_ativas": [
@@ -650,7 +700,8 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Karina garantir envio dos 40 mimos para bolsão hoje (via Pix com Rafa se cartão/iFood travar). Confirmar status de cada envio no D+1. Meta: 10 em 10 agendamentos de bolsão recebem mimo antes do contato de ativação.",
       "prioridade": "critica",
       "dri": "Karina Machado",
-      "status": "aberta"
+      "status": "aberta",
+      "atualizacao_25_02": "Mimos enviados: 27 (Pimentel) + 28 (Wydi) = ~55 no dia. Taxa de reversão de sumiço: 20% (4/20). Dia comprometido por 2 de 5 ativadores ausentes (40% capacidade) + parada para alinhamento operacional. 10 retornos programados para 26/02 com gestão/secretaria. Benchmark registrado: insight039."
     },
     {
       "id": "alerta007",
@@ -711,7 +762,8 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Lua testar hoje 1 SDR ligando de fora da Goto (celular pessoal/número alternativo) para escolas AA que não responderam. Comparar taxa de contato vs Goto. Nath isolar métricas: contatos via WhatsApp vs Goto, taxa de cada. Resultado em D+2.",
       "prioridade": "alta",
       "dri": "Luana",
-      "status": "aberta"
+      "status": "em_execucao",
+      "atualizacao_25_02": "Teste confirmado para 26/02: Tati isolada para ligar fora da Goto. Lili confirmou com Lua às 19:15 via Google Chat. Resultado esperado em D+1 (26/02)."
     },
     {
       "id": "alerta013",
@@ -742,7 +794,17 @@ window.WATCHDOG_INTEL = {
       "prioridade": "alta",
       "dri": "Ana Paula Pimentel",
       "status": "aberta"
+    },
+    {
+      "id": "alerta016",
+      "data": "2026-02-25",
+      "titulo": "LGPD como bloqueio de conversão emergindo — 3 casos simultâneos sem processo padronizado",
+      "critica": "Três escolas simultâneas se recusaram a compartilhar dados de alunos por questão de LGPD em 25/02. Cada caso está sendo resolvido individualmente (1 em Tech, 1 negociando acesso direto, 1 com nova RR). Sem fluxo padronizado, cada novo caso consome tempo de Wydi/Pimentel e pode travar a conversão por dias. Se o volume escalar, vira gargalo sistêmico de bolsão.",
+      "acao_sugerida": "Pimentel mapear os 3 casos ativos e criar fluxo de resolução padrão: (1) escola quer subir ela mesma → protocolo Tech já; (2) escola recusa categoricamente → escalada com argumento jurídico/contratual. Prazo: antes de março. Incluir script de prevenção para o Closer usar na RR.",
+      "prioridade": "alta",
+      "dri": "Ana Paula Pimentel",
+      "status": "aberta"
     }
   ],
-  "ultima_atualizacao": "2026-02-25T17:00:00"
+  "ultima_atualizacao": "2026-02-25T22:00:00"
 };

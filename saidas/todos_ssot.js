@@ -248,7 +248,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": null,
+    "updatedAt": "2026-02-25T00:00:00",
     "completedAt": null
   },
   {
@@ -361,6 +361,48 @@ window.WATCHDOG_TODOS = [
     "done": false,
     "priorityRank": null,
     "updatedAt": "2026-02-25T00:00:00",
+    "completedAt": null
+  },
+  {
+    "id": "t027",
+    "task": "Executar teste Tati fora da Goto — ligar por WPP/celular alternativo para AA e comparar taxa de contato vs Goto",
+    "comment": "Confirmado por Lua e Lili via Google Chat 25/02 (19:15). Tati é a SDR designada. Objetivo: isolar se a baixa taxa de contato de AA é problema de infraestrutura (Goto=spam) ou de lista/perfil. Resultado esperado em D+1. Registrar: (1) nº de tentativas via celular alternativo, (2) tx de atendimento, (3) comparação com tx Goto do mesmo período.",
+    "owner": "Luana",
+    "date": "26/fev",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": null,
+    "completedAt": null
+  },
+  {
+    "id": "t028",
+    "task": "Disparo vale R$100 com senso de urgência — prazo para escola até 17h de 26/fev",
+    "comment": "Wydi alinhou com Aninha (Ana Pimentel) em 25/02. Objetivo: dar último push de conversão antes do fim de semana. Urgência até 17h de sexta como 'gordura' para atuação no final do dia. Vitória executa o disparo; Kaka/Pedro responsáveis pela copy com CTA de condicionamento explícito (insight026 — regra obrigatória).",
+    "owner": "Vitoria",
+    "date": "26/fev",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": null,
+    "completedAt": null
+  },
+  {
+    "id": "t029",
+    "task": "Criar fluxo padrão de resolução de bloqueio LGPD (3 casos ativos)",
+    "comment": "3 casos simultâneos em 25/02: (1) gestor quer subir alunos ele mesmo → Tech resolvendo; (2) escola negociando acesso direto à plataforma; (3) escola perdida → nova RR marcada. Sem fluxo padronizado, cada novo caso consome tempo individual. Entregar: (a) fluxo de decisão por tipo de bloqueio LGPD; (b) script preventivo para o Closer usar na RR antes do fechamento; (c) alinhamento com Tech sobre protocolo de upload próprio pela escola.",
+    "owner": "Ana Paula Pimentel",
+    "date": "03/mar",
+    "tier": "t2",
+    "tierLabel": "Fazendo",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": null,
     "completedAt": null
   }
 ];

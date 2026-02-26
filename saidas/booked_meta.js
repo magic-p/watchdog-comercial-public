@@ -55,6 +55,14 @@ window.WATCHDOG_BOOKED_META = {
   "wins": [
     {
       "emoji": "🎯",
+      "titulo": "Kaka: Enviar 40 mimos para bolsão hoje — 3 levas priorizadas",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Kaka",
+      "data": "25/02",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
+      "emoji": "🎯",
       "titulo": "Ana Paula Pimentel: Fornecer nomes dos supervisores de cada baldinho para Vitória configurar filas na Blip",
       "desc": "Concluida no ciclo semanal (segunda a domingo).",
       "dri": "Ana Paula Pimentel",
@@ -84,14 +92,6 @@ window.WATCHDOG_BOOKED_META = {
       "dri": "Ana Paula Pimentel",
       "data": "25/02",
       "tipo": "ENTREGA_NO_PRAZO"
-    },
-    {
-      "emoji": "🎯",
-      "titulo": "Vitoria: Disparo 4a: fechada > convertida — aguardar oferta Pimentel (bloqueado por t016)",
-      "desc": "Concluida no ciclo semanal (segunda a domingo).",
-      "dri": "Vitoria",
-      "data": "25/02",
-      "tipo": "ENTREGA_CONCLUIDA"
     }
   ],
   "kpis": {
