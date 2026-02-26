@@ -238,5 +238,5 @@ window.WATCHDOG_CAMPANHAS = {
     "Campanha 2026-02-23: 38 levantadas de 5,315 contatos (0.71%) (resultado parcial)",
     "Campanha 2026-02-27: 80 levantadas de 3,298 contatos (2.43%) (resultado parcial)"
   ],
-  "updated": "2026-02-25T22:55:59.990381"
+  "updated": "2026-02-26T09:19:21.558134"
 };
