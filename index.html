@@ -2415,7 +2415,7 @@ function renderWins() {
     if (seen.has(k)) return false;
     seen.add(k);
     return true;
-  }).slice(0, 5);
+  });
 
   el.innerHTML = source.map(w => `
     <div class="win-item">
