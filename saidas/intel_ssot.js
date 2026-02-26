@@ -2,7 +2,7 @@ window.WATCHDOG_INTEL = {
   "persona": {
     "nome": "Claudete",
     "papel": "Chief of Staff & Head of Marketing Analytics",
-    "ultima_atualizacao": "2026-02-26T17:00:00"
+    "ultima_atualizacao": "2026-02-26T17:30:00"
   },
   "aprendizados": [
     {
@@ -840,6 +840,39 @@ window.WATCHDOG_INTEL = {
         "escolas_fechadas_nao_convertidas"
       ],
       "acao_sugerida": "Para ativacao de bolsao de alto valor: priorizar abordagem 1-a-1 como cofundador(a) com copy emocional + pedido low friction sobre disparos em massa. Escalar com criterio: selecionar escolas de maior receita potencial para justificar esforco manual.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight054",
+      "data": "2026-02-26",
+      "fonte": "Teste Opcao 2 (abordagem 2 passos como Lili) em 5 escolas AA bolsao — 26/02",
+      "categoria": "copy_e_mensagem",
+      "insight": "Abordagem soft conversacional (2 passos, sem pedido na primeira mensagem) em escola saturada gera 60% de abertura de dialogo. Mais importante: revela churn genuino de forma rapida e com relacionamento preservado. Escola que diz nao explicitamente limpa o funil e sai do bolsao — mais valioso do que silencio prolongado.",
+      "evidencia": "Teste 26/02: 5 escolas AA bolsao com Opcao 2. 3 responderam (60%): 1 converteu, 1 prometeu enviar (reclama de excesso de contato), 1 recusou explicitamente por troca de equipe + alunos abaixo do esperado, mas deixou porta aberta para 2027. Sem a abordagem, essa escola ficaria semanas no bolsao como potencial falso.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "bolsao_ativacao",
+        "aa_fechadas",
+        "retracao",
+        "escolas_saturadas"
+      ],
+      "acao_sugerida": "Para escolas que recusam explicitamente: remover da pressao de 2026 imediatamente, taggear como pipeline 2027 no CRM, resposta pessoal da Lili para preservar relacionamento. Nao insistir — o nao explicito e informacao valiosa.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight055",
+      "data": "2026-02-26",
+      "fonte": "Feedback explicito de escola AA durante teste Opcao 2 — 26/02",
+      "categoria": "operacoes_comerciais",
+      "insight": "Pelo menos parte das escolas fechadas nao convertidas esta explicitamente fadigada de contato (\"a gente cobra muito\"). Escolas nessa condicao ainda convertem sob abordagem soft + autoridade, mas reagiriam mal a mais um disparo ou ligacao padrao.",
+      "evidencia": "Escola AA prometeu enviar a lista mas registrou reclamacao explicita de excesso de contato durante o teste de Opcao 2 em 26/02. Sinal consistente com insight009 (fadiga de contato em listas antigas).",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "bolsao_ativacao",
+        "aa_fechadas",
+        "escolas_saturadas"
+      ],
+      "acao_sugerida": "Escolas que registram reclamacao de excesso de contato devem ter flag no CRM (contactar_com_cautela). Proxima acao: apenas um FUP leve, sem discador, sem disparo automatizado.",
       "status": "ativo"
     }
   ],

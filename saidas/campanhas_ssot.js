@@ -383,6 +383,44 @@ window.WATCHDOG_CAMPANHAS = {
       "aprendizados": [
         "insight053"
       ]
+    },
+    {
+      "id": "c007",
+      "data": "2026-02-26",
+      "nome": "Teste Opcao 2 — abordagem 2 passos como Lili em AA bolsao",
+      "canal": "WhatsApp manual (1-a-1)",
+      "segmento": "AA bolsao (escolas saturadas com closer + disparos ativos)",
+      "tipo": "ativacao_bolsao",
+      "base": 5,
+      "status": "final",
+      "mecanica": "Mensagem 1 sem pedido (reconhecimento da escola). Mensagem 2 com pedido apos resposta ou 24h. Enviado como Lili.",
+      "resultados": {
+        "responderam": 3,
+        "taxa_resposta": 0.6,
+        "converteu": 1,
+        "prometeu_enviar": 1,
+        "recusou": 1,
+        "sem_resposta": 2
+      },
+      "aprendizados_qualitativos": [
+        "Escola que recusou: troca de equipe + alunos abaixo do esperado. Pipeline 2027. Relacionamento preservado.",
+        "Escola que prometeu: reclama de excesso de contato. Fatiga explicita. Converter com 1 FUP leve max.",
+        "Abordagem soft revela churn genuino mais rapido do que silencio — limpa bolsao de forma eficiente."
+      ],
+      "nota_qualitativa": "Teste pequeno mas resultado qualitativo rico. 60% dialogo em escola saturada. O valor nao esta so na conversao — esta no diagnostico: saber quem NAO vai converter e por que e tao valioso quanto saber quem vai.",
+      "gatilho_identificado": "autoridade_cofundadora + reconhecimento_sem_pedido + baixa_friccao",
+      "tags_padroes": [
+        "2-passos",
+        "soft",
+        "como_lili",
+        "bolsao_aa",
+        "churn_visivel",
+        "fadiga_de_contato"
+      ],
+      "aprendizados": [
+        "insight054",
+        "insight055"
+      ]
     }
   ],
   "insights": [
@@ -390,5 +428,5 @@ window.WATCHDOG_CAMPANHAS = {
     "Menor taxa: Outbound Playlist com 0.1% — revisar abordagem ou qualidade da lista",
     "Caneca: Caneca Renovação converteu 1.4x mais que Caneca Anos Anteriores com copy similar — audiencia mais responsiva"
   ],
-  "updated": "2026-02-26T15:55:04.945962"
+  "updated": "2026-02-26T17:00:44.762033"
 };
