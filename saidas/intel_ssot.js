@@ -670,6 +670,82 @@ window.WATCHDOG_INTEL = {
       "status": "ativo"
     },
     {
+      "id": "insight046",
+      "data": "2026-02-26",
+      "fonte": "Daily 26/02/2026 — fala de Pedro",
+      "categoria": "oferta",
+      "gatilho": "mimo_fisico",
+      "insight": "Escolas prioritárias do bolsão 2025 relataram in-field que mimo é a melhor oferta que receberam. Confirmação direta de campo para segmento de ativação. Eleva confiança de insight002 para este contexto específico.",
+      "evidencia": "Daily 26/02: Pedro relatou que 'atacadas' (bolsão 25 prioritárias) disseram que mimo é a melhor coisa que têm. Confirmação verbal de campo, não apenas dado de campanha.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "bolsao_2025",
+        "anos_anteriores"
+      ],
+      "acao_sugerida": "Priorizar mimo físico em qualquer ação de ativação do bolsão 2025. Não substituir por benefício financeiro para este segmento (ver insight044: vale presente falha em quem já rejeitou).",
+      "status": "ativo"
+    },
+    {
+      "id": "insight047",
+      "data": "2026-02-26",
+      "fonte": "Daily 26/02/2026 — fala de Lili",
+      "categoria": "operacao",
+      "gatilho": null,
+      "insight": "Setup de mudança operacional (troca de base, troca de ativadores, nova célula) custa 1 dia inteiro de produtividade comercial. Time não vira rápido. Qualquer nova oferta ou instrução durante o dia fragmenta o foco — especialmente estagiários e novos no processo.",
+      "evidencia": "Daily 26/02: zero listas de ativação no dia 25/02 explicado pelo setup tardio. Lili disse: 'dia de setup de nova operação pode custar um dia inteiro.' Time começou às 10h, perdeu manhã.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "todos"
+      ],
+      "acao_sugerida": "Toda mudança de base ou ativador deve ser comunicada na véspera, não no dia. Brief deve estar pronto antes das 9h. Nunca mudar setup no mesmo dia que se espera produção.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight048",
+      "data": "2026-02-26",
+      "fonte": "Daily 26/02/2026 — Nath Ferreira",
+      "categoria": "funil",
+      "gatilho": null,
+      "insight": "Curva de conversão de novas escolas fechadas completa-se naturalmente em 3 meses. 74% de conversão das fechadas de janeiro em fevereiro não é crise — o padrão histórico fecha em ~80% em março. Alarmar prematuramente gera ruído operacional sem necessidade.",
+      "evidencia": "Daily 26/02: Nath explicou padrão de curva de conversão. Novas fechadas em jan: 74% convertidas em fev. Conclusão: dentro da curva normal. Fecha ~80% em março.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "novas"
+      ],
+      "acao_sugerida": "Não usar taxa de conversão de novas do mês corrente como alerta se ainda estiver dentro dos 3 primeiros meses. Usar apenas para coortes com 3+ meses de vida.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight049",
+      "data": "2026-02-26",
+      "fonte": "Daily 26/02/2026 — discussão sobre Blip ligações",
+      "categoria": "ferramenta",
+      "gatilho": null,
+      "insight": "Blip para ligações cria risco de spam sistêmico: sistema pede permissão da gestora antes de ligar. Se ela nega — o contato é bloqueado permanentemente como spam. Risco de destruição silenciosa de base de contatos antes de qualquer conversa acontecer.",
+      "evidencia": "Daily 26/02: time identificou que Blip ligações exige confirmação da gestora. Negativa = spam permanente. Teste com SDR externa sendo conduzido para validar impacto real.",
+      "confianca": "media",
+      "aplicavel_a": [
+        "todos"
+      ],
+      "acao_sugerida": "Suspender uso de Blip para ligações até resultado do teste externo. Não escalar nenhuma ação de ligação via Blip enquanto o risco de bloqueio em massa não for avaliado. Ver alerta021.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight050",
+      "data": "2026-02-26",
+      "fonte": "Daily 26/02/2026 — discussão A/B concorrência",
+      "categoria": "copy",
+      "gatilho": "proposta_valor_operacional",
+      "insight": "O copy vencedor do A/B de Concorrência apelava para 'menos trabalho para o professor' — proposta de valor funcional/operacional. Não é apenas 'posicionamento competitivo': é o argumento específico de que a Estante reduz o esforço operacional do professor vs o concorrente. A daily confirmou esse padrão de forma independente.",
+      "evidencia": "Daily 26/02: time chegou à mesma conclusão que o A/B (c004) de forma independente. 'Menos trabalho para o professor' = argumento vencedor. Complementa insight042.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "concorrencia"
+      ],
+      "acao_sugerida": "Copy de Concorrência deve incluir explicitamente o argumento de redução de trabalho do professor vs concorrente. Não apenas 'somos melhores' — mas 'somos mais fáceis e damos menos trabalho'. Ver insight042.",
+      "status": "ativo"
+    },
+    {
       "id": "insight042",
       "data": "2026-02-26",
       "fonte": "CSV v2 — resultado A/B Concorrência 24/02/2026",
@@ -911,7 +987,27 @@ window.WATCHDOG_INTEL = {
       "prioridade": "critica",
       "dri": "Vitória",
       "status": "aberta"
+    },
+    {
+      "id": "alerta020",
+      "data": "2026-02-26",
+      "titulo": "Blip ligações — risco de spam sistêmico: gestora nega → contato bloqueado permanentemente",
+      "critica": "Identificado na daily 26/02: Blip para ligações exige confirmação da gestora antes de ligar. Se ela nega, o contato é marcado como spam permanentemente. Isso pode estar destruindo silenciosamente a base de contatos antes de qualquer abordagem real. Teste com SDR externa em andamento mas resultado ainda desconhecido. Enquanto não houver validação, risco real de dano irreversível à base.",
+      "acao_sugerida": "Pimentel/Nath: suspender uso de Blip para ligações até resultado do teste externo. Avaliar impacto retroativo: quantos contatos já foram bloqueados. Definir protocolo de uso antes de reativar.",
+      "prioridade": "critica",
+      "dri": "Ana Paula Pimentel",
+      "status": "aberta"
+    },
+    {
+      "id": "alerta021",
+      "data": "2026-02-26",
+      "titulo": "Time de Concorrência perde 1 pessoa em março — base recomeça do zero com capacidade reduzida",
+      "critica": "Identificado na daily 26/02: 1 pessoa do time de Concorrência (3 no total) não será efetivada. Sai no mês seguinte. Além da redução de capacidade, a desmotivação pode contaminar outra colega do time. Em março, a base de Concorrência recomeça do zero com time menor e possivelmente desmotivado.",
+      "acao_sugerida": "Pimentel avaliar impacto na meta de Concorrência de março e ajustar expectativa. Considerar medidas de gestão para não contaminar o time restante. Planejar onboarding/recomposição se necessário.",
+      "prioridade": "alta",
+      "dri": "Ana Paula Pimentel",
+      "status": "aberta"
     }
   ],
-  "ultima_atualizacao": "2026-02-26T13:00:00"
+  "ultima_atualizacao": "2026-02-26T14:00:00"
 };
