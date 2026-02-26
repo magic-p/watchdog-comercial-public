@@ -655,6 +655,21 @@ window.WATCHDOG_INTEL = {
       "status": "ativo"
     },
     {
+      "id": "insight045",
+      "data": "2026-02-26",
+      "fonte": "Daily Nath — 25/02/2026",
+      "categoria": "risco",
+      "gatilho": null,
+      "insight": "Bolsão de fechadas não convertidas em fevereiro equivale a R$732.377 em receita comprometida mas não realizada. Primeira quantificação em reais do risco de churn do bolsão. A tabela 'Dinheiro na Mesa' do daily é o único lugar onde esse número aparece consolidado.",
+      "evidencia": "Daily 25/02/2026 — tabela distribuição de receita: Via Fechadas = R$732.377. Gap total vs meta = -R$2.119.164. Total realizado = R$8.951.800 vs meta R$11.070.964.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "todos"
+      ],
+      "acao_sugerida": "Monitorar o bolsão de fechadas em reais toda semana via tabela 'Dinheiro na Mesa'. Criar alerta automático quando bolsão ultrapassar R$500k sem plano de ativação ativo. Ver alerta006.",
+      "status": "ativo"
+    },
+    {
       "id": "insight042",
       "data": "2026-02-26",
       "fonte": "CSV v2 — resultado A/B Concorrência 24/02/2026",
@@ -886,7 +901,17 @@ window.WATCHDOG_INTEL = {
       "prioridade": "alta",
       "dri": "Luana",
       "status": "aberta"
+    },
+    {
+      "id": "alerta019",
+      "data": "2026-02-26",
+      "titulo": "Contradição ativa: daily recomenda playlist para Concorrência, A/B prova o oposto",
+      "critica": "O daily de 25/02 (Nath) recomenda playlist como diferencial para escolas de Concorrência. O teste A/B de 24/02 (c004) prova o contrário: copy de posicionamento competitivo = 2,42% levantadas (CPL R$22,29) vs copy emocional/playlist = 1,38% (CPL R$39,02). Existe defasagem entre aprendizados de MKT e orientação que chega ao time de ativação. Se o próximo disparo de Concorrência usar playlist, o erro será repetido com dado disponível para evitá-lo.",
+      "acao_sugerida": "Vitória corrigir briefing e orientação de copy para Concorrência antes do próximo disparo. Compartilhar resultado do A/B com quem elabora os dailies e briefings (Nath/Vitória). Ver insight042 e t040.",
+      "prioridade": "critica",
+      "dri": "Vitória",
+      "status": "aberta"
     }
   ],
-  "ultima_atualizacao": "2026-02-26T12:00:00"
+  "ultima_atualizacao": "2026-02-26T13:00:00"
 };
