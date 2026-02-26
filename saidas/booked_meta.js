@@ -70,6 +70,14 @@ window.WATCHDOG_BOOKED_META = {
       "tipo": "ENTREGA_NO_PRAZO"
     },
     {
+      "emoji": "✅",
+      "titulo": "Ana Paula Pimentel: Aprovação e escalada da 'cenourinha' para closers — pendente aprovação Lili",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Ana Paula Pimentel",
+      "data": "26/02",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
       "emoji": "🎯",
       "titulo": "Kaka: Enviar 40 mimos para bolsão hoje — 3 levas priorizadas",
       "desc": "Concluida no ciclo semanal (segunda a domingo).",
@@ -82,14 +90,6 @@ window.WATCHDOG_BOOKED_META = {
       "titulo": "Ana Paula Pimentel: Fornecer nomes dos supervisores de cada baldinho para Vitória configurar filas na Blip",
       "desc": "Concluida no ciclo semanal (segunda a domingo).",
       "dri": "Ana Paula Pimentel",
-      "data": "25/02",
-      "tipo": "ENTREGA_CONCLUIDA"
-    },
-    {
-      "emoji": "🎯",
-      "titulo": "Vitoria: Disparos de 4a (25/fev): caneca reforço + caneca descarte AA",
-      "desc": "Concluida no ciclo semanal (segunda a domingo).",
-      "dri": "Vitoria",
       "data": "25/02",
       "tipo": "ENTREGA_CONCLUIDA"
     }

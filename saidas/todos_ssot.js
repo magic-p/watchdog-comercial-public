@@ -439,13 +439,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Pimentel comunica closers no início do dia: reconhecimento do que vem fazendo + desafio claro de 10 listas hoje como responsabilidade do comercial. Meta geral do dia: 30 listas (10 comercial + 20 ativação). Sem essa comunicação, os 10 do comercial ficam sem dono explícito. Origem: fala Pimentel no Google Chat 26/02.",
     "owner": "Ana Paula Pimentel",
     "date": "26/fev",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-26T00:00:00",
+    "completedAt": "2026-02-26T00:00:00"
   },
   {
     "id": "t033",
