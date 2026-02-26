@@ -663,13 +663,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Definido na daily 26/02. Lili tem base de 24 escolas low touch que Karina precisa para ação Instagram de renovação. Bloqueia t034 (Instagram renovação +20k com Maria Carol).",
     "owner": "Lili",
     "date": "26/fev",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-26T00:00:00",
+    "completedAt": "2026-02-26T00:00:00"
   },
   {
     "id": "t049",
