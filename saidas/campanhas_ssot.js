@@ -5,135 +5,138 @@ window.WATCHDOG_CAMPANHAS = {
       "data": "2026-02-23",
       "canal": "WhatsApp",
       "executor": "Vitoria",
-      "status": "parcial",
+      "status": "final",
       "segmentos": [
         {
-          "nome": "Renovação LT",
-          "baldinho": "renovacao_lt",
-          "objetivo": "levantadas",
-          "contatos": 715,
-          "levantadas": 15,
-          "taxa_pct": 2.1,
-          "copy_resumo": "Oi [Nome]! Sou da Estante Mágica. Startup que já transformou 2 milhões de crianças em autores. Em 2026 lançamos formato novo. Sua escola está na nossa lista de indicadas. Quero te mostrar em 20 minutos. Essa semana tem algum espaço?",
-          "abordagem": "exclusividade + proposta direta + convite curto"
-        },
-        {
-          "nome": "Retração",
-          "baldinho": "retracao",
-          "objetivo": "levantadas",
-          "contatos": 702,
-          "levantadas": 5,
-          "taxa_pct": 0.71,
-          "copy_resumo": "A Estante Mágica continua com o mesmo encanto. Em 2026 evoluiu pra dar muito menos trabalho ao professor. Evento de autógrafos com trilha sonora personalizada. Quem já conhece tem presente exclusivo esperando. Responda QUERO.",
-          "abordagem": "nostalgia + novidade 2026 + presente exclusivo + CTA resposta"
-        },
-        {
-          "nome": "Outbound",
-          "baldinho": "outbound",
-          "objetivo": "levantadas",
-          "contatos": 3118,
-          "levantadas": null,
-          "taxa_pct": null,
-          "copy_resumo": "Imagina o evento de autógrafos com cada aluno segurando o próprio livro e ouvindo trilha sonora criada sobre a história que escreveu. Os pais ouvem playlist única do filho. Lançamento 2026. Quero te mostrar em 15 minutos. Link da playlist.",
-          "abordagem": "experiência emocional (pais + filho) + novidade + clique no link"
-        },
-        {
-          "nome": "Escolas Fechadas",
-          "baldinho": "todos",
-          "objetivo": "envio_de_lista",
-          "contatos": 127,
-          "levantadas": null,
-          "taxa_pct": null,
-          "copy_resumo": "A parceria da sua escola merece ser celebrada. Preparamos arte personalizada com a logo da escola para Instagram. Só precisamos da sua lista de alunos até quinta 26/02 às 17h. Responda QUERO.",
-          "abordagem": "celebração + presente concreto (arte) + urgência + baixa fricção",
-          "nota": "Objetivo diferente: não é levantada, é envio de lista de alunos. Não comparar taxa com outros segmentos."
-        },
-        {
-          "nome": "Ação Caneca - AA",
-          "baldinho": "anos_anteriores",
-          "objetivo": "levantadas",
-          "contatos": null,
-          "levantadas": 5,
-          "taxa_pct": null,
-          "copy_resumo": "Lili aqui! Sua escola fez história conosco no passado. Imagina uma caixa chegando pra você + cada professor. Dentro: caneca com foto transformada em aquarela. Nome da escola e frase especial. Só até quinta 26/02 17h. Faz sentido matar a saudade?",
-          "abordagem": "Lili pessoal + nostalgia + presente físico tangível + urgência"
-        },
-        {
-          "nome": "Ação Caneca - Renovação",
+          "nome": "Caneca Renovação",
           "baldinho": "renovacao",
           "objetivo": "levantadas",
-          "contatos": null,
-          "levantadas": 13,
-          "taxa_pct": null,
+          "entregues": 329,
+          "respondidas": 48,
+          "levantadas": 27,
+          "taxa_pct": 8.21,
+          "custo": 177.66,
+          "cpl": 6.58,
+          "cliques": 24,
           "copy_resumo": "Lili aqui! Imagina seu time abrindo uma caixa. Dentro: caneca com foto deles transformada em aquarela pintada à mão. Nome da escola e frase especial. É isso que queremos dar pra você + cada professor. Precisa ser até quinta 26/02 17h.",
-          "abordagem": "Lili pessoal + presente físico tangível + urgência + escolas não-renovadas"
+          "abordagem": "Lili pessoal + presente físico tangível + urgência"
+        },
+        {
+          "nome": "Caneca Anos Anteriores",
+          "baldinho": "anos_anteriores",
+          "objetivo": "levantadas",
+          "entregues": 102,
+          "respondidas": 14,
+          "levantadas": 6,
+          "taxa_pct": 5.88,
+          "custo": 55.08,
+          "cpl": 9.18,
+          "cliques": 4,
+          "copy_resumo": "Lili aqui! Sua escola fez história conosco no passado. Imagina uma caixa chegando pra você + cada professor. Dentro: caneca com foto transformada em aquarela. Nome da escola e frase especial. Só até quinta 26/02 17h. Faz sentido matar a saudade?",
+          "abordagem": "Lili pessoal + nostalgia + presente físico tangível + urgência"
         }
       ],
-      "total_contatos": 5315,
-      "total_levantadas": 38,
-      "taxa_geral_pct": 0.71,
-      "observacoes": "Resultado parcial — disparo feito cedo, mais levantadas podem vir ao longo do dia. Cada escola pode ter múltiplos contatos gestores. Caneca Renovação converteu 2.6x mais que Caneca AA com copy quase idêntico."
+      "total_entregues": 431,
+      "total_levantadas": 33,
+      "taxa_geral_pct": 7.66,
+      "custo_real": 232.74,
+      "cpl_bruto": 7.05,
+      "benchmark_cpl_historico": 48.6,
+      "nota_qualitativa": "Melhor disparo de caneca do ciclo. Renovação 8,21% vs AA 5,88% — confirmando que Renovação responde mais ao mimo físico (insight003). CPL R$6,58 (Renovação) é o menor de toda a semana 23-27/02.",
+      "gatilho_identificado": "mimo_fisico",
+      "tags_padroes": [
+        "caneca",
+        "mimo_fisico",
+        "renovacao",
+        "anos_anteriores",
+        "cpl_abaixo_benchmark"
+      ],
+      "aprendizados_vinculados": [
+        "insight002",
+        "insight003",
+        "insight042"
+      ],
+      "observacoes": "Números finais do CSV v2 (26/02/2026). Atualizado de parcial para final."
     },
     {
       "id": "c002",
-      "data": "2026-02-27",
+      "data": "2026-02-23",
       "canal": "WhatsApp",
       "executor": "Vitoria",
-      "status": "parcial",
+      "status": "final",
       "segmentos": [
         {
-          "nome": "2026 | MKT | Levantada - Retração",
+          "nome": "Retração Levantada",
+          "baldinho": "retracao",
           "objetivo": "levantadas",
           "entregues": 351,
           "respondidas": 54,
           "levantadas": 12,
-          "taxa_pct": 3.42
+          "taxa_pct": 3.42,
+          "custo": 189.54,
+          "cpl": 15.8
         },
         {
-          "nome": "2026 | MKT | Levantada - Renovação LT",
+          "nome": "Renovação LT Levantada",
+          "baldinho": "renovacao_lt",
           "objetivo": "levantadas",
           "entregues": 518,
           "respondidas": 86,
           "levantadas": 19,
-          "taxa_pct": 3.67
+          "taxa_pct": 3.67,
+          "custo": 279.72,
+          "cpl": 14.72
         },
         {
-          "nome": "2026 | MKT | Lista - Todos menos renovação",
-          "objetivo": "levantadas",
+          "nome": "Lista Todos menos renovação",
+          "baldinho": "todos",
+          "objetivo": "envio_de_lista",
           "entregues": 84,
           "respondidas": 9,
           "levantadas": 3,
-          "taxa_pct": 3.57
+          "taxa_pct": 3.57,
+          "custo": 45.36,
+          "cpl": 15.12,
+          "nota": "Objetivo: conversão de fechada para envio de lista."
         },
         {
-          "nome": "2026 | MKT | Ação caneca - Renovação e AA",
-          "objetivo": "levantadas",
-          "entregues": 431,
-          "respondidas": 62,
-          "levantadas": 33,
-          "taxa_pct": 7.66
-        },
-        {
-          "nome": "2026 | MKT | Levantada - Outbound ",
+          "nome": "Outbound Playlist",
+          "baldinho": "outbound",
           "objetivo": "levantadas",
           "entregues": 1336,
           "respondidas": 270,
           "levantadas": 2,
-          "taxa_pct": 0.15
-        },
-        {
-          "nome": "2026 | MKT | Levantada - Concorrência",
-          "objetivo": "levantadas",
-          "entregues": 578,
-          "respondidas": 78,
-          "levantadas": 11,
-          "taxa_pct": 1.9
+          "taxa_pct": 0.15,
+          "custo": 721.44,
+          "cpl": 360.72,
+          "cliques": 18,
+          "nota": "ALERTA: CPL R$360,72 = 7,4x benchmark. Copy emocional/playlist gera curiosidade (cliques 1,35%) mas não levantadas (0,15%). Ver alerta018 e insight043."
         }
       ],
-      "total_contatos": 3298,
-      "total_levantadas": 80,
-      "taxa_geral_pct": 2.43,
-      "observacoes": "Resumo consolidado do CSV 23/02?27/02. Taxas calculadas por entregues."
+      "total_entregues": 2289,
+      "total_levantadas": 36,
+      "taxa_geral_pct": 1.57,
+      "custo_real": 1236.06,
+      "cpl_bruto": 34.33,
+      "cpl_excluindo_outbound": 15.36,
+      "benchmark_cpl_historico": 48.6,
+      "nota_qualitativa": "Disparo de levantadas 23/02. CPL agregado R$34,33 puxa pela tragédia do Outbound (CPL R$360,72). Sem Outbound: CPL R$15,36 — excelente. Outbound playlist precisa de nova copy antes de qualquer próximo ciclo.",
+      "gatilho_identificado": null,
+      "tags_padroes": [
+        "levantadas",
+        "retracao",
+        "renovacao",
+        "outbound",
+        "outbound_playlist_fail",
+        "cpl_abaixo_benchmark"
+      ],
+      "alertas_vinculados": [
+        "alerta018"
+      ],
+      "aprendizados_vinculados": [
+        "insight043"
+      ],
+      "observacoes": "Números finais do CSV v2 (26/02/2026). Data corrigida: era 2026-02-27 incorreto."
     },
     {
       "id": "c003",
@@ -227,16 +230,133 @@ window.WATCHDOG_CAMPANHAS = {
       ],
       "booked_revenue_associado": null,
       "observacoes": "Fechamento final 25/02 — Vitória Riente. Comparação: c001 caneca 23/02 = 33 levantadas / 431 entregues (7,66%). c003 reforço/descarte = 40 levantadas / 1.267 entregues (3,16%). Volume 2,4x maior com taxa menor — padrão esperado de reforço + base mais difícil. Budget restante do ciclo: R$624,92."
+    },
+    {
+      "id": "c004",
+      "data": "2026-02-24",
+      "canal": "WhatsApp",
+      "executor": "Vitoria",
+      "status": "final",
+      "tipo": "teste_ab",
+      "segmentos": [
+        {
+          "nome": "Concorrência A/B — copy playlist",
+          "baldinho": "concorrencia",
+          "variante": "A",
+          "objetivo": "levantadas",
+          "entregues": 289,
+          "levantadas": 4,
+          "taxa_pct": 1.38,
+          "custo": 156.06,
+          "cpl": 39.02,
+          "copy_resumo": "abordagem emocional/experiência de produto com playlist",
+          "resultado_ab": "perdedor"
+        },
+        {
+          "nome": "Concorrência A/B — copy concorrência direta",
+          "baldinho": "concorrencia",
+          "variante": "B",
+          "objetivo": "levantadas",
+          "entregues": 289,
+          "levantadas": 7,
+          "taxa_pct": 2.42,
+          "custo": 156.06,
+          "cpl": 22.29,
+          "copy_resumo": "posicionamento direto de diferencial vs concorrente",
+          "resultado_ab": "vencedor"
+        }
+      ],
+      "total_entregues": 578,
+      "total_levantadas": 11,
+      "taxa_geral_pct": 1.9,
+      "custo_real": 312.12,
+      "cpl_bruto": 28.37,
+      "benchmark_cpl_historico": 48.6,
+      "vencedor_ab": "copy_concorrencia_direta",
+      "margem_vencedor": "75% melhor em taxa, 43% melhor em CPL",
+      "nota_qualitativa": "Primeiro A/B controlado de copy para segmento Concorrência. Resultado definitivo: posicionamento competitivo supera apelo emocional. Adotar copy B como padrão.",
+      "gatilho_identificado": "diferenciacao_competitiva",
+      "tags_padroes": [
+        "concorrencia",
+        "teste_ab",
+        "copy_concorrencia_direta",
+        "cpl_abaixo_benchmark"
+      ],
+      "aprendizados_vinculados": [
+        "insight042"
+      ],
+      "observacoes": "Números finais do CSV v2 (26/02/2026). Bases idênticas (289 entregues), mesmo budget — teste limpo."
+    },
+    {
+      "id": "c005",
+      "data": "2026-02-25",
+      "hora": "13h30",
+      "canal": "WhatsApp",
+      "executor": "Vitoria",
+      "status": "final",
+      "tipo": "ativacao_bolsao",
+      "objetivo_principal": "envio_de_lista",
+      "segmentos": [
+        {
+          "nome": "Vale Presente — Outbound",
+          "baldinho": "outbound",
+          "entregues": 37,
+          "levantadas": 2,
+          "taxa_pct": 5.41,
+          "custo": 19.98,
+          "cpl": 9.99
+        },
+        {
+          "nome": "Vale Presente — Retração",
+          "baldinho": "retracao",
+          "entregues": 41,
+          "levantadas": 0,
+          "taxa_pct": 0.0,
+          "custo": 22.14,
+          "cpl": null
+        },
+        {
+          "nome": "Vale Presente — Concorrência",
+          "baldinho": "concorrencia",
+          "entregues": 39,
+          "levantadas": 0,
+          "taxa_pct": 0.0,
+          "custo": 21.06,
+          "cpl": null
+        },
+        {
+          "nome": "Vale Presente — Anos Anteriores",
+          "baldinho": "anos_anteriores",
+          "entregues": 103,
+          "levantadas": 1,
+          "taxa_pct": 0.97,
+          "custo": 55.62,
+          "cpl": 55.62
+        }
+      ],
+      "total_entregues": 220,
+      "total_levantadas": 3,
+      "taxa_geral_pct": 1.36,
+      "custo_real": 118.8,
+      "nota_qualitativa": "Vale presente funciona para Outbound (escolas frias: 5,41%) mas zero para Retração e Concorrência. Barreira nesses segmentos é de confiança, não de custo. Amostra pequena mas padrão coerente.",
+      "gatilho_identificado": "beneficio_financeiro",
+      "tags_padroes": [
+        "vale_presente",
+        "ativacao_bolsao",
+        "outbound",
+        "retracao",
+        "concorrencia"
+      ],
+      "aprendizados_vinculados": [
+        "insight044"
+      ],
+      "observacoes": "Números finais do CSV v2 (26/02/2026)."
     }
   ],
   "insights": [
-    "Melhor taxa: 2026 | MKT | Ação caneca - Renovação e AA com 7.7% via WhatsApp em 2026-02-27",
-    "Menor taxa: 2026 | MKT | Levantada - Outbound  com 0.1% — revisar abordagem ou qualidade da lista",
-    "Caneca: 2026 | MKT | Ação caneca - Renovação e AA converteu 1.6x mais que Caneca Reforço — Renovação com copy similar — audiencia mais responsiva",
-    "Caneca: Ação Caneca - Renovação teve 2.6x mais levantadas que Ação Caneca - AA (13 vs 5) com copy quase identico — audiencia de renovacao mais responsiva",
-    "Aguardando resultado: Outbound",
-    "Campanha 2026-02-23: 38 levantadas de 5,315 contatos (0.71%) (resultado parcial)",
-    "Campanha 2026-02-27: 80 levantadas de 3,298 contatos (2.43%) (resultado parcial)"
+    "Melhor taxa: Caneca Renovação com 8.2% via WhatsApp em 2026-02-23",
+    "Menor taxa: Outbound Playlist com 0.1% — revisar abordagem ou qualidade da lista",
+    "Caneca: Caneca Renovação converteu 1.4x mais que Caneca Anos Anteriores com copy similar — audiencia mais responsiva"
   ],
-  "updated": "2026-02-26T09:19:21.558134"
+  "updated": "2026-02-26T10:15:50.688048"
 };

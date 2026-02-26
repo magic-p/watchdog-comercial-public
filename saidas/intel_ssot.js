@@ -653,6 +653,53 @@ window.WATCHDOG_INTEL = {
       ],
       "acao_sugerida": "Não tratar 'Não tem interesse' como label permanente de exclusão de base. Revisar política de descarte de AA: incluir como alvo de campanhas de mimo físico mesmo após o label. Testar se o padrão se repete em março antes de elevar confiança para 'alta'.",
       "status": "ativo"
+    },
+    {
+      "id": "insight042",
+      "data": "2026-02-26",
+      "fonte": "CSV v2 — resultado A/B Concorrência 24/02/2026",
+      "categoria": "copy",
+      "gatilho": "diferenciacao_competitiva",
+      "insight": "Para o segmento Concorrência, copy que posiciona diferencial direto vs concorrente supera copy de 'experiência emocional/playlist' em 75% de taxa de levantadas e 43% de CPL. Teste controlado: 289 entregues cada, mesmo budget (R$156,06).",
+      "evidencia": "A/B 24/02: copy 'concorrência' = 7 levantadas / 289 entregues = 2,42%, CPL R$22,29. Copy 'playlist' = 4 levantadas / 289 entregues = 1,38%, CPL R$39,02. Bases idênticas, gastos idênticos.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "concorrencia"
+      ],
+      "acao_sugerida": "Adotar copy de posicionamento competitivo como padrão para segmento Concorrência. Não usar abordagem emocional/playlist neste segmento. A/B resolvido.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight043",
+      "data": "2026-02-26",
+      "fonte": "CSV v2 — Outbound Playlist 23/02/2026",
+      "categoria": "copy",
+      "gatilho": null,
+      "insight": "Copy de 'experiência emocional do filho com trilha sonora personalizada' (Outbound Playlist) gera curiosidade (cliques no link: 1,35%) mas não ativa intenção de compra do gestor escolar (levantadas: 0,15%). Ratio clique:levantada = 9:1. CPL R$360,72 = 7,4x o benchmark histórico de R$48,60.",
+      "evidencia": "Outbound Playlist 23/02: 1.336 entregues, 18 cliques (1,35%), 2 levantadas (0,15%), R$721,44 gasto. CPL R$360,72. Comparado com Renovação LT (CPL R$14,72) e Retração (CPL R$15,80) no mesmo ciclo.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "outbound"
+      ],
+      "acao_sugerida": "Nunca usar copy emocional centrado na experiência do aluno para Outbound. Gestor escolar precisa de argumento de negócio: ROI, diferenciação, exclusividade. Desenvolver nova abordagem antes do próximo ciclo outbound.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight044",
+      "data": "2026-02-26",
+      "fonte": "CSV v2 — Vale Presente fechadas 25/02/2026 13h30",
+      "categoria": "oferta",
+      "gatilho": "beneficio_financeiro",
+      "insight": "Incentivo de vale presente funciona como gatilho para Outbound frio (5,41%) mas falha completamente em Retração (0%) e Concorrência (0%). Escolas que já rejeitaram a Estante não respondem ao incentivo financeiro — a barreira é de confiança, não de custo.",
+      "evidencia": "Vale Presente 25/02: Outbound 2/37 = 5,41%. Retração 0/41 = 0,00%. Concorrência 0/39 = 0,00%. AA 1/103 = 0,97%. Amostras pequenas (37–103 entregues), mas padrão coerente.",
+      "confianca": "media",
+      "aplicavel_a": [
+        "outbound",
+        "retracao",
+        "concorrencia"
+      ],
+      "acao_sugerida": "Reservar incentivos financeiros (vale, desconto, patrocínio) para base fria/Outbound. Para Retração e Concorrência, preferir gatilhos de diferenciação, prova social ou mimo físico — que atacam barreira de confiança, não de preço.",
+      "status": "ativo"
     }
   ],
   "criticas_ativas": [
@@ -829,7 +876,17 @@ window.WATCHDOG_INTEL = {
       "prioridade": "alta",
       "dri": "Vitória Riente",
       "status": "aberta"
+    },
+    {
+      "id": "alerta018",
+      "data": "2026-02-26",
+      "titulo": "Copy de Outbound (playlist emocional) tem CPL 7,4x acima do benchmark — reformulação urgente antes do próximo ciclo",
+      "critica": "Outbound Playlist 23/02: R$721,44 para 2 levantadas. CPL R$360,72 vs benchmark R$48,60. Copy de 'experiência emocional do filho com trilha sonora' gera cliques (18 = 1,35%) mas não levantadas (2 = 0,15%). Ratio 9:1 clique:levantada confirma: o conteúdo ressoa como entretenimento, não como proposta comercial. Se o próximo ciclo de Outbound repetir essa abordagem, estamos queimando orçamento de forma previsível.",
+      "acao_sugerida": "Luana e Vitória: desenvolver nova copy de Outbound com argumento de negócio (ROI, diferenciação, exclusividade) antes do próximo disparo. Ver insight043 para diretriz. Nenhum disparo de Outbound com copy emocional/playlist enquanto nova abordagem não for testada.",
+      "prioridade": "alta",
+      "dri": "Luana",
+      "status": "aberta"
     }
   ],
-  "ultima_atualizacao": "2026-02-25T23:00:00"
+  "ultima_atualizacao": "2026-02-26T12:00:00"
 };
