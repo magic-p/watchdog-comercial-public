@@ -621,13 +621,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Definido na daily 26/02. WhatsApp de ontem para base bolsão não teve bom resultado. Sequência via e-mail para mesma base hoje. Karina organiza copy e execução. Objetivo: aumentar taxa de resposta da ativação com canal alternativo.",
     "owner": "Kaka",
     "date": "26/fev",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-26T00:00:00",
+    "completedAt": "2026-02-26T00:00:00"
   },
   {
     "id": "t046",
