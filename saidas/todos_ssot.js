@@ -649,13 +649,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Nath levantou na daily 26/02: verificar performance de Elô na ativação. Pimentel avalia e decide: (1) trocar Elô com Maria Laí de base ou (2) reforçar as escolas de Elô com apoio. Decisão deve ser tomada hoje para não perder o dia de ativação.",
     "owner": "Ana Paula Pimentel",
     "date": "26/fev",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-26T00:00:00",
+    "completedAt": "2026-02-26T00:00:00"
   },
   {
     "id": "t048",
