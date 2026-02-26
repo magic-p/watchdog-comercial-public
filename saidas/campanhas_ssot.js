@@ -140,94 +140,103 @@ window.WATCHDOG_CAMPANHAS = {
       "data": "2026-02-25",
       "canal": "WhatsApp",
       "executor": "Vitoria",
-      "status": "parcial",
+      "status": "final",
       "segmentos": [
         {
-          "nome": "Caneca Reforço — AA Descarte",
+          "nome": "Caneca Reforço — AA Descarte (consolidado final)",
           "baldinho": "anos_anteriores",
           "objetivo": "levantadas",
-          "escolas": 442,
-          "contatos": null,
-          "levantadas": 12,
-          "taxa_pct": null,
-          "nota": "442 escolas AA descartadas (disseram não à EM este ano mas continuam sendo abordadas). As 12 levantadas são do grupo AA consolidado (descarte + de segunda) — maioria atribuída ao descarte. Disagregação por subgrupo a confirmar no resultado final.",
-          "copy_resumo": "Segundo disparo da caneca para base descarte AA. Continuidade da ação de 23/02.",
+          "entregues": 953,
+          "levantadas": 25,
+          "taxa_pct": 2.62,
+          "custo": 514.62,
+          "cpl": 20.58,
+          "nota": "25 levantadas, sendo 23 de descarte e 2 de outras etapas. ATENÇÃO: 6/25 (24%) são registros 'Duplicada' na base — levantadas únicas reais estimadas: 19. CPL ajustado: R$27,09. Limpeza de duplicatas pendente (t030 — Vitória).",
+          "breakdown_descarte": {
+            "nao_tem_interesse": 6,
+            "duplicada": 6,
+            "fim_de_cadencia": 3,
+            "na": 2,
+            "aplica_projeto_similar": 2,
+            "so_proximo_ano": 1,
+            "so_2_semestre": 1,
+            "nao_quer_receber_comunicacao": 1,
+            "inicio_ano_letivo_2026": 1,
+            "esta_com_muitos_projetos": 1,
+            "escola_fechada_nao_existe": 1,
+            "total": 25
+          },
           "abordagem": "mimo físico (caneca aquarela) + urgência + condicionamento à adesão"
         },
         {
-          "nome": "Caneca Reforço — AA de Segunda",
-          "baldinho": "anos_anteriores",
-          "objetivo": "levantadas",
-          "escolas": 169,
-          "contatos": null,
-          "levantadas": null,
-          "taxa_pct": null,
-          "nota": "169 escolas AA disparadas na segunda-feira (23/02). Reforço da ação de caneca.",
-          "abordagem": "mimo físico (caneca aquarela) + urgência + condicionamento à adesão"
-        },
-        {
-          "nome": "Caneca Reforço — Renovação de Segunda",
+          "nome": "Caneca Reforço — Renovação",
           "baldinho": "renovacao",
           "objetivo": "levantadas",
-          "escolas": 157,
-          "contatos": null,
-          "levantadas": 5,
-          "taxa_pct": null,
-          "nota": "157 escolas renovação disparadas na segunda-feira (23/02). Reforço da ação de caneca.",
+          "entregues": 314,
+          "levantadas": 15,
+          "taxa_pct": 4.78,
+          "custo": 169.56,
+          "cpl": 11.3,
+          "nota": "Segundo disparo para base renovação (primeira ação em 23/02 teve 8,21%). Queda esperada — diminishing returns no reforço. Ainda acima do benchmark verde (2,0%).",
           "abordagem": "reforço de urgência + caneca como benefício condicional à adesão"
         },
         {
-          "nome": "Caneca — Concorrência",
-          "baldinho": "concorrencia",
-          "objetivo": "levantadas",
-          "contatos": null,
-          "levantadas": 1,
+          "nome": "FUP Fechada→Convertida (sem nome no CSV)",
+          "baldinho": "todos",
+          "objetivo": "envio_de_lista",
+          "entregues": 280,
+          "levantadas": null,
           "taxa_pct": null,
-          "nota": "1 levantada nos primeiros 25min."
+          "custo": 151.2,
+          "nota": "Linha sem nome no CSV. Provavelmente t020 (disparo FUP fechada→convertida) ou t024 (Novas voucher R$100), ambos marcados como concluídos em 25/02. Resultado de conversão não registrado no CSV. Vitória deve nomear e atualizar (t031)."
         }
       ],
-      "total_contatos": 1871,
-      "total_escolas": 768,
-      "base_escolas_breakdown": {
-        "AA_descarte": 442,
-        "AA_segunda": 169,
-        "renovacao_segunda": 157,
-        "nota": "Descarte = escolas que disseram não à EM em algum momento este ano, mas que a equipe continua abordando ativamente."
-      },
-      "nota_contatos_vs_escolas": "1.871 contatos disparados ≠ 1.871 escolas. Uma escola pode ter múltiplos contatos de gestor no sistema. Total de escolas únicas: 768 (442+169+157). Ratio médio aprox. 2,4 contatos/escola. Ao calcular taxa de conversão, usar escolas como denominador é mais preciso do que contatos.",
-      "custo_previsto": 707.23,
-      "total_levantadas": 17,
-      "taxa_geral_pct": null,
-      "cpl_parcial": 41.6,
-      "nota_qualitativa": "Resultado parcial — primeiros 25–30 minutos após disparo das 8h. CPL de R$ 41,60 já abaixo do benchmark histórico de R$ 48,60. AA descarte respondendo bem (12/17 = 70% das levantadas). Uma escola (Colégio Degrau) demonstrou alta intenção: 'Que iniciativa bacana! Poderia nos dar mais detalhes sobre como podemos incluir o Colégio Degrau?' — copy comunicou condicionamento corretamente.",
+      "total_entregues": 1547,
+      "total_levantadas": 40,
+      "total_levantadas_ajustado_duplicatas": 34,
+      "taxa_geral_pct": 2.59,
+      "custo_real": 835.38,
+      "cpl_bruto": 20.88,
+      "cpl_ajustado_duplicatas": 24.57,
+      "benchmark_cpl_historico": 48.6,
+      "nota_qualitativa": "MELHOR CPL DO CICLO. Caneca descarte AA comprova que base de rejeição tem interesse latente real — 2,62% de levantadas em base de descarte, acima do benchmark verde (2,0%). 'Não tem interesse' (24% das levantadas) sugere que o label está sendo aplicado prematuramente ou que o gatilho de mimo supera a resistência. 6 duplicatas (24%) inflam o número — limpeza necessária antes do próximo ciclo.",
       "gatilho_identificado": "mimo_fisico",
       "tags_padroes": [
         "caneca",
         "AA_descarte",
         "reforco",
         "mimo_fisico",
-        "cpl_abaixo_benchmark"
+        "cpl_abaixo_benchmark",
+        "nao_interesse_responde",
+        "duplicatas_na_base"
       ],
       "aprendizados_vinculados": [
         "insight025",
         "insight026",
-        "insight027"
+        "insight027",
+        "insight030",
+        "insight038",
+        "insight039",
+        "insight040",
+        "insight041"
       ],
       "alertas_vinculados": [
         "alerta012",
-        "alerta013"
+        "alerta013",
+        "alerta017"
       ],
-      "observacoes": "PARCIAL — registrar resultado final às 17h. Comparar com c001 caneca 23/02: 33 levantadas de 431 entregues = 7,66%. Base 4x maior hoje (1.871 contatos / 768 escolas). Hipótese Lili: dobrar/triplicar levantadas vs primeiro disparo."
+      "booked_revenue_associado": null,
+      "observacoes": "Fechamento final 25/02 — Vitória Riente. Comparação: c001 caneca 23/02 = 33 levantadas / 431 entregues (7,66%). c003 reforço/descarte = 40 levantadas / 1.267 entregues (3,16%). Volume 2,4x maior com taxa menor — padrão esperado de reforço + base mais difícil. Budget restante do ciclo: R$624,92."
     }
   ],
   "insights": [
     "Melhor taxa: 2026 | MKT | Ação caneca - Renovação e AA com 7.7% via WhatsApp em 2026-02-27",
     "Menor taxa: 2026 | MKT | Levantada - Outbound  com 0.1% — revisar abordagem ou qualidade da lista",
-    "Caneca: Ação Caneca - Renovação teve 1.1x mais levantadas que Caneca Reforço — AA Descarte (13 vs 12) com copy quase identico — audiencia de renovacao mais responsiva",
-    "Aguardando resultado: Outbound, Caneca Reforço — AA de Segunda",
+    "Caneca: 2026 | MKT | Ação caneca - Renovação e AA converteu 1.6x mais que Caneca Reforço — Renovação com copy similar — audiencia mais responsiva",
+    "Caneca: Ação Caneca - Renovação teve 2.6x mais levantadas que Ação Caneca - AA (13 vs 5) com copy quase identico — audiencia de renovacao mais responsiva",
+    "Aguardando resultado: Outbound",
     "Campanha 2026-02-23: 38 levantadas de 5,315 contatos (0.71%) (resultado parcial)",
-    "Campanha 2026-02-27: 80 levantadas de 3,298 contatos (2.43%) (resultado parcial)",
-    "Campanha 2026-02-25: 17 levantadas de 1,871 contatos (0.00%) (resultado parcial)"
+    "Campanha 2026-02-27: 80 levantadas de 3,298 contatos (2.43%) (resultado parcial)"
   ],
-  "updated": "2026-02-25T22:47:17.118290"
+  "updated": "2026-02-25T22:55:59.990381"
 };

@@ -638,6 +638,21 @@ window.WATCHDOG_INTEL = {
       ],
       "acao_sugerida": "Registrar caneca AA descarte como campanha com conversão comprovada (não só levantada). Ao calcular ROI da campanha, incluir esses fechamentos no numerador. Testar repetição para base AA descarte em março.",
       "status": "ativo"
+    },
+    {
+      "id": "insight041",
+      "data": "2026-02-25",
+      "fonte": "CSV + Vitória Riente — resultado final c003 · 25/fev",
+      "categoria": "segmentacao",
+      "gatilho": "mimo_fisico",
+      "insight": "Escolas com label 'Não tem interesse' no descarte de AA ainda respondem à oferta de caneca. 6 de 25 levantadas de AA (24%) vieram de escolas explicitamente marcadas como 'Não tem interesse'. O gatilho de mimo físico supera a resistência ao contato SDR padrão — a rejeição anterior pode ser ao canal/abordagem, não ao produto em si.",
+      "evidencia": "CSV resultado final c003 + PNG breakdown das 25 levantadas AA descarte (25/02): 'Não tem interesse' = 6 levantadas (24%). Confirmado por Vitória Riente no Google Chat.",
+      "confianca": "media",
+      "aplicavel_a": [
+        "anos_anteriores"
+      ],
+      "acao_sugerida": "Não tratar 'Não tem interesse' como label permanente de exclusão de base. Revisar política de descarte de AA: incluir como alvo de campanhas de mimo físico mesmo após o label. Testar se o padrão se repete em março antes de elevar confiança para 'alta'.",
+      "status": "ativo"
     }
   ],
   "criticas_ativas": [
@@ -804,7 +819,17 @@ window.WATCHDOG_INTEL = {
       "prioridade": "alta",
       "dri": "Ana Paula Pimentel",
       "status": "aberta"
+    },
+    {
+      "id": "alerta017",
+      "data": "2026-02-25",
+      "titulo": "24% das levantadas de AA descarte são registros 'Duplicada' — base inflando resultados",
+      "critica": "No resultado final de c003 (caneca AA 25/02), 6 de 25 levantadas (24%) vieram de registros classificados como 'Duplicada' na base. Se são registros duplicados da mesma escola, o número real de levantadas únicas é 19, não 25 — e o CPL está subestimado em ~32%. Enquanto não houver limpeza, todo relatório de campanha de AA descarte reporta resultado inflado.",
+      "acao_sugerida": "Vitória identificar se as 6 'Duplicada' são escolas repetidas no sistema ou um status de descarte diferente. Se forem duplicatas de registro, limpar a base antes do próximo ciclo de disparos de AA e ajustar número oficial de levantadas de c003.",
+      "prioridade": "alta",
+      "dri": "Vitória Riente",
+      "status": "aberta"
     }
   ],
-  "ultima_atualizacao": "2026-02-25T22:00:00"
+  "ultima_atualizacao": "2026-02-25T23:00:00"
 };
