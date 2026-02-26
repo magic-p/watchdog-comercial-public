@@ -62,6 +62,14 @@ window.WATCHDOG_BOOKED_META = {
       "tipo": "ENTREGA_CONCLUIDA"
     },
     {
+      "emoji": "✅",
+      "titulo": "Vitoria: Nomear e registrar resultado da linha sem nome no CSV de disparos (280 base, R$151,20, 25/02)",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Vitoria",
+      "data": "26/02",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
       "emoji": "🎯",
       "titulo": "Kaka: Enviar 40 mimos para bolsão hoje — 3 levas priorizadas",
       "desc": "Concluida no ciclo semanal (segunda a domingo).",
@@ -84,14 +92,6 @@ window.WATCHDOG_BOOKED_META = {
       "dri": "Vitoria",
       "data": "25/02",
       "tipo": "ENTREGA_CONCLUIDA"
-    },
-    {
-      "emoji": "✅",
-      "titulo": "Ana Paula Pimentel: Reunião com time ID — definir argumento e sugestão de ação para FUP (fechada não convertida)",
-      "desc": "Concluida no prazo definido.",
-      "dri": "Ana Paula Pimentel",
-      "data": "25/02",
-      "tipo": "ENTREGA_NO_PRAZO"
     }
   ],
   "kpis": {

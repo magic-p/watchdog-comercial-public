@@ -576,16 +576,16 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t043",
     "task": "Aprovação e escalada da 'cenourinha' para closers — pendente aprovação Lili",
-    "comment": "Ação prevista no daily de 25/02. Proposta de cenoura/incentivo para closers — Pimentel precisa de aprovação da Lili para escalar. Impacto direto na ativação do bolsão de fechadas.",
+    "comment": "Descartado. Lili decidiu não avançar com a cenourinha para closers (26/02/2026).",
     "owner": "Ana Paula Pimentel",
     "date": "26/fev",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-26T00:00:00",
+    "completedAt": "2026-02-26T00:00:00"
   },
   {
     "id": "t039",
