@@ -243,13 +243,13 @@ window.WATCHDOG_TODOS = [
     "comment": "27 renovação + 5 AA levantaram a mão no caneca (23/02) e não foram contatados. Pimentel reabre conversas na Blip e retoma contato. Apoio: Nath (abordagem SDR) e Vitória (extração da lista — t014). Prioridade: escolas com mais contexto de conversa já iniciada.",
     "owner": "Ana Paula Pimentel",
     "date": "24/fev",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-02-25T00:00:00",
-    "completedAt": null
+    "updatedAt": "2026-02-26T00:00:00",
+    "completedAt": "2026-02-26T00:00:00"
   },
   {
     "id": "t019",
