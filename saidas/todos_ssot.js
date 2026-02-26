@@ -466,7 +466,7 @@ window.WATCHDOG_TODOS = [
     "task": "Instagram: 283 escolas AA descarte (R$8,5M potencial) + renovação +20k com Maria Carol",
     "comment": "Merge de t034 original (ação Instagram comercial) com ações definidas na daily 26/02. Dois escopos: (1) verificar e priorizar Instagram para 283 escolas AA descarte — potencial R$8,5M; (2) sentar com Maria Carol para revisar base de renovação +20k alunos e preparar ação Instagram. Lili reenviará base 24 low touch para Karina como insumo.",
     "owner": "Kaka",
-    "date": "26/fev",
+    "date": "27/fev",
     "tier": "t1",
     "tierLabel": "A fazer",
     "warn": null,
