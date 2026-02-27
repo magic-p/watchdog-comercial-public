@@ -2,7 +2,7 @@ window.WATCHDOG_INTEL = {
   "persona": {
     "nome": "Claudete",
     "papel": "Chief of Staff & Head of Marketing Analytics",
-    "ultima_atualizacao": "2026-02-26T19:00:00"
+    "ultima_atualizacao": "2026-02-27T12:00:00"
   },
   "aprendizados": [
     {
@@ -921,6 +921,53 @@ window.WATCHDOG_INTEL = {
       ],
       "acao_sugerida": "Antes de qualquer acao manual 1-a-1, sempre filtrar a base: remover mimo recente, recusa explicita, nao-quer-contato. Gastar 30 min no filtro economiza horas de esforco desperdicado.",
       "status": "ativo"
+    },
+    {
+      "id": "insight059",
+      "data": "2026-02-27",
+      "fonte": "Daily 27/02 — WA Lili bloqueado 24h após Operação Lili Doce",
+      "categoria": "copy_e_mensagem",
+      "insight": "WhatsApp pessoal de cofundadora como canal de ativação 1-a-1 tem risco estrutural de bloqueio por volume. O próprio sucesso da ação (muitas mensagens em curto prazo) ativa a proteção anti-spam do WhatsApp. O canal mais eficaz tem a sua própria restrição de escala.",
+      "evidencia": "Após 24 mensagens da Operação Lili Doce (26/02), WA da Lili foi bloqueado por 24h. Chip novo tem mesmo risco (alerta Pimentel na daily 27/02). Solução de curto prazo: chip temporário. Solução estrutural: rotação de chips, limite diário, Blip como canal de aviso para preservar WA pessoal para o pedido.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "bolsao_ativacao",
+        "acao_1a1",
+        "canal_whatsapp"
+      ],
+      "acao_sugerida": "Nunca concentrar mais de 20-30 mensagens por dia em número pessoal de cofundador. Usar Blip para avisos informativos (mimo a caminho) e reservar WA pessoal para a mensagem de pedido de lista. Ter chip reserva pré-aquecido antes de qualquer operação de volume.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight060",
+      "data": "2026-02-27",
+      "fonte": "Daily 27/02 — decisão de transferir LT para MKT em março",
+      "categoria": "operacoes_comerciais",
+      "insight": "LT transferido integralmente para Marketing em março (sem Comercial) com meta de 30 escolas convertidas. A validação de ontem (50% conversão 1-a-1) sustenta a decisão. O risco é a régua de contato: LT em mato virgem reagiu bem porque nunca foi abordado. Se março iniciar com abordagem intensa, perde a vantagem do primeiro contato.",
+      "evidencia": "Decisão na daily 27/02. Combinado com insight053 (mato virgem = 50% conversão) e insight054 (escola saturada = 60% diálogo mas resultado mais lento). Régua de contato para março deve ser desenhada antes da transição.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "renovacao_lt",
+        "modelo_operacional",
+        "marketing"
+      ],
+      "acao_sugerida": "Desenhar régua de contato LT para março antes de iniciar. Priorizar 1-a-1 pessoal como primeiro toque (não disparo em massa). Limitar frequência de contato para não saturar o segmento antes de converter.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight061",
+      "data": "2026-02-27",
+      "fonte": "Relatório Nath 27/02 — métricas de Concorrência",
+      "categoria": "copy_e_mensagem",
+      "insight": "Concorrência acelerou consistentemente após mudança de copy para posicionamento competitivo direto: de ~0,45 para 0,92 RR/SDR em 5 semanas (116% YTD, 168% meta semanal). Validação em campo do A/B de 24/02 (insight042). Argumento funcional em copy escrita → aceleração real de pipeline.",
+      "evidencia": "Relatório Nath 27/02: Concorrência 116% YTD em alunos. RR/SDR semanal: 0,92 realizado / 0,55 meta = 168%. Crescimento consistente desde a semana da mudança de copy. Corrobora insight042 (copy posicionamento competitivo > playlist em texto escrito).",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "concorrencia",
+        "copy_e_mensagem"
+      ],
+      "acao_sugerida": "Manter copy de posicionamento competitivo como padrão para Concorrência. Não reverter para playlist em prospecção escrita. Documentar o modelo de copy vencedor para novos SDRs que entrarem no time.",
+      "status": "ativo"
     }
   ],
   "criticas_ativas": [
@@ -1025,7 +1072,8 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Nath confirmar até 25/02 se queda é Ax ou time próprio. Se Ax: isolar nas métricas e reportar separado. Se time próprio: identificar SDR e causa (horário, lista, sistema). Check diário de abordadas por Nath até 28/02 com reporte na daily.",
       "prioridade": "alta",
       "dri": "Nath Ferreira",
-      "status": "aberta"
+      "status": "incorporada",
+      "nota_fechamento": "Incorporado 27/02: Concorrência atingiu 116% YTD e 168% RR/SDR semanal. A queda foi resolvida pela mudança de copy (posicionamento competitivo, insight042/061). Alerta não tem mais base."
     },
     {
       "id": "alerta011",
@@ -1149,6 +1197,26 @@ window.WATCHDOG_INTEL = {
       "dri": "kaka",
       "status": "incorporada",
       "nota_fechamento": "Incorporado 26/02: Operacao Lili Doce (t054) escala a abordagem para 48 escolas AA bolsao amanha. Budget aprovado, equipe confirmada, processo definido."
+    },
+    {
+      "id": "alerta023",
+      "data": "2026-02-27",
+      "titulo": "WA pessoal da Lili bloqueado — canal de ativação 1-a-1 sem protocolo de contingência",
+      "critica": "Número da Lili bloqueado por 24h após Operação Lili Doce. Chip novo tem mesmo risco de bloqueio por volume. Operação de hoje (48 escolas) está em risco de canal. Sem rotação de chips ou limite diário documentado, o problema vai se repetir em cada operação de ativação em escala.",
+      "acao_sugerida": "Pedro compra chip temporário hoje (t058). Vit testa Blip como aviso de mimo (t062). Definir protocolo: máximo de mensagens por número por dia, chips em rodízio, Blip para informativo e WA para pedido de lista.",
+      "prioridade": "alta",
+      "dri": "kaka",
+      "status": "aberta"
+    },
+    {
+      "id": "alerta024",
+      "data": "2026-02-27",
+      "titulo": "Saída de 3+ pessoas de Renovação em fevereiro — impacto em capacidade de março sem análise",
+      "critica": "Renovação perde 3 pessoas + Lari este mês (além de Isabele e Poli para Relacionamento). Time está em 77% da meta empresa. Nath expressou preocupação explícita com estabilidade. Nenhuma análise de impacto em RR/SDR de março foi feita ainda.",
+      "acao_sugerida": "Nath recalcula headcount real e impacto em RR/SDR esperado para março (t063). Trazer para Pedro na segunda. Se houver gap crítico de capacidade, Pedro decide sobre aceleração de contratação.",
+      "prioridade": "alta",
+      "dri": "nath",
+      "status": "aberta"
     }
   ],
   "ultima_atualizacao": "2026-02-26T14:00:00"
