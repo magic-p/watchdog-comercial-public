@@ -495,13 +495,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Lili aguarda retorno do time de dados para confirmar a ordem de priorização: outbound > concorrência > retração. Time de dados prometeu entrega hoje. Sem essa confirmação, campanhas de março podem ser planejadas com sequenciamento errado. Lili cobra time de dados e fecha a decisão hoje.",
     "owner": "Liliane Mathias",
     "date": "26/fev",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-27T00:00:00",
+    "completedAt": "2026-02-27T00:00:00"
   },
   {
     "id": "t037",
