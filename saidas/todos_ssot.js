@@ -88,7 +88,7 @@ window.WATCHDOG_TODOS = [
     "task": "Entregar revisão das réguas e plano de low touch para renovação particular",
     "comment": "Bloqueio: Lili determinou que não serão geradas mais levantadas de renovação LT até este plano ser entregue. Frente está em 70%.",
     "owner": "Kaka",
-    "date": "27/fev",
+    "date": "06/mar",
     "tier": "t1",
     "tierLabel": "A fazer",
     "warn": null,
