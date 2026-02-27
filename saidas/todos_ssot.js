@@ -775,13 +775,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Combinado no grupo 26/02. Pimentel entrega até 8h30: (1) base 48 escolas na planilha organizada com FUP; (2) nome do 3o SDR para envio de mensagens (Agatha e Thais já confirmadas por Sarinha). Kaka puxa às 8h30 para iniciar operação.",
     "owner": "Ana Paula Pimentel",
     "date": "27/fev",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-27T00:00:00",
+    "completedAt": "2026-02-27T00:00:00"
   },
   {
     "id": "t057",
