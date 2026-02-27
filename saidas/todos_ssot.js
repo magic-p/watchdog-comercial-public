@@ -705,13 +705,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Definido na daily 26/02. Dados do bolsão não estão no Hubspot — precisam de planilha específica (Bebel Lili). Bebel levanta referência histórica de conversão do bolsão para calibrar meta de 80% e entender o que é normal vs anormal. Insumo para t041 (papo closers bolsão frágil, 02/mar).",
     "owner": "Bebel Bertuccelli",
     "date": "27/fev",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-27T00:00:00",
+    "completedAt": "2026-02-27T00:00:00"
   },
   {
     "id": "t052",
