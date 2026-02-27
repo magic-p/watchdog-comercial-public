@@ -2,7 +2,7 @@ window.WATCHDOG_INTEL = {
   "persona": {
     "nome": "Claudete",
     "papel": "Chief of Staff & Head of Marketing Analytics",
-    "ultima_atualizacao": "2026-02-26T18:15:00"
+    "ultima_atualizacao": "2026-02-26T19:00:00"
   },
   "aprendizados": [
     {
@@ -905,6 +905,22 @@ window.WATCHDOG_INTEL = {
       ],
       "acao_sugerida": "Avaliar formalmente se o papel do ativador deve ser reformulado para abordagem pessoal/emocional ao inves de ligacao transacional. No curto prazo: time MKT faz ativacao de alto valor manualmente enquanto modelo e validado.",
       "status": "ativo"
+    },
+    {
+      "id": "insight058",
+      "data": "2026-02-26",
+      "fonte": "Pimentel filtrando base para Operacao Lili Doce — grupo daily 26/02",
+      "categoria": "operacoes_comerciais",
+      "insight": "Filtrar a base antes da acao manual (remover mimo previo, recusa explicita, nao-quer-contato, sem aplicacao) reduz drasticamente o volume mas concentra esforco em escolas com chance real. 100 escolas viram 48 qualificadas — e as 48 valem mais do que 100 sem filtro.",
+      "evidencia": "Pimentel filtrou bolsao 2025 e chegou a 48 escolas para Operacao Lili Doce. Nath confirmou que a meta de amanha (27/02) e de 49 listas — as 48 cobrem praticamente toda a meta do dia. Sem o filtro, o time desperdicaria esforco manual em escolas impossibilitadas.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "bolsao_ativacao",
+        "operacoes_manuais",
+        "qualificacao_de_base"
+      ],
+      "acao_sugerida": "Antes de qualquer acao manual 1-a-1, sempre filtrar a base: remover mimo recente, recusa explicita, nao-quer-contato. Gastar 30 min no filtro economiza horas de esforco desperdicado.",
+      "status": "ativo"
     }
   ],
   "criticas_ativas": [
@@ -1131,7 +1147,8 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Definir proximo lote de escolas de alto valor para abordagem 1-a-1 como Lili. Priorizar: (1) escolas LT restantes que nao responderam ainda; (2) escolas AA bolsao de maior receita historica; (3) Renovacao HT com longa espera. Kaka/Pimentel definem lista ate segunda-feira.",
       "prioridade": "alta",
       "dri": "kaka",
-      "status": "aberta"
+      "status": "incorporada",
+      "nota_fechamento": "Incorporado 26/02: Operacao Lili Doce (t054) escala a abordagem para 48 escolas AA bolsao amanha. Budget aprovado, equipe confirmada, processo definido."
     }
   ],
   "ultima_atualizacao": "2026-02-26T14:00:00"

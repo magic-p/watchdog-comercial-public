@@ -158,6 +158,14 @@ window.WATCHDOG_BOOKED_META = {
       "tipo": "ENTREGA_NO_PRAZO"
     },
     {
+      "emoji": "✅",
+      "titulo": "Kaka: Verificar quais escolas AA bolsão já receberam mimo antes de agir amanhã",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Kaka",
+      "data": "26/02",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
       "emoji": "🎯",
       "titulo": "Kaka: Enviar 40 mimos para bolsão hoje — 3 levas priorizadas",
       "desc": "Concluida no ciclo semanal (segunda a domingo).",
