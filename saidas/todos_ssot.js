@@ -726,5 +726,47 @@ window.WATCHDOG_TODOS = [
     "priorityRank": null,
     "updatedAt": null,
     "completedAt": null
+  },
+  {
+    "id": "t053",
+    "task": "Verificar quais escolas AA bolsão já receberam mimo antes de agir amanhã",
+    "comment": "Bloqueante para t054. Antes de disparar cerco no amor (WA Lili + chocolate), confirmar historico de mimo por escola. Escolas que ja receberam chocolate devem ter copy ajustada ou ser abordadas so com WA. Kaka resolve isso no inicio do dia.",
+    "owner": "Kaka",
+    "date": "27/fev",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": null,
+    "completedAt": null
+  },
+  {
+    "id": "t054",
+    "task": "Cerco no amor: WA Lili + chocolate → soft ask de lista (AA bolsão prioritárias)",
+    "comment": "Prioridade total. Time inteiro de MKT (Kaka, Vit, Leo, Raica, Bianca ate terca). Mecanica: (1) Msg 1 cedo como Lili — nao pede lista, anuncia surpresa: \"Estava olhando as escolas confirmadas... o que me deixou mais contente foi ver o nome da [Escola]. Pra compartilhar minha felicidade, estou te mandando uma surpresinha hoje. Me confirma ao receber?\"; (2) Envio do chocolate/mimo; (3) Apos confirmacao de recebimento: soft ask — \"Pra gente se organizar na formacao do time que vai te atender, poderia enviar a lista? Me manda do jeito que estiver — eu mesma cuido do cadastro.\" Ver insight056. Bloqueado por t053 (verificar mimo previo).",
+    "owner": "Kaka",
+    "date": "27/fev",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": null,
+    "completedAt": null
+  },
+  {
+    "id": "t055",
+    "task": "A/B Opção 1 vs Opção 2 em AA bolsão — registrar resultados comparativos",
+    "comment": "Definido por Pedro+Kaka em 26/02. Opção 1: Lili como solucionadora (\"tem algo travando?\"). Opcao 2: 2 passos sem pedido inicial. Testar em paralelo com lotes distintos de AA bolsao amanha. Registrar taxa de resposta e conversao por opcao. Ver c007 (resultado parcial Opcao 2: 60% resposta, 1 convertida de 5).",
+    "owner": "Kaka",
+    "date": "27/fev",
+    "tier": "t2",
+    "tierLabel": "Fazendo",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": null,
+    "completedAt": null
   }
 ];

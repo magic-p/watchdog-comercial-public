@@ -360,17 +360,18 @@ window.WATCHDOG_CAMPANHAS = {
       "segmento": "Renovacao LT (Low Touch)",
       "tipo": "ativacao_bolsao",
       "base": 24,
-      "status": "parcial",
+      "status": "final",
       "mecanica": "Kaka enviou mensagem individualmente para cada escola como se fosse a Lili (cofundadora). Nao foi disparo automatizado.",
       "copy_usada": "Sou a Lili, cofundadora da Estante Mágica. A [Nome da Escola] já está confirmada no projeto — e mal posso esperar pelo dia em que cada aluno de vocês segurar o próprio livro na noite de autógrafos. 🌟 Falta só a lista de alunos para darmos seguimento. Me manda do jeito que estiver: Excel, PDF ou foto. Eu mesma faço o cadastro com carinho. Consigo receber hoje?",
       "resultados_parciais": {
-        "listas_recebidas": 7,
+        "listas_recebidas": 12,
         "promessas_amanha": 2,
-        "total_positivo": 9,
-        "taxa_conversao_preliminar": 0.375,
-        "data_medicao": "2026-02-26"
+        "total_positivo": 12,
+        "taxa_conversao_preliminar": 0.5,
+        "data_medicao": "2026-02-26-final",
+        "nota": "Algumas escolas ja tinham enviado ao serem contactadas. Taxa final: 12/24 = 50%."
       },
-      "nota_qualitativa": "Resultado mais alto de ativacao de bolsao registrado. Combinacao de personalizacao extrema (como a Lili) + copy emocional (noite de autografos) + pedido low friction (qualquer formato) = friccao minima para a escola.",
+      "nota_qualitativa": "Resultado final: 50% (12/24). Melhor taxa de ativacao de bolsao registrada. Fator critico: mato virgem — escolas LT nunca abordadas antes.",
       "gatilho_identificado": "autoridade_cofundadora + emocao_noite_autografos + low_friction_pedido",
       "tags_padroes": [
         "1-a-1",
@@ -428,5 +429,5 @@ window.WATCHDOG_CAMPANHAS = {
     "Menor taxa: Outbound Playlist com 0.1% — revisar abordagem ou qualidade da lista",
     "Caneca: Caneca Renovação converteu 1.4x mais que Caneca Anos Anteriores com copy similar — audiencia mais responsiva"
   ],
-  "updated": "2026-02-26T17:00:44.762033"
+  "updated": "2026-02-26T22:59:10.900590"
 };

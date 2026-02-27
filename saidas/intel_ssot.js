@@ -2,7 +2,7 @@ window.WATCHDOG_INTEL = {
   "persona": {
     "nome": "Claudete",
     "papel": "Chief of Staff & Head of Marketing Analytics",
-    "ultima_atualizacao": "2026-02-26T17:30:00"
+    "ultima_atualizacao": "2026-02-26T18:15:00"
   },
   "aprendizados": [
     {
@@ -831,8 +831,8 @@ window.WATCHDOG_INTEL = {
       "data": "2026-02-26",
       "fonte": "Resultado real da acao t023+t048 — Kaka enviou 1-a-1 para 24 escolas LT como Lili (26/02)",
       "categoria": "copy_e_mensagem",
-      "insight": "Abordagem 1-a-1 no WhatsApp como a propria cofundadora (Lili), com copy emocional personalizada + reducao de friccao no pedido (qualquer formato aceito), converte bolsao LT em taxa muito superior a disparos em massa. Resultado preliminar: 37,5% (7 listas + 2 promessas de 24 escolas) no mesmo dia.",
-      "evidencia": "Copy: \"Sou a Lili, cofundadora da Estante Mágica. A [Nome da Escola] já está confirmada no projeto — e mal posso esperar pelo dia em que cada aluno de vocês segurar o próprio livro na noite de autógrafos. Falta só a lista de alunos para darmos seguimento. Me manda do jeito que estiver: Excel, PDF ou foto. Eu mesma faço o cadastro com carinho. Consigo receber hoje?\". Kaka enviou manualmente 1-a-1. 7 listas recebidas + 2 promessas de 24 escolas LT no mesmo dia da acao.",
+      "insight": "Abordagem 1-a-1 no WhatsApp como a propria cofundadora (Lili), com copy emocional personalizada + reducao de friccao no pedido (qualquer formato aceito), converte bolsao LT em taxa muito superior a disparos em massa. Resultado FINAL do dia: 50% (12 de 24 escolas). Fator critico: escolas LT nunca tinham sido abordadas antes — mato virgem. Nao replicar em escolas saturadas sem ajustar a abordagem.",
+      "evidencia": "Resultado atualizado em 26/02 18h: 12 de 24 escolas LT enviaram lista (algumas ja tinham enviado ao serem contactadas). Copy: pessoal como Lili + emocao (noite de autografos) + low friction (qualquer formato). Fator diferenciador: segmento nunca abordado antes — sem fadiga de contato acumulada.",
       "confianca": "alta",
       "aplicavel_a": [
         "bolsao_ativacao",
@@ -873,6 +873,37 @@ window.WATCHDOG_INTEL = {
         "escolas_saturadas"
       ],
       "acao_sugerida": "Escolas que registram reclamacao de excesso de contato devem ter flag no CRM (contactar_com_cautela). Proxima acao: apenas um FUP leve, sem discador, sem disparo automatizado.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight056",
+      "data": "2026-02-26",
+      "fonte": "Conversa Pedro+Kaka 26/02 — desdobramento do teste AA bolsao",
+      "categoria": "copy_e_mensagem",
+      "insight": "Combinacao de tres elementos para escolas saturadas de alto valor: (1) WA pessoal como Lili anunciando surpresa, (2) envio de mimo fisico (chocolate), (3) soft ask de lista apos confirmacao de recebimento. Nomeado internamente como \"cerco no amor\". Logica: surpresa cria reciprocidade, mimo diferencia do contato transacional, ask suave apos engajamento tem friccao minima.",
+      "evidencia": "Estrategia combinada definida por Pedro+Kaka em 26/02 para AA bolsao amanha (27/02). Baseia-se em: (a) insight053 — Lili como autoridade converte; (b) insight002 — mimo gera reciprocidade; (c) insight054 — abordagem soft abre dialogo em escola saturada. Copy Msg1: \"Estava olhando as escolas confirmadas... o que me deixou mais contente foi ver o nome da [Escola]. Pra compartilhar minha felicidade, estou te mandando uma surpresinha hoje. Me confirma ao receber?\". Copy Msg2 (pos-mimo): \"Pra gente se organizar na formacao do time que vai te atender, poderia enviar a lista? Me manda do jeito que estiver — eu mesma cuido do cadastro.\"",
+      "confianca": "media",
+      "aplicavel_a": [
+        "bolsao_ativacao",
+        "aa_fechadas",
+        "escolas_saturadas_alto_valor"
+      ],
+      "acao_sugerida": "Aplicar cerco no amor apenas em escolas de alto valor que nao responderam a abordagens anteriores e nao receberam mimo ainda. Verificar historico de mimo antes de disparar. Time inteiro de MKT disponivel para execucao manual 1-a-1.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight057",
+      "data": "2026-02-26",
+      "fonte": "Analise Pedro em conversa com Kaka 26/02",
+      "categoria": "operacoes_comerciais",
+      "insight": "O modelo tradicional de ativacao (ativador ligando 1-a-1 para escolas fechadas) e inferior ao modelo de marketing pessoal (Lili + mimo + copy emocional) para conversao de bolsao. Pedro identificou: \"nao e pelo formato atual do ativador\" — o problema nao e esforcco, e o modelo de contato.",
+      "evidencia": "Pedro: \"se nao tiver um boost bizarro do MKT, nao vai bater a meta. Mas nao e pelo formato atual do ativador.\" Time de MKT (Kaka, Vit, Leo, Raica, Bianca ate terca) foi mobilizado para acao de ativacao 1-a-1 em substituicao/complemento ao modelo de ativador padrao.",
+      "confianca": "media",
+      "aplicavel_a": [
+        "bolsao_ativacao",
+        "modelo_operacional"
+      ],
+      "acao_sugerida": "Avaliar formalmente se o papel do ativador deve ser reformulado para abordagem pessoal/emocional ao inves de ligacao transacional. No curto prazo: time MKT faz ativacao de alto valor manualmente enquanto modelo e validado.",
       "status": "ativo"
     }
   ],
