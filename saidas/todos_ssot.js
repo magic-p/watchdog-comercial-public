@@ -691,13 +691,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Definido na daily 26/02. Bebel pediu histórico de conversão do bolsão por mês para referência. Nath puxa dados (20-30min). Também atualiza realizadas de janeiro no sistema. Merge parcial com t022 (análise conversão por closer, 06/mar) — esse é mais urgente e específico para o bolsão.",
     "owner": "Nath Ferreira",
     "date": "27/fev",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-02-27T00:00:00",
+    "completedAt": "2026-02-27T00:00:00"
   },
   {
     "id": "t051",
