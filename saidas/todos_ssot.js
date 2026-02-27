@@ -563,7 +563,7 @@ window.WATCHDOG_TODOS = [
     "id": "t042",
     "task": "Definir ações MKT para reversão de bolsão (sequência ao papo closers — t041)",
     "comment": "R$732.377 em fechadas não convertidas. Precisa de plano de ativação MKT + comercial para semana 02/03. Depende do diagnóstico do papo closers (t041). Resultado esperado: plano concreto de ações com DRI e prazo para fechar conversão do bolsão. Ver alerta006.",
-    "owner": "Vitoria",
+    "owner": "Kaka",
     "date": "02/mar",
     "tier": "t1",
     "tierLabel": "A fazer",
