@@ -831,13 +831,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Sugestão da Vit na daily 27/02: usar Blip para enviar aviso do mimo às escolas (mensagem informativa: \"sua surpresa está a caminho\") — menor risco de bloqueio do que WA pessoal. Testar fluxo e verificar taxa de entrega e resposta. Se funcionar, substitui WA pessoal para o aviso inicial e preserva o WA para o pedido de lista.",
     "owner": "Vitoria",
     "date": "04/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-02T00:00:00",
+    "completedAt": "2026-03-02T00:00:00"
   },
   {
     "id": "t063",
