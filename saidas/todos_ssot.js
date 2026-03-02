@@ -914,7 +914,7 @@ window.WATCHDOG_TODOS = [
     "task": "Definição time estagiários mkt",
     "comment": "Check pendente levantado por Lili (27/02). Desenvolvimento dos estagiários do time (Leo e possivelmente outros) está sem dono definido. Avaliar se vale alocar 1 pessoa dedicada para isso ou se entra na alçada de alguém existente. Kaka avalia e propõe.",
     "owner": "Kaka",
-    "date": "04/mar",
+    "date": "13/mar",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
