@@ -367,7 +367,7 @@ window.WATCHDOG_TODOS = [
     "id": "t027",
     "task": "Executar teste Tati fora da Goto — ligar por WPP/celular alternativo para AA e comparar taxa de contato vs Goto",
     "comment": "Confirmado por Lua e Lili via Google Chat 25/02 (19:15). Tati é a SDR designada. Objetivo: isolar se a baixa taxa de contato de AA é problema de infraestrutura (Goto=spam) ou de lista/perfil. Resultado esperado em D+1. Registrar: (1) nº de tentativas via celular alternativo, (2) tx de atendimento, (3) comparação com tx Goto do mesmo período. Pedro pediu na daily 27/02: resposta sobre resultado do teste fora da GO2 na segunda (02/mar).",
-    "owner": "Luana",
+    "owner": "Nath Ferreira",
     "date": "02/mar",
     "tier": "t1",
     "tierLabel": "A fazer",
