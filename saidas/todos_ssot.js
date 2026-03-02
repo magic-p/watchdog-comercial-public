@@ -747,13 +747,13 @@ window.WATCHDOG_TODOS = [
     "comment": "BASE: 48 escolas filtradas por Pimentel (bolsão 2025 qualificadas — sem mimo prévio, sem recusa, sem não-quer-contato). META: 49 listas até fim do dia 27/02 — Nath confirmou esse número. BUDGET: aprovado por Lili, Graça já transferiu. EQUIPE: Kaka coordena às 8h. Chocolate/logística: Raíça + Leonardo. Mensagens WA: Agatha + Thais (comercial, briefadas por Sarinha) + 1 SDR a confirmar (Pimentel passa nome amanhã). PRAZO: até meio-dia. PROCESSO POR ESCOLA: (1) Abrir card; (2) Adicionar no WhatsApp; (3) Msg 1 como Lili — anuncia surpresa, não pede lista; (4) Envio do chocolate; (5) Confirma recebimento; (6) Msg 2 — soft ask de lista. Copy Msg1: \"Estava olhando as escolas confirmadas... o que me deixou mais contente foi ver o nome da [Escola]. Pra compartilhar minha felicidade, estou te mandando uma surpresinha hoje. Me confirma ao receber? 🙂\". Copy Msg2: \"Pra gente se organizar na formação do time que vai te atender, poderia enviar a lista? Me manda do jeito que estiver — eu mesma cuido do cadastro.\" Ver insight056.",
     "owner": "Kaka",
     "date": "27/fev",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-02T00:00:00",
+    "completedAt": "2026-03-02T00:00:00"
   },
   {
     "id": "t055",
