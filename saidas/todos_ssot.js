@@ -858,7 +858,7 @@ window.WATCHDOG_TODOS = [
     "task": "Apresentar meta março e ano para o time",
     "comment": "Item 0 da lista de Lili para próxima semana. Apresentação de metas de março e do ano para o time de Gestão Comercial. Lili lidera. Formato e momento a definir (daily? reunião separada?). Insumo: Nath traz impacto financeiro de headcount (t063/t067).",
     "owner": "Lili",
-    "date": "04/mar",
+    "date": "03/mar",
     "tier": "t1",
     "tierLabel": "A fazer",
     "warn": null,
