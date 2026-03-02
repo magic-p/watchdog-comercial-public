@@ -900,7 +900,7 @@ window.WATCHDOG_TODOS = [
     "task": "Nath: trazer impacto financeiro de nova turma de contratação + propor data de abertura",
     "comment": "Item iv de Lili. Além de recalcular headcount atual (t063), Nath deve: (1) trazer impacto financeiro de abrir mais 1 turma de contratação; (2) propor data de abertura considerando escassez de liderança para formação. Trazer para Pedro na semana de 02/mar.",
     "owner": "Nath Ferreira",
-    "date": "04/mar",
+    "date": "03/mar",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
