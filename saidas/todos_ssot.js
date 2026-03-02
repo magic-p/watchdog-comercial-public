@@ -817,13 +817,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Daily 27/02: Isabele e Poli saem do time de Renovação para Relacionamento (Luiz Eduardo). Pimentel confirma os nomes com Maria Carol e repassa para Nath. Impacto: headcount de Renovação reduz — Nath precisa recalcular capacidade e RR/SDR esperado.",
     "owner": "Ana Paula Pimentel",
     "date": "02/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-02T00:00:00",
+    "completedAt": "2026-03-02T00:00:00"
   },
   {
     "id": "t061",
