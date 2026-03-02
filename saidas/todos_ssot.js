@@ -970,7 +970,7 @@ window.WATCHDOG_TODOS = [
     "task": "Nath: organizar controle para chegada do BP de Finanças (handover de controle de ofertas e patrocínio)",
     "comment": "Item MKT de Lili (27/02). BP de Finanças chegando — Nath organiza o handover de controle de ofertas e patrocínio antes da chegada. Garantir que o controle esteja estruturado para que o BP consiga assumir sem ruído.",
     "owner": "Nath Ferreira",
-    "date": "04/mar",
+    "date": "05/mar",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
