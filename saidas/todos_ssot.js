@@ -803,13 +803,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Definido na daily 27/02. Outbound priorizará escolas de alto valor: ordem — prioritárias → outbound high value → outbound outros. Lili entregará a planilha de priorização para o time. Insumo para próximos disparos e ação 1-a-1.",
     "owner": "Lili",
     "date": "02/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-02T00:00:00",
+    "completedAt": "2026-03-02T00:00:00"
   },
   {
     "id": "t060",
