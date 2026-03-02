@@ -998,7 +998,7 @@ window.WATCHDOG_TODOS = [
     "task": "Lili: revisar orçado x realizado comercial YTD (janeiro)",
     "comment": "Item Finanças de Lili (27/02). Revisão do que foi orçado vs realizado no comercial em janeiro (YTD). Base para decisões de orçamento de março e para contexto da apresentação de metas (t064).",
     "owner": "Lili",
-    "date": "04/mar",
+    "date": "13/mar",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
