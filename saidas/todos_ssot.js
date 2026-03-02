@@ -803,13 +803,13 @@ window.WATCHDOG_TODOS = [
     "comment": "WA pessoal da Lili foi bloqueado por 24h após Operação Lili Doce (excesso de mensagens). Decisão na daily 27/02: Pedro compra chip novo temporário para continuar ação 1-a-1. Atenção: chip novo enviando muitas mensagens em curto prazo tem mesmo risco de bloqueio (alerta Pimentel). Ver alerta023.",
     "owner": "Pedro",
     "date": "27/fev",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-02T00:00:00",
+    "completedAt": "2026-03-02T00:00:00"
   },
   {
     "id": "t059",
