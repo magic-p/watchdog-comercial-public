@@ -228,7 +228,7 @@ window.WATCHDOG_TODOS = [
     "task": "Planejamento março — escalar WhatsApp/Instagram para concorrência e retração",
     "comment": "Definir calendário e segmentação de disparos para março nas frentes de Concorrência e Retração. Incluir: volume estimado, budget, copy base e KPI de acompanhamento. Baseado em aprendizados insight009 (copy retração) e insight006 (oferta por baldinho).",
     "owner": "Kaka",
-    "date": "01/mar",
+    "date": "06/mar",
     "tier": "t1",
     "tierLabel": "A fazer",
     "warn": null,
