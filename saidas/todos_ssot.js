@@ -845,13 +845,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Daily 27/02: 3 pessoas saem de Renovação + Lari (além de Isabele e Poli para Relacionamento). Nath expressou preocupação com estabilidade do time. Recalcular: (1) headcount real restante; (2) impacto em RR/SDR esperado; (3) gap de capacidade vs meta março. Trazer para Pedro na segunda.",
     "owner": "Nath Ferreira",
     "date": "04/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-02T00:00:00",
+    "completedAt": "2026-03-02T00:00:00"
   },
   {
     "id": "t064",
