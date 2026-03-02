@@ -873,13 +873,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Item i de Lili. Novas 25 = escolas de Novas do bolsão 2025. Decisão: vai full para MKT ou uma parte que ainda está no jogo fica no Comercial? Olhar 1 a 1, garantir blocos de ação e alocação de pessoas (quem do Comercial vem para MKT?). Resp: Lili define, depois MKT executa. Conectado à transição de LT (t061) e à decisão de bolsão como responsabilidade de Lili (daily 27/02).",
     "owner": "Lili",
     "date": "04/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-02T00:00:00",
+    "completedAt": "2026-03-02T00:00:00"
   },
   {
     "id": "t066",
