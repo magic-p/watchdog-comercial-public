@@ -704,7 +704,7 @@ window.WATCHDOG_TODOS = [
     "task": "Bebel: mapear oportunidades de conversão em renovação e topo de funil SDR novas",
     "comment": "Definido na daily 26/02. Bebel identifica ponteiros de maior impacto: (1) eficiência da máquina de renovação — menos reuniões, mais resultado (oportunidade R$1,6M identificada); (2) SDR novas: maior alavanca está no topo do funil (agendamento + RR), não no closer. Entrega para semana de 02/mar.",
     "owner": "Bebel Bertuccelli",
-    "date": "02/mar",
+    "date": "06/mar",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
