@@ -911,7 +911,7 @@ window.WATCHDOG_TODOS = [
   },
   {
     "id": "t068",
-    "task": "Definir responsável pelo desenvolvimento dos estagiários (alocar 1 pessoa?)",
+    "task": "Definição time estagiários mkt",
     "comment": "Check pendente levantado por Lili (27/02). Desenvolvimento dos estagiários do time (Leo e possivelmente outros) está sem dono definido. Avaliar se vale alocar 1 pessoa dedicada para isso ou se entra na alçada de alguém existente. Kaka avalia e propõe.",
     "owner": "Kaka",
     "date": "04/mar",
