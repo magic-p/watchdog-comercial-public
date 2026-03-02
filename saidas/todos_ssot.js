@@ -397,13 +397,13 @@ window.WATCHDOG_TODOS = [
     "comment": "3 casos simultâneos em 25/02: (1) gestor quer subir alunos ele mesmo → Tech resolvendo; (2) escola negociando acesso direto à plataforma; (3) escola perdida → nova RR marcada. Sem fluxo padronizado, cada novo caso consome tempo individual. Entregar: (a) fluxo de decisão por tipo de bloqueio LGPD; (b) script preventivo para o Closer usar na RR antes do fechamento; (c) alinhamento com Tech sobre protocolo de upload próprio pela escola.",
     "owner": "Ana Paula Pimentel",
     "date": "03/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-02T00:00:00",
+    "completedAt": "2026-03-02T00:00:00"
   },
   {
     "id": "t030",
