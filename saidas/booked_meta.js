@@ -52,7 +52,48 @@ window.WATCHDOG_BOOKED_META = {
       "rr_sdr_dia_target": 0.25
     }
   ],
-  "wins": [],
+  "wins": [
+    {
+      "emoji": "✅",
+      "titulo": "Ana Paula Pimentel: Planejamento de closers para março — gargalo e efetivação",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Ana Paula Pimentel",
+      "data": "02/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Ana Paula Pimentel: Criar fluxo padrão de resolução de bloqueio LGPD (3 casos ativos)",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Ana Paula Pimentel",
+      "data": "02/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "🎯",
+      "titulo": "Kaka: Operação Lili Doce: WA como Lili + chocolate → soft ask de lista (48 escolas bolsão, até meio-dia)",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Kaka",
+      "data": "02/03",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Ana Paula Pimentel: Avaliar FUP de closer no bolsão para semana que vem",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Ana Paula Pimentel",
+      "data": "02/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "🎯",
+      "titulo": "Pedro: Pedro: comprar chip temporário para ação de ativação WhatsApp",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Pedro",
+      "data": "02/03",
+      "tipo": "ENTREGA_CONCLUIDA"
+    }
+  ],
   "kpis": {
     "meta_anual_escolas": 3736,
     "meta_mensal_escolas": 471,
