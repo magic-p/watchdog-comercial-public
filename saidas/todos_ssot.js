@@ -546,20 +546,6 @@ window.WATCHDOG_TODOS = [
     "completedAt": "2026-02-26T00:00:00"
   },
   {
-    "id": "t041",
-    "task": "Agendar papo sobre bolsão frágil: closers + Lili + Pedro + Ana — pauta: venda frágil + ações de reversão",
-    "comment": "Previsto no daily de 25/02 como ação da próxima semana. Quantificado: R$732.377 em fechadas não convertidas em risco. Pauta: (1) diagnóstico de venda frágil no bolsão, (2) definição de ações MKT para reversão antes que virem churn. DRI de agendamento: Pimentel. DRI de definição de ações: Vitória + Pimentel (ver t042).",
-    "owner": "Ana Paula Pimentel",
-    "date": "02/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
-    "warn": null,
-    "done": false,
-    "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
-  },
-  {
     "id": "t042",
     "task": "Definir ações MKT para reversão de bolsão (sequência ao papo closers — t041)",
     "comment": "R$732.377 em fechadas não convertidas. Precisa de plano de ativação MKT + comercial para semana 02/03. Depende do diagnóstico do papo closers (t041). Resultado esperado: plano concreto de ações com DRI e prazo para fechar conversão do bolsão. Ver alerta006.",
@@ -789,13 +775,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Lili perguntou no grupo 26/02: FUPs de closer amanhã e semana que vem valem tentar? Pimentel: \"temos oportunidade em FUP, estou levantando a quantidade\". Trazer número de escolas com oportunidade de FUP de closer e proposta de ação para próxima semana. Complementa Operação Lili Doce — escolas que não responderem ao chocolate podem entrar em FUP de closer.",
     "owner": "Ana Paula Pimentel",
     "date": "02/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-02T00:00:00",
+    "completedAt": "2026-03-02T00:00:00"
   },
   {
     "id": "t058",
