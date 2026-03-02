@@ -1013,12 +1013,12 @@ window.WATCHDOG_TODOS = [
     "comment": "Anunciado por Lili em 27/02. Encontro presencial do Time de Aquisição no RJ na semana de 02/mar. Lili coordena logística e pauta.",
     "owner": "Lili",
     "date": "04/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-02T00:00:00",
+    "completedAt": "2026-03-02T00:00:00"
   }
 ];
