@@ -546,20 +546,6 @@ window.WATCHDOG_TODOS = [
     "completedAt": "2026-02-26T00:00:00"
   },
   {
-    "id": "t042",
-    "task": "Definir ações MKT para reversão de bolsão (sequência ao papo closers — t041)",
-    "comment": "R$732.377 em fechadas não convertidas. Precisa de plano de ativação MKT + comercial para semana 02/03. Depende do diagnóstico do papo closers (t041). Resultado esperado: plano concreto de ações com DRI e prazo para fechar conversão do bolsão. Ver alerta006.",
-    "owner": "Kaka",
-    "date": "04/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
-    "warn": null,
-    "done": false,
-    "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
-  },
-  {
     "id": "t043",
     "task": "Aprovação e escalada da 'cenourinha' para closers — pendente aprovação Lili",
     "comment": "Descartado. Lili decidiu não avançar com a cenourinha para closers (26/02/2026).",
@@ -830,7 +816,7 @@ window.WATCHDOG_TODOS = [
     "task": "Kaka: estratégia LT completa para março — PART e PUBL, sem time comercial alocado (meta 30 escolas PART LT)",
     "comment": "Decisão daily 27/02 + confirmada por Lili. MKT responsável por resultado LT Renovação sozinho, sem time alocado do Comercial. Escopo: (1) 30 escolas PART LT convertidas; (2) estratégia LT para PUBL também (regulagem de contato, canal, copy). Insumo: insight053 (50% conversão 1-a-1), insight056 (cerco no amor), insight060 (régua antes da transição). Não saturar o segmento — ainda é mato virgem.",
     "owner": "Kaka",
-    "date": "04/mar",
+    "date": "06/mar",
     "tier": "t1",
     "tierLabel": "A fazer",
     "warn": null,
