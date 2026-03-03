@@ -92,6 +92,54 @@ window.WATCHDOG_BOOKED_META = {
       "dri": "Pedro",
       "data": "02/03",
       "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Lili: Lili: entregar planilha de priorização outbound (concorrência + retração high value)",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Lili",
+      "data": "02/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Ana Paula Pimentel: Pimentel: confirmar com Maria Carol nomes que saem de Renovação para Relacionamento",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Ana Paula Pimentel",
+      "data": "02/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Vitoria: Testar Blip como canal de aviso de mimo (informativo, menor risco de bloqueio WA)",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Vitoria",
+      "data": "02/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Nath Ferreira: Nath: recalcular capacidade e impacto do headcount de Renovação para março",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Nath Ferreira",
+      "data": "02/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Lili: Organizar célula de bolsão Novas 25 — alinhar Pimentel + MKT: full MKT ou parte vai para Comercial?",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Lili",
+      "data": "02/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Lili: Organizar Encontro do Time de Aquisição no RJ — próxima semana",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Lili",
+      "data": "02/03",
+      "tipo": "ENTREGA_NO_PRAZO"
     }
   ],
   "kpis": {

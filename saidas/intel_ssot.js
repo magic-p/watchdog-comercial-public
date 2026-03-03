@@ -2,7 +2,7 @@ window.WATCHDOG_INTEL = {
   "persona": {
     "nome": "Claudete",
     "papel": "Chief of Staff & Head of Marketing Analytics",
-    "ultima_atualizacao": "2026-02-27T12:00:00"
+    "ultima_atualizacao": "2026-03-02T12:00:00"
   },
   "aprendizados": [
     {
@@ -968,6 +968,68 @@ window.WATCHDOG_INTEL = {
       ],
       "acao_sugerida": "Manter copy de posicionamento competitivo como padrão para Concorrência. Não reverter para playlist em prospecção escrita. Documentar o modelo de copy vencedor para novos SDRs que entrarem no time.",
       "status": "ativo"
+    },
+    {
+      "id": "insight051",
+      "data": "2026-03-02",
+      "fonte": "Daily Gestao Comercial 02/03/2026 - decisao estrategica",
+      "categoria": "operacao",
+      "gatilho": null,
+      "insight": "Marco/2026 e o primeiro mes em que marketing assume 3 frentes simultaneamente sem time comercial dedicado: LT Renovacao, HT PUBL Renovacao e Bolsao 25. Piloto do novo modelo operacional. Se funcionar, confirma que marketing consegue sustentar revenue nessas frentes sem SDR/Closer comercial alocado.",
+      "evidencia": "Daily 02/03: Lili atribuiu LT Renovacao integralmente ao marketing. HT PUBL apoiada por disparos semanais pastelaria (Karina). Bolsao 25 (80 escolas, R$300k) entregue ao marketing ate qua. Decisao explicita de retirar Pimentel/Closers dessas frentes.",
+      "confianca": "media",
+      "aplicavel_a": [
+        "renovacao",
+        "bolsao_2025"
+      ],
+      "acao_sugerida": "Monitorar resultados semanais dessas 3 frentes em marco separadamente do resultado comercial. Se LT Renovacao + HT PUBL performar bem sem comercial, validar modelo para abril. Se cair, rever a divisao.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight052",
+      "data": "2026-03-02",
+      "fonte": "Daily Gestao Comercial 02/03/2026 - decisao de canal",
+      "categoria": "canal",
+      "gatilho": null,
+      "insight": "WhatsApp e estruturalmente ineficaz para mimos em marco/2026: mesmo numeros novos estao sendo bloqueados. Blip foi escolhido como canal oficial de mimo a partir de hoje. Blip e mais seguro por nao depender de chip proprio e gerenciar respostas em fila para designacao.",
+      "evidencia": "Daily 02/03: Karina confirmou que WA bloqueia mesmo com chips novos. Lili, Karina e Vitoria definiram Blip como canal padrao. Vitoria cria template no Meta. Karina define copy.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "todos"
+      ],
+      "acao_sugerida": "Toda acao de mimo digital deve usar Blip como canal primario a partir de marco/2026. WA somente como fallback. Monitorar taxa de entrega e levantadas do Blip vs historico do WA.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight053",
+      "data": "2026-03-02",
+      "fonte": "Meta Aquisicao 02/03/2026 - Nath Ferreira",
+      "categoria": "baldinho",
+      "gatilho": null,
+      "insight": "Concorrencia abriu marco com taxa de fechadas/realizadas em 45% vs 58% em fevereiro - queda de 13pp sem causa documentada. Pode ser composicao diferente do bolsao (mais escolas resistentes carregadas de fev) ou efeito de 1 SDR a menos no FUP.",
+      "evidencia": "Meta Aquisicao 02/03: Concorrencia fechadas/realizadas 45% vs 58% fev.26. RR/SDR 0,50 vs 0,49 (estavel). 33 realizadas. 1 SDR rampado a menos.",
+      "confianca": "media",
+      "aplicavel_a": [
+        "concorrencia"
+      ],
+      "acao_sugerida": "Monitorar taxa de conversao de Concorrencia semanalmente em marco. Se continuar abaixo de 50%, investigar composicao do bolsao: carry-over de fev vs novas escolas de marco.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight054",
+      "data": "2026-03-02",
+      "fonte": "Meta Aquisicao 02/03/2026 - Nath Ferreira",
+      "categoria": "performance",
+      "gatilho": null,
+      "insight": "SDRs em rampa (trainees) produziram RR/SDR de 0,11 em Novas vs 0,26 do time rampado. Gap de 58% de produtividade. Trainees nao devem entrar no calculo de capacidade real do time ate estabilizacao acima de 0,25.",
+      "evidencia": "Meta Aquisicao 02/03: Novas RR/SDR rampado 0,26 vs RR/SDR/Rampando 0,11. Historico: 0,25 fev.25 para rampados.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "novas",
+        "outbound"
+      ],
+      "acao_sugerida": "No planejamento de headcount (Lili+Nath, 03/03), usar apenas rampados no calculo de capacidade SDR de curto prazo. Trainees entram como capacidade a partir do mes 2-3 de rampa.",
+      "status": "ativo"
     }
   ],
   "criticas_ativas": [
@@ -1000,7 +1062,8 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Lili mapear HOJE escolas com lista dentro de casa e previsão de envio até 28/02. Acionar WhatsApp urgente para escolas em etapa avançada sem cadastro fechado. Pimentel verificar bolsão de FUP de Novas para forçar conversão nas próximas 48h.",
       "prioridade": "critica",
       "dri": "Liliane Mathias",
-      "status": "aberta"
+      "status": "descartada",
+      "nota_status": "Fevereiro encerrado. Alerta de ritmo de novas nao mais relevante para marco."
     },
     {
       "id": "alerta004",
@@ -1051,8 +1114,8 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Lili mapear HOJE escolas com lista dentro de casa e previsão de envio até 28/02. Acionar WhatsApp urgente para escolas em etapa avançada sem cadastro fechado. Pimentel verificar bolsão de FUP de Novas para forçar conversão nas próximas 48h.",
       "prioridade": "critica",
       "dri": "Liliane Mathias",
-      "status": "consolidado_em_alerta003",
-      "nota_status": "Consolidado no alerta003 por redundância de mensagem."
+      "status": "descartada",
+      "nota_status": "Fevereiro encerrado. Alerta de ritmo de novas nao mais relevante para marco."
     },
     {
       "id": "alerta009",
@@ -1094,7 +1157,8 @@ window.WATCHDOG_INTEL = {
       "prioridade": "alta",
       "dri": "Luana",
       "status": "em_execucao",
-      "atualizacao_25_02": "Teste confirmado para 26/02: Tati isolada para ligar fora da Goto. Lili confirmou com Lua às 19:15 via Google Chat. Resultado esperado em D+1 (26/02)."
+      "atualizacao_25_02": "Teste confirmado para 26/02: Tati isolada para ligar fora da Goto. Lili confirmou com Lua às 19:15 via Google Chat. Resultado esperado em D+1 (26/02).",
+      "nota_status": "02/03: Nath ativou Bina na GOT. Investigacao spam com Lua em andamento (t027)."
     },
     {
       "id": "alerta013",
@@ -1216,6 +1280,33 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Nath recalcula headcount real e impacto em RR/SDR esperado para março (t063). Trazer para Pedro na segunda. Se houver gap crítico de capacidade, Pedro decide sobre aceleração de contratação.",
       "prioridade": "alta",
       "dri": "nath",
+      "status": "aberta"
+    },
+    {
+      "id": "alerta025",
+      "data": "2026-03-02",
+      "critica": "Concorrencia abriu marco com 45% de fechadas/realizadas vs 58% em fevereiro - queda de 13pp sem causa documentada. Com 1 SDR a menos e bolsao herdado de fev, risco de degradacao continuada.",
+      "dri": "Ana Paula Pimentel",
+      "prioridade": "critica",
+      "acao_sugerida": "Investigar composicao do bolsao de Concorrencia: quantas escolas sao carry-over de fev vs novas de marco. Identificar se e problema de base ou de FUP. Prazo: amanha (03/03).",
+      "status": "aberta"
+    },
+    {
+      "id": "alerta026",
+      "data": "2026-03-02",
+      "critica": "HT PART Renovacao com RR/SDR de 1,60 vs meta de 2,0 - gap de 0,40pp. E o segmento que puxa o numero geral de Renovacao para baixo. Marketing assumiu LT mas HT PART nao tem alavancagem explicita definida para marco.",
+      "dri": "Karina Machado",
+      "prioridade": "alta",
+      "acao_sugerida": "Karina incluir HT PART no plano de marco: definir disparo ou acao especifica para esse segmento alem do HT PUBL. Prazo: plano RT completo (06/mar, t061).",
+      "status": "aberta"
+    },
+    {
+      "id": "alerta027",
+      "data": "2026-03-02",
+      "critica": "Blip substituiu WA para mimo mas o template ainda nao existe e a copy ainda nao foi feita. Gap entre decisao (02/03) e execucao (03/03): qualquer acao de mimo hoje fica sem canal funcional.",
+      "dri": "Vitoria Riente",
+      "prioridade": "alta",
+      "acao_sugerida": "Vitoria cria template Blip (t077) e Karina entrega copy (t078) ate amanha. Enquanto Blip nao estiver operacional, nenhuma acao de mimo deve ser disparada digitalmente.",
       "status": "aberta"
     }
   ],
