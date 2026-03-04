@@ -646,7 +646,7 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t049",
     "task": "Wydi: empacotar diferenciais da concorrência + cliente oculto + disseminação no time",
-    "comment": "Lili pediu na daily 26/02; confirmado na daily 27/02. Escopo: (1) Wydi investiga e empacota discurso de diferenciais da Estante vs concorrentes — para armar SDRs e closers. Argumento operacional/funcional (insight042/050). (2) Realizar cliente oculto: abordar concorrente como escola interessada para mapear argumentos e ofertas deles. (3) Disseminar para o time. Prazo a definir com Pimentel.",
+    "comment": "Treinamento sobre diferenciais da concorrência agendado para 10/03 (próxima terça). Projeto cliente oculto com Sil confirmado como ativo. Sil NÃO será movida para frente de Concorrência — ficará na operação.",
     "owner": "Ana Paula Pimentel",
     "date": "06/mar",
     "tier": "t1",
@@ -654,7 +654,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-02-27T00:00:00",
+    "updatedAt": "2026-03-03T00:00:00",
     "completedAt": null
   },
   {
@@ -817,13 +817,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Decisão daily 27/02 + confirmada por Lili. MKT responsável por resultado LT Renovação sozinho, sem time alocado do Comercial. Escopo: (1) 30 escolas PART LT convertidas; (2) estratégia LT para PUBL também (regulagem de contato, canal, copy). Insumo: insight053 (50% conversão 1-a-1), insight056 (cerco no amor), insight060 (régua antes da transição). Não saturar o segmento — ainda é mato virgem.",
     "owner": "Kaka",
     "date": "06/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-02-27T00:00:00",
-    "completedAt": null
+    "updatedAt": "2026-03-03T00:00:00",
+    "completedAt": "2026-03-03T00:00:00"
   },
   {
     "id": "t062",
@@ -859,13 +859,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Item 0 da lista de Lili para próxima semana. Apresentação de metas de março e do ano para o time de Gestão Comercial. Lili lidera. Formato e momento a definir (daily? reunião separada?). Insumo: Nath traz impacto financeiro de headcount (t063/t067).",
     "owner": "Lili",
     "date": "03/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-03T00:00:00",
+    "completedAt": "2026-03-03T00:00:00"
   },
   {
     "id": "t065",
@@ -982,7 +982,7 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t073",
     "task": "Lili: trazer orçamento disponível do mês para ações de Aquisição + Vit garante acompanhamento",
-    "comment": "Item Finanças de Lili (27/02). Lili traz o orçamento disponível do mês para ações de Aquisição (quanto temos para MKT/ativação em março). Vitória garante acompanhamento do realizado vs disponível ao longo do mês — controle de gasto de campanha.",
+    "comment": "Orçamento ainda não enviado (confirmado daily 03/03). Próximo passo: Vit garante acompanhamento incluindo Kaka na thread assim que Lili enviar.",
     "owner": "Lili",
     "date": "02/mar",
     "tier": "t1",
@@ -990,7 +990,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": null,
+    "updatedAt": "2026-03-03T00:00:00",
     "completedAt": null
   },
   {
@@ -1024,7 +1024,7 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t076",
     "task": "Lili: entregar celula Bolsao 25 ao marketing — reuniao com time sobre 80 escolas ativas (das 110), cruzar MKT x Comercial e definir acoes com potencial R\u0000k",
-    "comment": "Bolsao 25: 80 escolas ativas de 110. Objetivo: entregar celula ao marketing ate qua, Lili direciona acoes. Foco inicial em conversao direta antes de qualquer acao externa.",
+    "comment": "Reunião Bolsão adiada para 04/03 — Mariana Tacada de atestado, retorna 04/03. Pimentel confirmou o reagendamento na daily 03/03.",
     "owner": "Lili",
     "date": "04/mar",
     "tier": "t1",
@@ -1032,7 +1032,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": null,
+    "updatedAt": "2026-03-03T00:00:00",
     "completedAt": null
   },
   {
@@ -1041,13 +1041,13 @@ window.WATCHDOG_TODOS = [
     "comment": "WA com bloqueios cronicos mesmo com chips novos. Blip e a alternativa mais segura. Copy vem de Karina (t078).",
     "owner": "Vitoria Riente",
     "date": "03/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-03T00:00:00",
+    "completedAt": "2026-03-03T00:00:00"
   },
   {
     "id": "t078",
@@ -1069,13 +1069,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Campanha caneca fechou. 12 escolas converteram no ultimo dia de fev. Formulario com link unico por escola para coleta de dados de envio fisico.",
     "owner": "Vitoria Riente",
     "date": "03/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-03T00:00:00",
+    "completedAt": "2026-03-03T00:00:00"
   },
   {
     "id": "t080",
@@ -1103,6 +1103,76 @@ window.WATCHDOG_TODOS = [
     "done": false,
     "priorityRank": null,
     "updatedAt": null,
+    "completedAt": null
+  },
+  {
+    "id": "t082",
+    "task": "Criar acompanhamento semanal do processo de Boas-Vindas (onboarding de escolas recém-fechadas)",
+    "comment": "Lili alertou na daily 03/03 que falha no processo de Boas-Vindas pode comprometer metade da receita anual. Escolas que fecham mas não progridem no onboarding viram risco de receita. Nath foi solicitada a criar o acompanhamento.",
+    "owner": "Nath Ferreira",
+    "date": "06/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-03T00:00:00",
+    "completedAt": null
+  },
+  {
+    "id": "t083",
+    "task": "Investigar com o Back Office problema na base do indicador RR/SDR — números de alunos de 02/03 parecem defasados",
+    "comment": "Daily 03/03: Nath reportou que há problema na base do indicador RR/SDR. Verificar com BO se as listas não foram cadastradas ou se há erro de sincronização na exportação. Dado inválido significa que todas as métricas RR/SDR do dia são suspeitas.",
+    "owner": "Nath Ferreira",
+    "date": "04/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-03T00:00:00",
+    "completedAt": null
+  },
+  {
+    "id": "t084",
+    "task": "Levantar quantidade de escolas que Maria Laísa está gerenciando em Boas-Vindas — avaliar necessidade de pessoal",
+    "comment": "Para planejar alocação de pessoas no processo de Boas-Vindas. Se o volume for alto, equipe de enriquecimento pode ser realocada temporariamente. (Pedido Pimentel na daily 03/03.)",
+    "owner": "Ana Paula Pimentel",
+    "date": "06/mar",
+    "tier": "t2",
+    "tierLabel": "Fazendo",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-03T00:00:00",
+    "completedAt": null
+  },
+  {
+    "id": "t085",
+    "task": "Sensibilizar documento de mala direta — deixar claro que não é o melhor investimento de ROI isolado",
+    "comment": "Nath mostrou na daily 03/03 que mala não altera a taxa de conversão geral (12k vs 5.461 escolas sem diferença). ROI positivo é via levantadas rastreadas por QR Code, não via volume. A mala é canal auxiliar de touchpoint, não driver de conversão. Lili vai ajustar o documento para não parecer que a mala \"carrega\" o ROI.",
+    "owner": "Liliane Mathias",
+    "date": "06/mar",
+    "tier": "t2",
+    "tierLabel": "Fazendo",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-03T00:00:00",
+    "completedAt": null
+  },
+  {
+    "id": "t086",
+    "task": "Transferir teste de WhatsApp (cold outreach) para célula de Sara — bases menos críticas de receita",
+    "comment": "Teste com 30 escolas de Luana foi inconclusivo (amostra pequena) + qualitativo indicou que WhatsApp é invasivo para escolas que não conhecem a empresa. Sara tem perfil mais adequado e trabalhará com bases menos críticas. Aprovado por Lili e Pimentel na daily 03/03.",
+    "owner": "Nath Ferreira",
+    "date": "10/mar",
+    "tier": "t2",
+    "tierLabel": "Fazendo",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-03T00:00:00",
     "completedAt": null
   }
 ];

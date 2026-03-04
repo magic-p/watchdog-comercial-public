@@ -1030,6 +1030,52 @@ window.WATCHDOG_INTEL = {
       ],
       "acao_sugerida": "No planejamento de headcount (Lili+Nath, 03/03), usar apenas rampados no calculo de capacidade SDR de curto prazo. Trainees entram como capacidade a partir do mes 2-3 de rampa.",
       "status": "ativo"
+    },
+    {
+      "id": "insight065",
+      "data": "2026-03-03",
+      "fonte": "Daily Gemini 03/03/2026 — análise Nath Ferreira sobre mala direta",
+      "categoria": "canal",
+      "gatilho": null,
+      "insight": "Mala direta não altera taxa de conversão geral da base. Análise de 12.000 escolas que receberam vs 5.461 que não receberam não mostrou mudança no indicador de conversão. O ROI positivo da mala é calculado via levantadas rastreadas por QR Code — não por conversão volumétrica. A mala funciona como canal auxiliar de touchpoint e rastreabilidade, não como driver de conversão.",
+      "evidencia": "Daily 03/03: Nath analisa 12k vs 5.461 escolas sem diferença na conversão. ROI calculado via QR Code (levantadas). Kaka confirmou: custo = fabricação + logística, rastreamento = QR. Lili: mala não carrega o ROI, é investimento necessário mas não o melhor da vida.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "todos"
+      ],
+      "acao_sugerida": "Nunca apresentar mala direta como driver de conversão. Posicioná-la como canal de rastreamento e geração de levantadas qualificadas. Para análise de ROI, usar exclusivamente levantadas via QR Code — não taxa de conversão agregada da base.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight066",
+      "data": "2026-03-03",
+      "fonte": "Daily Gemini 03/03/2026 — Lili, Nath e equipe",
+      "categoria": "comportamento",
+      "gatilho": null,
+      "insight": "Processo de Boas-Vindas (onboarding de escolas recém-fechadas) tem impacto direto em metade da receita anual. Escola que fecha mas não progride no onboarding não se torna bolsão ativo — vira risco de receita garantida. A falha não está em aquisição nem em fechamento, mas no elo final: escola fechada → escola ativa e em uso.",
+      "evidencia": "Lili na daily 03/03: problema no Boas-Vindas pode colocar em risco metade da receita anual. Proposta de parar aquisição por uma semana para arrumar a casa. Nath solicitada a criar acompanhamento. Pimentel: meta pública conta com 51 escolas via relacionamento e 19 via comercial.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "todos"
+      ],
+      "acao_sugerida": "Monitorar processo de Boas-Vindas separadamente de aquisição. Nunca deixar onboarding acumular sem acompanhamento semanal. Priorizar Boas-Vindas sobre novas aquisições quando o backlog travar.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight067",
+      "data": "2026-03-03",
+      "fonte": "Daily Gemini 03/03/2026 — Luana e Nath Ferreira",
+      "categoria": "canal",
+      "gatilho": null,
+      "insight": "WhatsApp tem fricção qualitativa para escolas cold que não têm relacionamento prévio com a Estante. Feedback de Luana: canal percebido como invasivo por escolas de Concorrência que não conhecem a empresa. Teste com 30 escolas foi inconclusivo (amostra pequena). Isso diferencia o uso de WhatsApp: alta performance para bases quentes vs atrito para cold.",
+      "evidencia": "Luana na daily 03/03: WhatsApp era muito invasivo para escolas que não conhecem a empresa. Teste em 30 escolas inconclusivo. Nath propôs transferir teste para célula de Sara (bases menos críticas). Aprovado por Lili e Pimentel.",
+      "confianca": "media",
+      "aplicavel_a": [
+        "outbound",
+        "concorrencia"
+      ],
+      "acao_sugerida": "Para bases cold (outbound, concorrência sem histórico), testar WhatsApp com copy de apresentação suave — não copy de fechamento ou condicional. Estabelecer se o canal funciona como quebra de gelo antes de escalar. Célula de Sara como laboratório desse teste.",
+      "status": "ativo"
     }
   ],
   "criticas_ativas": [
@@ -1307,8 +1353,39 @@ window.WATCHDOG_INTEL = {
       "dri": "Vitoria Riente",
       "prioridade": "alta",
       "acao_sugerida": "Vitoria cria template Blip (t077) e Karina entrega copy (t078) ate amanha. Enquanto Blip nao estiver operacional, nenhuma acao de mimo deve ser disparada digitalmente.",
-      "status": "aberta"
+      "status": "em_execucao",
+      "nota_status": "Template Blip (t077) concluído conforme confirmado por Kaka na daily 03/03. Copy (t078) ainda pendente — manter monitoramento."
+    },
+    {
+      "id": "alerta028",
+      "data": "2026-03-03",
+      "critica": "Dados de alunos de 02/03 estão defasados no indicador RR/SDR. Nath reportou na daily 03/03 que está verificando com o Back Office se as listas não foram cadastradas ou se há erro de sincronização na exportação. Enquanto não for resolvido, todas as métricas de RR/SDR do dia estão suspeitas.",
+      "dri": "Nath Ferreira",
+      "prioridade": "critica",
+      "acao_sugerida": "Nath fechar investigação com BO até 04/03 e reportar: é erro de cadastramento ou sincronização? Se sistêmico, alertar Pedro e Lili antes de usar qualquer dado de RR/SDR para decisão.",
+      "status": "aberta",
+      "fonte": "Daily Meta Aquisição 03/03/2026"
+    },
+    {
+      "id": "alerta029",
+      "data": "2026-03-03",
+      "critica": "Processo de Boas-Vindas em risco crítico. Lili alertou na daily 03/03 que falha nessa etapa pode comprometer metade da receita anual. Escolas fechadas que não progridem no onboarding viram receita perdida. Time ainda sem acompanhamento estruturado do processo. Nath solicitada a criar controle.",
+      "dri": "Liliane Mathias",
+      "prioridade": "critica",
+      "acao_sugerida": "Lili e Nath criarem acompanhamento semanal de Boas-Vindas (t082). Pimentel levantar volume com Maria Laísa (t084). Avaliar se enriquecimento pode ser suspenso temporariamente para alocar pessoal.",
+      "status": "aberta",
+      "fonte": "Daily Gemini 03/03/2026"
+    },
+    {
+      "id": "alerta030",
+      "data": "2026-03-03",
+      "critica": "HT PÚB Renovação com zero fechamentos nesta semana (Tx fechadas/realizadas = 0). Duas reuniões realizadas, nenhuma convertida. Segmento tem RR/SDR de 2,40 (acima da meta), mas sem conversão de fechamento na semana de 03/03. Pode ser início de mês, mas merece monitoramento imediato.",
+      "dri": "Karina Machado",
+      "prioridade": "alta",
+      "acao_sugerida": "Kaka verificar o que aconteceu nas 2 RRs de HT PÚB desta semana: objeção de fechamento, missing follow-up ou timing? Acompanhar diariamente até a semana fechar.",
+      "status": "aberta",
+      "fonte": "Daily Meta Aquisição 03/03/2026"
     }
   ],
-  "ultima_atualizacao": "2026-02-26T14:00:00"
+  "ultima_atualizacao": "2026-03-03T20:00:00"
 };
