@@ -1076,6 +1076,91 @@ window.WATCHDOG_INTEL = {
       ],
       "acao_sugerida": "Para bases cold (outbound, concorrência sem histórico), testar WhatsApp com copy de apresentação suave — não copy de fechamento ou condicional. Estabelecer se o canal funciona como quebra de gelo antes de escalar. Célula de Sara como laboratório desse teste.",
       "status": "ativo"
+    },
+    {
+      "id": "insight068",
+      "data": "2026-03-05",
+      "fonte": "Reunião Bebel 05/03 — Investigação Perfil SDR + Conclusão Perfil (áudios SDRs)",
+      "categoria": "performance",
+      "gatilho": null,
+      "insight": "SDR Objetivo (resposta rápida, avança para Closer) gera 67% mais RR/dia que SDR Consultivo (aprofunda objeção) nas 3 bases prioritárias: AA (0,83 vs 0,62), Concorrência (0,43 vs 0,29), Retração (0,88 vs 0,38). Geral: 0,72 vs 0,43. Tx fechada não difere significativamente entre perfis — o Consultivo não compensa em conversão o que perde em volume. Definição técnica: perfil Objetivo = SDR que dá resposta rápida à coordenadora e avança para o Closer. Perfil Consultivo = SDR que aprofunda a conversa e trabalha objeções antes de agendar.",
+      "evidencia": "n=12 SDRs, 3 bases prioritárias (AA, Concorrência, Retração). Fonte: escuta de áudios e investigação Bebel 05/03. Consistência cross-base eleva confiança mesmo com n pequeno. Fragilidade metodológica: critério de classificação foi definido pós-entrevista — possível viés de confirmação. Base Outbound não incluída.",
+      "confianca": "media",
+      "aplicavel_a": [
+        "anos_anteriores",
+        "concorrencia",
+        "retracao",
+        "processo_sdr"
+      ],
+      "acao_sugerida": "Priorizar recrutamento e formação de SDRs com perfil Objetivo. Na daily coaching, orientar supervisores a reconhecer e reforçar o perfil Objetivo. Não investir esforço de coaching em mudar SDR Consultivo para Objetivo — foco em contratar o perfil certo. Replicar estudo em Outbound (t095) com critério pré-definido.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight069",
+      "data": "2026-03-05",
+      "fonte": "Reunião Bebel 05/03 — Conclusão Perfil SDR (seção de urgência de data)",
+      "categoria": "comportamento",
+      "gatilho": "urgencia",
+      "insight": "Urgência de data para RR (antecipação do agendamento) funciona quando 3 condições são cumpridas simultaneamente: (1) benefício concreto nomeado na proposta, (2) horário específico imediato sugerido pelo SDR, (3) SDR não aceita a primeira resistência e sustenta o pedido. Taxa de antecipação: 3/5 ligações (60%) quando protocolo completo. Abaixo de 3 condições, a resistência da coordenadora prevalece.",
+      "evidencia": "Análise de 20 ligações com resistência de data. 5 com resistência específica à data. 3 de 5 antecipadas com protocolo completo (60%). Fonte: Bebel na reunião de 05/03 + áudios SDRs.",
+      "confianca": "media",
+      "aplicavel_a": [
+        "todos",
+        "processo_sdr"
+      ],
+      "acao_sugerida": "Incluir as 3 condições do protocolo de urgência no documento de discurso SDR (t097). Supervisores usam como critério de coaching: quando SDR aceita a primeira resistência de data, corrigir imediatamente. Não é sobre pressão — é sobre sustentação de proposta concreta.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight070",
+      "data": "2026-03-06",
+      "fonte": "Daily 05-06/03 — A/B copy WA Karina + Meta Aquisição 04-06/mar",
+      "categoria": "copy",
+      "gatilho": "proposta_valor_operacional",
+      "insight": "Copy com argumento 'diminuição de trabalho para o professor' converte 9x mais que copy emocional 'playlist/experiência do filho' para base AA Concorrência em disparos WA digitais: 1,38% vs 0,15%. Segundo teste confirmando o padrão de insight042 e insight050. Argumento funcional/operacional domina argumento emocional para este segmento em canais escritos assíncronos.",
+      "evidencia": "A/B confirmado por Karina na daily 05/03, registrado na daily 06/03. Taxa de levantadas: 1,38% (diminuição trabalho) vs 0,15% (playlist). Complementa A/B c004 de 24/02 (posicionamento competitivo 2,42% vs playlist 1,38%). Padrão consistente em 3 testes distintos.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "concorrencia",
+        "copy_escrita",
+        "wpp_disparos"
+      ],
+      "acao_sugerida": "Copy de Concorrência em canal digital deve combinar: (1) posicionamento competitivo direto (insight042) + (2) argumento de redução de trabalho do professor (insight050/070). Nunca usar playlist em copy digital para Concorrência. Playlist só funciona no verbal do Closer na RR (insight052).",
+      "status": "ativo"
+    },
+    {
+      "id": "insight071",
+      "data": "2026-03-08",
+      "fonte": "Documento Cerco Mágico 2026 — análise sessão Claudete 08/03",
+      "categoria": "campanha",
+      "gatilho": "sequencia_multicanal",
+      "insight": "Estratégia Cerco Mágico (4–5 touchpoints em 21 dias antes da ligação SDR) tem embasamento histórico interno: mimo físico prévio aumenta +46% efetividade SDR e +61% agendamentos (insight002), WA tem ROI de 1.500% como canal de levantada (insight001), e abordagem personalizada como cofundadora converte AA bolsão a 50% (insight053). A combinação dos 3 mecanismos numa sequência é inédita como planejamento formal.",
+      "evidencia": "Documento Cerco Mágico 2026: 6 ações, R$ 39.697, 15.713 escolas, meta 200 levantadas inbound. Cada ação individual tem respaldo em insight pré-existente. O Cerco é a primeira vez que a combinação é formalizada como estratégia de campanha.",
+      "confianca": "media",
+      "aplicavel_a": [
+        "anos_anteriores",
+        "concorrencia",
+        "retracao",
+        "novas"
+      ],
+      "acao_sugerida": "Monitorar semana a semana as levantadas inbound do Cerco por ação (QR Revista, clique email Lili, WA DM, Webinar). Meta parcial: 50 levantadas até 30/mar (25% da meta de 60 dias). Se S1 setup atrasar além de 14/mar, renegociar KPIs.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight072",
+      "data": "2026-03-08",
+      "fonte": "Meta Aquisição 04-06/mar + análise Claudete sessão 08/03",
+      "categoria": "baldinho",
+      "gatilho": null,
+      "insight": "Bolsão de Concorrência é estruturalmente menor do que outras frentes porque Concorrência foi a única base a bater meta em fevereiro (116% YTD, insight061). Menor bolsão = maior eficiência prévia, não fraqueza de conversão. Ao analisar tamanho de bolsão, sempre cruzar com taxa de conversão do mês anterior — bolsão pequeno pode ser sinal positivo.",
+      "evidencia": "Meta Aquisição 04-06/mar: Concorrência 13% meta de alunos em março, mas bolsão menor. Daily 27/02 (insight061): Concorrência 116% YTD em alunos, 168% meta semanal. Correlação direta: quem bateu meta em fev tem menos escola 'sobrando' em mar.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "concorrencia",
+        "analise_de_bolsao"
+      ],
+      "acao_sugerida": "Ao comparar bolsões entre baldinhos, sempre normalizar pelo resultado do mês anterior. Concorrência com bolsão menor em março = sinal de saúde, não de problema. O problema de Concorrência em março é outra coisa (meta de alunos 13% — investigar alunos/escola e tx fechamento).",
+      "status": "ativo"
     }
   ],
   "criticas_ativas": [
@@ -1334,17 +1419,19 @@ window.WATCHDOG_INTEL = {
       "critica": "Concorrencia abriu marco com 45% de fechadas/realizadas vs 58% em fevereiro - queda de 13pp sem causa documentada. Com 1 SDR a menos e bolsao herdado de fev, risco de degradacao continuada.",
       "dri": "Ana Paula Pimentel",
       "prioridade": "critica",
-      "acao_sugerida": "Investigar composicao do bolsao de Concorrencia: quantas escolas sao carry-over de fev vs novas de marco. Identificar se e problema de base ou de FUP. Prazo: amanha (03/03).",
-      "status": "aberta"
+      "acao_sugerida": "Pimentel entregar doc de investigação histórica da queda (t103, prazo 13/mar). Verificar: alunos/escola em Concorrência, tx fechamento pós-RR março vs fevereiro, composição carry-over vs novas. A/B copy 'diminuição de trabalho' confirmado (insight070) — copy digital resolvida. Problema pode estar no pós-RR.",
+      "status": "aberta",
+      "nota_status": "08/03: A/B copy resolvido (insight070). Meta de alunos Concorrência ainda em 13%. Investigação histórica em andamento (t103). Alerta mantido."
     },
     {
       "id": "alerta026",
       "data": "2026-03-02",
-      "critica": "HT PART Renovacao com RR/SDR de 1,60 vs meta de 2,0 - gap de 0,40pp. E o segmento que puxa o numero geral de Renovacao para baixo. Marketing assumiu LT mas HT PART nao tem alavancagem explicita definida para marco.",
-      "dri": "Karina Machado",
-      "prioridade": "alta",
-      "acao_sugerida": "Karina incluir HT PART no plano de marco: definir disparo ou acao especifica para esse segmento alem do HT PUBL. Prazo: plano RT completo (06/mar, t061).",
-      "status": "aberta"
+      "critica": "HT PART Renovacao com RR/SDR de 1,60 vs meta de 2,0 - gap de 0,40pp. Situacao piorou: daily 06/03 mostra 79% RR/SDR semanal com 22 RRs necessarias no ultimo dia — impossivel de recuperar. Semana encerrada em deficit.",
+      "dri": "Ana Paula Pimentel",
+      "prioridade": "critica",
+      "acao_sugerida": "Pimentel analisa base HT PART antes de segunda (t100) para direcionar disparo MKT 09/mar (t100). Nath executa disparo. Semana de 09/mar é a janela de recuperação.",
+      "status": "aberta",
+      "nota_status": "08/03: Situação piorou na semana de 03-06/mar. 79% RR/SDR semanal. Semana encerrada em déficit. DRI atualizado para Pimentel. Plano MKT para segunda é a próxima ação."
     },
     {
       "id": "alerta027",
@@ -1353,8 +1440,8 @@ window.WATCHDOG_INTEL = {
       "dri": "Vitoria Riente",
       "prioridade": "alta",
       "acao_sugerida": "Vitoria cria template Blip (t077) e Karina entrega copy (t078) ate amanha. Enquanto Blip nao estiver operacional, nenhuma acao de mimo deve ser disparada digitalmente.",
-      "status": "em_execucao",
-      "nota_status": "Template Blip (t077) concluído conforme confirmado por Kaka na daily 03/03. Copy (t078) ainda pendente — manter monitoramento."
+      "status": "incorporada",
+      "nota_fechamento": "Incorporado 08/03: template Blip criado (t077, daily 03/03) e copy Blip definida por Karina (t078, daily 05/03). Canal operacional. Alerta sem base."
     },
     {
       "id": "alerta028",
@@ -1363,8 +1450,9 @@ window.WATCHDOG_INTEL = {
       "dri": "Nath Ferreira",
       "prioridade": "critica",
       "acao_sugerida": "Nath fechar investigação com BO até 04/03 e reportar: é erro de cadastramento ou sincronização? Se sistêmico, alertar Pedro e Lili antes de usar qualquer dado de RR/SDR para decisão.",
-      "status": "aberta",
-      "fonte": "Daily Meta Aquisição 03/03/2026"
+      "status": "incorporada",
+      "fonte": "Daily Meta Aquisição 03/03/2026",
+      "nota_fechamento": "Incorporado 08/03: CRM corrigiu o indicador de RR/SDR — confirmado na daily 05/03. Dados voltaram a ser confiáveis."
     },
     {
       "id": "alerta029",
@@ -1384,8 +1472,42 @@ window.WATCHDOG_INTEL = {
       "prioridade": "alta",
       "acao_sugerida": "Kaka verificar o que aconteceu nas 2 RRs de HT PÚB desta semana: objeção de fechamento, missing follow-up ou timing? Acompanhar diariamente até a semana fechar.",
       "status": "aberta",
-      "fonte": "Daily Meta Aquisição 03/03/2026"
+      "fonte": "Daily Meta Aquisição 03/03/2026",
+      "nota_status": "08/03: HT PUB bateu meta de RR na semana de 03-06/mar (daily 05-06/03). Monitorar conversão de fechamento na semana de 09/mar."
+    },
+    {
+      "id": "alerta031",
+      "data": "2026-03-08",
+      "titulo": "Cerco Mágico começa 09/mar sem confirmação de S1 concluído (8 itens)",
+      "critica": "O Cerco Mágico começa AMANHÃ (09/mar) mas os 8 itens do checklist S1 — com prazo oficial de 14/mar — não foram confirmados como concluídos em nenhuma daily da semana. Sem setup: chips WA não comprados, arte da Revista não fechada, freelancers não contratados, QR code não criado, bases não segmentadas. O Cerco começa sem infraestrutura completa.",
+      "acao_sugerida": "Karina e Vitória: confirmar status atual dos 8 itens S1 na segunda 09/mar antes da daily. Itens críticos para execução imediata: chips WA (t089) e freelancers (t087). Itens críticos para semana: segmentação de base (t090) e arte Revista (t088). Comunicar Pedro com status real.",
+      "prioridade": "critica",
+      "dri": "Karina Machado",
+      "status": "aberta",
+      "fonte": "Análise Cerco Mágico 2026 — sessão Claudete 08/03"
+    },
+    {
+      "id": "alerta032",
+      "data": "2026-03-08",
+      "titulo": "HT PART Renovação encerrou semana com déficit irrecuperável — 79% RR/SDR",
+      "critica": "A semana de 03-06/mar encerrou com HT PART Renovação em 79% do RR/SDR semanal. Na daily 06/mar, as 22 RRs necessárias no último dia eram matematicamente impossíveis. O deficit da semana vai acumular em março se não houver correção imediata na semana de 09/mar. É o maior baldinho de Renovação e está sistematicamente abaixo da meta.",
+      "acao_sugerida": "Pimentel analisa base HT PART antes de segunda (t100). Nath executa disparo MKT HT PART na segunda 09/mar (t100). Nath entrega visão do funil de renovação (t070) até 10/mar para diagnóstico de onde está trancando.",
+      "prioridade": "critica",
+      "dri": "Ana Paula Pimentel",
+      "status": "aberta",
+      "fonte": "Daily Gestão Comercial 06/03/2026 + análise sessão Claudete 08/03"
+    },
+    {
+      "id": "alerta033",
+      "data": "2026-03-08",
+      "titulo": "Calix perdendo efeito em AA e Retração — enriquecimento previsto para maio, Cerco começa em março",
+      "critica": "Daily 06/03 confirmou que o Calix está perdendo efetividade nas bases de AA e Retração. O enriquecimento de base estava planejado para maio. O Cerco Mágico começa em março com as duas frentes de maior ROI histórico (AA: insight002) operando com ferramenta degradada. Gap de 2 meses sem solução.",
+      "acao_sugerida": "Luana avaliar antecipação do enriquecimento de base para março/abril — não pode esperar maio com o Cerco em execução. Alternativa: enriquecimento pontual das 130 escolas AA isoladas por Pimentel (sem contato em 2026) como teste prioritário antes do disparo. DRI: Luana.",
+      "prioridade": "alta",
+      "dri": "Luana",
+      "status": "aberta",
+      "fonte": "Daily Gestão Comercial 06/03/2026 + análise sessão Claudete 08/03"
     }
   ],
-  "ultima_atualizacao": "2026-03-03T20:00:00"
+  "ultima_atualizacao": "2026-03-08T20:00:00"
 };
