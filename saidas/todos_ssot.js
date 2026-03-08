@@ -688,16 +688,16 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t052",
     "task": "Bebel: mapear oportunidades de conversão em renovação e topo de funil SDR novas",
-    "comment": "Definido na daily 26/02. Bebel identifica ponteiros de maior impacto: (1) eficiência da máquina de renovação — menos reuniões, mais resultado (oportunidade R$1,6M identificada); (2) SDR novas: maior alavanca está no topo do funil (agendamento + RR), não no closer. Entrega para semana de 02/mar.",
+    "comment": "Escopo de renovação (perda ano a ano) descartado por Lili — alinhado com o que já havia sido discutido. Foco segue em SDR. Tarefa concluída sem entrega da análise de renovação. (Lili, 08/03)",
     "owner": "Bebel Bertuccelli",
     "date": "06/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-08T00:00:00",
+    "completedAt": "2026-03-08T00:00:00"
   },
   {
     "id": "t053",
