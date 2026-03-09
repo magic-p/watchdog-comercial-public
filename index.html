@@ -1528,6 +1528,8 @@ const IS_LOCAL = (
   window.location.hostname === 'localhost' ||
   window.location.hostname === '127.0.0.1'
 );
+/* IS_READONLY: true apenas quando não há motor local NEM Supabase configurado */
+const IS_READONLY = !IS_LOCAL && !_sbConfigured;
 
 function _canWrite() {
   return IS_LOCAL || (_sb && _sbSession !== null);
