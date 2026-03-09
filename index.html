@@ -1535,6 +1535,7 @@ const _sb = _sbConfigured
     })
   : null;
 let _sbSession = null;
+let _sbRealtimeChannel = null;
 let _lastWriteError = '';
 
 function _setWriteError(msg) {
@@ -3326,10 +3327,28 @@ function _onAuthLogin(session) {
     renderWins();
   }
   _refreshTasksFromSupabase();
+  _sbSubscribeRealtime();
+}
+
+function _sbSubscribeRealtime() {
+  if (!_sb || _sbRealtimeChannel) return;
+  _sbRealtimeChannel = _sb
+    .channel('todos-live')
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'todos' },
+      () => _refreshTasksFromSupabase(true))
+    .subscribe();
+}
+
+function _sbUnsubscribeRealtime() {
+  if (_sb && _sbRealtimeChannel) {
+    _sb.removeChannel(_sbRealtimeChannel);
+    _sbRealtimeChannel = null;
+  }
 }
 
 function _onAuthLogout() {
   if (_sb) _sb.auth.signOut();
+  _sbUnsubscribeRealtime();
   _sbSession = null;
   BOOKED_META_SRC = DEMO_BOOKED_META;
   _kpis = (BOOKED_META_SRC && BOOKED_META_SRC.kpis) ? BOOKED_META_SRC.kpis : {};
@@ -3427,8 +3446,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const authOverlay = document.getElementById('authOverlay');
   if (authOverlay) authOverlay.addEventListener('click', e => { if (e.target === authOverlay) closeAuthModal(); });
 
-  // Auto-refresh silencioso a cada 30s para usuários logados
-  setInterval(() => { if (_sbSession) _refreshTasksFromSupabase(true); }, 30000);
+  // Fallback polling a cada 60s (caso Realtime falhe)
+  setInterval(() => { if (_sbSession) _refreshTasksFromSupabase(true); }, 60000);
 });
 </script>
 </body>
