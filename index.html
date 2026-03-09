@@ -1800,7 +1800,15 @@ function parseTaskDate(raw) {
   const s = String(raw || '').trim();
   if (!s || s === '-' || s === '?' || /^a definir$/i.test(s)) return null;
 
-  let m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  // ISO format YYYY-MM-DD (retornado pelo Supabase)
+  let m = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (m) {
+    const d = new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
+    d.setHours(23, 59, 59, 999);
+    return Number.isNaN(d.getTime()) ? null : d;
+  }
+
+  m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
   if (m) {
     const d = new Date(Number(m[3]), Number(m[2]) - 1, Number(m[1]));
     d.setHours(23, 59, 59, 999);
@@ -2885,12 +2893,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* Supabase auth init */
   if (_sb) {
+    /* Detecta erros de autenticação no hash da URL (ex: link expirado) */
+    const _hashParams = new URLSearchParams(window.location.hash.slice(1));
+    if (_hashParams.get('error') === 'access_denied') {
+      const _errCode = _hashParams.get('error_code') || '';
+      const _errMsg  = _errCode === 'otp_expired'
+        ? 'Link de acesso expirado. Clique em "Entrar" para solicitar um novo.'
+        : 'Erro de autenticação: ' + (_hashParams.get('error_description') || _errCode);
+      setTimeout(() => toast(_errMsg, 'error'), 300);
+      /* Limpa o hash feio da URL */
+      window.history.replaceState(null, '', window.location.pathname);
+    }
+
     _sb.auth.getSession().then(({ data }) => {
       if (data.session) _onAuthLogin(data.session);
     });
     _sb.auth.onAuthStateChange((_event, session) => {
       if (session) _onAuthLogin(session);
-      else _onAuthLogout();
+      else if (_event !== 'INITIAL_SESSION') _onAuthLogout();
     });
   } else {
     document.getElementById('authPill').style.display = 'none';
@@ -2988,7 +3008,16 @@ async function _refreshTasksFromSupabase() {
   if (!_sb || !_sbSession) return;
   try {
     const { data, error } = await _sb.from('todos').select('*').order('id');
-    if (error || !data || !data.length) return;
+    if (error) {
+      console.error('[Supabase] query error:', error);
+      toast('Supabase erro: ' + (error.message || JSON.stringify(error)), 'error');
+      return;
+    }
+    if (!data || !data.length) {
+      console.warn('[Supabase] query returned empty — sem dados');
+      toast('Supabase: nenhum dado retornado', 'error');
+      return;
+    }
     // Mapeia campos do Supabase para o formato do dashboard
     tasks = data.map(r => ({
       id:           r.id,
@@ -3002,8 +3031,11 @@ async function _refreshTasksFromSupabase() {
     }));
     renderTasks();
     buildOwnerFilters();
-    toast('Tarefas atualizadas do Supabase', 'ok');
-  } catch { /* silencioso — fallback para dados locais */ }
+    toast(`${data.length} tarefas carregadas do Supabase`, 'ok');
+  } catch (err) {
+    console.error('[Supabase] exception in _refreshTasksFromSupabase:', err);
+    toast('Supabase falhou: ' + (err?.message || String(err)), 'error');
+  }
 }
 
 /* Enter no campo de email dispara o envio */
