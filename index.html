@@ -1255,7 +1255,9 @@
     <h2 id="authTitle">Acesso ao Watchdog</h2>
     <p id="authDesc">Digite seu e-mail para receber o link de acesso.</p>
     <input class="auth-input" id="authEmail" type="email" placeholder="seu@estantemagica.com.br" />
+    <input class="auth-input" id="authPassword" type="password" placeholder="senha (opcional)" />
     <button class="auth-btn" id="authSendBtn" onclick="sendMagicLink()">Enviar link de acesso</button>
+    <button class="auth-btn" id="authPasswordBtn" onclick="signInWithPassword()">Entrar com senha</button>
     <div class="auth-msg" id="authMsg"></div>
   </div>
 </div>
@@ -3271,6 +3273,7 @@ function closeAuthModal() {
   document.getElementById('authOverlay').classList.remove('open');
   document.getElementById('authMsg').textContent = '';
   document.getElementById('authEmail').value = '';
+  document.getElementById('authPassword').value = '';
 }
 
 async function sendMagicLink() {
@@ -3302,6 +3305,30 @@ async function sendMagicLink() {
     msg.textContent = '✅ Link enviado! Verifique seu e-mail.';
     document.getElementById('authTitle').textContent = 'Verifique seu e-mail';
     document.getElementById('authDesc').textContent  = 'Clique no link que enviamos para fazer login.';
+  }
+}
+
+async function signInWithPassword() {
+  const email = document.getElementById('authEmail').value.trim();
+  const pass  = document.getElementById('authPassword').value;
+  const btn   = document.getElementById('authPasswordBtn');
+  const msg   = document.getElementById('authMsg');
+  if (!email) { msg.className = 'auth-msg err'; msg.textContent = 'Digite seu e-mail.'; return; }
+  if (!pass)  { msg.className = 'auth-msg err'; msg.textContent = 'Digite sua senha.'; return; }
+  if (!_sb)   { msg.className = 'auth-msg err'; msg.textContent = 'Supabase não configurado.'; return; }
+  btn.disabled = true;
+  btn.textContent = 'Entrando...';
+  const { data, error } = await _sb.auth.signInWithPassword({ email, password: pass });
+  btn.disabled = false;
+  btn.textContent = 'Entrar com senha';
+  if (error) {
+    msg.className = 'auth-msg err';
+    console.error('[Supabase] signInWithPassword error:', error);
+    msg.textContent = 'Erro: ' + error.message;
+  } else {
+    msg.className = 'auth-msg ok';
+    msg.textContent = '✅ Login realizado.';
+    if (data?.session) _onAuthLogin(data.session);
   }
 }
 
@@ -3391,16 +3418,15 @@ async function _refreshTasksFromSupabase() {
 /* Enter no campo de email dispara o envio */
 document.addEventListener('DOMContentLoaded', () => {
   const emailInput = document.getElementById('authEmail');
+  const passInput  = document.getElementById('authPassword');
   if (emailInput) emailInput.addEventListener('keydown', e => { if (e.key === 'Enter') sendMagicLink(); });
+  if (passInput) passInput.addEventListener('keydown', e => { if (e.key === 'Enter') signInWithPassword(); });
   const authOverlay = document.getElementById('authOverlay');
   if (authOverlay) authOverlay.addEventListener('click', e => { if (e.target === authOverlay) closeAuthModal(); });
 });
 </script>
 </body>
 </html>
-
-
-
 
 
 
