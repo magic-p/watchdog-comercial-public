@@ -1729,6 +1729,7 @@ const BOOKED_META = (window.WATCHDOG_BOOKED_META && typeof window.WATCHDOG_BOOKE
 
 const TODOS_SSOT = Array.isArray(window.WATCHDOG_TODOS) ? window.WATCHDOG_TODOS : [];
 const HAS_BACKEND_TODOS = TODOS_SSOT.length > 0;
+const REQUIRE_LOGIN_FOR_READ = !IS_LOCAL;
 
 const CAMPANHAS_DATA = (window.WATCHDOG_CAMPANHAS && typeof window.WATCHDOG_CAMPANHAS === 'object')
   ? window.WATCHDOG_CAMPANHAS : null;
@@ -1738,7 +1739,122 @@ const INTEL_DATA = (window.WATCHDOG_INTEL && typeof window.WATCHDOG_INTEL === 'o
 
 const FALLBACK_SEED = [];
 
-const SEED = HAS_BACKEND_TODOS ? TODOS_SSOT : FALLBACK_SEED;
+const DEMO_SEED = [
+  {
+    id: 'l001',
+    task: 'Revisar manuscrito com Machado de Assis antes do baile',
+    owner: 'Machado de Assis',
+    date: '12/mar',
+    tier: 't1',
+    tierLabel: 'A fazer',
+    comment: 'Capitu pediu sigilo editorial.',
+    done: false,
+    priorityRank: 1,
+    updatedAt: '2026-03-01T10:00:00Z',
+  },
+  {
+    id: 'l002',
+    task: 'Aprovar orçamento do chá com Jane Austen',
+    owner: 'Jane Austen',
+    date: '05/mar',
+    tier: 't2',
+    tierLabel: 'Fazendo',
+    comment: 'Mr. Darcy exigiu guardanapos em linho.',
+    done: false,
+    priorityRank: 2,
+    updatedAt: '2026-03-02T09:30:00Z',
+  },
+  {
+    id: 'l003',
+    task: 'Encaminhar carta para a Ilha do Tesouro',
+    owner: 'Robert L. Stevenson',
+    date: '',
+    tier: 't1',
+    tierLabel: 'A fazer',
+    comment: 'Sem mapa, sem prazo.',
+    done: false,
+    priorityRank: null,
+    updatedAt: '2026-02-15T08:00:00Z',
+  },
+  {
+    id: 'l004',
+    task: 'Concluir assembleia com Fernando Pessoa (heterônimos divergiram)',
+    owner: 'Fernando Pessoa',
+    date: '01/jan',
+    tier: 't2',
+    tierLabel: 'Fazendo',
+    comment: 'Alberto e Álvaro ainda discordam.',
+    done: false,
+    priorityRank: 3,
+    updatedAt: '2026-02-01T08:00:00Z',
+  },
+  {
+    id: 'l005',
+    task: 'Enviar convite para baile do Realismo Mágico',
+    owner: 'Gabriel García Márquez',
+    date: '07/mar',
+    tier: 'done',
+    tierLabel: 'Concluído',
+    comment: 'Choveu flores amarelas.',
+    done: true,
+    priorityRank: null,
+    updatedAt: '2026-03-07T12:00:00Z',
+    completedAt: '2026-03-07T12:00:00Z',
+  },
+];
+
+const DEMO_INTEL = {
+  criticas_ativas: [
+    {
+      id: 'alerta-l01',
+      data: '2026-03-09',
+      titulo: 'Capitu desapareceu do pipeline',
+      critica: 'Sem a Capitu, o funil fica só com o Bentinho e isso derruba a taxa de confiança.',
+      acao_sugerida: 'Reabrir o capítulo 14 e validar o argumento com Dom Casmurro.',
+      prioridade: 'critica',
+      dri: 'Machado de Assis',
+      status: 'aberta',
+    },
+    {
+      id: 'alerta-l02',
+      data: '2026-03-09',
+      titulo: 'Kafka aprovou o processo, mas ninguém entendeu o formulário',
+      critica: 'O lead virou inseto antes de preencher o cadastro.',
+      acao_sugerida: 'Simplificar o formulário para 1 pergunta e 1 carimbo.',
+      prioridade: 'alta',
+      dri: 'Franz Kafka',
+      status: 'aberta',
+    },
+  ],
+  aprendizados: [
+    {
+      id: 'insight-l01',
+      data: '2026-03-09',
+      fonte: 'Biblioteca Pública',
+      categoria: 'copy',
+      insight: 'Metáforas funcionam melhor quando Clarice escreve o assunto.',
+      evidencia: '3 leitores sorriram, 2 suspiraram.',
+      confianca: 'media',
+      aplicavel_a: ['copy', 'ritual'],
+      acao_sugerida: 'Usar frases curtas e uma pergunta final.',
+      status: 'ativo',
+    },
+    {
+      id: 'insight-l02',
+      data: '2026-03-09',
+      fonte: 'Café Parisiense',
+      categoria: 'canal',
+      insight: 'Proust só responde depois do terceiro espresso.',
+      evidencia: 'Tempo médio de resposta: 3 xícaras.',
+      confianca: 'baixa',
+      aplicavel_a: ['follow-up'],
+      acao_sugerida: 'Cadência suave, sem pressa.',
+      status: 'ativo',
+    },
+  ],
+};
+
+const SEED = (REQUIRE_LOGIN_FOR_READ ? [] : (HAS_BACKEND_TODOS ? TODOS_SSOT : FALLBACK_SEED));
 
 const _kpis = (BOOKED_META && BOOKED_META.kpis) ? BOOKED_META.kpis : {};
 const ZOMBIE_DAYS         = _kpis.zombie_days          ?? 3;
@@ -2299,6 +2415,11 @@ async function submitTaskForm(e) {
   renderTasks();
 }
 function load() {
+  if (REQUIRE_LOGIN_FOR_READ && !_sbSession) {
+    tasks = DEMO_SEED.map(s => normalizeTask({ ...s }));
+    enforceWeeklyTop3(tasks);
+    return;
+  }
   if (HAS_BACKEND_TODOS) {
     tasks = SEED.map(s => normalizeTask({ ...s }));
     enforceWeeklyTop3(tasks);
@@ -2783,7 +2904,8 @@ function renderIntel() {
   const arquivadosEl   = document.getElementById('aprendizadosArchivedList');
   if (!criticasEl || !criticasArchEl || !aprendizadosEl || !arquivadosEl) return;
 
-  if (!INTEL_DATA) {
+  const intelSource = (REQUIRE_LOGIN_FOR_READ && !_sbSession) ? DEMO_INTEL : INTEL_DATA;
+  if (!intelSource) {
     const msg = '<span style="color:var(--t3);font-size:12px">intel_ssot.js não carregado.</span>';
     criticasEl.innerHTML = msg;
     criticasArchEl.innerHTML = msg;
@@ -2793,7 +2915,7 @@ function renderIntel() {
   }
 
   // --- Alertas ativos ---
-  const criticas = (INTEL_DATA.criticas_ativas || []).filter(c => !c.status || c.status === 'aberta');
+  const criticas = (intelSource.criticas_ativas || []).filter(c => !c.status || c.status === 'aberta');
   if (!criticas.length) {
     criticasEl.innerHTML = '<span style="color:var(--t3);font-size:12px">Nenhum alerta ativo no momento.</span>';
   } else {
@@ -2819,7 +2941,7 @@ function renderIntel() {
   }
 
   // --- Insights da Claudete (ativos) ---
-  const aprendizados = (INTEL_DATA.aprendizados || [])
+  const aprendizados = (intelSource.aprendizados || [])
     .filter(a => !a.status || a.status === 'ativo')
     .slice().reverse().slice(0, 6);
   if (!aprendizados.length) {
@@ -2843,7 +2965,7 @@ function renderIntel() {
   }
 
   // --- Alertas arquivados ---
-  const criticasArch = (INTEL_DATA.criticas_ativas || []).filter(c => c.status && c.status !== 'aberta');
+  const criticasArch = (intelSource.criticas_ativas || []).filter(c => c.status && c.status !== 'aberta');
   if (!criticasArch.length) {
     criticasArchEl.innerHTML = '<span style="color:var(--t3);font-size:12px">Sem alertas arquivados.</span>';
   } else {
@@ -2871,7 +2993,7 @@ function renderIntel() {
   }
 
   // --- Insights arquivados ---
-  const arquivados = (INTEL_DATA.aprendizados || [])
+  const arquivados = (intelSource.aprendizados || [])
     .filter(a => a.status && a.status !== 'ativo')
     .slice().reverse().slice(0, 10);
   if (!arquivados.length) {
@@ -2905,7 +3027,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ms = document.getElementById('motorStatus');
     if (ms) ms.style.display = 'none';
   }
-  setSsotStatus(HAS_BACKEND_TODOS);
+  setSsotStatus(HAS_BACKEND_TODOS && !REQUIRE_LOGIN_FOR_READ);
   document.getElementById('headerDate').textContent =
     new Date().toLocaleDateString('pt-BR',
       {weekday:'long',year:'numeric',month:'long',day:'numeric'});
@@ -2991,7 +3113,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('authPill').style.display = 'none';
   }
 
-  if (!HAS_BACKEND_TODOS) {
+  if (REQUIRE_LOGIN_FOR_READ && !_sbSession) {
+    toast('Modo público: tarefas fictícias (literatura). Faça login para ver as reais.', 'err');
+  } else if (!HAS_BACKEND_TODOS) {
     toast('SSOT não carregou — modo fallback ativo', 'err');
   }
 
@@ -3071,6 +3195,12 @@ function _onAuthLogin(session) {
   pill.title = 'Clique para sair';
   closeAuthModal();
   toast('Acesso liberado — ' + name, 'ok');
+  if (REQUIRE_LOGIN_FOR_READ) {
+    load();
+    renderTasks();
+    renderCriticalAlerts();
+    renderIntel();
+  }
   _refreshTasksFromSupabase();
 }
 
@@ -3081,6 +3211,12 @@ function _onAuthLogout() {
   pill.textContent = '👤 Entrar';
   pill.classList.remove('logged-in');
   toast('Sessão encerrada', 'ok');
+  if (REQUIRE_LOGIN_FOR_READ) {
+    load();
+    renderTasks();
+    renderCriticalAlerts();
+    renderIntel();
+  }
 }
 
 async function _refreshTasksFromSupabase() {
@@ -3128,8 +3264,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
-
-
 
 
 
