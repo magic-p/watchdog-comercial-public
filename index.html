@@ -2942,7 +2942,13 @@ async function sendMagicLink() {
   if (!_sb)   { msg.className = 'auth-msg err'; msg.textContent = 'Supabase não configurado.'; return; }
   btn.disabled = true;
   btn.textContent = 'Enviando...';
-  const { error } = await _sb.auth.signInWithOtp({ email, options: { shouldCreateUser: true } });
+  const { error } = await _sb.auth.signInWithOtp({
+    email,
+    options: {
+      shouldCreateUser: true,
+      emailRedirectTo: 'https://magic-p.github.io/watchdog-comercial-public/'
+    }
+  });
   btn.disabled = false;
   btn.textContent = 'Enviar link de acesso';
   if (error) {
