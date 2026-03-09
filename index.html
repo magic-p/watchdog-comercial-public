@@ -1586,6 +1586,7 @@ async function _sbPatch(patch) {
       return false;
     }
     _setWriteError('');
+    _refreshTasksFromSupabase(true);
     return true;
   } catch (err) {
     console.error('[Supabase] _sbPatch exception:', err);
@@ -1610,6 +1611,7 @@ async function _sbCreate(task) {
       return false;
     }
     _setWriteError('');
+    _refreshTasksFromSupabase(true);
     return true;
   } catch (err) {
     console.error('[Supabase] _sbCreate exception:', err);
@@ -3348,38 +3350,71 @@ function _onAuthLogout() {
   }
 }
 
-async function _refreshTasksFromSupabase() {
+function _sbRowToTask(r) {
+  return normalizeTask({
+    id:           r.id,
+    task:         r.tarefa || '',
+    owner:        r.dono   || '',
+    date:         r.prazo  || '',
+    done:         r.status === 'CONCLUIDO',
+    tier:         r.tier === 1 ? 't1' : r.tier === 2 ? 't2' : 'done',
+    comment:      r.nota   || '',
+    priorityRank: r.priority_rank || null,
+    completedAt:  r.status === 'CONCLUIDO' ? (r.updated_at || null) : null,
+  });
+}
+
+async function _sbSeedFromSSOT() {
+  const source = TODOS_SSOT.length ? TODOS_SSOT : [];
+  if (!source.length) return;
+  const rows = source.map(t => ({
+    id:           t.id,
+    tarefa:       t.task   || t.tarefa || '',
+    dono:         t.owner  || t.dono   || '',
+    prazo:        t.date   || t.prazo  || null,
+    nota:         t.comment|| t.nota   || null,
+    status:       (t.done || t.tier === 'done') ? 'CONCLUIDO' : 'PENDENTE',
+    tier:         (t.tier === 't1' || t.tier === 1) ? 1 : 2,
+    priority_rank:t.priorityRank || null,
+    historico:    t.historico || [],
+  }));
+  const { error } = await _sb.from('todos').insert(rows);
+  if (error) console.error('[Supabase] seed error:', error);
+  else console.log(`[Supabase] ${rows.length} tarefas sincronizadas do SSOT`);
+}
+
+async function _refreshTasksFromSupabase(silent = false) {
   if (!_sb || !_sbSession) return;
   try {
     const { data, error } = await _sb.from('todos').select('*').order('id');
     if (error) {
       console.error('[Supabase] query error:', error);
-      toast('Supabase erro: ' + (error.message || JSON.stringify(error)), 'error');
+      if (!silent) toast('Supabase erro: ' + (error.message || JSON.stringify(error)), 'error');
       return;
     }
     if (!data || !data.length) {
-      console.warn('[Supabase] query returned empty — sem dados');
-      toast('Supabase: nenhum dado retornado', 'error');
+      // Supabase vazio — seed inicial a partir do SSOT estático
+      await _sbSeedFromSSOT();
+      const { data: seeded } = await _sb.from('todos').select('*').order('id');
+      if (!seeded || !seeded.length) {
+        if (!silent) toast('Supabase: sem dados após seed', 'error');
+        return;
+      }
+      tasks = seeded.map(_sbRowToTask);
+      enforceWeeklyTop3(tasks);
+      renderTasks();
+      buildOwnerFilters();
+      if (!silent) toast(`${seeded.length} tarefas sincronizadas`, 'ok');
       return;
     }
-    // Mapeia campos do Supabase para o formato do dashboard
-    tasks = data.map(r => ({
-      id:           r.id,
-      task:         r.tarefa,
-      owner:        r.dono,
-      date:         r.prazo || '',
-      done:         r.status === 'CONCLUIDO',
-      tier:         r.tier === 1 ? 't1' : r.tier === 2 ? 't2' : 'done',
-      comment:      r.nota || '',
-      priorityRank: r.priority_rank || null,
-      completedAt:  r.status === 'CONCLUIDO' ? (r.updated_at || null) : null,
-    }));
+    tasks = data.map(_sbRowToTask);
+    enforceWeeklyTop3(tasks);
     renderTasks();
     buildOwnerFilters();
-    toast(`${data.length} tarefas carregadas do Supabase`, 'ok');
+    if (!silent) toast(`${data.length} tarefas carregadas`, 'ok');
   } catch (err) {
     console.error('[Supabase] exception in _refreshTasksFromSupabase:', err);
-    toast('Supabase falhou: ' + (err?.message || String(err)), 'error');
+    if (!silent) toast('Supabase falhou: ' + (err?.message || String(err)), 'error');
   }
 }
 
@@ -3391,6 +3426,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (passInput) passInput.addEventListener('keydown', e => { if (e.key === 'Enter') signInWithPassword(); });
   const authOverlay = document.getElementById('authOverlay');
   if (authOverlay) authOverlay.addEventListener('click', e => { if (e.target === authOverlay) closeAuthModal(); });
+
+  // Auto-refresh silencioso a cada 30s para usuários logados
+  setInterval(() => { if (_sbSession) _refreshTasksFromSupabase(true); }, 30000);
 });
 </script>
 </body>
