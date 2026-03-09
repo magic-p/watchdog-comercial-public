@@ -2973,7 +2973,8 @@ async function sendMagicLink() {
   btn.textContent = 'Enviar link de acesso';
   if (error) {
     msg.className = 'auth-msg err';
-    msg.textContent = error.message.includes('not found') ? 'E-mail não autorizado.' : 'Erro ao enviar. Tente novamente.';
+    console.error('[Supabase] sendMagicLink error:', error);
+    msg.textContent = 'Erro: ' + error.message;
   } else {
     msg.className = 'auth-msg ok';
     msg.textContent = '✅ Link enviado! Verifique seu e-mail.';
