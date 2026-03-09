@@ -1213,6 +1213,16 @@
       border-color: rgba(255,93,93,0.35);
       background: rgba(255,93,93,0.08);
     }
+    .public-pill {
+      font-size: 11px;
+      font-weight: 600;
+      color: #5a3d00;
+      background: #fff6d8;
+      border: 1px solid rgba(255,193,7,0.35);
+      padding: 4px 10px;
+      border-radius: 100px;
+      display: none;
+    }
 
   </style>
 </head>
@@ -1232,6 +1242,7 @@
     <span class="motor-pill offline" id="motorStatus">&#11044; Motor offline</span>
     <span class="ssot-pill" id="ssotStatus" style="display:none">SSOT: ok</span>
     <span class="readonly-pill" id="readonlyPill" style="display:none">&#128274; Somente leitura</span>
+    <span class="public-pill" id="publicPill">Modo público: conteúdo fictício</span>
     <button class="auth-pill" id="authPill" onclick="openAuthModal()">&#128100; Entrar</button>
     <div class="live-pill"><span class="live-dot"></span>Ativo</div>
   </div>
@@ -1742,60 +1753,120 @@ const FALLBACK_SEED = [];
 const DEMO_SEED = [
   {
     id: 'l001',
-    task: 'Revisar manuscrito com Machado de Assis antes do baile',
+    task: 'Convencer o Bentinho a aceitar o onboarding do ciúme zero',
     owner: 'Machado de Assis',
     date: '12/mar',
     tier: 't1',
     tierLabel: 'A fazer',
-    comment: 'Capitu pediu sigilo editorial.',
+    comment: 'Capitu exigiu NDA e um espelho retrovisor.',
     done: false,
     priorityRank: 1,
     updatedAt: '2026-03-01T10:00:00Z',
   },
   {
     id: 'l002',
-    task: 'Aprovar orçamento do chá com Jane Austen',
-    owner: 'Jane Austen',
-    date: '05/mar',
-    tier: 't2',
-    tierLabel: 'Fazendo',
-    comment: 'Mr. Darcy exigiu guardanapos em linho.',
+    task: 'Operar o Menino Maluquinho sem perder a panela (risco crítico)',
+    owner: 'Ziraldo',
+    date: '09/mar',
+    tier: 't1',
+    tierLabel: 'A fazer',
+    comment: 'Panela virou capacete de compliance.',
     done: false,
     priorityRank: 2,
-    updatedAt: '2026-03-02T09:30:00Z',
+    updatedAt: '2026-03-03T09:10:00Z',
   },
   {
     id: 'l003',
-    task: 'Encaminhar carta para a Ilha do Tesouro',
-    owner: 'Robert L. Stevenson',
-    date: '',
-    tier: 't1',
-    tierLabel: 'A fazer',
-    comment: 'Sem mapa, sem prazo.',
+    task: 'Reunir a Turma da Mônica para deliberar sobre o Sansão',
+    owner: 'Mauricio de Sousa',
+    date: '10/mar',
+    tier: 't2',
+    tierLabel: 'Fazendo',
+    comment: 'O coelho entrou no backlog.',
     done: false,
-    priorityRank: null,
-    updatedAt: '2026-02-15T08:00:00Z',
+    priorityRank: 3,
+    updatedAt: '2026-03-04T14:20:00Z',
   },
   {
     id: 'l004',
-    task: 'Concluir assembleia com Fernando Pessoa (heterônimos divergiram)',
-    owner: 'Fernando Pessoa',
-    date: '01/jan',
+    task: 'Distribuir capas de invisibilidade sem sumir o orçamento',
+    owner: 'J. K. Rowling',
+    date: '11/mar',
     tier: 't2',
     tierLabel: 'Fazendo',
-    comment: 'Alberto e Álvaro ainda discordam.',
+    comment: 'Hogwarts pediu nota fiscal encantada.',
     done: false,
-    priorityRank: 3,
-    updatedAt: '2026-02-01T08:00:00Z',
+    priorityRank: null,
+    updatedAt: '2026-03-02T09:30:00Z',
   },
   {
     id: 'l005',
-    task: 'Enviar convite para baile do Realismo Mágico',
+    task: 'Ajustar cadência do sertão sem mexer no clima',
+    owner: 'Rachel de Queiroz',
+    date: '08/mar',
+    tier: 't1',
+    tierLabel: 'A fazer',
+    comment: 'Choveu, mas só no roadmap.',
+    done: false,
+    priorityRank: null,
+    updatedAt: '2026-03-05T08:00:00Z',
+  },
+  {
+    id: 'l006',
+    task: 'Reescrever o briefing para que o mar entenda (urgente)',
+    owner: 'Clarice Lispector',
+    date: '07/mar',
+    tier: 't2',
+    tierLabel: 'Fazendo',
+    comment: 'Silêncio estratégico aprovado.',
+    done: false,
+    priorityRank: null,
+    updatedAt: '2026-03-06T11:00:00Z',
+  },
+  {
+    id: 'l007',
+    task: 'Auditar o “poema do dia” e quitar 7 beijos em atraso',
+    owner: 'Vinicius de Moraes',
+    date: '06/mar',
+    tier: 't1',
+    tierLabel: 'A fazer',
+    comment: 'Soneto virou OKR.',
+    done: false,
+    priorityRank: null,
+    updatedAt: '2026-03-01T08:00:00Z',
+  },
+  {
+    id: 'l008',
+    task: 'Liberar o passaporte do “Bisa Bia, Bisa Bel”',
+    owner: 'Ana Maria Machado',
+    date: '13/mar',
+    tier: 't2',
+    tierLabel: 'Fazendo',
+    comment: 'Bisa pediu SLA com 3 gerações.',
+    done: false,
+    priorityRank: null,
+    updatedAt: '2026-03-07T09:40:00Z',
+  },
+  {
+    id: 'l009',
+    task: 'Investigar a Droga da Obediência (suspeita de compliance rebelde)',
+    owner: 'Pedro Bandeira',
+    date: '05/mar',
+    tier: 't1',
+    tierLabel: 'A fazer',
+    comment: 'Os Karas pediram sigilo.',
+    done: false,
+    priorityRank: null,
+    updatedAt: '2026-03-02T08:00:00Z',
+  },
+  {
+    id: 'l010',
+    task: 'Marcar reunião com cem anos de atraso (agenda cheia)',
     owner: 'Gabriel García Márquez',
     date: '07/mar',
     tier: 'done',
     tierLabel: 'Concluído',
-    comment: 'Choveu flores amarelas.',
+    comment: 'Choveu flores amarelas e um KPI sem origem.',
     done: true,
     priorityRank: null,
     updatedAt: '2026-03-07T12:00:00Z',
@@ -1808,9 +1879,9 @@ const DEMO_INTEL = {
     {
       id: 'alerta-l01',
       data: '2026-03-09',
-      titulo: 'Capitu desapareceu do pipeline',
-      critica: 'Sem a Capitu, o funil fica só com o Bentinho e isso derruba a taxa de confiança.',
-      acao_sugerida: 'Reabrir o capítulo 14 e validar o argumento com Dom Casmurro.',
+      titulo: 'Capitu saiu do CRM e levou o funil junto',
+      critica: 'O pipeline está com ciúmes e se recusou a fechar o trimestre.',
+      acao_sugerida: 'Convocar Dom Casmurro para revisão de evidências com lupa.',
       prioridade: 'critica',
       dri: 'Machado de Assis',
       status: 'aberta',
@@ -1818,11 +1889,21 @@ const DEMO_INTEL = {
     {
       id: 'alerta-l02',
       data: '2026-03-09',
-      titulo: 'Kafka aprovou o processo, mas ninguém entendeu o formulário',
-      critica: 'O lead virou inseto antes de preencher o cadastro.',
-      acao_sugerida: 'Simplificar o formulário para 1 pergunta e 1 carimbo.',
+      titulo: 'Kafka aprovou o processo, mas o lead virou inseto no onboarding',
+      critica: 'A jornada tem 47 carimbos e 0 saídas de emergência.',
+      acao_sugerida: 'Reduzir para 1 carimbo, 1 café e 1 desculpa formal.',
       prioridade: 'alta',
       dri: 'Franz Kafka',
+      status: 'aberta',
+    },
+    {
+      id: 'alerta-l03',
+      data: '2026-03-09',
+      titulo: 'Turma da Mônica abriu chamado contra o Sansão',
+      critica: 'O coelho entrou em litígio e o SLA virou gibi.',
+      acao_sugerida: 'Negociar com a Mônica usando um estoque extra de cenouras.',
+      prioridade: 'media',
+      dri: 'Mauricio de Sousa',
       status: 'aberta',
     },
   ],
@@ -1832,11 +1913,11 @@ const DEMO_INTEL = {
       data: '2026-03-09',
       fonte: 'Biblioteca Pública',
       categoria: 'copy',
-      insight: 'Metáforas funcionam melhor quando Clarice escreve o assunto.',
-      evidencia: '3 leitores sorriram, 2 suspiraram.',
+      insight: 'Metáforas funcionam melhor quando Clarice edita o título em silêncio.',
+      evidencia: '3 leitores sorriram, 2 suspiraram e 1 largou tudo para olhar o mar.',
       confianca: 'media',
       aplicavel_a: ['copy', 'ritual'],
-      acao_sugerida: 'Usar frases curtas e uma pergunta final.',
+      acao_sugerida: 'Usar frases curtas e um enigma que ninguém pediu.',
       status: 'ativo',
     },
     {
@@ -1844,19 +1925,54 @@ const DEMO_INTEL = {
       data: '2026-03-09',
       fonte: 'Café Parisiense',
       categoria: 'canal',
-      insight: 'Proust só responde depois do terceiro espresso.',
-      evidencia: 'Tempo médio de resposta: 3 xícaras.',
+      insight: 'Proust só responde depois do terceiro espresso e do quarto parágrafo.',
+      evidencia: 'Tempo médio de resposta: 3 xícaras + 1 madeleine.',
       confianca: 'baixa',
       aplicavel_a: ['follow-up'],
-      acao_sugerida: 'Cadência suave, sem pressa.',
+      acao_sugerida: 'Cadência suave e uma sobremesa estratégica.',
+      status: 'ativo',
+    },
+    {
+      id: 'insight-l03',
+      data: '2026-03-09',
+      fonte: 'Sala dos Karas',
+      categoria: 'processo',
+      insight: 'A Droga da Obediência só funciona quando o formulário é secreto.',
+      evidencia: 'Todos obedeceram, ninguém preencheu.',
+      confianca: 'media',
+      aplicavel_a: ['compliance'],
+      acao_sugerida: 'Trocar formulário por bilhete dobrado.',
       status: 'ativo',
     },
   ],
 };
 
+const DEMO_BOOKED_META = {
+  month: 'Mar',
+  target: 1234567,
+  buckets: [
+    { label: 'Feitiçaria & Magia', target: 333333, schools_target: 42, rr_target: 18, rr_sdr_dia_target: 2.4 },
+    { label: 'Gibis Estratégicos', target: 222222, schools_target: 31, rr_target: 14, rr_sdr_dia_target: 1.8 },
+    { label: 'Realismo Mágico', target: 345678, schools_target: 27, rr_target: 12, rr_sdr_dia_target: 1.2 },
+  ],
+  wins: [
+    { emoji: '✅', titulo: 'Ziraldo: Panela recuperada', desc: 'A panela voltou ao fluxo sem sequelas.', dri: 'Ziraldo', data: '08/03', tipo: 'ENTREGA_NO_PRAZO' },
+  ],
+  kpis: {
+    meta_anual_escolas: 9876,
+    meta_mensal_escolas: 432,
+    sdr_meta_pct: 12.0,
+    efetividade_sdr_pct: 9.87,
+    zombie_days: 3,
+    campanha_taxa_verde: 2.0,
+    campanha_taxa_azul: 1.0,
+  },
+};
+
 const SEED = (REQUIRE_LOGIN_FOR_READ ? [] : (HAS_BACKEND_TODOS ? TODOS_SSOT : FALLBACK_SEED));
 
-const _kpis = (BOOKED_META && BOOKED_META.kpis) ? BOOKED_META.kpis : {};
+let BOOKED_META_SRC = (REQUIRE_LOGIN_FOR_READ && !_sbSession) ? DEMO_BOOKED_META : BOOKED_META;
+let _kpis = (BOOKED_META_SRC && BOOKED_META_SRC.kpis) ? BOOKED_META_SRC.kpis : {};
 const ZOMBIE_DAYS         = _kpis.zombie_days          ?? 3;
 const CAMPANHA_TAXA_VERDE = _kpis.campanha_taxa_verde   ?? 2.0;
 const CAMPANHA_TAXA_AZUL  = _kpis.campanha_taxa_azul    ?? 1.0;
@@ -2746,8 +2862,8 @@ function formatBRL(v) {
 }
 
 function renderKpis() {
-  const kpis  = (BOOKED_META && BOOKED_META.kpis) ? BOOKED_META.kpis : {};
-  const month = (BOOKED_META && BOOKED_META.month) ? BOOKED_META.month : null;
+  const kpis  = (BOOKED_META_SRC && BOOKED_META_SRC.kpis) ? BOOKED_META_SRC.kpis : {};
+  const month = (BOOKED_META_SRC && BOOKED_META_SRC.month) ? BOOKED_META_SRC.month : null;
 
   const elEscolas = document.getElementById('kpiMetaEscolas');
   if (elEscolas && kpis.meta_anual_escolas)
@@ -2796,7 +2912,7 @@ function renderBookedMeta() {
   const opsAlert = document.getElementById('bookedOpsAlert');
   if (!stretch || !monthLabel || !body || !opsAlert) return;
 
-  if (!BOOKED_META || typeof BOOKED_META.target !== 'number') {
+  if (!BOOKED_META_SRC || typeof BOOKED_META_SRC.target !== 'number') {
     stretch.textContent = 'Sem dados';
     monthLabel.textContent = 'Meta Oficial (Stretch) - aguardando backend';
     opsAlert.classList.add('show');
@@ -2805,11 +2921,11 @@ function renderBookedMeta() {
     return;
   }
 
-  const month = BOOKED_META.month || 'M\u00EAs atual';
+  const month = BOOKED_META_SRC.month || 'M\u00EAs atual';
   monthLabel.textContent = `Meta Oficial (Stretch) - ${month}`;
-  stretch.textContent = formatBRL(BOOKED_META.target);
+  stretch.textContent = formatBRL(BOOKED_META_SRC.target);
 
-  const buckets = Array.isArray(BOOKED_META.buckets) ? BOOKED_META.buckets : [];
+  const buckets = Array.isArray(BOOKED_META_SRC.buckets) ? BOOKED_META_SRC.buckets : [];
   const missing = buckets.filter(b => typeof b.rr_sdr_dia_target !== 'number');
   if (missing.length > 0) {
     opsAlert.classList.add('show');
@@ -2866,8 +2982,8 @@ function renderWins() {
   if (!el) return;
   /* Filtra wins do backend pela semana atual — evita mostrar wins de semanas anteriores */
   const { start: _ws, end: _we } = weekBounds();
-  const backendWins = (BOOKED_META && Array.isArray(BOOKED_META.wins))
-    ? BOOKED_META.wins.filter(w => { const dt = parseTaskDate(w.data); return dt && dt >= _ws && dt <= _we; })
+  const backendWins = (BOOKED_META_SRC && Array.isArray(BOOKED_META_SRC.wins))
+    ? BOOKED_META_SRC.wins.filter(w => { const dt = parseTaskDate(w.data); return dt && dt >= _ws && dt <= _we; })
     : [];
   const localWins = localWeeklyWins(tasks);
   const merged = [...localWins, ...backendWins, ...WINS];
@@ -3027,6 +3143,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const ms = document.getElementById('motorStatus');
     if (ms) ms.style.display = 'none';
   }
+  const pp = document.getElementById('publicPill');
+  if (pp && REQUIRE_LOGIN_FOR_READ && !_sbSession) pp.style.display = 'inline-flex';
   setSsotStatus(HAS_BACKEND_TODOS && !REQUIRE_LOGIN_FOR_READ);
   document.getElementById('headerDate').textContent =
     new Date().toLocaleDateString('pt-BR',
@@ -3187,6 +3305,8 @@ async function sendMagicLink() {
 
 function _onAuthLogin(session) {
   _sbSession = session;
+  BOOKED_META_SRC = BOOKED_META;
+  _kpis = (BOOKED_META_SRC && BOOKED_META_SRC.kpis) ? BOOKED_META_SRC.kpis : {};
   const email = session.user?.email || '';
   const name  = email.split('@')[0];
   const pill  = document.getElementById('authPill');
@@ -3195,11 +3315,16 @@ function _onAuthLogin(session) {
   pill.title = 'Clique para sair';
   closeAuthModal();
   toast('Acesso liberado — ' + name, 'ok');
+  const pp = document.getElementById('publicPill');
+  if (pp) pp.style.display = 'none';
   if (REQUIRE_LOGIN_FOR_READ) {
     load();
     renderTasks();
     renderCriticalAlerts();
     renderIntel();
+    renderKpis();
+    renderBookedMeta();
+    renderWins();
   }
   _refreshTasksFromSupabase();
 }
@@ -3207,15 +3332,22 @@ function _onAuthLogin(session) {
 function _onAuthLogout() {
   if (_sb) _sb.auth.signOut();
   _sbSession = null;
+  BOOKED_META_SRC = DEMO_BOOKED_META;
+  _kpis = (BOOKED_META_SRC && BOOKED_META_SRC.kpis) ? BOOKED_META_SRC.kpis : {};
   const pill = document.getElementById('authPill');
   pill.textContent = '👤 Entrar';
   pill.classList.remove('logged-in');
   toast('Sessão encerrada', 'ok');
+  const pp = document.getElementById('publicPill');
+  if (pp && REQUIRE_LOGIN_FOR_READ) pp.style.display = 'inline-flex';
   if (REQUIRE_LOGIN_FOR_READ) {
     load();
     renderTasks();
     renderCriticalAlerts();
     renderIntel();
+    renderKpis();
+    renderBookedMeta();
+    renderWins();
   }
 }
 
@@ -3264,11 +3396,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
-
-
-
-
-
 
 
 
