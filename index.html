@@ -1515,11 +1515,23 @@
 <script src="saidas/supabase_config.js"></script>
 <script>
 /* ── Supabase client ───────────────────────────────────────── */
-const _sbConfigured = !!(window.SUPABASE_URL && window.SUPABASE_ANON_KEY);
+const _sbKey = window.SUPABASE_PUBLISHABLE_KEY || window.SUPABASE_ANON_KEY || '';
+const _sbConfigured = !!(window.SUPABASE_URL && _sbKey);
 const _sb = _sbConfigured
-  ? supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY)
+  ? supabase.createClient(window.SUPABASE_URL, _sbKey, {
+      auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
+    })
   : null;
 let _sbSession = null;
+let _lastWriteError = '';
+
+function _setWriteError(msg) {
+  _lastWriteError = msg || '';
+}
+
+function _getWriteError(fallback) {
+  return _lastWriteError || fallback;
+}
 
 /* ── API layer (Supabase → motor local → readonly) ────────── */
 const API_URL = 'http://localhost:5678';
@@ -1557,11 +1569,15 @@ async function _sbPatch(patch) {
     const { error } = await _sb.from('todos').update(updates).eq('id', patch.id);
     if (error) {
       console.error('[Supabase] _sbPatch error:', error);
+      _setWriteError('Supabase: ' + (error.message || JSON.stringify(error)));
       toast('Erro ao salvar: ' + (error.message || JSON.stringify(error)), 'err');
+      return false;
     }
-    return !error;
+    _setWriteError('');
+    return true;
   } catch (err) {
     console.error('[Supabase] _sbPatch exception:', err);
+    _setWriteError('Supabase: ' + (err?.message || String(err)));
     toast('Erro ao salvar: ' + (err?.message || String(err)), 'err');
     return false;
   }
@@ -1575,8 +1591,20 @@ async function _sbCreate(task) {
       prazo: task.date || null, nota: task.comment || null,
       status: 'PENDENTE', tier: 1, historico: []
     });
-    return !error;
-  } catch { return false; }
+    if (error) {
+      console.error('[Supabase] _sbCreate error:', error);
+      _setWriteError('Supabase: ' + (error.message || JSON.stringify(error)));
+      toast('Erro ao criar: ' + (error.message || JSON.stringify(error)), 'err');
+      return false;
+    }
+    _setWriteError('');
+    return true;
+  } catch (err) {
+    console.error('[Supabase] _sbCreate exception:', err);
+    _setWriteError('Supabase: ' + (err?.message || String(err)));
+    toast('Erro ao criar: ' + (err?.message || String(err)), 'err');
+    return false;
+  }
 }
 
 /* ── Motor local (fallback quando IS_LOCAL) ────────────────── */
@@ -1586,8 +1614,21 @@ async function _motorPatch(patch) {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(patch)
     });
-    return r.ok;
-  } catch { return false; }
+    if (!r.ok) {
+      let msg = 'Motor local: erro ao salvar';
+      try {
+        const j = await r.json();
+        if (j && j.error) msg = 'Motor local: ' + j.error;
+      } catch {}
+      _setWriteError(msg);
+      return false;
+    }
+    _setWriteError('');
+    return true;
+  } catch (err) {
+    _setWriteError('Motor local: ' + (err?.message || String(err)));
+    return false;
+  }
 }
 
 async function _motorCreate(task) {
@@ -1596,32 +1637,53 @@ async function _motorCreate(task) {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id: task.id, task: task.task, owner: task.owner, date: task.date, comment: task.comment || null })
     });
-    return r.ok;
-  } catch { return false; }
+    if (!r.ok) {
+      let msg = 'Motor local: erro ao criar';
+      try {
+        const j = await r.json();
+        if (j && j.error) msg = 'Motor local: ' + j.error;
+      } catch {}
+      _setWriteError(msg);
+      return false;
+    }
+    _setWriteError('');
+    return true;
+  } catch (err) {
+    _setWriteError('Motor local: ' + (err?.message || String(err)));
+    return false;
+  }
 }
 
 /* ── Funções públicas (usadas pelo resto do dashboard) ──────── */
 async function apiCreate(task) {
-  if (!_canWrite()) return false;
+  if (!_canWrite()) {
+    _setWriteError('Login necessário para editar tarefas.');
+    toast('Faça login para criar/editar tarefas.', 'err');
+    return false;
+  }
   if (_sb && _sbSession) return _sbCreate(task);
   return _motorCreate(task);
 }
 
 async function apiPatch(patch) {
-  if (!_canWrite()) return false;
+  if (!_canWrite()) {
+    _setWriteError('Login necessário para editar tarefas.');
+    toast('Faça login para criar/editar tarefas.', 'err');
+    return false;
+  }
   if (_sb && _sbSession) return _sbPatch(patch);
   return _motorPatch(patch);
 }
 
 async function apiCreateConfirm(task, okMsg, errMsg) {
   const ok = await apiCreate(task);
-  toast(ok ? okMsg : errMsg, ok ? 'ok' : 'err');
+  toast(ok ? okMsg : _getWriteError(errMsg), ok ? 'ok' : 'err');
   return ok;
 }
 
 async function apiPatchConfirm(patch, okMsg, errMsg) {
   const ok = await apiPatch(patch);
-  toast(ok ? okMsg : errMsg, ok ? 'ok' : 'err');
+  toast(ok ? okMsg : _getWriteError(errMsg), ok ? 'ok' : 'err');
   return ok;
 }
 
@@ -2975,11 +3037,14 @@ async function sendMagicLink() {
   if (!_sb)   { msg.className = 'auth-msg err'; msg.textContent = 'Supabase não configurado.'; return; }
   btn.disabled = true;
   btn.textContent = 'Enviando...';
+  const _origin = (window.location.origin && window.location.origin !== 'null')
+    ? window.location.origin + window.location.pathname
+    : 'https://magic-p.github.io/watchdog-comercial-public/';
   const { error } = await _sb.auth.signInWithOtp({
     email,
     options: {
       shouldCreateUser: true,
-      emailRedirectTo: 'https://magic-p.github.io/watchdog-comercial-public/'
+      emailRedirectTo: _origin
     }
   });
   btn.disabled = false;
@@ -3063,9 +3128,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
-
-
-
 
 
 
