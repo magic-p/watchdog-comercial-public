@@ -1176,6 +1176,39 @@ window.WATCHDOG_INTEL = {
       ],
       "acao_sugerida": "Manter segmentação por receita como critério de alocação de SDR em Renovação. MKT foca disparos em faixa 5-30k para gerar volume de agendamentos. Descarte e NP: Mariana Mazeiro como responsável de recuperação para liberar SDRs principais.",
       "status": "ativo"
+    },
+    {
+      "id": "insight074",
+      "data": "2026-03-10",
+      "fonte": "AVALIACAO ESTRATEGICA DE CAMPANHA - Escolas LT Marco 2026",
+      "categoria": "campanha",
+      "gatilho": "cadencia_progressiva",
+      "insight": "Campanha LT com cadencia progressiva volume->personalizacao e arquitetura correta: S1=broadcast emocional, S2=beneficio racional segmentado por comportamento, S4=video personalizado Top 20. Score 7.2/10 - potencial 9.0+ com 4 ajustes: (1) tema S3 definido com Escassez+Urgencia, (2) narrativa serial conectando semanas, (3) WA vs email diferenciados por funcao, (4) KPIs por semana definidos antes do disparo.",
+      "acao_sugerida": "Sempre que criar campanha multi-semana: definir tema de TODAS as semanas antes de iniciar execucao. Semana de pico do Desejo (AIDA) nunca pode ficar em branco.",
+      "status": "ativo",
+      "evidencia": "849 escolas LT. S3 sem tema = risco critico identificado em avaliacao CD 10/03/2026. S4 video personalizado = diferencial competitivo real."
+    },
+    {
+      "id": "insight075",
+      "data": "2026-03-10",
+      "fonte": "AVALIACAO ESTRATEGICA DE CAMPANHA - Escolas LT Marco 2026",
+      "categoria": "campanha",
+      "gatilho": "segmentacao_canal",
+      "insight": "WA e email cumprindo o mesmo papel em campanha = desperdicio de potencia. WA = emocao, urgencia, CTA direto (max 3 linhas visiveis). E-mail = argumento, prova social, contexto. Canais diferentes devem servir funcoes diferentes dentro da mesma cadencia.",
+      "acao_sugerida": "Toda campanha multicanal deve ter papel explicitamente definido por canal antes da producao de copy. Sem diferenciacao: cortar um dos canais.",
+      "status": "ativo",
+      "evidencia": "Detectado em campanha LT marco 2026 - redundancia WA/email identificada em avaliacao CD."
+    },
+    {
+      "id": "insight076",
+      "data": "2026-03-10",
+      "fonte": "Analise Cerco Magico + Tabela Dinamica Lili 10/03/2026",
+      "categoria": "campanha",
+      "gatilho": "segmentacao_etapa_pipeline",
+      "insight": "Escolas em etapa Descarte com alto faturamento (40k+) exigem tratamento radicalmente diferente das escolas em prospeccao ativa. Tom de reativacao (reconhecer relacionamento anterior, mostrar evolucao, criar senso de oportunidade perdida) vs tom de prospeccao (apresentar, gerar interesse, converter). Misturar os dois sabota ambos.",
+      "acao_sugerida": "Sempre segmentar campanhas de mimo/reativacao por etapa do pipeline alem de por faturamento. Descarte = regime de reativacao obrigatorio, com timing antecipado (2-3 dias antes do lote geral) e oferta diferenciada.",
+      "status": "ativo",
+      "evidencia": "50 escolas P1 em Descarte detectadas na priorizacao Cerco Magico. P1 = 75 escolas 40k+; 50 delas (67%) em Descarte."
     }
   ],
   "criticas_ativas": [
