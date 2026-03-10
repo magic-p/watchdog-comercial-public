@@ -1209,6 +1209,57 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Sempre segmentar campanhas de mimo/reativacao por etapa do pipeline alem de por faturamento. Descarte = regime de reativacao obrigatorio, com timing antecipado (2-3 dias antes do lote geral) e oferta diferenciada.",
       "status": "ativo",
       "evidencia": "50 escolas P1 em Descarte detectadas na priorizacao Cerco Magico. P1 = 75 escolas 40k+; 50 delas (67%) em Descarte."
+    },
+    {
+      "id": "insight077",
+      "data": "2026-03-10",
+      "fonte": "Daily _ Gestão Comercial - 2026_03_10 10_22 GMT-03_00 - Anotações do Gemini.pdf",
+      "categoria": "funil",
+      "gatilho": "109% meta escolas vs 92% meta receita em Novas",
+      "insight": "Atingir meta de escolas convertidas acima de 100% com receita abaixo de 100% é sinal de degradação de ticket médio, não de sucesso comercial. O número de escolas é um indicador de volume; a média de alunos por escola é o indicador real de saúde do funil de Novas. Quando os dois divergem, o problema está na seleção de base ou no fechamento abaixo do potencial declarado pela escola.",
+      "evidencia": "Novas escolas: 109% meta de escolas convertidas e 92% meta de receita. Média de alunos: Outbound 100, Concorrência 54, Retração 126. Concorrência é o maior vetor negativo.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "funil Novas Escolas",
+        "Outbound",
+        "Concorrência"
+      ],
+      "acao_sugerida": "Sempre monitorar meta de escolas e meta de receita em paralelo — quando o gap entre os dois superar 10pp, tratar como alerta de ticket médio antes de comemorar volume. Nunca reportar 'acima da meta' em Novas sem especificar qual dimensão.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight078",
+      "data": "2026-03-10",
+      "fonte": "Daily _ Gestão Comercial - 2026_03_10 10_22 GMT-03_00 - Anotações do Gemini.pdf",
+      "categoria": "funil",
+      "gatilho": "queda na média de alunos em Concorrência — gestor prefere começar com poucas turmas",
+      "insight": "Em Concorrência, o fechamento com média baixa de alunos tem causa comportamental documentada: o gestor escolar tende a começar com poucas turmas por falta de confiança no produto, não por restrição orçamentária. Isso significa que o problema não está na abordagem inicial do SDR, mas na ausência de protocolo de upsell no momento do fechamento. A solução não é filtrar bases maiores — é equipar o time de vendas com maior liberdade de oferta e argumentos de confiança pós-conversão.",
+      "evidencia": "Ana Paula Pimentel: 'desafio está no nível de confiança do gestor, que prefere começar com poucas turmas, sugerindo a necessidade de um upsell'. Filtro de 100+ alunos já aplicado mas beneficia apenas parte da equipe SDR.",
+      "confianca": "media",
+      "aplicavel_a": [
+        "base Concorrência",
+        "time de vendas",
+        "protocolo de fechamento"
+      ],
+      "acao_sugerida": "Sempre incluir protocolo de upsell no fechamento de escolas de Concorrência — documentar número de alunos que a escola se propôs a aplicar vs o que foi cadastrado é condição mínima para identificar oportunidade de upsell perdida. Nunca fechar Concorrência sem registrar esse delta.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight079",
+      "data": "2026-03-10",
+      "fonte": "Daily _ Gestão Comercial - 2026_03_10 10_22 GMT-03_00 - Anotações do Gemini.pdf",
+      "categoria": "operacao",
+      "gatilho": "disparo WA utilitário pré-ligação — debate sobre saturação de canal",
+      "insight": "Mensagem utilitária de WhatsApp enviada diariamente para a mesma gestora antes de cada ligação SDR tem risco real de saturação do canal — a gestora passa a ignorar ou bloquear o número, eliminando o benefício de desbloqueio de spam que justificava o WA. O WhatsApp funciona como canal de alta efetividade quando usado com baixa frequência e alta relevância; uso diário sistemático destrói esse diferencial. A decisão de usar WA utilitário pré-ligação exige limitação de frequência (máximo 3x/semana por contato) e rotação de conteúdo para preservar abertura.",
+      "evidencia": "Ana Paula Pimentel levantou que envio diário pode saturar o canal da gestora e diminuir a eficácia das mensagens importantes. Decisão sobre WA utilitário ficou sem conclusão formal na daily.",
+      "confianca": "media",
+      "aplicavel_a": [
+        "base HT Pública",
+        "base Concorrência",
+        "SDR cadência de contato"
+      ],
+      "acao_sugerida": "Antes de implementar qualquer cadência de WA utilitário pré-ligação, definir frequência máxima por contato (sugestão: 3x/semana) e testar em grupo controlado de 30-50 escolas por 2 semanas antes de escalar. Nunca escalar WA de alta frequência sem dados de taxa de bloqueio do teste.",
+      "status": "ativo"
     }
   ],
   "criticas_ativas": [
@@ -1570,7 +1621,40 @@ window.WATCHDOG_INTEL = {
       "dri": "Ana Paula Pimentel",
       "status": "aberta",
       "fonte": "Meta Aquisição 09/03/2026"
+    },
+    {
+      "id": "alerta036",
+      "data": "2026-03-10",
+      "titulo": "Decisão de WA utilitário pré-ligação sem DRI e sem protocolo de teste",
+      "critica": "Pedro propôs envio de WA utilitário antes de cada ligação SDR. Ana Paula levantou risco de saturação. Lili não concluiu a deliberação. A daily encerrou sem decisão formal, sem DRI e sem definição de teste controlado. Se alguém implementar sem protocolo, pode comprometer o canal WA que já está em uso pela campanha LT e pelo Cerco Mágico.",
+      "acao_sugerida": "Pedro ou Lili definir até 12/mar: (1) se o WA utilitário será testado ou arquivado, (2) se testado — DRI, frequência máxima por contato, tamanho da amostra e KPI de sucesso/fracasso.",
+      "prioridade": "alta",
+      "dri": "A definir",
+      "status": "aberto",
+      "nota_status": "Pedro notificado — decisão pendente desde daily de 10/mar/2026"
+    },
+    {
+      "id": "alerta037",
+      "data": "2026-03-10",
+      "titulo": "Base de Concorrência segmentada (+100 alunos) restrita a uma SDR — expansão deliberada mas sem DRI",
+      "critica": "A daily decidiu ampliar a base de Concorrência segmentada (acima de 100 alunos) para as SDRs com melhor performance, em vez de mantê-la restrita a uma única SDR. Decisão tomada, mas não há DRI nomeado para executar a redistribuição nem prazo definido. Sem execução, a decisão não tem efeito na média de alunos de março.",
+      "acao_sugerida": "Ana Paula Pimentel executar redistribuição da base +100 alunos de Concorrência entre as 2-3 melhores SDRs até 12/mar, validando performance prévia com Nath antes da redistribuição.",
+      "prioridade": "alta",
+      "dri": "Ana Paula Pimentel",
+      "status": "aberto",
+      "nota_status": "Decisão tomada na daily de 10/mar/2026 sem tarefa gerada"
+    },
+    {
+      "id": "alerta038",
+      "data": "2026-03-10",
+      "titulo": "Custo da Revista e mala direta desagregado — realizado não atualizado no orçamento",
+      "critica": "Vit informou custo total de R$11.500 (revista + carta de dezembro) mas Lili pediu separação entre custo de produção e custo de envio da revista especificamente, além de atualização do realizado no controle de orçamento. Sem essa separação, o orçamento de marketing do Cerco Mágico (que inclui nova revista) não tem referência de custo unitário confiável.",
+      "acao_sugerida": "Vitória separar custo de produção e envio da revista de dezembro e atualizar o realizado no controle de orçamento de marketing até 12/mar.",
+      "prioridade": "media",
+      "dri": "Vitória",
+      "status": "aberto",
+      "nota_status": "Solicitado por Lili na daily de 10/mar/2026"
     }
   ],
-  "ultima_atualizacao": "2026-03-09T11:00:00"
+  "ultima_atualizacao": "2026-03-10T12:09:58.905180"
 };
