@@ -1161,6 +1161,21 @@ window.WATCHDOG_INTEL = {
       ],
       "acao_sugerida": "Ao comparar bolsões entre baldinhos, sempre normalizar pelo resultado do mês anterior. Concorrência com bolsão menor em março = sinal de saúde, não de problema. O problema de Concorrência em março é outra coisa (meta de alunos 13% — investigar alunos/escola e tx fechamento).",
       "status": "ativo"
+    },
+    {
+      "id": "insight073",
+      "data": "2026-03-09",
+      "fonte": "Daily Gestão Comercial + Meta Aquisição 09/03/2026",
+      "categoria": "baldinho",
+      "gatilho": null,
+      "insight": "Base de Renovação exige segmentação por receita para otimizar alocação de SDR e esforço de MKT: >30k tem problema de conversão (não volume) — usar melhor SDR; 5-30k tem problema de volume — resolver via disparo MKT; descarte/NP centralizar em Mariana Mazeiro. Equipe 22% mais produtiva que planejado mas gargalo está em reuniões realizadas (HT PART 79%, HT PUB 75%).",
+      "evidencia": "Daily 09/03: Pimentel apresentou estratégia de segmentação. Bia identificada como SDR mais capacitada para >30k. MKT direcionado para faixa 5-30k. Equipe 22% mais produtiva. Meta Mar semana 1: receita comercial 251% YTD (forte), marketing 33% YTD (fraca). RR/SDR HT PART 1,32/1,60 = 83%; HT PUB 1,80/2,40 = 75%.",
+      "confianca": "media",
+      "aplicavel_a": [
+        "renovacao"
+      ],
+      "acao_sugerida": "Manter segmentação por receita como critério de alocação de SDR em Renovação. MKT foca disparos em faixa 5-30k para gerar volume de agendamentos. Descarte e NP: Mariana Mazeiro como responsável de recuperação para liberar SDRs principais.",
+      "status": "ativo"
     }
   ],
   "criticas_ativas": [
@@ -1172,7 +1187,8 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Nath atualizar a efetividade SDR no dashboard hoje e confirmar fonte (data e período).",
       "prioridade": "alta",
       "dri": "Nath Ferreira",
-      "status": "aberta"
+      "status": "aberta",
+      "nota_status": "09/03: RR/SDR por baldinho (Meta Aquisição 09/03): HT PART 1,32/1,60=83%, HT PUB 1,80/2,40=75%, AA 0,86/0,75=115%✅, Concorrência 0,55/0,50=110%✅, Retração 0,43/0,64=68%, Novas 0,32/0,46=77%. AA e Concorrência acima da meta; Retração e HT persistem abaixo. Efetividade global heterogênea — alerta mantido."
     },
     {
       "id": "alerta002",
@@ -1204,7 +1220,8 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Nath verificar esforço de SDR em Retração nessa semana: é inércia do time, Ax ou decisão de manter o 0,5 por conta de meta já batida? Definir ritmo mínimo para semana que vem.",
       "prioridade": "alta",
       "dri": "Nath Ferreira",
-      "status": "aberta"
+      "status": "aberta",
+      "nota_status": "09/03: Retração RR/SDR 0,43/0,64=68% da meta YTD. Tx fechadas/realizadas: 50%/62%=81%. Realizadas: 10/56=78% YTD. Meta alunos 1.088/4.355=110%✅. Melhora vs 40% de fev mas ainda estruturalmente abaixo de meta. Nath não entregou diagnóstico de causa. Alerta mantido."
     },
     {
       "id": "alerta005",
@@ -1214,7 +1231,8 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Nath verificar se o dado está sendo registrado corretamente. Se sim, identificar qual ação específica pode mover o RR/SDR LT antes do fechamento do mês.",
       "prioridade": "alta",
       "dri": "Nath Ferreira",
-      "status": "aberta"
+      "status": "aberta",
+      "nota_status": "09/03: LT PART em 3/30 convertidas = 10% da meta mensal. Meta marketing LT Part: R$8.945/R$98.649 = 9%. A frente inteira está em risco crítico — não apenas o RR/SDR, mas as convertidas e a receita de marketing. Ação de MKT urgente para LT PART não apareceu nas ações do dia de 09/03. Alerta escalado em urgência."
     },
     {
       "id": "alerta006",
@@ -1431,7 +1449,7 @@ window.WATCHDOG_INTEL = {
       "prioridade": "critica",
       "acao_sugerida": "Pimentel analisa base HT PART antes de segunda (t100) para direcionar disparo MKT 09/mar (t100). Nath executa disparo. Semana de 09/mar é a janela de recuperação.",
       "status": "aberta",
-      "nota_status": "08/03: Situação piorou na semana de 03-06/mar. 79% RR/SDR semanal. Semana encerrada em déficit. DRI atualizado para Pimentel. Plano MKT para segunda é a próxima ação."
+      "nota_status": "09/03: Disparo HT PART Renov 5-30k (etapas SDR + descarte + perdido, exceto críticas) iniciado por Vitória — ação do dia na Meta Aquisição. RR/SDR HT PART semana 1: 1,32/1,60=83%. Realizadas: 38/59=65% (semana 1 de 4). Meta receita comercial 251% YTD. Semana de recuperação em curso — monitorar diariamente."
     },
     {
       "id": "alerta027",
@@ -1495,7 +1513,8 @@ window.WATCHDOG_INTEL = {
       "prioridade": "critica",
       "dri": "Ana Paula Pimentel",
       "status": "aberta",
-      "fonte": "Daily Gestão Comercial 06/03/2026 + análise sessão Claudete 08/03"
+      "fonte": "Daily Gestão Comercial 06/03/2026 + análise sessão Claudete 08/03",
+      "nota_status": "09/03: RR/SDR HT PART semana 1 = 1,32/1,60=83%. Disparo HT PART 5-30k iniciado por Vitória hoje (t100 concluído). Análise Pimentel confirmada. Semana de recuperação em curso. Monitorar RR/SDR diariamente para avaliar se disparo gerou volume."
     },
     {
       "id": "alerta033",
@@ -1507,7 +1526,18 @@ window.WATCHDOG_INTEL = {
       "dri": "Luana",
       "status": "aberta",
       "fonte": "Daily Gestão Comercial 06/03/2026 + análise sessão Claudete 08/03"
+    },
+    {
+      "id": "alerta034",
+      "data": "2026-03-09",
+      "titulo": "AA taxa de fechamento semanal em 3% — possível queda na conversão do closer",
+      "critica": "Meta Aquisição 09/03: AA Fechada/Realizadas semanal = 3%/57% = 52% da meta. Isso significa que de 27 RRs realizadas nesta semana, praticamente nenhuma escola fechou. Pimentel identificou Marcele como closer com desempenho ruim na semana anterior. Ainda é semana 1 e pode ser ruído estatístico, mas se se repetir na semana 2, o impacto no bolsão de AA e na receita de março é significativo.",
+      "acao_sugerida": "Pimentel monitorar taxa de fechamento AA semana a semana. Se taxa se mantiver abaixo de 40% na semana de 09/mar, diagnóstico pontual com Marcele até 13/mar. Não alterar processo antes de confirmar padrão em 2 semanas consecutivas.",
+      "prioridade": "alta",
+      "dri": "Ana Paula Pimentel",
+      "status": "aberta",
+      "fonte": "Meta Aquisição 09/03/2026"
     }
   ],
-  "ultima_atualizacao": "2026-03-08T20:00:00"
+  "ultima_atualizacao": "2026-03-09T11:00:00"
 };

@@ -1587,7 +1587,7 @@ async function _sbPatch(patch) {
       return false;
     }
     _setWriteError('');
-    _refreshTasksFromSupabase(true);
+    _refreshTasksFromSupabase(true); // atualiza silenciosamente para todas as sessões
     return true;
   } catch (err) {
     console.error('[Supabase] _sbPatch exception:', err);
@@ -1612,7 +1612,7 @@ async function _sbCreate(task) {
       return false;
     }
     _setWriteError('');
-    _refreshTasksFromSupabase(true);
+    _refreshTasksFromSupabase(true); // atualiza silenciosamente para todas as sessões
     return true;
   } catch (err) {
     console.error('[Supabase] _sbCreate exception:', err);
@@ -3279,30 +3279,6 @@ function closeAuthModal() {
 }
 
 
-async function signInWithPassword() {
-  const email = document.getElementById('authEmail').value.trim();
-  const pass  = document.getElementById('authPassword').value;
-  const btn   = document.getElementById('authPasswordBtn');
-  const msg   = document.getElementById('authMsg');
-  if (!email) { msg.className = 'auth-msg err'; msg.textContent = 'Digite seu e-mail.'; return; }
-  if (!pass)  { msg.className = 'auth-msg err'; msg.textContent = 'Digite sua senha.'; return; }
-  if (!_sb)   { msg.className = 'auth-msg err'; msg.textContent = 'Supabase não configurado.'; return; }
-  btn.disabled = true;
-  btn.textContent = 'Entrando...';
-  const { data, error } = await _sb.auth.signInWithPassword({ email, password: pass });
-  btn.disabled = false;
-  btn.textContent = 'Entrar com senha';
-  if (error) {
-    msg.className = 'auth-msg err';
-    console.error('[Supabase] signInWithPassword error:', error);
-    msg.textContent = 'Erro: ' + error.message;
-  } else {
-    msg.className = 'auth-msg ok';
-    msg.textContent = '✅ Login realizado.';
-    if (data?.session) _onAuthLogin(data.session);
-  }
-}
-
 function _onAuthLogin(session) {
   _sbSession = session;
   BOOKED_META_SRC = BOOKED_META;
@@ -3397,9 +3373,10 @@ async function _sbSeedFromSSOT() {
     priority_rank:t.priorityRank || null,
     historico:    t.historico || [],
   }));
-  const { error } = await _sb.from('todos').insert(rows);
+  // upsert com ignoreDuplicates: insere tarefas novas sem sobrescrever status/tier existentes
+  const { error } = await _sb.from('todos').upsert(rows, { onConflict: 'id', ignoreDuplicates: true });
   if (error) console.error('[Supabase] seed error:', error);
-  else console.log(`[Supabase] ${rows.length} tarefas sincronizadas do SSOT`);
+  else console.log(`[Supabase] SSOT sync: ${rows.length} tarefas verificadas (novas inseridas, existentes preservadas)`);
 }
 
 async function _refreshTasksFromSupabase(silent = false) {
@@ -3411,9 +3388,11 @@ async function _refreshTasksFromSupabase(silent = false) {
       if (!silent) toast('Supabase erro: ' + (error.message || JSON.stringify(error)), 'error');
       return;
     }
+    // Sempre sincroniza SSOT → Supabase (insere novas tarefas sem sobrescrever existentes)
+    await _sbSeedFromSSOT();
+
     if (!data || !data.length) {
-      // Supabase vazio — seed inicial a partir do SSOT estático
-      await _sbSeedFromSSOT();
+      // Supabase estava vazio — recarregar após seed
       const { data: seeded } = await _sb.from('todos').select('*').order('id');
       if (!seeded || !seeded.length) {
         if (!silent) toast('Supabase: sem dados após seed', 'error');
@@ -3426,14 +3405,40 @@ async function _refreshTasksFromSupabase(silent = false) {
       if (!silent) toast(`${seeded.length} tarefas sincronizadas`, 'ok');
       return;
     }
-    tasks = data.map(_sbRowToTask);
+    // Recarregar após possível inserção de novas tarefas
+    const { data: fresh } = await _sb.from('todos').select('*').order('id');
+    tasks = (fresh || data).map(_sbRowToTask);
     enforceWeeklyTop3(tasks);
     renderTasks();
     buildOwnerFilters();
-    if (!silent) toast(`${data.length} tarefas carregadas`, 'ok');
+    if (!silent) toast(`${(fresh || data).length} tarefas carregadas`, 'ok');
   } catch (err) {
     console.error('[Supabase] exception in _refreshTasksFromSupabase:', err);
     if (!silent) toast('Supabase falhou: ' + (err?.message || String(err)), 'error');
+  }
+}
+
+async function signInWithPassword() {
+  const email = document.getElementById('authEmail').value.trim();
+  const pass  = document.getElementById('authPassword').value;
+  const btn   = document.getElementById('authPasswordBtn');
+  const msg   = document.getElementById('authMsg');
+  if (!email) { msg.className = 'auth-msg err'; msg.textContent = 'Digite seu e-mail.'; return; }
+  if (!pass)  { msg.className = 'auth-msg err'; msg.textContent = 'Digite sua senha.'; return; }
+  if (!_sb)   { msg.className = 'auth-msg err'; msg.textContent = 'Supabase não configurado.'; return; }
+  btn.disabled = true;
+  btn.textContent = 'Entrando...';
+  const { data, error } = await _sb.auth.signInWithPassword({ email, password: pass });
+  btn.disabled = false;
+  btn.textContent = 'Entrar com senha';
+  if (error) {
+    msg.className = 'auth-msg err';
+    console.error('[Supabase] signInWithPassword error:', error);
+    msg.textContent = 'Erro: ' + error.message;
+  } else {
+    msg.className = 'auth-msg ok';
+    msg.textContent = '✅ Login realizado.';
+    if (data?.session) _onAuthLogin(data.session);
   }
 }
 
@@ -3452,8 +3457,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
-
-
 
 
 
