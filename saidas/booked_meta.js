@@ -199,25 +199,25 @@ window.WATCHDOG_BOOKED_META = {
     },
     {
       "emoji": "✅",
-      "titulo": "Lili: Lili: reunião com Maria Carol sobre 44 escolas em descarte/fora do jogo (R$2M) — definir ações individualizadas",
+      "titulo": "Pedro: Lili: reunião com Maria Carol sobre 44 escolas em descarte/fora do jogo (R$2M) — definir ações individualizadas",
       "desc": "Concluida no prazo definido.",
-      "dri": "Lili",
+      "dri": "Pedro",
       "data": "09/03",
       "tipo": "ENTREGA_NO_PRAZO"
     },
     {
       "emoji": "✅",
-      "titulo": "Vitoria Riente: Vitória: ajustar motivos de descarte que estão classificados como 'negócio perdido' no CRM",
+      "titulo": "Pedro: Vitória: ajustar motivos de descarte que estão classificados como 'negócio perdido' no CRM",
       "desc": "Concluida no prazo definido.",
-      "dri": "Vitoria Riente",
+      "dri": "Pedro",
       "data": "09/03",
       "tipo": "ENTREGA_NO_PRAZO"
     },
     {
       "emoji": "✅",
-      "titulo": "Ana Paula Pimentel: Pimentel: apresentação para Lua e ID — vender oportunidades na base e mitigar preocupações sobre base/discurso",
+      "titulo": "Pedro: Pimentel: apresentação para Lua e ID — vender oportunidades na base e mitigar preocupações sobre base/discurso",
       "desc": "Concluida no prazo definido.",
-      "dri": "Ana Paula Pimentel",
+      "dri": "Pedro",
       "data": "09/03",
       "tipo": "ENTREGA_NO_PRAZO"
     }
