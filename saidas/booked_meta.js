@@ -54,6 +54,30 @@ window.WATCHDOG_BOOKED_META = {
   ],
   "wins": [
     {
+      "emoji": "✅",
+      "titulo": "Kaka: Karina: coordenar envio da 1ª leva de mimo chocolate (100 escolas AA top) via iFood + cartinha",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Kaka",
+      "data": "10/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Kaka: Karina: enviar report semanal de KPIs do Cerco Mágico para Pedro toda segunda",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Kaka",
+      "data": "10/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Kaka: Karina: criar plano de ação de marketing para frente LT PART (meta em 10% no dia 09/03)",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Kaka",
+      "data": "10/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
       "emoji": "🎯",
       "titulo": "Kaka: Entregar revisão das réguas e plano de low touch para renovação particular",
       "desc": "Concluida no ciclo semanal (segunda a domingo).",
@@ -218,6 +242,14 @@ window.WATCHDOG_BOOKED_META = {
       "titulo": "Pedro: Pimentel: apresentação para Lua e ID — vender oportunidades na base e mitigar preocupações sobre base/discurso",
       "desc": "Concluida no prazo definido.",
       "dri": "Pedro",
+      "data": "09/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Ana Paula Pimentel: Pimentel: entregar fotografia real da Renovação reorganizada por faixas de receita até fim da semana",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Ana Paula Pimentel",
       "data": "09/03",
       "tipo": "ENTREGA_NO_PRAZO"
     }

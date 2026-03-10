@@ -1565,7 +1565,10 @@ async function _sbPatch(patch) {
   if (!_sb || !_sbSession) return false;
   try {
     const updates = {};
-    const today = new Date().toISOString().slice(0, 10);
+    const actor = _sbSession.user?.email?.split('@')[0] || 'dashboard';
+    const now = new Date();
+    const ts = now.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo', hour12: false,
+      year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
     if ('done' in patch) {
       updates.status = patch.done ? 'CONCLUIDO' : 'PENDENTE';
     }
@@ -1578,6 +1581,14 @@ async function _sbPatch(patch) {
       const tv = String(patch.tier).toLowerCase();
       if (tv === 'done') updates.status = 'CONCLUIDO';
       else updates.tier = parseInt(tv.replace('t', '')) || 1;
+    }
+    // Atualiza historico com quem fez + horário
+    if ('done' in patch || ('tier' in patch && String(patch.tier).toLowerCase() === 'done')) {
+      const isDone = patch.done === true || String(patch.tier).toLowerCase() === 'done';
+      const { data: cur } = await _sb.from('todos').select('historico').eq('id', patch.id).single();
+      const hist = Array.isArray(cur?.historico) ? [...cur.historico] : [];
+      hist.push({ data: ts, evento: isDone ? `Concluido por ${actor}` : `Reaberto por ${actor}` });
+      updates.historico = hist;
     }
     const { error } = await _sb.from('todos').update(updates).eq('id', patch.id);
     if (error) {
@@ -1625,9 +1636,10 @@ async function _sbCreate(task) {
 /* ── Motor local (fallback quando IS_LOCAL) ────────────────── */
 async function _motorPatch(patch) {
   try {
+    const actor = _sbSession?.user?.email?.split('@')[0] || 'dashboard';
     const r = await fetch(`${API_URL}/api/todos/patch`, {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(patch)
+      body: JSON.stringify({ ...patch, actor })
     });
     if (!r.ok) {
       let msg = 'Motor local: erro ao salvar';
