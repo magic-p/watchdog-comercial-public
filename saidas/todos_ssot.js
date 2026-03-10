@@ -943,13 +943,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Pedido da Bebel (via Lili, 27/02). Não foi entregue até 06/03. Prazo prorrogado para semana de 09/mar. Nath prepara visão do funil de renovação para apresentar em daily. Objetivo: dar ao time visibilidade sobre onde o funil de renovação está trancando. Dado crítico para plano HT PART. Daily 09/03: Nath também deve abrir dados de AA junto com renovação para comparação histórica e calibrar os conceitos de descarte vs perdido no funil.",
     "owner": "Nath Ferreira",
     "date": "10/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
     "updatedAt": "2026-03-06T00:00:00",
-    "completedAt": null
+    "completedAt": "2026-03-06T00:00:00"
   },
   {
     "id": "t071",
@@ -1167,13 +1167,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Teste com 30 escolas de Luana foi inconclusivo (amostra pequena) + qualitativo indicou que WhatsApp é invasivo para escolas que não conhecem a empresa. Sara tem perfil mais adequado e trabalhará com bases menos críticas. Aprovado por Lili e Pimentel na daily 03/03.",
     "owner": "Nath Ferreira",
     "date": "10/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
     "updatedAt": "2026-03-03T00:00:00",
-    "completedAt": null
+    "completedAt": "2026-03-03T00:00:00"
   },
   {
     "id": "t087",
@@ -1935,7 +1935,7 @@ window.WATCHDOG_TODOS = [
     "id": "t141",
     "task": "Lili: comparar taxa de RR, fechamento e conversão de escolas com mimo vs sem mimo (mesmo período/segmento) — calcular delta para decidir se mimo segue ou é suspenso",
     "comment": "Pedro trouxe dados de 51 escolas que receberam mimo: 76% RR (39/51), 30% fechamento (12/39 RR), 17% conversão (7/39 RR). O dado isolado não prova causalidade. Lili precisa puxar o grupo controle (escolas sem mimo, mesmo período e segmento) e calcular delta nas 3 métricas. Critério de decisão: se delta < 10pp em RR, recomendar suspensão do processo de mimo. Referência histórica: insight002 diz +61% agendamentos com mimo em AA Jul/Ago 2025 — confirmar se padrão se mantém em 2026.",
-    "owner": "Lili",
+    "owner": "Nath Ferreira",
     "date": "11/mar",
     "tier": "t1",
     "tierLabel": "A fazer",

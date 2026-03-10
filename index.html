@@ -2364,6 +2364,21 @@ let sortCol = 'date';
 let sortDir = 1;
 let ownerFilter = null;
 
+const UI_STATE_KEY = 'watchdog_ui';
+function saveUiState() {
+  try { localStorage.setItem(UI_STATE_KEY, JSON.stringify({ ownerFilter, taskView, sortCol, sortDir })); } catch (e) {}
+}
+function loadUiState() {
+  try {
+    const s = JSON.parse(localStorage.getItem(UI_STATE_KEY) || 'null');
+    if (!s) return;
+    if (s.ownerFilter !== undefined) ownerFilter = s.ownerFilter;
+    if (s.taskView)  taskView  = s.taskView;
+    if (s.sortCol)   sortCol   = s.sortCol;
+    if (s.sortDir)   sortDir   = s.sortDir;
+  } catch (e) {}
+}
+
 function setTaskView(view) {
   taskView = (view === 'done') ? 'done' : 'open';
   const openPane = document.getElementById('openPane');
@@ -2679,7 +2694,7 @@ function buildOwnerFilters() {
   allPill.className = 'owner-pill' + (ownerFilter === null ? ' active' : '');
   allPill.innerHTML = `Todos <span class="pill-count">${totalOpen}</span>`;
   allPill.setAttribute('aria-pressed', ownerFilter === null ? 'true' : 'false');
-  allPill.addEventListener('click', () => { ownerFilter = null; buildOwnerFilters(); renderTasks(); });
+  allPill.addEventListener('click', () => { ownerFilter = null; saveUiState(); buildOwnerFilters(); renderTasks(); });
   bar.appendChild(allPill);
 
   // One pill per owner
@@ -2695,6 +2710,7 @@ function buildOwnerFilters() {
     pill.innerHTML = `${esc(firstName)} <span class="pill-count">${openCount}</span>`;
     pill.addEventListener('click', () => {
       ownerFilter = (ownerFilter === owner) ? null : owner;
+      saveUiState();
       buildOwnerFilters();
       renderTasks();
     });
@@ -3168,7 +3184,8 @@ document.addEventListener('DOMContentLoaded', () => {
     new Date().toLocaleDateString('pt-BR',
       {weekday:'long',year:'numeric',month:'long',day:'numeric'});
   load();
-  taskView = 'open';
+  loadUiState();
+  setTaskView(taskView);
   renderKpis();
   renderTasks();
   renderBookedMeta();
@@ -3213,6 +3230,7 @@ document.addEventListener('DOMContentLoaded', () => {
     th.addEventListener('click', () => {
       if (sortCol === th.dataset.sort) { sortDir *= -1; }
       else { sortCol = th.dataset.sort; sortDir = 1; }
+      saveUiState();
       renderTasks();
     });
   });
