@@ -943,13 +943,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Pedido da Bebel (via Lili, 27/02). Não foi entregue até 06/03. Prazo prorrogado para semana de 09/mar. Nath prepara visão do funil de renovação para apresentar em daily. Objetivo: dar ao time visibilidade sobre onde o funil de renovação está trancando. Dado crítico para plano HT PART. Daily 09/03: Nath também deve abrir dados de AA junto com renovação para comparação histórica e calibrar os conceitos de descarte vs perdido no funil.",
     "owner": "Nath Ferreira",
     "date": "10/mar",
-    "tier": "done",
-    "tierLabel": "Concluido",
+    "tier": "t2",
+    "tierLabel": "Fazendo",
     "warn": null,
-    "done": true,
+    "done": false,
     "priorityRank": null,
     "updatedAt": "2026-03-06T00:00:00",
-    "completedAt": "2026-03-06T00:00:00"
+    "completedAt": null
   },
   {
     "id": "t071",
@@ -1167,13 +1167,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Teste com 30 escolas de Luana foi inconclusivo (amostra pequena) + qualitativo indicou que WhatsApp é invasivo para escolas que não conhecem a empresa. Sara tem perfil mais adequado e trabalhará com bases menos críticas. Aprovado por Lili e Pimentel na daily 03/03.",
     "owner": "Nath Ferreira",
     "date": "10/mar",
-    "tier": "done",
-    "tierLabel": "Concluido",
+    "tier": "t2",
+    "tierLabel": "Fazendo",
     "warn": null,
-    "done": true,
+    "done": false,
     "priorityRank": null,
     "updatedAt": "2026-03-03T00:00:00",
-    "completedAt": "2026-03-03T00:00:00"
+    "completedAt": null
   },
   {
     "id": "t087",
@@ -1783,10 +1783,10 @@ window.WATCHDOG_TODOS = [
     "comment": "A ação foi marcada com ✅ na daily indicando execução. Esta tarefa é de follow-up: capturar volume disparado, taxa de abertura e levantadas geradas para alimentar o controle de MKT Renovação (Meta Marketing 24% — abaixo da meta). Prazo inferido: 2 dias úteis pós-execução.",
     "owner": "Vitoria",
     "date": "12/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
     "updatedAt": null,
     "completedAt": null

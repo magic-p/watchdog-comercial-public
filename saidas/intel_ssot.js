@@ -1260,6 +1260,23 @@ window.WATCHDOG_INTEL = {
       ],
       "acao_sugerida": "Antes de implementar qualquer cadência de WA utilitário pré-ligação, definir frequência máxima por contato (sugestão: 3x/semana) e testar em grupo controlado de 30-50 escolas por 2 semanas antes de escalar. Nunca escalar WA de alta frequência sem dados de taxa de bloqueio do teste.",
       "status": "ativo"
+    },
+    {
+      "id": "insight080",
+      "data": "2026-03-10",
+      "fonte": "Vitória Riente — resultado disparo WA HT PART Renovação 5-30k (10/mar)",
+      "categoria": "campanha",
+      "gatilho": "relacao_previa_escola",
+      "insight": "Disparo WA para HT PART Renovação (5-30k, etapas SDR + descarte + perdido, exceto críticas) entrega 3,87% levantada/entregue e 2,56% levantada/disparado — quase 2x o benchmark de AA Concorrência com melhor copy (1,38%, insight070). CPL de R$ 13,97. Renovação responde melhor ao WA que Concorrência mesmo sem otimização de copy: relação prévia com a escola é o principal driver de taxa.",
+      "evidencia": "Vitória Riente (10/03/2026): 1.174 disparados, 776 entregues (66,1%), 30 levantadas, R$ 419,04 custo. Taxa levantada/entregue: 3,87%. CPL: R$ 13,97. Campanha HT PART Renovação 5-30k, canal WA, etapas SDR + descarte + perdido.",
+      "confianca": "media",
+      "aplicavel_a": [
+        "renovacao_ht_part",
+        "wpp_disparos",
+        "mkt_renovacao"
+      ],
+      "acao_sugerida": "Usar 3,87% levantada/entregue e R$ 13,97 CPL como benchmarks de referência para disparos WA HT PART Renovação. Investigar a taxa de não-entrega de 33,9% (398 de 1.174 não chegaram): pode indicar lista desatualizada ou números sem WA validado — se corrigida, levantadas potenciais sobem para ~45. Se meta MKT Renovação segue em risco, replicar disparo com base maior após higienização.",
+      "status": "ativo"
     }
   ],
   "criticas_ativas": [
@@ -1656,5 +1673,5 @@ window.WATCHDOG_INTEL = {
       "nota_status": "Solicitado por Lili na daily de 10/mar/2026"
     }
   ],
-  "ultima_atualizacao": "2026-03-10T12:09:58.905180"
+  "ultima_atualizacao": "2026-03-10T12:47:03.844808"
 };

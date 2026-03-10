@@ -422,6 +422,39 @@ window.WATCHDOG_CAMPANHAS = {
         "insight054",
         "insight055"
       ]
+    },
+    {
+      "id": "c008",
+      "data": "2026-03-10",
+      "nome": "Disparo WA HT PART Renovação 5-30k — SDR + descarte + perdido",
+      "canal": "WhatsApp (disparo)",
+      "segmento": "Renovação HT PART (5-30k)",
+      "executor": "Vitoria",
+      "tipo": "disparo_mkt_renovacao",
+      "base": 1174,
+      "entregues": 776,
+      "taxa_entrega_pct": 66.1,
+      "status": "final",
+      "resultados": {
+        "disparados": 1174,
+        "entregues": 776,
+        "levantadas": 30,
+        "taxa_levantada_entregue_pct": 3.87,
+        "taxa_levantada_disparado_pct": 2.56,
+        "custo_total": 419.04,
+        "cpl": 13.97
+      },
+      "nota_qualitativa": "Taxa de 3,87% levantada/entregue é quase 2x o benchmark de AA Concorrência melhor copy (1,38%). Renovação responde melhor ao WA que Concorrência mesmo sem otimização de copy — relação prévia com a escola é o driver principal. Alerta: 33,9% de não-entrega (398 disparos) indica lista com números desatualizados ou sem WA validado.",
+      "gatilho_identificado": "relacao_previa_escola",
+      "tags_padroes": [
+        "disparo_wa",
+        "renovacao_ht_part",
+        "5-30k",
+        "sdr_descarte_perdido"
+      ],
+      "aprendizados_vinculados": [
+        "insight080"
+      ]
     }
   ],
   "insights": [
@@ -429,5 +462,5 @@ window.WATCHDOG_CAMPANHAS = {
     "Menor taxa: Outbound Playlist com 0.1% — revisar abordagem ou qualidade da lista",
     "Caneca: Caneca Renovação converteu 1.4x mais que Caneca Anos Anteriores com copy similar — audiencia mais responsiva"
   ],
-  "updated": "2026-03-10T11:59:16.202063"
+  "updated": "2026-03-10T12:47:39.758716"
 };
