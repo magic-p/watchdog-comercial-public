@@ -1143,7 +1143,7 @@ window.WATCHDOG_INTEL = {
         "retracao",
         "novas"
       ],
-      "acao_sugerida": "Monitorar semana a semana as levantadas inbound do Cerco por ação (QR Revista, clique email Lili, WA DM, Webinar). Meta parcial: 50 levantadas até 30/mar (25% da meta de 60 dias). Se S1 setup atrasar além de 14/mar, renegociar KPIs.",
+      "acao_sugerida": "Monitorar levantadas inbound semanalmente por ação (QR Revista, WA/IG DM, Webinar). Meta parcial: 50 levantadas até 30/mar. S1 em andamento — t087/t088/t092 pendentes, prazo 14/mar. Carta física (Revista) é o touchpoint 2 da sequência AA+Ret+Conc. Cartinha do mimo (Ação 5) é peça separada para Top 200 AA.",
       "status": "ativo"
     },
     {
@@ -1429,6 +1429,23 @@ window.WATCHDOG_INTEL = {
         "Concorrência"
       ],
       "acao_sugerida": "Ao registrar campanha de ativação, usar 'alunos cadastrados / gasto' como CPL primário. Documentar objetivo no header da campanha (ativação vs levantada) para evitar leitura errada retroativa.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight094",
+      "data": "2026-03-11",
+      "fonte": "Cerco Mágico - 2026.pdf — análise Claudete 11/03",
+      "categoria": "campanha",
+      "gatilho": "reciprocidade",
+      "insight": "O Cerco Mágico usa dois objetos físicos com funções distintas: (1) Revista Estante Mágica = mala direta tabloide para 4.716 escolas (AA+Ret+Conc), cria reconhecimento de marca; (2) cartinha personalizada = acompanha mimo chocolate para Top 200 AA, cria reciprocidade e curiosidade. Confundir os dois é confundir canal de escala com canal cirúrgico.",
+      "evidencia": "PDF Cerco Mágico 2026: Ação 2 (Revista, R$5/un, 4.716 escolas) e Ação 5 (mimo chocolate R$30/escola + cartinha, Top 200 AA com maior receita histórica). Objetivos diferentes, tons diferentes, momentos diferentes na sequência.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "anos_anteriores",
+        "retração",
+        "concorrência"
+      ],
+      "acao_sugerida": "Ao briefar copy física: separar tom da Revista (institucional, tabloide, reconhecimento de marca) do tom da cartinha do mimo (pessoal, manuscrito ou próximo disso, gratidão + curiosidade). Mesma escola pode receber as duas peças em momentos diferentes.",
       "status": "ativo"
     }
   ],
