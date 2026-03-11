@@ -1447,6 +1447,101 @@ window.WATCHDOG_INTEL = {
       ],
       "acao_sugerida": "Ao briefar copy física: separar tom da Revista (institucional, tabloide, reconhecimento de marca) do tom da cartinha do mimo (pessoal, manuscrito ou próximo disso, gratidão + curiosidade). Mesma escola pode receber as duas peças em momentos diferentes.",
       "status": "ativo"
+    },
+    {
+      "id": "insight095",
+      "data": "2026-03-11",
+      "fonte": "11.03.26 Meta Aquisicao 26 Daily comercial Acoes da semana.pdf",
+      "categoria": "baldinho",
+      "gatilho": null,
+      "insight": "Concorrencia pode ter RR/SDR acima da meta mas zero alunos cadastrados na mesma semana. O desacoplamento indica que o gargalo esta na conversao RR->alunos, nao no volume de reunioes.",
+      "evidencia": "11/03: Concorrencia RR/SDR semanal 0,50/0,49 = 102%. Mas meta alunos semana: 0/721 = 0%. Mes: alunos 216/2.963 = 27% vs RR 105%.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "concorrencia"
+      ],
+      "acao_sugerida": "Monitorar separadamente RR/SDR vs conversao RR-alunos em Concorrencia. Quando divergem, o problema esta no fechamento pos-RR, nao no volume de reunioes.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight096",
+      "data": "2026-03-11",
+      "fonte": "11.03.26 Meta Aquisicao 26 Daily comercial Acoes da semana.pdf",
+      "categoria": "baldinho",
+      "gatilho": null,
+      "insight": "Retracao exibe padrao recorrente de colapso semanal mesmo com resultado mensal acumulado positivo. Mes verde de Retracao pode mascarar debito do mes corrente.",
+      "evidencia": "11/03: Retracao mes 130% alunos, semana RR/SDR 0,20/0,64 = 29%, realizadas 2/14 = 37%. Identico ao padrao de 24/02 registrado em insight012.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "retracao"
+      ],
+      "acao_sugerida": "Tratar indicador semanal de Retracao como leading indicator do proximo mes. Mes verde com semana colapsada = proximo mes comeca em debito. Disparo: priorizar base em entrada e descarte, nunca SDR ativo.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight097",
+      "data": "2026-03-11",
+      "fonte": "11.03.26 Meta Aquisicao 26 Daily comercial Acoes da semana.pdf",
+      "categoria": "performance",
+      "gatilho": null,
+      "insight": "SDRs em rampa de Novas (RR/SDR 0,11) tem produtividade 58% menor que rampados (0,21) e 58% abaixo da meta (0,26). Dado de marco confirma insight054 com benchmark quantificado.",
+      "evidencia": "11/03 Novas: RR/SDR rampado 0,21 vs rampando 0,11, consistente semana e mes.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "novas",
+        "processo_sdr"
+      ],
+      "acao_sugerida": "Manter exclusao de trainees do calculo de capacidade operacional de curto prazo. Usar 0,11 como baseline de trainee de Novas.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight098",
+      "data": "2026-03-11",
+      "fonte": "Daily Gestao Comercial 2026-03-11 Anotacoes do Gemini.pdf",
+      "categoria": "oferta",
+      "gatilho": "reciprocidade",
+      "insight": "Mimos fisicos enviados antes da RR aumentam taxa de aparicao de 74% para 85% (+11pp), mas nao impactam diretamente fechamento ou conversao. O beneficio e reducao de no-show, nao aumento de fechamento.",
+      "evidencia": "Daily 11/03: dados de mimos pre-RR. Aparicao 74% -> 85%. Investimento R$4.500/mes. Sem impacto documentado em fechamento.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "todos",
+        "retracao",
+        "outbound",
+        "anos_anteriores"
+      ],
+      "acao_sugerida": "Usar taxa de aparicao como KPI primario de mimos pre-RR, nao fechamento. Monitorar fechamento com grupo controle por pelo menos 4 semanas. Analise prevista quarta 18/03.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight099",
+      "data": "2026-03-11",
+      "fonte": "Daily Gestao Comercial 2026-03-11 Anotacoes do Gemini.pdf",
+      "categoria": "copy",
+      "gatilho": "novidade",
+      "insight": "Para base outbound, copy 'beneficios exclusivos' domina copy emocional/playlist com 4,5x mais levantadas (9 vs 2) e CPL 10x melhor (R$34,90 vs R$361). Confirma e reforca insight043.",
+      "evidencia": "Daily 11/03: 'Beneficios exclusivos': 9 levantadas CPL R$34,90. 'Playlist': 2 levantadas CPL R$361.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "outbound",
+        "novas"
+      ],
+      "acao_sugerida": "Adotar 'beneficios exclusivos' como copy padrao para base outbound. Nunca usar playlist em copy outbound.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight100",
+      "data": "2026-03-11",
+      "fonte": "Daily Gestao Comercial 2026-03-11 Anotacoes do Gemini.pdf",
+      "categoria": "copy",
+      "gatilho": "presente",
+      "insight": "Para base de retracao, copy 'presente exclusivo' tem benchmark de 12 levantadas em dois disparos distintos, CPLs R$29 e R$15. E o melhor resultado registrado para retracao em copy escrita. Teste A/B com argumento funcional ('nao da trabalho') vai revelar qual angulo domina nesse segmento.",
+      "evidencia": "Daily 11/03: 'Presente exclusivo' retracao: disparo 1 = 12 levantadas CPL R$29, disparo 2 = 12 levantadas CPL R$15.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "retracao"
+      ],
+      "acao_sugerida": "Usar CPL R$15-29 e 12 levantadas como benchmark para avaliar resultado do A/B de 11/03. Registrar resultado no historico_campanhas.json.",
+      "status": "ativo"
     }
   ],
   "criticas_ativas": [
@@ -1852,7 +1947,40 @@ window.WATCHDOG_INTEL = {
       "dri": "Luana",
       "status": "aberto",
       "nota_status": "Identificado via Mensagem da Lua.pdf em 11/mar/2026"
+    },
+    {
+      "id": "alerta040",
+      "data": "2026-03-11",
+      "titulo": "Retracao semanal em colapso (2/14 RRs, 29% RR/SDR) e Outbound abaixo (6/20)",
+      "critica": "Pior ritmo semanal registrado em Retracao. Outbound tambem abaixo da meta semanal. A/B email disparado hoje; WA amanha 8h com copy vencedor. Se ate quinta nao houver recuperacao, risco de marco fechar abaixo.",
+      "acao_sugerida": "Vitoria executar WA amanha 8h com copy vencedor do A/B. Se ate quinta 14/03 sem recuperacao significativa, Pimentel acionar reforco de SDR ou redirecionamento de capacidade.",
+      "prioridade": "critica",
+      "dri": "Vitoria Riente",
+      "status": "aberto",
+      "nota_status": "A/B email disparado 11/03. WA previsto amanha 8h."
+    },
+    {
+      "id": "alerta041",
+      "data": "2026-03-11",
+      "titulo": "Novas semanal com zero alunos cadastrados (0/845) e LT PART em 24% da meta mensal",
+      "critica": "Meta alunos semanal Novas: 0/845 (0%). LT PART: 7/30 convertidas (23%), R$24k/R$98k. Sem acao de disparo esta semana, ambas fecham o mes abaixo.",
+      "acao_sugerida": "Autorizar disparo WA para base Novas em etapas iniciais (entrada, tentativa) ate 13/mar, filtrando acima de 80 alunos. Vitoria executa, Nath valida base antes. Karina entregar plano LT PART hoje (t161).",
+      "prioridade": "alta",
+      "dri": "Vitoria Riente",
+      "status": "aberto",
+      "nota_status": "Aguardando Nath validar base elegivel"
+    },
+    {
+      "id": "alerta042",
+      "data": "2026-03-11",
+      "titulo": "Concorrencia paradoxo: RR/SDR 102% mas zero alunos cadastrados na semana",
+      "critica": "Concorrencia: RR/SDR 102% mas 0% de meta de alunos na semana (0/721). Meta mensal em 27% (216/2.963). Paradoxo indica gargalo na conversao RR->alunos, nao no volume de reunioes.",
+      "acao_sugerida": "Nath investigar causa do gap RR/SDR vs alunos em Concorrencia na semana 11/03. Diagnostico ate sexta-feira 13/03.",
+      "prioridade": "alta",
+      "dri": "Nath Ferreira",
+      "status": "aberto",
+      "nota_status": "Tarefa de investigacao criada (t161)"
     }
   ],
-  "ultima_atualizacao": "2026-03-11T10:00:00.000000"
+  "ultima_atualizacao": "2026-03-11"
 };
