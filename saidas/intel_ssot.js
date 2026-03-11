@@ -1277,6 +1277,159 @@ window.WATCHDOG_INTEL = {
       ],
       "acao_sugerida": "Usar 3,87% levantada/entregue e R$ 13,97 CPL como benchmarks de referência para disparos WA HT PART Renovação. Investigar a taxa de não-entrega de 33,9% (398 de 1.174 não chegaram): pode indicar lista desatualizada ou números sem WA validado — se corrigida, levantadas potenciais sobem para ~45. Se meta MKT Renovação segue em risco, replicar disparo com base maior após higienização.",
       "status": "ativo"
+    },
+    {
+      "id": "insight081",
+      "data": "2026-03-11",
+      "fonte": "Escuta de audio SDR 10/mar/26",
+      "titulo": "SDR que cede a objecao de email sem reforcar valor da reuniao perde o agendamento",
+      "descricao": "Padrao: SDR faz bom contorno inicial mas cede no final concordando em enviar pre-apresentacao sem reforcar que proposta personalizada e condicoes exclusivas so sao possiveis na reuniao. Ao ceder ao email deve: (1) desvalorizar conteudo do email (apresentacao superficial/generalizada), (2) reforcar que proposta real so na reuniao.",
+      "categoria": "sdr",
+      "status": "ativo",
+      "evidencia": "Chamada de Mariana Nogueira analisada na sessao de escuta 10/mar/26. Leticia Montemor identificou o padrao como ponto negativo recorrente.",
+      "acao_sugerida": "Incluir no discurso padrao: ao ceder ao email, desvalorizar o conteudo (generica, superficial) e reforcar que proposta personalizada e condicoes exclusivas so na reuniao com especialista."
+    },
+    {
+      "id": "insight082",
+      "data": "2026-03-11",
+      "fonte": "Escuta de audio SDR 10/mar/26",
+      "titulo": "Beneficio (financeiro ou playlist) deve ser guardado para o MEIO da ligacao, nao revelado no inicio",
+      "descricao": "Revelar o beneficio logo no inicio gera animacao superficial sem engajamento na proposta consultiva. Guardar para o meio mantem a gestora engajada ate a proposta e permite adaptar o beneficio ao contexto da escola.",
+      "categoria": "sdr",
+      "status": "ativo",
+      "evidencia": "Sara Penteado e Bebel Bertuccelli na sessao de escuta 10/mar/26. Bebel observou que a mencao inicial ao beneficio foi feita sem conviccao e sem vender a exclusividade.",
+      "acao_sugerida": "No discurso padrao SDR: mencionar a existencia de um beneficio exclusivo no inicio (para gerar interesse), guardar detalhes (financeiro ou playlist) para o meio. Incluir no checklist visual Wydi."
+    },
+    {
+      "id": "insight083",
+      "data": "2026-03-11",
+      "fonte": "Escuta de audio SDR 10/mar/26",
+      "titulo": "Pesquisar historico do card antes de ligar e usar objecoes e dores passadas como gancho",
+      "descricao": "Escolas com contato anterior tem historico de objecoes e dores no CRM. SDR que pesquisa antes da ligacao pode usar como gancho e prevenir negativa imediata. Especialmente valido para escolas novas que ja tiveram contato mas nao aplicaram.",
+      "categoria": "sdr",
+      "status": "ativo",
+      "evidencia": "Sara Penteado e Wydi Gomes na sessao de escuta 10/mar/26. Escola Novas tinha gestora que tentou aplicar no ano anterior mas foi barrada pela central - informacao disponivel no card mas nao usada pelo SDR.",
+      "acao_sugerida": "Regra obrigatoria pre-ligacao: abrir o card no CRM e verificar historico de trocas e objecoes. Usar como gancho na abordagem. Incluir no checklist visual SDR como primeiro passo."
+    },
+    {
+      "id": "insight084",
+      "data": "2026-03-11",
+      "fonte": "Escuta de audio SDR 10/mar/26",
+      "titulo": "Perguntar sobre projetos ou atividades internas voltadas para leitura e escrita - nao apenas projetos",
+      "descricao": "Quando SDR pergunta apenas sobre projetos, gestora ou secretaria tende a negar (o que e improvavel). A formulacao mais precisa - atividades internas voltadas para leitura e escrita - reduz a negativa reflexa e aumenta a precisao da informacao coletada.",
+      "categoria": "sdr",
+      "status": "ativo",
+      "evidencia": "Wydi Gomes observou durante analise da chamada de Mari na sessao de escuta 10/mar/26. Gestora negou ter projetos quando perguntada de forma generica.",
+      "acao_sugerida": "Substituir pergunta generica por: projetos ou atividades internas voltadas para leitura e escrita. Atualizar no script padrao SDR (t152)."
+    },
+    {
+      "id": "insight085",
+      "data": "2026-03-11",
+      "fonte": "Encontro Aquisicao 04/mar/26 (Lili)",
+      "titulo": "Maior gargalo do funil SDR por volume e a barreira da secretaria - 30% das ligacoes nao chegam a gestora",
+      "descricao": "30% das ligacoes SDR sao barradas na secretaria que nao passa para a coordenadora/gestora. E o maior ponto de perda por volume no funil. Papel do Mkt no Cerco Magico e cercar a escola antes da ligacao SDR para que a gestora ja conheca a EM e a secretaria passe.",
+      "categoria": "funil",
+      "status": "ativo",
+      "evidencia": "Encontro Aquisicao 04/mar/26 coordenado por Lili. Item 2 do documento de oportunidades por etapa de funil.",
+      "acao_sugerida": "Fortalecer o Cerco Magico como solucao estrutural para a barreira da secretaria. Medir % de ligacoes barradas na secretaria vs que chegam a gestora por baldinho para rastrear impacto do cerco."
+    },
+    {
+      "id": "insight086",
+      "data": "2026-03-11",
+      "fonte": "Escuta de audio SDR 10/mar/26",
+      "titulo": "Escola que usou concorrencia pode retornar com carinho e receptividade pela EM - encantamento e ativo estrategico em AA",
+      "descricao": "Escola do segmento AA que optou por concorrentes no ano anterior demonstrou alta receptividade e carinho pela EM quando abordada. O encantamento historico da EM com a escola e um ativo estrategico em AA que deve ser explorado na abordagem.",
+      "categoria": "canal",
+      "status": "ativo",
+      "evidencia": "Chamada de Tati para escola de Anos Anteriores na sessao de escuta 10/mar/26. Gestora Mirla demonstrou saudades da EM e curiosidade sobre novidades mesmo tendo usado Lives e Ciranda de Livros no ano anterior.",
+      "acao_sugerida": "No segmento AA: usar historico de relacionamento com a EM como gancho primario. Escola que foi para concorrencia nao e lead frio - e lead quente com historia. Perguntar sobre a experiencia anterior e validar o carinho existente."
+    },
+    {
+      "id": "insight087",
+      "data": "2026-03-11",
+      "fonte": "Encontro Aquisicao 04/mar/26 (Lili)",
+      "titulo": "Queda de levantadas 2024 para 2025 pode estar correlacionada com mudanca de argumento principal (MEL para antecipacao de receita)",
+      "descricao": "Em 2024 argumento central era MEL (motivacao emocional do livro); em 2025 mudou para objetivo de antecipacao de receita. Houve queda de levantadas. Hipotese: MEL tinha maior ressonancia emocional com gestoras do que o argumento de receita. Ainda e hipotese - requer investigacao de Mkt.",
+      "categoria": "oferta",
+      "status": "ativo",
+      "evidencia": "Encontro Aquisicao 04/mar/26 (Lili) - item 4. Queda de levantadas de 24 para 25 identificada. Hipotese levantada por Lili.",
+      "acao_sugerida": "Karina investigar argumento MEL de 2024: quais materiais, qual formulacao, qual resultado. Avaliar se e replicavel ou adaptavel para 2026. Task t148 criada para esse fim."
+    },
+    {
+      "id": "insight088",
+      "data": "2026-03-11",
+      "fonte": "Encontro Aquisicao 04/mar/26 (Lili)",
+      "titulo": "Disparo WA so ocorre para campo celular - outros campos de contato nao sao alcancados, representando perda de alcance",
+      "descricao": "Disparo de WA utilitario so acontece para registros com campo celular preenchido. Outros campos de contato nao recebem disparos, representando escolas potencialmente alcancaveis que nao estao sendo contatadas. Custo do utilitario: R$0,09 por disparo.",
+      "categoria": "canal",
+      "status": "ativo",
+      "evidencia": "Encontro Aquisicao 04/mar/26 (Lili) - item 1.1. Validacao de WPP identificada como oportunidade com impacto em conversao.",
+      "acao_sugerida": "Vitoria implementar disparo WA utilitario para campos alem de celular (t143). Medir impacto em taxa de atendimento apos implementacao."
+    },
+    {
+      "id": "insight089",
+      "data": "2026-03-11",
+      "fonte": "Mensagem da Lua.pdf",
+      "titulo": "Ligacao via WhatsApp em prospeccao B2B escola gera bloqueio de numero e percepcao de invasao — canal inviavel como padrao",
+      "descricao": "Teste com 30 escolas (ligacoes via WA) resultou em 1 reuniao (3,3% de conversao) e bloqueio do numero institucional pela Meta, possivelmente por denuncia de escola. 2 escolas declararam explicitamente que nao atendem ligacoes via WhatsApp. Percepcao das gestoras e de invasao, nao de contato comercial legitimo. Compromete o numero como ativo estrategico.",
+      "categoria": "canal",
+      "status": "ativo",
+      "evidencia": "30 escolas trabalhadas, 5 contatos efetivos, 1 reuniao realizada, numero bloqueado na Meta. 2 escolas recusaram explicitamente ligacoes WA.",
+      "acao_sugerida": "Nunca usar ligacao via WhatsApp como canal padrao de prospeccao SDR. Reservar WA para ultimo recurso (todos canais tentados, escola seria descartada). Usar numero descartavel dedicado se necessario."
+    },
+    {
+      "id": "insight090",
+      "data": "2026-03-11",
+      "fonte": "Mensagem da Lua.pdf",
+      "titulo": "Blip com autorizacao previa transforma ligacao fria em canal autorizado — reduz risco operacional mas exige etapa adicional",
+      "descricao": "Estrategia de Lua: (1) WA como canal de suporte, (2) mensagem solicitando autorizacao para contato por voz, (3) apos autorizacao, ligacao via Blip. Muda percepcao da gestora de ligacao invasiva para canal autorizado. Dependente da resolucao do alerta020 (risco de bloqueio permanente do Blip).",
+      "categoria": "sdr",
+      "status": "ativo",
+      "evidencia": "Recomendacao estrategica de Lua apos teste de 30 escolas. Alinha com alerta020.",
+      "acao_sugerida": "Quando alerta020 for resolvido, adotar protocolo de 3 etapas de Lua como padrao para ligacoes SDR: WA suporte -> autorizacao -> ligacao Blip. Nunca implementar antes de resolver risco de bloqueio permanente."
+    },
+    {
+      "id": "insight091",
+      "data": "2026-03-11",
+      "fonte": "Mensagem da Lua.pdf",
+      "titulo": "Concorrencia com Arvore de Livros e Editora Moderna com contrato ativo = descarte imediato, sem tentativa de contorno",
+      "descricao": "Escolas com parceiro concorrente contratado ativamente bloquearam o contato apos informar a parceria. Tentativas de contorno consumiram o canal (bloqueio do numero). Dado de projeto ativo com concorrente deve ser tratado como criterio de descarte imediato.",
+      "categoria": "funil",
+      "status": "ativo",
+      "evidencia": "Descarte Oziel: escola com Editora Moderna bloqueou contato. Descarte Thais: escola com Arvore de Livros declarou sem interesse.",
+      "acao_sugerida": "Incluir campo concorrente ativo contratado no card CRM como criterio de descarte automatico. SDR nao tenta contorno quando escola informa parceria ativa — registra e descarta."
+    },
+    {
+      "id": "insight092",
+      "data": "2026-03-11",
+      "fonte": "Excel Disparos e Controles de Marketing — março 2026 (análise Claudete)",
+      "categoria": "canal",
+      "gatilho": "novidade",
+      "insight": "Tema 'Sem trabalho' em Renovação HT gera CPL 3-7x menor que Playlist para o mesmo público",
+      "evidencia": "09/03 PUB HT R$10.06 e 10/03 PART HT R$11.64 vs Renovação Playlist fev-mar: R$37-94. Duas semanas consecutivas confirmam padrão — não é ruído de amostra.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "Renovação"
+      ],
+      "acao_sugerida": "Priorizar oferta 'Sem trabalho' em novos disparos de Renovação HT; testar em LT e outros baldinhos para confirmar se o efeito é universal ou específico de HT.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight093",
+      "data": "2026-03-11",
+      "fonte": "Excel Disparos e Controles de Marketing — março 2026 (análise Claudete)",
+      "categoria": "copy",
+      "gatilho": null,
+      "insight": "Campanhas de ativação de lista têm KPI primário diferente de levantada — alunos cadastrados e convertidas são o indicador correto, não CPL de levantada",
+      "evidencia": "03/03 Playlist Renovação Pública: 0 levantadas mas 8 escolas convertidas e 351 alunos cadastrados com gasto total ~R$843. Leitura ingênua como 'campanha de levantada' classificaria essa campanha como fracasso — na verdade foi sucesso.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "Renovação",
+        "Anos Anteriores",
+        "Concorrência"
+      ],
+      "acao_sugerida": "Ao registrar campanha de ativação, usar 'alunos cadastrados / gasto' como CPL primário. Documentar objetivo no header da campanha (ativação vs levantada) para evitar leitura errada retroativa.",
+      "status": "ativo"
     }
   ],
   "criticas_ativas": [
@@ -1646,9 +1799,9 @@ window.WATCHDOG_INTEL = {
       "critica": "Pedro propôs envio de WA utilitário antes de cada ligação SDR. Ana Paula levantou risco de saturação. Lili não concluiu a deliberação. A daily encerrou sem decisão formal, sem DRI e sem definição de teste controlado. Se alguém implementar sem protocolo, pode comprometer o canal WA que já está em uso pela campanha LT e pelo Cerco Mágico.",
       "acao_sugerida": "Pedro ou Lili definir até 12/mar: (1) se o WA utilitário será testado ou arquivado, (2) se testado — DRI, frequência máxima por contato, tamanho da amostra e KPI de sucesso/fracasso.",
       "prioridade": "alta",
-      "dri": "A definir",
+      "dri": "Pedro Concy",
       "status": "aberto",
-      "nota_status": "Pedro notificado — decisão pendente desde daily de 10/mar/2026"
+      "nota_status": "DRI atualizado para Pedro em 11/mar/2026. Pedro assume decisao: (1) testar ou arquivar WA utilitario pre-ligacao SDR, (2) se testar: definir DRI execucao, frequencia, amostra e KPI."
     },
     {
       "id": "alerta037",
@@ -1671,7 +1824,18 @@ window.WATCHDOG_INTEL = {
       "dri": "Vitória",
       "status": "aberto",
       "nota_status": "Solicitado por Lili na daily de 10/mar/2026"
+    },
+    {
+      "id": "alerta039",
+      "data": "2026-03-11",
+      "titulo": "Numero WA institucional bloqueado pela Meta durante teste SDR — ativo de contato comprometido",
+      "critica": "Numero utilizado no teste de ligacoes WA com 30 escolas sofreu bloqueio na Meta, possivelmente por denuncia. Nao esta claro se e o numero principal ou temporario. Se for o principal, todos os disparos, campanhas e contatos ativos estao em risco.",
+      "acao_sugerida": "Luana confirmar hoje se o numero bloqueado e o principal ou temporario. Se for o principal: Pedro e Vitoria acionam recuperacao junto a Meta imediatamente. Documentar numero afetado e isolar das campanhas ate recuperacao confirmada.",
+      "prioridade": "alta",
+      "dri": "Luana",
+      "status": "aberto",
+      "nota_status": "Identificado via Mensagem da Lua.pdf em 11/mar/2026"
     }
   ],
-  "ultima_atualizacao": "2026-03-10T12:47:03.844808"
+  "ultima_atualizacao": "2026-03-11T10:00:00.000000"
 };

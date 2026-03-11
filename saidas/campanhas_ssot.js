@@ -424,6 +424,135 @@ window.WATCHDOG_CAMPANHAS = {
       ]
     },
     {
+      "id": "c009",
+      "data": "2026-03-03",
+      "hora": "09h30",
+      "nome": "Playlist Renovação Pública 03/03 — ativação de lista",
+      "canal": "WhatsApp (disparo)",
+      "executor": "Vitoria",
+      "status": "final",
+      "tipo": "ativacao_lista",
+      "objetivo_principal": "alunos_cadastrados",
+      "segmentos": [
+        {
+          "nome": "PUB HT >5k",
+          "baldinho": "renovacao",
+          "tipo_instituicao": "Pública",
+          "porte": "HT",
+          "base": 435,
+          "entregues": 337,
+          "taxa_entrega_pct": 77.5,
+          "respondidas": 26,
+          "alunos_cadastrados": 155,
+          "convertidas": 3,
+          "taxa_conversao_pct": 0.89,
+          "cliques": 9,
+          "taxa_clique_pct": 2.67,
+          "custo": 181.98,
+          "cpl_escola_convertida": 60.66
+        },
+        {
+          "nome": "PUB LT <5k",
+          "baldinho": "renovacao",
+          "tipo_instituicao": "Pública",
+          "porte": "LT",
+          "base": 1632,
+          "entregues": 1225,
+          "taxa_entrega_pct": 75.1,
+          "respondidas": 88,
+          "alunos_cadastrados": 99,
+          "convertidas": 3,
+          "taxa_conversao_pct": 0.24,
+          "cliques": 57,
+          "taxa_clique_pct": 4.65,
+          "custo": 283.5,
+          "cpl_escola_convertida": 94.5
+        },
+        {
+          "nome": "PART LT",
+          "baldinho": "renovacao",
+          "tipo_instituicao": "Particular",
+          "porte": "LT",
+          "base": null,
+          "entregues": null,
+          "respondidas": null,
+          "alunos_cadastrados": 97,
+          "convertidas": 2,
+          "taxa_conversao_pct": null,
+          "custo": 378.0,
+          "cpl_escola_convertida": 189.0,
+          "nota": "Sem base/entregues registrados na planilha"
+        }
+      ],
+      "total_entregues_estimado": 1562,
+      "total_convertidas": 8,
+      "total_alunos_cadastrados": 351,
+      "total_gasto": 843.48,
+      "cpl_escola_convertida_medio": 105.44,
+      "nota_qualitativa": "Campanha de ativação (não levantada) — KPI correto é alunos cadastrados. 8 escolas convertidas, 351 alunos. CPL por escola convertida ~R$105. Público HT teve melhor taxa de conversão (0.89% vs 0.24%). Oferta: Playlist. Zero levantadas é resultado ESPERADO — objetivo era cadastro de alunos, não reunião.",
+      "gatilho_identificado": null,
+      "tags_padroes": [
+        "renovacao",
+        "ativacao_lista",
+        "playlist",
+        "publico",
+        "nao_confundir_com_levantada"
+      ],
+      "aprendizados_vinculados": [
+        "insight093"
+      ]
+    },
+    {
+      "id": "c010",
+      "data": "2026-03-09",
+      "hora": "09h30",
+      "nome": "Sem Trabalho — Renovação PUB HT 09/03",
+      "canal": "WhatsApp (disparo)",
+      "executor": "Vitoria",
+      "status": "final",
+      "tipo": "disparo_mkt_renovacao",
+      "objetivo_principal": "levantadas",
+      "tag_mkt": "mkt_levantada_renovacao_pub_ht_09_03",
+      "segmentos": [
+        {
+          "nome": "PUB HT Renovação",
+          "baldinho": "renovacao",
+          "tipo_instituicao": "Pública",
+          "porte": "HT",
+          "base": 210,
+          "entregues": 149,
+          "taxa_entrega_pct": 70.95,
+          "respondidas": 9,
+          "levantadas": 8,
+          "taxa_levantada_entregue_pct": 5.37,
+          "cliques": 6,
+          "taxa_clique_pct": 4.03,
+          "custo": 80.46,
+          "cpl": 10.06
+        }
+      ],
+      "total_base": 210,
+      "total_entregues": 149,
+      "total_levantadas": 8,
+      "taxa_levantada_pct": 5.37,
+      "custo_real": 80.46,
+      "cpl": 10.06,
+      "benchmark_cpl_historico": 48.6,
+      "nota_qualitativa": "MELHOR CPL de levantada documentado em Renovação Pública. Tema 'Sem Trabalho' superou Playlist em 4-7x de eficiência. Base pequena (210) mas taxa de levantada 5.37% é excelente — confirma insight092. Referência para próximos disparos de Renovação HT PUB.",
+      "gatilho_identificado": "novidade",
+      "tags_padroes": [
+        "renovacao",
+        "levantada",
+        "sem_trabalho",
+        "publico",
+        "ht",
+        "melhor_cpl_renovacao_pub"
+      ],
+      "aprendizados_vinculados": [
+        "insight092"
+      ]
+    },
+    {
       "id": "c008",
       "data": "2026-03-10",
       "nome": "Disparo WA HT PART Renovação 5-30k — SDR + descarte + perdido",
@@ -455,6 +584,49 @@ window.WATCHDOG_CAMPANHAS = {
       "aprendizados_vinculados": [
         "insight080"
       ]
+    },
+    {
+      "id": "c011",
+      "data": "2026-03-11",
+      "hora": "08h00",
+      "nome": "AA Particular >5k — Levantadas 11/03",
+      "canal": "WhatsApp (disparo)",
+      "executor": "Vitoria",
+      "status": "parcial",
+      "tipo": "disparo_mkt_aa",
+      "objetivo_principal": "levantadas",
+      "tag_mkt": "mkt_levantada_anos_anteriores_11_03",
+      "segmentos": [
+        {
+          "nome": "AA Particular HT >5k",
+          "baldinho": "anos_anteriores",
+          "tipo_instituicao": "Particular",
+          "porte": "HT",
+          "base": 1255,
+          "entregues": null,
+          "levantadas": null,
+          "custo": null,
+          "cpl": null,
+          "nota": "Disparado às 8h de 11/03. Resultado ainda não disponível."
+        }
+      ],
+      "total_base": 1255,
+      "total_entregues": null,
+      "total_levantadas": null,
+      "custo_real": null,
+      "cpl": null,
+      "benchmark_cpl_referencia": 20.65,
+      "benchmark_referencia_campanha": "c003 — Caneca AA 25/02 = CPL R$20.65",
+      "nota_qualitativa": "Disparo realizado às 8h de 11/03. Base AA Particular >5k (1.255 escolas). Resultado esperado ao final do dia. Benchmark de referência: 25/02 Caneca AA = CPL R$20.65, 25 levantadas de 1.413 base. Expectativa: 60-70% entrega, CPL estimado R$15-25.",
+      "status_resultado": "parcial",
+      "gatilho_identificado": null,
+      "tags_padroes": [
+        "anos_anteriores",
+        "levantada",
+        "particular",
+        "ht",
+        "pendente_resultado"
+      ]
     }
   ],
   "insights": [
@@ -462,5 +634,5 @@ window.WATCHDOG_CAMPANHAS = {
     "Menor taxa: Outbound Playlist com 0.1% — revisar abordagem ou qualidade da lista",
     "Caneca: Caneca Renovação converteu 1.4x mais que Caneca Anos Anteriores com copy similar — audiencia mais responsiva"
   ],
-  "updated": "2026-03-11T06:00:05.063152"
+  "updated": "2026-03-11T07:53:32.519600"
 };
