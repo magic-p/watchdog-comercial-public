@@ -2744,8 +2744,8 @@ function buildOwnerFilters() {
   const allOwners = [...new Set(tasks.map(t => normalizeOwnerName(t.owner) || 'Sem dono'))]
     .sort((a, b) => (counts[b] || 0) - (counts[a] || 0));
 
-  // Validate ownerFilter still exists
-  if (ownerFilter && !allOwners.includes(ownerFilter)) ownerFilter = null;
+  // Preserve the selected filter across transient reloads.
+  if (ownerFilter && !allOwners.includes(ownerFilter)) allOwners.unshift(ownerFilter);
 
   const totalOpen = tasks.filter(t => !t.done).length;
 
@@ -3553,7 +3553,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
-
 
 
 
