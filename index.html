@@ -1567,8 +1567,31 @@ async function _sbPatch(patch) {
     const updates = {};
     const actor = _sbSession.user?.email?.split('@')[0] || 'dashboard';
     const now = new Date();
-    const ts = now.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo', hour12: false,
-      year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+    const parts = new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'America/Sao_Paulo',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+    }).formatToParts(now).reduce((acc, part) => {
+      if (part.type !== 'literal') acc[part.type] = part.value;
+      return acc;
+    }, {});
+    const ts = `${parts.year}-${parts.month}-${parts.day} ${parts.hour}:${parts.minute}`;
+    if (patch.deleted) {
+      const { error } = await _sb.from('todos').delete().eq('id', patch.id);
+      if (error) {
+        console.error('[Supabase] _sbPatch delete error:', error);
+        _setWriteError('Supabase: ' + (error.message || JSON.stringify(error)));
+        toast('Erro ao excluir: ' + (error.message || JSON.stringify(error)), 'err');
+        return false;
+      }
+      _setWriteError('');
+      _refreshTasksFromSupabase(true);
+      return true;
+    }
     if ('done' in patch) {
       updates.status = patch.done ? 'CONCLUIDO' : 'PENDENTE';
     }
@@ -3418,10 +3441,9 @@ async function _refreshTasksFromSupabase(silent = false) {
       if (!silent) toast('Supabase erro: ' + (error.message || JSON.stringify(error)), 'error');
       return;
     }
-    // Sempre sincroniza SSOT → Supabase (insere novas tarefas sem sobrescrever existentes)
-    await _sbSeedFromSSOT();
-
     if (!data || !data.length) {
+      // Bootstrap inicial: sem registros no Supabase, semeia a partir do SSOT estático.
+      await _sbSeedFromSSOT();
       // Supabase estava vazio — recarregar após seed
       const { data: seeded } = await _sb.from('todos').select('*').order('id');
       if (!seeded || !seeded.length) {
@@ -3435,13 +3457,11 @@ async function _refreshTasksFromSupabase(silent = false) {
       if (!silent) toast(`${seeded.length} tarefas sincronizadas`, 'ok');
       return;
     }
-    // Recarregar após possível inserção de novas tarefas
-    const { data: fresh } = await _sb.from('todos').select('*').order('id');
-    tasks = (fresh || data).map(_sbRowToTask);
+    tasks = data.map(_sbRowToTask);
     enforceWeeklyTop3(tasks);
     renderTasks();
     buildOwnerFilters();
-    if (!silent) toast(`${(fresh || data).length} tarefas carregadas`, 'ok');
+    if (!silent) toast(`${data.length} tarefas carregadas`, 'ok');
   } catch (err) {
     console.error('[Supabase] exception in _refreshTasksFromSupabase:', err);
     if (!silent) toast('Supabase falhou: ' + (err?.message || String(err)), 'error');
@@ -3487,8 +3507,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
-
-
 
 
 
