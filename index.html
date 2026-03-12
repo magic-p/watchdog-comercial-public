@@ -1702,6 +1702,11 @@ async function _sbPatch(patch) {
 async function _sbCreate(task) {
   if (!_sb || !_sbSession) return false;
   try {
+    if (isInvalidTaskTitleText(task?.task)) {
+      _setWriteError('Supabase: tarefa invalida (titulo obrigatorio).');
+      toast('Título da tarefa é obrigatório.', 'err');
+      return false;
+    }
     const { error } = await _sb.from('todos').insert({
       id: task.id, tarefa: task.task, dono: task.owner,
       prazo: task.date || null, nota: task.comment || null,
@@ -2577,6 +2582,7 @@ function openTaskModal(mode = 'create', id = null) {
         if (!ok) return;
         tasks = tasks.filter(x => x.id !== editingTaskId);
         save();
+        if (_sb && _sbSession) await _refreshTasksFromSupabase(true);
         closeTaskModal();
         renderTasks();
       };
@@ -2624,6 +2630,10 @@ async function submitTaskForm(e) {
 
   if (!taskName) {
     err.textContent = 'Descrição da tarefa é obrigatória.';
+    return;
+  }
+  if (isInvalidTaskTitleText(taskName)) {
+    err.textContent = 'Título da tarefa é obrigatório.';
     return;
   }
   if (!ownerSelect.value) {
@@ -3664,8 +3674,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
-
-
 
 
 
