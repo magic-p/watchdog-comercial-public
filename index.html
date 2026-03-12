@@ -2025,7 +2025,7 @@ const WINS = [];
 
 /*  STATE  */
 
-const OWNER_FALLBACK = 'A definir';
+const OWNER_FALLBACK = 'Lili';
 const DRI_OPTIONS = [
   'Pedro',
   'Kaka',
@@ -2085,6 +2085,7 @@ function normalizeOwnerName(owner) {
   const first = base.split(/\s(?:e|&|\+)\s|,|;|\/|\|/i)[0].trim();
   if (!first) return OWNER_FALLBACK;
   const key = ownerKey(first);
+  if (key === 'a definir') return OWNER_FALLBACK;
   return OWNER_CANONICAL[key] || first;
 }
 
@@ -2214,8 +2215,20 @@ function alertTypeIcon(chip) {
 }
 
 function normalizeSingleOwner(input) {
-  const val = normalizeOwnerName(input);
-  return val === OWNER_FALLBACK ? 'A definir' : val;
+  return normalizeOwnerName(input);
+}
+
+function hasMeaningfulTaskTitle(task) {
+  const title = String(task?.task || '').replace(/\s+/g, ' ').trim();
+  if (!title) return false;
+  if (/^tarefa sem t[ií]tulo$/i.test(title)) return false;
+  return true;
+}
+
+function sanitizeTasksForUi(list) {
+  return (Array.isArray(list) ? list : [])
+    .map(t => normalizeTask(t))
+    .filter(t => hasMeaningfulTaskTitle(t));
 }
 
 function parseWarnDays(warn) {
@@ -2395,7 +2408,10 @@ function loadUiState() {
   try {
     const s = JSON.parse(localStorage.getItem(UI_STATE_KEY) || 'null');
     if (!s) return;
-    if (s.ownerFilter !== undefined) ownerFilter = s.ownerFilter;
+    if (s.ownerFilter !== undefined) {
+      const normalizedFilter = normalizeOwnerName(s.ownerFilter);
+      ownerFilter = normalizedFilter === OWNER_FALLBACK ? null : normalizedFilter;
+    }
     if (s.taskView)  taskView  = s.taskView;
     if (s.sortCol)   sortCol   = s.sortCol;
     if (s.sortDir)   sortDir   = s.sortDir;
@@ -2588,12 +2604,12 @@ async function submitTaskForm(e) {
 }
 function load() {
   if (REQUIRE_LOGIN_FOR_READ && !_sbSession) {
-    tasks = DEMO_SEED.map(s => normalizeTask({ ...s }));
+    tasks = sanitizeTasksForUi(DEMO_SEED.map(s => ({ ...s })));
     enforceWeeklyTop3(tasks);
     return;
   }
   if (HAS_BACKEND_TODOS) {
-    tasks = SEED.map(s => normalizeTask({ ...s }));
+    tasks = sanitizeTasksForUi(SEED.map(s => ({ ...s })));
     enforceWeeklyTop3(tasks);
     return;
   }
@@ -2614,12 +2630,15 @@ function load() {
           tier: done ? 'done' : (tier === 'done' ? 't2' : tier),
           tierLabel: done ? 'Concluído' : (tier === 't1' ? 'A fazer' : 'Fazendo') });
       });
-      raw.forEach(t => { if (!SEED.find(s => s.id === t.id)) tasks.push(normalizeTask(t)); });
+      raw.forEach(t => {
+        if (!SEED.find(s => s.id === t.id)) tasks.push(normalizeTask(t));
+      });
+      tasks = sanitizeTasksForUi(tasks);
     } else {
-      tasks = SEED.map(s => normalizeTask({ ...s }));
+      tasks = sanitizeTasksForUi(SEED.map(s => ({ ...s })));
     }
   } catch {
-    tasks = SEED.map(s => normalizeTask({ ...s }));
+    tasks = sanitizeTasksForUi(SEED.map(s => ({ ...s })));
   }
   enforceWeeklyTop3(tasks);
 }
@@ -3507,7 +3526,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
-
 
 
 
