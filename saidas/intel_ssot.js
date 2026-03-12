@@ -1637,7 +1637,8 @@ window.WATCHDOG_INTEL = {
         "Novas"
       ],
       "acao_sugerida": "Mapear e priorizar expansão dos campos de telefone antes de qualquer ação de validação; testar envio utilitário para base expandida e usar não-resposta como critério de limpeza.",
-      "status": "ativo"
+      "status": "incorporada",
+      "nota_fechamento": "Consolidado em insight102 no saneamento de 12/03/2026. Mesmo aprendizado operacional, com texto mais completo e evidencia equivalente."
     },
     {
       "id": "insight108",
@@ -2128,8 +2129,8 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Definir DRI para montar a base de disparo de renovação (descarte + perda) e garantir entrega até 13/mar EOD para que Lili possa revisar antes de segunda.",
       "prioridade": "alta",
       "dri": "A definir",
-      "status": "aberto",
-      "nota_status": "Daily 12/mar: base prometida para o dia seguinte, disparo na segunda. Nenhum nome foi formalmente atribuído à montagem da base."
+      "status": "incorporada",
+      "nota_status": "Consolidado no alerta048 em 12/03/2026. Mesmo problema operacional de base de renova??o para disparo de segunda, com DRI definido."
     },
     {
       "id": "alerta044",
@@ -2187,5 +2188,5 @@ window.WATCHDOG_INTEL = {
       "nota_status": ""
     }
   ],
-  "ultima_atualizacao": "2026-03-12T11:27:29.662854"
+  "ultima_atualizacao": "2026-03-12T18:31:22.684398"
 };
