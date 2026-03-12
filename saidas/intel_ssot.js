@@ -2,7 +2,7 @@ window.WATCHDOG_INTEL = {
   "persona": {
     "nome": "Claudete",
     "papel": "Chief of Staff & Head of Marketing Analytics",
-    "ultima_atualizacao": "2026-03-02T12:00:00"
+    "ultima_atualizacao": "2026-03-12T11:39:51.650703"
   },
   "aprendizados": [
     {
@@ -1542,6 +1542,145 @@ window.WATCHDOG_INTEL = {
       ],
       "acao_sugerida": "Usar CPL R$15-29 e 12 levantadas como benchmark para avaliar resultado do A/B de 11/03. Registrar resultado no historico_campanhas.json.",
       "status": "ativo"
+    },
+    {
+      "id": "insight101",
+      "data": "2026-03-12",
+      "fonte": "Daily _ Gestão Comercial - 2026_03_12 10_31 GMT-03_00 - Anotações do Gemini.pdf",
+      "categoria": "campanha",
+      "gatilho": "queda levantadas Outbound 5 para 3,75",
+      "insight": "Priorização de escolas High Value no Outbound pode reduzir volume de levantadas porque histórico mostra que escolas de médio e micro porte são as que mais convertem nesse canal. Alta segmentação por valor unitário inverte a lógica de volume que sustenta o funil Outbound.",
+      "evidencia": "Vitória reportou queda de média de levantadas de 5 para 3,75 por disparo vs ano anterior. Lili e Vit levantaram hipótese de que a segmentação atual (High Value) pode ser a causa, dado que médio/micro historicamente convertiam mais nesse canal.",
+      "confianca": "media",
+      "aplicavel_a": [
+        "Outbound",
+        "segmentação de base"
+      ],
+      "acao_sugerida": "Antes de ajustar segmentação Outbound, sempre comparar CPL e taxa de levantada por tier de escola (High Value vs médio vs micro) no histórico. Não assumir que High Value = melhor canal Outbound — o canal pode ter perfil de público diferente do canal de relacionamento.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight102",
+      "data": "2026-03-12",
+      "fonte": "Daily _ Gestão Comercial - 2026_03_12 10_31 GMT-03_00 - Anotações do Gemini.pdf",
+      "categoria": "operacao",
+      "gatilho": "base WhatsApp 19 campos vs 2 utilizados",
+      "insight": "A base de WhatsApp da Estante Mágica usa apenas 2 dos 19 campos de telefone disponíveis no CRM. A oportunidade de expansão de alcance está no próprio banco de dados, não em enriquecimento externo. Testar o envio utilitário para os campos não abordados e remover quem não responde é a forma mais rápida e barata de limpar e expandir a base simultaneamente.",
+      "evidencia": "Vit identificou 19 campos de telefone; apenas 2 estão sendo usados nos disparos. Lili priorizou ampliar o raio antes de validar, com plano de teste via envio utilitário seguido de remoção dos não-respondentes.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "WhatsApp",
+        "base de contatos",
+        "campanhas outbound"
+      ],
+      "acao_sugerida": "Sempre verificar cobertura de campos de telefone no CRM antes de contratar enriquecimento externo. Expansão interna de campos é mais rápida, mais barata e valida a base como efeito colateral do próprio disparo.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight103",
+      "data": "2026-03-12",
+      "fonte": "Daily _ Gestão Comercial - 2026_03_12 10_31 GMT-03_00 - Anotações do Gemini.pdf",
+      "categoria": "campanha",
+      "gatilho": "teste A/B retração presente exclusivo vs sem trabalho",
+      "insight": "No segmento de Retração, copy com argumento emocional/reciprocidade ('presente exclusivo') tem CPL R$28 contra R$73 do argumento funcional ('sem trabalho'). O ângulo de reciprocidade supera o de facilidade operacional em 2,6x nesse público — que já conhece o produto e provavelmente tem objeção emocional, não operacional.",
+      "evidencia": "Vit apresentou resultado do teste A/B de retração: 'presente exclusivo' CPL R$28, 'sem trabalho' CPL R$73. Resultado do dia 12/mar.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "Retração",
+        "copy WhatsApp",
+        "copy e-mail"
+      ],
+      "acao_sugerida": "Para base de Retração, sempre usar ângulo de reciprocidade/presente como copy principal. Argumento funcional ('não dá trabalho') deve ser tratado como contorno de objeção secundária, não como gancho de abertura.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight104",
+      "data": "2026-03-12",
+      "fonte": "Nath 12.03.26 Meta Aquisição 26 _ Daily comercial _ Ações da semana.pdf",
+      "categoria": "funil",
+      "insight": "HT PÚB tem a maior taxa de fechamento da cartela (235% da meta semanal) mas volume de Realizadas em 58% — o gargalo não é conversão, é abastecimento de topo de funil. Produto de maior eficiência sendo sub-abastecido.",
+      "evidencia": "HT PÚB Semanal: Tx Fechadas 235% da meta, Realizadas 4/11 (58% YTD), RR/SDR 1,33/2,29 (58%).",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "HT_PUB",
+        "Renovacao"
+      ],
+      "acao_sugerida": "Em HT PÚB, alavanca de resultado é volume de prospecção (RR/SDR), não melhoria de discurso. Priorizar abastecimento de topo quando meta mensal estiver em risco.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight106",
+      "data": "2026-03-12",
+      "fonte": "Daily _ Gestão Comercial - 2026_03_12 10_31 GMT-03_00 - Anotações do Gemini.pdf",
+      "categoria": "campanha",
+      "insight": "Copy 'presente exclusivo' supera 'sem trabalho' em Retração com margem expressiva: CPL R$28 vs R$73 (2,6x mais barato). Consistente com benchmark anterior (insight100: CPL R$15-29).",
+      "evidencia": "Teste A/B Retração 12/03: 'presente exclusivo' CPL R$28, 'sem trabalho' CPL R$73 — apresentado por Vitória na daily.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "Retracao"
+      ],
+      "acao_sugerida": "Adotar 'presente exclusivo' como copy padrão em toda comunicação de Retração; descontinuar variantes baseadas em ausência de esforço.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight107",
+      "data": "2026-03-12",
+      "fonte": "Daily _ Gestão Comercial - 2026_03_12 10_31 GMT-03_00 - Anotações do Gemini.pdf",
+      "categoria": "operacao",
+      "insight": "Base WA da Estante Mágica possui 19 campos de telefone, mas apenas 2 são utilizados nos disparos — potencial de expansão de raio em ~9,5x sem custo adicional de aquisição.",
+      "evidencia": "Liliane identificou 3 oportunidades na daily: aumentar base (18 campos não usados), validar números, ordenar campos. Vitória confirmou 19 campos totais.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "Outbound",
+        "Retracao",
+        "Anos Anteriores",
+        "Novas"
+      ],
+      "acao_sugerida": "Mapear e priorizar expansão dos campos de telefone antes de qualquer ação de validação; testar envio utilitário para base expandida e usar não-resposta como critério de limpeza.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight108",
+      "data": "2026-03-12",
+      "fonte": "Daily _ Gestão Comercial - 2026_03_12 10_31 GMT-03_00 - Anotações do Gemini.pdf",
+      "categoria": "campanha",
+      "insight": "Segmentação exclusiva em High Value pode estar deprimindo taxa de levantadas no Outbound: queda de 5 para 3,75 levantadas/disparo vs ano anterior (-25%), pois escolas médio e micro porte historicamente convertiam mais.",
+      "evidencia": "Vitória apresentou queda de desempenho Outbound; hipótese levantada por Liliane e Vitória na daily 12/03.",
+      "confianca": "media",
+      "aplicavel_a": [
+        "Outbound"
+      ],
+      "acao_sugerida": "Incluir segmento médio e micro porte em testes de Outbound ao lado do High Value para isolar se a queda é de segmentação ou de mercado.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight109",
+      "data": "2026-03-12",
+      "fonte": "Daily _ Gestão Comercial - 2026_03_12 10_31 GMT-03_00 - Anotações do Gemini.pdf",
+      "categoria": "campanha",
+      "insight": "Formato de vídeo personalizado estilo Spotify Wrapped (dados reais da escola) funciona como mecanismo de relacionamento antes de renovação — cria antecipação sem pressão de compra.",
+      "evidencia": "Liliane relatou sucesso histórico do formato; daily decidiu expandir para escolas em descarte/perda com disparo 16/03.",
+      "confianca": "media",
+      "aplicavel_a": [
+        "Renovacao",
+        "Anos Anteriores"
+      ],
+      "acao_sugerida": "Após validar resultado de 16/03, criar playbook do formato Spotify Wrapped para reuso em reativação e renovação.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight110",
+      "data": "2026-03-12",
+      "fonte": "Daily _ Gestão Comercial - 2026_03_12 10_31 GMT-03_00 - Anotações do Gemini.pdf",
+      "categoria": "campanha",
+      "insight": "Copy de benefícios para Anos Anteriores performa melhor em escolas sem SDR atribuído — cold outreach WA é mais efetivo sem interferência de relacionamento prévio com SDR.",
+      "evidencia": "Pedro Concy e Pimentel observaram na análise de disparos que copy benefícios funcionou especialmente bem em escolas sem SDR atribuído.",
+      "confianca": "media",
+      "aplicavel_a": [
+        "Anos Anteriores"
+      ],
+      "acao_sugerida": "Segmentar base Anos Anteriores por presença/ausência de SDR atribuído e calibrar copy: benefícios para sem SDR, relacionamento para com SDR.",
+      "status": "ativo"
     }
   ],
   "criticas_ativas": [
@@ -1980,7 +2119,73 @@ window.WATCHDOG_INTEL = {
       "dri": "Nath Ferreira",
       "status": "aberto",
       "nota_status": "Tarefa de investigacao criada (t161)"
+    },
+    {
+      "id": "alerta043",
+      "data": "2026-03-12",
+      "titulo": "Base de disparo renovação precisa estar pronta hoje para envio segunda",
+      "critica": "Foi decidido que o disparo dos vídeos de renovação ocorre na segunda-feira (16/mar) e que a base precisa estar pronta no dia seguinte à daily (ou seja, 13/mar). A base inclui escolas de descarte e perda. Não há tarefa formal criada para quem vai montar essa base nem DRI explícito para a entrega do arquivo.",
+      "acao_sugerida": "Definir DRI para montar a base de disparo de renovação (descarte + perda) e garantir entrega até 13/mar EOD para que Lili possa revisar antes de segunda.",
+      "prioridade": "alta",
+      "dri": "A definir",
+      "status": "aberto",
+      "nota_status": "Daily 12/mar: base prometida para o dia seguinte, disparo na segunda. Nenhum nome foi formalmente atribuído à montagem da base."
+    },
+    {
+      "id": "alerta044",
+      "data": "2026-03-12",
+      "titulo": "Três tópicos da Claudete sem tarefa criada — risco de ação perdida",
+      "critica": "Nath levantou na daily que havia três tópicos enviados pela Claudete que não foram criados como tarefas. Pedro solicitou que informassem quais eram para ajustar. O documento não identifica quais são esses três tópicos, e não há DRI nem prazo definido para resolver o gap.",
+      "acao_sugerida": "Claudete deve listar os 3 tópicos não-tarefizados e enviar para Pedro até 13/mar para criação formal.",
+      "prioridade": "media",
+      "dri": "Claudete",
+      "status": "aberto",
+      "nota_status": "Mencionado na daily 12/mar. Contexto: Nath levantou a dúvida, Pedro pediu a lista. Nenhuma resolução registrada no documento."
+    },
+    {
+      "id": "alerta045",
+      "data": "2026-03-12",
+      "titulo": "LT PART: 23% de convertidas e 24% de receita com 12 dias úteis restantes",
+      "critica": "LT PART em 7/30 convertidas (23%) e R$24.000/R$98.649 em receita (24%). O alerta041 registrou esse dado para a semana passada; o documento de hoje confirma que não houve recuperação — os números são praticamente iguais. Com ~12 dias úteis restantes em março (supondo ~15 dias úteis no mês e 3 já executados), fechar os 23 convertidas restantes exigiria quase 2 convertidas por dia útil. A base cadastrada de 272 alunos e custo de disparo R$378 sugerem que a ação de disparo está ocorrendo, mas a conversão não está acompanhando. Isso é diferente do alerta041 (que focava em ausência de disparo) — aqui o disparo ocorreu e a conversão está baixa.",
+      "acao_sugerida": "Kaká ou Vit: verificar se houve follow-up comercial nas 272 escolas com alunos cadastrados via LT PART que ainda não converteram — se o disparo gerou cadastro mas não gerou contato SDR, o funil está vazando entre marketing e comercial.",
+      "prioridade": "alta",
+      "dri": "Karina Machado",
+      "status": "aberto",
+      "nota_status": "2026-03-12: LT PART 7/30 convertidas (23%), R$24k/R$98k (24%). 272 alunos cadastrados indicam que o disparo gerou interesse, mas conversão não acompanhou. Alerta041 era sobre ausência de disparo; este é sobre gargalo de conversão pós-cadastro."
+    },
+    {
+      "id": "alerta046",
+      "data": "2026-03-12",
+      "titulo": "Queda de performance Outbound sem diagnóstico formal",
+      "critica": "Média de levantadas Outbound caiu de 5 para 3,75 por disparo vs ano anterior (-25%). Hipótese: segmentação High Value exclui segmentos historicamente mais responsivos. Sem análise formal nem plano de ação.",
+      "acao_sugerida": "Vitória analisar composição da base Outbound 2025 vs 2026 (porte, SDR atribuído, segmento) e apresentar hipótese validada até 13/03.",
+      "prioridade": "alta",
+      "dri": "Vitória",
+      "status": "aberto",
+      "nota_status": ""
+    },
+    {
+      "id": "alerta047",
+      "data": "2026-03-12",
+      "titulo": "Inconsistência na contabilização de escolas convertidas",
+      "critica": "Pimentel sinalizou problema de contabilização de escolas convertidas ao final da daily — sem DRI ou prazo definidos. Distorce todas as métricas de meta.",
+      "acao_sugerida": "Pimentel mapear qual sistema/campo gera inconsistência na contagem de convertidas e acionar tecnologia se necessário até 16/03.",
+      "prioridade": "alta",
+      "dri": "Pimentel",
+      "status": "aberto",
+      "nota_status": ""
+    },
+    {
+      "id": "alerta048",
+      "data": "2026-03-12",
+      "titulo": "Base renovação precisa estar pronta hoje para disparo de segunda",
+      "critica": "Decisão na daily: disparo vídeos renovação Spotify na segunda 16/03. Base (descarte + perda sem conversão) deve estar validada até sexta 13/03 EOD. DRI não confirmado explicitamente.",
+      "acao_sugerida": "Vitória confirmar base de renovação pronta e validada até sexta 13/03 EOD.",
+      "prioridade": "critica",
+      "dri": "Vitória",
+      "status": "aberto",
+      "nota_status": ""
     }
   ],
-  "ultima_atualizacao": "2026-03-11"
+  "ultima_atualizacao": "2026-03-12T11:27:29.662854"
 };
