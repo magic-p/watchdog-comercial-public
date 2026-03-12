@@ -2101,7 +2101,7 @@ window.WATCHDOG_TODOS = [
   },
   {
     "id": "t153",
-    "task": "Luana: confirmar se numero WA bloqueado no teste SDR e o numero principal ou temporario — se principal, acionar recuperacao junto a Meta",
+    "task": "Nath: confirmar se numero WA bloqueado no teste SDR e o numero principal ou temporario — se principal, acionar recuperacao junto a Meta",
     "comment": "Teste de ligacoes WA com 30 escolas resultou em bloqueio do numero pela Meta. Nao esta claro se e o numero institucional principal. Criterio de conclusao: Lua confirma qual numero foi afetado e informa status de recuperacao. Se for numero principal: Vitoria e Pedro envolvidos.",
     "owner": "Nath Ferreira",
     "date": "12/mar",
@@ -2110,12 +2110,12 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-11T00:00:00",
-    "completedAt": "2026-03-11T00:00:00"
+    "updatedAt": "2026-03-12T00:00:00",
+    "completedAt": "2026-03-12T00:00:00"
   },
   {
     "id": "t154",
-    "task": "Luana + Pedro: definir protocolo formal de uso emergencial do WhatsApp para prospeccao SDR — criterios de quando usar, limite de volume diario e numero descartavel dedicado",
+    "task": "Nath: definir protocolo formal de uso emergencial do WhatsApp para prospeccao SDR — criterios de quando usar, limite de volume diario e numero descartavel dedicado",
     "comment": "Teste de 30 escolas confirmou que WA como canal de ligacao nao e sustentavel. Mas uso emergencial (todos os canais tentados, escola seria descartada) ainda e valido segundo analise da Lua. Falta protocolo documentado. Criterio de conclusao: regras de uso emergencial aprovadas por Pedro e disponiveis para o time SDR.",
     "owner": "Nath Ferreira",
     "date": "19/mar",
@@ -2124,7 +2124,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-11T00:00:00",
+    "updatedAt": "2026-03-12T00:00:00",
     "completedAt": null
   },
   {

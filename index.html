@@ -1606,12 +1606,26 @@ async function _sbPatch(patch) {
       else updates.tier = parseInt(tv.replace('t', '')) || 1;
     }
     // Atualiza historico com quem fez + horário
+    const needsCurrentRow = ('done' in patch) || ('tier' in patch && String(patch.tier).toLowerCase() === 'done') || ('owner' in patch);
+    let cur = null;
+    if (needsCurrentRow) {
+      const { data: curRow } = await _sb.from('todos').select('historico,dono').eq('id', patch.id).single();
+      cur = curRow || null;
+    }
     if ('done' in patch || ('tier' in patch && String(patch.tier).toLowerCase() === 'done')) {
       const isDone = patch.done === true || String(patch.tier).toLowerCase() === 'done';
-      const { data: cur } = await _sb.from('todos').select('historico').eq('id', patch.id).single();
       const hist = Array.isArray(cur?.historico) ? [...cur.historico] : [];
       hist.push({ data: ts, evento: isDone ? `Concluido por ${actor}` : `Reaberto por ${actor}` });
       updates.historico = hist;
+    }
+    if ('owner' in patch) {
+      const prevOwner = normalizeOwnerName(cur?.dono || patch.previousOwner || '');
+      const nextOwner = normalizeOwnerName(patch.owner);
+      if (prevOwner && nextOwner && prevOwner !== nextOwner) {
+        const hist = Array.isArray(updates.historico) ? [...updates.historico] : (Array.isArray(cur?.historico) ? [...cur.historico] : []);
+        hist.push({ data: ts, evento: `Responsavel alterado de ${prevOwner} para ${nextOwner} por ${actor}` });
+        updates.historico = hist;
+      }
     }
     const { error } = await _sb.from('todos').update(updates).eq('id', patch.id);
     if (error) {
@@ -2218,6 +2232,18 @@ function normalizeSingleOwner(input) {
   return normalizeOwnerName(input);
 }
 
+function rewriteOwnerPrefixedTaskTitle(title, previousOwner, nextOwner) {
+  const rawTitle = String(title || '').trim();
+  const oldFirst = normalizeOwnerName(previousOwner).split(' ')[0] || '';
+  const newFirst = normalizeOwnerName(nextOwner).split(' ')[0] || '';
+  if (!rawTitle || !oldFirst || !newFirst || oldFirst === newFirst) return rawTitle;
+  const match = rawTitle.match(/^\s*([^:]{1,40}):(.*)$/);
+  if (!match) return rawTitle;
+  const prefixFirst = normalizeOwnerName(match[1]).split(' ')[0] || '';
+  if (prefixFirst !== oldFirst) return rawTitle;
+  return `${newFirst}: ${String(match[2] || '').trim()}`;
+}
+
 function hasMeaningfulTaskTitle(task) {
   const title = String(task?.task || '').replace(/\s+/g, ' ').trim();
   if (!title) return false;
@@ -2555,7 +2581,8 @@ async function submitTaskForm(e) {
     const task = tasks.find(t => t.id === editingTaskId);
     if (!task) return;
     const prev = { ...task };
-    task.task = taskName;
+    const rewrittenTaskName = rewriteOwnerPrefixedTaskTitle(taskName, prev.owner, owner);
+    task.task = rewrittenTaskName;
     task.owner = owner;
     task.date = formatTaskDate(dateRaw);
     task.comment = commentVal;
@@ -2565,7 +2592,7 @@ async function submitTaskForm(e) {
       task.tierLabel = 'Concluído';
     }
     const ok = await applyPatchWithRollback(
-      { id: task.id, task: task.task, owner: task.owner, date: task.date, comment: commentVal },
+      { id: task.id, task: task.task, owner: task.owner, previousOwner: prev.owner, date: task.date, comment: commentVal },
       () => Object.assign(task, prev),
       'Tarefa atualizada (SSOT ok)',
       'Falha ao salvar no SSOT (motor offline)'
@@ -3526,9 +3553,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
-
-
-
 
 
 
