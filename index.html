@@ -953,6 +953,51 @@
       margin-top: 16px;
     }
     @media (max-width: 700px) { .intel-grid { grid-template-columns: 1fr; } }
+    .intel-summary-card { grid-column: 1 / -1; }
+    .intel-summary-list { display: grid; gap: 10px; }
+    .intel-summary-item {
+      border: 1px solid var(--sep);
+      background: var(--card-sec);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+    .intel-summary-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+    .intel-summary-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--t1);
+    }
+    .intel-summary-meta {
+      display: inline-flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .intel-summary-chip {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--sep);
+      color: var(--t2);
+      background: #fff;
+    }
+    .intel-summary-text {
+      font-size: 13px;
+      color: var(--t2);
+      line-height: 1.45;
+    }
+    .intel-summary-links {
+      margin-top: 7px;
+      font-size: 12px;
+      color: var(--t3);
+    }
 
     .critica-item {
       display: flex; gap: 12px; align-items: flex-start;
@@ -1438,6 +1483,15 @@
 
   <!-- CLAUDETE — INTELIGÊNCIA ESTRATÉGICA -->
   <div class="intel-grid reveal" style="animation-delay:.38s">
+    <div class="card intel-summary-card">
+      <div class="card-hd">
+        <span class="card-hd-label">
+          <span class="hd-icon" style="color:var(--blue)">#</span>
+          Resumos Temáticos da Claudete
+        </span>
+      </div>
+      <div class="card-bd" id="intelSummaryList"><span style="color:var(--t3);font-size:12px">Sem resumos temáticos disponíveis.</span></div>
+    </div>
     <div class="card">
       <div class="card-hd">
         <span class="card-hd-label">
@@ -2257,6 +2311,12 @@ function sanitizeTasksForUi(list) {
     .filter(t => hasMeaningfulTaskTitle(t));
 }
 
+function isInvalidTaskTitleText(raw) {
+  const title = String(raw || '').replace(/\s+/g, ' ').trim();
+  if (!title) return true;
+  return /^tarefa sem t[ií]tulo$/i.test(title);
+}
+
 function parseWarnDays(warn) {
   const s = String(warn || '').toLowerCase();
   const m = s.match(/(\d+)\s+dias?\s+sem\s+update/);
@@ -2425,6 +2485,7 @@ let taskView = 'open';
 let sortCol = 'date';
 let sortDir = 1;
 let ownerFilter = null;
+let _invalidSupabaseTaskIds = new Set();
 
 const UI_STATE_KEY = 'watchdog_ui';
 function saveUiState() {
@@ -3117,20 +3178,46 @@ function renderWins() {
 function renderCampanhas() {}
 
 function renderIntel() {
+  const summaryEl      = document.getElementById('intelSummaryList');
   const criticasEl     = document.getElementById('criticasList');
   const criticasArchEl = document.getElementById('criticasArchivedList');
   const aprendizadosEl = document.getElementById('aprendizadosList');
   const arquivadosEl   = document.getElementById('aprendizadosArchivedList');
-  if (!criticasEl || !criticasArchEl || !aprendizadosEl || !arquivadosEl) return;
+  if (!summaryEl || !criticasEl || !criticasArchEl || !aprendizadosEl || !arquivadosEl) return;
 
   const intelSource = (REQUIRE_LOGIN_FOR_READ && !_sbSession) ? DEMO_INTEL : INTEL_DATA;
   if (!intelSource) {
     const msg = '<span style="color:var(--t3);font-size:12px">intel_ssot.js não carregado.</span>';
+    summaryEl.innerHTML = msg;
     criticasEl.innerHTML = msg;
     criticasArchEl.innerHTML = msg;
     aprendizadosEl.innerHTML = msg;
     arquivadosEl.innerHTML = msg;
     return;
+  }
+
+  const summaries = (intelSource.resumos_tematicos || []).slice(0, 4);
+  if (!summaries.length) {
+    summaryEl.innerHTML = '<span style="color:var(--t3);font-size:12px">Sem resumos temáticos disponíveis.</span>';
+  } else {
+    summaryEl.innerHTML = `<div class="intel-summary-list">${summaries.map(row => {
+      const chips = [
+        row.contagem_aprendizados ? `<span class="intel-summary-chip">${row.contagem_aprendizados} aprendizados</span>` : '',
+        row.contagem_alertas_abertos ? `<span class="intel-summary-chip">${row.contagem_alertas_abertos} riscos abertos</span>` : '',
+        row.ultima_atualizacao ? `<span class="intel-summary-chip">${row.ultima_atualizacao}</span>` : '',
+      ].filter(Boolean).join('');
+      const refs = [];
+      if (Array.isArray(row.aprendizados_ids) && row.aprendizados_ids.length) refs.push(`Insights: ${row.aprendizados_ids.slice(0, 3).join(', ')}`);
+      if (Array.isArray(row.alertas_ids) && row.alertas_ids.length) refs.push(`Alertas: ${row.alertas_ids.slice(0, 2).join(', ')}`);
+      return `<div class="intel-summary-item">
+        <div class="intel-summary-top">
+          <div class="intel-summary-title">${row.titulo || row.tema || 'Tema'}</div>
+          <div class="intel-summary-meta">${chips}</div>
+        </div>
+        <div class="intel-summary-text">${row.resumo_executivo || ''}</div>
+        ${refs.length ? `<div class="intel-summary-links">${refs.join(' • ')}</div>` : ''}
+      </div>`;
+    }).join('')}</div>`;
   }
 
   // --- Alertas ativos ---
@@ -3458,6 +3545,28 @@ function _sbRowToTask(r) {
   });
 }
 
+async function _cleanupInvalidSupabaseTasks(rows) {
+  if (!_sb || !_sbSession || !Array.isArray(rows) || !rows.length) return;
+  const invalidIds = [...new Set(
+    rows
+      .filter(r => isInvalidTaskTitleText(r?.tarefa))
+      .map(r => String(r?.id || '').trim())
+      .filter(Boolean)
+  )].filter(id => !_invalidSupabaseTaskIds.has(id));
+  if (!invalidIds.length) return;
+  invalidIds.forEach(id => _invalidSupabaseTaskIds.add(id));
+  try {
+    const { error } = await _sb.from('todos').delete().in('id', invalidIds);
+    if (error) {
+      console.error('[Supabase] cleanup invalid tasks error:', error);
+      return;
+    }
+    console.warn('[Supabase] invalid tasks removed automatically:', invalidIds);
+  } catch (err) {
+    console.error('[Supabase] cleanup invalid tasks exception:', err);
+  }
+}
+
 async function _sbSeedFromSSOT() {
   const source = TODOS_SSOT.length ? TODOS_SSOT : [];
   if (!source.length) return;
@@ -3496,14 +3605,16 @@ async function _refreshTasksFromSupabase(silent = false) {
         if (!silent) toast('Supabase: sem dados após seed', 'error');
         return;
       }
-      tasks = seeded.map(_sbRowToTask);
+      await _cleanupInvalidSupabaseTasks(seeded);
+      tasks = sanitizeTasksForUi(seeded.map(_sbRowToTask));
       enforceWeeklyTop3(tasks);
       renderTasks();
       buildOwnerFilters();
       if (!silent) toast(`${seeded.length} tarefas sincronizadas`, 'ok');
       return;
     }
-    tasks = data.map(_sbRowToTask);
+    await _cleanupInvalidSupabaseTasks(data);
+    tasks = sanitizeTasksForUi(data.map(_sbRowToTask));
     enforceWeeklyTop3(tasks);
     renderTasks();
     buildOwnerFilters();
@@ -3553,13 +3664,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
 
 
 
