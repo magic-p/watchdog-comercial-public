@@ -4,8 +4,120 @@ window.WATCHDOG_BOOKED_META = {
   "buckets": [],
   "wins": [
     {
+      "emoji": "🎯",
+      "titulo": "Vitoria: Levantar escolas com case prometido + entender formato de publicação no blog",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Vitoria",
+      "data": "11/03",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
+      "emoji": "🎯",
+      "titulo": "Vitoria: Providenciar planners para as escolas que receberam promessa de planner",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Vitoria",
+      "data": "11/03",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
+      "emoji": "🎯",
+      "titulo": "Vitoria: Organizar fluxo completo de campanha de canecas — do pedido da escola até o fornecedor",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Vitoria",
+      "data": "11/03",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
       "emoji": "✅",
-      "titulo": "Kaka: Karina: preparar briefing para freelancers de IG DM e aprovar 5 primeiras DMs antes de escalar",
+      "titulo": "Kaka: Contratar 2 freelancers para WA Lili + IG DM personalizado (Cerco Mágico S1)",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Kaka",
+      "data": "11/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Ana Paula Pimentel: Pimentel: confirmar time de enriquecimento ativo e priorizado + alinhar com Lili dinamica SDR vs celula isolada de enriquecimento",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Ana Paula Pimentel",
+      "data": "11/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Ana Paula Pimentel: Pimentel: treinar SDRs no contorno de objecao da secretaria manda por email — usar boas praticas: beneficio so consigo repassar por telefone com a gestora",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Ana Paula Pimentel",
+      "data": "11/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Ana Paula Pimentel: Wydi: criar checklist visual SDR com pontos cruciais para lembrar durante a ligacao — separado do playbook detalhado, conciso e usavel em tempo real",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Ana Paula Pimentel",
+      "data": "11/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Nath Ferreira: Luana: confirmar se numero WA bloqueado no teste SDR e o numero principal ou temporario — se principal, acionar recuperacao junto a Meta",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Nath Ferreira",
+      "data": "11/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Kaka: Kaka: fazer briefing dos freelancers + aprovar 5 exemplos de mensagem (WA e IG DM) antes de escalar (Cerco Mágico Ação 1)",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Kaka",
+      "data": "11/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Vitoria: Vit: confirmar execução e resultado do disparo HT PART Renov 5-30k (etapas SDR + descarte + perdido, exceto críticas) realizado em 10/mar",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Vitoria",
+      "data": "10/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Ana Paula Pimentel: Ana: redistribuir base de Concorrência +100 alunos entre as 2-3 SDRs com melhor performance — validar performance prévia com Nath antes de executar",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Ana Paula Pimentel",
+      "data": "10/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Ana Paula Pimentel: Ana: levar análise de média de alunos de Anos Anteriores (número mais otimista, ~100) para Lua — dar segurança sobre comportamento da base antes da semana de SDR",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Ana Paula Pimentel",
+      "data": "10/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Vitoria: Vit: separar custo de produção e custo de envio da Revista de dezembro (do total de R$11.500) e atualizar o realizado no controle de orçamento de marketing",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Vitoria",
+      "data": "10/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Vitoria: Vit: incluir no card de Anos Anteriores a informação do cronograma de aplicação do último ano da escola — para que o Closer possa antecipar envio de materiais e gerenciar percepção de tempo",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Vitoria",
+      "data": "10/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Kaka: Kaka: executar disparo de reativação (e-mail + WA) para escolas de Anos Anteriores em etapas 'entrada', 'tentativa' e 'contato' — mensagem informando que a escola foi lembrada em ação com benefícios especiais",
       "desc": "Concluida no prazo definido.",
       "dri": "Kaka",
       "data": "10/03",
@@ -13,7 +125,71 @@ window.WATCHDOG_BOOKED_META = {
     },
     {
       "emoji": "✅",
+      "titulo": "Nath Ferreira: Nath: visão funil renovação para apresentar na daily (pedido Bebel)",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Nath Ferreira",
+      "data": "10/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Nath Ferreira: Transferir teste de WhatsApp (cold outreach) para célula de Sara — bases menos críticas de receita",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Nath Ferreira",
+      "data": "10/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Nath Ferreira: Nath: investigar causa do RR/SDR de HT PÚB em 0,44 (44% da meta) — identificar se é volume de reuniões, perfil de SDR ou composição da base",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Nath Ferreira",
+      "data": "10/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
       "titulo": "Kaka: Karina: escrever copy da cartinha personalizada para mimo chocolate das 202 escolas AA top (P1+P2)",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Kaka",
+      "data": "10/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Kaka: Karina: definir tema da Semana 3 da campanha LT marco - RISCO CRITICO",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Kaka",
+      "data": "10/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Kaka: Karina: construir narrativa serial conectando as 4 semanas da campanha LT",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Kaka",
+      "data": "10/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Kaka: Karina: diferenciar funcao de WA e e-mail em cada semana da campanha LT",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Kaka",
+      "data": "10/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Kaka: Karina: confirmar custos da Revista Estante Mágica com Ericka (produção, design e logística Correios)",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Kaka",
+      "data": "10/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Kaka: Karina: preparar briefing para freelancers de IG DM e aprovar 5 primeiras DMs antes de escalar",
       "desc": "Concluida no prazo definido.",
       "dri": "Kaka",
       "data": "10/03",
@@ -32,6 +208,14 @@ window.WATCHDOG_BOOKED_META = {
       "titulo": "Kaka: Karina: enviar report semanal de KPIs do Cerco Mágico para Pedro toda segunda",
       "desc": "Concluida no prazo definido.",
       "dri": "Kaka",
+      "data": "10/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Vitoria: Vitória: definir copy do WA utilitário 'SDR vai ligar amanhã' e submeter aprovação Karina",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Vitoria",
       "data": "10/03",
       "tipo": "ENTREGA_NO_PRAZO"
     },
@@ -92,12 +276,12 @@ window.WATCHDOG_BOOKED_META = {
       "tipo": "ENTREGA_CONCLUIDA"
     },
     {
-      "emoji": "🎯",
+      "emoji": "✅",
       "titulo": "Vitoria Riente: Vitoria: controle de estoque de vouchers — avisar Pimentel quando restarem menos de 5 unidades para reavaliar compra",
-      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "desc": "Concluida no prazo definido.",
       "dri": "Vitoria Riente",
       "data": "09/03",
-      "tipo": "ENTREGA_CONCLUIDA"
+      "tipo": "ENTREGA_NO_PRAZO"
     },
     {
       "emoji": "🎯",
