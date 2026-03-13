@@ -4,7 +4,7 @@ window.WATCHDOG_INTEL = {
     "papel": "Chief of Staff & Head of Marketing Analytics",
     "ultima_atualizacao": "2026-03-12T11:39:51.650703"
   },
-  "ultima_atualizacao": "2026-03-13T08:55:08.015204",
+  "ultima_atualizacao": "2026-03-13T09:00:19.618445",
   "arquitetura_memoria": {
     "modo": "camadas",
     "descricao": "Memoria viva enxuta + historico completo + resumos tematicos + indices.",
@@ -528,14 +528,15 @@ window.WATCHDOG_INTEL = {
     },
     {
       "id": "insight116",
-      "titulo": "Canal herois (CS form) e o maior gerador de levantadas de MKT — sem custo de midia, via time de Suporte ao Cliente",
+      "titulo": "Via herois na planilha de controles = total mensal de levantadas de todos os canais (WA disparos + CS form + Instagram + email + mala direta)",
       "tema": "campanha",
       "data": "2026-03-13",
       "status": "ativo",
-      "evidencia": "Fevereiro: 208 de 257 levantadas totais (81%) via herois. Marco ate 12/03: 103 levantadas via herois vs 89 via disparos WA. Herois = time de CS que recebe emails e WA organicos de escolas, preenche forms e encaminha ticket. Processo hoje 95% operado pelo time de Marketing. Sem custo de midia associado. Tambem ha levantadas via Instagram e via email, alem de herois — tres canais nao-disparo WA.",
-      "acao_sugerida": "Considerar herois + Instagram + email como 'levantadas nao-disparo' no relatorio mensal para separar o custo real de cada canal. Avaliar o volume de herois como proxy de demanda organica inbound — se cresce, e sinal de brand awareness ativo. Nao confundir com levantada gerada por disparo WA — sao canais independentes.",
+      "evidencia": "Marco/2026 (ate 12/03): 103 total incluindo WA disparos (89 calculados) + canais organicos (~14). Fevereiro/2026: 257 total dividido em Instagram (31), email (18) e herois (208 = WA disparos + CS form + mala direta combinados). Corrigido em 13/03 via feedback da Vit: '103 e o total das levantadas do mes, incluindo disparos. Ta incluso os disparos que estamos fazendo, levantadas que vem por herois, mala direta, email, instagram, etc.' Insight anterior (errado) dizia que herois = canal gratuito separado dominando 81% das levantadas. Incorreto.",
+      "acao_sugerida": "Ao ler a planilha de controles da Vit, tratar o campo 'Via herois' como totalizador mensal — nao como canal isolado. Os WA disparos sao rastreados individualmente nas linhas acima; o totalizador agrega tudo. Para calcular levantadas organicas (nao-disparo), subtrair o total dos disparos WA do total mensal.",
       "contexto": "Resposta da Vit ao debriefing da planilha de disparos Mar/2026",
-      "fonte": "feedback_vit_13_03_2026"
+      "fonte": "feedback_vit_13_03_2026",
+      "ultima_atualizacao": "2026-03-13T09:00:18.964513"
     },
     {
       "id": "insight101",
