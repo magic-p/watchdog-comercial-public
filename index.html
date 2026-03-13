@@ -944,7 +944,6 @@
     .wins-bd { padding: 0 18px; }
     .wins-bd.collapsed,
     .booked-bd.section-collapsed,
-    .intel-grid.section-collapsed,
     .card-bd.section-collapsed { display: none !important; }
 
     .win-item {
@@ -1005,7 +1004,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
-      margin-top: 16px;
+      margin-top: 0;
     }
     @media (max-width: 700px) { .intel-grid { grid-template-columns: 1fr; } }
     .intel-summary-card { grid-column: 1 / -1; }
@@ -1579,7 +1578,7 @@
 
   <!-- CLAUDETE — INTELIGÊNCIA ESTRATÉGICA -->
   <div class="reveal" style="animation-delay:.38s">
-    <div class="card" style="margin-bottom:16px;">
+    <div class="card">
       <div class="card-hd">
         <span class="card-hd-label">
           <span class="hd-icon" style="color:var(--blue)">#</span>
@@ -1587,47 +1586,49 @@
         </span>
         <button class="btn" id="intelToggle" type="button">Mostrar</button>
       </div>
-    </div>
-    <div class="intel-grid section-collapsed" id="intelSection">
-      <div class="card intel-summary-card">
-        <div class="card-hd">
-          <span class="card-hd-label">
-            <span class="hd-icon" style="color:var(--blue)">#</span>
-            Resumos Temáticos da Claudete
-          </span>
-        </div>
-        <div class="card-bd" id="intelSummaryList"><span style="color:var(--t3);font-size:12px">Sem resumos temáticos disponíveis.</span></div>
-      </div>
-      <div class="card">
-        <div class="card-hd">
-          <span class="card-hd-label">
-            <span class="hd-icon" style="color:var(--red)">&#9888;</span>
-            Alertas da Claudete
-          </span>
-        </div>
-        <div class="card-bd">
-          <div class="intel-tabs alertas">
-            <button class="intel-tab active" data-alerta-tab="ativos" type="button">Ativos</button>
-            <button class="intel-tab" data-alerta-tab="arquivados" type="button">Arquivados</button>
+      <div class="card-bd section-collapsed" id="intelSection">
+        <div class="intel-grid">
+          <div class="card intel-summary-card">
+            <div class="card-hd">
+              <span class="card-hd-label">
+                <span class="hd-icon" style="color:var(--blue)">#</span>
+                Resumos Temáticos da Claudete
+              </span>
+            </div>
+            <div class="card-bd" id="intelSummaryList"><span style="color:var(--t3);font-size:12px">Sem resumos temáticos disponíveis.</span></div>
           </div>
-          <div class="intel-tab-panel active" id="criticasList"><span style="color:var(--t3);font-size:12px">Sem alertas ativos.</span></div>
-          <div class="intel-tab-panel" id="criticasArchivedList"><span style="color:var(--t3);font-size:12px">Sem alertas arquivados.</span></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-hd">
-          <span class="card-hd-label">
-            <span class="hd-icon" style="color:var(--green)">&#129504;</span>
-            Insights da Claudete
-          </span>
-        </div>
-        <div class="card-bd">
-          <div class="intel-tabs">
-            <button class="intel-tab active" data-intel-tab="ativos" type="button">Ativos</button>
-            <button class="intel-tab" data-intel-tab="arquivados" type="button">Arquivados</button>
+          <div class="card">
+            <div class="card-hd">
+              <span class="card-hd-label">
+                <span class="hd-icon" style="color:var(--red)">&#9888;</span>
+                Alertas da Claudete
+              </span>
+            </div>
+            <div class="card-bd">
+              <div class="intel-tabs alertas">
+                <button class="intel-tab active" data-alerta-tab="ativos" type="button">Ativos</button>
+                <button class="intel-tab" data-alerta-tab="arquivados" type="button">Arquivados</button>
+              </div>
+              <div class="intel-tab-panel active" id="criticasList"><span style="color:var(--t3);font-size:12px">Sem alertas ativos.</span></div>
+              <div class="intel-tab-panel" id="criticasArchivedList"><span style="color:var(--t3);font-size:12px">Sem alertas arquivados.</span></div>
+            </div>
           </div>
-          <div class="intel-tab-panel active" id="aprendizadosList"><span style="color:var(--t3);font-size:12px">Sem aprendizados registrados.</span></div>
-          <div class="intel-tab-panel" id="aprendizadosArchivedList"><span style="color:var(--t3);font-size:12px">Sem aprendizados arquivados.</span></div>
+          <div class="card">
+            <div class="card-hd">
+              <span class="card-hd-label">
+                <span class="hd-icon" style="color:var(--green)">&#129504;</span>
+                Insights da Claudete
+              </span>
+            </div>
+            <div class="card-bd">
+              <div class="intel-tabs">
+                <button class="intel-tab active" data-intel-tab="ativos" type="button">Ativos</button>
+                <button class="intel-tab" data-intel-tab="arquivados" type="button">Arquivados</button>
+              </div>
+              <div class="intel-tab-panel active" id="aprendizadosList"><span style="color:var(--t3);font-size:12px">Sem aprendizados registrados.</span></div>
+              <div class="intel-tab-panel" id="aprendizadosArchivedList"><span style="color:var(--t3);font-size:12px">Sem aprendizados arquivados.</span></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
