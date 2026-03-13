@@ -999,13 +999,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Item Finanças de Lili (27/02). Revisão do que foi orçado vs realizado no comercial em janeiro (YTD). Base para decisões de orçamento de março e para contexto da apresentação de metas (t064).",
     "owner": "Lili",
     "date": "13/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-13T11:15:00",
+    "completedAt": "2026-03-13T11:15:00"
   },
   {
     "id": "t075",
@@ -1236,7 +1236,7 @@ window.WATCHDOG_TODOS = [
     "task": "Validar custos: impressão Revista, Correios, WA msg (Cerco Mágico S1)",
     "comment": "Item 5 do checklist S1 do Cerco Mágico. Orçamento total: R$ 39.697. Validar breakdown: impressão + gramatura, frete Correios por CEP, custo por mensagem WA no disparador. Confirmar que o orçamento cobre todos os custos antes de executar.",
     "owner": "Vitoria",
-    "date": "13/mar",
+    "date": "16/mar",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
@@ -1317,10 +1317,10 @@ window.WATCHDOG_TODOS = [
   },
   {
     "id": "t097",
-    "task": "Luana: compactar documento de discurso SDR incluindo protocolo de antecipação de chamada",
+    "task": "Ana: garantir que discurso objetivo e com senso de urgência tá sendo aplicado de fato. Luana: compactar documento de discurso SDR incluindo protocolo de antecipação de chamada",
     "comment": "Desdobramento do estudo de perfil SDR. Luana compacta o documento de discurso incorporando: (1) definição de perfil Objetivo como padrão, (2) protocolo de urgência de data (3 condições: benefício concreto + horário específico + não aceitar primeira resistência — ver insight069), (3) regra sobre 'como foi?' com escolas com feedback negativo (ver insight034).",
     "owner": "Ana Paula Pimentel",
-    "date": "13/mar",
+    "date": "16/mar",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
@@ -1377,13 +1377,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Identificado nas dailies. 3 escolas com receita histórica acima de R$ 40k foram descartadas com motivo 'só próximo ano'. Esse motivo em escola de alto valor é sinal de alerta — pode ser objeção real ou pode ser tratada de forma diferente. Maria Carol deve explicar o contexto de cada uma. [PIMENTEL - após revisão de base, Carol puxar Lili pra apresentar os casos e definirmos ações]",
     "owner": "Lili",
     "date": "13/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-08T00:00:00",
-    "completedAt": null
+    "updatedAt": "2026-03-13T11:15:00",
+    "completedAt": "2026-03-13T11:15:00"
   },
   {
     "id": "t102",
@@ -1485,17 +1485,17 @@ window.WATCHDOG_TODOS = [
   },
   {
     "id": "t109",
-    "task": "Nath + Lili: estruturar demanda e conversa com CRM para melhorar visão de closer, baldinhos e ativação",
+    "task": "Nath: Check entregas de CRM para Aquisição (tarefa anterior: estruturar demanda e conversa com CRM para melhorar visão de closer, baldinhos e ativação",
     "comment": "Próxima etapa definida na daily 09/03 por Lili. Estruturar o que precisa mudar no CRM para: (1) melhorar visão do closer sobre escola/histórico antes da RR, (2) rastrear baldinhos com mais precisão, (3) apoiar ativação com dados contextuais. Nath e Lili definem juntas o documento de demanda antes de apresentar ao time de CRM.",
     "owner": "Nath Ferreira",
-    "date": "13/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "date": "19/mar",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-09T00:00:00",
-    "completedAt": null
+    "updatedAt": "2026-03-13T11:18:00",
+    "completedAt": "2026-03-13T11:18:00"
   },
   {
     "id": "t110",
@@ -1569,7 +1569,7 @@ window.WATCHDOG_TODOS = [
   },
   {
     "id": "t115",
-    "task": "Karina: definir copy final dos e-mails Lili por baldinho (AA, Concorrência, Retração, Novas)",
+    "task": "(Dividir em 2 - AA com vídeo outro dia) Karina: definir copy final dos e-mails Lili por baldinho (AA, Concorrência, Retração, Novas)",
     "comment": "Cerco Mágico — e-mail da Lili é uma das 6 ações. Cada baldinho tem copy diferente: AA (foco em expansão de uso), Concorrência (foco em diferencial), Retração (foco em recuperação), Novas (foco em apresentação). Karina escreve e submete para aprovação da Lili antes de 14/mar. Copy aprovado vai para Vitória configurar no disparador (t090). Consultar aprendizados de 2024 sobre argumento MEL — funcionou e não foi replicado (ver daily 09/03).",
     "owner": "Pedro",
     "date": "14/mar",
@@ -1600,7 +1600,7 @@ window.WATCHDOG_TODOS = [
     "task": "Karina + Vitória: validar taxas de conversão projetadas por baldinho com referências históricas",
     "comment": "Cerco Mágico — o documento projeta taxas de conversão por baldinho (ex: AA 15%, Concorrência 8%, etc). Karina e Vitória validam se os números batem com o histórico real de campanhas anteriores. Consultar historico_campanhas.json. Se projeção for muito otimista, ajustar meta de 200 levantadas para número defensável antes de apresentar resultado para Pedro. Entrega: tabela com projetado vs histórico real.",
     "owner": "Vitoria",
-    "date": "13/mar",
+    "date": "17/mar",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
@@ -1655,14 +1655,14 @@ window.WATCHDOG_TODOS = [
     "id": "t121",
     "task": "Vitória: aumentar base e validar contatos de WhatsApp no CRM — identificar válidos vs inválidos",
     "comment": "Diagnóstico da reunião 05/03 (Lili): apenas 20% das escolas estão sendo efetivamente atendidas. Um dos gargalos: campos de celular no CRM sem validação de WA — disparos só acontecem para campos marcados como WA, mas outros campos com número válido não recebem toque. Vitória executa varredura técnica: (1) identificar todos os campos de telefone/celular no CRM, (2) validar quais números são WA ativo (API ou ferramenta), (3) atualizar campo de validação WA. Impacto: recuperar escolas que hoje não recebem nenhum disparo. Custo médio: R$0,09/disparo utilitário.",
-    "owner": "Pedro",
+    "owner": "Vitoria",
     "date": "16/mar",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-10T00:00:00",
+    "updatedAt": "2026-03-13T11:14:00",
     "completedAt": null
   },
   {
@@ -1811,13 +1811,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Análise para entender se o problema de média baixa em Concorrência é de abordagem (escola abordada com menos alunos) ou de fechamento (SDR não fechou com o máximo declarado). Prazo inferido com base no contexto — mesma semana das demais análises de Concorrência (t103).",
     "owner": "Ana Paula Pimentel",
     "date": "13/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-13T11:16:00",
+    "completedAt": "2026-03-13T11:16:00"
   },
   {
     "id": "t133",
@@ -2284,7 +2284,7 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t166",
     "task": "Criar plano de abastecimento de topo de funil HT PÚB para semana restante de março",
-    "comment": "HT PUB com Realizadas 4/11 semanais (58%) e RR/SDR mensal caindo (68%, seta para baixo). Taxa de fechamento 235% meta não se traduz em receita sem volume de reuniões entrando. insight104/alerta045.",
+    "comment": "Prazo era hoje 13/mar. Documento confirma que HT PÚB segue em 44% de realizadas na semana (4/11). Verificar se o plano foi entregue e, se não, escalar para execução imediata na segunda 16/03. Alerta049 aberto cobrindo este gap.",
     "owner": "Kaka",
     "date": "13/mar",
     "tier": "t1",
@@ -2292,7 +2292,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": null,
+    "updatedAt": "2026-03-13T11:57:00",
     "completedAt": null
   },
   {
@@ -2396,7 +2396,7 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t174",
     "task": "Analisar composição da base Outbound 2025 vs 2026 (porte, SDR atribuído, segmento) para diagnosticar queda de 5 para 3,75 levantadas/disparo",
-    "comment": "Queda de 25% em Outbound sem causa confirmada. Hipótese High Value exclui segmentos historicamente mais responsivos. alerta046/insight108.",
+    "comment": "Prazo era hoje 13/mar. Documento de hoje não traz evidência de que esta análise foi concluída. Novas semanal em 68% de realizadas e RR/SDR em 72% da meta confirmam que o ritmo continua comprimido. Se análise não foi entregue, repactuar prazo para 16/mar e escalar.",
     "owner": "Vitoria",
     "date": "13/mar",
     "tier": "t1",
@@ -2404,7 +2404,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": null,
+    "updatedAt": "2026-03-13T11:57:00",
     "completedAt": null
   },
   {
@@ -2427,12 +2427,54 @@ window.WATCHDOG_TODOS = [
     "comment": "Pimentel precisa alinhar com Maria Carol após receber o vídeo. Próxima etapa explícita da daily.",
     "owner": "Lili",
     "date": "12/mar",
+    "tier": "done",
+    "tierLabel": "Concluido",
+    "warn": null,
+    "done": true,
+    "priorityRank": null,
+    "updatedAt": "2026-03-13T11:15:00",
+    "completedAt": "2026-03-13T11:15:00"
+  },
+  {
+    "id": "t177",
+    "task": "Lili + Pimentel: Entender desafio de retração",
+    "comment": "Documento de 13/03 confirma: Retração mês com RR/SDR em 62% da meta e realizadas semanal em 7/14 (64% da meta). Fechadas/realizadas semanal em 43%/62% (66% da meta). O gargalo é volume de reuniões, não conversão por reunião — alunos YTD em 106%. Insight119 formaliza este diagnóstico. A investigação de Lili+Pimentel deve focar em por que o volume de reuniões está comprimido, não em taxa de fechamento.",
+    "owner": "Lili",
+    "date": "16/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-13T11:57:00",
+    "completedAt": null
+  },
+  {
+    "id": "t178",
+    "task": "Revisar proposta de valor e argumento de conversão da campanha LT PART — auditar o que está sendo oferecido, em qual momento e com qual copy antes de qualquer novo disparo",
+    "comment": "LT PART tem disparo executado (R$731 custo, 272 alunos cadastrados) mas conversão estagnada em 8/30 (23%) durante pelo menos duas semanas consecutivas. O problema não é operacional de execução — é de mensagem ou timing. Insight118 registra este padrão como aprendizado permanente.",
+    "owner": "Kaka",
+    "date": "18/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-13T11:57:00",
+    "completedAt": null
+  },
+  {
+    "id": "t179",
+    "task": "Calcular e registrar custo por aluno cadastrado por frente de campanha (LT PART vs LT Pública vs HT Pública) — usar como critério de alocação de budget para as semanas restantes de março",
+    "comment": "Dados do documento mostram: LT Pública R$0,19/aluno cadastrado, HT Pública R$0,62/aluno cadastrado, LT PART R$2,69/aluno cadastrado. A diferença é uma ordem de grandeza e ainda não está formalizada como critério de decisão de alocação. Insight120 registra o padrão.",
+    "owner": "Nath Ferreira",
+    "date": "16/mar",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": null,
+    "updatedAt": "2026-03-13T11:57:00",
     "completedAt": null
   }
 ];

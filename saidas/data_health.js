@@ -1,11 +1,11 @@
 window.WATCHDOG_DATA_HEALTH = {
-  "gerado_em": "2026-03-13 10:37",
+  "gerado_em": "2026-03-13 11:57",
   "tarefas": {
-    "total": 174,
-    "pendentes": 48,
-    "concluidas": 126,
-    "atrasadas": 4,
-    "sem_historico": 27,
+    "total": 177,
+    "pendentes": 46,
+    "concluidas": 131,
+    "atrasadas": 3,
+    "sem_historico": 22,
     "owner_autopreenchido": 7,
     "prazo_autopreenchido": 0,
     "titulos_invalidos": 0,
@@ -17,8 +17,8 @@ window.WATCHDOG_DATA_HEALTH = {
     "deletes_remotos_aplicados_total": 8
   },
   "publicacao": {
-    "paridade_ok": 3,
-    "paridade_mismatch": 3,
+    "paridade_ok": 1,
+    "paridade_mismatch": 5,
     "paridade_missing": 0,
     "arquivos": [
       {
@@ -30,31 +30,31 @@ window.WATCHDOG_DATA_HEALTH = {
       {
         "label": "todos_ssot.js",
         "status": "mismatch",
-        "local_hash": "4d7a02cf9854",
-        "public_hash": "0e2ebdef25a1"
+        "local_hash": "2a5112bde655",
+        "public_hash": "4d7a02cf9854"
       },
       {
         "label": "data_health.js",
         "status": "mismatch",
-        "local_hash": "85c46d49e882",
-        "public_hash": "5fb49e584890"
+        "local_hash": "801b93b527a1",
+        "public_hash": "8340a05744c5"
       },
       {
         "label": "booked_meta.js",
         "status": "mismatch",
-        "local_hash": "c56af59918ee",
-        "public_hash": "3e15fbe9135b"
+        "local_hash": "122cb8878687",
+        "public_hash": "dcb0e0d4fdbd"
       },
       {
         "label": "campanhas_ssot.js",
-        "status": "ok",
-        "local_hash": "1de7d2412648",
-        "public_hash": "1de7d2412648"
+        "status": "mismatch",
+        "local_hash": "248f9e068a48",
+        "public_hash": "b0214c216741"
       },
       {
         "label": "intel_ssot.js",
-        "status": "ok",
-        "local_hash": "2a327f84800e",
+        "status": "mismatch",
+        "local_hash": "357dcefb1af3",
         "public_hash": "2a327f84800e"
       }
     ]

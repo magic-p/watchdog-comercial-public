@@ -4,7 +4,7 @@ window.WATCHDOG_INTEL = {
     "papel": "Chief of Staff & Head of Marketing Analytics",
     "ultima_atualizacao": "2026-03-12T11:39:51.650703"
   },
-  "ultima_atualizacao": "2026-03-13T09:19:04.546779",
+  "ultima_atualizacao": "2026-03-13T11:57:14.377720",
   "arquitetura_memoria": {
     "modo": "camadas",
     "descricao": "Memoria viva enxuta + historico completo + resumos tematicos + indices.",
@@ -21,7 +21,7 @@ window.WATCHDOG_INTEL = {
     "indices": "contexto/intel_indices.json"
   },
   "memoria_viva": {
-    "insights_ativos_total_historico": 114,
+    "insights_ativos_total_historico": 117,
     "insights_expostos_neste_arquivo": 24,
     "alertas_abertos_total_historico": 39,
     "alertas_expostos_neste_arquivo": 39,
@@ -30,8 +30,8 @@ window.WATCHDOG_INTEL = {
       "base",
       "geral",
       "rr_sdr",
-      "copy",
       "renovacao",
+      "copy",
       "concorrencia",
       "campanha"
     ]
@@ -40,9 +40,10 @@ window.WATCHDOG_INTEL = {
     {
       "tema": "sdr",
       "titulo": "SDR",
-      "resumo_executivo": "Aprendizados-chave: HT PÚB tem a maior taxa de fechamento da cartela (235% da meta semanal) mas volume de Realizadas em 58% — o gargalo não é conversão, é abastecimento de topo de funil. Produto de... | Copy de benefícios para Anos Anteriores performa melhor em escolas sem SDR atribuído — cold outreach WA é mais efetivo sem interferência de relacionamento prévio com SDR. Riscos abertos: LT PART em 7/30 convertidas (23%) e R$24.000/R$98.649 em receita (24%). O alerta041 registrou esse dado para a semana passada; o documento de hoje confirma que não houve recuper... | Média de levantadas Outbound caiu de 5 para 3,75 por disparo vs ano anterior (-25%). Hipótese: segmentação High Value exclui segmentos historicamente mais responsivos. Sem análi...",
+      "resumo_executivo": "Aprendizados-chave: Retração apresenta desacoplamento entre meta de alunos (verde, 106% YTD) e RR/SDR (62% da meta). Isso indica que quando as reuniões acontecem, os alunos chegam em volume acima d... | HT PÚB tem a maior taxa de fechamento da cartela (235% da meta semanal) mas volume de Realizadas em 58% — o gargalo não é conversão, é abastecimento de topo de funil. Produto de... Riscos abertos: LT PART em 7/30 convertidas (23%) e R$24.000/R$98.649 em receita (24%). O alerta041 registrou esse dado para a semana passada; o documento de hoje confirma que não houve recuper... | Média de levantadas Outbound caiu de 5 para 3,75 por disparo vs ano anterior (-25%). Hipótese: segmentação High Value exclui segmentos historicamente mais responsivos. Sem análi...",
       "aprendizados_ids": [
         "insight115",
+        "insight119",
         "insight104",
         "insight110",
         "insight081",
@@ -109,26 +110,27 @@ window.WATCHDOG_INTEL = {
         "alerta009"
       ],
       "aprendizados_chave": [
+        "Retração apresenta desacoplamento entre meta de alunos (verde, 106% YTD) e RR/SDR (62% da meta). Isso indica que quando as reuniões acontecem, os alunos chegam em volume acima d...",
         "HT PÚB tem a maior taxa de fechamento da cartela (235% da meta semanal) mas volume de Realizadas em 58% — o gargalo não é conversão, é abastecimento de topo de funil. Produto de...",
-        "Copy de benefícios para Anos Anteriores performa melhor em escolas sem SDR atribuído — cold outreach WA é mais efetivo sem interferência de relacionamento prévio com SDR.",
-        "Concorrencia pode ter RR/SDR acima da meta mas zero alunos cadastrados na mesma semana. O desacoplamento indica que o gargalo esta na conversao RR->alunos, nao no volume de reun..."
+        "Copy de benefícios para Anos Anteriores performa melhor em escolas sem SDR atribuído — cold outreach WA é mais efetivo sem interferência de relacionamento prévio com SDR."
       ],
       "riscos_abertos": [
         "LT PART em 7/30 convertidas (23%) e R$24.000/R$98.649 em receita (24%). O alerta041 registrou esse dado para a semana passada; o documento de hoje confirma que não houve recuper...",
         "Média de levantadas Outbound caiu de 5 para 3,75 por disparo vs ano anterior (-25%). Hipótese: segmentação High Value exclui segmentos historicamente mais responsivos. Sem análi..."
       ],
-      "contagem_aprendizados": 44,
+      "contagem_aprendizados": 45,
       "contagem_alertas_abertos": 20,
       "ultima_atualizacao": "2026-03-13"
     },
     {
       "tema": "base",
       "titulo": "Base",
-      "resumo_executivo": "Aprendizados-chave: A base de WhatsApp da Estante Mágica usa apenas 2 dos 19 campos de telefone disponíveis no CRM. A oportunidade de expansão de alcance está no próprio banco de dados, não em enri... | No segmento de Retração, copy com argumento emocional/reciprocidade ('presente exclusivo') tem CPL R$28 contra R$73 do argumento funcional ('sem trabalho'). O ângulo de reciproc... Riscos abertos: LT PART em 7/30 convertidas (23%) e R$24.000/R$98.649 em receita (24%). O alerta041 registrou esse dado para a semana passada; o documento de hoje confirma que não houve recuper... | Média de levantadas Outbound caiu de 5 para 3,75 por disparo vs ano anterior (-25%). Hipótese: segmentação High Value exclui segmentos historicamente mais responsivos. Sem análi...",
+      "resumo_executivo": "Aprendizados-chave: LT PART acumula evidência de que o gargalo não é ausência de disparo nem de base cadastrada — é conversão pós-disparo. Com 272 alunos cadastrados e R$731 de custo de disparo já... | A base de WhatsApp da Estante Mágica usa apenas 2 dos 19 campos de telefone disponíveis no CRM. A oportunidade de expansão de alcance está no próprio banco de dados, não em enri... Riscos abertos: LT PART em 7/30 convertidas (23%) e R$24.000/R$98.649 em receita (24%). O alerta041 registrou esse dado para a semana passada; o documento de hoje confirma que não houve recuper... | Média de levantadas Outbound caiu de 5 para 3,75 por disparo vs ano anterior (-25%). Hipótese: segmentação High Value exclui segmentos historicamente mais responsivos. Sem análi...",
       "aprendizados_ids": [
         "insight112",
         "insight114",
         "insight115",
+        "insight118",
         "insight102",
         "insight103",
         "insight106",
@@ -182,15 +184,15 @@ window.WATCHDOG_INTEL = {
         "alerta011"
       ],
       "aprendizados_chave": [
+        "LT PART acumula evidência de que o gargalo não é ausência de disparo nem de base cadastrada — é conversão pós-disparo. Com 272 alunos cadastrados e R$731 de custo de disparo já...",
         "A base de WhatsApp da Estante Mágica usa apenas 2 dos 19 campos de telefone disponíveis no CRM. A oportunidade de expansão de alcance está no próprio banco de dados, não em enri...",
-        "No segmento de Retração, copy com argumento emocional/reciprocidade ('presente exclusivo') tem CPL R$28 contra R$73 do argumento funcional ('sem trabalho'). O ângulo de reciproc...",
-        "Copy 'presente exclusivo' supera 'sem trabalho' em Retração com margem expressiva: CPL R$28 vs R$73 (2,6x mais barato). Consistente com benchmark anterior (insight100: CPL R$15-..."
+        "No segmento de Retração, copy com argumento emocional/reciprocidade ('presente exclusivo') tem CPL R$28 contra R$73 do argumento funcional ('sem trabalho'). O ângulo de reciproc..."
       ],
       "riscos_abertos": [
         "LT PART em 7/30 convertidas (23%) e R$24.000/R$98.649 em receita (24%). O alerta041 registrou esse dado para a semana passada; o documento de hoje confirma que não houve recuper...",
         "Média de levantadas Outbound caiu de 5 para 3,75 por disparo vs ano anterior (-25%). Hipótese: segmentação High Value exclui segmentos historicamente mais responsivos. Sem análi..."
       ],
-      "contagem_aprendizados": 37,
+      "contagem_aprendizados": 38,
       "contagem_alertas_abertos": 15,
       "ultima_atualizacao": "2026-03-13"
     },
@@ -224,8 +226,9 @@ window.WATCHDOG_INTEL = {
     {
       "tema": "rr_sdr",
       "titulo": "RR/SDR",
-      "resumo_executivo": "Aprendizados-chave: HT PÚB tem a maior taxa de fechamento da cartela (235% da meta semanal) mas volume de Realizadas em 58% — o gargalo não é conversão, é abastecimento de topo de funil. Produto de... | Concorrencia pode ter RR/SDR acima da meta mas zero alunos cadastrados na mesma semana. O desacoplamento indica que o gargalo esta na conversao RR->alunos, nao no volume de reun... Riscos abertos: Pior ritmo semanal registrado em Retracao. Outbound tambem abaixo da meta semanal. A/B email disparado hoje; WA amanha 8h com copy vencedor. Se ate quinta nao houver recuperacao... | Concorrencia: RR/SDR 102% mas 0% de meta de alunos na semana (0/721). Meta mensal em 27% (216/2.963). Paradoxo indica gargalo na conversao RR->alunos, nao no volume de reunioes.",
+      "resumo_executivo": "Aprendizados-chave: Retração apresenta desacoplamento entre meta de alunos (verde, 106% YTD) e RR/SDR (62% da meta). Isso indica que quando as reuniões acontecem, os alunos chegam em volume acima d... | HT PÚB tem a maior taxa de fechamento da cartela (235% da meta semanal) mas volume de Realizadas em 58% — o gargalo não é conversão, é abastecimento de topo de funil. Produto de... Riscos abertos: Pior ritmo semanal registrado em Retracao. Outbound tambem abaixo da meta semanal. A/B email disparado hoje; WA amanha 8h com copy vencedor. Se ate quinta nao houver recuperacao... | Concorrencia: RR/SDR 102% mas 0% de meta de alunos na semana (0/721). Meta mensal em 27% (216/2.963). Paradoxo indica gargalo na conversao RR->alunos, nao no volume de reunioes.",
       "aprendizados_ids": [
+        "insight119",
         "insight104",
         "insight095",
         "insight097",
@@ -246,17 +249,71 @@ window.WATCHDOG_INTEL = {
         "alerta005"
       ],
       "aprendizados_chave": [
+        "Retração apresenta desacoplamento entre meta de alunos (verde, 106% YTD) e RR/SDR (62% da meta). Isso indica que quando as reuniões acontecem, os alunos chegam em volume acima d...",
         "HT PÚB tem a maior taxa de fechamento da cartela (235% da meta semanal) mas volume de Realizadas em 58% — o gargalo não é conversão, é abastecimento de topo de funil. Produto de...",
-        "Concorrencia pode ter RR/SDR acima da meta mas zero alunos cadastrados na mesma semana. O desacoplamento indica que o gargalo esta na conversao RR->alunos, nao no volume de reun...",
-        "SDRs em rampa de Novas (RR/SDR 0,11) tem produtividade 58% menor que rampados (0,21) e 58% abaixo da meta (0,26). Dado de marco confirma insight054 com benchmark quantificado."
+        "Concorrencia pode ter RR/SDR acima da meta mas zero alunos cadastrados na mesma semana. O desacoplamento indica que o gargalo esta na conversao RR->alunos, nao no volume de reun..."
       ],
       "riscos_abertos": [
         "Pior ritmo semanal registrado em Retracao. Outbound tambem abaixo da meta semanal. A/B email disparado hoje; WA amanha 8h com copy vencedor. Se ate quinta nao houver recuperacao...",
         "Concorrencia: RR/SDR 102% mas 0% de meta de alunos na semana (0/721). Meta mensal em 27% (216/2.963). Paradoxo indica gargalo na conversao RR->alunos, nao no volume de reunioes."
       ],
-      "contagem_aprendizados": 8,
+      "contagem_aprendizados": 9,
       "contagem_alertas_abertos": 8,
-      "ultima_atualizacao": "2026-03-12"
+      "ultima_atualizacao": "2026-03-13"
+    },
+    {
+      "tema": "renovacao",
+      "titulo": "Renovacao",
+      "resumo_executivo": "Aprendizados-chave: LT PART acumula evidência de que o gargalo não é ausência de disparo nem de base cadastrada — é conversão pós-disparo. Com 272 alunos cadastrados e R$731 de custo de disparo já... | LT Pública mostra potencial de receita (R$72.198 potencial, 25 convertidas, 1.482 alunos cadastrados) desproporcional ao custo de disparo (R$283,50). O custo por aluno cadastrad... Riscos abertos: Decisão na daily: disparo vídeos renovação Spotify na segunda 16/03. Base (descarte + perda sem conversão) deve estar validada até sexta 13/03 EOD. DRI não confirmado explicitam... | A semana de 03-06/mar encerrou com HT PART Renovação em 79% do RR/SDR semanal. Na daily 06/mar, as 22 RRs necessárias no último dia eram matematicamente impossíveis. O deficit d...",
+      "aprendizados_ids": [
+        "insight111",
+        "insight114",
+        "insight118",
+        "insight120",
+        "insight104",
+        "insight109",
+        "insight092",
+        "insight093",
+        "insight080",
+        "insight073",
+        "insight051",
+        "insight026",
+        "insight028",
+        "insight031",
+        "insight036",
+        "insight038",
+        "insight039",
+        "insight002",
+        "insight003",
+        "insight004",
+        "insight006",
+        "insight007",
+        "insight009",
+        "insight018",
+        "insight017",
+        "insight023"
+      ],
+      "alertas_ids": [
+        "alerta048",
+        "alerta032",
+        "alerta030",
+        "alerta026",
+        "alerta024",
+        "alerta005",
+        "alerta009"
+      ],
+      "aprendizados_chave": [
+        "LT PART acumula evidência de que o gargalo não é ausência de disparo nem de base cadastrada — é conversão pós-disparo. Com 272 alunos cadastrados e R$731 de custo de disparo já...",
+        "LT Pública mostra potencial de receita (R$72.198 potencial, 25 convertidas, 1.482 alunos cadastrados) desproporcional ao custo de disparo (R$283,50). O custo por aluno cadastrad...",
+        "HT PÚB tem a maior taxa de fechamento da cartela (235% da meta semanal) mas volume de Realizadas em 58% — o gargalo não é conversão, é abastecimento de topo de funil. Produto de..."
+      ],
+      "riscos_abertos": [
+        "Decisão na daily: disparo vídeos renovação Spotify na segunda 16/03. Base (descarte + perda sem conversão) deve estar validada até sexta 13/03 EOD. DRI não confirmado explicitam...",
+        "A semana de 03-06/mar encerrou com HT PART Renovação em 79% do RR/SDR semanal. Na daily 06/mar, as 22 RRs necessárias no último dia eram matematicamente impossíveis. O deficit d..."
+      ],
+      "contagem_aprendizados": 26,
+      "contagem_alertas_abertos": 7,
+      "ultima_atualizacao": "2026-03-13"
     },
     {
       "tema": "copy",
@@ -309,58 +366,6 @@ window.WATCHDOG_INTEL = {
         "Concorrencia abriu marco com 45% de fechadas/realizadas vs 58% em fevereiro - queda de 13pp sem causa documentada. Com 1 SDR a menos e bolsao herdado de fev, risco de degradacao..."
       ],
       "contagem_aprendizados": 26,
-      "contagem_alertas_abertos": 7,
-      "ultima_atualizacao": "2026-03-13"
-    },
-    {
-      "tema": "renovacao",
-      "titulo": "Renovacao",
-      "resumo_executivo": "Aprendizados-chave: HT PÚB tem a maior taxa de fechamento da cartela (235% da meta semanal) mas volume de Realizadas em 58% — o gargalo não é conversão, é abastecimento de topo de funil. Produto de... | Formato de vídeo personalizado estilo Spotify Wrapped (dados reais da escola) funciona como mecanismo de relacionamento antes de renovação — cria antecipação sem pressão de compra. Riscos abertos: Decisão na daily: disparo vídeos renovação Spotify na segunda 16/03. Base (descarte + perda sem conversão) deve estar validada até sexta 13/03 EOD. DRI não confirmado explicitam... | A semana de 03-06/mar encerrou com HT PART Renovação em 79% do RR/SDR semanal. Na daily 06/mar, as 22 RRs necessárias no último dia eram matematicamente impossíveis. O deficit d...",
-      "aprendizados_ids": [
-        "insight111",
-        "insight114",
-        "insight104",
-        "insight109",
-        "insight092",
-        "insight093",
-        "insight080",
-        "insight073",
-        "insight051",
-        "insight026",
-        "insight028",
-        "insight031",
-        "insight036",
-        "insight038",
-        "insight039",
-        "insight002",
-        "insight003",
-        "insight004",
-        "insight006",
-        "insight007",
-        "insight009",
-        "insight018",
-        "insight017",
-        "insight023"
-      ],
-      "alertas_ids": [
-        "alerta048",
-        "alerta032",
-        "alerta030",
-        "alerta026",
-        "alerta024",
-        "alerta005",
-        "alerta009"
-      ],
-      "aprendizados_chave": [
-        "HT PÚB tem a maior taxa de fechamento da cartela (235% da meta semanal) mas volume de Realizadas em 58% — o gargalo não é conversão, é abastecimento de topo de funil. Produto de...",
-        "Formato de vídeo personalizado estilo Spotify Wrapped (dados reais da escola) funciona como mecanismo de relacionamento antes de renovação — cria antecipação sem pressão de compra.",
-        "Tema 'Sem trabalho' em Renovação HT gera CPL 3-7x menor que Playlist para o mesmo público"
-      ],
-      "riscos_abertos": [
-        "Decisão na daily: disparo vídeos renovação Spotify na segunda 16/03. Base (descarte + perda sem conversão) deve estar validada até sexta 13/03 EOD. DRI não confirmado explicitam...",
-        "A semana de 03-06/mar encerrou com HT PART Renovação em 79% do RR/SDR semanal. Na daily 06/mar, as 22 RRs necessárias no último dia eram matematicamente impossíveis. O deficit d..."
-      ],
-      "contagem_aprendizados": 24,
       "contagem_alertas_abertos": 7,
       "ultima_atualizacao": "2026-03-13"
     },
@@ -425,9 +430,11 @@ window.WATCHDOG_INTEL = {
     {
       "tema": "campanha",
       "titulo": "Campanhas",
-      "resumo_executivo": "Aprendizados-chave: Priorização de escolas High Value no Outbound pode reduzir volume de levantadas porque histórico mostra que escolas de médio e micro porte são as que mais convertem nesse canal.... | No segmento de Retração, copy com argumento emocional/reciprocidade ('presente exclusivo') tem CPL R$28 contra R$73 do argumento funcional ('sem trabalho'). O ângulo de reciproc... Riscos abertos: Numero utilizado no teste de ligacoes WA com 30 escolas sofreu bloqueio na Meta, possivelmente por denuncia. Nao esta claro se e o numero principal ou temporario. Se for o princ... | Pedro propôs envio de WA utilitário antes de cada ligação SDR. Ana Paula levantou risco de saturação. Lili não concluiu a deliberação. A daily encerrou sem decisão formal, sem D...",
+      "resumo_executivo": "Aprendizados-chave: LT PART acumula evidência de que o gargalo não é ausência de disparo nem de base cadastrada — é conversão pós-disparo. Com 272 alunos cadastrados e R$731 de custo de disparo já... | LT Pública mostra potencial de receita (R$72.198 potencial, 25 convertidas, 1.482 alunos cadastrados) desproporcional ao custo de disparo (R$283,50). O custo por aluno cadastrad... Riscos abertos: Numero utilizado no teste de ligacoes WA com 30 escolas sofreu bloqueio na Meta, possivelmente por denuncia. Nao esta claro se e o numero principal ou temporario. Se for o princ... | Pedro propôs envio de WA utilitário antes de cada ligação SDR. Ana Paula levantou risco de saturação. Lili não concluiu a deliberação. A daily encerrou sem decisão formal, sem D...",
       "aprendizados_ids": [
         "insight117",
+        "insight118",
+        "insight120",
         "insight101",
         "insight103",
         "insight106",
@@ -459,15 +466,15 @@ window.WATCHDOG_INTEL = {
         "alerta007"
       ],
       "aprendizados_chave": [
-        "Priorização de escolas High Value no Outbound pode reduzir volume de levantadas porque histórico mostra que escolas de médio e micro porte são as que mais convertem nesse canal....",
-        "No segmento de Retração, copy com argumento emocional/reciprocidade ('presente exclusivo') tem CPL R$28 contra R$73 do argumento funcional ('sem trabalho'). O ângulo de reciproc...",
-        "Copy 'presente exclusivo' supera 'sem trabalho' em Retração com margem expressiva: CPL R$28 vs R$73 (2,6x mais barato). Consistente com benchmark anterior (insight100: CPL R$15-..."
+        "LT PART acumula evidência de que o gargalo não é ausência de disparo nem de base cadastrada — é conversão pós-disparo. Com 272 alunos cadastrados e R$731 de custo de disparo já...",
+        "LT Pública mostra potencial de receita (R$72.198 potencial, 25 convertidas, 1.482 alunos cadastrados) desproporcional ao custo de disparo (R$283,50). O custo por aluno cadastrad...",
+        "Priorização de escolas High Value no Outbound pode reduzir volume de levantadas porque histórico mostra que escolas de médio e micro porte são as que mais convertem nesse canal...."
       ],
       "riscos_abertos": [
         "Numero utilizado no teste de ligacoes WA com 30 escolas sofreu bloqueio na Meta, possivelmente por denuncia. Nao esta claro se e o numero principal ou temporario. Se for o princ...",
         "Pedro propôs envio de WA utilitário antes de cada ligação SDR. Ana Paula levantou risco de saturação. Lili não concluiu a deliberação. A daily encerrou sem decisão formal, sem D..."
       ],
-      "contagem_aprendizados": 24,
+      "contagem_aprendizados": 26,
       "contagem_alertas_abertos": 4,
       "ultima_atualizacao": "2026-03-13"
     }
@@ -552,6 +559,57 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Extrair o ARGUMENTO do MEL (escola protagonista, reconhecimento publico, beneficios multiplos, mes dedicado) e adaptar para o copy dos e-mails do Cerco Magico 2026 — especialmente AA e Retracao — sem precisar da estrutura operacional completa. O argumento 'sua escola vira uma escola de autores por um mes inteiro' pode funcionar como gancho mesmo que o programa MEL nao exista mais com esse nome. Karina e Lili validar qual elemento do MEL pode ser reposicionado no copy atual.",
       "contexto": "Feedback Pedro em sessao Claudete 13/03/2026",
       "fonte": "feedback_pedro_13_03_2026"
+    },
+    {
+      "id": "insight118",
+      "data": "2026-03-13",
+      "fonte": "Nath 13.03.26 Meta Aquisição 26 _ Daily comercial _ Ações da semana.pdf",
+      "categoria": "funil",
+      "gatilho": "LT PART",
+      "insight": "LT PART acumula evidência de que o gargalo não é ausência de disparo nem de base cadastrada — é conversão pós-disparo. Com 272 alunos cadastrados e R$731 de custo de disparo já executados, a frente chegou a 8 convertidas em 30 (23% de meta de convertidas) e R$24k de R$98k em receita. O problema não é operacional de execução de campanha; é estrutural de proposta de valor ou timing de abordagem para este segmento.",
+      "evidencia": "Meta Marketing LT PART: R$24.000/R$98.649 (24%). Convertidas: 8/30 (23%). Alunos cadastrados: 272. Custo disparo: R$731,16. Dados confirmados em documento de 13/03 após alerta045 que registrou o mesmo patamar na semana anterior — sem recuperação.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "LT PART",
+        "renovação",
+        "campanha de baixo toque"
+      ],
+      "acao_sugerida": "Antes de escalar volume de disparo LT PART, auditar proposta de valor e timing: o que está sendo oferecido, em que momento do ciclo e com qual argumento. Volume sem ajuste de mensagem apenas aumenta custo sem mover conversão.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight119",
+      "data": "2026-03-13",
+      "fonte": "Nath 13.03.26 Meta Aquisição 26 _ Daily comercial _ Ações da semana.pdf",
+      "categoria": "funil",
+      "gatilho": "Retração RR/SDR",
+      "insight": "Retração apresenta desacoplamento entre meta de alunos (verde, 106% YTD) e RR/SDR (62% da meta). Isso indica que quando as reuniões acontecem, os alunos chegam em volume acima do esperado — mas o volume de reuniões em si está comprimido. O gargalo de Retração não é conversão por reunião, é abastecimento de topo de funil (reuniões realizadas).",
+      "evidencia": "Retração mês: Meta alunos 1.888/4.355 (106% YTD verde). RR/SDR: 0,40/0,64 (62% da meta). Realizadas: 17/56 (74% YTD). A taxa de fechadas/realizadas de 47%/62% (76% meta) indica que quando a reunião ocorre, o fechamento é razoável — o problema é chegar a 56 reuniões.",
+      "confianca": "alta",
+      "aplicavel_a": [
+        "Retração",
+        "abastecimento de funil",
+        "SDR"
+      ],
+      "acao_sugerida": "Em Retração, priorizar ações que aumentem volume de reuniões realizadas (abastecimento SDR, cadência de follow-up) antes de investir em melhoria de taxa de fechamento — a conversão por reunião já está razoável.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight120",
+      "data": "2026-03-13",
+      "fonte": "Nath 13.03.26 Meta Aquisição 26 _ Daily comercial _ Ações da semana.pdf",
+      "categoria": "funil",
+      "gatilho": "LT Pública",
+      "insight": "LT Pública mostra potencial de receita (R$72.198 potencial, 25 convertidas, 1.482 alunos cadastrados) desproporcional ao custo de disparo (R$283,50). O custo por aluno cadastrado de LT Pública é significativamente inferior ao de LT PART (R$283/1.482 = R$0,19/aluno vs R$731/272 = R$2,69/aluno). Quando HT PÚB e LT Pública operam em conjunto no segmento público, a eficiência de custo de campanha é uma ordem de grandeza maior que no segmento particular.",
+      "evidencia": "LT Pública: Potencial R$72.198,75. Convertidas: 25. Alunos cadastrados: 1.482. Custo disparo: R$283,50. HT Pública: Potencial R$54.608,51. Convertidas: 5. Alunos cadastrados: 427. Custo disparo: R$262,44.",
+      "confianca": "media",
+      "aplicavel_a": [
+        "LT Pública",
+        "HT Pública",
+        "alocação de budget de campanha"
+      ],
+      "acao_sugerida": "Ao planejar alocação de budget de campanha de renovação, priorizar segmento público por custo por aluno cadastrado significativamente inferior. LT Pública especificamente deve receber escala antes de LT PART quando há restrição de budget.",
+      "status": "ativo"
     },
     {
       "id": "insight101",
@@ -740,40 +798,6 @@ window.WATCHDOG_INTEL = {
       "status": "ativo",
       "evidencia": "Chamada de Tati para escola de Anos Anteriores na sessao de escuta 10/mar/26. Gestora Mirla demonstrou saudades da EM e curiosidade sobre novidades mesmo tendo usado Lives e Ciranda de Livros no ano anterior.",
       "acao_sugerida": "No segmento AA: usar historico de relacionamento com a EM como gancho primario. Escola que foi para concorrencia nao e lead frio - e lead quente com historia. Perguntar sobre a experiencia anterior e validar o carinho existente."
-    },
-    {
-      "id": "insight087",
-      "data": "2026-03-11",
-      "fonte": "Encontro Aquisicao 04/mar/26 (Lili)",
-      "titulo": "Queda de levantadas 2024->2025 pode estar correlacionada com descontinuacao da campanha MEL (Mes da Estrela Literaria)",
-      "descricao": "Em 2024 argumento central era MEL (motivacao emocional do livro); em 2025 mudou para objetivo de antecipacao de receita. Houve queda de levantadas. Hipotese: MEL tinha maior ressonancia emocional com gestoras do que o argumento de receita. Ainda e hipotese - requer investigacao de Mkt.",
-      "categoria": "oferta",
-      "status": "ativo",
-      "evidencia": "Encontro Aquisicao 04/mar/26 (Lili) - item 4. Queda de levantadas de 2024 para 2025 identificada. Hipotese: a campanha MEL (Mes da Estrela Literaria) foi o argumento central de 2024. MEL era uma campanha com serie de acoes e beneficios para a escola ao longo de um mes. Foi descontinuada por falta de capacidade interna de execucao, nao por falta de resultado. Task t148 criada para investigar quais elementos do argumento MEL sao replicaveis em 2026.",
-      "acao_sugerida": "Karina investigar materials do MEL 2024: quais beneficios eram oferecidos, qual era o pitch central, qual o resultado em levantadas/conversoes. Avaliar quais elementos do argumento (escola protagonista, beneficios multiplos, destaque da escola) sao replicaveis no Cerco Magico 2026 sem exigir a estrutura operacional completa do MEL. Especialmente relevante para copy de e-mail AA e Retracao — segmentos mais receptivos a argumento de reconhecimento.",
-      "ultima_atualizacao": "2026-03-13T09:19:03.616060"
-    },
-    {
-      "id": "insight088",
-      "data": "2026-03-11",
-      "fonte": "Encontro Aquisicao 04/mar/26 (Lili)",
-      "titulo": "Disparo WA so ocorre para campo celular - outros campos de contato nao sao alcancados, representando perda de alcance",
-      "descricao": "Disparo de WA utilitario so acontece para registros com campo celular preenchido. Outros campos de contato nao recebem disparos, representando escolas potencialmente alcancaveis que nao estao sendo contatadas. Custo do utilitario: R$0,09 por disparo.",
-      "categoria": "canal",
-      "status": "ativo",
-      "evidencia": "Encontro Aquisicao 04/mar/26 (Lili) - item 1.1. Validacao de WPP identificada como oportunidade com impacto em conversao.",
-      "acao_sugerida": "Vitoria implementar disparo WA utilitario para campos alem de celular (t143). Medir impacto em taxa de atendimento apos implementacao."
-    },
-    {
-      "id": "insight089",
-      "data": "2026-03-11",
-      "fonte": "Mensagem da Lua.pdf",
-      "titulo": "Ligacao via WhatsApp em prospeccao B2B escola gera bloqueio de numero e percepcao de invasao — canal inviavel como padrao",
-      "descricao": "Teste com 30 escolas (ligacoes via WA) resultou em 1 reuniao (3,3% de conversao) e bloqueio do numero institucional pela Meta, possivelmente por denuncia de escola. 2 escolas declararam explicitamente que nao atendem ligacoes via WhatsApp. Percepcao das gestoras e de invasao, nao de contato comercial legitimo. Compromete o numero como ativo estrategico.",
-      "categoria": "canal",
-      "status": "ativo",
-      "evidencia": "30 escolas trabalhadas, 5 contatos efetivos, 1 reuniao realizada, numero bloqueado na Meta. 2 escolas recusaram explicitamente ligacoes WA.",
-      "acao_sugerida": "Nunca usar ligacao via WhatsApp como canal padrao de prospeccao SDR. Reservar WA para ultimo recurso (todos canais tentados, escola seria descartada). Usar numero descartavel dedicado se necessario."
     }
   ],
   "criticas_ativas": [
@@ -1204,8 +1228,8 @@ window.WATCHDOG_INTEL = {
       "base",
       "geral",
       "rr_sdr",
-      "copy",
       "renovacao",
+      "copy",
       "concorrencia",
       "campanha",
       "outbound",
@@ -1249,6 +1273,9 @@ window.WATCHDOG_INTEL = {
       "mkt_renovacao",
       "meta",
       "marketing",
+      "lt_publica",
+      "lt_part",
+      "ht_publica",
       "ht_pub",
       "funil_novas_escolas",
       "ferramenta",
@@ -1258,14 +1285,17 @@ window.WATCHDOG_INTEL = {
       "copy_e_mail",
       "canal_whatsapp",
       "campanhas_outbound",
+      "campanha_de_baixo_toque",
       "base_retracao",
       "base_ht_publica",
       "base_de_contatos",
       "base_aa",
       "ativacao",
       "analise_de_bolsao",
-      "acao_1a1"
+      "alocacao_de_budget_de_campanha",
+      "acao_1a1",
+      "abastecimento_de_funil"
     ],
-    "itens_indexados": 161
+    "itens_indexados": 164
   }
 };

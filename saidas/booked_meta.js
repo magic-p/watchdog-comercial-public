@@ -4,6 +4,46 @@ window.WATCHDOG_BOOKED_META = {
   "buckets": [],
   "wins": [
     {
+      "emoji": "✅",
+      "titulo": "Nath Ferreira: Nath: Check entregas de CRM para Aquisição (tarefa anterior: estruturar demanda e conversa com CRM para melhorar visão de closer, baldinhos e ativação",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Nath Ferreira",
+      "data": "13/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Ana Paula Pimentel: Ana: levantar número de alunos que a escola de Concorrência se propôs a aplicar vs o que foi cadastrado no CRM — identificar delta de upsell perdido",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Ana Paula Pimentel",
+      "data": "13/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Lili: Lili: revisar orçado x realizado comercial YTD (janeiro)",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Lili",
+      "data": "13/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Lili: Lili: solicitar a Maria Carol explicação sobre 3 escolas acima de 40k com descarte 'só próximo ano'",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Lili",
+      "data": "13/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "🎯",
+      "titulo": "Lili: Enviar vídeo de renovação (estilo Spotify) para Pimentel e Nath para alinhamento",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Lili",
+      "data": "13/03",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
       "emoji": "🎯",
       "titulo": "Vitoria: Vitoria executar disparo WA para base de Retracao em etapas entrada e descarte para gerar RR — base validada por Nath antes do disparo",
       "desc": "Concluida no ciclo semanal (segunda a domingo).",
