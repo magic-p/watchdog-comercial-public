@@ -891,6 +891,7 @@
 
     .wins-bd { padding: 0 18px; }
     .wins-bd.collapsed { display: none; }
+    .section-collapsed { display: none; }
 
     .win-item {
       display: flex; gap: 12px; align-items: flex-start;
@@ -1467,21 +1468,6 @@
 
   </div>
 
-  <div class="reveal" style="animation-delay:.22s">
-    <div class="card">
-      <div class="card-hd">
-        <span class="card-hd-label">
-          <span class="hd-icon" style="color:var(--orange)">+</span>
-          Saúde dos Dados
-        </span>
-        <span class="count-badge" id="dataHealthStamp">-</span>
-      </div>
-      <div class="card-bd" id="dataHealthList">
-        <span style="color:var(--t3);font-size:12px">Sem leitura de saúde disponível.</span>
-      </div>
-    </div>
-  </div>
-
   <!-- WINS  -->
   <div class="reveal" style="animation-delay:.26s">
     <div class="wins-card">
@@ -1492,10 +1478,10 @@
         </span>
         <div style="display:flex; gap:8px; align-items:center;">
           <span class="count-badge" id="winsCount">-</span>
-          <button class="btn" id="winsToggle" type="button">Ocultar</button>
+          <button class="btn" id="winsToggle" type="button">Mostrar</button>
         </div>
       </div>
-      <div class="wins-bd" id="winsList"></div>
+      <div class="wins-bd collapsed" id="winsList"></div>
     </div>
   </div>
 
@@ -1506,9 +1492,12 @@
           <span class="hd-icon blue">R$</span>
           Meta Booked Revenue (Stretch Oficial)
         </span>
-        <span class="count-badge">SSOT</span>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <span class="count-badge">SSOT</span>
+          <button class="btn" id="bookedToggle" type="button">Mostrar</button>
+        </div>
       </div>
-      <div class="booked-bd">
+      <div class="booked-bd section-collapsed" id="bookedBody">
         <div class="booked-kpis">
           <div class="booked-kpi">
             <div class="booked-kpi-label" id="bookedMonthLabel">Meta Oficial (Stretch) - M&ecirc;s</div>
@@ -1534,46 +1523,75 @@
   </div>
 
   <!-- CLAUDETE — INTELIGÊNCIA ESTRATÉGICA -->
-  <div class="intel-grid reveal" style="animation-delay:.38s">
-    <div class="card intel-summary-card">
+  <div class="reveal" style="animation-delay:.38s">
+    <div class="card" style="margin-bottom:16px;">
       <div class="card-hd">
         <span class="card-hd-label">
           <span class="hd-icon" style="color:var(--blue)">#</span>
-          Resumos Temáticos da Claudete
+          Claudete e Inteligência Estratégica
         </span>
+        <button class="btn" id="intelToggle" type="button">Mostrar</button>
       </div>
-      <div class="card-bd" id="intelSummaryList"><span style="color:var(--t3);font-size:12px">Sem resumos temáticos disponíveis.</span></div>
     </div>
+    <div class="intel-grid section-collapsed" id="intelSection">
+      <div class="card intel-summary-card">
+        <div class="card-hd">
+          <span class="card-hd-label">
+            <span class="hd-icon" style="color:var(--blue)">#</span>
+            Resumos Temáticos da Claudete
+          </span>
+        </div>
+        <div class="card-bd" id="intelSummaryList"><span style="color:var(--t3);font-size:12px">Sem resumos temáticos disponíveis.</span></div>
+      </div>
+      <div class="card">
+        <div class="card-hd">
+          <span class="card-hd-label">
+            <span class="hd-icon" style="color:var(--red)">&#9888;</span>
+            Alertas da Claudete
+          </span>
+        </div>
+        <div class="card-bd">
+          <div class="intel-tabs alertas">
+            <button class="intel-tab active" data-alerta-tab="ativos" type="button">Ativos</button>
+            <button class="intel-tab" data-alerta-tab="arquivados" type="button">Arquivados</button>
+          </div>
+          <div class="intel-tab-panel active" id="criticasList"><span style="color:var(--t3);font-size:12px">Sem alertas ativos.</span></div>
+          <div class="intel-tab-panel" id="criticasArchivedList"><span style="color:var(--t3);font-size:12px">Sem alertas arquivados.</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-hd">
+          <span class="card-hd-label">
+            <span class="hd-icon" style="color:var(--green)">&#129504;</span>
+            Insights da Claudete
+          </span>
+        </div>
+        <div class="card-bd">
+          <div class="intel-tabs">
+            <button class="intel-tab active" data-intel-tab="ativos" type="button">Ativos</button>
+            <button class="intel-tab" data-intel-tab="arquivados" type="button">Arquivados</button>
+          </div>
+          <div class="intel-tab-panel active" id="aprendizadosList"><span style="color:var(--t3);font-size:12px">Sem aprendizados registrados.</span></div>
+          <div class="intel-tab-panel" id="aprendizadosArchivedList"><span style="color:var(--t3);font-size:12px">Sem aprendizados arquivados.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.42s">
     <div class="card">
       <div class="card-hd">
         <span class="card-hd-label">
-          <span class="hd-icon" style="color:var(--red)">&#9888;</span>
-          Alertas da Claudete
+          <span class="hd-icon" style="color:var(--orange)">+</span>
+          Saúde dos Dados
         </span>
-      </div>
-      <div class="card-bd">
-        <div class="intel-tabs alertas">
-          <button class="intel-tab active" data-alerta-tab="ativos" type="button">Ativos</button>
-          <button class="intel-tab" data-alerta-tab="arquivados" type="button">Arquivados</button>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <span class="count-badge" id="dataHealthStamp">-</span>
+          <button class="btn" id="healthToggle" type="button">Mostrar</button>
         </div>
-        <div class="intel-tab-panel active" id="criticasList"><span style="color:var(--t3);font-size:12px">Sem alertas ativos.</span></div>
-        <div class="intel-tab-panel" id="criticasArchivedList"><span style="color:var(--t3);font-size:12px">Sem alertas arquivados.</span></div>
       </div>
-    </div>
-    <div class="card">
-      <div class="card-hd">
-        <span class="card-hd-label">
-          <span class="hd-icon" style="color:var(--green)">&#129504;</span>
-          Insights da Claudete
-        </span>
-      </div>
-      <div class="card-bd">
-        <div class="intel-tabs">
-          <button class="intel-tab active" data-intel-tab="ativos" type="button">Ativos</button>
-          <button class="intel-tab" data-intel-tab="arquivados" type="button">Arquivados</button>
-        </div>
-        <div class="intel-tab-panel active" id="aprendizadosList"><span style="color:var(--t3);font-size:12px">Sem aprendizados registrados.</span></div>
-        <div class="intel-tab-panel" id="aprendizadosArchivedList"><span style="color:var(--t3);font-size:12px">Sem aprendizados arquivados.</span></div>
+      <div class="card-bd section-collapsed" id="dataHealthList">
+        <span style="color:var(--t3);font-size:12px">Sem leitura de saúde disponível.</span>
       </div>
     </div>
   </div>
@@ -2608,6 +2626,15 @@ function renderDataHealth() {
     </div>`;
 }
 
+function applyCollapsibleState(bodyId, buttonId, collapsed) {
+  const body = document.getElementById(bodyId);
+  const button = document.getElementById(buttonId);
+  if (!body || !button) return;
+  body.classList.toggle('collapsed', collapsed);
+  body.classList.toggle('section-collapsed', collapsed);
+  button.textContent = collapsed ? 'Mostrar' : 'Ocultar';
+}
+
 function enforceWeeklyTop3(list) {
   list.forEach(t => {
     if (t.priorityRank && t.done) t.priorityRank = null;
@@ -2680,10 +2707,21 @@ let sortCol = 'date';
 let sortDir = 1;
 let ownerFilter = null;
 let _invalidSupabaseTaskIds = new Set();
+let winsCollapsed = true;
+let bookedCollapsed = true;
+let intelCollapsed = true;
+let healthCollapsed = true;
+let _lastGoodSupabaseTasks = [];
+let _supabaseRefreshInFlight = false;
 
 const UI_STATE_KEY = 'watchdog_ui';
 function saveUiState() {
-  try { localStorage.setItem(UI_STATE_KEY, JSON.stringify({ ownerFilter, taskView, sortCol, sortDir })); } catch (e) {}
+  try {
+    localStorage.setItem(UI_STATE_KEY, JSON.stringify({
+      ownerFilter, taskView, sortCol, sortDir,
+      winsCollapsed, bookedCollapsed, intelCollapsed, healthCollapsed
+    }));
+  } catch (e) {}
 }
 function loadUiState() {
   try {
@@ -2696,6 +2734,10 @@ function loadUiState() {
     if (s.taskView)  taskView  = s.taskView;
     if (s.sortCol)   sortCol   = s.sortCol;
     if (s.sortDir)   sortDir   = s.sortDir;
+    if (typeof s.winsCollapsed === 'boolean') winsCollapsed = s.winsCollapsed;
+    if (typeof s.bookedCollapsed === 'boolean') bookedCollapsed = s.bookedCollapsed;
+    if (typeof s.intelCollapsed === 'boolean') intelCollapsed = s.intelCollapsed;
+    if (typeof s.healthCollapsed === 'boolean') healthCollapsed = s.healthCollapsed;
   } catch (e) {}
 }
 
@@ -2928,6 +2970,7 @@ function load() {
     tasks = sanitizeTasksForUi(SEED.map(s => ({ ...s })));
   }
   enforceWeeklyTop3(tasks);
+  if (tasks.length) _lastGoodSupabaseTasks = tasks.map(t => ({ ...t }));
 }
 
 function save() {
@@ -3576,9 +3619,44 @@ document.addEventListener('DOMContentLoaded', () => {
   const winsToggle = document.getElementById('winsToggle');
   const winsList = document.getElementById('winsList');
   if (winsToggle && winsList) {
+    applyCollapsibleState('winsList', 'winsToggle', winsCollapsed);
     winsToggle.addEventListener('click', () => {
-      const collapsed = winsList.classList.toggle('collapsed');
-      winsToggle.textContent = collapsed ? 'Mostrar' : 'Ocultar';
+      winsCollapsed = !winsCollapsed;
+      applyCollapsibleState('winsList', 'winsToggle', winsCollapsed);
+      saveUiState();
+    });
+  }
+
+  const bookedToggle = document.getElementById('bookedToggle');
+  const bookedBody = document.getElementById('bookedBody');
+  if (bookedToggle && bookedBody) {
+    applyCollapsibleState('bookedBody', 'bookedToggle', bookedCollapsed);
+    bookedToggle.addEventListener('click', () => {
+      bookedCollapsed = !bookedCollapsed;
+      applyCollapsibleState('bookedBody', 'bookedToggle', bookedCollapsed);
+      saveUiState();
+    });
+  }
+
+  const intelToggle = document.getElementById('intelToggle');
+  const intelSection = document.getElementById('intelSection');
+  if (intelToggle && intelSection) {
+    applyCollapsibleState('intelSection', 'intelToggle', intelCollapsed);
+    intelToggle.addEventListener('click', () => {
+      intelCollapsed = !intelCollapsed;
+      applyCollapsibleState('intelSection', 'intelToggle', intelCollapsed);
+      saveUiState();
+    });
+  }
+
+  const healthToggle = document.getElementById('healthToggle');
+  const healthBody = document.getElementById('dataHealthList');
+  if (healthToggle && healthBody) {
+    applyCollapsibleState('dataHealthList', 'healthToggle', healthCollapsed);
+    healthToggle.addEventListener('click', () => {
+      healthCollapsed = !healthCollapsed;
+      applyCollapsibleState('dataHealthList', 'healthToggle', healthCollapsed);
+      saveUiState();
     });
   }
 
@@ -3679,7 +3757,7 @@ function _onAuthLogin(session) {
   toast('Acesso liberado — ' + name, 'ok');
   const pp = document.getElementById('publicPill');
   if (pp) pp.style.display = 'none';
-  if (REQUIRE_LOGIN_FOR_READ) {
+  if (!REQUIRE_LOGIN_FOR_READ) {
     load();
     renderTasks();
     renderCriticalAlerts();
@@ -3688,7 +3766,7 @@ function _onAuthLogin(session) {
     renderBookedMeta();
     renderWins();
   }
-  _refreshTasksFromSupabase();
+  _refreshTasksFromSupabase(true);
   _sbSubscribeRealtime();
 }
 
@@ -3789,6 +3867,8 @@ async function _sbSeedFromSSOT() {
 
 async function _refreshTasksFromSupabase(silent = false) {
   if (!_sb || !_sbSession) return;
+  if (_supabaseRefreshInFlight) return;
+  _supabaseRefreshInFlight = true;
   try {
     const { data, error } = await _sb.from('todos').select('*').order('id');
     if (error) {
@@ -3807,6 +3887,7 @@ async function _refreshTasksFromSupabase(silent = false) {
       }
       await _cleanupInvalidSupabaseTasks(seeded);
       tasks = sanitizeTasksForUi(seeded.map(_sbRowToTask));
+      _lastGoodSupabaseTasks = tasks.map(t => ({ ...t }));
       enforceWeeklyTop3(tasks);
       renderTasks();
       buildOwnerFilters();
@@ -3814,7 +3895,13 @@ async function _refreshTasksFromSupabase(silent = false) {
       return;
     }
     await _cleanupInvalidSupabaseTasks(data);
-    tasks = sanitizeTasksForUi(data.map(_sbRowToTask));
+    const nextTasks = sanitizeTasksForUi(data.map(_sbRowToTask));
+    if (!nextTasks.length && _lastGoodSupabaseTasks.length) {
+      tasks = _lastGoodSupabaseTasks.map(t => ({ ...t }));
+    } else {
+      tasks = nextTasks;
+      if (tasks.length) _lastGoodSupabaseTasks = tasks.map(t => ({ ...t }));
+    }
     enforceWeeklyTop3(tasks);
     renderTasks();
     buildOwnerFilters();
@@ -3822,6 +3909,8 @@ async function _refreshTasksFromSupabase(silent = false) {
   } catch (err) {
     console.error('[Supabase] exception in _refreshTasksFromSupabase:', err);
     if (!silent) toast('Supabase falhou: ' + (err?.message || String(err)), 'error');
+  } finally {
+    _supabaseRefreshInFlight = false;
   }
 }
 
@@ -3864,6 +3953,3 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
-
-
-
