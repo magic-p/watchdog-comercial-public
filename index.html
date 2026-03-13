@@ -579,15 +579,18 @@
     }
 
     /* iOS-style table */
-    .todo-table { width: 100%; border-collapse: collapse; }
+    .todo-table { width: 100%; border-collapse: separate; border-spacing: 0; }
 
     .todo-table thead th {
-      padding: 8px 14px;
+      padding: 10px 14px;
       font-size: 11px; font-weight: 600;
       color: var(--t3); text-align: left;
       text-transform: uppercase; letter-spacing: 0.04em;
       background: var(--card-sec);
       border-bottom: 1px solid var(--sep);
+      position: sticky;
+      top: 0;
+      z-index: 1;
     }
     .todo-table thead th:first-child { padding-left: 18px; width: 44px; }
     .todo-table thead th:last-child  { padding-right: 18px; }
@@ -599,14 +602,18 @@
 
     .todo-row {
       border-bottom: 1px solid var(--sep);
-      transition: background .1s;
+      transition: background .12s, box-shadow .12s;
     }
-    .todo-row:hover { background: var(--card-sec); }
+    .todo-row:hover { background: #fcfcfd; box-shadow: inset 0 0 0 9999px rgba(0,0,0,0.01); }
     .todo-row:last-child { border-bottom: none; }
     .todo-row.done { opacity: .42; }
     .todo-row.done .todo-task { text-decoration: line-through; color: var(--t2); }
+    .todo-row.overdue { background: linear-gradient(90deg, rgba(255,59,48,0.05), rgba(255,59,48,0.01)); }
+    .todo-row.priority-1 { background: linear-gradient(90deg, rgba(0,122,255,0.06), rgba(0,122,255,0.01)); }
+    .todo-row.priority-2 { background: linear-gradient(90deg, rgba(255,149,0,0.05), rgba(255,149,0,0.01)); }
+    .todo-row.priority-3 { background: linear-gradient(90deg, rgba(52,199,89,0.05), rgba(52,199,89,0.01)); }
 
-    .todo-table td { padding: 14px; vertical-align: middle; }
+    .todo-table td { padding: 18px 14px; vertical-align: middle; }
     .todo-table td:first-child { padding-left: 18px; }
     .todo-table td:last-child  { padding-right: 18px; }
 
@@ -638,25 +645,70 @@
 
     .task-id {
       font-size: 10px; font-weight: 600; letter-spacing: 0.04em;
-      color: var(--t3); margin-bottom: 2px;
+      color: var(--t3); margin-bottom: 5px;
+      text-transform: uppercase;
     }
     .todo-task {
-      font-size: 14px; font-weight: 500;
-      color: var(--t1); line-height: 1.35;
+      font-size: 15px; font-weight: 600;
+      color: var(--t1); line-height: 1.42;
+      max-width: 680px;
     }
     .todo-comment {
       font-size: 12px; color: var(--t2);
-      margin-top: 3px; line-height: 1.5;
+      margin-top: 8px; line-height: 1.55;
+      max-width: 700px;
     }
     .todo-warn {
-      font-size: 12px; color: var(--orange);
-      margin-top: 2px;
+      font-size: 11px; color: var(--orange);
+      margin-top: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--orange-light);
+      border: 1px solid rgba(255,149,0,0.16);
+      font-weight: 600;
     }
     .todo-owner {
-      font-size: 13px; color: var(--t2); white-space: nowrap;
+      font-size: 13px; color: var(--t1); white-space: nowrap;
+      font-weight: 600;
     }
     .todo-date {
-      font-size: 13px; color: var(--t2); white-space: nowrap;
+      font-size: 13px; color: var(--t1); white-space: nowrap;
+      font-weight: 600;
+    }
+    .task-meta {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .task-meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--sep);
+      background: #fff;
+      color: var(--t2);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+    .task-meta-chip.top1 { color: var(--blue); border-color: rgba(0,122,255,0.16); background: rgba(0,122,255,0.06); }
+    .task-meta-chip.top2 { color: var(--orange); border-color: rgba(255,149,0,0.16); background: rgba(255,149,0,0.07); }
+    .task-meta-chip.top3 { color: var(--green); border-color: rgba(52,199,89,0.18); background: rgba(52,199,89,0.08); }
+    .task-meta-chip.overdue { color: var(--red); border-color: rgba(255,59,48,0.18); background: rgba(255,59,48,0.07); }
+    .todo-cell-compact {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: var(--card-sec);
+      border: 1px solid var(--sep);
     }
 
     /* Status badge  iOS Reminders style */
@@ -1159,20 +1211,21 @@
     .tier-select:hover { box-shadow: 0 0 0 2px var(--t4); }
     .row-edit-btn {
       font-family: var(--font);
-      font-size: 11px;
-      font-weight: 600;
-      padding: 4px 9px;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 7px 12px;
       border-radius: 999px;
       border: 1px solid var(--sep);
       background: var(--card);
       color: var(--t2);
       cursor: pointer;
-      transition: background .12s, color .12s, border-color .12s;
+      transition: background .12s, color .12s, border-color .12s, transform .12s;
     }
     .row-edit-btn:hover {
       color: var(--blue);
       border-color: var(--blue);
       background: var(--blue-light);
+      transform: translateY(-1px);
     }
 
     /*  COBRAR STATES  */
@@ -3104,8 +3157,18 @@ function renderTasks() {
     t.owner = normalizeOwnerName(t.owner);
     if (ownerFilter && t.owner !== ownerFilter) return;
     t.date = formatTaskDate(t.date) || String(t.date || '').trim();
+    const due = parseTaskDate(t.date);
+    const isOverdue = !!(due && !t.done && due < new Date(new Date().setHours(0, 0, 0, 0)));
+    const priorityClass = t.priorityRank ? ` priority-${t.priorityRank}` : '';
     const tr = document.createElement('tr');
-    tr.className = 'todo-row' + (t.done ? ' done' : '');
+    tr.className = 'todo-row' + (t.done ? ' done' : '') + (isOverdue ? ' overdue' : '') + priorityClass;
+    const meta = [];
+    if (t.priorityRank) meta.push(`<span class="task-meta-chip top${t.priorityRank}">Top ${t.priorityRank}</span>`);
+    if (isOverdue) meta.push(`<span class="task-meta-chip overdue">Atrasada</span>`);
+    if (t.updatedAt) {
+      const dt = new Date(t.updatedAt);
+      if (!Number.isNaN(dt.getTime())) meta.push(`<span class="task-meta-chip">Atualizada ${dt.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })}</span>`);
+    }
     tr.innerHTML = `
       <td><div class="chk-wrap">
         <input type="checkbox" class="chk" data-id="${t.id}" ${t.done ? 'checked' : ''} />
@@ -3115,9 +3178,10 @@ function renderTasks() {
         <div class="todo-task">${esc(t.task)}</div>
         ${t.comment ? `<div class="todo-comment">Obs: ${esc(t.comment)}</div>` : ''}
         ${t.warn    ? `<div class="todo-warn">${esc(t.warn)}</div>` : ''}
+        ${meta.length ? `<div class="task-meta">${meta.join('')}</div>` : ''}
       </td>
-      <td><span class="todo-owner">${esc(t.owner)}</span></td>
-      <td><span class="todo-date">${esc(t.date)}</span></td>
+      <td><span class="todo-cell-compact todo-owner">${esc(t.owner)}</span></td>
+      <td><span class="todo-cell-compact todo-date">${esc(t.date)}</span></td>
       <td>
         <select class="tier-select ${t.done ? 'done' : t.tier}" data-tier-id="${t.id}">
           <option value="t1" ${(!t.done && t.tier==='t1') ? 'selected' : ''}>A fazer</option>
