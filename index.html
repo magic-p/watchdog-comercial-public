@@ -2841,6 +2841,7 @@ let intelCollapsed = true;
 let healthCollapsed = true;
 let _lastGoodSupabaseTasks = [];
 let _supabaseRefreshInFlight = false;
+let _initialAuthStateResolved = false;
 
 const UI_STATE_KEY = 'watchdog_ui';
 function saveUiState() {
@@ -3429,6 +3430,35 @@ function counter() {
     `${n} tarefa${n!==1?'s':''} \u2022 ${d} conclu\u00EDda${d!==1?'s':''}`;
 }
 
+function renderDashboardDataFromCurrentState() {
+  load();
+  renderKpis();
+  renderTasks();
+  renderBookedMeta();
+  renderWins();
+  renderIntel();
+}
+
+function finishInitialAuthState(session = null) {
+  if (_initialAuthStateResolved) return;
+  _initialAuthStateResolved = true;
+
+  const pp = document.getElementById('publicPill');
+  if (session) {
+    if (pp) pp.style.display = 'none';
+    _onAuthLogin(session, { silent: true });
+    return;
+  }
+
+  renderDashboardDataFromCurrentState();
+  if (pp && REQUIRE_LOGIN_FOR_READ) pp.style.display = 'inline-flex';
+  if (REQUIRE_LOGIN_FOR_READ) {
+    toast('Modo público: tarefas fictícias (literatura). Faça login para ver as reais.', 'err');
+  } else if (!HAS_BACKEND_TODOS) {
+    toast('SSOT não carregou — modo fallback ativo', 'err');
+  }
+}
+
 function formatBRL(v) {
   return 'R$ ' + Number(v || 0).toLocaleString('pt-BR');
 }
@@ -3741,20 +3771,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (ms) ms.style.display = 'none';
   }
   const pp = document.getElementById('publicPill');
-  if (pp && REQUIRE_LOGIN_FOR_READ && !_sbSession) pp.style.display = 'inline-flex';
+  const deferProtectedRender = REQUIRE_LOGIN_FOR_READ && _sbConfigured;
+  if (pp && REQUIRE_LOGIN_FOR_READ && !_sbSession && !deferProtectedRender) pp.style.display = 'inline-flex';
   setSsotStatus(HAS_BACKEND_TODOS && !REQUIRE_LOGIN_FOR_READ);
   document.getElementById('headerDate').textContent =
     new Date().toLocaleDateString('pt-BR',
       {weekday:'long',year:'numeric',month:'long',day:'numeric'});
-  load();
   loadUiState();
   setTaskView(taskView);
-  renderKpis();
-  renderTasks();
-  renderBookedMeta();
-  renderWins();
-  // Campanhas & Insights do motor removidos.
-  renderIntel();
+  if (!deferProtectedRender) {
+    renderDashboardDataFromCurrentState();
+  }
 
   document.querySelectorAll('.intel-tab[data-intel-tab]').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -3855,20 +3882,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     _sb.auth.getSession().then(({ data }) => {
-      if (data.session) _onAuthLogin(data.session);
+      finishInitialAuthState(data.session || null);
     });
     _sb.auth.onAuthStateChange((_event, session) => {
+      if (_event === 'INITIAL_SESSION') {
+        finishInitialAuthState(session || null);
+        return;
+      }
       if (session) _onAuthLogin(session);
-      else if (_event !== 'INITIAL_SESSION') _onAuthLogout();
+      else _onAuthLogout();
     });
   } else {
     document.getElementById('authPill').style.display = 'none';
-  }
-
-  if (REQUIRE_LOGIN_FOR_READ && !_sbSession) {
-    toast('Modo público: tarefas fictícias (literatura). Faça login para ver as reais.', 'err');
-  } else if (!HAS_BACKEND_TODOS) {
-    toast('SSOT não carregou — modo fallback ativo', 'err');
+    _initialAuthStateResolved = true;
+    if (REQUIRE_LOGIN_FOR_READ) {
+      toast('Modo público: tarefas fictícias (literatura). Faça login para ver as reais.', 'err');
+    } else if (!HAS_BACKEND_TODOS) {
+      toast('SSOT não carregou — modo fallback ativo', 'err');
+    }
   }
 
   const exportOverlay = document.getElementById('overlay');
@@ -3908,6 +3939,7 @@ function closeAuthModal() {
 
 
 function _onAuthLogin(session) {
+  const opts = arguments[1] || {};
   _sbSession = session;
   BOOKED_META_SRC = BOOKED_META;
   _kpis = (BOOKED_META_SRC && BOOKED_META_SRC.kpis) ? BOOKED_META_SRC.kpis : {};
@@ -3918,7 +3950,7 @@ function _onAuthLogin(session) {
   pill.classList.add('logged-in');
   pill.title = 'Clique para sair';
   closeAuthModal();
-  toast('Acesso liberado — ' + name, 'ok');
+  if (!opts.silent) toast('Acesso liberado — ' + name, 'ok');
   const pp = document.getElementById('publicPill');
   if (pp) pp.style.display = 'none';
   if (!REQUIRE_LOGIN_FOR_READ) {
