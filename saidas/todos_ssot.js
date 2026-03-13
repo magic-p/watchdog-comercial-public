@@ -1080,9 +1080,9 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t080",
     "task": "Vitoria: controle de estoque de vouchers — avisar Pimentel quando restarem menos de 5 unidades para reavaliar compra",
-    "comment": "Processo continuo. Decisao da daily 02/03: manter gordurinha de vouchers. Vitoria monitora e aciona Pimentel antes de acabar.\n\nNormalizacao automatica: Prazo ausente preenchido automaticamente com 13/mar.",
+    "comment": "Processo continuo. Decisao da daily 02/03: manter gordurinha de vouchers. Vitoria monitora e aciona Pimentel antes de acabar.\n\nNormalizacao automatica: Prazo ausente preenchido automaticamente com 14/mar.",
     "owner": "Vitoria Riente",
-    "date": "13/mar",
+    "date": "14/mar",
     "tier": "done",
     "tierLabel": "Concluido",
     "warn": null,
@@ -2245,13 +2245,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Atualizacao legada: Compromisso assumido por Pimentel na daily 11/03. Diferente de t150 (Wydi) e t152 (Pimentel revisa discurso padrao).\n\nNormalizacao automatica: Dono ausente preenchido automaticamente com Lili.",
     "owner": "Lili",
     "date": "17/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
     "updatedAt": "2026-03-12T00:00:00",
-    "completedAt": null
+    "completedAt": "2026-03-12T00:00:00"
   },
   {
     "id": "t164",

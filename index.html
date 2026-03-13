@@ -998,6 +998,43 @@
       font-size: 12px;
       color: var(--t3);
     }
+    .health-list { display: grid; gap: 10px; }
+    .health-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+    }
+    .health-item {
+      border: 1px solid var(--sep);
+      background: var(--card-sec);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+    .health-label {
+      font-size: 12px;
+      color: var(--t2);
+      margin-bottom: 6px;
+    }
+    .health-value {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--t1);
+    }
+    .health-sub {
+      margin-top: 4px;
+      font-size: 11px;
+      color: var(--t3);
+    }
+    .health-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .health-note {
+      font-size: 12px;
+      color: var(--t3);
+      line-height: 1.45;
+    }
 
     .critica-item {
       display: flex; gap: 12px; align-items: flex-start;
@@ -1430,6 +1467,21 @@
 
   </div>
 
+  <div class="reveal" style="animation-delay:.22s">
+    <div class="card">
+      <div class="card-hd">
+        <span class="card-hd-label">
+          <span class="hd-icon" style="color:var(--orange)">+</span>
+          Saúde dos Dados
+        </span>
+        <span class="count-badge" id="dataHealthStamp">-</span>
+      </div>
+      <div class="card-bd" id="dataHealthList">
+        <span style="color:var(--t3);font-size:12px">Sem leitura de saúde disponível.</span>
+      </div>
+    </div>
+  </div>
+
   <!-- WINS  -->
   <div class="reveal" style="animation-delay:.26s">
     <div class="wins-card">
@@ -1576,6 +1628,7 @@
 
 <script src="saidas/booked_meta.js"></script>
 <script src="saidas/todos_ssot.js"></script>
+<script src="saidas/data_health.js"></script>
 <script src="saidas/campanhas_ssot.js"></script>
 <script src="saidas/intel_ssot.js"></script>
 <script src="saidas/supabase_config.js"></script>
@@ -1853,6 +1906,9 @@ const BOOKED_META = (window.WATCHDOG_BOOKED_META && typeof window.WATCHDOG_BOOKE
 const TODOS_SSOT = Array.isArray(window.WATCHDOG_TODOS) ? window.WATCHDOG_TODOS : [];
 const HAS_BACKEND_TODOS = TODOS_SSOT.length > 0;
 const REQUIRE_LOGIN_FOR_READ = !IS_LOCAL;
+const DATA_HEALTH = (window.WATCHDOG_DATA_HEALTH && typeof window.WATCHDOG_DATA_HEALTH === 'object')
+  ? window.WATCHDOG_DATA_HEALTH
+  : null;
 
 const CAMPANHAS_DATA = (window.WATCHDOG_CAMPANHAS && typeof window.WATCHDOG_CAMPANHAS === 'object')
   ? window.WATCHDOG_CAMPANHAS : null;
@@ -2423,7 +2479,133 @@ function renderCriticalAlerts() {
         <span class="status-chip ${a.level}"><span class="alert-chip-icon">${alertTypeIcon(a.chip)}</span>${esc(a.chip)}</span>
         <div class="alert-title">${esc(stripLeadingBracketTag(a.text))}</div>
       </div>
-    </div>`).join('');
+      </div>`).join('');
+}
+
+function buildDataHealthFallback(list) {
+  const all = Array.isArray(list) ? list : [];
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const open = all.filter(t => !t.done);
+  const duplicateBuckets = new Map();
+  open.forEach(t => {
+    const owner = normalizeOwnerName(t.owner);
+    const title = String(t.task || '').toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9\s]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .split(' ')
+      .filter(w => w.length >= 4)
+      .slice(0, 8)
+      .join(' ');
+    if (!title) return;
+    const key = `${owner}::${title}`;
+    if (!duplicateBuckets.has(key)) duplicateBuckets.set(key, []);
+    duplicateBuckets.get(key).push(t.id);
+  });
+  return {
+    gerado_em: new Date().toLocaleString('pt-BR'),
+    tarefas: {
+      total: all.length,
+      pendentes: open.length,
+      concluidas: all.filter(t => t.done).length,
+      atrasadas: open.filter(t => {
+        const due = parseTaskDate(t.date);
+        return due && due < today;
+      }).length,
+      sem_historico: open.filter(t => !t.updatedAt).length,
+      owner_autopreenchido: 0,
+      prazo_autopreenchido: 0,
+      titulos_invalidos: all.filter(t => isInvalidTaskTitleText(t.task)).length,
+      grupos_duplicidade: [...duplicateBuckets.values()].filter(ids => ids.length > 1),
+    },
+    fluxo: {
+      placeholder_bloqueado_total: 0,
+      placeholder_remoto_ignorado_total: 0,
+      deletes_remotos_aplicados_total: 0,
+    },
+    publicacao: {
+      paridade_ok: 0,
+      paridade_mismatch: 0,
+      paridade_missing: 0,
+      arquivos: [],
+    },
+  };
+}
+
+function getDataHealthSnapshot() {
+  const fallback = buildDataHealthFallback(tasks);
+  if (!DATA_HEALTH) return fallback;
+  const fromFile = JSON.parse(JSON.stringify(DATA_HEALTH));
+  fromFile.tarefas = Object.assign({}, fromFile.tarefas || {}, {
+    total: fallback.tarefas.total,
+    pendentes: fallback.tarefas.pendentes,
+    concluidas: fallback.tarefas.concluidas,
+    atrasadas: fallback.tarefas.atrasadas,
+    sem_historico: fallback.tarefas.sem_historico,
+    titulos_invalidos: fallback.tarefas.titulos_invalidos,
+    grupos_duplicidade: fallback.tarefas.grupos_duplicidade,
+  });
+  return fromFile;
+}
+
+function renderDataHealth() {
+  const host = document.getElementById('dataHealthList');
+  const stamp = document.getElementById('dataHealthStamp');
+  if (!host) return;
+  const snap = getDataHealthSnapshot();
+  if (stamp) stamp.textContent = snap?.gerado_em || '-';
+  const tarefas = snap?.tarefas || {};
+  const fluxo = snap?.fluxo || {};
+  const pub = snap?.publicacao || {};
+  const duplicateGroups = Array.isArray(tarefas.grupos_duplicidade) ? tarefas.grupos_duplicidade : [];
+  const metaChips = [
+    `${pub.paridade_mismatch || 0} mismatch público`,
+    `${pub.paridade_missing || 0} arquivo público faltando`,
+    `${fluxo.placeholder_bloqueado_total || 0} placeholders barrados`,
+    `${fluxo.placeholder_remoto_ignorado_total || 0} placeholders remotos ignorados`,
+    `${fluxo.deletes_remotos_aplicados_total || 0} deletes remotos aplicados`,
+  ];
+  host.innerHTML = `
+    <div class="health-list">
+      <div class="health-grid">
+        <div class="health-item">
+          <div class="health-label">Pendentes</div>
+          <div class="health-value">${Number(tarefas.pendentes || 0)}</div>
+          <div class="health-sub">Em aberto agora</div>
+        </div>
+        <div class="health-item">
+          <div class="health-label">Atrasadas</div>
+          <div class="health-value">${Number(tarefas.atrasadas || 0)}</div>
+          <div class="health-sub">Prazo já vencido</div>
+        </div>
+        <div class="health-item">
+          <div class="health-label">Sem histórico</div>
+          <div class="health-value">${Number(tarefas.sem_historico || 0)}</div>
+          <div class="health-sub">Sem atualização registrada</div>
+        </div>
+        <div class="health-item">
+          <div class="health-label">Dono autopreenchido</div>
+          <div class="health-value">${Number(tarefas.owner_autopreenchido || 0)}</div>
+          <div class="health-sub">Preenchido automaticamente com Lili</div>
+        </div>
+        <div class="health-item">
+          <div class="health-label">Prazo autopreenchido</div>
+          <div class="health-value">${Number(tarefas.prazo_autopreenchido || 0)}</div>
+          <div class="health-sub">Prazo automático aplicado</div>
+        </div>
+        <div class="health-item">
+          <div class="health-label">Duplicidade provável</div>
+          <div class="health-value">${duplicateGroups.length}</div>
+          <div class="health-sub">${duplicateGroups.slice(0, 2).map(ids => ids.join(', ')).join(' • ') || 'Sem pares suspeitos'}</div>
+        </div>
+      </div>
+      <div class="health-meta">
+        ${metaChips.map(chip => `<span class="intel-summary-chip">${esc(chip)}</span>`).join('')}
+      </div>
+      <div class="health-note">Este bloco serve como check-up rápido da base: o que está atrasado, sem histórico, provável duplicado e se a publicação pública está espelhada corretamente.</div>
+    </div>`;
 }
 
 function enforceWeeklyTop3(list) {
@@ -3027,6 +3209,7 @@ function renderTasks() {
   setTaskView(taskView);
   renderTopPriorities();
   renderCriticalAlerts();
+  renderDataHealth();
   renderWins();
   counter();
 }
@@ -3681,12 +3864,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
-
-
-
-
-
-
 
 
 
