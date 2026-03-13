@@ -4,7 +4,7 @@ window.WATCHDOG_INTEL = {
     "papel": "Chief of Staff & Head of Marketing Analytics",
     "ultima_atualizacao": "2026-03-12T11:39:51.650703"
   },
-  "ultima_atualizacao": "2026-03-12T19:16:06.957386",
+  "ultima_atualizacao": "2026-03-13T08:55:08.015204",
   "arquitetura_memoria": {
     "modo": "camadas",
     "descricao": "Memoria viva enxuta + historico completo + resumos tematicos + indices.",
@@ -21,17 +21,17 @@ window.WATCHDOG_INTEL = {
     "indices": "contexto/intel_indices.json"
   },
   "memoria_viva": {
-    "insights_ativos_total_historico": 107,
+    "insights_ativos_total_historico": 113,
     "insights_expostos_neste_arquivo": 24,
-    "alertas_abertos_total_historico": 38,
-    "alertas_expostos_neste_arquivo": 38,
+    "alertas_abertos_total_historico": 39,
+    "alertas_expostos_neste_arquivo": 39,
     "temas_prioritarios": [
       "sdr",
       "base",
-      "rr_sdr",
       "geral",
-      "copy",
+      "rr_sdr",
       "renovacao",
+      "copy",
       "concorrencia",
       "campanha"
     ]
@@ -42,6 +42,7 @@ window.WATCHDOG_INTEL = {
       "titulo": "SDR",
       "resumo_executivo": "Aprendizados-chave: HT PÚB tem a maior taxa de fechamento da cartela (235% da meta semanal) mas volume de Realizadas em 58% — o gargalo não é conversão, é abastecimento de topo de funil. Produto de... | Copy de benefícios para Anos Anteriores performa melhor em escolas sem SDR atribuído — cold outreach WA é mais efetivo sem interferência de relacionamento prévio com SDR. Riscos abertos: LT PART em 7/30 convertidas (23%) e R$24.000/R$98.649 em receita (24%). O alerta041 registrou esse dado para a semana passada; o documento de hoje confirma que não houve recuper... | Média de levantadas Outbound caiu de 5 para 3,75 por disparo vs ano anterior (-25%). Hipótese: segmentação High Value exclui segmentos historicamente mais responsivos. Sem análi...",
       "aprendizados_ids": [
+        "insight115",
         "insight104",
         "insight110",
         "insight081",
@@ -116,15 +117,18 @@ window.WATCHDOG_INTEL = {
         "LT PART em 7/30 convertidas (23%) e R$24.000/R$98.649 em receita (24%). O alerta041 registrou esse dado para a semana passada; o documento de hoje confirma que não houve recuper...",
         "Média de levantadas Outbound caiu de 5 para 3,75 por disparo vs ano anterior (-25%). Hipótese: segmentação High Value exclui segmentos historicamente mais responsivos. Sem análi..."
       ],
-      "contagem_aprendizados": 43,
+      "contagem_aprendizados": 44,
       "contagem_alertas_abertos": 20,
-      "ultima_atualizacao": "2026-03-12"
+      "ultima_atualizacao": "2026-03-13"
     },
     {
       "tema": "base",
       "titulo": "Base",
       "resumo_executivo": "Aprendizados-chave: A base de WhatsApp da Estante Mágica usa apenas 2 dos 19 campos de telefone disponíveis no CRM. A oportunidade de expansão de alcance está no próprio banco de dados, não em enri... | No segmento de Retração, copy com argumento emocional/reciprocidade ('presente exclusivo') tem CPL R$28 contra R$73 do argumento funcional ('sem trabalho'). O ângulo de reciproc... Riscos abertos: LT PART em 7/30 convertidas (23%) e R$24.000/R$98.649 em receita (24%). O alerta041 registrou esse dado para a semana passada; o documento de hoje confirma que não houve recuper... | Média de levantadas Outbound caiu de 5 para 3,75 por disparo vs ano anterior (-25%). Hipótese: segmentação High Value exclui segmentos historicamente mais responsivos. Sem análi...",
       "aprendizados_ids": [
+        "insight112",
+        "insight114",
+        "insight115",
         "insight102",
         "insight103",
         "insight106",
@@ -186,9 +190,36 @@ window.WATCHDOG_INTEL = {
         "LT PART em 7/30 convertidas (23%) e R$24.000/R$98.649 em receita (24%). O alerta041 registrou esse dado para a semana passada; o documento de hoje confirma que não houve recuper...",
         "Média de levantadas Outbound caiu de 5 para 3,75 por disparo vs ano anterior (-25%). Hipótese: segmentação High Value exclui segmentos historicamente mais responsivos. Sem análi..."
       ],
-      "contagem_aprendizados": 34,
+      "contagem_aprendizados": 37,
       "contagem_alertas_abertos": 15,
-      "ultima_atualizacao": "2026-03-12"
+      "ultima_atualizacao": "2026-03-13"
+    },
+    {
+      "tema": "geral",
+      "titulo": "Geral",
+      "resumo_executivo": "Riscos abertos: Nath levantou na daily que havia três tópicos enviados pela Claudete que não foram criados como tarefas. Pedro solicitou que informassem quais eram para ajustar. O documento não... | Pimentel sinalizou problema de contabilização de escolas convertidas ao final da daily — sem DRI ou prazo definidos. Distorce todas as métricas de meta.",
+      "aprendizados_ids": [
+        "insight116"
+      ],
+      "alertas_ids": [
+        "alerta044",
+        "alerta047",
+        "alerta038",
+        "alerta034",
+        "alerta029",
+        "alerta023",
+        "alerta015",
+        "alerta016",
+        "alerta050"
+      ],
+      "aprendizados_chave": [],
+      "riscos_abertos": [
+        "Nath levantou na daily que havia três tópicos enviados pela Claudete que não foram criados como tarefas. Pedro solicitou que informassem quais eram para ajustar. O documento não...",
+        "Pimentel sinalizou problema de contabilização de escolas convertidas ao final da daily — sem DRI ou prazo definidos. Distorce todas as métricas de meta."
+      ],
+      "contagem_aprendizados": 1,
+      "contagem_alertas_abertos": 9,
+      "ultima_atualizacao": "2026-03-13"
     },
     {
       "tema": "rr_sdr",
@@ -228,34 +259,63 @@ window.WATCHDOG_INTEL = {
       "ultima_atualizacao": "2026-03-12"
     },
     {
-      "tema": "geral",
-      "titulo": "Geral",
-      "resumo_executivo": "Riscos abertos: Nath levantou na daily que havia três tópicos enviados pela Claudete que não foram criados como tarefas. Pedro solicitou que informassem quais eram para ajustar. O documento não... | Pimentel sinalizou problema de contabilização de escolas convertidas ao final da daily — sem DRI ou prazo definidos. Distorce todas as métricas de meta.",
-      "aprendizados_ids": [],
+      "tema": "renovacao",
+      "titulo": "Renovacao",
+      "resumo_executivo": "Aprendizados-chave: HT PÚB tem a maior taxa de fechamento da cartela (235% da meta semanal) mas volume de Realizadas em 58% — o gargalo não é conversão, é abastecimento de topo de funil. Produto de... | Formato de vídeo personalizado estilo Spotify Wrapped (dados reais da escola) funciona como mecanismo de relacionamento antes de renovação — cria antecipação sem pressão de compra. Riscos abertos: Decisão na daily: disparo vídeos renovação Spotify na segunda 16/03. Base (descarte + perda sem conversão) deve estar validada até sexta 13/03 EOD. DRI não confirmado explicitam... | A semana de 03-06/mar encerrou com HT PART Renovação em 79% do RR/SDR semanal. Na daily 06/mar, as 22 RRs necessárias no último dia eram matematicamente impossíveis. O deficit d...",
+      "aprendizados_ids": [
+        "insight111",
+        "insight114",
+        "insight104",
+        "insight109",
+        "insight092",
+        "insight093",
+        "insight080",
+        "insight073",
+        "insight051",
+        "insight026",
+        "insight028",
+        "insight031",
+        "insight036",
+        "insight038",
+        "insight039",
+        "insight002",
+        "insight003",
+        "insight004",
+        "insight006",
+        "insight007",
+        "insight009",
+        "insight018",
+        "insight017",
+        "insight023"
+      ],
       "alertas_ids": [
-        "alerta044",
-        "alerta047",
-        "alerta038",
-        "alerta034",
-        "alerta029",
-        "alerta023",
-        "alerta015",
-        "alerta016"
+        "alerta048",
+        "alerta032",
+        "alerta030",
+        "alerta026",
+        "alerta024",
+        "alerta005",
+        "alerta009"
       ],
-      "aprendizados_chave": [],
+      "aprendizados_chave": [
+        "HT PÚB tem a maior taxa de fechamento da cartela (235% da meta semanal) mas volume de Realizadas em 58% — o gargalo não é conversão, é abastecimento de topo de funil. Produto de...",
+        "Formato de vídeo personalizado estilo Spotify Wrapped (dados reais da escola) funciona como mecanismo de relacionamento antes de renovação — cria antecipação sem pressão de compra.",
+        "Tema 'Sem trabalho' em Renovação HT gera CPL 3-7x menor que Playlist para o mesmo público"
+      ],
       "riscos_abertos": [
-        "Nath levantou na daily que havia três tópicos enviados pela Claudete que não foram criados como tarefas. Pedro solicitou que informassem quais eram para ajustar. O documento não...",
-        "Pimentel sinalizou problema de contabilização de escolas convertidas ao final da daily — sem DRI ou prazo definidos. Distorce todas as métricas de meta."
+        "Decisão na daily: disparo vídeos renovação Spotify na segunda 16/03. Base (descarte + perda sem conversão) deve estar validada até sexta 13/03 EOD. DRI não confirmado explicitam...",
+        "A semana de 03-06/mar encerrou com HT PART Renovação em 79% do RR/SDR semanal. Na daily 06/mar, as 22 RRs necessárias no último dia eram matematicamente impossíveis. O deficit d..."
       ],
-      "contagem_aprendizados": 0,
-      "contagem_alertas_abertos": 8,
-      "ultima_atualizacao": "2026-03-12"
+      "contagem_aprendizados": 24,
+      "contagem_alertas_abertos": 7,
+      "ultima_atualizacao": "2026-03-13"
     },
     {
       "tema": "copy",
       "titulo": "Copy",
       "resumo_executivo": "Aprendizados-chave: No segmento de Retração, copy com argumento emocional/reciprocidade ('presente exclusivo') tem CPL R$28 contra R$73 do argumento funcional ('sem trabalho'). O ângulo de reciproc... | Copy 'presente exclusivo' supera 'sem trabalho' em Retração com margem expressiva: CPL R$28 vs R$73 (2,6x mais barato). Consistente com benchmark anterior (insight100: CPL R$15-... Riscos abertos: Pior ritmo semanal registrado em Retracao. Outbound tambem abaixo da meta semanal. A/B email disparado hoje; WA amanha 8h com copy vencedor. Se ate quinta nao houver recuperacao... | Concorrencia abriu marco com 45% de fechadas/realizadas vs 58% em fevereiro - queda de 13pp sem causa documentada. Com 1 SDR a menos e bolsao herdado de fev, risco de degradacao...",
       "aprendizados_ids": [
+        "insight115",
         "insight103",
         "insight106",
         "insight110",
@@ -298,59 +358,9 @@ window.WATCHDOG_INTEL = {
         "Pior ritmo semanal registrado em Retracao. Outbound tambem abaixo da meta semanal. A/B email disparado hoje; WA amanha 8h com copy vencedor. Se ate quinta nao houver recuperacao...",
         "Concorrencia abriu marco com 45% de fechadas/realizadas vs 58% em fevereiro - queda de 13pp sem causa documentada. Com 1 SDR a menos e bolsao herdado de fev, risco de degradacao..."
       ],
-      "contagem_aprendizados": 23,
+      "contagem_aprendizados": 24,
       "contagem_alertas_abertos": 7,
-      "ultima_atualizacao": "2026-03-12"
-    },
-    {
-      "tema": "renovacao",
-      "titulo": "Renovacao",
-      "resumo_executivo": "Aprendizados-chave: HT PÚB tem a maior taxa de fechamento da cartela (235% da meta semanal) mas volume de Realizadas em 58% — o gargalo não é conversão, é abastecimento de topo de funil. Produto de... | Formato de vídeo personalizado estilo Spotify Wrapped (dados reais da escola) funciona como mecanismo de relacionamento antes de renovação — cria antecipação sem pressão de compra. Riscos abertos: Decisão na daily: disparo vídeos renovação Spotify na segunda 16/03. Base (descarte + perda sem conversão) deve estar validada até sexta 13/03 EOD. DRI não confirmado explicitam... | A semana de 03-06/mar encerrou com HT PART Renovação em 79% do RR/SDR semanal. Na daily 06/mar, as 22 RRs necessárias no último dia eram matematicamente impossíveis. O deficit d...",
-      "aprendizados_ids": [
-        "insight104",
-        "insight109",
-        "insight092",
-        "insight093",
-        "insight080",
-        "insight073",
-        "insight051",
-        "insight026",
-        "insight028",
-        "insight031",
-        "insight036",
-        "insight038",
-        "insight039",
-        "insight002",
-        "insight003",
-        "insight004",
-        "insight006",
-        "insight007",
-        "insight009",
-        "insight018",
-        "insight017",
-        "insight023"
-      ],
-      "alertas_ids": [
-        "alerta048",
-        "alerta032",
-        "alerta030",
-        "alerta026",
-        "alerta024",
-        "alerta005",
-        "alerta009"
-      ],
-      "aprendizados_chave": [
-        "HT PÚB tem a maior taxa de fechamento da cartela (235% da meta semanal) mas volume de Realizadas em 58% — o gargalo não é conversão, é abastecimento de topo de funil. Produto de...",
-        "Formato de vídeo personalizado estilo Spotify Wrapped (dados reais da escola) funciona como mecanismo de relacionamento antes de renovação — cria antecipação sem pressão de compra.",
-        "Tema 'Sem trabalho' em Renovação HT gera CPL 3-7x menor que Playlist para o mesmo público"
-      ],
-      "riscos_abertos": [
-        "Decisão na daily: disparo vídeos renovação Spotify na segunda 16/03. Base (descarte + perda sem conversão) deve estar validada até sexta 13/03 EOD. DRI não confirmado explicitam...",
-        "A semana de 03-06/mar encerrou com HT PART Renovação em 79% do RR/SDR semanal. Na daily 06/mar, as 22 RRs necessárias no último dia eram matematicamente impossíveis. O deficit d..."
-      ],
-      "contagem_aprendizados": 22,
-      "contagem_alertas_abertos": 7,
-      "ultima_atualizacao": "2026-03-12"
+      "ultima_atualizacao": "2026-03-13"
     },
     {
       "tema": "concorrencia",
@@ -459,6 +469,74 @@ window.WATCHDOG_INTEL = {
     }
   ],
   "aprendizados": [
+    {
+      "id": "insight111",
+      "titulo": "Caneca e Sem trabalho sao as melhores ofertas para Renovacao HT como levantada — CPL < R$12 confirmado em Feb e Mar/2026",
+      "tema": "campanha",
+      "data": "2026-03-13",
+      "status": "ativo",
+      "evidencia": "Caneca Feb/23: CPL R$6.60 (54 lev). Caneca Feb/25: CPL R$11.38 (29 lev). Sem trabalho Publica Mar/09: CPL R$8.94 (9 lev). Sem trabalho Particular Mar/10: CPL R$10.22 (41 lev). Playlist Renovacao Mar/03: objetivo era conversao (cadastro de alunos), nao levantada — gerou 3+3+2 convertidas, avaliacao de eficacia como conversao pendente. Nao comparar Playlist com Caneca/Sem trabalho para objetivo de levantada.",
+      "acao_sugerida": "Priorizar Caneca e Sem trabalho em disparos de Renovacao HT com objetivo de levantada. Playlist tem objetivo distinto (conversao de alunos) e nao deve ser comparado diretamente. Avaliar CPL de Playlist como custo por cadastro de alunos, nao por levantada.",
+      "contexto": "Analise planilha Vit — Disparos e Controles de Marketing Jan-Mar/2026",
+      "fonte": "planilha_disparos_vit_jan_mar_2026",
+      "ultima_atualizacao": "2026-03-13T08:53:35.944357"
+    },
+    {
+      "id": "insight112",
+      "titulo": "Anos Anteriores tem CPL estruturalmente baixo (R$3-6) independente da oferta — segmento mais eficiente do portfolio",
+      "tema": "campanha",
+      "data": "2026-03-13",
+      "status": "ativo",
+      "evidencia": "Jan/12 Presente exclusivo: CPL ~R$3.02 (68 lev/623 base). Jan/27 Visibilidade: CPL ~R$5.76 (30 lev). Feb/03 Playlist: CPL ~R$4.60 (94 lev/1205 base). Feb/25 Caneca: CPL ~R$4.53 (114 lev/1413 base). Mar/11 Beneficios especiais: CPL ~R$22.74 (18 lev, base menor).",
+      "acao_sugerida": "Priorizar AA em semanas de orcamento restrito. Qualquer oferta funciona neste segmento. Escalar base quando disponivel.",
+      "contexto": "Analise planilha Vit — Disparos e Controles de Marketing Jan-Mar/2026",
+      "fonte": "planilha_disparos_vit_jan_mar_2026"
+    },
+    {
+      "id": "insight113",
+      "titulo": "Retracao A/B Mar/2026: Presente exclusivo supera Sem trabalho (2.65% vs 1.47%, CPL R$20 vs R$37)",
+      "tema": "campanha",
+      "data": "2026-03-13",
+      "status": "ativo",
+      "evidencia": "Teste A/B 11/03/2026 — Presente exclusivo: 7 lev de 549 base (2.65%), CPL R$20.37. Sem trabalho: 4 lev de 520 base (1.47%), CPL R$36.86. Volume absoluto baixo — Retracao tem engajamento estruturalmente menor que outros baldinhos.",
+      "acao_sugerida": "Usar Presente exclusivo como oferta padrao para Retracao. Nao repetir Sem trabalho neste segmento sem nova hipotese clara. Volume permanece baixo — Retracao precisa de abordagem complementar alem de disparo WA.",
+      "contexto": "Analise planilha Vit — Disparos e Controles de Marketing Jan-Mar/2026",
+      "fonte": "planilha_disparos_vit_jan_mar_2026"
+    },
+    {
+      "id": "insight114",
+      "titulo": "Renovacao Publica HT tem CPL historico abaixo de R$9 — segmento estruturalmente eficiente mesmo com base pequena",
+      "tema": "campanha",
+      "data": "2026-03-13",
+      "status": "ativo",
+      "evidencia": "Feb/09 (>5k Publica): CPL R$7.02, 55 lev de 443 base (12.4%). Mar/09 (HT Publica Sem trabalho): CPL R$8.94, 9 lev de 210 base (4.3%). Consistente em dois meses com ofertas diferentes.",
+      "acao_sugerida": "Manter Renovacao Publica HT na programacao mensal. Priorizar em janelas de orcamento reduzido. Base pequena mas qualidade alta.",
+      "contexto": "Analise planilha Vit — Disparos e Controles de Marketing Jan-Mar/2026",
+      "fonte": "planilha_disparos_vit_jan_mar_2026"
+    },
+    {
+      "id": "insight115",
+      "titulo": "Outbound SDR via WA tem CPL nao-sustentavel em bases grandes (>500) — padrao confirmado Jan, Feb e Mar/2026",
+      "tema": "campanha",
+      "data": "2026-03-13",
+      "status": "ativo",
+      "evidencia": "Jan/29 (1186 base): 9 lev, CPL R$34.92. Feb/23 (3118 base, Playlist): 2 lev, CPL R$361.26. Mar/12 (2625 base HV — High Value — ja segmentada, menor parcela): 5 lev, CPL R$121.72. Confirmado: base Mar/12 era exclusivamente HV, ja qualificada. O problema nao e segmentacao de qualidade — e que WA Outbound nao funciona nem para HV em volume. Padrao: qualquer base Outbound > 500 produziu CPL acima de R$30.",
+      "acao_sugerida": "Suspender disparos Outbound SDR em bases > 500. Mesmo com base HV qualificada, resultado e insatisfatorio. Testar micro-lotes (<200 contatos HV) com copy especifico para perfil HV antes de escalar. Investigar se o canal WA e adequado para HV ou se o perfil HV responde melhor a outro canal (email, SDR direto). Ver alerta046 e alerta011.",
+      "contexto": "Analise planilha Vit — Disparos e Controles de Marketing Jan-Mar/2026",
+      "fonte": "planilha_disparos_vit_jan_mar_2026",
+      "ultima_atualizacao": "2026-03-13T08:53:35.944357"
+    },
+    {
+      "id": "insight116",
+      "titulo": "Canal herois (CS form) e o maior gerador de levantadas de MKT — sem custo de midia, via time de Suporte ao Cliente",
+      "tema": "campanha",
+      "data": "2026-03-13",
+      "status": "ativo",
+      "evidencia": "Fevereiro: 208 de 257 levantadas totais (81%) via herois. Marco ate 12/03: 103 levantadas via herois vs 89 via disparos WA. Herois = time de CS que recebe emails e WA organicos de escolas, preenche forms e encaminha ticket. Processo hoje 95% operado pelo time de Marketing. Sem custo de midia associado. Tambem ha levantadas via Instagram e via email, alem de herois — tres canais nao-disparo WA.",
+      "acao_sugerida": "Considerar herois + Instagram + email como 'levantadas nao-disparo' no relatorio mensal para separar o custo real de cada canal. Avaliar o volume de herois como proxy de demanda organica inbound — se cresce, e sinal de brand awareness ativo. Nao confundir com levantada gerada por disparo WA — sao canais independentes.",
+      "contexto": "Resposta da Vit ao debriefing da planilha de disparos Mar/2026",
+      "fonte": "feedback_vit_13_03_2026"
+    },
     {
       "id": "insight101",
       "data": "2026-03-12",
@@ -690,96 +768,6 @@ window.WATCHDOG_INTEL = {
       "status": "ativo",
       "evidencia": "Recomendacao estrategica de Lua apos teste de 30 escolas. Alinha com alerta020.",
       "acao_sugerida": "Quando alerta020 for resolvido, adotar protocolo de 3 etapas de Lua como padrao para ligacoes SDR: WA suporte -> autorizacao -> ligacao Blip. Nunca implementar antes de resolver risco de bloqueio permanente."
-    },
-    {
-      "id": "insight091",
-      "data": "2026-03-11",
-      "fonte": "Mensagem da Lua.pdf",
-      "titulo": "Concorrencia com Arvore de Livros e Editora Moderna com contrato ativo = descarte imediato, sem tentativa de contorno",
-      "descricao": "Escolas com parceiro concorrente contratado ativamente bloquearam o contato apos informar a parceria. Tentativas de contorno consumiram o canal (bloqueio do numero). Dado de projeto ativo com concorrente deve ser tratado como criterio de descarte imediato.",
-      "categoria": "funil",
-      "status": "ativo",
-      "evidencia": "Descarte Oziel: escola com Editora Moderna bloqueou contato. Descarte Thais: escola com Arvore de Livros declarou sem interesse.",
-      "acao_sugerida": "Incluir campo concorrente ativo contratado no card CRM como criterio de descarte automatico. SDR nao tenta contorno quando escola informa parceria ativa — registra e descarta."
-    },
-    {
-      "id": "insight092",
-      "data": "2026-03-11",
-      "fonte": "Excel Disparos e Controles de Marketing — março 2026 (análise Claudete)",
-      "categoria": "canal",
-      "gatilho": "novidade",
-      "insight": "Tema 'Sem trabalho' em Renovação HT gera CPL 3-7x menor que Playlist para o mesmo público",
-      "evidencia": "09/03 PUB HT R$10.06 e 10/03 PART HT R$11.64 vs Renovação Playlist fev-mar: R$37-94. Duas semanas consecutivas confirmam padrão — não é ruído de amostra.",
-      "confianca": "alta",
-      "aplicavel_a": [
-        "Renovação"
-      ],
-      "acao_sugerida": "Priorizar oferta 'Sem trabalho' em novos disparos de Renovação HT; testar em LT e outros baldinhos para confirmar se o efeito é universal ou específico de HT.",
-      "status": "ativo"
-    },
-    {
-      "id": "insight093",
-      "data": "2026-03-11",
-      "fonte": "Excel Disparos e Controles de Marketing — março 2026 (análise Claudete)",
-      "categoria": "copy",
-      "gatilho": null,
-      "insight": "Campanhas de ativação de lista têm KPI primário diferente de levantada — alunos cadastrados e convertidas são o indicador correto, não CPL de levantada",
-      "evidencia": "03/03 Playlist Renovação Pública: 0 levantadas mas 8 escolas convertidas e 351 alunos cadastrados com gasto total ~R$843. Leitura ingênua como 'campanha de levantada' classificaria essa campanha como fracasso — na verdade foi sucesso.",
-      "confianca": "alta",
-      "aplicavel_a": [
-        "Renovação",
-        "Anos Anteriores",
-        "Concorrência"
-      ],
-      "acao_sugerida": "Ao registrar campanha de ativação, usar 'alunos cadastrados / gasto' como CPL primário. Documentar objetivo no header da campanha (ativação vs levantada) para evitar leitura errada retroativa.",
-      "status": "ativo"
-    },
-    {
-      "id": "insight094",
-      "data": "2026-03-11",
-      "fonte": "Cerco Mágico - 2026.pdf — análise Claudete 11/03",
-      "categoria": "campanha",
-      "gatilho": "reciprocidade",
-      "insight": "O Cerco Mágico usa dois objetos físicos com funções distintas: (1) Revista Estante Mágica = mala direta tabloide para 4.716 escolas (AA+Ret+Conc), cria reconhecimento de marca; (2) cartinha personalizada = acompanha mimo chocolate para Top 200 AA, cria reciprocidade e curiosidade. Confundir os dois é confundir canal de escala com canal cirúrgico.",
-      "evidencia": "PDF Cerco Mágico 2026: Ação 2 (Revista, R$5/un, 4.716 escolas) e Ação 5 (mimo chocolate R$30/escola + cartinha, Top 200 AA com maior receita histórica). Objetivos diferentes, tons diferentes, momentos diferentes na sequência.",
-      "confianca": "alta",
-      "aplicavel_a": [
-        "anos_anteriores",
-        "retração",
-        "concorrência"
-      ],
-      "acao_sugerida": "Ao briefar copy física: separar tom da Revista (institucional, tabloide, reconhecimento de marca) do tom da cartinha do mimo (pessoal, manuscrito ou próximo disso, gratidão + curiosidade). Mesma escola pode receber as duas peças em momentos diferentes.",
-      "status": "ativo"
-    },
-    {
-      "id": "insight095",
-      "data": "2026-03-11",
-      "fonte": "11.03.26 Meta Aquisicao 26 Daily comercial Acoes da semana.pdf",
-      "categoria": "baldinho",
-      "gatilho": null,
-      "insight": "Concorrencia pode ter RR/SDR acima da meta mas zero alunos cadastrados na mesma semana. O desacoplamento indica que o gargalo esta na conversao RR->alunos, nao no volume de reunioes.",
-      "evidencia": "11/03: Concorrencia RR/SDR semanal 0,50/0,49 = 102%. Mas meta alunos semana: 0/721 = 0%. Mes: alunos 216/2.963 = 27% vs RR 105%.",
-      "confianca": "alta",
-      "aplicavel_a": [
-        "concorrencia"
-      ],
-      "acao_sugerida": "Monitorar separadamente RR/SDR vs conversao RR-alunos em Concorrencia. Quando divergem, o problema esta no fechamento pos-RR, nao no volume de reunioes.",
-      "status": "ativo"
-    },
-    {
-      "id": "insight096",
-      "data": "2026-03-11",
-      "fonte": "11.03.26 Meta Aquisicao 26 Daily comercial Acoes da semana.pdf",
-      "categoria": "baldinho",
-      "gatilho": null,
-      "insight": "Retracao exibe padrao recorrente de colapso semanal mesmo com resultado mensal acumulado positivo. Mes verde de Retracao pode mascarar debito do mes corrente.",
-      "evidencia": "11/03: Retracao mes 130% alunos, semana RR/SDR 0,20/0,64 = 29%, realizadas 2/14 = 37%. Identico ao padrao de 24/02 registrado em insight012.",
-      "confianca": "alta",
-      "aplicavel_a": [
-        "retracao"
-      ],
-      "acao_sugerida": "Tratar indicador semanal de Retracao como leading indicator do proximo mes. Mes verde com semana colapsada = proximo mes comeca em debito. Disparo: priorizar base em entrada e descarte, nunca SDR ativo.",
-      "status": "ativo"
     }
   ],
   "criticas_ativas": [
@@ -814,7 +802,9 @@ window.WATCHDOG_INTEL = {
       "prioridade": "alta",
       "dri": "Vitória",
       "status": "aberto",
-      "nota_status": ""
+      "nota_status": "",
+      "evidencia": "Mar/12 confirmado: 2.625 base, 5 lev (0.19%), CPL R$121,72 — pior CPL do historico de disparos Outbound. Padrao consolidado em 3 meses consecutivos. Ver insight115.",
+      "ultima_atualizacao": "2026-03-13T08:51:54.377989"
     },
     {
       "id": "alerta047",
@@ -1029,7 +1019,9 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Luana e Vitória: desenvolver nova copy de Outbound com argumento de negócio (ROI, diferenciação, exclusividade) antes do próximo disparo. Ver insight043 para diretriz. Nenhum disparo de Outbound com copy emocional/playlist enquanto nova abordagem não for testada.",
       "prioridade": "alta",
       "dri": "Luana",
-      "status": "aberta"
+      "status": "aberta",
+      "evidencia": "Mar/03 Playlist Renovacao Publica e Particular: 0 levantadas (objetivo = Levantada). Confirma que Playlist nao funciona para Renovacao como oferta de levantada. Ver insight111.",
+      "ultima_atualizacao": "2026-03-13T08:51:54.377989"
     },
     {
       "id": "alerta020",
@@ -1186,16 +1178,28 @@ window.WATCHDOG_INTEL = {
       "prioridade": "alta",
       "dri": "Vitoria",
       "status": "aberta"
+    },
+    {
+      "id": "alerta050",
+      "titulo": "Impulsionar Fevereiro estourou 91% do orcamento (R$18.312 vs R$9.607 orcado) sem registro de aprovacao",
+      "tema": "campanha",
+      "data_criacao": "2026-03-13",
+      "status": "aberto",
+      "prioridade": "alta",
+      "dri": "Vitoria",
+      "evidencia": "Aba Orcamentos Mes a Mes: Fev Impulsionar orcado R$9.606,50, realizado R$18.311,79, saldo -R$8.705,29. Marco: R$2.100,75 de R$9.606,50 (22% usado). Sem registro de aprovacao para o estouro de fevereiro.",
+      "acao_sugerida": "Pedro e Vitoria: definir teto semanal para Impulsionar ou exigir aprovacao de Pedro para qualquer valor acima do orcado. Revisar o que gerou o estouro de R$8.705 em fevereiro e avaliar se houve ROI equivalente.",
+      "contexto": "Analise planilha Vit — Disparos e Controles de Marketing Jan-Mar/2026"
     }
   ],
   "indices_digest": {
     "temas_disponiveis": [
       "sdr",
       "base",
-      "rr_sdr",
       "geral",
-      "copy",
+      "rr_sdr",
       "renovacao",
+      "copy",
       "concorrencia",
       "campanha",
       "outbound",
@@ -1256,6 +1260,6 @@ window.WATCHDOG_INTEL = {
       "analise_de_bolsao",
       "acao_1a1"
     ],
-    "itens_indexados": 152
+    "itens_indexados": 160
   }
 };
