@@ -942,8 +942,10 @@
     }
 
     .wins-bd { padding: 0 18px; }
-    .wins-bd.collapsed { display: none; }
-    .section-collapsed { display: none; }
+    .wins-bd.collapsed,
+    .booked-bd.section-collapsed,
+    .intel-grid.section-collapsed,
+    .card-bd.section-collapsed { display: none !important; }
 
     .win-item {
       display: flex; gap: 12px; align-items: flex-start;
@@ -3825,11 +3827,12 @@ function _onAuthLogin(session) {
     load();
     renderTasks();
     renderCriticalAlerts();
-    renderIntel();
-    renderKpis();
-    renderBookedMeta();
-    renderWins();
   }
+  renderIntel();
+  renderKpis();
+  renderBookedMeta();
+  renderWins();
+  renderDataHealth();
   _refreshTasksFromSupabase(true);
   _sbSubscribeRealtime();
 }
