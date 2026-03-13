@@ -4,7 +4,7 @@ window.WATCHDOG_INTEL = {
     "papel": "Chief of Staff & Head of Marketing Analytics",
     "ultima_atualizacao": "2026-03-12T11:39:51.650703"
   },
-  "ultima_atualizacao": "2026-03-13T09:00:19.618445",
+  "ultima_atualizacao": "2026-03-13T09:19:04.546779",
   "arquitetura_memoria": {
     "modo": "camadas",
     "descricao": "Memoria viva enxuta + historico completo + resumos tematicos + indices.",
@@ -21,7 +21,7 @@ window.WATCHDOG_INTEL = {
     "indices": "contexto/intel_indices.json"
   },
   "memoria_viva": {
-    "insights_ativos_total_historico": 113,
+    "insights_ativos_total_historico": 114,
     "insights_expostos_neste_arquivo": 24,
     "alertas_abertos_total_historico": 39,
     "alertas_expostos_neste_arquivo": 39,
@@ -30,8 +30,8 @@ window.WATCHDOG_INTEL = {
       "base",
       "geral",
       "rr_sdr",
-      "renovacao",
       "copy",
+      "renovacao",
       "concorrencia",
       "campanha"
     ]
@@ -259,6 +259,60 @@ window.WATCHDOG_INTEL = {
       "ultima_atualizacao": "2026-03-12"
     },
     {
+      "tema": "copy",
+      "titulo": "Copy",
+      "resumo_executivo": "Aprendizados-chave: No segmento de Retração, copy com argumento emocional/reciprocidade ('presente exclusivo') tem CPL R$28 contra R$73 do argumento funcional ('sem trabalho'). O ângulo de reciproc... | Copy 'presente exclusivo' supera 'sem trabalho' em Retração com margem expressiva: CPL R$28 vs R$73 (2,6x mais barato). Consistente com benchmark anterior (insight100: CPL R$15-... Riscos abertos: Pior ritmo semanal registrado em Retracao. Outbound tambem abaixo da meta semanal. A/B email disparado hoje; WA amanha 8h com copy vencedor. Se ate quinta nao houver recuperacao... | Concorrencia abriu marco com 45% de fechadas/realizadas vs 58% em fevereiro - queda de 13pp sem causa documentada. Com 1 SDR a menos e bolsao herdado de fev, risco de degradacao...",
+      "aprendizados_ids": [
+        "insight115",
+        "insight117",
+        "insight103",
+        "insight106",
+        "insight110",
+        "insight087",
+        "insight093",
+        "insight094",
+        "insight099",
+        "insight100",
+        "insight075",
+        "insight080",
+        "insight070",
+        "insight067",
+        "insight061",
+        "insight050",
+        "insight042",
+        "insight043",
+        "insight052",
+        "insight053",
+        "insight057",
+        "insight026",
+        "insight003",
+        "insight009",
+        "insight018",
+        "insight024"
+      ],
+      "alertas_ids": [
+        "alerta040",
+        "alerta025",
+        "alerta018",
+        "alerta012",
+        "alerta013",
+        "alerta007",
+        "alerta011"
+      ],
+      "aprendizados_chave": [
+        "No segmento de Retração, copy com argumento emocional/reciprocidade ('presente exclusivo') tem CPL R$28 contra R$73 do argumento funcional ('sem trabalho'). O ângulo de reciproc...",
+        "Copy 'presente exclusivo' supera 'sem trabalho' em Retração com margem expressiva: CPL R$28 vs R$73 (2,6x mais barato). Consistente com benchmark anterior (insight100: CPL R$15-...",
+        "Copy de benefícios para Anos Anteriores performa melhor em escolas sem SDR atribuído — cold outreach WA é mais efetivo sem interferência de relacionamento prévio com SDR."
+      ],
+      "riscos_abertos": [
+        "Pior ritmo semanal registrado em Retracao. Outbound tambem abaixo da meta semanal. A/B email disparado hoje; WA amanha 8h com copy vencedor. Se ate quinta nao houver recuperacao...",
+        "Concorrencia abriu marco com 45% de fechadas/realizadas vs 58% em fevereiro - queda de 13pp sem causa documentada. Com 1 SDR a menos e bolsao herdado de fev, risco de degradacao..."
+      ],
+      "contagem_aprendizados": 26,
+      "contagem_alertas_abertos": 7,
+      "ultima_atualizacao": "2026-03-13"
+    },
+    {
       "tema": "renovacao",
       "titulo": "Renovacao",
       "resumo_executivo": "Aprendizados-chave: HT PÚB tem a maior taxa de fechamento da cartela (235% da meta semanal) mas volume de Realizadas em 58% — o gargalo não é conversão, é abastecimento de topo de funil. Produto de... | Formato de vídeo personalizado estilo Spotify Wrapped (dados reais da escola) funciona como mecanismo de relacionamento antes de renovação — cria antecipação sem pressão de compra. Riscos abertos: Decisão na daily: disparo vídeos renovação Spotify na segunda 16/03. Base (descarte + perda sem conversão) deve estar validada até sexta 13/03 EOD. DRI não confirmado explicitam... | A semana de 03-06/mar encerrou com HT PART Renovação em 79% do RR/SDR semanal. Na daily 06/mar, as 22 RRs necessárias no último dia eram matematicamente impossíveis. O deficit d...",
@@ -305,58 +359,6 @@ window.WATCHDOG_INTEL = {
       "riscos_abertos": [
         "Decisão na daily: disparo vídeos renovação Spotify na segunda 16/03. Base (descarte + perda sem conversão) deve estar validada até sexta 13/03 EOD. DRI não confirmado explicitam...",
         "A semana de 03-06/mar encerrou com HT PART Renovação em 79% do RR/SDR semanal. Na daily 06/mar, as 22 RRs necessárias no último dia eram matematicamente impossíveis. O deficit d..."
-      ],
-      "contagem_aprendizados": 24,
-      "contagem_alertas_abertos": 7,
-      "ultima_atualizacao": "2026-03-13"
-    },
-    {
-      "tema": "copy",
-      "titulo": "Copy",
-      "resumo_executivo": "Aprendizados-chave: No segmento de Retração, copy com argumento emocional/reciprocidade ('presente exclusivo') tem CPL R$28 contra R$73 do argumento funcional ('sem trabalho'). O ângulo de reciproc... | Copy 'presente exclusivo' supera 'sem trabalho' em Retração com margem expressiva: CPL R$28 vs R$73 (2,6x mais barato). Consistente com benchmark anterior (insight100: CPL R$15-... Riscos abertos: Pior ritmo semanal registrado em Retracao. Outbound tambem abaixo da meta semanal. A/B email disparado hoje; WA amanha 8h com copy vencedor. Se ate quinta nao houver recuperacao... | Concorrencia abriu marco com 45% de fechadas/realizadas vs 58% em fevereiro - queda de 13pp sem causa documentada. Com 1 SDR a menos e bolsao herdado de fev, risco de degradacao...",
-      "aprendizados_ids": [
-        "insight115",
-        "insight103",
-        "insight106",
-        "insight110",
-        "insight093",
-        "insight094",
-        "insight099",
-        "insight100",
-        "insight075",
-        "insight080",
-        "insight070",
-        "insight067",
-        "insight061",
-        "insight050",
-        "insight042",
-        "insight043",
-        "insight052",
-        "insight053",
-        "insight057",
-        "insight026",
-        "insight003",
-        "insight009",
-        "insight018",
-        "insight024"
-      ],
-      "alertas_ids": [
-        "alerta040",
-        "alerta025",
-        "alerta018",
-        "alerta012",
-        "alerta013",
-        "alerta007",
-        "alerta011"
-      ],
-      "aprendizados_chave": [
-        "No segmento de Retração, copy com argumento emocional/reciprocidade ('presente exclusivo') tem CPL R$28 contra R$73 do argumento funcional ('sem trabalho'). O ângulo de reciproc...",
-        "Copy 'presente exclusivo' supera 'sem trabalho' em Retração com margem expressiva: CPL R$28 vs R$73 (2,6x mais barato). Consistente com benchmark anterior (insight100: CPL R$15-...",
-        "Copy de benefícios para Anos Anteriores performa melhor em escolas sem SDR atribuído — cold outreach WA é mais efetivo sem interferência de relacionamento prévio com SDR."
-      ],
-      "riscos_abertos": [
-        "Pior ritmo semanal registrado em Retracao. Outbound tambem abaixo da meta semanal. A/B email disparado hoje; WA amanha 8h com copy vencedor. Se ate quinta nao houver recuperacao...",
-        "Concorrencia abriu marco com 45% de fechadas/realizadas vs 58% em fevereiro - queda de 13pp sem causa documentada. Com 1 SDR a menos e bolsao herdado de fev, risco de degradacao..."
       ],
       "contagem_aprendizados": 24,
       "contagem_alertas_abertos": 7,
@@ -425,12 +427,14 @@ window.WATCHDOG_INTEL = {
       "titulo": "Campanhas",
       "resumo_executivo": "Aprendizados-chave: Priorização de escolas High Value no Outbound pode reduzir volume de levantadas porque histórico mostra que escolas de médio e micro porte são as que mais convertem nesse canal.... | No segmento de Retração, copy com argumento emocional/reciprocidade ('presente exclusivo') tem CPL R$28 contra R$73 do argumento funcional ('sem trabalho'). O ângulo de reciproc... Riscos abertos: Numero utilizado no teste de ligacoes WA com 30 escolas sofreu bloqueio na Meta, possivelmente por denuncia. Nao esta claro se e o numero principal ou temporario. Se for o princ... | Pedro propôs envio de WA utilitário antes de cada ligação SDR. Ana Paula levantou risco de saturação. Lili não concluiu a deliberação. A daily encerrou sem decisão formal, sem D...",
       "aprendizados_ids": [
+        "insight117",
         "insight101",
         "insight103",
         "insight106",
         "insight108",
         "insight109",
         "insight110",
+        "insight087",
         "insight093",
         "insight094",
         "insight100",
@@ -463,9 +467,9 @@ window.WATCHDOG_INTEL = {
         "Numero utilizado no teste de ligacoes WA com 30 escolas sofreu bloqueio na Meta, possivelmente por denuncia. Nao esta claro se e o numero principal ou temporario. Se for o princ...",
         "Pedro propôs envio de WA utilitário antes de cada ligação SDR. Ana Paula levantou risco de saturação. Lili não concluiu a deliberação. A daily encerrou sem decisão formal, sem D..."
       ],
-      "contagem_aprendizados": 22,
+      "contagem_aprendizados": 24,
       "contagem_alertas_abertos": 4,
-      "ultima_atualizacao": "2026-03-12"
+      "ultima_atualizacao": "2026-03-13"
     }
   ],
   "aprendizados": [
@@ -537,6 +541,17 @@ window.WATCHDOG_INTEL = {
       "contexto": "Resposta da Vit ao debriefing da planilha de disparos Mar/2026",
       "fonte": "feedback_vit_13_03_2026",
       "ultima_atualizacao": "2026-03-13T09:00:18.964513"
+    },
+    {
+      "id": "insight117",
+      "titulo": "MEL (Mes da Estrela Literaria) = campanha 2024 que funcionou mas foi descontinuada por limitacao operacional, nao por resultado",
+      "tema": "campanha",
+      "data": "2026-03-13",
+      "status": "ativo",
+      "evidencia": "Confirmado por Pedro em 13/03/2026. MEL = Mes da Estrela Literaria. Campanha com serie de acoes e beneficios para a escola ao longo de um mes. Gerou levantadas em 2024. Descontinuada porque a execucao exigia capacidade interna que o time nao tinha. Hipotese (Lili, 04/mar/26): queda de levantadas 2024->2025 correlacionada com fim do MEL. O argumento central era a escola como protagonista literaria com beneficios multiplos e destaque. Insight087 corrigido com essa definicao.",
+      "acao_sugerida": "Extrair o ARGUMENTO do MEL (escola protagonista, reconhecimento publico, beneficios multiplos, mes dedicado) e adaptar para o copy dos e-mails do Cerco Magico 2026 — especialmente AA e Retracao — sem precisar da estrutura operacional completa. O argumento 'sua escola vira uma escola de autores por um mes inteiro' pode funcionar como gancho mesmo que o programa MEL nao exista mais com esse nome. Karina e Lili validar qual elemento do MEL pode ser reposicionado no copy atual.",
+      "contexto": "Feedback Pedro em sessao Claudete 13/03/2026",
+      "fonte": "feedback_pedro_13_03_2026"
     },
     {
       "id": "insight101",
@@ -730,12 +745,13 @@ window.WATCHDOG_INTEL = {
       "id": "insight087",
       "data": "2026-03-11",
       "fonte": "Encontro Aquisicao 04/mar/26 (Lili)",
-      "titulo": "Queda de levantadas 2024 para 2025 pode estar correlacionada com mudanca de argumento principal (MEL para antecipacao de receita)",
+      "titulo": "Queda de levantadas 2024->2025 pode estar correlacionada com descontinuacao da campanha MEL (Mes da Estrela Literaria)",
       "descricao": "Em 2024 argumento central era MEL (motivacao emocional do livro); em 2025 mudou para objetivo de antecipacao de receita. Houve queda de levantadas. Hipotese: MEL tinha maior ressonancia emocional com gestoras do que o argumento de receita. Ainda e hipotese - requer investigacao de Mkt.",
       "categoria": "oferta",
       "status": "ativo",
-      "evidencia": "Encontro Aquisicao 04/mar/26 (Lili) - item 4. Queda de levantadas de 24 para 25 identificada. Hipotese levantada por Lili.",
-      "acao_sugerida": "Karina investigar argumento MEL de 2024: quais materiais, qual formulacao, qual resultado. Avaliar se e replicavel ou adaptavel para 2026. Task t148 criada para esse fim."
+      "evidencia": "Encontro Aquisicao 04/mar/26 (Lili) - item 4. Queda de levantadas de 2024 para 2025 identificada. Hipotese: a campanha MEL (Mes da Estrela Literaria) foi o argumento central de 2024. MEL era uma campanha com serie de acoes e beneficios para a escola ao longo de um mes. Foi descontinuada por falta de capacidade interna de execucao, nao por falta de resultado. Task t148 criada para investigar quais elementos do argumento MEL sao replicaveis em 2026.",
+      "acao_sugerida": "Karina investigar materials do MEL 2024: quais beneficios eram oferecidos, qual era o pitch central, qual o resultado em levantadas/conversoes. Avaliar quais elementos do argumento (escola protagonista, beneficios multiplos, destaque da escola) sao replicaveis no Cerco Magico 2026 sem exigir a estrutura operacional completa do MEL. Especialmente relevante para copy de e-mail AA e Retracao — segmentos mais receptivos a argumento de reconhecimento.",
+      "ultima_atualizacao": "2026-03-13T09:19:03.616060"
     },
     {
       "id": "insight088",
@@ -758,17 +774,6 @@ window.WATCHDOG_INTEL = {
       "status": "ativo",
       "evidencia": "30 escolas trabalhadas, 5 contatos efetivos, 1 reuniao realizada, numero bloqueado na Meta. 2 escolas recusaram explicitamente ligacoes WA.",
       "acao_sugerida": "Nunca usar ligacao via WhatsApp como canal padrao de prospeccao SDR. Reservar WA para ultimo recurso (todos canais tentados, escola seria descartada). Usar numero descartavel dedicado se necessario."
-    },
-    {
-      "id": "insight090",
-      "data": "2026-03-11",
-      "fonte": "Mensagem da Lua.pdf",
-      "titulo": "Blip com autorizacao previa transforma ligacao fria em canal autorizado — reduz risco operacional mas exige etapa adicional",
-      "descricao": "Estrategia de Lua: (1) WA como canal de suporte, (2) mensagem solicitando autorizacao para contato por voz, (3) apos autorizacao, ligacao via Blip. Muda percepcao da gestora de ligacao invasiva para canal autorizado. Dependente da resolucao do alerta020 (risco de bloqueio permanente do Blip).",
-      "categoria": "sdr",
-      "status": "ativo",
-      "evidencia": "Recomendacao estrategica de Lua apos teste de 30 escolas. Alinha com alerta020.",
-      "acao_sugerida": "Quando alerta020 for resolvido, adotar protocolo de 3 etapas de Lua como padrao para ligacoes SDR: WA suporte -> autorizacao -> ligacao Blip. Nunca implementar antes de resolver risco de bloqueio permanente."
     }
   ],
   "criticas_ativas": [
@@ -1199,8 +1204,8 @@ window.WATCHDOG_INTEL = {
       "base",
       "geral",
       "rr_sdr",
-      "renovacao",
       "copy",
+      "renovacao",
       "concorrencia",
       "campanha",
       "outbound",
@@ -1261,6 +1266,6 @@ window.WATCHDOG_INTEL = {
       "analise_de_bolsao",
       "acao_1a1"
     ],
-    "itens_indexados": 160
+    "itens_indexados": 161
   }
 };
