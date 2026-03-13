@@ -612,6 +612,28 @@
     .todo-row.priority-1 { background: linear-gradient(90deg, rgba(0,122,255,0.06), rgba(0,122,255,0.01)); }
     .todo-row.priority-2 { background: linear-gradient(90deg, rgba(255,149,0,0.05), rgba(255,149,0,0.01)); }
     .todo-row.priority-3 { background: linear-gradient(90deg, rgba(52,199,89,0.05), rgba(52,199,89,0.01)); }
+    .todo-week-separator td {
+      padding: 10px 18px 8px;
+      border-bottom: none;
+      background: transparent;
+    }
+    .todo-week-separator-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--t3);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .todo-week-separator-line::before,
+    .todo-week-separator-line::after {
+      content: '';
+      height: 1px;
+      background: var(--sep);
+      flex: 1;
+    }
 
     .todo-table td { padding: 18px 14px; vertical-align: middle; }
     .todo-table td:first-child { padding-left: 18px; }
@@ -862,6 +884,10 @@
       padding: 9px 10px;
       background: var(--card-sec);
       outline: none;
+    }
+    .task-field input[type="date"]::-webkit-calendar-picker-indicator {
+      cursor: pointer;
+      opacity: 0.8;
     }
     .task-field input:focus,
     .task-field select:focus {
@@ -1680,8 +1706,8 @@
       </div>
       <div class="task-field">
         <label for="taskDate">Prazo</label>
-        <input id="taskDate" type="text" placeholder="Ex: 25/fev ou 12/03/2026" required />
-        <div class="task-help" id="taskDateHint">Aceita somente formatos: dd/mmm ou dd/mm/aaaa.</div>
+        <input id="taskDate" type="date" required />
+        <div class="task-help" id="taskDateHint">Escolha a data no calendário. O sistema mostra também o dia da semana.</div>
       </div>
       <div class="task-field">
         <label for="taskComment">Obs <span style="font-weight:400;color:var(--t3)">(opcional)</span></label>
@@ -2351,6 +2377,36 @@ function weekBounds(ref = new Date()) {
   return { start, end };
 }
 
+function nextWeekStart(ref = new Date()) {
+  const { start } = weekBounds(ref);
+  const next = new Date(start);
+  next.setDate(start.getDate() + 7);
+  next.setHours(0, 0, 0, 0);
+  return next;
+}
+
+function toInputDateValue(raw) {
+  const d = parseTaskDate(raw);
+  if (!d) return '';
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}`;
+}
+
+function weekdayLabelPt(raw) {
+  const d = parseTaskDate(raw);
+  if (!d) return '';
+  return d.toLocaleDateString('pt-BR', { weekday: 'long', day: '2-digit', month: '2-digit' });
+}
+
+function isDateInCurrentWeek(raw) {
+  const dt = parseTaskDate(raw);
+  if (!dt) return false;
+  const { start, end } = weekBounds();
+  return dt >= start && dt <= end;
+}
+
 function parseTaskDate(raw) {
   const s = String(raw || '').trim();
   if (!s || s === '-' || s === '?' || /^a definir$/i.test(s)) return null;
@@ -2405,10 +2461,7 @@ function isValidTaskDateInput(raw) {
 }
 
 function isTaskInCurrentWeek(task) {
-  const due = parseTaskDate(task.date);
-  if (!due) return false;
-  const { start, end } = weekBounds();
-  return due >= start && due <= end;
+  return isDateInCurrentWeek(task.date);
 }
 
 function stripLeadingBracketTag(text) {
@@ -2848,7 +2901,7 @@ function openTaskModal(mode = 'create', id = null) {
 
   taskInput.value = current ? (current.task || '') : '';
   ownerSelect.value = current ? (normalizeOwnerName(current.owner) === OWNER_FALLBACK ? '' : normalizeOwnerName(current.owner)) : '';
-  dateInput.value = current ? (current.date || '') : '';
+  dateInput.value = current ? toInputDateValue(current.date || '') : '';
   const commentInput = document.getElementById('taskComment');
   if (commentInput) commentInput.value = current ? (current.comment || '') : '';
   err.textContent = '';
@@ -2896,7 +2949,9 @@ function refreshTaskDateHint() {
   const hint = document.getElementById('taskDateHint');
   if (!dateInput || !hint) return;
   const check = isValidTaskDateInput(dateInput.value);
-  hint.textContent = check.msg;
+  hint.textContent = check.ok
+    ? `Prazo selecionado: ${weekdayLabelPt(dateInput.value)}. Exibição na lista: ${formatTaskDate(dateInput.value)}.`
+    : check.msg;
   hint.classList.remove('ok', 'err');
   hint.classList.add(check.ok ? 'ok' : 'err');
 }
@@ -2942,7 +2997,7 @@ async function submitTaskForm(e) {
     const rewrittenTaskName = rewriteOwnerPrefixedTaskTitle(taskName, prev.owner, owner);
     task.task = rewrittenTaskName;
     task.owner = owner;
-    task.date = formatTaskDate(dateRaw);
+    task.date = dateRaw;
     task.comment = commentVal;
     task.updatedAt = new Date().toISOString();
     if (task.done) {
@@ -2964,7 +3019,7 @@ async function submitTaskForm(e) {
       task: taskName,
       comment: commentVal,
       owner,
-      date: formatTaskDate(dateRaw),
+      date: dateRaw,
       tier: 't1',
       tierLabel: 'A fazer',
       warn: null,
@@ -3155,6 +3210,8 @@ function renderTasks() {
   doneBody.innerHTML = '';
   updateSortHeaders();
   buildOwnerFilters();
+  const nextWeekBoundary = nextWeekStart();
+  let insertedNextWeekDivider = false;
 
   sortedTasks(tasks).forEach(t => {
     t.owner = normalizeOwnerName(t.owner);
@@ -3201,10 +3258,26 @@ function renderTasks() {
         </select>
       </td>
       <td><button type="button" class="row-edit-btn" data-edit-id="${t.id}">Editar</button></td>
-    `;
+	    `;
 
-    if (t.done) doneBody.appendChild(tr);
-    else openBody.appendChild(tr);
+    if (t.done) {
+      doneBody.appendChild(tr);
+      return;
+    }
+
+    if (!insertedNextWeekDivider && sortCol === 'date' && sortDir === 1 && due && due >= nextWeekBoundary) {
+      const divider = document.createElement('tr');
+      divider.className = 'todo-week-separator';
+      divider.innerHTML = `
+        <td colspan="7">
+          <div class="todo-week-separator-line">A partir daqui: próxima semana</div>
+        </td>
+      `;
+      openBody.appendChild(divider);
+      insertedNextWeekDivider = true;
+    }
+
+    openBody.appendChild(tr);
   });
 
   document.querySelectorAll('.tier-select[data-tier-id]').forEach(sel => {
@@ -3454,13 +3527,12 @@ function esc(s) {
 function renderWins() {
   const el = document.getElementById('winsList');
   if (!el) return;
-  /* Filtra wins do backend pela semana atual — evita mostrar wins de semanas anteriores */
-  const { start: _ws, end: _we } = weekBounds();
+  /* Regra dura: wins exibidos sempre pertencem à semana corrente (segunda a domingo). */
   const backendWins = (BOOKED_META_SRC && Array.isArray(BOOKED_META_SRC.wins))
-    ? BOOKED_META_SRC.wins.filter(w => { const dt = parseTaskDate(w.data); return dt && dt >= _ws && dt <= _we; })
+    ? BOOKED_META_SRC.wins.filter(w => isDateInCurrentWeek(w.data))
     : [];
   const localWins = localWeeklyWins(tasks);
-  const merged = [...localWins, ...backendWins, ...WINS];
+  const merged = [...localWins, ...backendWins, ...WINS].filter(w => isDateInCurrentWeek(w.data));
   const seen = new Set();
   const source = merged.filter(w => {
     const k = `${w.titulo}|${w.dri}|${w.data}`;
