@@ -514,8 +514,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-11T07:52:00",
+    "completedAt": "2026-03-11T07:52:00"
   },
   {
     "id": "t038",
@@ -528,8 +528,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-11T07:52:00",
+    "completedAt": "2026-03-11T07:52:00"
   },
   {
     "id": "t040",
@@ -570,8 +570,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-11T07:52:00",
+    "completedAt": "2026-03-11T07:52:00"
   },
   {
     "id": "t044",
@@ -892,8 +892,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-12T10:46:00",
+    "completedAt": "2026-03-12T10:46:00"
   },
   {
     "id": "t067",
@@ -948,8 +948,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-06T00:00:00",
-    "completedAt": "2026-03-06T00:00:00"
+    "updatedAt": "2026-03-10T17:22:00",
+    "completedAt": "2026-03-10T17:22:00"
   },
   {
     "id": "t071",
@@ -962,8 +962,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-12T11:57:00",
+    "completedAt": "2026-03-12T11:57:00"
   },
   {
     "id": "t072",
@@ -1172,8 +1172,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-03T00:00:00",
-    "completedAt": "2026-03-03T00:00:00"
+    "updatedAt": "2026-03-10T17:22:00",
+    "completedAt": "2026-03-10T17:22:00"
   },
   {
     "id": "t087",
@@ -1186,8 +1186,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-08T00:00:00",
-    "completedAt": "2026-03-08T00:00:00"
+    "updatedAt": "2026-03-11T15:01:00",
+    "completedAt": "2026-03-11T15:01:00"
   },
   {
     "id": "t088",
@@ -1228,8 +1228,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-08T00:00:00",
-    "completedAt": "2026-03-08T00:00:00"
+    "updatedAt": "2026-03-12T12:46:00",
+    "completedAt": "2026-03-12T12:46:00"
   },
   {
     "id": "t091",
@@ -1242,7 +1242,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-08T00:00:00",
+    "updatedAt": "2026-03-11T16:15:00",
     "completedAt": null
   },
   {
@@ -1256,7 +1256,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-08T00:00:00",
+    "updatedAt": "2026-03-11T09:58:00",
     "completedAt": null
   },
   {
@@ -1265,13 +1265,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Item 7 do checklist S1 do Cerco Mágico. Webinar com Robson é uma das 6 ações do Cerco. Definir: (1) data do Webinar 1, (2) tema/pauta central, (3) formato (ao vivo, gravado, plataforma). Confirmar disponibilidade do Robson.",
     "owner": "Kaka",
     "date": "12/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-08T00:00:00",
-    "completedAt": null
+    "updatedAt": "2026-03-13T11:31:00",
+    "completedAt": "2026-03-13T11:31:00"
   },
   {
     "id": "t094",
@@ -1326,7 +1326,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-08T00:00:00",
+    "updatedAt": "2026-03-11T11:17:00",
     "completedAt": null
   },
   {
@@ -1550,8 +1550,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-10T00:00:00",
-    "completedAt": "2026-03-10T00:00:00"
+    "updatedAt": "2026-03-11T09:56:00",
+    "completedAt": "2026-03-11T09:56:00"
   },
   {
     "id": "t114",
@@ -1564,8 +1564,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-10T00:00:00",
-    "completedAt": "2026-03-10T00:00:00"
+    "updatedAt": "2026-03-10T14:23:00",
+    "completedAt": "2026-03-10T14:23:00"
   },
   {
     "id": "t115",
@@ -1573,13 +1573,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Cerco Mágico — e-mail da Lili é uma das 6 ações. Cada baldinho tem copy diferente: AA (foco em expansão de uso), Concorrência (foco em diferencial), Retração (foco em recuperação), Novas (foco em apresentação). Karina escreve e submete para aprovação da Lili antes de 14/mar. Copy aprovado vai para Vitória configurar no disparador (t090). Consultar aprendizados de 2024 sobre argumento MEL — funcionou e não foi replicado (ver daily 09/03).",
     "owner": "Pedro",
     "date": "14/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-10T00:00:00",
-    "completedAt": null
+    "updatedAt": "2026-03-13T15:51:00",
+    "completedAt": "2026-03-13T15:51:00"
   },
   {
     "id": "t116",
@@ -1592,8 +1592,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-10T00:00:00",
-    "completedAt": "2026-03-10T00:00:00"
+    "updatedAt": "2026-03-10T21:20:00",
+    "completedAt": "2026-03-10T21:20:00"
   },
   {
     "id": "t117",
@@ -1676,8 +1676,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-10T00:00:00",
-    "completedAt": "2026-03-10T00:00:00"
+    "updatedAt": "2026-03-12T15:15:00",
+    "completedAt": "2026-03-12T15:15:00"
   },
   {
     "id": "t123",
@@ -1718,8 +1718,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-11T09:58:00",
+    "completedAt": "2026-03-11T09:58:00"
   },
   {
     "id": "t126",
@@ -1732,8 +1732,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-12T10:51:00",
+    "completedAt": "2026-03-12T10:51:00"
   },
   {
     "id": "t127",
@@ -1746,8 +1746,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-11T09:46:00",
+    "completedAt": "2026-03-11T09:46:00"
   },
   {
     "id": "t128",
@@ -1769,13 +1769,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Dois gaps detectados: (1) KPIs por semana nao definidos - sem isso impossivel otimizar no proximo ciclo. KPIs sugeridos: S1 abertura WA >= 45% | S2 resposta/clique >= 12% | S3 agendamento/intencao | S4 conversao. Registrar antes do disparo S1. (2) Base HT (412 contatos Publica HT) some apos Semana 1 - oportunidade de receita desperdicada. Criar regua propria para HT com pelo menos 2 toques apos S1. Entregar: KPI sheet + plano HT pos-S1 para aprovacao do Pedro.",
     "owner": "Kaka",
     "date": "12/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-13T11:32:00",
+    "completedAt": "2026-03-13T11:32:00"
   },
   {
     "id": "t130",
@@ -1788,8 +1788,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-10T12:39:00",
+    "completedAt": "2026-03-10T12:39:00"
   },
   {
     "id": "t131",
@@ -1802,8 +1802,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-11T11:15:00",
+    "completedAt": "2026-03-11T11:15:00"
   },
   {
     "id": "t132",
@@ -1830,8 +1830,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-11T11:16:00",
+    "completedAt": "2026-03-11T11:16:00"
   },
   {
     "id": "t134",
@@ -1858,8 +1858,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-12T11:09:00",
+    "completedAt": "2026-03-12T11:09:00"
   },
   {
     "id": "t136",
@@ -1872,8 +1872,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-10T17:39:00",
+    "completedAt": "2026-03-10T17:39:00"
   },
   {
     "id": "t137",
@@ -1886,8 +1886,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-11T16:59:00",
+    "completedAt": "2026-03-11T16:59:00"
   },
   {
     "id": "t138",
@@ -1900,8 +1900,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-10T14:06:00",
+    "completedAt": "2026-03-10T14:06:00"
   },
   {
     "id": "t139",
@@ -1998,8 +1998,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-12T12:31:00",
+    "completedAt": "2026-03-12T12:31:00"
   },
   {
     "id": "t146",
@@ -2054,8 +2054,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-11T09:32:00",
+    "completedAt": "2026-03-11T09:32:00"
   },
   {
     "id": "t150",
@@ -2068,8 +2068,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-12T12:31:00",
+    "completedAt": "2026-03-12T12:31:00"
   },
   {
     "id": "t151",
@@ -2110,8 +2110,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-12T06:41:00",
+    "completedAt": "2026-03-12T06:41:00"
   },
   {
     "id": "t154",
@@ -2166,8 +2166,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-11T11:30:00",
+    "completedAt": "2026-03-11T11:30:00"
   },
   {
     "id": "t158",
@@ -2217,13 +2217,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Atualizacao legada: Compromisso explicito assumido por Karina na daily 11/03 com prazo hoje. LT PART em 24% da meta mensal (alerta041).\n\nNormalizacao automatica: Dono ausente preenchido automaticamente com Lili.",
     "owner": "Kaka",
     "date": "11/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-13T07:40:00",
-    "completedAt": null
+    "updatedAt": "2026-03-13T11:31:00",
+    "completedAt": "2026-03-13T11:31:00"
   },
   {
     "id": "t162",
@@ -2284,16 +2284,16 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t166",
     "task": "Criar plano de abastecimento de topo de funil HT PÚB para semana restante de março",
-    "comment": "Prazo era hoje 13/mar. Documento confirma que HT PÚB segue em 44% de realizadas na semana (4/11). Verificar se o plano foi entregue e, se não, escalar para execução imediata na segunda 16/03. Alerta049 aberto cobrindo este gap.",
+    "comment": "HT PUB com Realizadas 4/11 semanais (58%) e RR/SDR mensal caindo (68%, seta para baixo). Taxa de fechamento 235% meta não se traduz em receita sem volume de reuniões entrando. insight104/alerta045.",
     "owner": "Kaka",
     "date": "13/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-13T11:57:00",
-    "completedAt": null
+    "updatedAt": "2026-03-13T11:32:00",
+    "completedAt": "2026-03-13T11:32:00"
   },
   {
     "id": "t167",
@@ -2334,8 +2334,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-12T14:25:00",
+    "completedAt": "2026-03-12T14:25:00"
   },
   {
     "id": "t170",
@@ -2348,8 +2348,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-12T12:42:00",
+    "completedAt": "2026-03-12T12:42:00"
   },
   {
     "id": "t171",
@@ -2362,8 +2362,8 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-12T13:53:00",
+    "completedAt": "2026-03-12T13:53:00"
   },
   {
     "id": "t172",
@@ -2390,22 +2390,22 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-12T17:22:00",
+    "completedAt": "2026-03-12T17:22:00"
   },
   {
     "id": "t174",
     "task": "Analisar composição da base Outbound 2025 vs 2026 (porte, SDR atribuído, segmento) para diagnosticar queda de 5 para 3,75 levantadas/disparo",
-    "comment": "Prazo era hoje 13/mar. Documento de hoje não traz evidência de que esta análise foi concluída. Novas semanal em 68% de realizadas e RR/SDR em 72% da meta confirmam que o ritmo continua comprimido. Se análise não foi entregue, repactuar prazo para 16/mar e escalar.",
+    "comment": "Queda de 25% em Outbound sem causa confirmada. Hipótese High Value exclui segmentos historicamente mais responsivos. alerta046/insight108.",
     "owner": "Vitoria",
     "date": "13/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-13T11:57:00",
-    "completedAt": null
+    "updatedAt": "2026-03-13T18:15:00",
+    "completedAt": "2026-03-13T18:15:00"
   },
   {
     "id": "t175",
@@ -2438,7 +2438,7 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t177",
     "task": "Lili + Pimentel: Entender desafio de retração",
-    "comment": "Documento de 13/03 confirma: Retração mês com RR/SDR em 62% da meta e realizadas semanal em 7/14 (64% da meta). Fechadas/realizadas semanal em 43%/62% (66% da meta). O gargalo é volume de reuniões, não conversão por reunião — alunos YTD em 106%. Insight119 formaliza este diagnóstico. A investigação de Lili+Pimentel deve focar em por que o volume de reuniões está comprimido, não em taxa de fechamento.",
+    "comment": "Qual tá o desafio exato de retração?",
     "owner": "Lili",
     "date": "16/mar",
     "tier": "t1",
@@ -2446,21 +2446,21 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-13T11:57:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
     "id": "t178",
-    "task": "Revisar proposta de valor e argumento de conversão da campanha LT PART — auditar o que está sendo oferecido, em qual momento e com qual copy antes de qualquer novo disparo",
-    "comment": "LT PART tem disparo executado (R$731 custo, 272 alunos cadastrados) mas conversão estagnada em 8/30 (23%) durante pelo menos duas semanas consecutivas. O problema não é operacional de execução — é de mensagem ou timing. Insight118 registra este padrão como aprendizado permanente.",
-    "owner": "Kaka",
-    "date": "18/mar",
+    "task": "Vit: Trazer aprendizados de outbound (sobre disparos) - achar caminhos para otimizar outbound (CPL alto mas único caminho de crescimento)",
+    "comment": null,
+    "owner": "Vitoria",
+    "date": "16/mar",
     "tier": "t1",
     "tierLabel": "A fazer",
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-13T11:57:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -2475,6 +2475,104 @@ window.WATCHDOG_TODOS = [
     "done": false,
     "priorityRank": null,
     "updatedAt": "2026-03-13T11:57:00",
+    "completedAt": null
+  },
+  {
+    "id": "t180",
+    "task": "Pimentel: usar Notebook LM para analisar audios de no-show em Renovacao e identificar padroes de cancelamento/ausencia",
+    "comment": "Decisao tomada na daily 13/03. Pedro recusou aceitar o argumento de escola ocupada sem analise mais profunda. 16 mimos nao resolveram o comparecimento (insight125). Objetivo: identificar padrao de quando e por que gestoras agendam mas nao aparecem.",
+    "owner": "Ana Paula Pimentel",
+    "date": "18/mar",
+    "tier": "t2",
+    "tierLabel": "Fazendo",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-13T00:00:00",
+    "completedAt": null
+  },
+  {
+    "id": "t181",
+    "task": "Karina e Vitoria: avaliar janela de oportunidade para disparo adicional de Low Touch com acao de video na semana de 16/03",
+    "comment": "Decisao pendente de avaliacao. Low Touch em 64% da meta do momento e 23% da meta do mes. Lili sugeriu campanha mais agressiva aproveitando videos. Time de MKT tem plano para responder tickets e atuar como SDR Closer para Low Touch.",
+    "owner": "Kaka",
+    "date": "16/mar",
+    "tier": "t2",
+    "tierLabel": "Fazendo",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-13T00:00:00",
+    "completedAt": null
+  },
+  {
+    "id": "t182",
+    "task": "Pedro e Karina: enviar briefing do webinar com Antonia Burk para Pimentel (datas, tema, formato)",
+    "comment": "Proximo passo explicito da daily 13/03. Webinar confirmado para a primeira semana de abril. Sem briefing na proxima segunda, Pimentel nao pode iniciar planejamento de divulgacao.",
+    "owner": "Pedro",
+    "date": "16/mar",
+    "tier": "t2",
+    "tierLabel": "Fazendo",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-13T00:00:00",
+    "completedAt": null
+  },
+  {
+    "id": "t183",
+    "task": "Vitoria: selecionar base ampliada de Retracao (quem nao recebeu mensagem anterior) e organizar disparo WA ate quarta 18/03 — depende de time de Dados para formatacao",
+    "comment": "Proximo passo explicito da daily 13/03. Lili decidiu ampliar universo de telefones abordados em Retracao. Confirmar com Dados hoje 13/03 se entrega em quarta e viavel. Retracao semanal em 51% do RR/SDR com bolsao de apenas 34 oportunidades.",
+    "owner": "Vitoria",
+    "date": "18/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-13T00:00:00",
+    "completedAt": null
+  },
+  {
+    "id": "t184",
+    "task": "Lili: dar acesso a Vitoria a planilha sendo fechada com Nath — insumo para analise de custo medio de oferta no CPL",
+    "comment": "Proximo passo explicito da daily 13/03. Vitoria precisa da planilha para calcular custo medio de vale-presente e sem trabalho e incorporar ao CPL para comparacao de ROI (insight123).",
+    "owner": "Lili",
+    "date": "13/mar",
+    "tier": "t2",
+    "tierLabel": "Fazendo",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-13T00:00:00",
+    "completedAt": null
+  },
+  {
+    "id": "t185",
+    "task": "Vitoria: calcular custo medio do vale-presente e do sem trabalho no CPL — apresentar na proxima daily",
+    "comment": "Proximo passo da daily 13/03. Depende de t184 (acesso a planilha da Lili). CPL canal + custo medio da oferta por levantada = CPL total. Decisao estrategica: incluir custo da oferta no CPL para comparacao de ROI.",
+    "owner": "Vitoria",
+    "date": "16/mar",
+    "tier": "t2",
+    "tierLabel": "Fazendo",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-13T00:00:00",
+    "completedAt": null
+  },
+  {
+    "id": "t186",
+    "task": "Karina: confirmar com designers ate 14/03 se pelo menos um aceitou a arte da revista e quando entrega",
+    "comment": "Karina confirmou na daily que entraria em contato hoje. Se nenhum designer disponivel, escalar para Pedro imediatamente. Arte da revista e o item com maior lead time do Cerco Magico. Conectada a alerta054.",
+    "owner": "Kaka",
+    "date": "14/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-13T00:00:00",
     "completedAt": null
   }
 ];

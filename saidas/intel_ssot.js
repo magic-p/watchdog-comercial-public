@@ -4,7 +4,7 @@ window.WATCHDOG_INTEL = {
     "papel": "Chief of Staff & Head of Marketing Analytics",
     "ultima_atualizacao": "2026-03-12T11:39:51.650703"
   },
-  "ultima_atualizacao": "2026-03-13T11:57:14.377720",
+  "ultima_atualizacao": "2026-03-13T12:06:02.567733",
   "arquitetura_memoria": {
     "modo": "camadas",
     "descricao": "Memoria viva enxuta + historico completo + resumos tematicos + indices.",
@@ -21,19 +21,19 @@ window.WATCHDOG_INTEL = {
     "indices": "contexto/intel_indices.json"
   },
   "memoria_viva": {
-    "insights_ativos_total_historico": 117,
+    "insights_ativos_total_historico": 122,
     "insights_expostos_neste_arquivo": 24,
-    "alertas_abertos_total_historico": 39,
-    "alertas_expostos_neste_arquivo": 39,
+    "alertas_abertos_total_historico": 40,
+    "alertas_expostos_neste_arquivo": 40,
     "temas_prioritarios": [
       "sdr",
       "base",
-      "geral",
       "rr_sdr",
-      "renovacao",
+      "geral",
       "copy",
-      "concorrencia",
-      "campanha"
+      "renovacao",
+      "outbound",
+      "concorrencia"
     ]
   },
   "resumos_tematicos": [
@@ -85,7 +85,8 @@ window.WATCHDOG_INTEL = {
         "insight018",
         "insight020",
         "insight021",
-        "insight017"
+        "insight017",
+        "insight121"
       ],
       "alertas_ids": [
         "alerta045",
@@ -107,7 +108,9 @@ window.WATCHDOG_INTEL = {
         "alerta004",
         "alerta005",
         "alerta006",
-        "alerta009"
+        "alerta009",
+        "alerta051",
+        "alerta052"
       ],
       "aprendizados_chave": [
         "Retração apresenta desacoplamento entre meta de alunos (verde, 106% YTD) e RR/SDR (62% da meta). Isso indica que quando as reuniões acontecem, os alunos chegam em volume acima d...",
@@ -118,8 +121,8 @@ window.WATCHDOG_INTEL = {
         "LT PART em 7/30 convertidas (23%) e R$24.000/R$98.649 em receita (24%). O alerta041 registrou esse dado para a semana passada; o documento de hoje confirma que não houve recuper...",
         "Média de levantadas Outbound caiu de 5 para 3,75 por disparo vs ano anterior (-25%). Hipótese: segmentação High Value exclui segmentos historicamente mais responsivos. Sem análi..."
       ],
-      "contagem_aprendizados": 45,
-      "contagem_alertas_abertos": 20,
+      "contagem_aprendizados": 46,
+      "contagem_alertas_abertos": 22,
       "ultima_atualizacao": "2026-03-13"
     },
     {
@@ -164,15 +167,14 @@ window.WATCHDOG_INTEL = {
         "insight007",
         "insight011",
         "insight018",
-        "insight021"
+        "insight021",
+        "insight122",
+        "insight124"
       ],
       "alertas_ids": [
         "alerta045",
         "alerta046",
-        "alerta048",
-        "alerta041",
         "alerta037",
-        "alerta031",
         "alerta032",
         "alerta033",
         "alerta026",
@@ -181,7 +183,8 @@ window.WATCHDOG_INTEL = {
         "alerta017",
         "alerta005",
         "alerta007",
-        "alerta011"
+        "alerta011",
+        "alerta053"
       ],
       "aprendizados_chave": [
         "LT PART acumula evidência de que o gargalo não é ausência de disparo nem de base cadastrada — é conversão pós-disparo. Com 272 alunos cadastrados e R$731 de custo de disparo já...",
@@ -192,35 +195,8 @@ window.WATCHDOG_INTEL = {
         "LT PART em 7/30 convertidas (23%) e R$24.000/R$98.649 em receita (24%). O alerta041 registrou esse dado para a semana passada; o documento de hoje confirma que não houve recuper...",
         "Média de levantadas Outbound caiu de 5 para 3,75 por disparo vs ano anterior (-25%). Hipótese: segmentação High Value exclui segmentos historicamente mais responsivos. Sem análi..."
       ],
-      "contagem_aprendizados": 38,
-      "contagem_alertas_abertos": 15,
-      "ultima_atualizacao": "2026-03-13"
-    },
-    {
-      "tema": "geral",
-      "titulo": "Geral",
-      "resumo_executivo": "Riscos abertos: Nath levantou na daily que havia três tópicos enviados pela Claudete que não foram criados como tarefas. Pedro solicitou que informassem quais eram para ajustar. O documento não... | Pimentel sinalizou problema de contabilização de escolas convertidas ao final da daily — sem DRI ou prazo definidos. Distorce todas as métricas de meta.",
-      "aprendizados_ids": [
-        "insight116"
-      ],
-      "alertas_ids": [
-        "alerta044",
-        "alerta047",
-        "alerta038",
-        "alerta034",
-        "alerta029",
-        "alerta023",
-        "alerta015",
-        "alerta016",
-        "alerta050"
-      ],
-      "aprendizados_chave": [],
-      "riscos_abertos": [
-        "Nath levantou na daily que havia três tópicos enviados pela Claudete que não foram criados como tarefas. Pedro solicitou que informassem quais eram para ajustar. O documento não...",
-        "Pimentel sinalizou problema de contabilização de escolas convertidas ao final da daily — sem DRI ou prazo definidos. Distorce todas as métricas de meta."
-      ],
-      "contagem_aprendizados": 1,
-      "contagem_alertas_abertos": 9,
+      "contagem_aprendizados": 40,
+      "contagem_alertas_abertos": 13,
       "ultima_atualizacao": "2026-03-13"
     },
     {
@@ -236,7 +212,8 @@ window.WATCHDOG_INTEL = {
         "insight061",
         "insight031",
         "insight012",
-        "insight021"
+        "insight021",
+        "insight121"
       ],
       "alertas_ids": [
         "alerta040",
@@ -246,7 +223,9 @@ window.WATCHDOG_INTEL = {
         "alerta026",
         "alerta024",
         "alerta004",
-        "alerta005"
+        "alerta005",
+        "alerta051",
+        "alerta052"
       ],
       "aprendizados_chave": [
         "Retração apresenta desacoplamento entre meta de alunos (verde, 106% YTD) e RR/SDR (62% da meta). Isso indica que quando as reuniões acontecem, os alunos chegam em volume acima d...",
@@ -257,62 +236,37 @@ window.WATCHDOG_INTEL = {
         "Pior ritmo semanal registrado em Retracao. Outbound tambem abaixo da meta semanal. A/B email disparado hoje; WA amanha 8h com copy vencedor. Se ate quinta nao houver recuperacao...",
         "Concorrencia: RR/SDR 102% mas 0% de meta de alunos na semana (0/721). Meta mensal em 27% (216/2.963). Paradoxo indica gargalo na conversao RR->alunos, nao no volume de reunioes."
       ],
-      "contagem_aprendizados": 9,
-      "contagem_alertas_abertos": 8,
+      "contagem_aprendizados": 10,
+      "contagem_alertas_abertos": 10,
       "ultima_atualizacao": "2026-03-13"
     },
     {
-      "tema": "renovacao",
-      "titulo": "Renovacao",
-      "resumo_executivo": "Aprendizados-chave: LT PART acumula evidência de que o gargalo não é ausência de disparo nem de base cadastrada — é conversão pós-disparo. Com 272 alunos cadastrados e R$731 de custo de disparo já... | LT Pública mostra potencial de receita (R$72.198 potencial, 25 convertidas, 1.482 alunos cadastrados) desproporcional ao custo de disparo (R$283,50). O custo por aluno cadastrad... Riscos abertos: Decisão na daily: disparo vídeos renovação Spotify na segunda 16/03. Base (descarte + perda sem conversão) deve estar validada até sexta 13/03 EOD. DRI não confirmado explicitam... | A semana de 03-06/mar encerrou com HT PART Renovação em 79% do RR/SDR semanal. Na daily 06/mar, as 22 RRs necessárias no último dia eram matematicamente impossíveis. O deficit d...",
+      "tema": "geral",
+      "titulo": "Geral",
+      "resumo_executivo": "Riscos abertos: Pimentel sinalizou problema de contabilização de escolas convertidas ao final da daily — sem DRI ou prazo definidos. Distorce todas as métricas de meta. | Vit informou custo total de R$11.500 (revista + carta de dezembro) mas Lili pediu separação entre custo de produção e custo de envio da revista especificamente, além de atualiza...",
       "aprendizados_ids": [
-        "insight111",
-        "insight114",
-        "insight118",
-        "insight120",
-        "insight104",
-        "insight109",
-        "insight092",
-        "insight093",
-        "insight080",
-        "insight073",
-        "insight051",
-        "insight026",
-        "insight028",
-        "insight031",
-        "insight036",
-        "insight038",
-        "insight039",
-        "insight002",
-        "insight003",
-        "insight004",
-        "insight006",
-        "insight007",
-        "insight009",
-        "insight018",
-        "insight017",
-        "insight023"
+        "insight116",
+        "insight123"
       ],
       "alertas_ids": [
-        "alerta048",
-        "alerta032",
-        "alerta030",
-        "alerta026",
-        "alerta024",
-        "alerta005",
-        "alerta009"
+        "alerta047",
+        "alerta038",
+        "alerta034",
+        "alerta029",
+        "alerta023",
+        "alerta015",
+        "alerta016",
+        "alerta050",
+        "alerta054",
+        "alerta055"
       ],
-      "aprendizados_chave": [
-        "LT PART acumula evidência de que o gargalo não é ausência de disparo nem de base cadastrada — é conversão pós-disparo. Com 272 alunos cadastrados e R$731 de custo de disparo já...",
-        "LT Pública mostra potencial de receita (R$72.198 potencial, 25 convertidas, 1.482 alunos cadastrados) desproporcional ao custo de disparo (R$283,50). O custo por aluno cadastrad...",
-        "HT PÚB tem a maior taxa de fechamento da cartela (235% da meta semanal) mas volume de Realizadas em 58% — o gargalo não é conversão, é abastecimento de topo de funil. Produto de..."
-      ],
+      "aprendizados_chave": [],
       "riscos_abertos": [
-        "Decisão na daily: disparo vídeos renovação Spotify na segunda 16/03. Base (descarte + perda sem conversão) deve estar validada até sexta 13/03 EOD. DRI não confirmado explicitam...",
-        "A semana de 03-06/mar encerrou com HT PART Renovação em 79% do RR/SDR semanal. Na daily 06/mar, as 22 RRs necessárias no último dia eram matematicamente impossíveis. O deficit d..."
+        "Pimentel sinalizou problema de contabilização de escolas convertidas ao final da daily — sem DRI ou prazo definidos. Distorce todas as métricas de meta.",
+        "Vit informou custo total de R$11.500 (revista + carta de dezembro) mas Lili pediu separação entre custo de produção e custo de envio da revista especificamente, além de atualiza..."
       ],
-      "contagem_aprendizados": 26,
-      "contagem_alertas_abertos": 7,
+      "contagem_aprendizados": 2,
+      "contagem_alertas_abertos": 10,
       "ultima_atualizacao": "2026-03-13"
     },
     {
@@ -367,6 +321,107 @@ window.WATCHDOG_INTEL = {
       ],
       "contagem_aprendizados": 26,
       "contagem_alertas_abertos": 7,
+      "ultima_atualizacao": "2026-03-13"
+    },
+    {
+      "tema": "renovacao",
+      "titulo": "Renovacao",
+      "resumo_executivo": "Aprendizados-chave: LT PART acumula evidência de que o gargalo não é ausência de disparo nem de base cadastrada — é conversão pós-disparo. Com 272 alunos cadastrados e R$731 de custo de disparo já... | LT Pública mostra potencial de receita (R$72.198 potencial, 25 convertidas, 1.482 alunos cadastrados) desproporcional ao custo de disparo (R$283,50). O custo por aluno cadastrad... Riscos abertos: A semana de 03-06/mar encerrou com HT PART Renovação em 79% do RR/SDR semanal. Na daily 06/mar, as 22 RRs necessárias no último dia eram matematicamente impossíveis. O deficit d... | HT PÚB Renovação com zero fechamentos nesta semana (Tx fechadas/realizadas = 0). Duas reuniões realizadas, nenhuma convertida. Segmento tem RR/SDR de 2,40 (acima da meta), mas s...",
+      "aprendizados_ids": [
+        "insight111",
+        "insight114",
+        "insight118",
+        "insight120",
+        "insight104",
+        "insight109",
+        "insight092",
+        "insight093",
+        "insight080",
+        "insight073",
+        "insight051",
+        "insight026",
+        "insight028",
+        "insight031",
+        "insight036",
+        "insight038",
+        "insight039",
+        "insight002",
+        "insight003",
+        "insight004",
+        "insight006",
+        "insight007",
+        "insight009",
+        "insight018",
+        "insight017",
+        "insight023",
+        "insight125"
+      ],
+      "alertas_ids": [
+        "alerta032",
+        "alerta030",
+        "alerta026",
+        "alerta024",
+        "alerta005",
+        "alerta009"
+      ],
+      "aprendizados_chave": [
+        "LT PART acumula evidência de que o gargalo não é ausência de disparo nem de base cadastrada — é conversão pós-disparo. Com 272 alunos cadastrados e R$731 de custo de disparo já...",
+        "LT Pública mostra potencial de receita (R$72.198 potencial, 25 convertidas, 1.482 alunos cadastrados) desproporcional ao custo de disparo (R$283,50). O custo por aluno cadastrad...",
+        "HT PÚB tem a maior taxa de fechamento da cartela (235% da meta semanal) mas volume de Realizadas em 58% — o gargalo não é conversão, é abastecimento de topo de funil. Produto de..."
+      ],
+      "riscos_abertos": [
+        "A semana de 03-06/mar encerrou com HT PART Renovação em 79% do RR/SDR semanal. Na daily 06/mar, as 22 RRs necessárias no último dia eram matematicamente impossíveis. O deficit d...",
+        "HT PÚB Renovação com zero fechamentos nesta semana (Tx fechadas/realizadas = 0). Duas reuniões realizadas, nenhuma convertida. Segmento tem RR/SDR de 2,40 (acima da meta), mas s..."
+      ],
+      "contagem_aprendizados": 27,
+      "contagem_alertas_abertos": 6,
+      "ultima_atualizacao": "2026-03-13"
+    },
+    {
+      "tema": "outbound",
+      "titulo": "Outbound",
+      "resumo_executivo": "Aprendizados-chave: Priorização de escolas High Value no Outbound pode reduzir volume de levantadas porque histórico mostra que escolas de médio e micro porte são as que mais convertem nesse canal.... | Base WA da Estante Mágica possui 19 campos de telefone, mas apenas 2 são utilizados nos disparos — potencial de expansão de raio em ~9,5x sem custo adicional de aquisição. Riscos abertos: Média de levantadas Outbound caiu de 5 para 3,75 por disparo vs ano anterior (-25%). Hipótese: segmentação High Value exclui segmentos historicamente mais responsivos. Sem análi... | Pior ritmo semanal registrado em Retracao. Outbound tambem abaixo da meta semanal. A/B email disparado hoje; WA amanha 8h com copy vencedor. Se ate quinta nao houver recuperacao...",
+      "aprendizados_ids": [
+        "insight115",
+        "insight101",
+        "insight107",
+        "insight108",
+        "insight098",
+        "insight099",
+        "insight077",
+        "insight068",
+        "insight067",
+        "insight054",
+        "insight043",
+        "insight044",
+        "insight025",
+        "insight027",
+        "insight032",
+        "insight001",
+        "insight005",
+        "insight008",
+        "insight011",
+        "insight024",
+        "insight124"
+      ],
+      "alertas_ids": [
+        "alerta046",
+        "alerta040",
+        "alerta018",
+        "alerta011",
+        "alerta053"
+      ],
+      "aprendizados_chave": [
+        "Priorização de escolas High Value no Outbound pode reduzir volume de levantadas porque histórico mostra que escolas de médio e micro porte são as que mais convertem nesse canal....",
+        "Base WA da Estante Mágica possui 19 campos de telefone, mas apenas 2 são utilizados nos disparos — potencial de expansão de raio em ~9,5x sem custo adicional de aquisição.",
+        "Segmentação exclusiva em High Value pode estar deprimindo taxa de levantadas no Outbound: queda de 5 para 3,75 levantadas/disparo vs ano anterior (-25%), pois escolas médio e mi..."
+      ],
+      "riscos_abertos": [
+        "Média de levantadas Outbound caiu de 5 para 3,75 por disparo vs ano anterior (-25%). Hipótese: segmentação High Value exclui segmentos historicamente mais responsivos. Sem análi...",
+        "Pior ritmo semanal registrado em Retracao. Outbound tambem abaixo da meta semanal. A/B email disparado hoje; WA amanha 8h com copy vencedor. Se ate quinta nao houver recuperacao..."
+      ],
+      "contagem_aprendizados": 21,
+      "contagem_alertas_abertos": 5,
       "ultima_atualizacao": "2026-03-13"
     },
     {
@@ -426,57 +481,6 @@ window.WATCHDOG_INTEL = {
       "contagem_aprendizados": 33,
       "contagem_alertas_abertos": 4,
       "ultima_atualizacao": "2026-03-11"
-    },
-    {
-      "tema": "campanha",
-      "titulo": "Campanhas",
-      "resumo_executivo": "Aprendizados-chave: LT PART acumula evidência de que o gargalo não é ausência de disparo nem de base cadastrada — é conversão pós-disparo. Com 272 alunos cadastrados e R$731 de custo de disparo já... | LT Pública mostra potencial de receita (R$72.198 potencial, 25 convertidas, 1.482 alunos cadastrados) desproporcional ao custo de disparo (R$283,50). O custo por aluno cadastrad... Riscos abertos: Numero utilizado no teste de ligacoes WA com 30 escolas sofreu bloqueio na Meta, possivelmente por denuncia. Nao esta claro se e o numero principal ou temporario. Se for o princ... | Pedro propôs envio de WA utilitário antes de cada ligação SDR. Ana Paula levantou risco de saturação. Lili não concluiu a deliberação. A daily encerrou sem decisão formal, sem D...",
-      "aprendizados_ids": [
-        "insight117",
-        "insight118",
-        "insight120",
-        "insight101",
-        "insight103",
-        "insight106",
-        "insight108",
-        "insight109",
-        "insight110",
-        "insight087",
-        "insight093",
-        "insight094",
-        "insight100",
-        "insight074",
-        "insight075",
-        "insight076",
-        "insight080",
-        "insight071",
-        "insight030",
-        "insight040",
-        "insight041",
-        "insight003",
-        "insight005",
-        "insight009",
-        "insight015",
-        "insight018"
-      ],
-      "alertas_ids": [
-        "alerta039",
-        "alerta036",
-        "alerta017",
-        "alerta007"
-      ],
-      "aprendizados_chave": [
-        "LT PART acumula evidência de que o gargalo não é ausência de disparo nem de base cadastrada — é conversão pós-disparo. Com 272 alunos cadastrados e R$731 de custo de disparo já...",
-        "LT Pública mostra potencial de receita (R$72.198 potencial, 25 convertidas, 1.482 alunos cadastrados) desproporcional ao custo de disparo (R$283,50). O custo por aluno cadastrad...",
-        "Priorização de escolas High Value no Outbound pode reduzir volume de levantadas porque histórico mostra que escolas de médio e micro porte são as que mais convertem nesse canal...."
-      ],
-      "riscos_abertos": [
-        "Numero utilizado no teste de ligacoes WA com 30 escolas sofreu bloqueio na Meta, possivelmente por denuncia. Nao esta claro se e o numero principal ou temporario. Se for o princ...",
-        "Pedro propôs envio de WA utilitário antes de cada ligação SDR. Ana Paula levantou risco de saturação. Lili não concluiu a deliberação. A daily encerrou sem decisão formal, sem D..."
-      ],
-      "contagem_aprendizados": 26,
-      "contagem_alertas_abertos": 4,
-      "ultima_atualizacao": "2026-03-13"
     }
   ],
   "aprendizados": [
@@ -802,17 +806,6 @@ window.WATCHDOG_INTEL = {
   ],
   "criticas_ativas": [
     {
-      "id": "alerta044",
-      "data": "2026-03-12",
-      "titulo": "Três tópicos da Claudete sem tarefa criada — risco de ação perdida",
-      "critica": "Nath levantou na daily que havia três tópicos enviados pela Claudete que não foram criados como tarefas. Pedro solicitou que informassem quais eram para ajustar. O documento não identifica quais são esses três tópicos, e não há DRI nem prazo definido para resolver o gap.",
-      "acao_sugerida": "Claudete deve listar os 3 tópicos não-tarefizados e enviar para Pedro até 13/mar para criação formal.",
-      "prioridade": "media",
-      "dri": "Claudete",
-      "status": "aberto",
-      "nota_status": "Mencionado na daily 12/mar. Contexto: Nath levantou a dúvida, Pedro pediu a lista. Nenhuma resolução registrada no documento."
-    },
-    {
       "id": "alerta045",
       "data": "2026-03-12",
       "titulo": "LT PART: 23% de convertidas e 24% de receita com 12 dias úteis restantes",
@@ -848,17 +841,6 @@ window.WATCHDOG_INTEL = {
       "nota_status": ""
     },
     {
-      "id": "alerta048",
-      "data": "2026-03-12",
-      "titulo": "Base renovação precisa estar pronta hoje para disparo de segunda",
-      "critica": "Decisão na daily: disparo vídeos renovação Spotify na segunda 16/03. Base (descarte + perda sem conversão) deve estar validada até sexta 13/03 EOD. DRI não confirmado explicitamente.",
-      "acao_sugerida": "Vitória confirmar base de renovação pronta e validada até sexta 13/03 EOD.",
-      "prioridade": "critica",
-      "dri": "Vitória",
-      "status": "aberto",
-      "nota_status": ""
-    },
-    {
       "id": "alerta039",
       "data": "2026-03-11",
       "titulo": "Numero WA institucional bloqueado pela Meta durante teste SDR — ativo de contato comprometido",
@@ -879,17 +861,6 @@ window.WATCHDOG_INTEL = {
       "dri": "Vitoria Riente",
       "status": "aberto",
       "nota_status": "A/B email disparado 11/03. WA previsto amanha 8h."
-    },
-    {
-      "id": "alerta041",
-      "data": "2026-03-11",
-      "titulo": "Novas semanal com zero alunos cadastrados (0/845) e LT PART em 24% da meta mensal",
-      "critica": "Meta alunos semanal Novas: 0/845 (0%). LT PART: 7/30 convertidas (23%), R$24k/R$98k. Sem acao de disparo esta semana, ambas fecham o mes abaixo.",
-      "acao_sugerida": "Autorizar disparo WA para base Novas em etapas iniciais (entrada, tentativa) ate 13/mar, filtrando acima de 80 alunos. Vitoria executa, Nath valida base antes. Karina entregar plano LT PART hoje (t161).",
-      "prioridade": "alta",
-      "dri": "Vitoria Riente",
-      "status": "aberto",
-      "nota_status": "Aguardando Nath validar base elegivel"
     },
     {
       "id": "alerta042",
@@ -945,17 +916,6 @@ window.WATCHDOG_INTEL = {
       "dri": "Ana Paula Pimentel",
       "status": "aberta",
       "fonte": "Meta Aquisição 09/03/2026"
-    },
-    {
-      "id": "alerta031",
-      "data": "2026-03-08",
-      "titulo": "Cerco Mágico começa 09/mar sem confirmação de S1 concluído (8 itens)",
-      "critica": "O Cerco Mágico começa AMANHÃ (09/mar) mas os 8 itens do checklist S1 — com prazo oficial de 14/mar — não foram confirmados como concluídos em nenhuma daily da semana. Sem setup: chips WA não comprados, arte da Revista não fechada, freelancers não contratados, QR code não criado, bases não segmentadas. O Cerco começa sem infraestrutura completa.",
-      "acao_sugerida": "Karina e Vitória: confirmar status atual dos 8 itens S1 na segunda 09/mar antes da daily. Itens críticos para execução imediata: chips WA (t089) e freelancers (t087). Itens críticos para semana: segmentação de base (t090) e arte Revista (t088). Comunicar Pedro com status real.",
-      "prioridade": "critica",
-      "dri": "Karina Machado",
-      "status": "aberta",
-      "fonte": "Análise Cerco Mágico 2026 — sessão Claudete 08/03"
     },
     {
       "id": "alerta032",
@@ -1220,20 +1180,75 @@ window.WATCHDOG_INTEL = {
       "evidencia": "Aba Orcamentos Mes a Mes: Fev Impulsionar orcado R$9.606,50, realizado R$18.311,79, saldo -R$8.705,29. Marco: R$2.100,75 de R$9.606,50 (22% usado). Sem registro de aprovacao para o estouro de fevereiro.",
       "acao_sugerida": "Pedro e Vitoria: definir teto semanal para Impulsionar ou exigir aprovacao de Pedro para qualquer valor acima do orcado. Revisar o que gerou o estouro de R$8.705 em fevereiro e avaliar se houve ROI equivalente.",
       "contexto": "Analise planilha Vit — Disparos e Controles de Marketing Jan-Mar/2026"
+    },
+    {
+      "id": "alerta051",
+      "tema": "rampando_visibilidade_zero",
+      "critica": "Pimentel depende do feedback da Taises para acompanhar o desempenho do time de Rampando isoladamente. Sem visibilidade separada, e impossivel ajustar indicadores do Rampando em tempo real e o efeito de arrasto no RR/SDR geral de Novas continua invisivel.",
+      "evidencia": "Daily 13/03: Pimentel declarou dependencia da Taises. Nath numbers: RR/SDR Novas geral 0,33/0,46 (79%). Sem breakout de Rampando vs senior no documento.",
+      "acao_sugerida": "Nath ou Pimentel criar relatorio semanal separado para time de Rampando (RR/SDR, fechadas, realizadas) entregue toda segunda-feira antes da daily — sem depender de Taises como intermediaria.",
+      "dri": "Ana Paula Pimentel",
+      "prioridade": "alta",
+      "status": "aberto",
+      "data_registro": "2026-03-13"
+    },
+    {
+      "id": "alerta052",
+      "tema": "retracao_enriquecimento_prazo",
+      "critica": "Enriquecimento das 66 escolas prioritarias de Retracao depende do time de Dados para formatacao, prazo estimado quarta 18/03. Com RR/SDR semanal em 51% e bolsao com apenas 34 oportunidades, qualquer atraso inviabiliza acao desta semana.",
+      "evidencia": "Daily 13/03: Lili decidiu enriquecer 66 escolas. Vitoria confirmou dependencia de Dados. Nath numbers: Retracao semanal realizadas 7/14 (64% meta), bolsao 34 oportunidades.",
+      "acao_sugerida": "Vitoria confirmar com time de Dados hoje (13/03) a viabilidade da entrega na quarta 18/03. Se entrega em risco, escalar para Pedro hoje EOD para viabilizar alternativa.",
+      "dri": "Vitoria",
+      "prioridade": "alta",
+      "status": "aberto",
+      "data_registro": "2026-03-13"
+    },
+    {
+      "id": "alerta053",
+      "tema": "outbound_cpl_alto_sem_decisao",
+      "critica": "CPL do Outbound acima de R$100 (Mar/12: R$121,72, 5 levantadas em 2.625 base HV). Analise de composicao de base 2025 vs 2026 (t174, prazo original 13/03) nao foi entregue. Nenhuma decisao de suspensao ou roteamento alternativo foi tomada.",
+      "evidencia": "Daily 13/03: CPL Outbound declarado acima de R$100. t174 prazo 13/03 nao cumprido. alerta046 ja registrado — esta critica escala o contexto.",
+      "acao_sugerida": "Vitoria entregar analise de composicao Outbound 2025 vs 2026 ate segunda 16/03. Resultado deve incluir: CPL por tier, taxa de levantada por regiao, comparacao com 2025.",
+      "dri": "Vitoria",
+      "prioridade": "alta",
+      "status": "aberto",
+      "data_registro": "2026-03-13"
+    },
+    {
+      "id": "alerta054",
+      "tema": "revista_arte_critico",
+      "critica": "Arte da revista do Cerco Magico ainda nao fechada (t088, prazo 14/03). Karina contactou dois designers hoje (13/03), mas arte precisa estar aprovada para envio a grafica. Sem arte fechada ate segunda 16/03 no maximo, entrega em abril fica em risco.",
+      "evidencia": "Daily 13/03: Vitoria aguarda orcamento da grafica. Karina confirmou que designer seria contactado hoje. t088 em PENDENTE desde 08/03.",
+      "acao_sugerida": "Karina confirmar ate 14/03 se pelo menos um dos designers aceitou e quando entrega a arte. Se nenhum disponivel, escalar para Pedro imediatamente.",
+      "dri": "Karina Machado",
+      "prioridade": "critica",
+      "status": "aberto",
+      "data_registro": "2026-03-13"
+    },
+    {
+      "id": "alerta055",
+      "tema": "webinar_antonia_sem_briefing",
+      "critica": "Webinar com Antonia Burk confirmado para a primeira semana de abril, mas Pedro e Karina ainda nao enviaram briefing a Pimentel (datas, tema, formato). Com menos de 3 semanas para o evento, o atraso comprime producao e divulgacao.",
+      "evidencia": "Daily 13/03: proxima etapa explicita — Pedro e Karina enviam briefing ate a proxima semana. Evento confirmado para primeira semana de abril.",
+      "acao_sugerida": "Pedro e Karina enviar briefing do webinar (datas, tema, formato, speaker) para Pimentel ate segunda 16/03.",
+      "dri": "Pedro Concy",
+      "prioridade": "media",
+      "status": "aberto",
+      "data_registro": "2026-03-13"
     }
   ],
   "indices_digest": {
     "temas_disponiveis": [
       "sdr",
       "base",
-      "geral",
       "rr_sdr",
-      "renovacao",
+      "geral",
       "copy",
-      "concorrencia",
-      "campanha",
+      "renovacao",
       "outbound",
+      "concorrencia",
       "retracao",
+      "campanha",
       "funil",
       "whatsapp",
       "anos_anteriores",
@@ -1296,6 +1311,6 @@ window.WATCHDOG_INTEL = {
       "acao_1a1",
       "abastecimento_de_funil"
     ],
-    "itens_indexados": 164
+    "itens_indexados": 174
   }
 };
