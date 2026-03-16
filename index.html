@@ -280,21 +280,36 @@
           <span class="upload-hd-icon">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
           </span>
-          Enviar para An&aacute;lise
+          Enviar para Claudete
         </span>
         <span class="count-badge" id="uploadQueueBadge" style="display:none"></span>
       </div>
-      <div class="upload-drop" id="uploadDrop" role="button" tabindex="0" aria-label="Arraste arquivos PDF ou XLSX aqui">
+      <div class="upload-drop" id="uploadDrop" role="button" tabindex="0" aria-label="Área de upload de arquivos">
         <div class="upload-drop-inner" id="uploadDropInner">
-          <svg class="upload-drop-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="12" y2="12"/><line x1="15" y1="15" x2="12" y2="12"/></svg>
-          <div class="upload-drop-text">
-            Arraste PDFs ou XLSX aqui, ou <label class="upload-drop-link" for="uploadFileInput">selecione</label>
-          </div>
-          <div class="upload-drop-hint">PDF, XLSX ou CSV &bull; at&eacute; 1 MB</div>
+          <svg class="upload-drop-icon-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="12" y2="12"/><line x1="15" y1="15" x2="12" y2="12"/></svg>
+          <div class="upload-drop-text">Arraste arquivos aqui ou <label class="upload-drop-link" for="uploadFileInput">selecione</label></div>
+          <div class="upload-drop-hint">PDF, XLSX ou CSV &middot; at&eacute; 1 MB por arquivo &middot; v&aacute;rios de uma vez</div>
           <input type="file" id="uploadFileInput" accept=".pdf,.xlsx,.xls,.csv" multiple hidden />
         </div>
       </div>
-      <div class="upload-list" id="uploadList"></div>
+      <div class="upload-compose" id="uploadCompose" style="display:none">
+        <div class="upload-staged-list" id="uploadStagedList"></div>
+        <textarea
+          class="upload-context-field"
+          id="uploadContextField"
+          rows="2"
+          placeholder="D&ecirc; contexto para a Claudete sobre o que est&aacute; enviando... (opcional)"
+          maxlength="500"
+        ></textarea>
+        <div class="upload-compose-actions">
+          <button class="upload-btn-cancel" id="uploadCancelBtn" type="button">Cancelar</button>
+          <button class="upload-btn-send" id="uploadSendBtn" type="button">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Enviar para Claudete
+          </button>
+        </div>
+      </div>
+      <div class="upload-history-wrap" id="uploadHistoryWrap"></div>
     </div>
   </div>
 
@@ -2858,6 +2873,15 @@ function _renderPriorityPane() {
 const UPLOAD_MAX_BYTES = 1 * 1024 * 1024;
 const UPLOAD_ACCEPTED  = ['.pdf', '.xlsx', '.xls', '.csv'];
 let _uploadHistory = JSON.parse(localStorage.getItem('wdUploads') || '[]');
+let _stagedFiles   = [];
+
+function _uploadWeekStart() {
+  const d = new Date();
+  const day = d.getDay();
+  d.setDate(d.getDate() - (day === 0 ? 6 : day - 1));
+  d.setHours(0, 0, 0, 0);
+  return d;
+}
 
 function _initUpload() {
   const drop  = document.getElementById('uploadDrop');
@@ -2869,39 +2893,87 @@ function _initUpload() {
     drop.addEventListener(ev, e => { e.preventDefault(); inner.classList.add('dragover'); }));
   ['dragleave','drop'].forEach(ev =>
     drop.addEventListener(ev, e => { e.preventDefault(); inner.classList.remove('dragover'); }));
-  drop.addEventListener('drop', e => _handleUploadFiles(Array.from(e.dataTransfer.files)));
+  drop.addEventListener('drop', e => _stageFiles(Array.from(e.dataTransfer.files)));
   drop.addEventListener('click', e => { if (!e.target.closest('label')) input.click(); });
   drop.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') { e.preventDefault(); input.click(); } });
   input.addEventListener('change', () => {
-    if (input.files.length) _handleUploadFiles(Array.from(input.files));
+    if (input.files.length) _stageFiles(Array.from(input.files));
     input.value = '';
   });
-  _renderUploadList();
+  document.getElementById('uploadCancelBtn')?.addEventListener('click', _cancelStaged);
+  document.getElementById('uploadSendBtn')?.addEventListener('click', _submitStagedFiles);
+  _renderUploadHistory();
 }
 
-function _handleUploadFiles(files) {
+function _stageFiles(files) {
+  let added = 0;
   for (const f of files) {
     const ext = '.' + f.name.split('.').pop().toLowerCase();
     if (!UPLOAD_ACCEPTED.includes(ext)) { toast(`Tipo não aceito: ${f.name}`, 'err'); continue; }
-    if (f.size > UPLOAD_MAX_BYTES) { toast(`Arquivo muito grande: ${f.name}`, 'err'); continue; }
-    _queueUpload(f);
+    if (f.size > UPLOAD_MAX_BYTES) { toast(`Muito grande (máx 1 MB): ${f.name}`, 'err'); continue; }
+    if (_stagedFiles.some(x => x.name === f.name && x.size === f.size)) continue;
+    _stagedFiles.push(f);
+    added++;
   }
+  if (added > 0) _renderStagedChips();
 }
 
-function _queueUpload(file) {
+function _renderStagedChips() {
+  const compose = document.getElementById('uploadCompose');
+  const list    = document.getElementById('uploadStagedList');
+  if (!compose || !list) return;
+  if (_stagedFiles.length === 0) { compose.style.display = 'none'; return; }
+  compose.style.display = '';
+  const fmtSize = b => b < 1024 ? b + ' B' : (b / 1024).toFixed(0) + ' KB';
+  list.innerHTML = _stagedFiles.map((f, i) => `
+    <div class="upload-staged-chip">
+      <span class="upload-staged-chip-name" title="${f.name}">${f.name}</span>
+      <span class="upload-staged-chip-size">${fmtSize(f.size)}</span>
+      <button class="upload-staged-chip-remove" type="button" aria-label="Remover" onclick="_removeStagedFile(${i})">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>`).join('');
+}
+
+function _removeStagedFile(idx) {
+  _stagedFiles.splice(idx, 1);
+  _renderStagedChips();
+}
+
+function _cancelStaged() {
+  _stagedFiles = [];
+  const compose = document.getElementById('uploadCompose');
+  if (compose) compose.style.display = 'none';
+  const ctx = document.getElementById('uploadContextField');
+  if (ctx) ctx.value = '';
+}
+
+async function _submitStagedFiles() {
+  if (!_stagedFiles.length) return;
+  if (!_sbSession) { toast('Faça login para enviar arquivos.', 'err'); return; }
+  const context = document.getElementById('uploadContextField')?.value?.trim() || '';
+  const btn = document.getElementById('uploadSendBtn');
+  if (btn) btn.disabled = true;
+  const filesToSend = [..._stagedFiles];
+  _cancelStaged();
+  await Promise.all(filesToSend.map(f => _queueUpload(f, context)));
+  if (btn) btn.disabled = false;
+}
+
+function _queueUpload(file, context = '') {
   const actor = _sbSession?.user?.email?.split('@')[0] || 'local';
   const entry = {
-    id: 'u' + Date.now(),
+    id: 'u' + Date.now() + Math.random().toString(36).slice(2, 6),
     name: file.name, size: file.size,
     actor, ts: new Date().toISOString(),
-    status: 'uploading', resultSummary: null
+    status: 'uploading', resultSummary: null, context
   };
   _uploadHistory.unshift(entry);
-  _saveUploads(); _renderUploadList();
-  _doUpload(file, entry);
+  _saveUploads(); _renderUploadHistory();
+  return _doUpload(file, entry, context);
 }
 
-async function _doUpload(file, entry) {
+async function _doUpload(file, entry, context = '') {
   try {
     if (!_sbSession) throw new Error('Faça login para enviar arquivos.');
     const b64 = await new Promise((res, rej) => {
@@ -2916,7 +2988,7 @@ async function _doUpload(file, entry) {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + _sbSession.access_token,
       },
-      body: JSON.stringify({ filename: file.name, data: b64 }),
+      body: JSON.stringify({ filename: file.name, data: b64, context }),
     });
     const json = await resp.json();
     if (resp.status === 409) {
@@ -2958,11 +3030,11 @@ function _setUploadStatus(id, status, summary) {
   e.status = status;
   if (summary) e.resultSummary = summary;
   if (status === 'concluido') e.doneAt = new Date().toISOString();
-  _saveUploads(); _renderUploadList(); _updateUploadBadge();
+  _saveUploads(); _renderUploadHistory(); _updateUploadBadge();
 }
 
 function _saveUploads() {
-  if (_uploadHistory.length > 30) _uploadHistory = _uploadHistory.slice(0, 30);
+  if (_uploadHistory.length > 60) _uploadHistory = _uploadHistory.slice(0, 60);
   localStorage.setItem('wdUploads', JSON.stringify(_uploadHistory));
 }
 
@@ -2974,35 +3046,35 @@ function _updateUploadBadge() {
   else b.style.display = 'none';
 }
 
-function _renderUploadList() {
-  const c = document.getElementById('uploadList');
-  if (!c) return;
-  const items = _uploadHistory.slice(0, 5);
-  if (!items.length) { c.innerHTML = ''; return; }
-  const labels = { uploading:'Enviando…', received:'Recebido', analyzing:'Analisando…', concluido:'Concluído', erro:'Erro' };
-  const icons = {
-    uploading: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>',
-    received:  '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>',
-    analyzing: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>',
-    concluido: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>',
-    erro:      '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>',
+function _renderUploadHistory() {
+  const wrap = document.getElementById('uploadHistoryWrap');
+  if (!wrap) return;
+  const weekStart = _uploadWeekStart();
+  const items = _uploadHistory.filter(e => new Date(e.ts) >= weekStart);
+  if (!items.length) {
+    wrap.innerHTML = '<div class="upload-history-empty">Nenhum envio esta semana.</div>';
+    _updateUploadBadge(); return;
+  }
+  const statusLabels = { uploading:'Enviando…', received:'Recebido', analyzing:'Analisando…', concluido:'Concluído', erro:'Erro' };
+  const fmtDate = iso => {
+    try {
+      const d = new Date(iso);
+      return `${d.getDate()}/${['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'][d.getMonth()]} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+    } catch { return ''; }
   };
-  const _fmtDate = iso => {
-    try { const d = new Date(iso); return `${d.getDate()}/${['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'][d.getMonth()]} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`; }
-    catch { return ''; }
-  };
-  c.innerHTML = items.map(e => {
-    const st = e.status;
-    const result = st === 'concluido' ? `<a class="upload-result-link" onclick="showUploadResult('${e.id}')">Ver resultado</a>` : '';
-    return `<div class="upload-item">
-      <div class="upload-item-icon ${st}">${icons[st]||''}</div>
-      <div class="upload-item-body">
-        <div class="upload-item-name">${e.name}</div>
-        <div class="upload-item-meta">${e.actor} · ${_fmtDate(e.ts)}</div>
-      </div>
-      <span class="upload-item-status ${st}">${labels[st]||st}</span>${result}
-    </div>`;
-  }).join('') + (_uploadHistory.length > 5 ? `<div style="padding:8px 18px;text-align:center;border-top:1px solid var(--sep)"><a style="font-size:11px;color:var(--blue);cursor:pointer" onclick="showAllUploads()">Ver todos os ${_uploadHistory.length} uploads</a></div>` : '');
+  const d = new Date(weekStart);
+  const months = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+  const weekLabel = `semana de ${d.getDate()}/${months[d.getMonth()]}`;
+  wrap.innerHTML = `<div class="upload-history-week">${weekLabel} &middot; ${items.length} arquivo${items.length!==1?'s':''}</div>` +
+    items.map(e => {
+      const st = e.status || 'uploading';
+      const result = e.resultSummary ? `<a class="upload-result-link" onclick="showUploadResult('${e.id}')">ver</a>` : '';
+      return `<div class="upload-history-row">
+        <div class="upload-history-name" title="${e.name}">${e.name}</div>
+        <div class="upload-history-actor">${e.actor} &middot; ${fmtDate(e.ts)}</div>
+        <span class="upload-history-status ${st}">${statusLabels[st]||st}</span>${result}
+      </div>`;
+    }).join('');
   _updateUploadBadge();
 }
 
@@ -3017,22 +3089,6 @@ function showUploadResult(id) {
     <div class="modal-ft" style="padding:12px 0 0;border-top:none;justify-content:flex-end;">
       <button class="btn" type="button" onclick="closeTaskModal()">Fechar</button>
     </div>`;
-  overlay.classList.add('open');
-}
-
-function showAllUploads() {
-  const overlay = document.getElementById('taskOverlay');
-  if (!overlay) return;
-  document.getElementById('taskModalTitle').textContent = 'Histórico de Uploads';
-  const labels = { uploading:'Enviando…', received:'Recebido', analyzing:'Analisando…', concluido:'Concluído', erro:'Erro' };
-  const _fmtDate = iso => { try { const d=new Date(iso); return `${d.getDate()}/${['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'][d.getMonth()]} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`; } catch{return '';} };
-  document.getElementById('taskForm').innerHTML = `<div style="max-height:60vh;overflow-y:auto;">` +
-    _uploadHistory.map(e => `<div style="display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--sep)">
-      <span class="upload-item-status ${e.status}" style="flex-shrink:0">${labels[e.status]||e.status}</span>
-      <div style="flex:1;min-width:0"><div style="font-size:12.5px;font-weight:500;color:var(--t1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${e.name}</div>
-      <div style="font-size:11px;color:var(--t3)">${e.actor} · ${_fmtDate(e.ts)}</div></div>
-    </div>`).join('') +
-  `</div><div class="modal-ft" style="padding:12px 0 0;border-top:none;justify-content:flex-end;"><button class="btn" type="button" onclick="closeTaskModal()">Fechar</button></div>`;
   overlay.classList.add('open');
 }
 

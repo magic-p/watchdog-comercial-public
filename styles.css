@@ -1042,101 +1042,120 @@
       color: var(--blue); margin-right: 4px;
     }
 
-    .upload-drop { padding: 14px 18px; cursor: pointer; }
-
+    /* Drop zone */
+    .upload-drop { padding: 12px 18px; cursor: pointer; }
     .upload-drop-inner {
       border: 1.5px dashed var(--t4);
       border-radius: var(--radius-sm);
-      padding: 22px 16px;
+      padding: 18px 16px;
       text-align: center;
       transition: border-color .18s, background .18s;
     }
     .upload-drop-inner.dragover {
-      border-color: var(--blue);
-      background: var(--blue-light);
-      border-style: solid;
+      border-color: var(--blue); background: var(--blue-light); border-style: solid;
     }
     .upload-drop:focus-visible .upload-drop-inner {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 3px var(--blue-mid);
+      border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-mid);
     }
-
     .upload-drop-icon-svg {
-      color: var(--t4);
-      margin-bottom: 8px;
-      display: block;
+      color: var(--t4); margin-bottom: 6px; display: block;
       margin-left: auto; margin-right: auto;
     }
-
-    .upload-drop-text {
-      font-size: 13px; color: var(--t2); font-weight: 400;
-      margin-bottom: 4px;
-    }
-    .upload-drop-link {
-      color: var(--blue); cursor: pointer;
-      font-weight: 500;
-      text-decoration: underline; text-underline-offset: 2px;
-    }
+    .upload-drop-text { font-size: 13px; color: var(--t2); font-weight: 400; margin-bottom: 3px; }
+    .upload-drop-link { color: var(--blue); cursor: pointer; font-weight: 500; text-decoration: underline; text-underline-offset: 2px; }
     .upload-drop-link:hover { color: #0066DC; }
-    .upload-drop-hint {
-      font-size: 11px; color: var(--t4);
+    .upload-drop-hint { font-size: 11px; color: var(--t4); }
+
+    /* Compose panel (staging) */
+    .upload-compose {
+      margin: 0 18px 14px;
+      border: 1px solid var(--sep);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      animation: uploadComposeIn .15s ease;
     }
-
-    /* Upload list */
-    .upload-list:empty { display: none; }
-
-    .upload-item {
-      display: flex; align-items: center; gap: 11px;
-      padding: 10px 18px;
-      border-top: 1px solid var(--sep);
-      transition: background .12s;
+    @keyframes uploadComposeIn {
+      from { opacity: 0; transform: translateY(-3px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
-    .upload-item:hover { background: var(--card-sec); }
-
-    .upload-item-icon {
-      width: 28px; height: 28px;
-      border-radius: var(--radius-xs);
+    .upload-staged-list {
+      display: flex; flex-wrap: wrap; gap: 5px;
+      padding: 10px 12px; border-bottom: 1px solid var(--sep);
+      min-height: 40px; align-items: flex-start;
+    }
+    .upload-staged-chip {
+      display: inline-flex; align-items: center; gap: 4px;
+      height: 26px; padding: 0 6px 0 8px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 6px; font-size: 11.5px; color: var(--t1); max-width: 200px;
+    }
+    .upload-staged-chip-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 140px; }
+    .upload-staged-chip-size { color: var(--t4); font-size: 10px; flex-shrink: 0; }
+    .upload-staged-chip-remove {
       display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
+      width: 15px; height: 15px; border: none; background: none;
+      cursor: pointer; color: var(--t4); border-radius: 3px; padding: 0; flex-shrink: 0;
+      transition: color .1s, background .1s;
     }
-    .upload-item-icon.uploading  { background: var(--blue-light); color: var(--blue); }
-    .upload-item-icon.received   { background: var(--blue-light); color: var(--blue); }
-    .upload-item-icon.analyzing  { background: var(--orange-light); color: var(--orange); }
-    .upload-item-icon.concluido  { background: var(--green-light); color: var(--green); }
-    .upload-item-icon.erro       { background: var(--red-light); color: var(--red); }
+    .upload-staged-chip-remove:hover { color: var(--t1); background: rgba(0,0,0,.06); }
 
-    .upload-item-body { flex: 1; min-width: 0; }
-
-    .upload-item-name {
-      font-size: 12.5px; font-weight: 500; color: var(--t1);
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    .upload-context-field {
+      width: 100%; box-sizing: border-box; padding: 9px 12px;
+      border: none; border-bottom: 1px solid var(--sep);
+      background: var(--card-sec); font-family: var(--font);
+      font-size: 12.5px; color: var(--t1); resize: none; outline: none;
+      line-height: 1.55; transition: background .15s;
     }
+    .upload-context-field::placeholder { color: var(--t4); }
+    .upload-context-field:focus { background: var(--card); }
 
-    .upload-item-meta {
-      font-size: 11px; color: var(--t3); margin-top: 1px;
+    .upload-compose-actions {
+      display: flex; align-items: center; justify-content: flex-end;
+      gap: 7px; padding: 8px 12px;
     }
+    .upload-btn-cancel {
+      height: 30px; padding: 0 11px;
+      border: 1px solid var(--border); border-radius: 7px;
+      background: none; font-family: var(--font); font-size: 12px;
+      color: var(--t2); cursor: pointer; transition: border-color .1s, color .1s;
+    }
+    .upload-btn-cancel:hover { border-color: var(--t3); color: var(--t1); }
+    .upload-btn-send {
+      display: inline-flex; align-items: center; gap: 5px;
+      height: 30px; padding: 0 13px; border: none; border-radius: 7px;
+      background: var(--blue); color: #fff; font-family: var(--font);
+      font-size: 12px; font-weight: 500; cursor: pointer;
+      transition: opacity .1s, transform .1s;
+    }
+    .upload-btn-send:hover { opacity: .9; }
+    .upload-btn-send:active { transform: scale(.98); }
+    .upload-btn-send:disabled { opacity: .45; cursor: not-allowed; }
 
-    .upload-item-status {
-      font-size: 10px; font-weight: 500;
-      padding: 2px 8px; border-radius: 100px;
-      white-space: nowrap; flex-shrink: 0; letter-spacing: 0.02em;
+    /* History */
+    .upload-history-wrap { padding: 4px 18px 14px; }
+    .upload-history-week { font-size: 10px; font-weight: 600; color: var(--t4); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 6px; }
+    .upload-history-row {
+      display: grid; grid-template-columns: 1fr auto auto;
+      align-items: center; gap: 8px; padding: 6px 8px;
+      border-radius: 7px; cursor: default; transition: background .1s;
     }
-    .upload-item-status.uploading  { background: var(--blue-mid);   color: var(--blue); }
-    .upload-item-status.received   { background: var(--blue-mid);   color: var(--blue); }
-    .upload-item-status.analyzing  { background: var(--orange-mid); color: var(--orange); }
-    .upload-item-status.concluido  { background: var(--green-mid);  color: var(--green); }
-    .upload-item-status.erro       { background: var(--red-mid);    color: var(--red); }
-
-    @keyframes analyzePulse {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: 0.5; }
+    .upload-history-row:hover { background: var(--card-sec); }
+    .upload-history-name { font-size: 12px; color: var(--t1); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .upload-history-actor { font-size: 11px; color: var(--t4); white-space: nowrap; }
+    .upload-history-status {
+      font-size: 10px; font-weight: 500; padding: 2px 7px;
+      border-radius: 100px; white-space: nowrap; letter-spacing: .02em;
     }
-    .upload-item-status.analyzing { animation: analyzePulse 2s ease-in-out infinite; }
+    .upload-history-status.uploading,
+    .upload-history-status.received   { background: var(--blue-mid);   color: var(--blue); }
+    .upload-history-status.analyzing  { background: var(--orange-mid); color: var(--orange); animation: analyzePulse 2s ease-in-out infinite; }
+    .upload-history-status.concluido  { background: var(--green-mid);  color: var(--green); }
+    .upload-history-status.erro       { background: var(--red-mid);    color: var(--red); }
+    .upload-history-empty { font-size: 12px; color: var(--t4); padding: 4px 8px; }
+    @keyframes analyzePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
 
     .upload-result-link {
-      font-size: 11px; font-weight: 500;
-      color: var(--blue); cursor: pointer; margin-left: 8px;
-      text-decoration: none;
+      font-size: 11px; font-weight: 500; color: var(--blue); cursor: pointer; text-decoration: none;
     }
     .upload-result-link:hover { text-decoration: underline; }
 
