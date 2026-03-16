@@ -68,32 +68,6 @@
     <div id="alertStripItems" class="alert-strip-items"></div>
   </div>
 
-  <!-- UPLOAD — ENVIAR PARA ANÁLISE -->
-  <div class="reveal" style="animation-delay:.06s">
-    <div class="upload-wrap" id="uploadWrap">
-      <div class="upload-hd">
-        <span class="card-hd-label">
-          <span class="upload-hd-icon">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-          </span>
-          Enviar para An&aacute;lise
-        </span>
-        <span class="count-badge" id="uploadQueueBadge" style="display:none"></span>
-      </div>
-      <div class="upload-drop" id="uploadDrop" role="button" tabindex="0" aria-label="Arraste arquivos PDF ou XLSX aqui">
-        <div class="upload-drop-inner" id="uploadDropInner">
-          <svg class="upload-drop-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="12" y2="12"/><line x1="15" y1="15" x2="12" y2="12"/></svg>
-          <div class="upload-drop-text">
-            Arraste PDFs ou XLSX aqui, ou <label class="upload-drop-link" for="uploadFileInput">selecione</label>
-          </div>
-          <div class="upload-drop-hint">PDF, XLSX ou CSV &bull; at&eacute; 10 MB</div>
-          <input type="file" id="uploadFileInput" accept=".pdf,.xlsx,.xls,.csv" multiple hidden />
-        </div>
-      </div>
-      <div class="upload-list" id="uploadList"></div>
-    </div>
-  </div>
-
   <!-- SECTION HEADER  -->
   <div class="section-hd reveal" style="animation-delay:.10s">
     <span class="section-hd-label">Lista de Tarefas</span>
@@ -295,6 +269,32 @@
         </table>
         <div class="bucket-note">Painel propositalmente mostra apenas meta stretch oficial por baldinho.</div>
       </div>
+    </div>
+  </div>
+
+  <!-- UPLOAD — ENVIAR PARA ANÁLISE -->
+  <div class="reveal" style="animation-delay:.42s">
+    <div class="upload-wrap" id="uploadWrap">
+      <div class="upload-hd">
+        <span class="card-hd-label">
+          <span class="upload-hd-icon">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          </span>
+          Enviar para An&aacute;lise
+        </span>
+        <span class="count-badge" id="uploadQueueBadge" style="display:none"></span>
+      </div>
+      <div class="upload-drop" id="uploadDrop" role="button" tabindex="0" aria-label="Arraste arquivos PDF ou XLSX aqui">
+        <div class="upload-drop-inner" id="uploadDropInner">
+          <svg class="upload-drop-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="12" y2="12"/><line x1="15" y1="15" x2="12" y2="12"/></svg>
+          <div class="upload-drop-text">
+            Arraste PDFs ou XLSX aqui, ou <label class="upload-drop-link" for="uploadFileInput">selecione</label>
+          </div>
+          <div class="upload-drop-hint">PDF, XLSX ou CSV &bull; at&eacute; 1 MB</div>
+          <input type="file" id="uploadFileInput" accept=".pdf,.xlsx,.xls,.csv" multiple hidden />
+        </div>
+      </div>
+      <div class="upload-list" id="uploadList"></div>
     </div>
   </div>
 
