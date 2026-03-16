@@ -6,7 +6,7 @@
   <title>Watchdog Comercial - Estante Magica</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js" integrity="sha384-8XssUxtqPx0hPSfYMU/HY5Heb2jR2yhWxwJGP67o6UoJUfeQNiEVxgQ63sSq6w/k" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -66,6 +66,32 @@
   <!-- ALERT STRIP -->
   <div id="alertStrip" class="alert-strip reveal" style="display:none; animation-delay:.04s">
     <div id="alertStripItems" class="alert-strip-items"></div>
+  </div>
+
+  <!-- UPLOAD — ENVIAR PARA ANÁLISE -->
+  <div class="reveal" style="animation-delay:.06s">
+    <div class="upload-wrap" id="uploadWrap">
+      <div class="upload-hd">
+        <span class="card-hd-label">
+          <span class="upload-hd-icon">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          </span>
+          Enviar para An&aacute;lise
+        </span>
+        <span class="count-badge" id="uploadQueueBadge" style="display:none"></span>
+      </div>
+      <div class="upload-drop" id="uploadDrop" role="button" tabindex="0" aria-label="Arraste arquivos PDF ou XLSX aqui">
+        <div class="upload-drop-inner" id="uploadDropInner">
+          <svg class="upload-drop-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="12" y2="12"/><line x1="15" y1="15" x2="12" y2="12"/></svg>
+          <div class="upload-drop-text">
+            Arraste PDFs ou XLSX aqui, ou <label class="upload-drop-link" for="uploadFileInput">selecione</label>
+          </div>
+          <div class="upload-drop-hint">PDF, XLSX ou CSV &bull; at&eacute; 10 MB</div>
+          <input type="file" id="uploadFileInput" accept=".pdf,.xlsx,.xls,.csv" multiple hidden />
+        </div>
+      </div>
+      <div class="upload-list" id="uploadList"></div>
+    </div>
   </div>
 
   <!-- SECTION HEADER  -->
@@ -2827,6 +2853,190 @@ function _renderPriorityPane() {
     }
   });
 }
+
+/* ── Upload Section ──────────────────────────────────────────── */
+const UPLOAD_MAX_BYTES = 10 * 1024 * 1024;
+const UPLOAD_ACCEPTED  = ['.pdf', '.xlsx', '.xls', '.csv'];
+let _uploadHistory = JSON.parse(localStorage.getItem('wdUploads') || '[]');
+
+function _initUpload() {
+  const drop  = document.getElementById('uploadDrop');
+  const inner = document.getElementById('uploadDropInner');
+  const input = document.getElementById('uploadFileInput');
+  if (!drop || !input) return;
+
+  ['dragenter','dragover'].forEach(ev =>
+    drop.addEventListener(ev, e => { e.preventDefault(); inner.classList.add('dragover'); }));
+  ['dragleave','drop'].forEach(ev =>
+    drop.addEventListener(ev, e => { e.preventDefault(); inner.classList.remove('dragover'); }));
+  drop.addEventListener('drop', e => _handleUploadFiles(Array.from(e.dataTransfer.files)));
+  drop.addEventListener('click', () => input.click());
+  drop.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') { e.preventDefault(); input.click(); } });
+  input.addEventListener('change', () => {
+    if (input.files.length) _handleUploadFiles(Array.from(input.files));
+    input.value = '';
+  });
+  _renderUploadList();
+}
+
+function _handleUploadFiles(files) {
+  for (const f of files) {
+    const ext = '.' + f.name.split('.').pop().toLowerCase();
+    if (!UPLOAD_ACCEPTED.includes(ext)) { toast(`Tipo não aceito: ${f.name}`, 'err'); continue; }
+    if (f.size > UPLOAD_MAX_BYTES) { toast(`Arquivo muito grande: ${f.name}`, 'err'); continue; }
+    _queueUpload(f);
+  }
+}
+
+function _queueUpload(file) {
+  const actor = _sbSession?.user?.email?.split('@')[0] || 'local';
+  const entry = {
+    id: 'u' + Date.now(),
+    name: file.name, size: file.size,
+    actor, ts: new Date().toISOString(),
+    status: 'uploading', resultSummary: null
+  };
+  _uploadHistory.unshift(entry);
+  _saveUploads(); _renderUploadList();
+  _doUpload(file, entry);
+}
+
+async function _doUpload(file, entry) {
+  try {
+    if (!_sbSession) throw new Error('Faça login para enviar arquivos.');
+    const b64 = await new Promise((res, rej) => {
+      const fr = new FileReader();
+      fr.onload = () => res(fr.result);
+      fr.onerror = rej;
+      fr.readAsDataURL(file);
+    });
+    const resp = await fetch(API_URL + '/api/inbox/upload', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + _sbSession.access_token,
+      },
+      body: JSON.stringify({ filename: file.name, data: b64 }),
+    });
+    const json = await resp.json();
+    if (resp.status === 409) {
+      _setUploadStatus(entry.id, 'concluido', 'Arquivo já processado anteriormente.');
+      toast(`${file.name}: já analisado`, 'ok');
+      return;
+    }
+    if (!json.ok) throw new Error(json.error || 'erro desconhecido');
+    if (json.upload_id) entry.uploadServerId = json.upload_id;
+    _setUploadStatus(entry.id, 'received');
+    toast(`${file.name} enviado`, 'ok');
+    _subscribeUploadStatus(entry);
+  } catch(e) {
+    _setUploadStatus(entry.id, 'erro', e.message);
+    toast('Erro no upload: ' + e.message, 'err');
+  }
+}
+
+function _subscribeUploadStatus(entry) {
+  if (!_sb || !entry.uploadServerId) {
+    setTimeout(() => _setUploadStatus(entry.id, 'analyzing'), 3000);
+    return;
+  }
+  const ch = _sb.channel('upload-' + entry.uploadServerId)
+    .on('postgres_changes', {
+      event: 'UPDATE', schema: 'public', table: 'uploads',
+      filter: 'id=eq.' + entry.uploadServerId,
+    }, payload => {
+      const row = payload.new;
+      _setUploadStatus(entry.id, row.status, row.result_summary);
+      if (row.status === 'concluido' || row.status === 'erro') ch.unsubscribe();
+    })
+    .subscribe();
+}
+
+function _setUploadStatus(id, status, summary) {
+  const e = _uploadHistory.find(x => x.id === id);
+  if (!e) return;
+  e.status = status;
+  if (summary) e.resultSummary = summary;
+  if (status === 'concluido') e.doneAt = new Date().toISOString();
+  _saveUploads(); _renderUploadList(); _updateUploadBadge();
+}
+
+function _saveUploads() {
+  if (_uploadHistory.length > 30) _uploadHistory = _uploadHistory.slice(0, 30);
+  localStorage.setItem('wdUploads', JSON.stringify(_uploadHistory));
+}
+
+function _updateUploadBadge() {
+  const b = document.getElementById('uploadQueueBadge');
+  if (!b) return;
+  const n = _uploadHistory.filter(e => ['uploading','received','analyzing'].includes(e.status)).length;
+  if (n > 0) { b.textContent = n + ' na fila'; b.style.display = ''; }
+  else b.style.display = 'none';
+}
+
+function _renderUploadList() {
+  const c = document.getElementById('uploadList');
+  if (!c) return;
+  const items = _uploadHistory.slice(0, 5);
+  if (!items.length) { c.innerHTML = ''; return; }
+  const labels = { uploading:'Enviando…', received:'Recebido', analyzing:'Analisando…', concluido:'Concluído', erro:'Erro' };
+  const icons = {
+    uploading: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>',
+    received:  '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>',
+    analyzing: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>',
+    concluido: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>',
+    erro:      '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>',
+  };
+  const _fmtDate = iso => {
+    try { const d = new Date(iso); return `${d.getDate()}/${['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'][d.getMonth()]} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`; }
+    catch { return ''; }
+  };
+  c.innerHTML = items.map(e => {
+    const st = e.status;
+    const result = st === 'concluido' ? `<a class="upload-result-link" onclick="showUploadResult('${e.id}')">Ver resultado</a>` : '';
+    return `<div class="upload-item">
+      <div class="upload-item-icon ${st}">${icons[st]||''}</div>
+      <div class="upload-item-body">
+        <div class="upload-item-name">${e.name}</div>
+        <div class="upload-item-meta">${e.actor} · ${_fmtDate(e.ts)}</div>
+      </div>
+      <span class="upload-item-status ${st}">${labels[st]||st}</span>${result}
+    </div>`;
+  }).join('') + (_uploadHistory.length > 5 ? `<div style="padding:8px 18px;text-align:center;border-top:1px solid var(--sep)"><a style="font-size:11px;color:var(--blue);cursor:pointer" onclick="showAllUploads()">Ver todos os ${_uploadHistory.length} uploads</a></div>` : '');
+  _updateUploadBadge();
+}
+
+function showUploadResult(id) {
+  const e = _uploadHistory.find(x => x.id === id);
+  if (!e?.resultSummary) { toast('Resultado ainda não disponível', 'err'); return; }
+  const overlay = document.getElementById('taskOverlay');
+  if (!overlay) return;
+  document.getElementById('taskModalTitle').textContent = 'Análise: ' + e.name;
+  document.getElementById('taskForm').innerHTML = `
+    <div style="white-space:pre-wrap;font-size:13px;line-height:1.65;max-height:60vh;overflow-y:auto;">${e.resultSummary}</div>
+    <div class="modal-ft" style="padding:12px 0 0;border-top:none;justify-content:flex-end;">
+      <button class="btn" type="button" onclick="closeTaskModal()">Fechar</button>
+    </div>`;
+  overlay.classList.add('open');
+}
+
+function showAllUploads() {
+  const overlay = document.getElementById('taskOverlay');
+  if (!overlay) return;
+  document.getElementById('taskModalTitle').textContent = 'Histórico de Uploads';
+  const labels = { uploading:'Enviando…', received:'Recebido', analyzing:'Analisando…', concluido:'Concluído', erro:'Erro' };
+  const _fmtDate = iso => { try { const d=new Date(iso); return `${d.getDate()}/${['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'][d.getMonth()]} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`; } catch{return '';} };
+  document.getElementById('taskForm').innerHTML = `<div style="max-height:60vh;overflow-y:auto;">` +
+    _uploadHistory.map(e => `<div style="display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--sep)">
+      <span class="upload-item-status ${e.status}" style="flex-shrink:0">${labels[e.status]||e.status}</span>
+      <div style="flex:1;min-width:0"><div style="font-size:12.5px;font-weight:500;color:var(--t1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${e.name}</div>
+      <div style="font-size:11px;color:var(--t3)">${e.actor} · ${_fmtDate(e.ts)}</div></div>
+    </div>`).join('') +
+  `</div><div class="modal-ft" style="padding:12px 0 0;border-top:none;justify-content:flex-end;"><button class="btn" type="button" onclick="closeTaskModal()">Fechar</button></div>`;
+  overlay.classList.add('open');
+}
+
+document.addEventListener('DOMContentLoaded', _initUpload);
 </script>
 </body>
 </html>
