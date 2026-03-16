@@ -23,10 +23,15 @@
   </div>
   <div class="header-right">
     <span class="header-date" id="headerDate"></span>
-    <span class="motor-pill offline" id="motorStatus">&#11044; Motor offline</span>
-    <span class="ssot-pill" id="ssotStatus" style="display:none">SSOT: ok</span>
-    <span class="readonly-pill" id="readonlyPill" style="display:none">&#128274; Somente leitura</span>
-    <span class="public-pill" id="publicPill">Modo público: conteúdo fictício</span>
+    <span class="sys-status-pill" id="sysStatusPill" title="Motor offline">
+      <span class="sys-status-dot" id="sysStatusDot"></span>
+      <span id="sysStatusText">Sistema</span>
+    </span>
+    <span class="public-pill" id="publicPill" style="display:none">Modo público</span>
+    <!-- IDs mantidos para compatibilidade JS — elementos ocultos -->
+    <span id="motorStatus" class="motor-pill offline" style="display:none">&#11044; Motor offline</span>
+    <span id="ssotStatus" style="display:none">SSOT: ok</span>
+    <span id="readonlyPill" style="display:none">&#128274; Somente leitura</span>
     <button class="auth-pill" id="authPill" onclick="openAuthModal()">&#128100; Entrar</button>
     <div class="live-pill"><span class="live-dot"></span>Ativo</div>
   </div>
@@ -48,27 +53,19 @@
 <!-- MAIN -->
 <main class="main">
 
-  <!-- KPI GRID  -->
-  <div class="kpi-grid reveal" style="animation-delay:.06s">
+  <!-- KPI GRID (hidden — IDs mantidos para JS) -->
+  <div id="kpiGrid" style="display:none">
+    <span id="kpiMetaMensalEyebrow"></span>
+    <span id="kpiMetaEscolas"></span>
+    <span id="kpiMetaMensal"></span>
+    <span id="kpiMetaMensalSub"></span>
+    <span id="kpiEfetividadeSDR"></span>
+    <span id="kpiEfetividadeSDRSub"></span>
+  </div>
 
-    <div class="kpi-card">
-      <div class="kpi-eyebrow"><span class="kdot red"></span>Meta Escolas &bull; Ago/26</div>
-      <div class="kpi-value" id="kpiMetaEscolas">3.736</div>
-      <div class="kpi-sub">Fev-Ago &bull; &Uacute;nica meta absoluta do time</div>
-    </div>
-
-    <div class="kpi-card">
-      <div class="kpi-eyebrow"><span class="kdot blue"></span><span id="kpiMetaMensalEyebrow">Meta Fevereiro</span></div>
-      <div class="kpi-value" id="kpiMetaMensal">1.064</div>
-      <div class="kpi-sub" id="kpiMetaMensalSub">Escolas do m&ecirc;s corrente (stretch)</div>
-    </div>
-
-    <div class="kpi-card">
-      <div class="kpi-eyebrow"><span class="kdot orange"></span>Efetividade SDR Atual</div>
-      <div class="kpi-value alert" id="kpiEfetividadeSDR">—</div>
-      <div class="kpi-sub" id="kpiEfetividadeSDRSub"><span class="up">&uarr; meta 12%</span></div>
-    </div>
-
+  <!-- ALERT STRIP -->
+  <div id="alertStrip" class="alert-strip reveal" style="display:none; animation-delay:.04s">
+    <div id="alertStripItems" class="alert-strip-items"></div>
   </div>
 
   <!-- SECTION HEADER  -->
@@ -95,6 +92,9 @@
         </button>
         <button id="tabDone" class="todos-tab" type="button" role="tab" aria-selected="false" onclick="setTaskView('done')">
           Tarefas Conclu&iacute;das <span class="count-badge" id="doneCounter">0</span>
+        </button>
+        <button id="tabPriority" class="todos-tab" type="button" role="tab" aria-selected="false" onclick="setTaskView('priority')">
+          Top 3 <span class="count-badge" id="priorityCounter">0</span>
         </button>
       </div>
 
@@ -134,106 +134,52 @@
           <tbody id="tbodyDone"></tbody>
         </table>
       </div>
-    </div>
-  </div>
 
-  <!-- MID GRID  -->
-  <div class="mid-grid reveal" style="animation-delay:.18s">
-
-    <!-- TOP 3 -->
-    <div class="card">
-      <div class="card-hd">
-        <span class="card-hd-label">
-          <span class="hd-icon blue">&#9678;</span>
-          Top 3 Prioridades da Semana
-        </span>
-        <span class="count-badge">Somente tarefas desta semana</span>
-      </div>
-      <div class="card-bd" id="top3List"></div>
-    </div>
-
-    <!-- ALERTAS -->
-    <div class="card">
-      <div class="card-hd">
-        <span class="card-hd-label">
-          <span class="hd-icon red">&#9888;</span>
-          Alertas Cr&iacute;ticos
-        </span>
-        <span class="count-badge" id="alertCount">0</span>
-      </div>
-      <div class="card-bd">
-        <div id="criticalAlertTop"></div>
-        <div id="criticalAlertsList"></div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- WINS  -->
-  <div class="reveal" style="animation-delay:.26s">
-    <div class="wins-card">
-      <div class="wins-hd">
-        <span class="card-hd-label">
-          <span class="hd-icon green">&#10003;</span>
-          Wins da Semana
-        </span>
-        <div style="display:flex; gap:8px; align-items:center;">
-          <span class="count-badge" id="winsCount">-</span>
-          <button class="btn" id="winsToggle" type="button">Mostrar</button>
-        </div>
-      </div>
-      <div class="wins-bd collapsed" id="winsList"></div>
-    </div>
-  </div>
-
-  <div class="reveal" style="animation-delay:.30s">
-    <div class="booked-wrap">
-      <div class="card-hd">
-        <span class="card-hd-label">
-          <span class="hd-icon blue">R$</span>
-          Meta Booked Revenue (Stretch Oficial)
-        </span>
-        <div style="display:flex; gap:8px; align-items:center;">
-          <span class="count-badge">SSOT</span>
-          <button class="btn" id="bookedToggle" type="button">Mostrar</button>
-        </div>
-      </div>
-      <div class="booked-bd section-collapsed" id="bookedBody">
-        <div class="booked-kpis">
-          <div class="booked-kpi">
-            <div class="booked-kpi-label" id="bookedMonthLabel">Meta Oficial (Stretch) - M&ecirc;s</div>
-            <div class="booked-kpi-val" id="bookedStretch">-</div>
-          </div>
-        </div>
-        <div class="booked-alert" id="bookedOpsAlert"></div>
-        <table class="bucket-table">
+      <div id="priorityPane" class="todo-pane">
+        <table class="todo-table">
           <thead>
             <tr>
-              <th>Baldinho</th>
-              <th>Meta Stretch</th>
-              <th>Escolas</th>
-              <th>RR</th>
-              <th>RR/SDR/DIA alvo</th>
+              <th></th>
+              <th>Tarefa</th>
+              <th>Respons&aacute;vel</th>
+              <th>Prazo</th>
+              <th>Status</th>
+              <th>P</th>
+              <th>Ações</th>
             </tr>
           </thead>
-          <tbody id="bookedBucketsBody"></tbody>
+          <tbody id="tbodyPriority"></tbody>
         </table>
-        <div class="bucket-note">Painel propositalmente mostra apenas meta stretch oficial por baldinho.</div>
       </div>
     </div>
   </div>
 
-  <!-- CLAUDETE — INTELIGÊNCIA ESTRATÉGICA -->
-  <div class="reveal" style="animation-delay:.38s">
+  <!-- MID GRID (hidden — IDs mantidos para JS) -->
+  <div style="display:none">
+    <div id="top3List"></div>
+    <span id="alertCount">0</span>
+    <div id="criticalAlertTop"></div>
+    <div id="criticalAlertsList"></div>
+  </div>
+
+  <!-- WINS (hidden — IDs mantidos para JS) -->
+  <div style="display:none">
+    <span id="winsCount">-</span>
+    <button id="winsToggle" type="button" style="display:none">Mostrar</button>
+    <div id="winsList"></div>
+  </div>
+
+  <!-- CLAUDETE — INTELIGÊNCIA ESTRATÉGICA (expandido por padrão) -->
+  <div class="reveal" style="animation-delay:.30s">
     <div class="card">
       <div class="card-hd">
         <span class="card-hd-label">
           <span class="hd-icon" style="color:var(--blue)">#</span>
           Claudete e Inteligência Estratégica
         </span>
-        <button class="btn" id="intelToggle" type="button">Mostrar</button>
+        <button class="btn" id="intelToggle" type="button" style="display:none">Ocultar</button>
       </div>
-      <div class="card-bd section-collapsed" id="intelSection">
+      <div class="card-bd" id="intelSection">
         <div class="intel-grid">
           <div class="card intel-summary-card">
             <div class="card-hd">
@@ -281,20 +227,47 @@
     </div>
   </div>
 
-  <div class="reveal" style="animation-delay:.42s">
-    <div class="card">
+  <!-- SAÚDE DOS DADOS (hidden — IDs mantidos para JS) -->
+  <div style="display:none">
+    <span id="dataHealthStamp">-</span>
+    <button id="healthToggle" type="button">Mostrar</button>
+    <div id="dataHealthList"><span style="color:var(--t3);font-size:12px">Sem leitura de saúde disponível.</span></div>
+  </div>
+
+  <!-- METAS & STRETCH GOAL (colapsado, no final) -->
+  <div class="reveal" style="animation-delay:.38s">
+    <div class="booked-wrap">
       <div class="card-hd">
         <span class="card-hd-label">
-          <span class="hd-icon" style="color:var(--orange)">+</span>
-          Saúde dos Dados
+          <span class="hd-icon blue">R$</span>
+          Metas &amp; Stretch Goal
         </span>
         <div style="display:flex; gap:8px; align-items:center;">
-          <span class="count-badge" id="dataHealthStamp">-</span>
-          <button class="btn" id="healthToggle" type="button">Mostrar</button>
+          <span class="count-badge">SSOT</span>
+          <button class="btn" id="bookedToggle" type="button">Mostrar</button>
         </div>
       </div>
-      <div class="card-bd section-collapsed" id="dataHealthList">
-        <span style="color:var(--t3);font-size:12px">Sem leitura de saúde disponível.</span>
+      <div class="booked-bd section-collapsed" id="bookedBody">
+        <div class="booked-kpis">
+          <div class="booked-kpi">
+            <div class="booked-kpi-label" id="bookedMonthLabel">Meta Oficial (Stretch) - M&ecirc;s</div>
+            <div class="booked-kpi-val" id="bookedStretch">-</div>
+          </div>
+        </div>
+        <div class="booked-alert" id="bookedOpsAlert"></div>
+        <table class="bucket-table">
+          <thead>
+            <tr>
+              <th>Baldinho</th>
+              <th>Meta Stretch</th>
+              <th>Escolas</th>
+              <th>RR</th>
+              <th>RR/SDR/DIA alvo</th>
+            </tr>
+          </thead>
+          <tbody id="bookedBucketsBody"></tbody>
+        </table>
+        <div class="bucket-note">Painel propositalmente mostra apenas meta stretch oficial por baldinho.</div>
       </div>
     </div>
   </div>
@@ -347,11 +320,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260315191344"></script>
-<script src="saidas/todos_ssot.js?v=20260315191344"></script>
-<script src="saidas/data_health.js?v=20260315191344"></script>
-<script src="saidas/campanhas_ssot.js?v=20260315191344"></script>
-<script src="saidas/intel_ssot.js?v=20260315191344"></script>
+<script src="saidas/booked_meta.js"></script>
+<script src="saidas/todos_ssot.js"></script>
+<script src="saidas/data_health.js"></script>
+<script src="saidas/campanhas_ssot.js"></script>
+<script src="saidas/intel_ssot.js"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -611,6 +584,7 @@ function setMotorStatus(online) {
   el.innerHTML = online ? '&#11044; Motor online' : '&#11044; Motor offline';
   el.classList.toggle('online', online);
   el.classList.toggle('offline', !online);
+  if (typeof _updateSysStatus === 'function') _updateSysStatus();
 }
 
 function setSsotStatus(hasSsot) {
@@ -1506,14 +1480,18 @@ function loadUiState() {
 }
 
 function setTaskView(view) {
-  taskView = (view === 'done') ? 'done' : 'open';
-  const openPane = document.getElementById('openPane');
-  const donePane = document.getElementById('donePane');
-  const tabOpen = document.getElementById('tabOpen');
-  const tabDone = document.getElementById('tabDone');
+  taskView = (view === 'done') ? 'done' : (view === 'priority') ? 'priority' : 'open';
+  const openPane     = document.getElementById('openPane');
+  const donePane     = document.getElementById('donePane');
+  const priorityPane = document.getElementById('priorityPane');
+  const tabOpen      = document.getElementById('tabOpen');
+  const tabDone      = document.getElementById('tabDone');
+  const tabPriority  = document.getElementById('tabPriority');
 
-  if (openPane) openPane.classList.toggle('active', taskView === 'open');
-  if (donePane) donePane.classList.toggle('active', taskView === 'done');
+  if (openPane)     openPane.classList.toggle('active',     taskView === 'open');
+  if (donePane)     donePane.classList.toggle('active',     taskView === 'done');
+  if (priorityPane) priorityPane.classList.toggle('active', taskView === 'priority');
+
   if (tabOpen) {
     tabOpen.classList.toggle('active', taskView === 'open');
     tabOpen.setAttribute('aria-selected', taskView === 'open' ? 'true' : 'false');
@@ -1522,6 +1500,11 @@ function setTaskView(view) {
     tabDone.classList.toggle('active', taskView === 'done');
     tabDone.setAttribute('aria-selected', taskView === 'done' ? 'true' : 'false');
   }
+  if (tabPriority) {
+    tabPriority.classList.toggle('active', taskView === 'priority');
+    tabPriority.setAttribute('aria-selected', taskView === 'priority' ? 'true' : 'false');
+  }
+  if (taskView === 'priority') _renderPriorityPane && _renderPriorityPane();
 }
 
 
@@ -2408,6 +2391,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const deferProtectedRender = REQUIRE_LOGIN_FOR_READ && _sbConfigured;
   if (pp && REQUIRE_LOGIN_FOR_READ && !_sbSession && !deferProtectedRender) pp.style.display = 'inline-flex';
   setSsotStatus(HAS_BACKEND_TODOS && !REQUIRE_LOGIN_FOR_READ);
+  _updateSysStatus();
   document.getElementById('headerDate').textContent =
     new Date().toLocaleDateString('pt-BR',
       {weekday:'long',year:'numeric',month:'long',day:'numeric'});
@@ -2463,15 +2447,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* intelToggle: seção Claudete sempre expandida — botão oculto no HTML */
   const intelToggle = document.getElementById('intelToggle');
   const intelSection = document.getElementById('intelSection');
   if (intelToggle && intelSection) {
-    applyCollapsibleState('intelSection', 'intelToggle', intelCollapsed);
-    intelToggle.addEventListener('click', () => {
-      intelCollapsed = !intelCollapsed;
-      applyCollapsibleState('intelSection', 'intelToggle', intelCollapsed);
-      saveUiState();
-    });
+    // Garante que a seção não fique colapsada por estado salvo anteriormente
+    intelSection.classList.remove('section-collapsed', 'collapsed');
+    intelToggle.style.display = 'none';
   }
 
   const healthToggle = document.getElementById('healthToggle');
@@ -2781,6 +2763,70 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Realtime ativo via _sbSubscribeRealtime() — polling removido (era fallback)
 });
+
+/* ── Alert Strip ─────────────────────────────────────────── */
+function _renderAlertStrip(alerts) {
+  const strip = document.getElementById('alertStrip');
+  const items = document.getElementById('alertStripItems');
+  if (!strip || !items) return;
+  if (!alerts || alerts.length === 0) { strip.style.display = 'none'; return; }
+  const warnSvg = `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2L14 13H2L8 2z"/><line x1="8" y1="7" x2="8" y2="10"/><line x1="8" y1="12" x2="8.01" y2="12"/></svg>`;
+  items.innerHTML = alerts.slice(0, 8).map(a => {
+    const parts = [];
+    if (a.task || a.tarefa) parts.push(`<span class="alert-strip-task">${a.task || a.tarefa}</span>`);
+    if (a.owner || a.dono) parts.push(`<span class="alert-strip-meta">${a.owner || a.dono}</span>`);
+    if (a.days) parts.push(`<span class="alert-strip-meta">${a.days}d</span>`);
+    return `<span class="alert-strip-item">${warnSvg}${parts.join('<span class="alert-strip-meta"> \u00B7 </span>')}</span>`;
+  }).join('');
+  strip.style.display = '';
+}
+
+/* ── System status pill ──────────────────────────────────── */
+function _updateSysStatus() {
+  const dot = document.getElementById('sysStatusDot');
+  const txt = document.getElementById('sysStatusText');
+  const pill = document.getElementById('sysStatusPill');
+  if (!dot || !txt) return;
+  const motorEl = document.getElementById('motorStatus');
+  const motorOnline = motorEl && motorEl.classList.contains('online');
+  const readonly = document.getElementById('readonlyPill') && document.getElementById('readonlyPill').style.display !== 'none';
+  if (motorOnline) {
+    dot.className = 'sys-status-dot online';
+    txt.textContent = 'Motor online';
+    if (pill) pill.title = 'Motor online \u00B7 SSOT ok';
+  } else if (readonly) {
+    dot.className = 'sys-status-dot readonly';
+    txt.textContent = 'Somente leitura';
+    if (pill) pill.title = 'Sem motor local \u00B7 modo leitura';
+  } else {
+    dot.className = 'sys-status-dot offline';
+    txt.textContent = 'Motor offline';
+    if (pill) pill.title = 'Motor offline';
+  }
+}
+
+/* ── Priority filter tab ─────────────────────────────────── */
+function _renderPriorityPane() {
+  const tbody = document.getElementById('tbodyPriority');
+  const counter = document.getElementById('priorityCounter');
+  if (!tbody) return;
+  const priorityRows = window._allTodos
+    ? window._allTodos.filter(t => t.priorityRank && t.priorityRank <= 3 && !t.done && t.tier !== 'done' && t.status !== 'CONCLUIDO')
+        .sort((a, b) => (a.priorityRank || 9) - (b.priorityRank || 9))
+    : [];
+  if (counter) counter.textContent = priorityRows.length;
+  tbody.innerHTML = '';
+  if (priorityRows.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:var(--t3);padding:20px;font-size:13px;">Nenhuma tarefa marcada como Top 3.</td></tr>';
+    return;
+  }
+  priorityRows.forEach(t => {
+    const existingRow = document.querySelector(`#tbodyOpen tr[data-id="${t.id}"]`);
+    if (existingRow) {
+      tbody.appendChild(existingRow.cloneNode(true));
+    }
+  });
+}
 </script>
 </body>
 </html>

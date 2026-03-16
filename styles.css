@@ -943,6 +943,69 @@
     .footer-l { font-size: 11px; color: var(--t3); line-height: 1.6; }
     .footer-r { font-size: 11px; color: var(--t3); }
 
+    /* ALERT STRIP */
+    .alert-strip {
+      background: transparent;
+      padding: 0 0 4px 0;
+    }
+    .alert-strip-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+    .alert-strip-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      background: var(--red-light);
+      border-radius: 100px;
+      font-size: 11px;
+      color: var(--red);
+      white-space: nowrap;
+      font-weight: 500;
+    }
+    .alert-strip-item svg {
+      width: 11px;
+      height: 11px;
+      flex-shrink: 0;
+    }
+    .alert-strip-task { font-weight: 700; color: var(--t1); }
+    .alert-strip-meta { color: var(--t3); }
+
+    /* SYSTEM STATUS PILL (header consolidado) */
+    .sys-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--t2);
+      background: var(--card-sec);
+      cursor: default;
+      border: 1px solid var(--sep);
+    }
+    .sys-status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--t4);
+      flex-shrink: 0;
+    }
+    .sys-status-dot.online  { background: var(--green); }
+    .sys-status-dot.offline { background: var(--red); }
+    .sys-status-dot.readonly { background: var(--orange); }
+
+    /* prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { animation: none; opacity: 1; }
+      .live-dot { animation: none; opacity: 1; }
+      .kpi-card, .card, .wins-card, .upload-wrap, .todo-row, .btn { transition: none; }
+    }
+
     /*  RESPONSIVE  */
     @media (max-width: 1080px) {
       .mid-grid { grid-template-columns: 1fr 1fr; }
