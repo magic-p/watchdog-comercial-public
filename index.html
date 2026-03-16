@@ -2855,7 +2855,7 @@ function _renderPriorityPane() {
 }
 
 /* ── Upload Section ──────────────────────────────────────────── */
-const UPLOAD_MAX_BYTES = 10 * 1024 * 1024;
+const UPLOAD_MAX_BYTES = 1 * 1024 * 1024;
 const UPLOAD_ACCEPTED  = ['.pdf', '.xlsx', '.xls', '.csv'];
 let _uploadHistory = JSON.parse(localStorage.getItem('wdUploads') || '[]');
 
@@ -2870,7 +2870,7 @@ function _initUpload() {
   ['dragleave','drop'].forEach(ev =>
     drop.addEventListener(ev, e => { e.preventDefault(); inner.classList.remove('dragover'); }));
   drop.addEventListener('drop', e => _handleUploadFiles(Array.from(e.dataTransfer.files)));
-  drop.addEventListener('click', () => input.click());
+  drop.addEventListener('click', e => { if (!e.target.closest('label')) input.click(); });
   drop.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') { e.preventDefault(); input.click(); } });
   input.addEventListener('change', () => {
     if (input.files.length) _handleUploadFiles(Array.from(input.files));
