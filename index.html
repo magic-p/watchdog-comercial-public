@@ -3150,6 +3150,192 @@ function showUploadResult(id) {
 }
 
 document.addEventListener('DOMContentLoaded', _initUpload);
+
+/* ══════════════════════════════════════════════════════════
+   CLAUDETE CHAT — FAB + Drawer
+   ══════════════════════════════════════════════════════════ */
+(function() {
+  const MOTOR_CHAT_URL = API_URL.replace(/\/$/, '') + '/api/claudete/chat';
+  const QUICK_PILLS = [
+    'Como está o funil agora?',
+    'Qual tarefa mais urgente?',
+    'Algum alerta crítico?',
+    'Como estamos em relação à meta?',
+  ];
+
+  let _chatHistory = []; // {role:'user'|'claudete', text}
+  let _chatBusy    = false;
+
+  // ── Injetar HTML ──────────────────────────────────────
+  const fabHtml = `
+<button id="claudeteFab" title="Conversar com Claudete" onclick="openClaudetChat()">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+</button>
+
+<div id="claudeteDrawer" role="dialog" aria-label="Chat com Claudete">
+  <div class="chat-header">
+    <div class="chat-avatar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
+    </div>
+    <div class="chat-header-info">
+      <div class="chat-header-name">Claudete</div>
+      <div class="chat-header-sub">Chief of Staff · Estante Mágica</div>
+    </div>
+    <button class="chat-close" onclick="closeClaudetChat()" title="Fechar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="chat-messages" id="chatMessages"></div>
+
+  <div class="chat-pills" id="chatPills"></div>
+
+  <div class="chat-footer">
+    <div class="chat-input-row">
+      <textarea id="chatInput" class="chat-input" rows="1"
+        placeholder="Pergunte algo sobre a Estante Mágica…"
+        onkeydown="chatInputKeydown(event)"></textarea>
+      <button class="chat-send" id="chatSend" onclick="sendChatMessage()" title="Enviar" disabled>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>`;
+
+  document.body.insertAdjacentHTML('beforeend', fabHtml);
+
+  // ── Renderizar pills ──────────────────────────────────
+  const pillsEl = document.getElementById('chatPills');
+  QUICK_PILLS.forEach(p => {
+    const btn = document.createElement('button');
+    btn.className = 'chat-pill';
+    btn.textContent = p;
+    btn.onclick = () => { sendChatMessage(p); };
+    pillsEl.appendChild(btn);
+  });
+
+  // ── Input listeners ───────────────────────────────────
+  const inputEl = document.getElementById('chatInput');
+  const sendBtn = document.getElementById('chatSend');
+  inputEl.addEventListener('input', () => {
+    sendBtn.disabled = !inputEl.value.trim() || _chatBusy;
+  });
+
+  // ── Open / Close ──────────────────────────────────────
+  window.openClaudetChat = function() {
+    document.getElementById('claudeteDrawer').classList.add('open');
+    if (_chatHistory.length === 0) _renderWelcome();
+    setTimeout(() => inputEl.focus(), 280);
+  };
+  window.closeClaudetChat = function() {
+    document.getElementById('claudeteDrawer').classList.remove('open');
+  };
+
+  // ── Welcome message (static, no API call) ─────────────
+  function _renderWelcome() {
+    _appendMsg('claudete',
+      'Oi. Sou a Claudete — Chief of Staff desta operação. Pode perguntar sobre funil, tarefas, metas ou qualquer coisa que envolva a Estante Mágica. Culinária e filosofia ficam de fora do meu escopo, mas podemos conversar sobre por que a taxa de RR está do jeito que está.'
+    );
+  }
+
+  // ── Append message bubble ─────────────────────────────
+  function _appendMsg(role, text, id) {
+    const msgs = document.getElementById('chatMessages');
+    const div  = document.createElement('div');
+    div.className = 'chat-msg ' + role;
+    if (id) div.id = id;
+    div.textContent = text;
+    msgs.appendChild(div);
+    msgs.scrollTop = msgs.scrollHeight;
+    return div;
+  }
+
+  // ── Send ──────────────────────────────────────────────
+  window.chatInputKeydown = function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChatMessage(); }
+  };
+
+  window.sendChatMessage = async function(overrideText) {
+    if (_chatBusy) return;
+    const text = overrideText || inputEl.value.trim();
+    if (!text) return;
+
+    if (!_sbSession) {
+      toast('Faça login para conversar com a Claudete', 'err');
+      return;
+    }
+
+    inputEl.value = '';
+    sendBtn.disabled = true;
+    _chatBusy = true;
+
+    _appendMsg('user', text);
+    _chatHistory.push({ role: 'user', text });
+
+    const typingId = 'typing-' + Date.now();
+    _appendMsg('typing', 'Claudete está pensando…', typingId);
+
+    try {
+      const resp = await fetch(MOTOR_CHAT_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + _sbSession.access_token,
+        },
+        body: JSON.stringify({ message: text }),
+      });
+      const el = document.getElementById(typingId);
+      if (el) el.remove();
+
+      if (!resp.ok) {
+        const err = await resp.json().catch(() => ({}));
+        _appendMsg('error', 'Erro ' + resp.status + ': ' + (err.error || 'resposta inválida'));
+      } else {
+        const data = await resp.json();
+        if (data.ok && data.reply) {
+          _appendMsg('claudete', data.reply);
+          _chatHistory.push({ role: 'claudete', text: data.reply });
+        } else {
+          _appendMsg('error', data.error || 'Resposta vazia da Claudete.');
+        }
+      }
+    } catch (e) {
+      const el = document.getElementById(typingId);
+      if (el) el.remove();
+      _appendMsg('error', 'Sem conexão com o motor. Verifica se o Railway está online.');
+    }
+
+    _chatBusy = false;
+    sendBtn.disabled = !inputEl.value.trim();
+  };
+
+  // ── Show/hide FAB on auth state ───────────────────────
+  const _origLogin  = window._onAuthLogin;
+  const _origLogout = window._onAuthLogout;
+  window._onAuthLogin = function(session, opts) {
+    _origLogin && _origLogin.call(this, session, opts);
+    document.getElementById('claudeteFab').classList.add('visible');
+  };
+  window._onAuthLogout = function() {
+    _origLogout && _origLogout.call(this);
+    document.getElementById('claudeteFab').classList.remove('visible');
+    document.getElementById('claudeteDrawer').classList.remove('open');
+  };
+
+  // Show FAB if already logged in (page reload case)
+  if (typeof _sbSession !== 'undefined' && _sbSession) {
+    document.getElementById('claudeteFab').classList.add('visible');
+  }
+})();
 </script>
 </body>
 </html>
