@@ -4,7 +4,7 @@ window.WATCHDOG_INTEL = {
     "papel": "Chief of Staff & Head of Marketing Analytics",
     "ultima_atualizacao": "2026-03-12T11:39:51.650703"
   },
-  "ultima_atualizacao": "2026-03-17T23:53:01.339583",
+  "ultima_atualizacao": "2026-03-17T23:56:57.028177",
   "arquitetura_memoria": {
     "modo": "camadas",
     "descricao": "Memoria viva enxuta + historico completo + resumos tematicos + indices.",
@@ -21,10 +21,10 @@ window.WATCHDOG_INTEL = {
     "indices": "contexto/intel_indices.json"
   },
   "memoria_viva": {
-    "insights_ativos_total_historico": 127,
+    "insights_ativos_total_historico": 130,
     "insights_expostos_neste_arquivo": 24,
-    "alertas_abertos_total_historico": 46,
-    "alertas_expostos_neste_arquivo": 46,
+    "alertas_abertos_total_historico": 49,
+    "alertas_expostos_neste_arquivo": 49,
     "temas_prioritarios": [
       "sdr",
       "base",
@@ -33,7 +33,7 @@ window.WATCHDOG_INTEL = {
       "renovacao",
       "copy",
       "concorrencia",
-      "outbound"
+      "campanha"
     ]
   },
   "resumos_tematicos": [
@@ -44,6 +44,7 @@ window.WATCHDOG_INTEL = {
       "aprendizados_ids": [
         "insight128",
         "insight130",
+        "insight131",
         "insight115",
         "insight119",
         "insight104",
@@ -94,6 +95,7 @@ window.WATCHDOG_INTEL = {
         "alerta057",
         "alerta058",
         "alerta061",
+        "alerta064",
         "alerta045",
         "alerta046",
         "alerta039",
@@ -120,14 +122,14 @@ window.WATCHDOG_INTEL = {
       "aprendizados_chave": [
         "Frentes de Novas (AA, Concorrência, Retração, Novas) exibem um padrão sistemático de 0% na meta de alunos semanal — todas as quatro frentes registram 0 alunos realizados na sema...",
         "HT PÚB Renovação apresenta zero absoluto na semana (0 realizadas, 0 fechadas, RR/SDR 0/2,29) mesmo com LT Pública e HT Pública acumulando potencial de receita relevante (R$96.81...",
-        "Retração apresenta desacoplamento entre meta de alunos (verde, 106% YTD) e RR/SDR (62% da meta). Isso indica que quando as reuniões acontecem, os alunos chegam em volume acima d..."
+        "Disparo de vídeo para LT Particular gerou aumento de levantadas (9→13, +44%) no mesmo dia, mas não se converteu em aumento de reuniões realizadas em HT Particular no dia seguint..."
       ],
       "riscos_abertos": [
         "HT PÚB registra 0 reuniões realizadas, 0 fechadas e RR/SDR 0 nesta semana — apesar de meta YTD de receita em 355% (verde). O zero semanal não é compensado pelo histórico positiv...",
         "Concorrência mensal: 810/2.963 alunos (55% YTD). O alerta042 registrava paradoxo RR/SDR saudável com alunos zerados na semana. Hoje a semana tem RR/SDR em 189% mas meta de aluno..."
       ],
-      "contagem_aprendizados": 48,
-      "contagem_alertas_abertos": 25,
+      "contagem_aprendizados": 49,
+      "contagem_alertas_abertos": 26,
       "ultima_atualizacao": "2026-03-17"
     },
     {
@@ -137,6 +139,7 @@ window.WATCHDOG_INTEL = {
       "aprendizados_ids": [
         "insight127",
         "insight129",
+        "insight133",
         "insight112",
         "insight114",
         "insight115",
@@ -182,6 +185,8 @@ window.WATCHDOG_INTEL = {
         "alerta056",
         "alerta059",
         "alerta061",
+        "alerta062",
+        "alerta063",
         "alerta045",
         "alerta046",
         "alerta037",
@@ -199,14 +204,14 @@ window.WATCHDOG_INTEL = {
       "aprendizados_chave": [
         "LT PART dobrou o número de convertidas entre a última daily registrada (7-8) e hoje (16/30 = 53%), mas a receita avançou proporcionalmente menos: de ~R$24k para R$42k (43% da me...",
         "LT PART exibe descolamento crescente entre % de convertidas e % de receita: em 17/03 convertidas chegam a 53% da meta (16/30) enquanto receita está em 42% (R$42.244/R$98.649). O...",
-        "LT PART acumula evidência de que o gargalo não é ausência de disparo nem de base cadastrada — é conversão pós-disparo. Com 272 alunos cadastrados e R$731 de custo de disparo já..."
+        "LT Pública e LT Particular têm praticamente a mesma receita potencial, mas o disparo anterior gerou 14x mais resultado em LT Particular do que em LT Pública (que não recebeu o d..."
       ],
       "riscos_abertos": [
         "LT PART hoje: 16/30 convertidas (53%) e R$42.244/R$98.649 em receita (42%). O alerta045 registrava 7 convertidas e R$24k. Houve avanço real (dobrou convertidas), mas a receita n...",
         "Com 16/30 convertidas (53%) e R$42.244/R$98.649 de receita (42%), fechar as 14 convertidas restantes ao ticket médio atual de R$2.640 geraria apenas R$79.204 — abaixo da meta de..."
       ],
-      "contagem_aprendizados": 42,
-      "contagem_alertas_abertos": 16,
+      "contagem_aprendizados": 43,
+      "contagem_alertas_abertos": 18,
       "ultima_atualizacao": "2026-03-17"
     },
     {
@@ -288,12 +293,13 @@ window.WATCHDOG_INTEL = {
     {
       "tema": "renovacao",
       "titulo": "Renovacao",
-      "resumo_executivo": "Aprendizados-chave: HT PÚB Renovação exibe colapso semanal recorrente de realizadas apesar de meta YTD de receita em verde: quando o volume de reuniões cai a zero em uma semana, a altíssima taxa de... | LT PART dobrou o número de convertidas entre a última daily registrada (7-8) e hoje (16/30 = 53%), mas a receita avançou proporcionalmente menos: de ~R$24k para R$42k (43% da me... Riscos abertos: HT PÚB registra 0 reuniões realizadas, 0 fechadas e RR/SDR 0 nesta semana — apesar de meta YTD de receita em 355% (verde). O zero semanal não é compensado pelo histórico positiv... | A semana de 03-06/mar encerrou com HT PART Renovação em 79% do RR/SDR semanal. Na daily 06/mar, as 22 RRs necessárias no último dia eram matematicamente impossíveis. O deficit d...",
+      "resumo_executivo": "Aprendizados-chave: HT PÚB Renovação exibe colapso semanal recorrente de realizadas apesar de meta YTD de receita em verde: quando o volume de reuniões cai a zero em uma semana, a altíssima taxa de... | LT PART dobrou o número de convertidas entre a última daily registrada (7-8) e hoje (16/30 = 53%), mas a receita avançou proporcionalmente menos: de ~R$24k para R$42k (43% da me... Riscos abertos: HT PÚB registra 0 reuniões realizadas, 0 fechadas e RR/SDR 0 nesta semana — apesar de meta YTD de receita em 355% (verde). O zero semanal não é compensado pelo histórico positiv... | A renovação pública está com zero reuniões realizadas na semana, agravada pela ausência de um colaborador não nomeado. Este problema é recorrente (alerta057 e alerta061 document...",
       "aprendizados_ids": [
         "insight126",
         "insight127",
         "insight129",
         "insight130",
+        "insight131",
         "insight111",
         "insight114",
         "insight118",
@@ -324,6 +330,7 @@ window.WATCHDOG_INTEL = {
       ],
       "alertas_ids": [
         "alerta057",
+        "alerta064",
         "alerta032",
         "alerta030",
         "alerta026",
@@ -338,10 +345,10 @@ window.WATCHDOG_INTEL = {
       ],
       "riscos_abertos": [
         "HT PÚB registra 0 reuniões realizadas, 0 fechadas e RR/SDR 0 nesta semana — apesar de meta YTD de receita em 355% (verde). O zero semanal não é compensado pelo histórico positiv...",
-        "A semana de 03-06/mar encerrou com HT PART Renovação em 79% do RR/SDR semanal. Na daily 06/mar, as 22 RRs necessárias no último dia eram matematicamente impossíveis. O deficit d..."
+        "A renovação pública está com zero reuniões realizadas na semana, agravada pela ausência de um colaborador não nomeado. Este problema é recorrente (alerta057 e alerta061 document..."
       ],
-      "contagem_aprendizados": 31,
-      "contagem_alertas_abertos": 7,
+      "contagem_aprendizados": 32,
+      "contagem_alertas_abertos": 8,
       "ultima_atualizacao": "2026-03-17"
     },
     {
@@ -459,51 +466,59 @@ window.WATCHDOG_INTEL = {
       "ultima_atualizacao": "2026-03-17"
     },
     {
-      "tema": "outbound",
-      "titulo": "Outbound",
-      "resumo_executivo": "Aprendizados-chave: Priorização de escolas High Value no Outbound pode reduzir volume de levantadas porque histórico mostra que escolas de médio e micro porte são as que mais convertem nesse canal.... | Base WA da Estante Mágica possui 19 campos de telefone, mas apenas 2 são utilizados nos disparos — potencial de expansão de raio em ~9,5x sem custo adicional de aquisição. Riscos abertos: Média de levantadas Outbound caiu de 5 para 3,75 por disparo vs ano anterior (-25%). Hipótese: segmentação High Value exclui segmentos historicamente mais responsivos. Sem análi... | Pior ritmo semanal registrado em Retracao. Outbound tambem abaixo da meta semanal. A/B email disparado hoje; WA amanha 8h com copy vencedor. Se ate quinta nao houver recuperacao...",
+      "tema": "campanha",
+      "titulo": "Campanhas",
+      "resumo_executivo": "Aprendizados-chave: LT PART dobrou o número de convertidas entre a última daily registrada (7-8) e hoje (16/30 = 53%), mas a receita avançou proporcionalmente menos: de ~R$24k para R$42k (43% da me... | Disparo de vídeo para LT Particular gerou aumento de levantadas (9→13, +44%) no mesmo dia, mas não se converteu em aumento de reuniões realizadas em HT Particular no dia seguint... Riscos abertos: O disparo de vídeo para as 2.800 escolas não-convertidas (segmentadas em lotes) foi adiado para a semana de 23/03 (seg/ter/qua), conforme sugestão de Pedro. Com março encerrando... | Numero utilizado no teste de ligacoes WA com 30 escolas sofreu bloqueio na Meta, possivelmente por denuncia. Nao esta claro se e o numero principal ou temporario. Se for o princ...",
       "aprendizados_ids": [
-        "insight115",
+        "insight127",
+        "insight131",
+        "insight133",
+        "insight117",
+        "insight118",
+        "insight120",
         "insight101",
-        "insight107",
+        "insight103",
+        "insight106",
         "insight108",
-        "insight098",
-        "insight099",
-        "insight077",
-        "insight068",
-        "insight067",
-        "insight054",
-        "insight043",
-        "insight044",
-        "insight025",
-        "insight027",
-        "insight032",
-        "insight001",
+        "insight109",
+        "insight110",
+        "insight087",
+        "insight093",
+        "insight094",
+        "insight100",
+        "insight074",
+        "insight075",
+        "insight076",
+        "insight080",
+        "insight071",
+        "insight030",
+        "insight040",
+        "insight041",
+        "insight003",
         "insight005",
-        "insight008",
-        "insight011",
-        "insight024",
-        "insight124"
+        "insight009",
+        "insight015",
+        "insight018"
       ],
       "alertas_ids": [
-        "alerta046",
-        "alerta040",
-        "alerta018",
-        "alerta011",
-        "alerta053"
+        "alerta062",
+        "alerta039",
+        "alerta036",
+        "alerta017",
+        "alerta007"
       ],
       "aprendizados_chave": [
-        "Priorização de escolas High Value no Outbound pode reduzir volume de levantadas porque histórico mostra que escolas de médio e micro porte são as que mais convertem nesse canal....",
-        "Base WA da Estante Mágica possui 19 campos de telefone, mas apenas 2 são utilizados nos disparos — potencial de expansão de raio em ~9,5x sem custo adicional de aquisição.",
-        "Segmentação exclusiva em High Value pode estar deprimindo taxa de levantadas no Outbound: queda de 5 para 3,75 levantadas/disparo vs ano anterior (-25%), pois escolas médio e mi..."
+        "LT PART dobrou o número de convertidas entre a última daily registrada (7-8) e hoje (16/30 = 53%), mas a receita avançou proporcionalmente menos: de ~R$24k para R$42k (43% da me...",
+        "Disparo de vídeo para LT Particular gerou aumento de levantadas (9→13, +44%) no mesmo dia, mas não se converteu em aumento de reuniões realizadas em HT Particular no dia seguint...",
+        "LT Pública e LT Particular têm praticamente a mesma receita potencial, mas o disparo anterior gerou 14x mais resultado em LT Particular do que em LT Pública (que não recebeu o d..."
       ],
       "riscos_abertos": [
-        "Média de levantadas Outbound caiu de 5 para 3,75 por disparo vs ano anterior (-25%). Hipótese: segmentação High Value exclui segmentos historicamente mais responsivos. Sem análi...",
-        "Pior ritmo semanal registrado em Retracao. Outbound tambem abaixo da meta semanal. A/B email disparado hoje; WA amanha 8h com copy vencedor. Se ate quinta nao houver recuperacao..."
+        "O disparo de vídeo para as 2.800 escolas não-convertidas (segmentadas em lotes) foi adiado para a semana de 23/03 (seg/ter/qua), conforme sugestão de Pedro. Com março encerrando...",
+        "Numero utilizado no teste de ligacoes WA com 30 escolas sofreu bloqueio na Meta, possivelmente por denuncia. Nao esta claro se e o numero principal ou temporario. Se for o princ..."
       ],
-      "contagem_aprendizados": 21,
+      "contagem_aprendizados": 29,
       "contagem_alertas_abertos": 5,
-      "ultima_atualizacao": "2026-03-13"
+      "ultima_atualizacao": "2026-03-17"
     }
   ],
   "aprendizados": [
@@ -583,6 +598,54 @@ window.WATCHDOG_INTEL = {
         "handoff MKT-Comercial"
       ],
       "acao_sugerida": "Sempre que HT PÚB ou LT Pública registrarem zero de realizadas em uma semana, verificar se existe fila de leads disponíveis para o comercial antes de diagnosticar problema de geração de demanda — o potencial de receita nas ações de MKT pode estar represado por falta de acionamento comercial.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight131",
+      "data": "2026-03-17",
+      "fonte": "Daily _ Gestão Comercial - 2026_03_17 10_12 GMT-03_00 - Anotações do Gemini.pdf",
+      "categoria": "funil",
+      "insight": "Disparo de vídeo para LT Particular gerou aumento de levantadas (9→13, +44%) no mesmo dia, mas não se converteu em aumento de reuniões realizadas em HT Particular no dia seguinte. Isso indica que o vídeo é eficiente em ativar interesse de escolas low touch (autônomas no processo de decisão) mas não acelera o ciclo em high touch, onde o funil depende de follow-up ativo do SDR/closer. São canais com dinâmicas distintas e não devem ter a mesma expectativa de velocidade de retorno.",
+      "evidencia": "Levantadas LT PART subiram de 9 para 13 atribuídas ao disparo de vídeo de ontem; HT PART manteve média estável de 11 agendamentos sem crescimento imediato após o disparo.",
+      "aplicavel_a": [
+        "LT Particular",
+        "HT Particular",
+        "estratégia de disparo de vídeo",
+        "renovação"
+      ],
+      "acao_sugerida": "Sempre separar KPIs esperados por segmento após disparo de vídeo: para LT medir levantadas em D+1; para HT medir reuniões realizadas em D+3 a D+5 (ciclo mais longo). Nunca avaliar sucesso de campanha de vídeo em HT no dia seguinte ao disparo.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight132",
+      "data": "2026-03-17",
+      "fonte": "Daily _ Gestão Comercial - 2026_03_17 10_12 GMT-03_00 - Anotações do Gemini.pdf",
+      "categoria": "funil",
+      "insight": "A queda na taxa de fechamento imediato de anos anteriores (de 30% para 13%) após mudança para discurso objetivo não representa deterioração de qualidade — a taxa de fechamento em FUP aumentou, e a principal objeção é 'preciso conversar com outras pessoas'. O discurso objetivo está deslocando o fechamento para o FUP sem perder a escola, apenas alongando o ciclo. Isso é um padrão de tomada de decisão colegiada em instituições de ensino, não falha de pitch.",
+      "evidencia": "Ana Paula Pimentel reportou queda de fechamento imediato de 30% para 13% em anos anteriores após mudança de discurso, com aumento compensatório na taxa de FUP e objeção dominante sendo 'preciso conversar com outras pessoas'. Lili e Pimentel concordaram que não é preocupante.",
+      "aplicavel_a": [
+        "anos anteriores",
+        "ciclo de vendas",
+        "treinamento de SDR/closer",
+        "forecast de FUP"
+      ],
+      "acao_sugerida": "Em anos anteriores, dimensionar forecast de fechamento incluindo uma janela de FUP de ao menos 5 dias úteis após a reunião. Não usar taxa de fechamento imediato como único indicador de saúde da frente — cruzar sempre com taxa de FUP para ter visão completa do ciclo.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight133",
+      "data": "2026-03-17",
+      "fonte": "Daily _ Gestão Comercial - 2026_03_17 10_12 GMT-03_00 - Anotações do Gemini.pdf",
+      "categoria": "campanha",
+      "insight": "LT Pública e LT Particular têm praticamente a mesma receita potencial, mas o disparo anterior gerou 14x mais resultado em LT Particular do que em LT Pública (que não recebeu o disparo). Isso não prova que LT Pública responderia 14x pior — prova que LT Pública nunca foi testada com disparo de vídeo, tornando a comparação inválida. A decisão de expandir o vídeo para bases públicas cria agora o primeiro benchmark real para este segmento.",
+      "evidencia": "Lili confirmou que LT Particular e LT Pública têm praticamente a mesma receita e que o disparo anterior trouxe 14x mais resultado para LT Particular, sendo que HT e LT pública não receberam o disparo de vídeo anterior.",
+      "aplicavel_a": [
+        "LT Pública",
+        "HT Pública",
+        "estratégia de disparo de vídeo",
+        "segmentação de base"
+      ],
+      "acao_sugerida": "Após o disparo de vídeo para bases públicas na semana de 23/03, registrar obrigatoriamente a taxa de levantadas em D+1 e D+2 para criar o primeiro benchmark de responsividade de bases públicas ao vídeo. Esse dado deve alimentar a decisão de alocação de mídia para abril.",
       "status": "ativo"
     },
     {
@@ -808,46 +871,6 @@ window.WATCHDOG_INTEL = {
       ],
       "acao_sugerida": "Incluir segmento médio e micro porte em testes de Outbound ao lado do High Value para isolar se a queda é de segmentação ou de mercado.",
       "status": "ativo"
-    },
-    {
-      "id": "insight109",
-      "data": "2026-03-12",
-      "fonte": "Daily _ Gestão Comercial - 2026_03_12 10_31 GMT-03_00 - Anotações do Gemini.pdf",
-      "categoria": "campanha",
-      "insight": "Formato de vídeo personalizado estilo Spotify Wrapped (dados reais da escola) funciona como mecanismo de relacionamento antes de renovação — cria antecipação sem pressão de compra.",
-      "evidencia": "Liliane relatou sucesso histórico do formato; daily decidiu expandir para escolas em descarte/perda com disparo 16/03.",
-      "confianca": "media",
-      "aplicavel_a": [
-        "Renovacao",
-        "Anos Anteriores"
-      ],
-      "acao_sugerida": "Após validar resultado de 16/03, criar playbook do formato Spotify Wrapped para reuso em reativação e renovação.",
-      "status": "ativo"
-    },
-    {
-      "id": "insight110",
-      "data": "2026-03-12",
-      "fonte": "Daily _ Gestão Comercial - 2026_03_12 10_31 GMT-03_00 - Anotações do Gemini.pdf",
-      "categoria": "campanha",
-      "insight": "Copy de benefícios para Anos Anteriores performa melhor em escolas sem SDR atribuído — cold outreach WA é mais efetivo sem interferência de relacionamento prévio com SDR.",
-      "evidencia": "Pedro Concy e Pimentel observaram na análise de disparos que copy benefícios funcionou especialmente bem em escolas sem SDR atribuído.",
-      "confianca": "media",
-      "aplicavel_a": [
-        "Anos Anteriores"
-      ],
-      "acao_sugerida": "Segmentar base Anos Anteriores por presença/ausência de SDR atribuído e calibrar copy: benefícios para sem SDR, relacionamento para com SDR.",
-      "status": "ativo"
-    },
-    {
-      "id": "insight081",
-      "data": "2026-03-11",
-      "fonte": "Escuta de audio SDR 10/mar/26",
-      "titulo": "SDR que cede a objecao de email sem reforcar valor da reuniao perde o agendamento",
-      "descricao": "Padrao: SDR faz bom contorno inicial mas cede no final concordando em enviar pre-apresentacao sem reforcar que proposta personalizada e condicoes exclusivas so sao possiveis na reuniao. Ao ceder ao email deve: (1) desvalorizar conteudo do email (apresentacao superficial/generalizada), (2) reforcar que proposta real so na reuniao.",
-      "categoria": "sdr",
-      "status": "ativo",
-      "evidencia": "Chamada de Mariana Nogueira analisada na sessao de escuta 10/mar/26. Leticia Montemor identificou o padrao como ponto negativo recorrente.",
-      "acao_sugerida": "Incluir no discurso padrao: ao ceder ao email, desvalorizar o conteudo (generica, superficial) e reforcar que proposta personalizada e condicoes exclusivas so na reuniao com especialista."
     }
   ],
   "criticas_ativas": [
@@ -916,6 +939,39 @@ window.WATCHDOG_INTEL = {
       "dri": "Ana Paula Pimentel",
       "status": "aberto",
       "nota_status": "Parcialmente coberto pela t187, mas o dado atual (RR/SDR 52% semanal) adiciona evidência numérica nova que justifica alerta separado focado na recuperação do RR/SDR mensal."
+    },
+    {
+      "id": "alerta062",
+      "data": "2026-03-17",
+      "titulo": "Disparo de vídeo para bases públicas e não-convertidas adiado para semana de 23/03 — comprime janela de março",
+      "critica": "O disparo de vídeo para as 2.800 escolas não-convertidas (segmentadas em lotes) foi adiado para a semana de 23/03 (seg/ter/qua), conforme sugestão de Pedro. Com março encerrando em torno de 31/03 e ciclo de follow-up de pelo menos 5 dias úteis após levantada, o tempo hábil para converter levantadas geradas pelo disparo em fechamentos dentro do mês é de apenas 4-5 dias úteis. Qualquer atraso adicional na preparação do disparo (ID de jornada pendente, ajuste de texto em validação, campanha de cerco mágico adiada para semana que vem) pode tornar o disparo ineficaz para as metas de março.",
+      "acao_sugerida": "Vit e Lili devem confirmar até 18/03 (amanhã) o ID da jornada e o texto aprovado do disparo, garantindo que o primeiro lote saia na segunda-feira 23/03 sem impedimentos. Pedro deve ser notificado se qualquer dependência estiver em aberto no final do dia 18/03.",
+      "prioridade": "critica",
+      "dri": "Vitória Riente",
+      "status": "aberto",
+      "nota_status": ""
+    },
+    {
+      "id": "alerta063",
+      "data": "2026-03-17",
+      "titulo": "Rânia alocada em negócios perdidos sem tarefa ou prazo formal definidos na daily",
+      "critica": "Ficou decidido na daily que a colaboradora Rânia atuará com negócios perdidos, focando onde há maior volume. No entanto, não há tarefa formal, prazo ou critério de priorização definidos — não está claro quais bases (anteriores, novas, por receita, por LT/HT), qual script, qual meta de abordagem ou quando começa. A decisão existe mas não tem lastro operacional.",
+      "acao_sugerida": "Ana Paula Pimentel deve formalizar até 19/03 o escopo de atuação de Rânia em negócios perdidos: quais bases, critério de priorização por receita, script e meta semanal de contatos.",
+      "prioridade": "alta",
+      "dri": "Ana Paula Pimentel",
+      "status": "aberto",
+      "nota_status": ""
+    },
+    {
+      "id": "alerta064",
+      "data": "2026-03-17",
+      "titulo": "Renovação pública sem reuniões realizadas na semana — ausência de colaborador agravando o zero",
+      "critica": "A renovação pública está com zero reuniões realizadas na semana, agravada pela ausência de um colaborador não nomeado. Este problema é recorrente (alerta057 e alerta061 documentam padrão de colapso semanal em HT Pública), mas hoje o fator de ausência de headcount adiciona risco novo: mesmo com disparo de vídeo aprovado para HT Pública na semana de 23/03, sem o colaborador presente o acompanhamento das levantadas geradas pode ser insuficiente.",
+      "acao_sugerida": "Pimentel deve informar até 18/03 a previsão de retorno do colaborador ausente e se há necessidade de redistribuição temporária de carteira de HT Pública para outro SDR/closer durante a ausência.",
+      "prioridade": "alta",
+      "dri": "Ana Paula Pimentel",
+      "status": "aberto",
+      "nota_status": ""
     },
     {
       "id": "alerta045",
@@ -1358,10 +1414,10 @@ window.WATCHDOG_INTEL = {
       "renovacao",
       "copy",
       "concorrencia",
+      "campanha",
       "outbound",
       "funil",
       "retracao",
-      "campanha",
       "whatsapp",
       "anos_anteriores",
       "canal",
@@ -1376,7 +1432,9 @@ window.WATCHDOG_INTEL = {
       "operacao",
       "processo_sdr",
       "performance",
+      "segmentacao_de_base",
       "renovacao_lt",
+      "lt_publica",
       "lt_part",
       "ht_pub",
       "bolsao",
@@ -1384,13 +1442,14 @@ window.WATCHDOG_INTEL = {
       "aa_fechadas",
       "wpp_disparos",
       "timing",
-      "segmentacao_de_base",
       "segmentacao",
       "modelo_operacional",
-      "lt_publica",
+      "ht_publica",
+      "estrategia_de_disparo_de_video",
       "escolas_saturadas",
       "copy_escrita",
       "bolsao_2025",
+      "treinamento_de_sdr_closer",
       "time_de_vendas",
       "ticket_medio",
       "sdr_cadencia_de_contato",
@@ -1404,9 +1463,11 @@ window.WATCHDOG_INTEL = {
       "mkt_renovacao",
       "meta",
       "marketing",
-      "ht_publica",
+      "lt_particular",
+      "ht_particular",
       "handoff_mkt_comercial",
       "funil_novas_escolas",
+      "forecast_de_fup",
       "ferramenta",
       "estrategia_de_ativacao_de_base",
       "escolas_saturadas_alto_valor",
@@ -1414,6 +1475,7 @@ window.WATCHDOG_INTEL = {
       "copy_whatsapp",
       "copy_e_mail",
       "contabilizacao_semanal",
+      "ciclo_de_vendas",
       "canal_whatsapp",
       "campanhas_outbound",
       "campanha_de_baixo_toque",
@@ -1429,6 +1491,6 @@ window.WATCHDOG_INTEL = {
       "abastecimento_de_funil",
       "aa"
     ],
-    "itens_indexados": 185
+    "itens_indexados": 191
   }
 };
