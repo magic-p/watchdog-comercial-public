@@ -4,7 +4,7 @@ window.WATCHDOG_INTEL = {
     "papel": "Chief of Staff & Head of Marketing Analytics",
     "ultima_atualizacao": "2026-03-12T11:39:51.650703"
   },
-  "ultima_atualizacao": "2026-03-13T12:06:02.567733",
+  "ultima_atualizacao": "2026-03-17T23:53:01.339583",
   "arquitetura_memoria": {
     "modo": "camadas",
     "descricao": "Memoria viva enxuta + historico completo + resumos tematicos + indices.",
@@ -21,27 +21,29 @@ window.WATCHDOG_INTEL = {
     "indices": "contexto/intel_indices.json"
   },
   "memoria_viva": {
-    "insights_ativos_total_historico": 122,
+    "insights_ativos_total_historico": 127,
     "insights_expostos_neste_arquivo": 24,
-    "alertas_abertos_total_historico": 40,
-    "alertas_expostos_neste_arquivo": 40,
+    "alertas_abertos_total_historico": 46,
+    "alertas_expostos_neste_arquivo": 46,
     "temas_prioritarios": [
       "sdr",
       "base",
       "rr_sdr",
       "geral",
-      "copy",
       "renovacao",
-      "outbound",
-      "concorrencia"
+      "copy",
+      "concorrencia",
+      "outbound"
     ]
   },
   "resumos_tematicos": [
     {
       "tema": "sdr",
       "titulo": "SDR",
-      "resumo_executivo": "Aprendizados-chave: Retração apresenta desacoplamento entre meta de alunos (verde, 106% YTD) e RR/SDR (62% da meta). Isso indica que quando as reuniões acontecem, os alunos chegam em volume acima d... | HT PÚB tem a maior taxa de fechamento da cartela (235% da meta semanal) mas volume de Realizadas em 58% — o gargalo não é conversão, é abastecimento de topo de funil. Produto de... Riscos abertos: LT PART em 7/30 convertidas (23%) e R$24.000/R$98.649 em receita (24%). O alerta041 registrou esse dado para a semana passada; o documento de hoje confirma que não houve recuper... | Média de levantadas Outbound caiu de 5 para 3,75 por disparo vs ano anterior (-25%). Hipótese: segmentação High Value exclui segmentos historicamente mais responsivos. Sem análi...",
+      "resumo_executivo": "Aprendizados-chave: Frentes de Novas (AA, Concorrência, Retração, Novas) exibem um padrão sistemático de 0% na meta de alunos semanal — todas as quatro frentes registram 0 alunos realizados na sema... | HT PÚB Renovação apresenta zero absoluto na semana (0 realizadas, 0 fechadas, RR/SDR 0/2,29) mesmo com LT Pública e HT Pública acumulando potencial de receita relevante (R$96.81... Riscos abertos: HT PÚB registra 0 reuniões realizadas, 0 fechadas e RR/SDR 0 nesta semana — apesar de meta YTD de receita em 355% (verde). O zero semanal não é compensado pelo histórico positiv... | Concorrência mensal: 810/2.963 alunos (55% YTD). O alerta042 registrava paradoxo RR/SDR saudável com alunos zerados na semana. Hoje a semana tem RR/SDR em 189% mas meta de aluno...",
       "aprendizados_ids": [
+        "insight128",
+        "insight130",
         "insight115",
         "insight119",
         "insight104",
@@ -89,6 +91,9 @@ window.WATCHDOG_INTEL = {
         "insight121"
       ],
       "alertas_ids": [
+        "alerta057",
+        "alerta058",
+        "alerta061",
         "alerta045",
         "alerta046",
         "alerta039",
@@ -113,23 +118,25 @@ window.WATCHDOG_INTEL = {
         "alerta052"
       ],
       "aprendizados_chave": [
-        "Retração apresenta desacoplamento entre meta de alunos (verde, 106% YTD) e RR/SDR (62% da meta). Isso indica que quando as reuniões acontecem, os alunos chegam em volume acima d...",
-        "HT PÚB tem a maior taxa de fechamento da cartela (235% da meta semanal) mas volume de Realizadas em 58% — o gargalo não é conversão, é abastecimento de topo de funil. Produto de...",
-        "Copy de benefícios para Anos Anteriores performa melhor em escolas sem SDR atribuído — cold outreach WA é mais efetivo sem interferência de relacionamento prévio com SDR."
+        "Frentes de Novas (AA, Concorrência, Retração, Novas) exibem um padrão sistemático de 0% na meta de alunos semanal — todas as quatro frentes registram 0 alunos realizados na sema...",
+        "HT PÚB Renovação apresenta zero absoluto na semana (0 realizadas, 0 fechadas, RR/SDR 0/2,29) mesmo com LT Pública e HT Pública acumulando potencial de receita relevante (R$96.81...",
+        "Retração apresenta desacoplamento entre meta de alunos (verde, 106% YTD) e RR/SDR (62% da meta). Isso indica que quando as reuniões acontecem, os alunos chegam em volume acima d..."
       ],
       "riscos_abertos": [
-        "LT PART em 7/30 convertidas (23%) e R$24.000/R$98.649 em receita (24%). O alerta041 registrou esse dado para a semana passada; o documento de hoje confirma que não houve recuper...",
-        "Média de levantadas Outbound caiu de 5 para 3,75 por disparo vs ano anterior (-25%). Hipótese: segmentação High Value exclui segmentos historicamente mais responsivos. Sem análi..."
+        "HT PÚB registra 0 reuniões realizadas, 0 fechadas e RR/SDR 0 nesta semana — apesar de meta YTD de receita em 355% (verde). O zero semanal não é compensado pelo histórico positiv...",
+        "Concorrência mensal: 810/2.963 alunos (55% YTD). O alerta042 registrava paradoxo RR/SDR saudável com alunos zerados na semana. Hoje a semana tem RR/SDR em 189% mas meta de aluno..."
       ],
-      "contagem_aprendizados": 46,
-      "contagem_alertas_abertos": 22,
-      "ultima_atualizacao": "2026-03-13"
+      "contagem_aprendizados": 48,
+      "contagem_alertas_abertos": 25,
+      "ultima_atualizacao": "2026-03-17"
     },
     {
       "tema": "base",
       "titulo": "Base",
-      "resumo_executivo": "Aprendizados-chave: LT PART acumula evidência de que o gargalo não é ausência de disparo nem de base cadastrada — é conversão pós-disparo. Com 272 alunos cadastrados e R$731 de custo de disparo já... | A base de WhatsApp da Estante Mágica usa apenas 2 dos 19 campos de telefone disponíveis no CRM. A oportunidade de expansão de alcance está no próprio banco de dados, não em enri... Riscos abertos: LT PART em 7/30 convertidas (23%) e R$24.000/R$98.649 em receita (24%). O alerta041 registrou esse dado para a semana passada; o documento de hoje confirma que não houve recuper... | Média de levantadas Outbound caiu de 5 para 3,75 por disparo vs ano anterior (-25%). Hipótese: segmentação High Value exclui segmentos historicamente mais responsivos. Sem análi...",
+      "resumo_executivo": "Aprendizados-chave: LT PART dobrou o número de convertidas entre a última daily registrada (7-8) e hoje (16/30 = 53%), mas a receita avançou proporcionalmente menos: de ~R$24k para R$42k (43% da me... | LT PART exibe descolamento crescente entre % de convertidas e % de receita: em 17/03 convertidas chegam a 53% da meta (16/30) enquanto receita está em 42% (R$42.244/R$98.649). O... Riscos abertos: LT PART hoje: 16/30 convertidas (53%) e R$42.244/R$98.649 em receita (42%). O alerta045 registrava 7 convertidas e R$24k. Houve avanço real (dobrou convertidas), mas a receita n... | Com 16/30 convertidas (53%) e R$42.244/R$98.649 de receita (42%), fechar as 14 convertidas restantes ao ticket médio atual de R$2.640 geraria apenas R$79.204 — abaixo da meta de...",
       "aprendizados_ids": [
+        "insight127",
+        "insight129",
         "insight112",
         "insight114",
         "insight115",
@@ -172,6 +179,9 @@ window.WATCHDOG_INTEL = {
         "insight124"
       ],
       "alertas_ids": [
+        "alerta056",
+        "alerta059",
+        "alerta061",
         "alerta045",
         "alerta046",
         "alerta037",
@@ -187,23 +197,25 @@ window.WATCHDOG_INTEL = {
         "alerta053"
       ],
       "aprendizados_chave": [
-        "LT PART acumula evidência de que o gargalo não é ausência de disparo nem de base cadastrada — é conversão pós-disparo. Com 272 alunos cadastrados e R$731 de custo de disparo já...",
-        "A base de WhatsApp da Estante Mágica usa apenas 2 dos 19 campos de telefone disponíveis no CRM. A oportunidade de expansão de alcance está no próprio banco de dados, não em enri...",
-        "No segmento de Retração, copy com argumento emocional/reciprocidade ('presente exclusivo') tem CPL R$28 contra R$73 do argumento funcional ('sem trabalho'). O ângulo de reciproc..."
+        "LT PART dobrou o número de convertidas entre a última daily registrada (7-8) e hoje (16/30 = 53%), mas a receita avançou proporcionalmente menos: de ~R$24k para R$42k (43% da me...",
+        "LT PART exibe descolamento crescente entre % de convertidas e % de receita: em 17/03 convertidas chegam a 53% da meta (16/30) enquanto receita está em 42% (R$42.244/R$98.649). O...",
+        "LT PART acumula evidência de que o gargalo não é ausência de disparo nem de base cadastrada — é conversão pós-disparo. Com 272 alunos cadastrados e R$731 de custo de disparo já..."
       ],
       "riscos_abertos": [
-        "LT PART em 7/30 convertidas (23%) e R$24.000/R$98.649 em receita (24%). O alerta041 registrou esse dado para a semana passada; o documento de hoje confirma que não houve recuper...",
-        "Média de levantadas Outbound caiu de 5 para 3,75 por disparo vs ano anterior (-25%). Hipótese: segmentação High Value exclui segmentos historicamente mais responsivos. Sem análi..."
+        "LT PART hoje: 16/30 convertidas (53%) e R$42.244/R$98.649 em receita (42%). O alerta045 registrava 7 convertidas e R$24k. Houve avanço real (dobrou convertidas), mas a receita n...",
+        "Com 16/30 convertidas (53%) e R$42.244/R$98.649 de receita (42%), fechar as 14 convertidas restantes ao ticket médio atual de R$2.640 geraria apenas R$79.204 — abaixo da meta de..."
       ],
-      "contagem_aprendizados": 40,
-      "contagem_alertas_abertos": 13,
-      "ultima_atualizacao": "2026-03-13"
+      "contagem_aprendizados": 42,
+      "contagem_alertas_abertos": 16,
+      "ultima_atualizacao": "2026-03-17"
     },
     {
       "tema": "rr_sdr",
       "titulo": "RR/SDR",
-      "resumo_executivo": "Aprendizados-chave: Retração apresenta desacoplamento entre meta de alunos (verde, 106% YTD) e RR/SDR (62% da meta). Isso indica que quando as reuniões acontecem, os alunos chegam em volume acima d... | HT PÚB tem a maior taxa de fechamento da cartela (235% da meta semanal) mas volume de Realizadas em 58% — o gargalo não é conversão, é abastecimento de topo de funil. Produto de... Riscos abertos: Pior ritmo semanal registrado em Retracao. Outbound tambem abaixo da meta semanal. A/B email disparado hoje; WA amanha 8h com copy vencedor. Se ate quinta nao houver recuperacao... | Concorrencia: RR/SDR 102% mas 0% de meta de alunos na semana (0/721). Meta mensal em 27% (216/2.963). Paradoxo indica gargalo na conversao RR->alunos, nao no volume de reunioes.",
+      "resumo_executivo": "Aprendizados-chave: Frentes de Novas (AA, Concorrência, Retração, Novas) exibem um padrão sistemático de 0% na meta de alunos semanal — todas as quatro frentes registram 0 alunos realizados na sema... | HT PÚB Renovação apresenta zero absoluto na semana (0 realizadas, 0 fechadas, RR/SDR 0/2,29) mesmo com LT Pública e HT Pública acumulando potencial de receita relevante (R$96.81... Riscos abertos: HT PÚB registra 0 reuniões realizadas, 0 fechadas e RR/SDR 0 nesta semana — apesar de meta YTD de receita em 355% (verde). O zero semanal não é compensado pelo histórico positiv... | Concorrência mensal: 810/2.963 alunos (55% YTD). O alerta042 registrava paradoxo RR/SDR saudável com alunos zerados na semana. Hoje a semana tem RR/SDR em 189% mas meta de aluno...",
       "aprendizados_ids": [
+        "insight128",
+        "insight130",
         "insight119",
         "insight104",
         "insight095",
@@ -216,6 +228,9 @@ window.WATCHDOG_INTEL = {
         "insight121"
       ],
       "alertas_ids": [
+        "alerta057",
+        "alerta058",
+        "alerta061",
         "alerta040",
         "alerta042",
         "alerta032",
@@ -228,27 +243,28 @@ window.WATCHDOG_INTEL = {
         "alerta052"
       ],
       "aprendizados_chave": [
-        "Retração apresenta desacoplamento entre meta de alunos (verde, 106% YTD) e RR/SDR (62% da meta). Isso indica que quando as reuniões acontecem, os alunos chegam em volume acima d...",
-        "HT PÚB tem a maior taxa de fechamento da cartela (235% da meta semanal) mas volume de Realizadas em 58% — o gargalo não é conversão, é abastecimento de topo de funil. Produto de...",
-        "Concorrencia pode ter RR/SDR acima da meta mas zero alunos cadastrados na mesma semana. O desacoplamento indica que o gargalo esta na conversao RR->alunos, nao no volume de reun..."
+        "Frentes de Novas (AA, Concorrência, Retração, Novas) exibem um padrão sistemático de 0% na meta de alunos semanal — todas as quatro frentes registram 0 alunos realizados na sema...",
+        "HT PÚB Renovação apresenta zero absoluto na semana (0 realizadas, 0 fechadas, RR/SDR 0/2,29) mesmo com LT Pública e HT Pública acumulando potencial de receita relevante (R$96.81...",
+        "Retração apresenta desacoplamento entre meta de alunos (verde, 106% YTD) e RR/SDR (62% da meta). Isso indica que quando as reuniões acontecem, os alunos chegam em volume acima d..."
       ],
       "riscos_abertos": [
-        "Pior ritmo semanal registrado em Retracao. Outbound tambem abaixo da meta semanal. A/B email disparado hoje; WA amanha 8h com copy vencedor. Se ate quinta nao houver recuperacao...",
-        "Concorrencia: RR/SDR 102% mas 0% de meta de alunos na semana (0/721). Meta mensal em 27% (216/2.963). Paradoxo indica gargalo na conversao RR->alunos, nao no volume de reunioes."
+        "HT PÚB registra 0 reuniões realizadas, 0 fechadas e RR/SDR 0 nesta semana — apesar de meta YTD de receita em 355% (verde). O zero semanal não é compensado pelo histórico positiv...",
+        "Concorrência mensal: 810/2.963 alunos (55% YTD). O alerta042 registrava paradoxo RR/SDR saudável com alunos zerados na semana. Hoje a semana tem RR/SDR em 189% mas meta de aluno..."
       ],
-      "contagem_aprendizados": 10,
-      "contagem_alertas_abertos": 10,
-      "ultima_atualizacao": "2026-03-13"
+      "contagem_aprendizados": 12,
+      "contagem_alertas_abertos": 13,
+      "ultima_atualizacao": "2026-03-17"
     },
     {
       "tema": "geral",
       "titulo": "Geral",
-      "resumo_executivo": "Riscos abertos: Pimentel sinalizou problema de contabilização de escolas convertidas ao final da daily — sem DRI ou prazo definidos. Distorce todas as métricas de meta. | Vit informou custo total de R$11.500 (revista + carta de dezembro) mas Lili pediu separação entre custo de produção e custo de envio da revista especificamente, além de atualiza...",
+      "resumo_executivo": "Riscos abertos: HT Pública registra 427 alunos cadastrados e potencial de R$61.488,30 em ações de MKT, mas o comercial entregou 0 realizadas e 0 fechadas na semana. A t187 (Pimentel mapear caus... | Pimentel sinalizou problema de contabilização de escolas convertidas ao final da daily — sem DRI ou prazo definidos. Distorce todas as métricas de meta.",
       "aprendizados_ids": [
         "insight116",
         "insight123"
       ],
       "alertas_ids": [
+        "alerta060",
         "alerta047",
         "alerta038",
         "alerta034",
@@ -262,12 +278,71 @@ window.WATCHDOG_INTEL = {
       ],
       "aprendizados_chave": [],
       "riscos_abertos": [
-        "Pimentel sinalizou problema de contabilização de escolas convertidas ao final da daily — sem DRI ou prazo definidos. Distorce todas as métricas de meta.",
-        "Vit informou custo total de R$11.500 (revista + carta de dezembro) mas Lili pediu separação entre custo de produção e custo de envio da revista especificamente, além de atualiza..."
+        "HT Pública registra 427 alunos cadastrados e potencial de R$61.488,30 em ações de MKT, mas o comercial entregou 0 realizadas e 0 fechadas na semana. A t187 (Pimentel mapear caus...",
+        "Pimentel sinalizou problema de contabilização de escolas convertidas ao final da daily — sem DRI ou prazo definidos. Distorce todas as métricas de meta."
       ],
       "contagem_aprendizados": 2,
-      "contagem_alertas_abertos": 10,
-      "ultima_atualizacao": "2026-03-13"
+      "contagem_alertas_abertos": 11,
+      "ultima_atualizacao": "2026-03-17"
+    },
+    {
+      "tema": "renovacao",
+      "titulo": "Renovacao",
+      "resumo_executivo": "Aprendizados-chave: HT PÚB Renovação exibe colapso semanal recorrente de realizadas apesar de meta YTD de receita em verde: quando o volume de reuniões cai a zero em uma semana, a altíssima taxa de... | LT PART dobrou o número de convertidas entre a última daily registrada (7-8) e hoje (16/30 = 53%), mas a receita avançou proporcionalmente menos: de ~R$24k para R$42k (43% da me... Riscos abertos: HT PÚB registra 0 reuniões realizadas, 0 fechadas e RR/SDR 0 nesta semana — apesar de meta YTD de receita em 355% (verde). O zero semanal não é compensado pelo histórico positiv... | A semana de 03-06/mar encerrou com HT PART Renovação em 79% do RR/SDR semanal. Na daily 06/mar, as 22 RRs necessárias no último dia eram matematicamente impossíveis. O deficit d...",
+      "aprendizados_ids": [
+        "insight126",
+        "insight127",
+        "insight129",
+        "insight130",
+        "insight111",
+        "insight114",
+        "insight118",
+        "insight120",
+        "insight104",
+        "insight109",
+        "insight092",
+        "insight093",
+        "insight080",
+        "insight073",
+        "insight051",
+        "insight026",
+        "insight028",
+        "insight031",
+        "insight036",
+        "insight038",
+        "insight039",
+        "insight002",
+        "insight003",
+        "insight004",
+        "insight006",
+        "insight007",
+        "insight009",
+        "insight018",
+        "insight017",
+        "insight023",
+        "insight125"
+      ],
+      "alertas_ids": [
+        "alerta057",
+        "alerta032",
+        "alerta030",
+        "alerta026",
+        "alerta024",
+        "alerta005",
+        "alerta009"
+      ],
+      "aprendizados_chave": [
+        "HT PÚB Renovação exibe colapso semanal recorrente de realizadas apesar de meta YTD de receita em verde: quando o volume de reuniões cai a zero em uma semana, a altíssima taxa de...",
+        "LT PART dobrou o número de convertidas entre a última daily registrada (7-8) e hoje (16/30 = 53%), mas a receita avançou proporcionalmente menos: de ~R$24k para R$42k (43% da me...",
+        "LT PART exibe descolamento crescente entre % de convertidas e % de receita: em 17/03 convertidas chegam a 53% da meta (16/30) enquanto receita está em 42% (R$42.244/R$98.649). O..."
+      ],
+      "riscos_abertos": [
+        "HT PÚB registra 0 reuniões realizadas, 0 fechadas e RR/SDR 0 nesta semana — apesar de meta YTD de receita em 355% (verde). O zero semanal não é compensado pelo histórico positiv...",
+        "A semana de 03-06/mar encerrou com HT PART Renovação em 79% do RR/SDR semanal. Na daily 06/mar, as 22 RRs necessárias no último dia eram matematicamente impossíveis. O deficit d..."
+      ],
+      "contagem_aprendizados": 31,
+      "contagem_alertas_abertos": 7,
+      "ultima_atualizacao": "2026-03-17"
     },
     {
       "tema": "copy",
@@ -324,58 +399,64 @@ window.WATCHDOG_INTEL = {
       "ultima_atualizacao": "2026-03-13"
     },
     {
-      "tema": "renovacao",
-      "titulo": "Renovacao",
-      "resumo_executivo": "Aprendizados-chave: LT PART acumula evidência de que o gargalo não é ausência de disparo nem de base cadastrada — é conversão pós-disparo. Com 272 alunos cadastrados e R$731 de custo de disparo já... | LT Pública mostra potencial de receita (R$72.198 potencial, 25 convertidas, 1.482 alunos cadastrados) desproporcional ao custo de disparo (R$283,50). O custo por aluno cadastrad... Riscos abertos: A semana de 03-06/mar encerrou com HT PART Renovação em 79% do RR/SDR semanal. Na daily 06/mar, as 22 RRs necessárias no último dia eram matematicamente impossíveis. O deficit d... | HT PÚB Renovação com zero fechamentos nesta semana (Tx fechadas/realizadas = 0). Duas reuniões realizadas, nenhuma convertida. Segmento tem RR/SDR de 2,40 (acima da meta), mas s...",
+      "tema": "concorrencia",
+      "titulo": "Concorrencia",
+      "resumo_executivo": "Aprendizados-chave: Frentes de Novas (AA, Concorrência, Retração, Novas) exibem um padrão sistemático de 0% na meta de alunos semanal — todas as quatro frentes registram 0 alunos realizados na sema... | Campanhas de ativação de lista têm KPI primário diferente de levantada — alunos cadastrados e convertidas são o indicador correto, não CPL de levantada Riscos abertos: Concorrência mensal: 810/2.963 alunos (55% YTD). O alerta042 registrava paradoxo RR/SDR saudável com alunos zerados na semana. Hoje a semana tem RR/SDR em 189% mas meta de aluno... | Concorrencia: RR/SDR 102% mas 0% de meta de alunos na semana (0/721). Meta mensal em 27% (216/2.963). Paradoxo indica gargalo na conversao RR->alunos, nao no volume de reunioes.",
       "aprendizados_ids": [
-        "insight111",
-        "insight114",
-        "insight118",
-        "insight120",
-        "insight104",
-        "insight109",
-        "insight092",
+        "insight128",
+        "insight086",
+        "insight091",
         "insight093",
+        "insight094",
+        "insight095",
+        "insight077",
+        "insight078",
         "insight080",
-        "insight073",
-        "insight051",
-        "insight026",
+        "insight071",
+        "insight072",
+        "insight070",
+        "insight068",
+        "insight067",
+        "insight053",
+        "insight061",
+        "insight050",
+        "insight042",
+        "insight044",
+        "insight052",
+        "insight025",
+        "insight027",
         "insight028",
+        "insight029",
         "insight031",
+        "insight032",
+        "insight035",
         "insight036",
-        "insight038",
-        "insight039",
+        "insight037",
         "insight002",
-        "insight003",
-        "insight004",
         "insight006",
-        "insight007",
-        "insight009",
-        "insight018",
-        "insight017",
-        "insight023",
-        "insight125"
+        "insight011",
+        "insight021",
+        "insight017"
       ],
       "alertas_ids": [
-        "alerta032",
-        "alerta030",
-        "alerta026",
-        "alerta024",
-        "alerta005",
-        "alerta009"
+        "alerta058",
+        "alerta042",
+        "alerta037",
+        "alerta025",
+        "alerta021"
       ],
       "aprendizados_chave": [
-        "LT PART acumula evidência de que o gargalo não é ausência de disparo nem de base cadastrada — é conversão pós-disparo. Com 272 alunos cadastrados e R$731 de custo de disparo já...",
-        "LT Pública mostra potencial de receita (R$72.198 potencial, 25 convertidas, 1.482 alunos cadastrados) desproporcional ao custo de disparo (R$283,50). O custo por aluno cadastrad...",
-        "HT PÚB tem a maior taxa de fechamento da cartela (235% da meta semanal) mas volume de Realizadas em 58% — o gargalo não é conversão, é abastecimento de topo de funil. Produto de..."
+        "Frentes de Novas (AA, Concorrência, Retração, Novas) exibem um padrão sistemático de 0% na meta de alunos semanal — todas as quatro frentes registram 0 alunos realizados na sema...",
+        "Campanhas de ativação de lista têm KPI primário diferente de levantada — alunos cadastrados e convertidas são o indicador correto, não CPL de levantada",
+        "O Cerco Mágico usa dois objetos físicos com funções distintas: (1) Revista Estante Mágica = mala direta tabloide para 4.716 escolas (AA+Ret+Conc), cria reconhecimento de marca;..."
       ],
       "riscos_abertos": [
-        "A semana de 03-06/mar encerrou com HT PART Renovação em 79% do RR/SDR semanal. Na daily 06/mar, as 22 RRs necessárias no último dia eram matematicamente impossíveis. O deficit d...",
-        "HT PÚB Renovação com zero fechamentos nesta semana (Tx fechadas/realizadas = 0). Duas reuniões realizadas, nenhuma convertida. Segmento tem RR/SDR de 2,40 (acima da meta), mas s..."
+        "Concorrência mensal: 810/2.963 alunos (55% YTD). O alerta042 registrava paradoxo RR/SDR saudável com alunos zerados na semana. Hoje a semana tem RR/SDR em 189% mas meta de aluno...",
+        "Concorrencia: RR/SDR 102% mas 0% de meta de alunos na semana (0/721). Meta mensal em 27% (216/2.963). Paradoxo indica gargalo na conversao RR->alunos, nao no volume de reunioes."
       ],
-      "contagem_aprendizados": 27,
-      "contagem_alertas_abertos": 6,
-      "ultima_atualizacao": "2026-03-13"
+      "contagem_aprendizados": 34,
+      "contagem_alertas_abertos": 5,
+      "ultima_atualizacao": "2026-03-17"
     },
     {
       "tema": "outbound",
@@ -423,67 +504,87 @@ window.WATCHDOG_INTEL = {
       "contagem_aprendizados": 21,
       "contagem_alertas_abertos": 5,
       "ultima_atualizacao": "2026-03-13"
-    },
-    {
-      "tema": "concorrencia",
-      "titulo": "Concorrencia",
-      "resumo_executivo": "Aprendizados-chave: Campanhas de ativação de lista têm KPI primário diferente de levantada — alunos cadastrados e convertidas são o indicador correto, não CPL de levantada | O Cerco Mágico usa dois objetos físicos com funções distintas: (1) Revista Estante Mágica = mala direta tabloide para 4.716 escolas (AA+Ret+Conc), cria reconhecimento de marca;... Riscos abertos: Concorrencia: RR/SDR 102% mas 0% de meta de alunos na semana (0/721). Meta mensal em 27% (216/2.963). Paradoxo indica gargalo na conversao RR->alunos, nao no volume de reunioes. | A daily decidiu ampliar a base de Concorrência segmentada (acima de 100 alunos) para as SDRs com melhor performance, em vez de mantê-la restrita a uma única SDR. Decisão tomada,...",
-      "aprendizados_ids": [
-        "insight086",
-        "insight091",
-        "insight093",
-        "insight094",
-        "insight095",
-        "insight077",
-        "insight078",
-        "insight080",
-        "insight071",
-        "insight072",
-        "insight070",
-        "insight068",
-        "insight067",
-        "insight053",
-        "insight061",
-        "insight050",
-        "insight042",
-        "insight044",
-        "insight052",
-        "insight025",
-        "insight027",
-        "insight028",
-        "insight029",
-        "insight031",
-        "insight032",
-        "insight035",
-        "insight036",
-        "insight037",
-        "insight002",
-        "insight006",
-        "insight011",
-        "insight021",
-        "insight017"
-      ],
-      "alertas_ids": [
-        "alerta042",
-        "alerta037",
-        "alerta025",
-        "alerta021"
-      ],
-      "aprendizados_chave": [
-        "Campanhas de ativação de lista têm KPI primário diferente de levantada — alunos cadastrados e convertidas são o indicador correto, não CPL de levantada",
-        "O Cerco Mágico usa dois objetos físicos com funções distintas: (1) Revista Estante Mágica = mala direta tabloide para 4.716 escolas (AA+Ret+Conc), cria reconhecimento de marca;...",
-        "Concorrencia pode ter RR/SDR acima da meta mas zero alunos cadastrados na mesma semana. O desacoplamento indica que o gargalo esta na conversao RR->alunos, nao no volume de reun..."
-      ],
-      "riscos_abertos": [
-        "Concorrencia: RR/SDR 102% mas 0% de meta de alunos na semana (0/721). Meta mensal em 27% (216/2.963). Paradoxo indica gargalo na conversao RR->alunos, nao no volume de reunioes.",
-        "A daily decidiu ampliar a base de Concorrência segmentada (acima de 100 alunos) para as SDRs com melhor performance, em vez de mantê-la restrita a uma única SDR. Decisão tomada,..."
-      ],
-      "contagem_aprendizados": 33,
-      "contagem_alertas_abertos": 4,
-      "ultima_atualizacao": "2026-03-11"
     }
   ],
   "aprendizados": [
+    {
+      "id": "insight126",
+      "data": "2026-03-17",
+      "fonte": "Nath 17.03.26 Meta Aquisição 26 _ Daily comercial _ Ações da semana.pdf",
+      "categoria": "funil",
+      "insight": "HT PÚB Renovação exibe colapso semanal recorrente de realizadas apesar de meta YTD de receita em verde: quando o volume de reuniões cai a zero em uma semana, a altíssima taxa de fechamento da frente (históricamente >80%) não consegue compensar — o produto da frente depende exclusivamente de topo de funil ativo. Ausência de abastecimento por uma semana zera a frente completamente, independentemente da qualidade de conversão.",
+      "evidencia": "HT PÚB semanal: Realizadas 0/11 (0%), Tx fechadas/realizadas 0%/80% (0% da meta), RR/SDR 0/2,29 (0%). Meta mensal YTD de receita em 355% — ou seja, a frente já supera a meta acumulada de receita mas zerou operacionalmente nesta semana.",
+      "aplicavel_a": [
+        "HT PUB",
+        "Renovação",
+        "abastecimento de topo de funil"
+      ],
+      "acao_sugerida": "Em HT PÚB, monitorar Realizadas semanais como leading indicator prioritário — qualquer semana com Realizadas < 5 deve disparar alerta automático antes da daily de quarta, pois uma semana zerada não é recuperável pelo fechamento, dado que a taxa de conversão já opera no teto.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight127",
+      "data": "2026-03-17",
+      "fonte": "Nath 17.03.26 Meta Aquisição 26 _ Daily comercial _ Ações da semana.pdf",
+      "categoria": "campanha",
+      "insight": "LT PART dobrou o número de convertidas entre a última daily registrada (7-8) e hoje (16/30 = 53%), mas a receita avançou proporcionalmente menos: de ~R$24k para R$42k (43% da meta de receita vs 53% de convertidas). Isso indica que as convertidas incrementais desta semana têm ticket médio inferior às anteriores — possível efeito de composição de base (escolas menores ou com menos alunos sendo priorizadas na régua de ativação pós-disparo).",
+      "evidencia": "LT PART: Meta convertidas 16/30 (53%), Meta receita R$42.244/R$98.649 (42%). Razão receita/convertidas atual: R$2.640/convertida vs meta implícita R$3.288/convertida (R$98.649/30).",
+      "aplicavel_a": [
+        "LT PART",
+        "Renovação",
+        "ticket médio",
+        "segmentação de base"
+      ],
+      "acao_sugerida": "Ao analisar LT PART, sempre comparar % de convertidas vs % de receita — divergência acima de 8pp sugere drift de ticket médio e deve levar a revisão do critério de priorização da régua de ativação (escolas maiores primeiro).",
+      "status": "ativo"
+    },
+    {
+      "id": "insight128",
+      "data": "2026-03-17",
+      "fonte": "Nath 17.03.26 Meta Aquisição 26 _ Daily comercial _ Ações da semana.pdf",
+      "categoria": "funil",
+      "insight": "Frentes de Novas (AA, Concorrência, Retração, Novas) exibem um padrão sistemático de 0% na meta de alunos semanal — todas as quatro frentes registram 0 alunos realizados na semana atual. Isso não é falha individual: é sinal estrutural de que a semana corrente ainda não processou fechamentos (possível lag de contabilização ou semana iniciante). O padrão deve ser diferenciado de colapso real antes de gerar ação.",
+      "evidencia": "AA semana: 0/1.318 (0%). Concorrência semana: 0/897 (0%). Novas semana: 0/525 (0%). As três frentes têm Realizadas e RR/SDR saudáveis na semana (AA 240%, Concorrência 189%, Novas 115%), o que confirma que o zero de alunos é lag de contabilização, não zero de atividade.",
+      "aplicavel_a": [
+        "AA",
+        "Concorrência",
+        "Novas",
+        "contabilização semanal"
+      ],
+      "acao_sugerida": "Nas dailies de terça-feira, tratar meta de alunos semanal = 0 com cautela — cruzar sempre com Realizadas e RR/SDR da mesma semana antes de gerar alerta. Zero de alunos com Realizadas saudável = lag; zero de alunos com Realizadas também zerada = alerta real.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight129",
+      "data": "2026-03-17",
+      "fonte": "Nath 17.03.26 Meta Aquisição 26 _ Daily comercial _ Ações da semana.pdf",
+      "categoria": "funil",
+      "insight": "LT PART exibe descolamento crescente entre % de convertidas e % de receita: em 17/03 convertidas chegam a 53% da meta (16/30) enquanto receita está em 42% (R$42.244/R$98.649). O ticket médio implícito por convertida caiu de R$3.428 (fase inicial, ~7 convertidas) para R$2.640 (hoje, 16 convertidas). A tendência sugere que as convertidas incrementais são sistematicamente de escolas menores — a régua de ativação pós-disparo pode estar priorizando volume sobre valor, ou as escolas maiores da base simplesmente não estão respondendo ao disparo atual.",
+      "evidencia": "16/30 convertidas (53%) vs R$42.244/R$98.649 em receita (42%); base cadastrada de 451 alunos com custo de disparo R$731,16. Ticket médio implícito: R$2.640 por convertida em 17/03 vs R$3.428 calculado com 7 convertidas na daily anterior.",
+      "aplicavel_a": [
+        "LT PART",
+        "Renovação",
+        "estratégia de ativação de base"
+      ],
+      "acao_sugerida": "Sempre monitorar o par convertidas+receita em LT PART como duplo KPI: quando a % de convertidas supera a % de receita em mais de 8pp, é sinal de degradação de ticket médio e a base deve ser reordenada por tamanho de escola antes do próximo ciclo de disparo.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight130",
+      "data": "2026-03-17",
+      "fonte": "Nath 17.03.26 Meta Aquisição 26 _ Daily comercial _ Ações da semana.pdf",
+      "categoria": "funil",
+      "insight": "HT PÚB Renovação apresenta zero absoluto na semana (0 realizadas, 0 fechadas, RR/SDR 0/2,29) mesmo com LT Pública e HT Pública acumulando potencial de receita relevante (R$96.812 e R$61.488 respectivamente em LT/HT Pública nas ações de MKT). Isso indica que o pipeline de ativação de LT e HT Pública existe no nível de marketing (alunos cadastrados, potencial mapeado), mas não está se convertendo em reuniões realizadas pelo comercial. O gargalo não é geração de interesse — é passagem de bastão entre MKT e comercial para estas frentes.",
+      "evidencia": "HT PÚB: 0 realizadas/11 meta semanal, Tx fechadas 0%/80%; LT Pública: 35 convertidas, 1.827 alunos cadastrados, potencial R$96.812; HT Pública: 5 convertidas, 427 alunos cadastrados, potencial R$61.488.",
+      "aplicavel_a": [
+        "HT PÚB",
+        "LT Pública",
+        "Renovação",
+        "handoff MKT-Comercial"
+      ],
+      "acao_sugerida": "Sempre que HT PÚB ou LT Pública registrarem zero de realizadas em uma semana, verificar se existe fila de leads disponíveis para o comercial antes de diagnosticar problema de geração de demanda — o potencial de receita nas ações de MKT pode estar represado por falta de acionamento comercial.",
+      "status": "ativo"
+    },
     {
       "id": "insight111",
       "titulo": "Caneca e Sem trabalho sao as melhores ofertas para Renovacao HT como levantada — CPL < R$12 confirmado em Feb e Mar/2026",
@@ -747,64 +848,75 @@ window.WATCHDOG_INTEL = {
       "status": "ativo",
       "evidencia": "Chamada de Mariana Nogueira analisada na sessao de escuta 10/mar/26. Leticia Montemor identificou o padrao como ponto negativo recorrente.",
       "acao_sugerida": "Incluir no discurso padrao: ao ceder ao email, desvalorizar o conteudo (generica, superficial) e reforcar que proposta personalizada e condicoes exclusivas so na reuniao com especialista."
-    },
-    {
-      "id": "insight082",
-      "data": "2026-03-11",
-      "fonte": "Escuta de audio SDR 10/mar/26",
-      "titulo": "Beneficio (financeiro ou playlist) deve ser guardado para o MEIO da ligacao, nao revelado no inicio",
-      "descricao": "Revelar o beneficio logo no inicio gera animacao superficial sem engajamento na proposta consultiva. Guardar para o meio mantem a gestora engajada ate a proposta e permite adaptar o beneficio ao contexto da escola.",
-      "categoria": "sdr",
-      "status": "ativo",
-      "evidencia": "Sara Penteado e Bebel Bertuccelli na sessao de escuta 10/mar/26. Bebel observou que a mencao inicial ao beneficio foi feita sem conviccao e sem vender a exclusividade.",
-      "acao_sugerida": "No discurso padrao SDR: mencionar a existencia de um beneficio exclusivo no inicio (para gerar interesse), guardar detalhes (financeiro ou playlist) para o meio. Incluir no checklist visual Wydi."
-    },
-    {
-      "id": "insight083",
-      "data": "2026-03-11",
-      "fonte": "Escuta de audio SDR 10/mar/26",
-      "titulo": "Pesquisar historico do card antes de ligar e usar objecoes e dores passadas como gancho",
-      "descricao": "Escolas com contato anterior tem historico de objecoes e dores no CRM. SDR que pesquisa antes da ligacao pode usar como gancho e prevenir negativa imediata. Especialmente valido para escolas novas que ja tiveram contato mas nao aplicaram.",
-      "categoria": "sdr",
-      "status": "ativo",
-      "evidencia": "Sara Penteado e Wydi Gomes na sessao de escuta 10/mar/26. Escola Novas tinha gestora que tentou aplicar no ano anterior mas foi barrada pela central - informacao disponivel no card mas nao usada pelo SDR.",
-      "acao_sugerida": "Regra obrigatoria pre-ligacao: abrir o card no CRM e verificar historico de trocas e objecoes. Usar como gancho na abordagem. Incluir no checklist visual SDR como primeiro passo."
-    },
-    {
-      "id": "insight084",
-      "data": "2026-03-11",
-      "fonte": "Escuta de audio SDR 10/mar/26",
-      "titulo": "Perguntar sobre projetos ou atividades internas voltadas para leitura e escrita - nao apenas projetos",
-      "descricao": "Quando SDR pergunta apenas sobre projetos, gestora ou secretaria tende a negar (o que e improvavel). A formulacao mais precisa - atividades internas voltadas para leitura e escrita - reduz a negativa reflexa e aumenta a precisao da informacao coletada.",
-      "categoria": "sdr",
-      "status": "ativo",
-      "evidencia": "Wydi Gomes observou durante analise da chamada de Mari na sessao de escuta 10/mar/26. Gestora negou ter projetos quando perguntada de forma generica.",
-      "acao_sugerida": "Substituir pergunta generica por: projetos ou atividades internas voltadas para leitura e escrita. Atualizar no script padrao SDR (t152)."
-    },
-    {
-      "id": "insight085",
-      "data": "2026-03-11",
-      "fonte": "Encontro Aquisicao 04/mar/26 (Lili)",
-      "titulo": "Maior gargalo do funil SDR por volume e a barreira da secretaria - 30% das ligacoes nao chegam a gestora",
-      "descricao": "30% das ligacoes SDR sao barradas na secretaria que nao passa para a coordenadora/gestora. E o maior ponto de perda por volume no funil. Papel do Mkt no Cerco Magico e cercar a escola antes da ligacao SDR para que a gestora ja conheca a EM e a secretaria passe.",
-      "categoria": "funil",
-      "status": "ativo",
-      "evidencia": "Encontro Aquisicao 04/mar/26 coordenado por Lili. Item 2 do documento de oportunidades por etapa de funil.",
-      "acao_sugerida": "Fortalecer o Cerco Magico como solucao estrutural para a barreira da secretaria. Medir % de ligacoes barradas na secretaria vs que chegam a gestora por baldinho para rastrear impacto do cerco."
-    },
-    {
-      "id": "insight086",
-      "data": "2026-03-11",
-      "fonte": "Escuta de audio SDR 10/mar/26",
-      "titulo": "Escola que usou concorrencia pode retornar com carinho e receptividade pela EM - encantamento e ativo estrategico em AA",
-      "descricao": "Escola do segmento AA que optou por concorrentes no ano anterior demonstrou alta receptividade e carinho pela EM quando abordada. O encantamento historico da EM com a escola e um ativo estrategico em AA que deve ser explorado na abordagem.",
-      "categoria": "canal",
-      "status": "ativo",
-      "evidencia": "Chamada de Tati para escola de Anos Anteriores na sessao de escuta 10/mar/26. Gestora Mirla demonstrou saudades da EM e curiosidade sobre novidades mesmo tendo usado Lives e Ciranda de Livros no ano anterior.",
-      "acao_sugerida": "No segmento AA: usar historico de relacionamento com a EM como gancho primario. Escola que foi para concorrencia nao e lead frio - e lead quente com historia. Perguntar sobre a experiencia anterior e validar o carinho existente."
     }
   ],
   "criticas_ativas": [
+    {
+      "id": "alerta056",
+      "data": "2026-03-17",
+      "titulo": "LT PART: receita 42% da meta com 10 dias úteis e ticket médio caindo",
+      "critica": "LT PART hoje: 16/30 convertidas (53%) e R$42.244/R$98.649 em receita (42%). O alerta045 registrava 7 convertidas e R$24k. Houve avanço real (dobrou convertidas), mas a receita não acompanhou na mesma proporção — ticket médio implícito caiu de ~R$3.428 para ~R$2.640 por convertida. Com 10 dias úteis restantes, fechar os 14 convertidas restantes exige 1,4 convertidas/dia útil. Considerando que a base cadastrada agora tem 451 alunos (vs 272 anterior) e custo de disparo R$731, o potencial existe — mas o mix de escolas ativadas pode estar puxando o ticket para baixo.",
+      "acao_sugerida": "Nath e Kaká: verificar composição das 16 convertidas (tamanho médio de escola, número de alunos por escola) e identificar se as escolas maiores da base de 451 ainda não foram trabalhadas — priorizá-las nas ações restantes da semana.",
+      "prioridade": "critica",
+      "dri": "Nath Ferreira",
+      "status": "aberto",
+      "nota_status": "Substitui e atualiza alerta045 com dados de 17/03 — LT PART avançou mas o problema de receita persiste e agora há evidência adicional de drift de ticket médio."
+    },
+    {
+      "id": "alerta057",
+      "data": "2026-03-17",
+      "titulo": "HT PÚB Renovação: semana zerada em realizadas e fechadas",
+      "critica": "HT PÚB registra 0 reuniões realizadas, 0 fechadas e RR/SDR 0 nesta semana — apesar de meta YTD de receita em 355% (verde). O zero semanal não é compensado pelo histórico positivo: com 10 dias úteis restantes e RR/SDR mensal de 1,50 vs meta 2,40 (63%), a frente precisa de abastecimento urgente de topo de funil. Uma segunda semana zerada comprometeria o RR/SDR mensal e potencialmente a meta de Realizadas mensais.",
+      "acao_sugerida": "Pimentel ou DRI de HT PÚB: mapear causas do zero desta semana (agenda dos closers? ausência de leads qualificados? fila vazia?) e garantir pelo menos 5 reuniões agendadas para a semana de 18/03.",
+      "prioridade": "critica",
+      "dri": "Ana Paula Pimentel",
+      "status": "aberto",
+      "nota_status": ""
+    },
+    {
+      "id": "alerta058",
+      "data": "2026-03-17",
+      "titulo": "Concorrência: meta de alunos mensais em 55% YTD com 10 dias úteis restantes",
+      "critica": "Concorrência mensal: 810/2.963 alunos (55% YTD). O alerta042 registrava paradoxo RR/SDR saudável com alunos zerados na semana. Hoje a semana tem RR/SDR em 189% mas meta de alunos semanal em 0/897 (lag de contabilização confirmado). O problema central persiste: o volume mensal de alunos está abaixo de 50% de cumprimento efetivo (810 de meta implícita de ~1.480 para este ponto do mês). Com Realizadas mensais em 103% e RR/SDR em 111%, o gargalo continua sendo conversão RR→alunos (tamanho médio das escolas fechadas abaixo do esperado ou escolas com poucos alunos sendo priorizadas).",
+      "acao_sugerida": "Nath: calcular número médio de alunos por escola fechada em Concorrência em março vs meta implícita (2.963/33 = ~89 alunos/escola) e identificar se há concentração de escolas pequenas no bolsão ativo.",
+      "prioridade": "alta",
+      "dri": "Nath Ferreira",
+      "status": "aberto",
+      "nota_status": "Complementa alerta042, que identificou o paradoxo — este alerta adiciona a dimensão de ritmo mensal com 10 dias úteis restantes."
+    },
+    {
+      "id": "alerta059",
+      "data": "2026-03-17",
+      "titulo": "LT PART: ritmo de convertidas insuficiente para bater meta de receita mesmo se volume for cumprido",
+      "critica": "Com 16/30 convertidas (53%) e R$42.244/R$98.649 de receita (42%), fechar as 14 convertidas restantes ao ticket médio atual de R$2.640 geraria apenas R$79.204 — abaixo da meta de R$98.649. Para bater a meta de receita, o ticket médio das convertidas restantes precisaria ser R$4.029 (53% acima do atual). Isso significa que as escolas maiores da base de 451 alunos cadastrados precisam ser priorizadas ativamente nas próximas abordagens — não basta converter mais, precisa converter as certas.",
+      "acao_sugerida": "Nath calcular ranking de escolas não-convertidas na base de 451 por tamanho (alunos) e Kaká/Vit priorizar essas escolas maiores no próximo disparo ou abordagem ativa — insumo para execução antes de 19/mar.",
+      "prioridade": "critica",
+      "dri": "Nath Ferreira",
+      "status": "aberto",
+      "nota_status": "Tarefa t179 cobre análise de ticket médio mas não inclui ranqueamento de escolas não-convertidas por tamanho para priorização ativa. Alerta complementar a t179."
+    },
+    {
+      "id": "alerta060",
+      "data": "2026-03-17",
+      "titulo": "HT PÚB: pipeline de MKT com potencial R$61k sem reuniões realizadas na semana — handoff comercial ausente",
+      "critica": "HT Pública registra 427 alunos cadastrados e potencial de R$61.488,30 em ações de MKT, mas o comercial entregou 0 realizadas e 0 fechadas na semana. A t187 (Pimentel mapear causa do zero e garantir 5 reuniões na semana de 18/03) está aberta, mas o dado de hoje confirma que o zero persiste em 17/03 — com apenas 2 dias úteis restantes nesta semana (17 e 18/03, terça e quarta), a meta de 5 realizadas na semana atual é matematicamente apertada. A semana de 18/03 começa amanhã, o que comprime o prazo de t187 a um único dia útil.",
+      "acao_sugerida": "Pimentel confirmar hoje qual é o bloqueio específico (agenda de closers, fila de leads HT PÚB, priorização de outra frente) e acionar pelo menos 3 reuniões HT PÚB para amanhã 18/03 como piso mínimo.",
+      "prioridade": "critica",
+      "dri": "Ana Paula Pimentel",
+      "status": "aberto",
+      "nota_status": "Complementa alerta057 e t187 com dado atualizado de 17/03 e urgência de execução hoje."
+    },
+    {
+      "id": "alerta061",
+      "data": "2026-03-17",
+      "titulo": "HT PÚB semanal: RR/SDR em 52% e Realizadas em 70% — segunda semana consecutiva de underperformance",
+      "critica": "HT PÚB registra na semana: Realizadas 8/11 (70% YTD amarelo), RR/SDR 1,20/2,29 (52% da meta amarelo). O alerta057 registrava zero absoluto de realizadas na semana anterior. Houve recuperação parcial (saiu do zero para 8), mas o RR/SDR ainda está em 52% — abaixo do patamar mensal de 1,50 (que já está em 63% da meta de 2,40). O padrão de colapso semanal documentado no insight126 está se repetindo em ciclo: semana com zero seguida de semana com volume parcial insuficiente para recuperar o mensal.",
+      "acao_sugerida": "Pimentel: com base no mapeamento solicitado na t187 (status semana 18/03), garantir que HT PÚB tenha pelo menos 11 realizadas na semana de 18/03 para recuperar o RR/SDR mensal para patamar amarelo superior (>75%). Prioridade de abastecimento de topo de funil para esta frente.",
+      "prioridade": "alta",
+      "dri": "Ana Paula Pimentel",
+      "status": "aberto",
+      "nota_status": "Parcialmente coberto pela t187, mas o dado atual (RR/SDR 52% semanal) adiciona evidência numérica nova que justifica alerta separado focado na recuperação do RR/SDR mensal."
+    },
     {
       "id": "alerta045",
       "data": "2026-03-12",
@@ -1243,18 +1355,18 @@ window.WATCHDOG_INTEL = {
       "base",
       "rr_sdr",
       "geral",
-      "copy",
       "renovacao",
-      "outbound",
+      "copy",
       "concorrencia",
+      "outbound",
+      "funil",
       "retracao",
       "campanha",
-      "funil",
       "whatsapp",
       "anos_anteriores",
       "canal",
-      "todos",
       "novas",
+      "todos",
       "comportamento",
       "baldinho",
       "oferta",
@@ -1265,18 +1377,22 @@ window.WATCHDOG_INTEL = {
       "processo_sdr",
       "performance",
       "renovacao_lt",
+      "lt_part",
+      "ht_pub",
       "bolsao",
       "base_concorrencia",
       "aa_fechadas",
       "wpp_disparos",
       "timing",
+      "segmentacao_de_base",
       "segmentacao",
       "modelo_operacional",
+      "lt_publica",
       "escolas_saturadas",
       "copy_escrita",
       "bolsao_2025",
       "time_de_vendas",
-      "segmentacao_de_base",
+      "ticket_medio",
       "sdr_cadencia_de_contato",
       "risco",
       "renovacao_ht_part",
@@ -1288,16 +1404,16 @@ window.WATCHDOG_INTEL = {
       "mkt_renovacao",
       "meta",
       "marketing",
-      "lt_publica",
-      "lt_part",
       "ht_publica",
-      "ht_pub",
+      "handoff_mkt_comercial",
       "funil_novas_escolas",
       "ferramenta",
+      "estrategia_de_ativacao_de_base",
       "escolas_saturadas_alto_valor",
       "escolas_fechadas_nao_convertidas",
       "copy_whatsapp",
       "copy_e_mail",
+      "contabilizacao_semanal",
       "canal_whatsapp",
       "campanhas_outbound",
       "campanha_de_baixo_toque",
@@ -1309,8 +1425,10 @@ window.WATCHDOG_INTEL = {
       "analise_de_bolsao",
       "alocacao_de_budget_de_campanha",
       "acao_1a1",
-      "abastecimento_de_funil"
+      "abastecimento_de_topo_de_funil",
+      "abastecimento_de_funil",
+      "aa"
     ],
-    "itens_indexados": 174
+    "itens_indexados": 185
   }
 };
