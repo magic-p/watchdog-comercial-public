@@ -1,5 +1,5 @@
 window.WATCHDOG_DATA_HEALTH = {
-  "gerado_em": "2026-03-17 06:11",
+  "gerado_em": "2026-03-17 11:35",
   "tarefas": {
     "total": 8,
     "pendentes": 8,
@@ -17,39 +17,39 @@ window.WATCHDOG_DATA_HEALTH = {
     "deletes_remotos_aplicados_total": 184
   },
   "publicacao": {
-    "paridade_ok": 2,
-    "paridade_mismatch": 4,
+    "paridade_ok": 5,
+    "paridade_mismatch": 1,
     "paridade_missing": 0,
     "arquivos": [
       {
         "label": "index.html",
-        "status": "ok",
+        "status": "mismatch",
         "local_hash": "081a3eed4a2b",
-        "public_hash": "081a3eed4a2b"
+        "public_hash": "da568cb6453b"
       },
       {
         "label": "todos_ssot.js",
-        "status": "mismatch",
+        "status": "ok",
         "local_hash": "be140b875f6e",
-        "public_hash": "be778cdc24a9"
+        "public_hash": "be140b875f6e"
       },
       {
         "label": "data_health.js",
-        "status": "mismatch",
-        "local_hash": "2f955ff8588c",
-        "public_hash": "9be8a883f91c"
+        "status": "ok",
+        "local_hash": "8b7bd8832507",
+        "public_hash": "8b7bd8832507"
       },
       {
         "label": "booked_meta.js",
-        "status": "mismatch",
+        "status": "ok",
         "local_hash": "2bd0ca0b253a",
-        "public_hash": "734f9606fa43"
+        "public_hash": "2bd0ca0b253a"
       },
       {
         "label": "campanhas_ssot.js",
-        "status": "mismatch",
-        "local_hash": "af37908997de",
-        "public_hash": "c88cb62d1e46"
+        "status": "ok",
+        "local_hash": "2409cbff3b83",
+        "public_hash": "2409cbff3b83"
       },
       {
         "label": "intel_ssot.js",
@@ -57,4 +57,6 @@ window.WATCHDOG_DATA_HEALTH = {
         "local_hash": "0f6dcfd4160f",
         "public_hash": "0f6dcfd4160f"
       }
-    
+    ]
+  }
+};
