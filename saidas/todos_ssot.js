@@ -1,16 +1,16 @@
 window.WATCHDOG_TODOS = [
   {
     "id": "t179",
-    "task": "Calcular e registrar custo por aluno cadastrado por frente de campanha (LT PART vs LT Pública vs HT Pública) — usar como critério de alocação de budget para as semanas restantes de março",
-    "comment": "Dados do documento mostram: LT Pública R$0,19/aluno cadastrado, HT Pública R$0,62/aluno cadastrado, LT PART R$2,69/aluno cadastrado. A diferença é uma ordem de grandeza e ainda não está formalizada como critério de decisão de alocação. Insight120 registra o padrão.",
+    "task": "Nath: calcular custo por aluno cadastrado por frente de campanha. Dados disponíveis no documento de 17/03: LT PART (451 alunos, R$731,16 disparo = R$1,62/aluno), LT Pública (1.827 alunos, R$283,50 disparo = R$0,155/aluno), HT Pública (427 alunos, R$262,44 disparo = R$0,615/aluno). LT Pública é 10x mais eficiente por aluno cadastrado que LT PART — esse dado deve informar alocação de budget restante de março.",
+    "comment": "Dados brutos já disponíveis no documento de 17/03. t179 venceu em 16/mar — passou do prazo. Cálculo preliminar: LT PART R$1,62/aluno, LT Pública R$0,155/aluno, HT Pública R$0,615/aluno. LT Pública é disparadamente mais eficiente em custo por aluno cadastrado, mas a frente de maior receita (LT PART) é a mais cara. Esse trade-off precisa ser formalizado.",
     "owner": "Nath Ferreira",
-    "date": "16/mar",
+    "date": "18/mar",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-13T11:57:00",
+    "updatedAt": "2026-03-17T23:56:00",
     "completedAt": null
   },
   {
@@ -57,8 +57,8 @@ window.WATCHDOG_TODOS = [
   },
   {
     "id": "t183",
-    "task": "Vitoria: selecionar base ampliada de Retracao (quem nao recebeu mensagem anterior) e organizar disparo WA ate quarta 18/03 — depende de time de Dados para formatacao",
-    "comment": "Proximo passo explicito da daily 13/03. Lili decidiu ampliar universo de telefones abordados em Retracao. Confirmar com Dados hoje 13/03 se entrega em quarta e viavel. Retracao semanal em 51% do RR/SDR com bolsao de apenas 34 oportunidades.",
+    "task": "Vitoria: confirmar se disparo WA de Retração (base ampliada) foi executado até 18/03 — Retração mensal tem RR/SDR em 71% (amarelo) e Realizadas em 85% (amarelo). Semana atual está verde (150% meta alunos, 132% realizadas), o que pode indicar que disparo anterior surtiu efeito parcial. Validar se a base ampliada está incluída ou se o verde semanal é da base anterior.",
+    "comment": "Retração semana verde (289/963 alunos, 150%; Realizadas 4/15, 132%; RR/SDR 0,89/0,76, 117%) contrasta com Retração mensal ainda amarela (RR/SDR 71%, Realizadas 85%). O disparo de base ampliada de t183 pode ser o catalisador para recuperar o mensal — urgente confirmar execução.",
     "owner": "Vitoria",
     "date": "18/mar",
     "tier": "t1",
@@ -66,7 +66,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-13T00:00:00",
+    "updatedAt": "2026-03-17T23:56:00",
     "completedAt": null
   },
   {
