@@ -47,6 +47,7 @@
     <input class="auth-input" id="authPassword" type="password" placeholder="senha" />
     <button class="auth-btn" id="authPasswordBtn" onclick="signInWithPassword()">Entrar com senha</button>
     <div class="auth-msg" id="authMsg"></div>
+    <button class="auth-forgot" id="authForgotBtn" onclick="toggleForgotMode()">Esqueci minha senha</button>
   </div>
 </div>
 
@@ -361,11 +362,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260317061106"></script>
-<script src="saidas/todos_ssot.js?v=20260317061106"></script>
-<script src="saidas/data_health.js?v=20260317061106"></script>
-<script src="saidas/campanhas_ssot.js?v=20260317061106"></script>
-<script src="saidas/intel_ssot.js?v=20260317061106"></script>
+<script src="saidas/booked_meta.js"></script>
+<script src="saidas/todos_ssot.js"></script>
+<script src="saidas/data_health.js"></script>
+<script src="saidas/campanhas_ssot.js"></script>
+<script src="saidas/intel_ssot.js"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -2790,6 +2791,54 @@ async function signInWithPassword() {
     msg.className = 'auth-msg ok';
     msg.textContent = '✅ Login realizado.';
     if (data?.session) _onAuthLogin(data.session);
+  }
+}
+
+let _forgotMode = false;
+function toggleForgotMode() {
+  _forgotMode = !_forgotMode;
+  const title   = document.getElementById('authTitle');
+  const desc    = document.getElementById('authDesc');
+  const passEl  = document.getElementById('authPassword');
+  const loginBtn = document.getElementById('authPasswordBtn');
+  const forgotBtn = document.getElementById('authForgotBtn');
+  const msg     = document.getElementById('authMsg');
+  msg.textContent = '';
+  if (_forgotMode) {
+    title.textContent   = 'Redefinir senha';
+    desc.textContent    = 'Digite seu e-mail e enviaremos um link para criar uma nova senha.';
+    passEl.style.display  = 'none';
+    loginBtn.textContent  = 'Enviar link de reset';
+    loginBtn.onclick      = sendPasswordReset;
+    forgotBtn.textContent = '← Voltar para o login';
+  } else {
+    title.textContent   = 'Acesso ao Watchdog';
+    desc.textContent    = 'Digite seu e-mail e senha para acessar.';
+    passEl.style.display  = '';
+    loginBtn.textContent  = 'Entrar com senha';
+    loginBtn.onclick      = signInWithPassword;
+    forgotBtn.textContent = 'Esqueci minha senha';
+  }
+}
+
+async function sendPasswordReset() {
+  const email = document.getElementById('authEmail').value.trim();
+  const btn   = document.getElementById('authPasswordBtn');
+  const msg   = document.getElementById('authMsg');
+  if (!email) { msg.className = 'auth-msg err'; msg.textContent = 'Digite seu e-mail.'; return; }
+  if (!_sb)   { msg.className = 'auth-msg err'; msg.textContent = 'Supabase não configurado.'; return; }
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+  const redirectTo = window.location.origin + window.location.pathname;
+  const { error } = await _sb.auth.resetPasswordForEmail(email, { redirectTo });
+  btn.disabled = false;
+  btn.textContent = 'Enviar link de reset';
+  if (error) {
+    msg.className = 'auth-msg err';
+    msg.textContent = 'Erro: ' + error.message;
+  } else {
+    msg.className = 'auth-msg ok';
+    msg.textContent = 'Link enviado! Verifique seu e-mail.';
   }
 }
 
