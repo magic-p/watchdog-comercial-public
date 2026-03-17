@@ -2432,7 +2432,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const pp = document.getElementById('publicPill');
   const deferProtectedRender = REQUIRE_LOGIN_FOR_READ && _sbConfigured;
   if (pp && REQUIRE_LOGIN_FOR_READ && !_sbSession && !deferProtectedRender) pp.style.display = 'inline-flex';
-  setSsotStatus(HAS_BACKEND_TODOS && !REQUIRE_LOGIN_FOR_READ);
+  // No GitHub Pages: SSOT vem do Supabase (após login), não de arquivo local.
+  // Mostrar "ok" quando logado, "aguardando login" quando não.
+  setSsotStatus(!REQUIRE_LOGIN_FOR_READ ? HAS_BACKEND_TODOS : !!_sbSession);
   _updateSysStatus();
   document.getElementById('headerDate').textContent =
     new Date().toLocaleDateString('pt-BR',
@@ -2609,6 +2611,11 @@ function _onAuthLogin(session) {
   pill.title = 'Clique para sair';
   closeAuthModal();
   if (!opts.silent) toast('Acesso liberado — ' + name, 'ok');
+  // No GitHub Pages: ao logar, o SSOT passa a ser o Supabase — atualizar status
+  if (!IS_LOCAL) {
+    setSsotStatus(true);
+    setMotorStatus(true);  // Railway está online (upload funciona)
+  }
   const pp = document.getElementById('publicPill');
   if (pp) pp.style.display = 'none';
   if (!REQUIRE_LOGIN_FOR_READ) {
@@ -2651,6 +2658,7 @@ function _onAuthLogout() {
   pill.textContent = '👤 Entrar';
   pill.classList.remove('logged-in');
   toast('Sessão encerrada', 'ok');
+  if (!IS_LOCAL) { setSsotStatus(false); setMotorStatus(false); }
   const pp = document.getElementById('publicPill');
   if (pp && REQUIRE_LOGIN_FOR_READ) pp.style.display = 'inline-flex';
   if (REQUIRE_LOGIN_FOR_READ) {
