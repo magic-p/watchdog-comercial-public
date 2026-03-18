@@ -2102,7 +2102,7 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t154",
     "task": "Nath: definir protocolo formal de uso emergencial do WhatsApp para prospeccao SDR — criterios de quando usar, limite de volume diario e numero descartavel dedicado",
-    "comment": "Teste de 30 escolas confirmou que WA como canal de ligacao nao e sustentavel. Mas uso emergencial (todos os canais tentados, escola seria descartada) ainda e valido segundo analise da Lua. Falta protocolo documentado. Criterio de conclusao: regras de uso emergencial aprovadas por Pedro e disponiveis para o time SDR.",
+    "comment": "Incluir exceção para Concorrência (aprovada com reserva orçamentária) e limite de 2.000-2.500/dia definido na daily.",
     "owner": "Nath Ferreira",
     "date": "19/mar",
     "tier": "t2",
@@ -2110,7 +2110,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-12T00:00:00",
+    "updatedAt": "2026-03-18T20:51:00",
     "completedAt": null
   },
   {
@@ -2657,6 +2657,90 @@ window.WATCHDOG_TODOS = [
     "done": false,
     "priorityRank": null,
     "updatedAt": null,
+    "completedAt": null
+  },
+  {
+    "id": "t198",
+    "task": "Pesquisar e atualizar resultado das escolas convertidas (incluindo sem reunião) e compartilhar no grupo",
+    "comment": "Incluir conversões que não passaram por reunião para visão completa do funil.",
+    "owner": "Vitória Riente",
+    "date": "19/mar",
+    "tier": "t2",
+    "tierLabel": "Fazendo",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-18T20:51:00",
+    "completedAt": null
+  },
+  {
+    "id": "t199",
+    "task": "Enviar teste de link para todos e validar abertura em celulares e plataformas diferentes",
+    "comment": "Investigar falha no link de email que funcionou em testes internos mas falhou externamente.",
+    "owner": "Vitória Riente",
+    "date": "19/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-18T20:51:00",
+    "completedAt": null
+  },
+  {
+    "id": "t200",
+    "task": "Garantir que supervisores revisem e ajustem novo discurso e enviar nome das pessoas para treinar",
+    "comment": "Novo modelo objetivo pronto para teste; selecionar quem praticará amanhã.",
+    "owner": "Ana Paula Pimentel",
+    "date": "19/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-18T20:51:00",
+    "completedAt": null
+  },
+  {
+    "id": "t201",
+    "task": "Dar nova previsão de finalização dos anos anteriores e criar tarefa para monitorar essa data",
+    "comment": "Necessário para alinhamento de expectativa de fechamento da frente.",
+    "owner": "Kaka",
+    "date": "20/mar",
+    "tier": "t2",
+    "tierLabel": "Fazendo",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-18T20:51:00",
+    "completedAt": null
+  },
+  {
+    "id": "t202",
+    "task": "Compartilhar cópia da planilha com as 19 escolas Bolsão que receberam mimos no grupo",
+    "comment": "Informar que mimos foram enviados para base mais quente.",
+    "owner": "Kaka",
+    "date": "19/mar",
+    "tier": "t2",
+    "tierLabel": "Fazendo",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-18T20:51:00",
+    "completedAt": null
+  },
+  {
+    "id": "t203",
+    "task": "Configurar limite permanente de 2.500 disparos/dia no Blip para evitar sobrecarga",
+    "comment": "Implementação técnica da decisão tomada na daily sobre limite de disparos.",
+    "owner": "Vitória Riente",
+    "date": "19/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-18T20:51:00",
     "completedAt": null
   }
 ];
