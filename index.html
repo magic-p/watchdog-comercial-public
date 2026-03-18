@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260318214736"></script>
-<script src="saidas/todos_ssot.js?v=20260318214736"></script>
-<script src="saidas/data_health.js?v=20260318214736"></script>
-<script src="saidas/campanhas_ssot.js?v=20260318214736"></script>
-<script src="saidas/intel_ssot.js?v=20260318214736"></script>
+<script src="saidas/booked_meta.js?v=20260318220136"></script>
+<script src="saidas/todos_ssot.js?v=20260318220136"></script>
+<script src="saidas/data_health.js?v=20260318220136"></script>
+<script src="saidas/campanhas_ssot.js?v=20260318220136"></script>
+<script src="saidas/intel_ssot.js?v=20260318220136"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -2707,6 +2707,86 @@ async function _sbSeedFromSSOT() {
   else console.log(`[Supabase] SSOT sync: ${rows.length} tarefas verificadas (novas inseridas, existentes preservadas)`);
 }
 
+function _ssotRowsForSupabase() {
+  const source = TODOS_SSOT.length ? TODOS_SSOT : [];
+  return source.map(t => ({
+    id:           t.id,
+    tarefa:       t.task   || t.tarefa || '',
+    dono:         t.owner  || t.dono   || '',
+    prazo:        t.date   || t.prazo  || null,
+    nota:         t.comment|| t.nota   || null,
+    status:       (t.done || t.tier === 'done') ? 'CONCLUIDO' : 'PENDENTE',
+    tier:         (t.tier === 't1' || t.tier === 1) ? 1 : 2,
+    priority_rank:t.priorityRank || null,
+    historico:    Array.isArray(t.historico) ? t.historico : [],
+  }));
+}
+
+function _sbTodoComparable(row) {
+  return JSON.stringify({
+    id: String(row?.id || ''),
+    tarefa: String(row?.tarefa || ''),
+    dono: String(row?.dono || ''),
+    prazo: row?.prazo || null,
+    nota: row?.nota || null,
+    status: String(row?.status || ''),
+    tier: Number(row?.tier || 0),
+    priority_rank: row?.priority_rank || null,
+    historico: Array.isArray(row?.historico) ? row.historico : [],
+  });
+}
+
+async function _sbReconcileWithSSOT(rows, silent = true) {
+  if (!_sb || !_sbSession) return rows;
+  const ssotRows = _ssotRowsForSupabase();
+  if (!ssotRows.length) return rows;
+
+  const currentRows = Array.isArray(rows) ? rows : [];
+  const ssotMap = new Map(ssotRows.map(r => [String(r.id), r]));
+  const currentMap = new Map(currentRows.map(r => [String(r.id), r]));
+
+  const upserts = ssotRows.filter(ssotRow => {
+    const current = currentMap.get(String(ssotRow.id));
+    if (!current) return true;
+    return _sbTodoComparable(current) !== _sbTodoComparable(ssotRow);
+  });
+  const phantomIds = [...currentMap.keys()].filter(id => !ssotMap.has(id));
+
+  if (!upserts.length && !phantomIds.length) return currentRows;
+
+  console.warn('[Supabase] reconcile with SSOT:', {
+    upserts: upserts.map(r => r.id),
+    phantomIds
+  });
+
+  if (upserts.length) {
+    const { error } = await _sb.from('todos').upsert(upserts, { onConflict: 'id' });
+    if (error) {
+      console.error('[Supabase] reconcile upsert error:', error);
+      if (!silent) toast('Falha ao alinhar Supabase com SSOT.', 'error');
+      return currentRows;
+    }
+  }
+
+  if (phantomIds.length) {
+    const { error } = await _sb.from('todos').delete().in('id', phantomIds);
+    if (error) {
+      console.error('[Supabase] reconcile delete error:', error);
+      if (!silent) toast('Falha ao remover tarefas fantasma no Supabase.', 'error');
+      return currentRows;
+    }
+  }
+
+  const { data: refreshed, error: refreshError } = await _sb.from('todos').select('*').order('id');
+  if (refreshError) {
+    console.error('[Supabase] reconcile refresh error:', refreshError);
+    if (!silent) toast('Supabase alinhado, mas falhou ao recarregar.', 'error');
+    return currentRows;
+  }
+  if (!silent) toast('Supabase reconciliado com o SSOT.', 'ok');
+  return Array.isArray(refreshed) ? refreshed : currentRows;
+}
+
 async function _refreshTasksFromSupabase(silent = false) {
   if (!_sb || !_sbSession) return;
   if (_supabaseRefreshInFlight) return;
@@ -2736,8 +2816,9 @@ async function _refreshTasksFromSupabase(silent = false) {
       if (!silent) toast(`${seeded.length} tarefas sincronizadas`, 'ok');
       return;
     }
-    await _cleanupInvalidSupabaseTasks(data);
-    const nextTasks = sanitizeTasksForUi(data.map(_sbRowToTask));
+    let reconciled = await _sbReconcileWithSSOT(data, silent);
+    await _cleanupInvalidSupabaseTasks(reconciled);
+    const nextTasks = sanitizeTasksForUi(reconciled.map(_sbRowToTask));
     if (!nextTasks.length && _lastGoodSupabaseTasks.length) {
       tasks = _lastGoodSupabaseTasks.map(t => ({ ...t }));
     } else {
@@ -2747,7 +2828,7 @@ async function _refreshTasksFromSupabase(silent = false) {
     enforceWeeklyTop3(tasks);
     renderTasks();
     buildOwnerFilters();
-    if (!silent) toast(`${data.length} tarefas carregadas`, 'ok');
+    if (!silent) toast(`${reconciled.length} tarefas carregadas`, 'ok');
   } catch (err) {
     console.error('[Supabase] exception in _refreshTasksFromSupabase:', err);
     if (!silent) toast('Supabase falhou: ' + (err?.message || String(err)), 'error');
