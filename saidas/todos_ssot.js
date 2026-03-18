@@ -2637,13 +2637,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Daily registra decisao explicita: ficou decidido que o envio de mimo pode ser liberado amanha, pois o volume e baixo e o orcamento de mimo esta menos utilizado.",
     "owner": "Ana Paula Pimentel",
     "date": "18/mar",
-    "tier": "done",
-    "tierLabel": "Concluido",
+    "tier": "t2",
+    "tierLabel": "Fazendo",
     "warn": null,
-    "done": true,
+    "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-18T21:04:00",
-    "completedAt": "2026-03-18T21:04:00"
+    "updatedAt": null,
+    "completedAt": null
   },
   {
     "id": "t197",
