@@ -4,7 +4,7 @@ window.WATCHDOG_INTEL = {
     "papel": "Chief of Staff & Head of Marketing Analytics",
     "ultima_atualizacao": "2026-03-12T11:39:51.650703"
   },
-  "ultima_atualizacao": "2026-03-18T00:04:51.073781",
+  "ultima_atualizacao": "2026-03-18T00:05:00.718561",
   "arquitetura_memoria": {
     "modo": "camadas",
     "descricao": "Memoria viva enxuta + historico completo + resumos tematicos + indices.",
@@ -21,10 +21,10 @@ window.WATCHDOG_INTEL = {
     "indices": "contexto/intel_indices.json"
   },
   "memoria_viva": {
-    "insights_ativos_total_historico": 133,
+    "insights_ativos_total_historico": 136,
     "insights_expostos_neste_arquivo": 24,
-    "alertas_abertos_total_historico": 52,
-    "alertas_expostos_neste_arquivo": 52,
+    "alertas_abertos_total_historico": 53,
+    "alertas_expostos_neste_arquivo": 53,
     "temas_prioritarios": [
       "sdr",
       "base",
@@ -44,6 +44,8 @@ window.WATCHDOG_INTEL = {
       "aprendizados_ids": [
         "insight135",
         "insight136",
+        "insight137",
+        "insight138",
         "insight128",
         "insight130",
         "insight131",
@@ -125,13 +127,13 @@ window.WATCHDOG_INTEL = {
       "aprendizados_chave": [
         "Em Retração, o RR/SDR mensal (0,42/0,64 = 65%) está significativamente abaixo do semanal percentual aparente, mas a taxa de fechadas/realizadas mensal (50%/62% = 81%) já indica...",
         "Novas (frente de escolas novas) apresenta RR/SDR/Rampando de 0,06/0,11 (55% da meta) na semana, enquanto o RR/SDR geral da frente está em 90% (semana) e 108% (mês). Isso indica...",
-        "Frentes de Novas (AA, Concorrência, Retração, Novas) exibem um padrão sistemático de 0% na meta de alunos semanal — todas as quatro frentes registram 0 alunos realizados na sema..."
+        "Concorrente com programa socioemocional já implantado em uma escola (LIV) tem vantagem estrutural de cross-sell para o projeto de livro: usa a base de confiança do programa exis..."
       ],
       "riscos_abertos": [
         "Frente Novas registra na semana 14/20 realizadas (69% YTD amarelo), RR/SDR 0,24/0,26 (90%), mas taxa de fechadas/realizadas semanal em 29%/32% (96% — quase neutro). O RR/SDR/Ram...",
         "HT PÚB registra 0 reuniões realizadas, 0 fechadas e RR/SDR 0 nesta semana — apesar de meta YTD de receita em 355% (verde). O zero semanal não é compensado pelo histórico positiv..."
       ],
-      "contagem_aprendizados": 51,
+      "contagem_aprendizados": 53,
       "contagem_alertas_abertos": 27,
       "ultima_atualizacao": "2026-03-18"
     },
@@ -142,6 +144,8 @@ window.WATCHDOG_INTEL = {
       "aprendizados_ids": [
         "insight134",
         "insight135",
+        "insight137",
+        "insight139",
         "insight127",
         "insight129",
         "insight133",
@@ -210,13 +214,13 @@ window.WATCHDOG_INTEL = {
       "aprendizados_chave": [
         "Meta de Marketing em LT PART (R$26.482 / R$98.649 = 26% da meta de receita mensal) está sistematicamente descolada das convertidas (9/30 = 30%). Isso indica que as escolas ativa...",
         "Em Retração, o RR/SDR mensal (0,42/0,64 = 65%) está significativamente abaixo do semanal percentual aparente, mas a taxa de fechadas/realizadas mensal (50%/62% = 81%) já indica...",
-        "LT PART dobrou o número de convertidas entre a última daily registrada (7-8) e hoje (16/30 = 53%), mas a receita avançou proporcionalmente menos: de ~R$24k para R$42k (43% da me..."
+        "Concorrente com programa socioemocional já implantado em uma escola (LIV) tem vantagem estrutural de cross-sell para o projeto de livro: usa a base de confiança do programa exis..."
       ],
       "riscos_abertos": [
         "LT PART registra R$26.482 realizados de um total de R$98.649 de meta de receita via marketing (26%), com 9/30 convertidas (30%) e custo de disparo acumulado de R$731,16. Com 311...",
         "LT PART hoje: 16/30 convertidas (53%) e R$42.244/R$98.649 em receita (42%). O alerta045 registrava 7 convertidas e R$24k. Houve avanço real (dobrou convertidas), mas a receita n..."
       ],
-      "contagem_aprendizados": 45,
+      "contagem_aprendizados": 47,
       "contagem_alertas_abertos": 19,
       "ultima_atualizacao": "2026-03-18"
     },
@@ -303,8 +307,9 @@ window.WATCHDOG_INTEL = {
     {
       "tema": "renovacao",
       "titulo": "Renovacao",
-      "resumo_executivo": "Aprendizados-chave: HT PÚB Renovação exibe colapso semanal recorrente de realizadas apesar de meta YTD de receita em verde: quando o volume de reuniões cai a zero em uma semana, a altíssima taxa de... | LT PART dobrou o número de convertidas entre a última daily registrada (7-8) e hoje (16/30 = 53%), mas a receita avançou proporcionalmente menos: de ~R$24k para R$42k (43% da me... Riscos abertos: HT PÚB registra 0 reuniões realizadas, 0 fechadas e RR/SDR 0 nesta semana — apesar de meta YTD de receita em 355% (verde). O zero semanal não é compensado pelo histórico positiv... | A renovação pública está com zero reuniões realizadas na semana, agravada pela ausência de um colaborador não nomeado. Este problema é recorrente (alerta057 e alerta061 document...",
+      "resumo_executivo": "Aprendizados-chave: Concorrente com programa socioemocional já implantado em uma escola (LIV) tem vantagem estrutural de cross-sell para o projeto de livro: usa a base de confiança do programa exis... | HT PÚB Renovação exibe colapso semanal recorrente de realizadas apesar de meta YTD de receita em verde: quando o volume de reuniões cai a zero em uma semana, a altíssima taxa de... Riscos abertos: HT PÚB registra 0 reuniões realizadas, 0 fechadas e RR/SDR 0 nesta semana — apesar de meta YTD de receita em 355% (verde). O zero semanal não é compensado pelo histórico positiv... | A renovação pública está com zero reuniões realizadas na semana, agravada pela ausência de um colaborador não nomeado. Este problema é recorrente (alerta057 e alerta061 document...",
       "aprendizados_ids": [
+        "insight137",
         "insight126",
         "insight127",
         "insight129",
@@ -349,17 +354,17 @@ window.WATCHDOG_INTEL = {
         "alerta009"
       ],
       "aprendizados_chave": [
+        "Concorrente com programa socioemocional já implantado em uma escola (LIV) tem vantagem estrutural de cross-sell para o projeto de livro: usa a base de confiança do programa exis...",
         "HT PÚB Renovação exibe colapso semanal recorrente de realizadas apesar de meta YTD de receita em verde: quando o volume de reuniões cai a zero em uma semana, a altíssima taxa de...",
-        "LT PART dobrou o número de convertidas entre a última daily registrada (7-8) e hoje (16/30 = 53%), mas a receita avançou proporcionalmente menos: de ~R$24k para R$42k (43% da me...",
-        "LT PART exibe descolamento crescente entre % de convertidas e % de receita: em 17/03 convertidas chegam a 53% da meta (16/30) enquanto receita está em 42% (R$42.244/R$98.649). O..."
+        "LT PART dobrou o número de convertidas entre a última daily registrada (7-8) e hoje (16/30 = 53%), mas a receita avançou proporcionalmente menos: de ~R$24k para R$42k (43% da me..."
       ],
       "riscos_abertos": [
         "HT PÚB registra 0 reuniões realizadas, 0 fechadas e RR/SDR 0 nesta semana — apesar de meta YTD de receita em 355% (verde). O zero semanal não é compensado pelo histórico positiv...",
         "A renovação pública está com zero reuniões realizadas na semana, agravada pela ausência de um colaborador não nomeado. Este problema é recorrente (alerta057 e alerta061 document..."
       ],
-      "contagem_aprendizados": 32,
+      "contagem_aprendizados": 33,
       "contagem_alertas_abertos": 8,
-      "ultima_atualizacao": "2026-03-17"
+      "ultima_atualizacao": "2026-03-18"
     },
     {
       "tema": "copy",
@@ -418,9 +423,12 @@ window.WATCHDOG_INTEL = {
     {
       "tema": "concorrencia",
       "titulo": "Concorrencia",
-      "resumo_executivo": "Aprendizados-chave: Em Retração, o RR/SDR mensal (0,42/0,64 = 65%) está significativamente abaixo do semanal percentual aparente, mas a taxa de fechadas/realizadas mensal (50%/62% = 81%) já indica... | Frentes de Novas (AA, Concorrência, Retração, Novas) exibem um padrão sistemático de 0% na meta de alunos semanal — todas as quatro frentes registram 0 alunos realizados na sema... Riscos abertos: Concorrência mensal: 810/2.963 alunos (55% YTD). O alerta042 registrava paradoxo RR/SDR saudável com alunos zerados na semana. Hoje a semana tem RR/SDR em 189% mas meta de aluno... | Concorrencia: RR/SDR 102% mas 0% de meta de alunos na semana (0/721). Meta mensal em 27% (216/2.963). Paradoxo indica gargalo na conversao RR->alunos, nao no volume de reunioes.",
+      "resumo_executivo": "Aprendizados-chave: Em Retração, o RR/SDR mensal (0,42/0,64 = 65%) está significativamente abaixo do semanal percentual aparente, mas a taxa de fechadas/realizadas mensal (50%/62% = 81%) já indica... | Concorrente com programa socioemocional já implantado em uma escola (LIV) tem vantagem estrutural de cross-sell para o projeto de livro: usa a base de confiança do programa exis... Riscos abertos: Concorrência mensal: 810/2.963 alunos (55% YTD). O alerta042 registrava paradoxo RR/SDR saudável com alunos zerados na semana. Hoje a semana tem RR/SDR em 189% mas meta de aluno... | Concorrencia: RR/SDR 102% mas 0% de meta de alunos na semana (0/721). Meta mensal em 27% (216/2.963). Paradoxo indica gargalo na conversao RR->alunos, nao no volume de reunioes.",
       "aprendizados_ids": [
         "insight135",
+        "insight137",
+        "insight138",
+        "insight139",
         "insight128",
         "insight086",
         "insight091",
@@ -465,22 +473,23 @@ window.WATCHDOG_INTEL = {
       ],
       "aprendizados_chave": [
         "Em Retração, o RR/SDR mensal (0,42/0,64 = 65%) está significativamente abaixo do semanal percentual aparente, mas a taxa de fechadas/realizadas mensal (50%/62% = 81%) já indica...",
-        "Frentes de Novas (AA, Concorrência, Retração, Novas) exibem um padrão sistemático de 0% na meta de alunos semanal — todas as quatro frentes registram 0 alunos realizados na sema...",
-        "Campanhas de ativação de lista têm KPI primário diferente de levantada — alunos cadastrados e convertidas são o indicador correto, não CPL de levantada"
+        "Concorrente com programa socioemocional já implantado em uma escola (LIV) tem vantagem estrutural de cross-sell para o projeto de livro: usa a base de confiança do programa exis...",
+        "Atendimento inicial automatizado (robô que agenda reunião sem consentimento) é percebido negativamente pelas escolas mesmo quando o tempo de resposta é rápido (15 min). Velocida..."
       ],
       "riscos_abertos": [
         "Concorrência mensal: 810/2.963 alunos (55% YTD). O alerta042 registrava paradoxo RR/SDR saudável com alunos zerados na semana. Hoje a semana tem RR/SDR em 189% mas meta de aluno...",
         "Concorrencia: RR/SDR 102% mas 0% de meta de alunos na semana (0/721). Meta mensal em 27% (216/2.963). Paradoxo indica gargalo na conversao RR->alunos, nao no volume de reunioes."
       ],
-      "contagem_aprendizados": 35,
+      "contagem_aprendizados": 38,
       "contagem_alertas_abertos": 5,
       "ultima_atualizacao": "2026-03-18"
     },
     {
       "tema": "campanha",
       "titulo": "Campanhas",
-      "resumo_executivo": "Aprendizados-chave: LT PART dobrou o número de convertidas entre a última daily registrada (7-8) e hoje (16/30 = 53%), mas a receita avançou proporcionalmente menos: de ~R$24k para R$42k (43% da me... | Disparo de vídeo para LT Particular gerou aumento de levantadas (9→13, +44%) no mesmo dia, mas não se converteu em aumento de reuniões realizadas em HT Particular no dia seguint... Riscos abertos: O disparo de vídeo para as 2.800 escolas não-convertidas (segmentadas em lotes) foi adiado para a semana de 23/03 (seg/ter/qua), conforme sugestão de Pedro. Com março encerrando... | Numero utilizado no teste de ligacoes WA com 30 escolas sofreu bloqueio na Meta, possivelmente por denuncia. Nao esta claro se e o numero principal ou temporario. Se for o princ...",
+      "resumo_executivo": "Aprendizados-chave: Programas de cashback com prazo curto (Supercash da Superautor: cashback pago apenas sobre compras até 30 de abril) são mecanismos eficazes de antecipação de compra — criam urgê... | LT PART dobrou o número de convertidas entre a última daily registrada (7-8) e hoje (16/30 = 53%), mas a receita avançou proporcionalmente menos: de ~R$24k para R$42k (43% da me... Riscos abertos: O disparo de vídeo para as 2.800 escolas não-convertidas (segmentadas em lotes) foi adiado para a semana de 23/03 (seg/ter/qua), conforme sugestão de Pedro. Com março encerrando... | Numero utilizado no teste de ligacoes WA com 30 escolas sofreu bloqueio na Meta, possivelmente por denuncia. Nao esta claro se e o numero principal ou temporario. Se for o princ...",
       "aprendizados_ids": [
+        "insight139",
         "insight127",
         "insight131",
         "insight133",
@@ -519,17 +528,17 @@ window.WATCHDOG_INTEL = {
         "alerta007"
       ],
       "aprendizados_chave": [
+        "Programas de cashback com prazo curto (Supercash da Superautor: cashback pago apenas sobre compras até 30 de abril) são mecanismos eficazes de antecipação de compra — criam urgê...",
         "LT PART dobrou o número de convertidas entre a última daily registrada (7-8) e hoje (16/30 = 53%), mas a receita avançou proporcionalmente menos: de ~R$24k para R$42k (43% da me...",
-        "Disparo de vídeo para LT Particular gerou aumento de levantadas (9→13, +44%) no mesmo dia, mas não se converteu em aumento de reuniões realizadas em HT Particular no dia seguint...",
-        "LT Pública e LT Particular têm praticamente a mesma receita potencial, mas o disparo anterior gerou 14x mais resultado em LT Particular do que em LT Pública (que não recebeu o d..."
+        "Disparo de vídeo para LT Particular gerou aumento de levantadas (9→13, +44%) no mesmo dia, mas não se converteu em aumento de reuniões realizadas em HT Particular no dia seguint..."
       ],
       "riscos_abertos": [
         "O disparo de vídeo para as 2.800 escolas não-convertidas (segmentadas em lotes) foi adiado para a semana de 23/03 (seg/ter/qua), conforme sugestão de Pedro. Com março encerrando...",
         "Numero utilizado no teste de ligacoes WA com 30 escolas sofreu bloqueio na Meta, possivelmente por denuncia. Nao esta claro se e o numero principal ou temporario. Se for o princ..."
       ],
-      "contagem_aprendizados": 29,
+      "contagem_aprendizados": 30,
       "contagem_alertas_abertos": 5,
-      "ultima_atualizacao": "2026-03-17"
+      "ultima_atualizacao": "2026-03-18"
     }
   ],
   "aprendizados": [
@@ -577,6 +586,54 @@ window.WATCHDOG_INTEL = {
         "análise de performance de time"
       ],
       "acao_sugerida": "Sempre reportar RR/SDR de rampando separado do geral em frentes com SDRs em onboarding. O indicador consolidado não deve ser usado como proxy de saúde da frente quando há SDRs em ramp-up — ele mascara underperformance estrutural do subgrupo.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight137",
+      "data": "2026-03-18",
+      "fonte": "Concorrência - Cliente Oculto  - 2026_03_17 13_59 GMT-03_00 - Anotações do Gemini.pdf",
+      "categoria": "operacao",
+      "insight": "Concorrente com programa socioemocional já implantado em uma escola (LIV) tem vantagem estrutural de cross-sell para o projeto de livro: usa a base de confiança do programa existente para ofertar 'Meu Mundo' em renovação, sem passar por um processo de prospecção fria. Esse vetor de entrada é invisível para os SDRs da Estante Mágica porque não aparece no pipeline de novas escolas.",
+      "evidencia": "LIV usa seu programa socioemocional (que algumas escolas já possuem) para promover o projeto 'Meu Mundo'. A preocupação explícita na reunião é com a LIV usar a base socioemocional existente em escolas de renovação para ofertar o programa de livro. LIV atende mínimo de 60 alunos do Infantil 5 ao 5º ano.",
+      "aplicavel_a": [
+        "concorrência",
+        "renovação",
+        "estratégia competitiva",
+        "SDR"
+      ],
+      "acao_sugerida": "Sempre verificar, no processo de renovação, se a escola possui contrato ativo com a LIV para programa socioemocional — presença da LIV como fornecedora de qualquer serviço é sinal de risco de perda para 'Meu Mundo' mesmo sem abordagem direta de concorrência.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight138",
+      "data": "2026-03-18",
+      "fonte": "Concorrência - Cliente Oculto  - 2026_03_17 13_59 GMT-03_00 - Anotações do Gemini.pdf",
+      "categoria": "operacao",
+      "insight": "Atendimento inicial automatizado (robô que agenda reunião sem consentimento) é percebido negativamente pelas escolas mesmo quando o tempo de resposta é rápido (15 min). Velocidade de resposta e qualidade do primeiro contato são variáveis independentes — resposta rápida com robô pode ser pior do que resposta em 3h com humano investigativo.",
+      "evidencia": "Superautor respondeu em 15 minutos via robô, mas a experiência foi considerada ruim porque o robô agendou reunião sem consentimento. O discurso da closer foi considerado fraco por não investigar projetos e objeções da escola. Estante Mágica é avaliada como superior justamente pelo SDR humano que investiga.",
+      "aplicavel_a": [
+        "SDR",
+        "atendimento",
+        "discurso comercial",
+        "operacao"
+      ],
+      "acao_sugerida": "Sempre preservar o primeiro contato humano nos SDRs da Estante Mágica como diferencial ativo — nunca automatizar o primeiro toque de qualificação sem que haja um handoff imediato e visível para humano, e usar o contraste com a Superautor como argumento de qualidade de atendimento em negociações competitivas.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight139",
+      "data": "2026-03-18",
+      "fonte": "Concorrência - Cliente Oculto  - 2026_03_17 13_59 GMT-03_00 - Anotações do Gemini.pdf",
+      "categoria": "campanha",
+      "insight": "Programas de cashback com prazo curto (Supercash da Superautor: cashback pago apenas sobre compras até 30 de abril) são mecanismos eficazes de antecipação de compra — criam urgência artificial sem desconto permanente no preço do livro. É uma alavanca de conversão que a Estante Mágica não usa sistematicamente.",
+      "evidencia": "Superautor oferece programa Supercash com retorno financeiro de 4% a 10% (por número de séries participantes) pago exclusivamente sobre compras realizadas até 30 de abril. Documento cita explicitamente o mecanismo de estímulo à antecipação de compras.",
+      "aplicavel_a": [
+        "campanha",
+        "discurso comercial",
+        "concorrência",
+        "closer"
+      ],
+      "acao_sugerida": "Sempre avaliar a possibilidade de criar mecanismo de urgência temporal (benefício com prazo) nas campanhas de fechamento de março/abril — o modelo de cashback da Superautor é replicável em formato de benefício incremental por data de assinatura sem alterar o preço base.",
       "status": "ativo"
     },
     {
@@ -835,56 +892,6 @@ window.WATCHDOG_INTEL = {
       ],
       "acao_sugerida": "Ao planejar alocação de budget de campanha de renovação, priorizar segmento público por custo por aluno cadastrado significativamente inferior. LT Pública especificamente deve receber escala antes de LT PART quando há restrição de budget.",
       "status": "ativo"
-    },
-    {
-      "id": "insight101",
-      "data": "2026-03-12",
-      "fonte": "Daily _ Gestão Comercial - 2026_03_12 10_31 GMT-03_00 - Anotações do Gemini.pdf",
-      "categoria": "campanha",
-      "gatilho": "queda levantadas Outbound 5 para 3,75",
-      "insight": "Priorização de escolas High Value no Outbound pode reduzir volume de levantadas porque histórico mostra que escolas de médio e micro porte são as que mais convertem nesse canal. Alta segmentação por valor unitário inverte a lógica de volume que sustenta o funil Outbound.",
-      "evidencia": "Vitória reportou queda de média de levantadas de 5 para 3,75 por disparo vs ano anterior. Lili e Vit levantaram hipótese de que a segmentação atual (High Value) pode ser a causa, dado que médio/micro historicamente convertiam mais nesse canal.",
-      "confianca": "media",
-      "aplicavel_a": [
-        "Outbound",
-        "segmentação de base"
-      ],
-      "acao_sugerida": "Antes de ajustar segmentação Outbound, sempre comparar CPL e taxa de levantada por tier de escola (High Value vs médio vs micro) no histórico. Não assumir que High Value = melhor canal Outbound — o canal pode ter perfil de público diferente do canal de relacionamento.",
-      "status": "ativo"
-    },
-    {
-      "id": "insight102",
-      "data": "2026-03-12",
-      "fonte": "Daily _ Gestão Comercial - 2026_03_12 10_31 GMT-03_00 - Anotações do Gemini.pdf",
-      "categoria": "operacao",
-      "gatilho": "base WhatsApp 19 campos vs 2 utilizados",
-      "insight": "A base de WhatsApp da Estante Mágica usa apenas 2 dos 19 campos de telefone disponíveis no CRM. A oportunidade de expansão de alcance está no próprio banco de dados, não em enriquecimento externo. Testar o envio utilitário para os campos não abordados e remover quem não responde é a forma mais rápida e barata de limpar e expandir a base simultaneamente.",
-      "evidencia": "Vit identificou 19 campos de telefone; apenas 2 estão sendo usados nos disparos. Lili priorizou ampliar o raio antes de validar, com plano de teste via envio utilitário seguido de remoção dos não-respondentes.",
-      "confianca": "alta",
-      "aplicavel_a": [
-        "WhatsApp",
-        "base de contatos",
-        "campanhas outbound"
-      ],
-      "acao_sugerida": "Sempre verificar cobertura de campos de telefone no CRM antes de contratar enriquecimento externo. Expansão interna de campos é mais rápida, mais barata e valida a base como efeito colateral do próprio disparo.",
-      "status": "ativo"
-    },
-    {
-      "id": "insight103",
-      "data": "2026-03-12",
-      "fonte": "Daily _ Gestão Comercial - 2026_03_12 10_31 GMT-03_00 - Anotações do Gemini.pdf",
-      "categoria": "campanha",
-      "gatilho": "teste A/B retração presente exclusivo vs sem trabalho",
-      "insight": "No segmento de Retração, copy com argumento emocional/reciprocidade ('presente exclusivo') tem CPL R$28 contra R$73 do argumento funcional ('sem trabalho'). O ângulo de reciprocidade supera o de facilidade operacional em 2,6x nesse público — que já conhece o produto e provavelmente tem objeção emocional, não operacional.",
-      "evidencia": "Vit apresentou resultado do teste A/B de retração: 'presente exclusivo' CPL R$28, 'sem trabalho' CPL R$73. Resultado do dia 12/mar.",
-      "confianca": "alta",
-      "aplicavel_a": [
-        "Retração",
-        "copy WhatsApp",
-        "copy e-mail"
-      ],
-      "acao_sugerida": "Para base de Retração, sempre usar ângulo de reciprocidade/presente como copy principal. Argumento funcional ('não dá trabalho') deve ser tratado como contorno de objeção secundária, não como gancho de abertura.",
-      "status": "ativo"
     }
   ],
   "criticas_ativas": [
@@ -918,6 +925,17 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Nath: confirmar se o salto de 7 para 16 convertidas em LT PART entre 16/03 e 17/03 é real (aprovações em lote) ou ajuste contábil retroativo. Registrar a causa na próxima daily para calibrar projeção de fechamento do mês.",
       "prioridade": "media",
       "dri": "Nath Ferreira",
+      "status": "aberto",
+      "nota_status": ""
+    },
+    {
+      "id": "alerta068",
+      "data": "2026-03-18",
+      "titulo": "Ciranda suspeita de cliente oculto e bloqueou participante — método comprometido para próximos ciclos",
+      "critica": "A Ciranda bloqueou uma das participantes no WhatsApp e enviou convite de conexão no LinkedIn, indicando que o perfil foi identificado. O método de cliente oculto para a Ciranda está comprometido para o próximo estudo. O plano é usar nomes e perfis diferentes, mas ainda não há perfis criados nem protocolo de segurança operacional documentado para os próximos ciclos de mapeamento ao longo de 2026.",
+      "acao_sugerida": "Ana (Pimentel) ou Wydi: criar pelo menos 2 perfis fictícios novos (nome, email, WhatsApp) para uso exclusivo nos próximos estudos de cliente oculto de 2026 — garantir que nenhum perfil seja reutilizado e que os dados não cruzem com qualquer conta real do time antes do próximo ciclo (previsto com escola de 400 alunos para LIV).",
+      "prioridade": "media",
+      "dri": "Ana Paula Pimentel",
       "status": "aberto",
       "nota_status": ""
     },
@@ -1473,10 +1491,10 @@ window.WATCHDOG_INTEL = {
       "comportamento",
       "baldinho",
       "oferta",
+      "operacao",
       "bolsao_ativacao",
       "copy_e_mensagem",
       "operacoes_comerciais",
-      "operacao",
       "processo_sdr",
       "performance",
       "lt_part",
@@ -1494,6 +1512,7 @@ window.WATCHDOG_INTEL = {
       "ht_publica",
       "estrategia_de_disparo_de_video",
       "escolas_saturadas",
+      "discurso_comercial",
       "copy_escrita",
       "bolsao_2025",
       "treinamento_de_sdr_closer",
@@ -1520,11 +1539,13 @@ window.WATCHDOG_INTEL = {
       "forecast_de_fup",
       "ferramenta",
       "estrategia_de_ativacao_de_base",
+      "estrategia_competitiva",
       "escolas_saturadas_alto_valor",
       "escolas_fechadas_nao_convertidas",
       "copy_whatsapp",
       "copy_e_mail",
       "contabilizacao_semanal",
+      "closer",
       "ciclo_de_vendas",
       "canal_whatsapp",
       "campanhas_outbound",
@@ -1534,6 +1555,7 @@ window.WATCHDOG_INTEL = {
       "base_de_contatos",
       "base_aa",
       "ativacao",
+      "atendimento",
       "analise_de_performance_de_time",
       "analise_de_bolsao",
       "alocacao_de_sdrs",
@@ -1544,6 +1566,6 @@ window.WATCHDOG_INTEL = {
       "abastecimento_de_funil",
       "aa"
     ],
-    "itens_indexados": 197
+    "itens_indexados": 201
   }
 };
