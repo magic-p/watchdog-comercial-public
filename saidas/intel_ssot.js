@@ -4,7 +4,7 @@ window.WATCHDOG_INTEL = {
     "papel": "Chief of Staff & Head of Marketing Analytics",
     "ultima_atualizacao": "2026-03-12T11:39:51.650703"
   },
-  "ultima_atualizacao": "2026-03-18T00:05:00.718561",
+  "ultima_atualizacao": "2026-03-18T00:08:35.440196",
   "arquitetura_memoria": {
     "modo": "camadas",
     "descricao": "Memoria viva enxuta + historico completo + resumos tematicos + indices.",
@@ -21,31 +21,32 @@ window.WATCHDOG_INTEL = {
     "indices": "contexto/intel_indices.json"
   },
   "memoria_viva": {
-    "insights_ativos_total_historico": 136,
+    "insights_ativos_total_historico": 141,
     "insights_expostos_neste_arquivo": 24,
-    "alertas_abertos_total_historico": 53,
-    "alertas_expostos_neste_arquivo": 53,
+    "alertas_abertos_total_historico": 57,
+    "alertas_expostos_neste_arquivo": 57,
     "temas_prioritarios": [
       "sdr",
       "base",
       "rr_sdr",
       "geral",
+      "concorrencia",
       "renovacao",
       "copy",
-      "concorrencia",
-      "campanha"
+      "funil"
     ]
   },
   "resumos_tematicos": [
     {
       "tema": "sdr",
       "titulo": "SDR",
-      "resumo_executivo": "Aprendizados-chave: Em Retração, o RR/SDR mensal (0,42/0,64 = 65%) está significativamente abaixo do semanal percentual aparente, mas a taxa de fechadas/realizadas mensal (50%/62% = 81%) já indica... | Novas (frente de escolas novas) apresenta RR/SDR/Rampando de 0,06/0,11 (55% da meta) na semana, enquanto o RR/SDR geral da frente está em 90% (semana) e 108% (mês). Isso indica... Riscos abertos: Frente Novas registra na semana 14/20 realizadas (69% YTD amarelo), RR/SDR 0,24/0,26 (90%), mas taxa de fechadas/realizadas semanal em 29%/32% (96% — quase neutro). O RR/SDR/Ram... | HT PÚB registra 0 reuniões realizadas, 0 fechadas e RR/SDR 0 nesta semana — apesar de meta YTD de receita em 355% (verde). O zero semanal não é compensado pelo histórico positiv...",
+      "resumo_executivo": "Aprendizados-chave: Em Retração, o RR/SDR mensal (0,42/0,64 = 65%) está significativamente abaixo do semanal percentual aparente, mas a taxa de fechadas/realizadas mensal (50%/62% = 81%) já indica... | Novas (frente de escolas novas) apresenta RR/SDR/Rampando de 0,06/0,11 (55% da meta) na semana, enquanto o RR/SDR geral da frente está em 90% (semana) e 108% (mês). Isso indica... Riscos abertos: Frente Novas registra na semana 14/20 realizadas (69% YTD amarelo), RR/SDR 0,24/0,26 (90%), mas taxa de fechadas/realizadas semanal em 29%/32% (96% — quase neutro). O RR/SDR/Ram... | A reunião de cliente oculto tomou decisão explícita de que é imprescindível detalhar os itens do kit da Estante Mágica para as escolas, tal como a Ciranda faz. Não há tarefa abe...",
       "aprendizados_ids": [
         "insight135",
         "insight136",
         "insight137",
         "insight138",
+        "insight141",
         "insight128",
         "insight130",
         "insight131",
@@ -97,6 +98,7 @@ window.WATCHDOG_INTEL = {
       ],
       "alertas_ids": [
         "alerta066",
+        "alerta069",
         "alerta057",
         "alerta058",
         "alerta061",
@@ -131,10 +133,10 @@ window.WATCHDOG_INTEL = {
       ],
       "riscos_abertos": [
         "Frente Novas registra na semana 14/20 realizadas (69% YTD amarelo), RR/SDR 0,24/0,26 (90%), mas taxa de fechadas/realizadas semanal em 29%/32% (96% — quase neutro). O RR/SDR/Ram...",
-        "HT PÚB registra 0 reuniões realizadas, 0 fechadas e RR/SDR 0 nesta semana — apesar de meta YTD de receita em 355% (verde). O zero semanal não é compensado pelo histórico positiv..."
+        "A reunião de cliente oculto tomou decisão explícita de que é imprescindível detalhar os itens do kit da Estante Mágica para as escolas, tal como a Ciranda faz. Não há tarefa abe..."
       ],
-      "contagem_aprendizados": 53,
-      "contagem_alertas_abertos": 27,
+      "contagem_aprendizados": 54,
+      "contagem_alertas_abertos": 28,
       "ultima_atualizacao": "2026-03-18"
     },
     {
@@ -305,11 +307,84 @@ window.WATCHDOG_INTEL = {
       "ultima_atualizacao": "2026-03-18"
     },
     {
+      "tema": "concorrencia",
+      "titulo": "Concorrencia",
+      "resumo_executivo": "Aprendizados-chave: Em Retração, o RR/SDR mensal (0,42/0,64 = 65%) está significativamente abaixo do semanal percentual aparente, mas a taxa de fechadas/realizadas mensal (50%/62% = 81%) já indica... | Concorrente com programa socioemocional já implantado em uma escola (LIV) tem vantagem estrutural de cross-sell para o projeto de livro: usa a base de confiança do programa exis... Riscos abertos: A reunião de cliente oculto tomou decisão explícita de que é imprescindível detalhar os itens do kit da Estante Mágica para as escolas, tal como a Ciranda faz. Não há tarefa abe... | A Superautor opera um cashback de 4% a 10% pago apenas sobre compras até 30 de abril, criando urgência artificial de fechamento no Q1. A Estante Mágica não possui mecanismo equi...",
+      "aprendizados_ids": [
+        "insight135",
+        "insight137",
+        "insight138",
+        "insight139",
+        "insight140",
+        "insight141",
+        "insight142",
+        "insight143",
+        "insight144",
+        "insight128",
+        "insight086",
+        "insight091",
+        "insight093",
+        "insight094",
+        "insight095",
+        "insight077",
+        "insight078",
+        "insight080",
+        "insight071",
+        "insight072",
+        "insight070",
+        "insight068",
+        "insight067",
+        "insight053",
+        "insight061",
+        "insight050",
+        "insight042",
+        "insight044",
+        "insight052",
+        "insight025",
+        "insight027",
+        "insight028",
+        "insight029",
+        "insight031",
+        "insight032",
+        "insight035",
+        "insight036",
+        "insight037",
+        "insight002",
+        "insight006",
+        "insight011",
+        "insight021",
+        "insight017"
+      ],
+      "alertas_ids": [
+        "alerta069",
+        "alerta070",
+        "alerta071",
+        "alerta058",
+        "alerta042",
+        "alerta037",
+        "alerta025",
+        "alerta021"
+      ],
+      "aprendizados_chave": [
+        "Em Retração, o RR/SDR mensal (0,42/0,64 = 65%) está significativamente abaixo do semanal percentual aparente, mas a taxa de fechadas/realizadas mensal (50%/62% = 81%) já indica...",
+        "Concorrente com programa socioemocional já implantado em uma escola (LIV) tem vantagem estrutural de cross-sell para o projeto de livro: usa a base de confiança do programa exis...",
+        "Atendimento inicial automatizado (robô que agenda reunião sem consentimento) é percebido negativamente pelas escolas mesmo quando o tempo de resposta é rápido (15 min). Velocida..."
+      ],
+      "riscos_abertos": [
+        "A reunião de cliente oculto tomou decisão explícita de que é imprescindível detalhar os itens do kit da Estante Mágica para as escolas, tal como a Ciranda faz. Não há tarefa abe...",
+        "A Superautor opera um cashback de 4% a 10% pago apenas sobre compras até 30 de abril, criando urgência artificial de fechamento no Q1. A Estante Mágica não possui mecanismo equi..."
+      ],
+      "contagem_aprendizados": 43,
+      "contagem_alertas_abertos": 8,
+      "ultima_atualizacao": "2026-03-18"
+    },
+    {
       "tema": "renovacao",
       "titulo": "Renovacao",
-      "resumo_executivo": "Aprendizados-chave: Concorrente com programa socioemocional já implantado em uma escola (LIV) tem vantagem estrutural de cross-sell para o projeto de livro: usa a base de confiança do programa exis... | HT PÚB Renovação exibe colapso semanal recorrente de realizadas apesar de meta YTD de receita em verde: quando o volume de reuniões cai a zero em uma semana, a altíssima taxa de... Riscos abertos: HT PÚB registra 0 reuniões realizadas, 0 fechadas e RR/SDR 0 nesta semana — apesar de meta YTD de receita em 355% (verde). O zero semanal não é compensado pelo histórico positiv... | A renovação pública está com zero reuniões realizadas na semana, agravada pela ausência de um colaborador não nomeado. Este problema é recorrente (alerta057 e alerta061 document...",
+      "resumo_executivo": "Aprendizados-chave: Concorrente com programa socioemocional já implantado em uma escola (LIV) tem vantagem estrutural de cross-sell para o projeto de livro: usa a base de confiança do programa exis... | A LIV oferece formação de professores e apresentação para famílias como padrão — sem esperar que a escola solicite. Esse comportamento proativo transforma o produto em serviço g... Riscos abertos: HT PÚB registra 0 reuniões realizadas, 0 fechadas e RR/SDR 0 nesta semana — apesar de meta YTD de receita em 355% (verde). O zero semanal não é compensado pelo histórico positiv... | A renovação pública está com zero reuniões realizadas na semana, agravada pela ausência de um colaborador não nomeado. Este problema é recorrente (alerta057 e alerta061 document...",
       "aprendizados_ids": [
         "insight137",
+        "insight143",
         "insight126",
         "insight127",
         "insight129",
@@ -355,14 +430,14 @@ window.WATCHDOG_INTEL = {
       ],
       "aprendizados_chave": [
         "Concorrente com programa socioemocional já implantado em uma escola (LIV) tem vantagem estrutural de cross-sell para o projeto de livro: usa a base de confiança do programa exis...",
-        "HT PÚB Renovação exibe colapso semanal recorrente de realizadas apesar de meta YTD de receita em verde: quando o volume de reuniões cai a zero em uma semana, a altíssima taxa de...",
-        "LT PART dobrou o número de convertidas entre a última daily registrada (7-8) e hoje (16/30 = 53%), mas a receita avançou proporcionalmente menos: de ~R$24k para R$42k (43% da me..."
+        "A LIV oferece formação de professores e apresentação para famílias como padrão — sem esperar que a escola solicite. Esse comportamento proativo transforma o produto em serviço g...",
+        "HT PÚB Renovação exibe colapso semanal recorrente de realizadas apesar de meta YTD de receita em verde: quando o volume de reuniões cai a zero em uma semana, a altíssima taxa de..."
       ],
       "riscos_abertos": [
         "HT PÚB registra 0 reuniões realizadas, 0 fechadas e RR/SDR 0 nesta semana — apesar de meta YTD de receita em 355% (verde). O zero semanal não é compensado pelo histórico positiv...",
         "A renovação pública está com zero reuniões realizadas na semana, agravada pela ausência de um colaborador não nomeado. Este problema é recorrente (alerta057 e alerta061 document..."
       ],
-      "contagem_aprendizados": 33,
+      "contagem_aprendizados": 34,
       "contagem_alertas_abertos": 8,
       "ultima_atualizacao": "2026-03-18"
     },
@@ -421,123 +496,53 @@ window.WATCHDOG_INTEL = {
       "ultima_atualizacao": "2026-03-13"
     },
     {
-      "tema": "concorrencia",
-      "titulo": "Concorrencia",
-      "resumo_executivo": "Aprendizados-chave: Em Retração, o RR/SDR mensal (0,42/0,64 = 65%) está significativamente abaixo do semanal percentual aparente, mas a taxa de fechadas/realizadas mensal (50%/62% = 81%) já indica... | Concorrente com programa socioemocional já implantado em uma escola (LIV) tem vantagem estrutural de cross-sell para o projeto de livro: usa a base de confiança do programa exis... Riscos abertos: Concorrência mensal: 810/2.963 alunos (55% YTD). O alerta042 registrava paradoxo RR/SDR saudável com alunos zerados na semana. Hoje a semana tem RR/SDR em 189% mas meta de aluno... | Concorrencia: RR/SDR 102% mas 0% de meta de alunos na semana (0/721). Meta mensal em 27% (216/2.963). Paradoxo indica gargalo na conversao RR->alunos, nao no volume de reunioes.",
+      "tema": "funil",
+      "titulo": "Funil",
+      "resumo_executivo": "Aprendizados-chave: Meta de Marketing em LT PART (R$26.482 / R$98.649 = 26% da meta de receita mensal) está sistematicamente descolada das convertidas (9/30 = 30%). Isso indica que as escolas ativa... | Em Retração, o RR/SDR mensal (0,42/0,64 = 65%) está significativamente abaixo do semanal percentual aparente, mas a taxa de fechadas/realizadas mensal (50%/62% = 81%) já indica... Riscos abertos: A Superautor opera um cashback de 4% a 10% pago apenas sobre compras até 30 de abril, criando urgência artificial de fechamento no Q1. A Estante Mágica não possui mecanismo equi... | HT PÚB registra 0 reuniões realizadas, 0 fechadas e RR/SDR 0 nesta semana — apesar de meta YTD de receita em 355% (verde). O zero semanal não é compensado pelo histórico positiv...",
       "aprendizados_ids": [
+        "insight134",
         "insight135",
-        "insight137",
-        "insight138",
-        "insight139",
+        "insight136",
+        "insight126",
         "insight128",
-        "insight086",
-        "insight091",
-        "insight093",
-        "insight094",
-        "insight095",
-        "insight077",
-        "insight078",
-        "insight080",
-        "insight071",
-        "insight072",
-        "insight070",
-        "insight068",
-        "insight067",
-        "insight053",
-        "insight061",
-        "insight050",
-        "insight042",
-        "insight044",
-        "insight052",
-        "insight025",
-        "insight027",
-        "insight028",
-        "insight029",
-        "insight031",
-        "insight032",
-        "insight035",
-        "insight036",
-        "insight037",
-        "insight002",
-        "insight006",
-        "insight011",
-        "insight021",
-        "insight017"
-      ],
-      "alertas_ids": [
-        "alerta058",
-        "alerta042",
-        "alerta037",
-        "alerta025",
-        "alerta021"
-      ],
-      "aprendizados_chave": [
-        "Em Retração, o RR/SDR mensal (0,42/0,64 = 65%) está significativamente abaixo do semanal percentual aparente, mas a taxa de fechadas/realizadas mensal (50%/62% = 81%) já indica...",
-        "Concorrente com programa socioemocional já implantado em uma escola (LIV) tem vantagem estrutural de cross-sell para o projeto de livro: usa a base de confiança do programa exis...",
-        "Atendimento inicial automatizado (robô que agenda reunião sem consentimento) é percebido negativamente pelas escolas mesmo quando o tempo de resposta é rápido (15 min). Velocida..."
-      ],
-      "riscos_abertos": [
-        "Concorrência mensal: 810/2.963 alunos (55% YTD). O alerta042 registrava paradoxo RR/SDR saudável com alunos zerados na semana. Hoje a semana tem RR/SDR em 189% mas meta de aluno...",
-        "Concorrencia: RR/SDR 102% mas 0% de meta de alunos na semana (0/721). Meta mensal em 27% (216/2.963). Paradoxo indica gargalo na conversao RR->alunos, nao no volume de reunioes."
-      ],
-      "contagem_aprendizados": 38,
-      "contagem_alertas_abertos": 5,
-      "ultima_atualizacao": "2026-03-18"
-    },
-    {
-      "tema": "campanha",
-      "titulo": "Campanhas",
-      "resumo_executivo": "Aprendizados-chave: Programas de cashback com prazo curto (Supercash da Superautor: cashback pago apenas sobre compras até 30 de abril) são mecanismos eficazes de antecipação de compra — criam urgê... | LT PART dobrou o número de convertidas entre a última daily registrada (7-8) e hoje (16/30 = 53%), mas a receita avançou proporcionalmente menos: de ~R$24k para R$42k (43% da me... Riscos abertos: O disparo de vídeo para as 2.800 escolas não-convertidas (segmentadas em lotes) foi adiado para a semana de 23/03 (seg/ter/qua), conforme sugestão de Pedro. Com março encerrando... | Numero utilizado no teste de ligacoes WA com 30 escolas sofreu bloqueio na Meta, possivelmente por denuncia. Nao esta claro se e o numero principal ou temporario. Se for o princ...",
-      "aprendizados_ids": [
-        "insight139",
-        "insight127",
+        "insight129",
+        "insight130",
         "insight131",
-        "insight133",
-        "insight117",
+        "insight132",
         "insight118",
+        "insight119",
         "insight120",
         "insight101",
-        "insight103",
-        "insight106",
-        "insight108",
-        "insight109",
-        "insight110",
-        "insight087",
-        "insight093",
-        "insight094",
-        "insight100",
-        "insight074",
-        "insight075",
-        "insight076",
-        "insight080",
-        "insight071",
-        "insight030",
-        "insight040",
-        "insight041",
-        "insight003",
-        "insight005",
-        "insight009",
-        "insight015",
+        "insight104",
+        "insight085",
+        "insight091",
+        "insight077",
+        "insight078",
+        "insight048",
+        "insight054",
+        "insight027",
+        "insight033",
         "insight018"
       ],
       "alertas_ids": [
-        "alerta062",
-        "alerta039",
-        "alerta036",
-        "alerta017",
-        "alerta007"
+        "alerta070",
+        "alerta057",
+        "alerta061",
+        "alerta045",
+        "alerta032",
+        "alerta006"
       ],
       "aprendizados_chave": [
-        "Programas de cashback com prazo curto (Supercash da Superautor: cashback pago apenas sobre compras até 30 de abril) são mecanismos eficazes de antecipação de compra — criam urgê...",
-        "LT PART dobrou o número de convertidas entre a última daily registrada (7-8) e hoje (16/30 = 53%), mas a receita avançou proporcionalmente menos: de ~R$24k para R$42k (43% da me...",
-        "Disparo de vídeo para LT Particular gerou aumento de levantadas (9→13, +44%) no mesmo dia, mas não se converteu em aumento de reuniões realizadas em HT Particular no dia seguint..."
+        "Meta de Marketing em LT PART (R$26.482 / R$98.649 = 26% da meta de receita mensal) está sistematicamente descolada das convertidas (9/30 = 30%). Isso indica que as escolas ativa...",
+        "Em Retração, o RR/SDR mensal (0,42/0,64 = 65%) está significativamente abaixo do semanal percentual aparente, mas a taxa de fechadas/realizadas mensal (50%/62% = 81%) já indica...",
+        "Novas (frente de escolas novas) apresenta RR/SDR/Rampando de 0,06/0,11 (55% da meta) na semana, enquanto o RR/SDR geral da frente está em 90% (semana) e 108% (mês). Isso indica..."
       ],
       "riscos_abertos": [
-        "O disparo de vídeo para as 2.800 escolas não-convertidas (segmentadas em lotes) foi adiado para a semana de 23/03 (seg/ter/qua), conforme sugestão de Pedro. Com março encerrando...",
-        "Numero utilizado no teste de ligacoes WA com 30 escolas sofreu bloqueio na Meta, possivelmente por denuncia. Nao esta claro se e o numero principal ou temporario. Se for o princ..."
+        "A Superautor opera um cashback de 4% a 10% pago apenas sobre compras até 30 de abril, criando urgência artificial de fechamento no Q1. A Estante Mágica não possui mecanismo equi...",
+        "HT PÚB registra 0 reuniões realizadas, 0 fechadas e RR/SDR 0 nesta semana — apesar de meta YTD de receita em 355% (verde). O zero semanal não é compensado pelo histórico positiv..."
       ],
-      "contagem_aprendizados": 30,
-      "contagem_alertas_abertos": 5,
+      "contagem_aprendizados": 23,
+      "contagem_alertas_abertos": 6,
       "ultima_atualizacao": "2026-03-18"
     }
   ],
@@ -634,6 +639,82 @@ window.WATCHDOG_INTEL = {
         "closer"
       ],
       "acao_sugerida": "Sempre avaliar a possibilidade de criar mecanismo de urgência temporal (benefício com prazo) nas campanhas de fechamento de março/abril — o modelo de cashback da Superautor é replicável em formato de benefício incremental por data de assinatura sem alterar o preço base.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight140",
+      "data": "2026-03-18",
+      "fonte": "Concorrência - Cliente Oculto  - 2026_03_17 13_59 GMT-03_00 - Anotações do Gemini.pdf",
+      "categoria": "produto",
+      "insight": "A oferta explícita de caligrafia da criança no livro — como opção padrão e não como exceção — reduz a percepção de trabalho da escola no processo. Concorrentes (Ciranda) que oferecem isso abertamente criam vantagem de adoção mesmo sem desconto: a escola percebe menos fricção operacional do que com digitação obrigatória. Flexibilidade de formato de página (pauta, pauta+ilustração, só ilustração por turma) é percebida como personalização, não como complexidade.",
+      "evidencia": "Ciranda oferece abertamente caligrafia da criança no livro e customização por turma (folhas pautadas, pautadas+ilustração ou só ilustração); o documento registra isso como 'os dois fatores mais chamativos da concorrência' ao lado da flexibilidade de formato (00:28:29, 00:41:52, 00:53:53).",
+      "aplicavel_a": [
+        "discurso comercial SDR/closer",
+        "material de vendas",
+        "produto"
+      ],
+      "acao_sugerida": "Sempre incluir caligrafia da criança e flexibilidade de layout de página como opção explícita no discurso comercial e na apresentação da proposta — nunca deixar a escola descobrir isso só se perguntar.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight141",
+      "data": "2026-03-18",
+      "fonte": "Concorrência - Cliente Oculto  - 2026_03_17 13_59 GMT-03_00 - Anotações do Gemini.pdf",
+      "categoria": "campanha",
+      "insight": "Transparência proativa no detalhamento do kit físico — antes que a escola pergunte — gera pertencimento e curiosidade nas gestoras, funcionando como argumento de fechamento. Concorrentes que listam itens do kit (faixas decorativas, pôsteres, suportes ecológicos, identificadores de mesa, convites de autógrafo) têm vantagem narrativa sobre os que apenas mencionam 'kit' sem detalhar. A omissão de conteúdo do kit é lida como ausência de benefício, não como modéstia.",
+      "evidencia": "Ciranda foi a única concorrente a detalhar o conteúdo do kit; o documento registra isso como gatilho de pertencimento nas gestoras e a reunião tomou decisão explícita de que é 'imprescindível' a Estante Mágica fazer o mesmo (00:34:33, 00:43:54, 00:54:59).",
+      "aplicavel_a": [
+        "apresentação comercial",
+        "material de marketing",
+        "discurso SDR/closer",
+        "LT PART",
+        "HT PART"
+      ],
+      "acao_sugerida": "Sempre detalhar item a item o conteúdo do kit no deck comercial e no discurso do SDR/closer — nunca usar apenas o termo genérico 'kit' sem especificar o que contém.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight142",
+      "data": "2026-03-18",
+      "fonte": "Concorrência - Cliente Oculto  - 2026_03_17 13_59 GMT-03_00 - Anotações do Gemini.pdf",
+      "categoria": "produto",
+      "insight": "Logística própria (parque gráfico + operação de Correios) é o que permite à Ciranda usar material físico como diferencial competitivo agressivo: envio de exemplar do livro antes do fechamento, kit gratuito com mínimo de 60 alunos, envio de originais pelos Correios a custo de R$20 para a escola. Empresas sem parque gráfico próprio não conseguem replicar essa tática no mesmo custo — mas podem replicar o benefício percebido com formatos alternativos (ex: mockup digital personalizado, envio de amostra física do kit em vez do livro completo).",
+      "evidencia": "Ciranda originou-se da School Picture (empresa de lembranças escolares e papelaria) e possui parque gráfico e logística próprios, o que explica o envio de exemplar do livro mesmo sem fechamento (00:33:25, 00:34:33, 00:39:56).",
+      "aplicavel_a": [
+        "produto",
+        "estratégia competitiva",
+        "discurso comercial"
+      ],
+      "acao_sugerida": "Sempre que a escola mencionar material físico da concorrência, o closer deve redirecionar para os diferenciais que a Estante Mágica pode entregar sem parque gráfico próprio — Magic Land, identidade visual infantilizada, discurso pedagógico — e nunca tentar competir diretamente em volume de brindes físicos sem análise de custo.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight143",
+      "data": "2026-03-18",
+      "fonte": "Concorrência - Cliente Oculto  - 2026_03_17 13_59 GMT-03_00 - Anotações do Gemini.pdf",
+      "categoria": "produto",
+      "insight": "A LIV oferece formação de professores e apresentação para famílias como padrão — sem esperar que a escola solicite. Esse comportamento proativo transforma o produto em serviço gerenciado, reduzindo a percepção de trabalho da escola e criando vínculo antes do fechamento. Concorrentes que entregam mais do que o contratado, antes que o cliente peça, têm vantagem de retenção e upsell estrutural.",
+      "evidencia": "LIV oferece abertamente formação de professores e apresentação para famílias sem que a escola solicite (01:03:44). O documento registra isso como diferencial notável da análise da LIV.",
+      "aplicavel_a": [
+        "renovação",
+        "proposta de valor",
+        "discurso comercial HT"
+      ],
+      "acao_sugerida": "Sempre incluir na proposta comercial de HT os serviços de suporte proativo (formação, apresentação para famílias, acompanhamento do projeto) como itens listados, não como condicionais — reforça valor antes da objeção de preço.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight144",
+      "data": "2026-03-18",
+      "fonte": "Concorrência - Cliente Oculto  - 2026_03_17 13_59 GMT-03_00 - Anotações do Gemini.pdf",
+      "categoria": "operacao",
+      "insight": "Operações de inteligência competitiva via cliente oculto têm vida útil limitada: concorrentes com equipes atentas identificam perfis por padrão de perguntas, volume atípico de contatos ou histórico de interações suspeitas no LinkedIn. A ausência de protocolo de segurança operacional (identidades fictícias, dispositivos separados, variação de cenários) torna o método não replicável sistematicamente — e quando o perfil é queimado, o concorrente fica em alerta para os próximos ciclos.",
+      "evidencia": "A Ciranda bloqueou uma das participantes no WhatsApp e enviou convite de conexão no LinkedIn, indicando identificação do perfil (00:51:26). O plano de usar nomes e perfis diferentes ainda não tem protocolo documentado.",
+      "aplicavel_a": [
+        "operação de inteligência competitiva",
+        "cliente oculto"
+      ],
+      "acao_sugerida": "Antes de cada ciclo de cliente oculto, documentar um protocolo de segurança operacional completo: identidades fictícias distintas por concorrente, dispositivos/números separados dos operacionais, variação de cenários entre ciclos, e intervalo mínimo entre estudos do mesmo concorrente.",
       "status": "ativo"
     },
     {
@@ -818,80 +899,6 @@ window.WATCHDOG_INTEL = {
       "contexto": "Analise planilha Vit — Disparos e Controles de Marketing Jan-Mar/2026",
       "fonte": "planilha_disparos_vit_jan_mar_2026",
       "ultima_atualizacao": "2026-03-13T08:53:35.944357"
-    },
-    {
-      "id": "insight116",
-      "titulo": "Via herois na planilha de controles = total mensal de levantadas de todos os canais (WA disparos + CS form + Instagram + email + mala direta)",
-      "tema": "campanha",
-      "data": "2026-03-13",
-      "status": "ativo",
-      "evidencia": "Marco/2026 (ate 12/03): 103 total incluindo WA disparos (89 calculados) + canais organicos (~14). Fevereiro/2026: 257 total dividido em Instagram (31), email (18) e herois (208 = WA disparos + CS form + mala direta combinados). Corrigido em 13/03 via feedback da Vit: '103 e o total das levantadas do mes, incluindo disparos. Ta incluso os disparos que estamos fazendo, levantadas que vem por herois, mala direta, email, instagram, etc.' Insight anterior (errado) dizia que herois = canal gratuito separado dominando 81% das levantadas. Incorreto.",
-      "acao_sugerida": "Ao ler a planilha de controles da Vit, tratar o campo 'Via herois' como totalizador mensal — nao como canal isolado. Os WA disparos sao rastreados individualmente nas linhas acima; o totalizador agrega tudo. Para calcular levantadas organicas (nao-disparo), subtrair o total dos disparos WA do total mensal.",
-      "contexto": "Resposta da Vit ao debriefing da planilha de disparos Mar/2026",
-      "fonte": "feedback_vit_13_03_2026",
-      "ultima_atualizacao": "2026-03-13T09:00:18.964513"
-    },
-    {
-      "id": "insight117",
-      "titulo": "MEL (Mes da Estrela Literaria) = campanha 2024 que funcionou mas foi descontinuada por limitacao operacional, nao por resultado",
-      "tema": "campanha",
-      "data": "2026-03-13",
-      "status": "ativo",
-      "evidencia": "Confirmado por Pedro em 13/03/2026. MEL = Mes da Estrela Literaria. Campanha com serie de acoes e beneficios para a escola ao longo de um mes. Gerou levantadas em 2024. Descontinuada porque a execucao exigia capacidade interna que o time nao tinha. Hipotese (Lili, 04/mar/26): queda de levantadas 2024->2025 correlacionada com fim do MEL. O argumento central era a escola como protagonista literaria com beneficios multiplos e destaque. Insight087 corrigido com essa definicao.",
-      "acao_sugerida": "Extrair o ARGUMENTO do MEL (escola protagonista, reconhecimento publico, beneficios multiplos, mes dedicado) e adaptar para o copy dos e-mails do Cerco Magico 2026 — especialmente AA e Retracao — sem precisar da estrutura operacional completa. O argumento 'sua escola vira uma escola de autores por um mes inteiro' pode funcionar como gancho mesmo que o programa MEL nao exista mais com esse nome. Karina e Lili validar qual elemento do MEL pode ser reposicionado no copy atual.",
-      "contexto": "Feedback Pedro em sessao Claudete 13/03/2026",
-      "fonte": "feedback_pedro_13_03_2026"
-    },
-    {
-      "id": "insight118",
-      "data": "2026-03-13",
-      "fonte": "Nath 13.03.26 Meta Aquisição 26 _ Daily comercial _ Ações da semana.pdf",
-      "categoria": "funil",
-      "gatilho": "LT PART",
-      "insight": "LT PART acumula evidência de que o gargalo não é ausência de disparo nem de base cadastrada — é conversão pós-disparo. Com 272 alunos cadastrados e R$731 de custo de disparo já executados, a frente chegou a 8 convertidas em 30 (23% de meta de convertidas) e R$24k de R$98k em receita. O problema não é operacional de execução de campanha; é estrutural de proposta de valor ou timing de abordagem para este segmento.",
-      "evidencia": "Meta Marketing LT PART: R$24.000/R$98.649 (24%). Convertidas: 8/30 (23%). Alunos cadastrados: 272. Custo disparo: R$731,16. Dados confirmados em documento de 13/03 após alerta045 que registrou o mesmo patamar na semana anterior — sem recuperação.",
-      "confianca": "alta",
-      "aplicavel_a": [
-        "LT PART",
-        "renovação",
-        "campanha de baixo toque"
-      ],
-      "acao_sugerida": "Antes de escalar volume de disparo LT PART, auditar proposta de valor e timing: o que está sendo oferecido, em que momento do ciclo e com qual argumento. Volume sem ajuste de mensagem apenas aumenta custo sem mover conversão.",
-      "status": "ativo"
-    },
-    {
-      "id": "insight119",
-      "data": "2026-03-13",
-      "fonte": "Nath 13.03.26 Meta Aquisição 26 _ Daily comercial _ Ações da semana.pdf",
-      "categoria": "funil",
-      "gatilho": "Retração RR/SDR",
-      "insight": "Retração apresenta desacoplamento entre meta de alunos (verde, 106% YTD) e RR/SDR (62% da meta). Isso indica que quando as reuniões acontecem, os alunos chegam em volume acima do esperado — mas o volume de reuniões em si está comprimido. O gargalo de Retração não é conversão por reunião, é abastecimento de topo de funil (reuniões realizadas).",
-      "evidencia": "Retração mês: Meta alunos 1.888/4.355 (106% YTD verde). RR/SDR: 0,40/0,64 (62% da meta). Realizadas: 17/56 (74% YTD). A taxa de fechadas/realizadas de 47%/62% (76% meta) indica que quando a reunião ocorre, o fechamento é razoável — o problema é chegar a 56 reuniões.",
-      "confianca": "alta",
-      "aplicavel_a": [
-        "Retração",
-        "abastecimento de funil",
-        "SDR"
-      ],
-      "acao_sugerida": "Em Retração, priorizar ações que aumentem volume de reuniões realizadas (abastecimento SDR, cadência de follow-up) antes de investir em melhoria de taxa de fechamento — a conversão por reunião já está razoável.",
-      "status": "ativo"
-    },
-    {
-      "id": "insight120",
-      "data": "2026-03-13",
-      "fonte": "Nath 13.03.26 Meta Aquisição 26 _ Daily comercial _ Ações da semana.pdf",
-      "categoria": "funil",
-      "gatilho": "LT Pública",
-      "insight": "LT Pública mostra potencial de receita (R$72.198 potencial, 25 convertidas, 1.482 alunos cadastrados) desproporcional ao custo de disparo (R$283,50). O custo por aluno cadastrado de LT Pública é significativamente inferior ao de LT PART (R$283/1.482 = R$0,19/aluno vs R$731/272 = R$2,69/aluno). Quando HT PÚB e LT Pública operam em conjunto no segmento público, a eficiência de custo de campanha é uma ordem de grandeza maior que no segmento particular.",
-      "evidencia": "LT Pública: Potencial R$72.198,75. Convertidas: 25. Alunos cadastrados: 1.482. Custo disparo: R$283,50. HT Pública: Potencial R$54.608,51. Convertidas: 5. Alunos cadastrados: 427. Custo disparo: R$262,44.",
-      "confianca": "media",
-      "aplicavel_a": [
-        "LT Pública",
-        "HT Pública",
-        "alocação de budget de campanha"
-      ],
-      "acao_sugerida": "Ao planejar alocação de budget de campanha de renovação, priorizar segmento público por custo por aluno cadastrado significativamente inferior. LT Pública especificamente deve receber escala antes de LT PART quando há restrição de budget.",
-      "status": "ativo"
     }
   ],
   "criticas_ativas": [
@@ -938,6 +945,50 @@ window.WATCHDOG_INTEL = {
       "dri": "Ana Paula Pimentel",
       "status": "aberto",
       "nota_status": ""
+    },
+    {
+      "id": "alerta069",
+      "data": "2026-03-18",
+      "titulo": "Kit da Estante Mágica não é detalhado no discurso comercial — lacuna imediata vs Ciranda",
+      "critica": "A reunião de cliente oculto tomou decisão explícita de que é imprescindível detalhar os itens do kit da Estante Mágica para as escolas, tal como a Ciranda faz. Não há tarefa aberta cobrindo a atualização do deck comercial ou do script dos SDRs/closers com o conteúdo detalhado do kit. Com março em curso e a frente de Concorrência com gargalo em conversão RR→alunos (alerta058, insight135), a ausência desse argumento no discurso ativo é uma perda de conversão que pode ser corrigida esta semana.",
+      "acao_sugerida": "Ana (Pimentel) mapear os itens do kit atual da Estante Mágica e passar para Kaká incluir no deck e no script comercial até 20/03. Pedro validar antes de liberar para o time.",
+      "prioridade": "alta",
+      "dri": "Ana Paula Pimentel",
+      "status": "aberto",
+      "nota_status": ""
+    },
+    {
+      "id": "alerta070",
+      "data": "2026-03-18",
+      "titulo": "Supercash da Superautor cria janela de urgência até 30/abr que a Estante Mágica não contra-ataca",
+      "critica": "A Superautor opera um cashback de 4% a 10% pago apenas sobre compras até 30 de abril, criando urgência artificial de fechamento no Q1. A Estante Mágica não possui mecanismo equivalente de antecipação com prazo duro. Com a frente de Concorrência em 810/2.963 alunos (55% YTD, alerta058) e Retração com topo de funil insuficiente (insight135), a ausência de qualquer alavanca de urgência temporal deixa o comercial dependente exclusivamente de qualidade de discurso para fechar — enquanto a Superautor usa urgência financeira estruturada. A janela do Supercash encerra em 30/abr, o que significa que as escolas em negociação com ambas já estão recebendo esse argumento agora.",
+      "acao_sugerida": "Bebel e Pedro avaliar viabilidade de criar mecanismo de incentivo temporário para fechamentos até 30/abr (cashback, bonificação em kit, crédito em alunos extras) e definir se há proposta a ser levada ao comercial na semana de 23/03.",
+      "prioridade": "alta",
+      "dri": "Bebel Bertuccelli",
+      "status": "aberto",
+      "nota_status": ""
+    },
+    {
+      "id": "alerta071",
+      "data": "2026-03-18",
+      "titulo": "Caligrafia da criança não está no discurso comercial padrão — concorrente usa como diferencial aberto",
+      "critica": "A Ciranda oferece caligrafia da criança no livro como opção explícita e padrão no discurso, sendo percebida pelas escolas como menos trabalhosa que a digitação. O documento registra isso como um dos dois fatores mais chamativos da concorrência. Não há evidência de que o discurso comercial da Estante Mágica menciona essa funcionalidade proativamente. Se a Estante Mágica já oferece ou pode oferecer caligrafia, a ausência disso no script é perda direta de argumento competitivo; se não oferece, é gap de produto a ser avaliado.",
+      "acao_sugerida": "Ana (Pimentel) verificar com o time de produto/operações se caligrafia da criança já é opção disponível na Estante Mágica e qual o processo atual. Resultado alimenta decisão: (a) incluir no script imediatamente se já disponível, ou (b) abrir demanda de produto se não disponível. Prazo: 20/03.",
+      "prioridade": "alta",
+      "dri": "Ana Paula Pimentel",
+      "status": "aberto",
+      "nota_status": ""
+    },
+    {
+      "id": "alerta072",
+      "data": "2026-03-18",
+      "titulo": "Protocolo de cliente oculto não existe — Ciranda já identificou perfil e próximo ciclo está comprometido",
+      "critica": "A Ciranda bloqueou participante no WhatsApp e enviou convite de LinkedIn, confirmando identificação do perfil. O plano de usar nomes e perfis diferentes existe na intenção mas não tem protocolo documentado (alerta068 abre o problema; este alerta cobre a ausência de protocolo ativo para o próximo ciclo já planejado com LIV em escola de 400 alunos, conforme 00:58:06 do documento). O ciclo com LIV está agendado sem protocolo de segurança operacional definido.",
+      "acao_sugerida": "Lili documentar protocolo de cliente oculto (identidades fictícias, dispositivos separados, variação de cenário, intervalo entre ciclos) antes do próximo estudo com LIV. Sem protocolo aprovado, o ciclo com LIV não deve ser iniciado.",
+      "prioridade": "media",
+      "dri": "Lili",
+      "status": "aberto",
+      "nota_status": "alerta068 cobre a identificação do perfil pela Ciranda; este cobre o risco estrutural do próximo ciclo (LIV) sem protocolo."
     },
     {
       "id": "alerta056",
@@ -1476,13 +1527,13 @@ window.WATCHDOG_INTEL = {
       "base",
       "rr_sdr",
       "geral",
+      "concorrencia",
       "renovacao",
       "copy",
-      "concorrencia",
-      "campanha",
       "funil",
-      "outbound",
+      "campanha",
       "retracao",
+      "outbound",
       "whatsapp",
       "anos_anteriores",
       "novas",
@@ -1495,13 +1546,15 @@ window.WATCHDOG_INTEL = {
       "bolsao_ativacao",
       "copy_e_mensagem",
       "operacoes_comerciais",
+      "lt_part",
       "processo_sdr",
       "performance",
-      "lt_part",
       "segmentacao_de_base",
       "renovacao_lt",
+      "produto",
       "lt_publica",
       "ht_pub",
+      "discurso_comercial",
       "bolsao",
       "base_concorrencia",
       "aa_fechadas",
@@ -1511,8 +1564,8 @@ window.WATCHDOG_INTEL = {
       "modelo_operacional",
       "ht_publica",
       "estrategia_de_disparo_de_video",
+      "estrategia_competitiva",
       "escolas_saturadas",
-      "discurso_comercial",
       "copy_escrita",
       "bolsao_2025",
       "treinamento_de_sdr_closer",
@@ -1524,28 +1577,36 @@ window.WATCHDOG_INTEL = {
       "renovacao_ht_part",
       "qualificacao_de_base",
       "protocolo_de_fechamento",
+      "proposta_de_valor",
       "priorizacao_de_acoes_de_outbound",
       "pitch_closer",
       "operacoes_manuais",
       "operacional",
+      "operacao_de_inteligencia_competitiva",
       "onboarding_de_sdrs",
       "mkt_renovacao",
       "meta",
+      "material_de_vendas",
+      "material_de_marketing",
       "marketing",
       "lt_particular",
       "ht_particular",
+      "ht_part",
       "handoff_mkt_comercial",
       "funil_novas_escolas",
       "forecast_de_fup",
       "ferramenta",
       "estrategia_de_ativacao_de_base",
-      "estrategia_competitiva",
       "escolas_saturadas_alto_valor",
       "escolas_fechadas_nao_convertidas",
+      "discurso_sdr_closer",
+      "discurso_comercial_sdr_closer",
+      "discurso_comercial_ht",
       "copy_whatsapp",
       "copy_e_mail",
       "contabilizacao_semanal",
       "closer",
+      "cliente_oculto",
       "ciclo_de_vendas",
       "canal_whatsapp",
       "campanhas_outbound",
@@ -1556,6 +1617,7 @@ window.WATCHDOG_INTEL = {
       "base_aa",
       "ativacao",
       "atendimento",
+      "apresentacao_comercial",
       "analise_de_performance_de_time",
       "analise_de_bolsao",
       "alocacao_de_sdrs",
@@ -1566,6 +1628,6 @@ window.WATCHDOG_INTEL = {
       "abastecimento_de_funil",
       "aa"
     ],
-    "itens_indexados": 201
+    "itens_indexados": 210
   }
 };
