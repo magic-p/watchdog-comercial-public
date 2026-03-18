@@ -273,46 +273,6 @@
     </div>
   </div>
 
-  <!-- UPLOAD — ENVIAR PARA ANÁLISE -->
-  <div class="reveal" style="animation-delay:.42s">
-    <div class="upload-wrap" id="uploadWrap">
-      <div class="upload-hd">
-        <span class="card-hd-label">
-          <span class="upload-hd-icon">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-          </span>
-          Enviar para Claudete
-        </span>
-        <span class="count-badge" id="uploadQueueBadge" style="display:none"></span>
-      </div>
-      <div class="upload-drop" id="uploadDrop" role="button" tabindex="0" aria-label="Área de upload de arquivos">
-        <div class="upload-drop-inner" id="uploadDropInner">
-          <svg class="upload-drop-icon-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="12" y2="12"/><line x1="15" y1="15" x2="12" y2="12"/></svg>
-          <div class="upload-drop-text">Arraste arquivos aqui ou <label class="upload-drop-link" for="uploadFileInput">selecione</label></div>
-          <div class="upload-drop-hint">PDF, XLSX ou CSV &middot; at&eacute; 1 MB por arquivo &middot; v&aacute;rios de uma vez</div>
-          <input type="file" id="uploadFileInput" accept=".pdf,.xlsx,.xls,.csv" multiple hidden />
-        </div>
-      </div>
-      <div class="upload-compose" id="uploadCompose" style="display:none">
-        <div class="upload-staged-list" id="uploadStagedList"></div>
-        <textarea
-          class="upload-context-field"
-          id="uploadContextField"
-          rows="2"
-          placeholder="D&ecirc; contexto para a Claudete sobre o que est&aacute; enviando... (opcional)"
-          maxlength="500"
-        ></textarea>
-        <div class="upload-compose-actions">
-          <button class="upload-btn-cancel" id="uploadCancelBtn" type="button">Cancelar</button>
-          <button class="upload-btn-send" id="uploadSendBtn" type="button">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            Enviar para Claudete
-          </button>
-        </div>
-      </div>
-      <div class="upload-history-wrap" id="uploadHistoryWrap"></div>
-    </div>
-  </div>
 
 </main>
 
@@ -362,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260318121422"></script>
-<script src="saidas/todos_ssot.js?v=20260318121422"></script>
-<script src="saidas/data_health.js?v=20260318121422"></script>
-<script src="saidas/campanhas_ssot.js?v=20260318121422"></script>
-<script src="saidas/intel_ssot.js?v=20260318121422"></script>
+<script src="saidas/booked_meta.js?v=20260318123315"></script>
+<script src="saidas/todos_ssot.js?v=20260318123315"></script>
+<script src="saidas/data_health.js?v=20260318123315"></script>
+<script src="saidas/campanhas_ssot.js?v=20260318123315"></script>
+<script src="saidas/intel_ssot.js?v=20260318123315"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -3198,7 +3158,18 @@ document.addEventListener('DOMContentLoaded', _initUpload);
   <div class="chat-pills" id="chatPills"></div>
 
   <div class="chat-footer">
+    <div class="chat-attach-preview" id="chatAttachPreview">
+      <span class="chat-attach-chip" id="chatAttachChip">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+        <span id="chatAttachName"></span>
+        <button class="chat-attach-remove" id="chatAttachRemove" title="Remover arquivo">×</button>
+      </span>
+    </div>
     <div class="chat-input-row">
+      <button class="chat-attach-btn" id="chatAttachBtn" title="Anexar arquivo (PDF, XLSX, CSV, TXT · até 1 MB)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+      </button>
+      <input type="file" id="chatFileInput" accept=".pdf,.xlsx,.xls,.csv,.txt" hidden />
       <textarea id="chatInput" class="chat-input" rows="1"
         placeholder="Pergunte algo sobre a Estante Mágica…"
         onkeydown="chatInputKeydown(event)"></textarea>
@@ -3224,9 +3195,36 @@ document.addEventListener('DOMContentLoaded', _initUpload);
   });
 
   // ── Input listeners ───────────────────────────────────
-  const inputEl = document.getElementById('chatInput');
-  const sendBtn = document.getElementById('chatSend');
+  const inputEl  = document.getElementById('chatInput');
+  const sendBtn  = document.getElementById('chatSend');
   inputEl.addEventListener('input', () => {
+    sendBtn.disabled = (!inputEl.value.trim() && !_chatAttachFile) || _chatBusy;
+  });
+
+  // ── Attach listeners ──────────────────────────────────
+  let _chatAttachFile = null;  // File | null
+
+  function _chatSetAttach(file) {
+    if (!file) { _chatAttachFile = null; document.getElementById('chatAttachPreview').style.display = ''; return; }
+    const MAX = 1 * 1024 * 1024;
+    if (file.size > MAX) { toast('Arquivo muito grande (máx 1 MB)', 'err'); return; }
+    _chatAttachFile = file;
+    document.getElementById('chatAttachName').textContent = file.name;
+    document.getElementById('chatAttachPreview').style.display = 'flex';
+    sendBtn.disabled = _chatBusy;
+  }
+
+  const attachBtn  = document.getElementById('chatAttachBtn');
+  const fileInput  = document.getElementById('chatFileInput');
+  const attachPrev = document.getElementById('chatAttachPreview');
+  attachPrev.style.display = '';  // hidden by default via CSS
+  attachBtn.addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', () => {
+    if (fileInput.files[0]) _chatSetAttach(fileInput.files[0]);
+    fileInput.value = '';
+  });
+  document.getElementById('chatAttachRemove').addEventListener('click', () => {
+    _chatSetAttach(null);
     sendBtn.disabled = !inputEl.value.trim() || _chatBusy;
   });
 
@@ -3267,31 +3265,50 @@ document.addEventListener('DOMContentLoaded', _initUpload);
   window.sendChatMessage = async function(overrideText) {
     if (_chatBusy) return;
     const text = overrideText || inputEl.value.trim();
-    if (!text) return;
+    if (!text && !_chatAttachFile) return;
 
     if (!_sbSession) {
       toast('Faça login para conversar com a Claudete', 'err');
       return;
     }
 
+    // Captura e limpa estado antes de async
+    const attachFile = _chatAttachFile;
     inputEl.value = '';
+    _chatSetAttach(null);
     sendBtn.disabled = true;
     _chatBusy = true;
 
-    _appendMsg('user', text);
-    _chatHistory.push({ role: 'user', text });
+    const displayText = text || (attachFile ? attachFile.name : '');
+    _appendMsg('user', displayText + (attachFile && text ? ` [📎 ${attachFile.name}]` : attachFile ? ` [📎 ${attachFile.name}]` : ''));
+    _chatHistory.push({ role: 'user', text: displayText });
 
     const typingId = 'typing-' + Date.now();
     _appendMsg('typing', 'Claudete está pensando…', typingId);
 
     try {
+      // Converter arquivo para base64 se houver
+      let fileData = null, fileName = null;
+      if (attachFile) {
+        fileData = await new Promise((res, rej) => {
+          const r = new FileReader();
+          r.onload = () => res(r.result);
+          r.onerror = rej;
+          r.readAsDataURL(attachFile);
+        });
+        fileName = attachFile.name;
+      }
+
+      const body = { message: text || ' ' };
+      if (fileData) { body.file_data = fileData; body.filename = fileName; }
+
       const resp = await fetch(MOTOR_CHAT_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + _sbSession.access_token,
         },
-        body: JSON.stringify({ message: text }),
+        body: JSON.stringify(body),
       });
       const el = document.getElementById(typingId);
       if (el) el.remove();
@@ -3315,7 +3332,7 @@ document.addEventListener('DOMContentLoaded', _initUpload);
     }
 
     _chatBusy = false;
-    sendBtn.disabled = !inputEl.value.trim();
+    sendBtn.disabled = !inputEl.value.trim() && !_chatAttachFile;
   };
 
   // ── Show/hide FAB on auth state ───────────────────────
