@@ -1918,20 +1918,6 @@ window.WATCHDOG_TODOS = [
     "completedAt": "2026-03-10T12:09:00"
   },
   {
-    "id": "t140",
-    "task": "Mimos para bolsão 25",
-    "comment": "Escolas de bolsão 25 que estamos tentando salvar. Comercial mapeou as que vale ação personalizada do Mkt (basicamente, envio de mimo com copy personalizado pra cada caso). https://docs.google.com/spreadsheets/d/1HukZOYj7EEw0F57_yWfS_8k7ush9izHEAmsutQJfDmA/edit?gid=59757343#gid=59757343\n\nTexto legado task: Karina enviar mimos para 37 escolas do Bolsao 25 ate o final da proxima semana — prioridade para envios desta semana (11-13/mar)\n\nAtualizacao legada: Daily 11/03: escopo confirmado 37 escolas, prazo estendido para 20/03.",
-    "owner": "Kaka",
-    "date": "18/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
-    "warn": null,
-    "done": false,
-    "priorityRank": null,
-    "updatedAt": "2026-03-12T00:00:00",
-    "completedAt": null
-  },
-  {
     "id": "t141",
     "task": "Revisão tags patrocínio",
     "comment": "Tags de patrocínio pouco intuitivas. Revisar cálculo com JP e garantir tags ajustadas para conversa com jurídico na 2a que vem.",
