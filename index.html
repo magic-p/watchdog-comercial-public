@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260318214019"></script>
-<script src="saidas/todos_ssot.js?v=20260318214019"></script>
-<script src="saidas/data_health.js?v=20260318214019"></script>
-<script src="saidas/campanhas_ssot.js?v=20260318214019"></script>
-<script src="saidas/intel_ssot.js?v=20260318214019"></script>
+<script src="saidas/booked_meta.js?v=20260318214427"></script>
+<script src="saidas/todos_ssot.js?v=20260318214427"></script>
+<script src="saidas/data_health.js?v=20260318214427"></script>
+<script src="saidas/campanhas_ssot.js?v=20260318214427"></script>
+<script src="saidas/intel_ssot.js?v=20260318214427"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -921,7 +921,10 @@ function normalizeOwnerName(owner) {
   if (!first) return OWNER_FALLBACK;
   const key = ownerKey(first);
   if (key === 'a definir') return OWNER_FALLBACK;
-  return OWNER_CANONICAL[key] || first;
+  if (OWNER_CANONICAL[key]) return OWNER_CANONICAL[key];
+  const firstToken = first.split(' ')[0].trim();
+  const tokenKey = ownerKey(firstToken);
+  return OWNER_CANONICAL[tokenKey] || first;
 }
 
 function ownerLooksMissing(rawOwner) {
@@ -1730,6 +1733,21 @@ function save() {
   if (!HAS_BACKEND_TODOS) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
   }
+}
+
+function applyChatCreatedTasks(createdTasks) {
+  if (!Array.isArray(createdTasks) || !createdTasks.length) return;
+  const map = {};
+  tasks.forEach(t => { map[t.id] = normalizeTask(t); });
+  createdTasks.forEach(raw => {
+    const normalized = normalizeTask(raw || {});
+    if (!normalized.id) return;
+    map[normalized.id] = normalized;
+  });
+  tasks = sanitizeTasksForUi(Object.values(map));
+  enforceWeeklyTop3(tasks);
+  save();
+  renderTasks();
 }
 /*  RENDER  */
 function _sortDateVal(s) {
@@ -3346,6 +3364,9 @@ document.addEventListener('DOMContentLoaded', _initUpload);
       } else {
         const data = await resp.json();
         if (data.ok && data.reply) {
+          if (Array.isArray(data.created_tasks) && data.created_tasks.length) {
+            applyChatCreatedTasks(data.created_tasks);
+          }
           _appendMsg('claudete', data.reply);
           _chatHistory.push({ role: 'claudete', content: data.reply });
           if (_chatHistory.length > 50) _chatHistory = _chatHistory.slice(-50);
