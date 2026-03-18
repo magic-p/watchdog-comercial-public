@@ -4,7 +4,7 @@ window.WATCHDOG_INTEL = {
     "papel": "Chief of Staff & Head of Marketing Analytics",
     "ultima_atualizacao": "2026-03-12T11:39:51.650703"
   },
-  "ultima_atualizacao": "2026-03-18T00:08:35.440196",
+  "ultima_atualizacao": "2026-03-18T20:51:59.156004",
   "arquitetura_memoria": {
     "modo": "camadas",
     "descricao": "Memoria viva enxuta + historico completo + resumos tematicos + indices.",
@@ -21,7 +21,7 @@ window.WATCHDOG_INTEL = {
     "indices": "contexto/intel_indices.json"
   },
   "memoria_viva": {
-    "insights_ativos_total_historico": 141,
+    "insights_ativos_total_historico": 142,
     "insights_expostos_neste_arquivo": 24,
     "alertas_abertos_total_historico": 57,
     "alertas_expostos_neste_arquivo": 57,
@@ -718,6 +718,20 @@ window.WATCHDOG_INTEL = {
       "status": "ativo"
     },
     {
+      "id": "insight145",
+      "data": "2026-03-18",
+      "fonte": "Daily _ Gestão Comercial - 2026_03_18 10_32 GMT-03_00 - Anotações do Gemini.pdf",
+      "categoria": "operacao",
+      "insight": "Sobrecarga do sistema Blip acima de 2.500 disparos/dia causa misrouting de leads (envio para 'heróis' ao invés do time). Limite técnico validado por falha operacional.",
+      "evidencia": "Vitória Riente explicou que o problema com a transferência de leads na Blip foi devido a uma sobrecarga do sistema... ficou estabelecido que o limite ideal de disparos será de 2.000 a 2.500 por dia.",
+      "aplicavel_a": [
+        "Campanhas de Disparo em Massa",
+        "Operação Blip"
+      ],
+      "acao_sugerida": "Nunca exceder 2.500 disparos/dia no Blip sem validação de capacidade técnica prévia.",
+      "status": "ativo"
+    },
+    {
       "id": "insight126",
       "data": "2026-03-17",
       "fonte": "Nath 17.03.26 Meta Aquisição 26 _ Daily comercial _ Ações da semana.pdf",
@@ -887,18 +901,6 @@ window.WATCHDOG_INTEL = {
       "acao_sugerida": "Manter Renovacao Publica HT na programacao mensal. Priorizar em janelas de orcamento reduzido. Base pequena mas qualidade alta.",
       "contexto": "Analise planilha Vit — Disparos e Controles de Marketing Jan-Mar/2026",
       "fonte": "planilha_disparos_vit_jan_mar_2026"
-    },
-    {
-      "id": "insight115",
-      "titulo": "Outbound SDR via WA tem CPL nao-sustentavel em bases grandes (>500) — padrao confirmado Jan, Feb e Mar/2026",
-      "tema": "campanha",
-      "data": "2026-03-13",
-      "status": "ativo",
-      "evidencia": "Jan/29 (1186 base): 9 lev, CPL R$34.92. Feb/23 (3118 base, Playlist): 2 lev, CPL R$361.26. Mar/12 (2625 base HV — High Value — ja segmentada, menor parcela): 5 lev, CPL R$121.72. Confirmado: base Mar/12 era exclusivamente HV, ja qualificada. O problema nao e segmentacao de qualidade — e que WA Outbound nao funciona nem para HV em volume. Padrao: qualquer base Outbound > 500 produziu CPL acima de R$30.",
-      "acao_sugerida": "Suspender disparos Outbound SDR em bases > 500. Mesmo com base HV qualificada, resultado e insatisfatorio. Testar micro-lotes (<200 contatos HV) com copy especifico para perfil HV antes de escalar. Investigar se o canal WA e adequado para HV ou se o perfil HV responde melhor a outro canal (email, SDR direto). Ver alerta046 e alerta011.",
-      "contexto": "Analise planilha Vit — Disparos e Controles de Marketing Jan-Mar/2026",
-      "fonte": "planilha_disparos_vit_jan_mar_2026",
-      "ultima_atualizacao": "2026-03-13T08:53:35.944357"
     }
   ],
   "criticas_ativas": [
@@ -1541,8 +1543,8 @@ window.WATCHDOG_INTEL = {
       "todos",
       "comportamento",
       "baldinho",
-      "oferta",
       "operacao",
+      "oferta",
       "bolsao_ativacao",
       "copy_e_mensagem",
       "operacoes_comerciais",
@@ -1583,6 +1585,7 @@ window.WATCHDOG_INTEL = {
       "operacoes_manuais",
       "operacional",
       "operacao_de_inteligencia_competitiva",
+      "operacao_blip",
       "onboarding_de_sdrs",
       "mkt_renovacao",
       "meta",
@@ -1610,6 +1613,7 @@ window.WATCHDOG_INTEL = {
       "ciclo_de_vendas",
       "canal_whatsapp",
       "campanhas_outbound",
+      "campanhas_de_disparo_em_massa",
       "campanha_de_baixo_toque",
       "base_retracao",
       "base_ht_publica",
@@ -1628,6 +1632,6 @@ window.WATCHDOG_INTEL = {
       "abastecimento_de_funil",
       "aa"
     ],
-    "itens_indexados": 210
+    "itens_indexados": 211
   }
 };
