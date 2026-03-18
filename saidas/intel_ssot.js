@@ -4,7 +4,7 @@ window.WATCHDOG_INTEL = {
     "papel": "Chief of Staff & Head of Marketing Analytics",
     "ultima_atualizacao": "2026-03-12T11:39:51.650703"
   },
-  "ultima_atualizacao": "2026-03-18T21:04:21.253078",
+  "ultima_atualizacao": "2026-03-18T21:04:39.920564",
   "arquitetura_memoria": {
     "modo": "camadas",
     "descricao": "Memoria viva enxuta + historico completo + resumos tematicos + indices.",
@@ -21,7 +21,7 @@ window.WATCHDOG_INTEL = {
     "indices": "contexto/intel_indices.json"
   },
   "memoria_viva": {
-    "insights_ativos_total_historico": 142,
+    "insights_ativos_total_historico": 144,
     "insights_expostos_neste_arquivo": 24,
     "alertas_abertos_total_historico": 58,
     "alertas_expostos_neste_arquivo": 58,
@@ -47,6 +47,7 @@ window.WATCHDOG_INTEL = {
         "insight137",
         "insight138",
         "insight141",
+        "insight146",
         "insight128",
         "insight130",
         "insight131",
@@ -135,7 +136,7 @@ window.WATCHDOG_INTEL = {
         "Frente Novas registra na semana 14/20 realizadas (69% YTD amarelo), RR/SDR 0,24/0,26 (90%), mas taxa de fechadas/realizadas semanal em 29%/32% (96% — quase neutro). O RR/SDR/Ram...",
         "A reunião de cliente oculto tomou decisão explícita de que é imprescindível detalhar os itens do kit da Estante Mágica para as escolas, tal como a Ciranda faz. Não há tarefa abe..."
       ],
-      "contagem_aprendizados": 54,
+      "contagem_aprendizados": 55,
       "contagem_alertas_abertos": 28,
       "ultima_atualizacao": "2026-03-18"
     },
@@ -233,6 +234,7 @@ window.WATCHDOG_INTEL = {
       "aprendizados_ids": [
         "insight135",
         "insight136",
+        "insight146",
         "insight128",
         "insight130",
         "insight119",
@@ -265,13 +267,13 @@ window.WATCHDOG_INTEL = {
       "aprendizados_chave": [
         "Em Retração, o RR/SDR mensal (0,42/0,64 = 65%) está significativamente abaixo do semanal percentual aparente, mas a taxa de fechadas/realizadas mensal (50%/62% = 81%) já indica...",
         "Novas (frente de escolas novas) apresenta RR/SDR/Rampando de 0,06/0,11 (55% da meta) na semana, enquanto o RR/SDR geral da frente está em 90% (semana) e 108% (mês). Isso indica...",
-        "Frentes de Novas (AA, Concorrência, Retração, Novas) exibem um padrão sistemático de 0% na meta de alunos semanal — todas as quatro frentes registram 0 alunos realizados na sema..."
+        "A frente de AA (Anos Anteriores) apresenta padrão inverso à Retração: topo de funil saudável (RR/SDR 1,25 semanal, 180% da meta) mas conversão em alunos despencada (taxa fechada..."
       ],
       "riscos_abertos": [
         "Frente Novas registra na semana 14/20 realizadas (69% YTD amarelo), RR/SDR 0,24/0,26 (90%), mas taxa de fechadas/realizadas semanal em 29%/32% (96% — quase neutro). O RR/SDR/Ram...",
         "HT PÚB registra 0 reuniões realizadas, 0 fechadas e RR/SDR 0 nesta semana — apesar de meta YTD de receita em 355% (verde). O zero semanal não é compensado pelo histórico positiv..."
       ],
-      "contagem_aprendizados": 14,
+      "contagem_aprendizados": 15,
       "contagem_alertas_abertos": 14,
       "ultima_atualizacao": "2026-03-18"
     },
@@ -503,6 +505,8 @@ window.WATCHDOG_INTEL = {
         "insight134",
         "insight135",
         "insight136",
+        "insight146",
+        "insight147",
         "insight126",
         "insight128",
         "insight129",
@@ -541,7 +545,7 @@ window.WATCHDOG_INTEL = {
         "A Superautor opera um cashback de 4% a 10% pago apenas sobre compras até 30 de abril, criando urgência artificial de fechamento no Q1. A Estante Mágica não possui mecanismo equi...",
         "HT PÚB registra 0 reuniões realizadas, 0 fechadas e RR/SDR 0 nesta semana — apesar de meta YTD de receita em 355% (verde). O zero semanal não é compensado pelo histórico positiv..."
       ],
-      "contagem_aprendizados": 23,
+      "contagem_aprendizados": 25,
       "contagem_alertas_abertos": 6,
       "ultima_atualizacao": "2026-03-18"
     }
@@ -732,6 +736,28 @@ window.WATCHDOG_INTEL = {
       "status": "ativo"
     },
     {
+      "id": "insight146",
+      "data": "2026-03-18",
+      "fonte": "18.03.26 Nath Meta Aquisição 26 _ Daily comercial _ Ações da semana.pdf",
+      "categoria": "funil",
+      "insight": "A frente de AA (Anos Anteriores) apresenta padrão inverso à Retração: topo de funil saudável (RR/SDR 1,25 semanal, 180% da meta) mas conversão em alunos despencada (taxa fechadas/realizadas de 7% semanal vs 67% meta, 10% do esperado). O gargalo não está na geração de reuniões, está na conversão RR→alunos.",
+      "evidencia": "Semana AA: Meta alunos 219/1.318 (42% YTD) 🔴 | Taxa de fechadas/realizadas: 7%/67% (10% da meta) 🔴 | Realizadas: 15/21 (180% da meta YTD) 🟢 | RR/SDR: 1,25/0,71 (180% da meta) 🟢",
+      "aplicavel_a": "Segmento de AA (anos anteriores) em semanas futuras, especialmente quando topo de funil indica saúde mas conversão não acompanha",
+      "acao_sugerida": "Regra operacional: SEMPRE que RR/SDR >120% da meta mas taxa de fechadas <50%, investigar qualidade de fit entre RR e aluno (segmento, série, prazo) antes de ampliar volume de reuniões.",
+      "status": "ativo"
+    },
+    {
+      "id": "insight147",
+      "data": "2026-03-18",
+      "fonte": "18.03.26 Nath Meta Aquisição 26 _ Daily comercial _ Ações da semana.pdf",
+      "categoria": "funil",
+      "insight": "HT PÚB fechou meta mensal (178% YTD) sem registrar reuniões na semana — o padrão de zero semanal não comprometeu a meta porque o mês anterior deliverou volume suficiente. Isso invalida a premissa do alerta057 que exigia 'abastecimento urgente de topo de funil' como se a frente estivesse em risco.",
+      "evidencia": "HT PÚB Semanal: Meta R$60.610,21/ R$85.297,868 (178% meta YTD) 🟢 | Realizadas: 2/11 (50% da meta YTD) 🟡 | RR/SDR: 1/2,0 (50% da meta) 🟡 | Mas meta mensal: R$60.610,21/ R$85.297,868 (178% meta YTD) 🟢",
+      "aplicavel_a": "Análise de ritmo de HT PÚB em ciclos futuros",
+      "acao_sugerida": "Regra operacional: ANALISAR resultado mensal ANTES de criar alerta de risco semanal — métricas semanais são leading indicator, não resultado final. Se meta mensal está verde, alerta de risco semanal deve ser reavaliado.",
+      "status": "ativo"
+    },
+    {
       "id": "insight126",
       "data": "2026-03-17",
       "fonte": "Nath 17.03.26 Meta Aquisição 26 _ Daily comercial _ Ações da semana.pdf",
@@ -877,28 +903,6 @@ window.WATCHDOG_INTEL = {
       "status": "ativo",
       "evidencia": "Jan/12 Presente exclusivo: CPL ~R$3.02 (68 lev/623 base). Jan/27 Visibilidade: CPL ~R$5.76 (30 lev). Feb/03 Playlist: CPL ~R$4.60 (94 lev/1205 base). Feb/25 Caneca: CPL ~R$4.53 (114 lev/1413 base). Mar/11 Beneficios especiais: CPL ~R$22.74 (18 lev, base menor).",
       "acao_sugerida": "Priorizar AA em semanas de orcamento restrito. Qualquer oferta funciona neste segmento. Escalar base quando disponivel.",
-      "contexto": "Analise planilha Vit — Disparos e Controles de Marketing Jan-Mar/2026",
-      "fonte": "planilha_disparos_vit_jan_mar_2026"
-    },
-    {
-      "id": "insight113",
-      "titulo": "Retracao A/B Mar/2026: Presente exclusivo supera Sem trabalho (2.65% vs 1.47%, CPL R$20 vs R$37)",
-      "tema": "campanha",
-      "data": "2026-03-13",
-      "status": "ativo",
-      "evidencia": "Teste A/B 11/03/2026 — Presente exclusivo: 7 lev de 549 base (2.65%), CPL R$20.37. Sem trabalho: 4 lev de 520 base (1.47%), CPL R$36.86. Volume absoluto baixo — Retracao tem engajamento estruturalmente menor que outros baldinhos.",
-      "acao_sugerida": "Usar Presente exclusivo como oferta padrao para Retracao. Nao repetir Sem trabalho neste segmento sem nova hipotese clara. Volume permanece baixo — Retracao precisa de abordagem complementar alem de disparo WA.",
-      "contexto": "Analise planilha Vit — Disparos e Controles de Marketing Jan-Mar/2026",
-      "fonte": "planilha_disparos_vit_jan_mar_2026"
-    },
-    {
-      "id": "insight114",
-      "titulo": "Renovacao Publica HT tem CPL historico abaixo de R$9 — segmento estruturalmente eficiente mesmo com base pequena",
-      "tema": "campanha",
-      "data": "2026-03-13",
-      "status": "ativo",
-      "evidencia": "Feb/09 (>5k Publica): CPL R$7.02, 55 lev de 443 base (12.4%). Mar/09 (HT Publica Sem trabalho): CPL R$8.94, 9 lev de 210 base (4.3%). Consistente em dois meses com ofertas diferentes.",
-      "acao_sugerida": "Manter Renovacao Publica HT na programacao mensal. Priorizar em janelas de orcamento reduzido. Base pequena mas qualidade alta.",
       "contexto": "Analise planilha Vit — Disparos e Controles de Marketing Jan-Mar/2026",
       "fonte": "planilha_disparos_vit_jan_mar_2026"
     }
@@ -1544,8 +1548,8 @@ window.WATCHDOG_INTEL = {
       "renovacao",
       "copy",
       "funil",
-      "campanha",
       "retracao",
+      "campanha",
       "outbound",
       "whatsapp",
       "anos_anteriores",
@@ -1572,15 +1576,32 @@ window.WATCHDOG_INTEL = {
       "base_concorrencia",
       "aa_fechadas",
       "wpp_disparos",
+      "u",
       "timing",
+      "t",
       "segmentacao",
+      "s",
+      "r",
+      "p",
+      "o",
+      "n",
       "modelo_operacional",
+      "m",
+      "l",
+      "i",
       "ht_publica",
+      "h",
+      "f",
       "estrategia_de_disparo_de_video",
       "estrategia_competitiva",
       "escolas_saturadas",
+      "e",
+      "d",
       "copy_escrita",
+      "c",
       "bolsao_2025",
+      "a",
+      "v",
       "treinamento_de_sdr_closer",
       "time_de_vendas",
       "ticket_medio",
@@ -1589,6 +1610,7 @@ window.WATCHDOG_INTEL = {
       "risco",
       "renovacao_ht_part",
       "qualificacao_de_base",
+      "q",
       "protocolo_de_fechamento",
       "proposta_de_valor",
       "priorizacao_de_acoes_de_outbound",
@@ -1607,6 +1629,7 @@ window.WATCHDOG_INTEL = {
       "ht_particular",
       "ht_part",
       "handoff_mkt_comercial",
+      "g",
       "funil_novas_escolas",
       "forecast_de_fup",
       "ferramenta",
@@ -1630,6 +1653,7 @@ window.WATCHDOG_INTEL = {
       "base_ht_publica",
       "base_de_contatos",
       "base_aa",
+      "b",
       "ativacao",
       "atendimento",
       "apresentacao_comercial",
@@ -1643,6 +1667,6 @@ window.WATCHDOG_INTEL = {
       "abastecimento_de_funil",
       "aa"
     ],
-    "itens_indexados": 212
+    "itens_indexados": 214
   }
 };
