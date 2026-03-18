@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260318124814"></script>
-<script src="saidas/todos_ssot.js?v=20260318124814"></script>
-<script src="saidas/data_health.js?v=20260318124814"></script>
-<script src="saidas/campanhas_ssot.js?v=20260318124814"></script>
-<script src="saidas/intel_ssot.js?v=20260318124814"></script>
+<script src="saidas/booked_meta.js?v=20260318133234"></script>
+<script src="saidas/todos_ssot.js?v=20260318133234"></script>
+<script src="saidas/data_health.js?v=20260318133234"></script>
+<script src="saidas/campanhas_ssot.js?v=20260318133234"></script>
+<script src="saidas/intel_ssot.js?v=20260318133234"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -3170,7 +3170,7 @@ document.addEventListener('DOMContentLoaded', _initUpload);
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
       </button>
       <input type="file" id="chatFileInput" accept=".pdf,.xlsx,.xls,.csv,.txt" hidden />
-      <textarea id="chatInput" class="chat-input" rows="1"
+      <textarea id="chatInput" class="chat-input" rows="1" maxlength="1000"
         placeholder="Pergunte algo sobre a Estante Mágica…"
         onkeydown="chatInputKeydown(event)"></textarea>
       <button class="chat-send" id="chatSend" onclick="sendChatMessage()" title="Enviar" disabled>
@@ -3205,7 +3205,7 @@ document.addEventListener('DOMContentLoaded', _initUpload);
   let _chatAttachFile = null;  // File | null
 
   function _chatSetAttach(file) {
-    if (!file) { _chatAttachFile = null; document.getElementById('chatAttachPreview').style.display = ''; return; }
+    if (!file) { _chatAttachFile = null; document.getElementById('chatAttachPreview').style.display = 'none'; return; }
     const MAX = 1 * 1024 * 1024;
     if (file.size > MAX) { toast('Arquivo muito grande (máx 1 MB)', 'err'); return; }
     _chatAttachFile = file;
@@ -3217,7 +3217,7 @@ document.addEventListener('DOMContentLoaded', _initUpload);
   const attachBtn  = document.getElementById('chatAttachBtn');
   const fileInput  = document.getElementById('chatFileInput');
   const attachPrev = document.getElementById('chatAttachPreview');
-  attachPrev.style.display = '';  // hidden by default via CSS
+  attachPrev.style.display = 'none';  // hidden until file attached
   attachBtn.addEventListener('click', () => fileInput.click());
   fileInput.addEventListener('change', () => {
     if (fileInput.files[0]) _chatSetAttach(fileInput.files[0]);
@@ -3262,6 +3262,11 @@ document.addEventListener('DOMContentLoaded', _initUpload);
     if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChatMessage(); }
   };
 
+  // Helper: toggle pills disabled state while busy
+  function _setPillsBusy(busy) {
+    document.querySelectorAll('.chat-pill').forEach(p => p.classList.toggle('disabled', busy));
+  }
+
   window.sendChatMessage = async function(overrideText) {
     if (_chatBusy) return;
     const text = overrideText || inputEl.value.trim();
@@ -3278,13 +3283,26 @@ document.addEventListener('DOMContentLoaded', _initUpload);
     _chatSetAttach(null);
     sendBtn.disabled = true;
     _chatBusy = true;
+    _setPillsBusy(true);
 
     const displayText = text || (attachFile ? attachFile.name : '');
-    _appendMsg('user', displayText + (attachFile && text ? ` [📎 ${attachFile.name}]` : attachFile ? ` [📎 ${attachFile.name}]` : ''));
-    _chatHistory.push({ role: 'user', text: displayText });
+    _appendMsg('user', displayText + (attachFile ? ` [📎 ${attachFile.name}]` : ''));
+    _chatHistory.push({ role: 'user', content: displayText });
+    if (_chatHistory.length > 50) _chatHistory = _chatHistory.slice(-50);
 
     const typingId = 'typing-' + Date.now();
-    _appendMsg('typing', 'Claudete está pensando…', typingId);
+    const typingEl = _appendMsg('typing', 'Claudete está pensando…', typingId);
+
+    // Timer: 15s sem resposta → feedback de espera
+    const thinkingTimer = setTimeout(() => {
+      if (typingEl && typingEl.isConnected) {
+        typingEl.textContent = 'Ainda processando… (consultas complexas podem levar até 50s)';
+      }
+    }, 15_000);
+
+    // AbortController: timeout de 50s
+    const controller = new AbortController();
+    const timeoutId  = setTimeout(() => controller.abort(), 50_000);
 
     try {
       // Converter arquivo para base64 se houver
@@ -3299,7 +3317,13 @@ document.addEventListener('DOMContentLoaded', _initUpload);
         fileName = attachFile.name;
       }
 
-      const body = { message: text || ' ' };
+      // Histórico formatado para o backend (últimas 6 trocas, role user/assistant)
+      const historyPayload = _chatHistory.slice(-12).map(e => ({
+        role: e.role === 'claudete' ? 'assistant' : e.role,
+        content: (e.content || '').slice(0, 2000),
+      })).filter(e => e.role === 'user' || e.role === 'assistant');
+
+      const body = { message: text || '', history: historyPayload };
       if (fileData) { body.file_data = fileData; body.filename = fileName; }
 
       const resp = await fetch(MOTOR_CHAT_URL, {
@@ -3309,7 +3333,10 @@ document.addEventListener('DOMContentLoaded', _initUpload);
           'Authorization': 'Bearer ' + _sbSession.access_token,
         },
         body: JSON.stringify(body),
+        signal: controller.signal,
       });
+      clearTimeout(thinkingTimer);
+      clearTimeout(timeoutId);
       const el = document.getElementById(typingId);
       if (el) el.remove();
 
@@ -3320,18 +3347,26 @@ document.addEventListener('DOMContentLoaded', _initUpload);
         const data = await resp.json();
         if (data.ok && data.reply) {
           _appendMsg('claudete', data.reply);
-          _chatHistory.push({ role: 'claudete', text: data.reply });
+          _chatHistory.push({ role: 'claudete', content: data.reply });
+          if (_chatHistory.length > 50) _chatHistory = _chatHistory.slice(-50);
         } else {
           _appendMsg('error', data.error || 'Resposta vazia da Claudete.');
         }
       }
     } catch (e) {
+      clearTimeout(thinkingTimer);
+      clearTimeout(timeoutId);
       const el = document.getElementById(typingId);
       if (el) el.remove();
-      _appendMsg('error', 'Sem conexão com o motor. Verifica se o Railway está online.');
+      if (e.name === 'AbortError') {
+        _appendMsg('error', 'Tempo limite de 50s atingido. Tente uma pergunta mais específica.');
+      } else {
+        _appendMsg('error', 'Sem conexão com o motor. Verifica se o Railway está online.');
+      }
     }
 
     _chatBusy = false;
+    _setPillsBusy(false);
     sendBtn.disabled = !inputEl.value.trim() && !_chatAttachFile;
   };
 
