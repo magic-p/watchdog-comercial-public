@@ -57,8 +57,8 @@ window.WATCHDOG_TODOS = [
   },
   {
     "id": "t183",
-    "task": "Vitoria: selecionar base ampliada de Retracao (quem nao recebeu mensagem anterior) e organizar disparo WA ate quarta 18/03 — depende de time de Dados para formatacao",
-    "comment": "Proximo passo explicito da daily 13/03. Lili decidiu ampliar universo de telefones abordados em Retracao. Confirmar com Dados hoje 13/03 se entrega em quarta e viavel. Retracao semanal em 51% do RR/SDR com bolsao de apenas 34 oportunidades.",
+    "task": "Vitória: confirmar se disparo WA ampliado para Retração foi executado até 18/03 conforme prazo. Registrar resultado (escolas impactadas, levantadas geradas) na próxima daily. Se não executado, redefinir prazo e remover bloqueio de dados.",
+    "comment": "Prazo original era 18/03. Hoje é 18/03. Tarefa precisa ser confirmada como concluída ou ter status atualizado.",
     "owner": "Vitoria",
     "date": "18/mar",
     "tier": "t1",
@@ -66,7 +66,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-13T00:00:00",
+    "updatedAt": "2026-03-18T00:04:00",
     "completedAt": null
   },
   {
@@ -89,13 +89,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Proximo passo da daily 13/03. Depende de t184 (acesso a planilha da Lili). CPL canal + custo medio da oferta por levantada = CPL total. Decisao estrategica: incluir custo da oferta no CPL para comparacao de ROI.",
     "owner": "Vitoria",
     "date": "16/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-13T00:00:00",
-    "completedAt": null
+    "updatedAt": "2026-03-18T00:04:00",
+    "completedAt": "2026-03-18T00:04:00"
   },
   {
     "id": "t186",
@@ -109,6 +109,48 @@ window.WATCHDOG_TODOS = [
     "done": false,
     "priorityRank": null,
     "updatedAt": "2026-03-13T00:00:00",
+    "completedAt": null
+  },
+  {
+    "id": "t188",
+    "task": "Nath: calcular projeção de fechamento de receita via MKT em LT PART com ritmo atual de convertidas/dia (0,56/dia) e apresentar gap esperado até 31/03. Se gap confirmado acima de R$30k, propor segmentação de base por potencial de receita para próximo disparo.",
+    "comment": "Alerta065 criado nesta análise. Custo de disparo já em R$731 com apenas 26% da meta de receita de MKT atingida. Ritmo atual é insuficiente para fechar a meta de MKT em LT PART.",
+    "owner": "Nath Ferreira",
+    "date": "20/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-18T00:04:00",
+    "completedAt": null
+  },
+  {
+    "id": "t189",
+    "task": "Ana (Pimentel): mapear quantos SDRs estão em ramp-up na frente Novas, qual o tempo médio de rampagem esperado e se há ação planejada de aceleração para as semanas finais de março. Reportar na daily de 20/03.",
+    "comment": "Alerta066 criado nesta análise. RR/SDR/Rampando em 55% na semana (0,06/0,11) — subgrupo de rampando é arrasto consistente na frente Novas.",
+    "owner": "Ana Paula Pimentel",
+    "date": "20/mar",
+    "tier": "t2",
+    "tierLabel": "Fazendo",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-18T00:04:00",
+    "completedAt": null
+  },
+  {
+    "id": "t190",
+    "task": "Nath: confirmar se salto de 7 para 16 convertidas em LT PART entre 16/03 e 17/03 é aprovação em lote real ou ajuste contábil retroativo. Registrar causa no próximo update da daily.",
+    "comment": "Alerta067 criado nesta análise. A clareza sobre a origem do dado é necessária para calibrar projeção de fechamento de LT PART em março.",
+    "owner": "Nath Ferreira",
+    "date": "20/mar",
+    "tier": "t2",
+    "tierLabel": "Fazendo",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-18T00:04:00",
     "completedAt": null
   }
 ];
