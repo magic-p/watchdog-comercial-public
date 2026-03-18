@@ -4,7 +4,7 @@ window.WATCHDOG_INTEL = {
     "papel": "Chief of Staff & Head of Marketing Analytics",
     "ultima_atualizacao": "2026-03-12T11:39:51.650703"
   },
-  "ultima_atualizacao": "2026-03-18T20:51:59.156004",
+  "ultima_atualizacao": "2026-03-18T21:04:21.253078",
   "arquitetura_memoria": {
     "modo": "camadas",
     "descricao": "Memoria viva enxuta + historico completo + resumos tematicos + indices.",
@@ -23,8 +23,8 @@ window.WATCHDOG_INTEL = {
   "memoria_viva": {
     "insights_ativos_total_historico": 142,
     "insights_expostos_neste_arquivo": 24,
-    "alertas_abertos_total_historico": 57,
-    "alertas_expostos_neste_arquivo": 57,
+    "alertas_abertos_total_historico": 58,
+    "alertas_expostos_neste_arquivo": 58,
     "temas_prioritarios": [
       "sdr",
       "base",
@@ -993,6 +993,17 @@ window.WATCHDOG_INTEL = {
       "nota_status": "alerta068 cobre a identificação do perfil pela Ciranda; este cobre o risco estrutural do próximo ciclo (LIV) sem protocolo."
     },
     {
+      "id": "alerta073",
+      "data": "2026-03-18",
+      "titulo": "Churn inicial de freelancers na escala de WhatsApp/Instagram",
+      "critica": "Karina relatou contratação de 2 freelancers para escala, com 1 desistência imediata (50% churn). Isso indica fragilidade no processo de onboarding ou oferta para frilas, risking a continuidade da escala de 'anos anteriores' e novas frentes WA/Instagram.",
+      "acao_sugerida": "Karina: mapear motivo da desistência e ajustar processo de retenção/onboarding de freelancers até 20/03.",
+      "prioridade": "alta",
+      "dri": "Karina Machado",
+      "status": "aberto",
+      "nota_status": "Mencionado na daily de 18/03. Risco para escala planejada."
+    },
+    {
       "id": "alerta056",
       "data": "2026-03-17",
       "titulo": "LT PART: receita 42% da meta com 10 dias úteis e ticket médio caindo",
@@ -1632,6 +1643,6 @@ window.WATCHDOG_INTEL = {
       "abastecimento_de_funil",
       "aa"
     ],
-    "itens_indexados": 211
+    "itens_indexados": 212
   }
 };
