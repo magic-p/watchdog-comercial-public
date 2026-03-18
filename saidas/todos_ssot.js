@@ -2744,6 +2744,34 @@ window.WATCHDOG_TODOS = [
     "completedAt": null
   },
   {
+    "id": "t204",
+    "task": "Revisar vídeos do Flavio",
+    "comment": "Vídeos do Flavio",
+    "owner": "Vitoria",
+    "date": "20/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-18T21:31:00",
+    "completedAt": null
+  },
+  {
+    "id": "t205",
+    "task": "Validar os vídeos do flavio",
+    "comment": "Vídeos do flavio para validação",
+    "owner": "Vitoria",
+    "date": "20/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-18T21:38:00",
+    "completedAt": null
+  },
+  {
     "id": "t206",
     "task": "validar toda a ação de vídeos que será disparada na segunda-feira",
     "comment": "Priorizar renovação ht e lt pub e AA +20k",
