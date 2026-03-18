@@ -2647,8 +2647,8 @@ window.WATCHDOG_TODOS = [
   },
   {
     "id": "t197",
-    "task": "Nath: incluir no proximo daily uma coluna de ritmo necessario/dia util restante para as frentes LT PART, HT PUB, Retracao e Concorrencia — com base em dias uteis restantes no mes a partir de 17/03 (estimativa: 10 dias uteis ate 31/03)",
-    "comment": "Dado estrutural que falta no documento atual: saber que LT PART esta em 26% da meta nao diz se e recuperavel. Saber que precisa de 1,4 convertidas/dia util com 10 dias restantes permite decisao imediata.",
+    "task": "Incluir AA Semana e Concorrência (semanal) na coluna de ritmo necessário/dia útil restantes",
+    "comment": "A tarefa original (t197) inclui LT PART, HT PUB, Retração e Concorrência. O documento de hoje mostra AA Semana com meta em 42% e Concorrência semanal em 20% — ambas precisam de análise de ritmo para osdias restantes.",
     "owner": "Nath Ferreira",
     "date": "19/mar",
     "tier": "t2",
@@ -2656,7 +2656,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": null,
+    "updatedAt": "2026-03-18T20:52:00",
     "completedAt": null
   },
   {
