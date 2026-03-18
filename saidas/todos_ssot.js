@@ -2770,5 +2770,19 @@ window.WATCHDOG_TODOS = [
     "priorityRank": null,
     "updatedAt": "2026-03-18T21:38:00",
     "completedAt": null
+  },
+  {
+    "id": "t206",
+    "task": "validar toda a ação de vídeos que será disparada na segunda-feira",
+    "comment": "Priorizar renovação ht e lt pub e AA +20k",
+    "owner": "Vitoria",
+    "date": "20/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-18T21:47:00",
+    "completedAt": null
   }
 ];
