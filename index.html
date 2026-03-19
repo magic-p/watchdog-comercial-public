@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260319133444"></script>
-<script src="saidas/todos_ssot.js?v=20260319133444"></script>
-<script src="saidas/data_health.js?v=20260319133444"></script>
-<script src="saidas/campanhas_ssot.js?v=20260319133444"></script>
-<script src="saidas/intel_ssot.js?v=20260319133444"></script>
+<script src="saidas/booked_meta.js?v=20260319133459"></script>
+<script src="saidas/todos_ssot.js?v=20260319133459"></script>
+<script src="saidas/data_health.js?v=20260319133459"></script>
+<script src="saidas/campanhas_ssot.js?v=20260319133459"></script>
+<script src="saidas/intel_ssot.js?v=20260319133459"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -3570,7 +3570,8 @@ function _appendMsg(role, text, id) {
           _appendMsg('error', (data && data.error) || 'Resposta vazia da Claudete.');
         }
       }
-    } catch (e) {
+      } catch (e) {
+      console.error('[Claudete chat] erro no fluxo de envio:', e);
       clearTimeout(thinkingTimer);
       clearTimeout(timeoutId);
       const el = document.getElementById(typingId);
@@ -3578,7 +3579,7 @@ function _appendMsg(role, text, id) {
       if (e.name === 'AbortError') {
         _appendMsg('error', 'Tempo limite atingido. Análises estratégicas complexas podem demorar — tente novamente ou reformule a pergunta.');
       } else {
-        _appendMsg('error', 'Sem conexão com o motor. Verifica se o Railway está online.');
+        _appendMsg('error', 'A resposta da Claudete chegou, mas o navegador tropeçou ao processá-la. Já deixei isso mais rastreável no console.');
       }
     }
 
