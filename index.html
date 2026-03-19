@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260319203326"></script>
-<script src="saidas/todos_ssot.js?v=20260319203326"></script>
-<script src="saidas/data_health.js?v=20260319203326"></script>
-<script src="saidas/campanhas_ssot.js?v=20260319203326"></script>
-<script src="saidas/intel_ssot.js?v=20260319203326"></script>
+<script src="saidas/booked_meta.js?v=20260319204545"></script>
+<script src="saidas/todos_ssot.js?v=20260319204545"></script>
+<script src="saidas/data_health.js?v=20260319204545"></script>
+<script src="saidas/campanhas_ssot.js?v=20260319204545"></script>
+<script src="saidas/intel_ssot.js?v=20260319204545"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -394,7 +394,7 @@ async function _motorPatch(patch) {
     }
     try { await r.json(); } catch {}
     _setWriteError('');
-    if (_sbSession) _refreshTasksFromApi(true);
+    if (_sbSession) _scheduleTasksRefresh(true, 120);
     return true;
   } catch (err) {
     _setWriteError('Motor local: ' + (err?.message || String(err)));
@@ -421,7 +421,7 @@ async function _motorCreate(task) {
     }
     try { await r.json(); } catch {}
     _setWriteError('');
-    if (_sbSession) _refreshTasksFromApi(true);
+    if (_sbSession) _scheduleTasksRefresh(true, 120);
     return true;
   } catch (err) {
     _setWriteError('Motor local: ' + (err?.message || String(err)));
@@ -1362,6 +1362,30 @@ let _supabaseRefreshInFlight = false;
 let _initialAuthStateResolved = false;
 let _pendingTaskMutations = new Map();
 let _taskFormBusy = false;
+let _tasksRefreshTimer = null;
+let _tasksRefreshQueued = false;
+let _tasksRefreshQueuedSilent = true;
+
+function _queueTasksRefresh(silent = true) {
+  const hadQueued = _tasksRefreshQueued;
+  _tasksRefreshQueued = true;
+  _tasksRefreshQueuedSilent = hadQueued ? (_tasksRefreshQueuedSilent && !!silent) : !!silent;
+}
+
+function _scheduleTasksRefresh(silent = true, delay = 180) {
+  if (REQUIRE_LOGIN_FOR_READ && !_sbSession) return;
+  _queueTasksRefresh(silent);
+  if (_supabaseRefreshInFlight) return;
+  if (_tasksRefreshTimer) clearTimeout(_tasksRefreshTimer);
+  _tasksRefreshTimer = setTimeout(async () => {
+    _tasksRefreshTimer = null;
+    if (!_tasksRefreshQueued) return;
+    const runSilent = _tasksRefreshQueuedSilent;
+    _tasksRefreshQueued = false;
+    _tasksRefreshQueuedSilent = true;
+    await _refreshTasksFromApi(runSilent);
+  }, Math.max(0, delay));
+}
 
 function _clearExpiredTaskMutations() {
   const now = Date.now();
@@ -1550,7 +1574,7 @@ function openTaskModal(mode = 'create', id = null) {
 	          _rememberTaskMutation('delete', { id: editingTaskId });
 	          tasks = tasks.filter(x => x.id !== editingTaskId);
 	          save();
-	          if (_sbSession) await _refreshTasksFromApi(true);
+	          if (_sbSession) _scheduleTasksRefresh(true, 120);
 	          closeTaskModal();
 	          renderTasks();
         } finally {
@@ -2608,7 +2632,7 @@ function _onAuthLogin(session) {
   renderBookedMeta();
   renderWins();
   renderDataHealth();
-  _refreshTasksFromApi(true);
+  _scheduleTasksRefresh(true, 0);
   _sbSubscribeRealtime();
 }
 
@@ -2617,7 +2641,7 @@ function _sbSubscribeRealtime() {
   _sbRealtimeChannel = _sb
     .channel('todos-live')
     .on('postgres_changes', { event: '*', schema: 'public', table: 'todos' },
-      () => _refreshTasksFromApi(true))
+      () => _scheduleTasksRefresh(true, 250))
     .subscribe();
 }
 
@@ -2632,6 +2656,10 @@ function _onAuthLogout() {
   if (_sb) _sb.auth.signOut();
   _sbUnsubscribeRealtime();
   _sbSession = null;
+  if (_tasksRefreshTimer) clearTimeout(_tasksRefreshTimer);
+  _tasksRefreshTimer = null;
+  _tasksRefreshQueued = false;
+  _tasksRefreshQueuedSilent = true;
   BOOKED_META_SRC = DEMO_BOOKED_META;
   _kpis = (BOOKED_META_SRC && BOOKED_META_SRC.kpis) ? BOOKED_META_SRC.kpis : {};
   const pill = document.getElementById('authPill');
@@ -2655,7 +2683,10 @@ function _onAuthLogout() {
 
 async function _refreshTasksFromApi(silent = false) {
   if (REQUIRE_LOGIN_FOR_READ && !_sbSession) return;
-  if (_supabaseRefreshInFlight) return;
+  if (_supabaseRefreshInFlight) {
+    _queueTasksRefresh(silent);
+    return;
+  }
   _supabaseRefreshInFlight = true;
   try {
     const authToken = _sbSession?.access_token || window.WATCHDOG_API_TOKEN || '';
@@ -2701,6 +2732,9 @@ async function _refreshTasksFromApi(silent = false) {
     if (!silent) toast('Tarefas indisponíveis: ' + (err?.message || String(err)), 'error');
   } finally {
     _supabaseRefreshInFlight = false;
+    if (_tasksRefreshQueued && !_tasksRefreshTimer) {
+      _scheduleTasksRefresh(_tasksRefreshQueuedSilent, 120);
+    }
   }
 }
 
@@ -3355,7 +3389,7 @@ function _appendClaudeteReplySafe(text) {
           if (Array.isArray(data.created_tasks) && data.created_tasks.length) {
             try {
               applyChatCreatedTasks(data.created_tasks);
-              if (_sbSession) _refreshTasksFromApi(true);
+              if (_sbSession) _scheduleTasksRefresh(true, 120);
             } catch (createdTasksErr) {
               console.error('[Claudete chat] falha ao aplicar created_tasks:', createdTasksErr, data.created_tasks);
             }
