@@ -2889,12 +2889,12 @@ window.WATCHDOG_TODOS = [
     "comment": "teste",
     "owner": "Pedro",
     "date": "31/dez",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-19T20:23:00",
+    "completedAt": "2026-03-19T20:23:00"
   }
 ];
