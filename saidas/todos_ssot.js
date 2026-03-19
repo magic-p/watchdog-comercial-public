@@ -2861,12 +2861,12 @@ window.WATCHDOG_TODOS = [
     "comment": "Tarefa criada conforme solicitado pelo usuário",
     "owner": "Pedro",
     "date": "20/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-19T19:16:00",
-    "completedAt": null
+    "updatedAt": "2026-03-19T19:17:00",
+    "completedAt": "2026-03-19T19:17:00"
   }
 ];
