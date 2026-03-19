@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260319140451"></script>
-<script src="saidas/todos_ssot.js?v=20260319140451"></script>
-<script src="saidas/data_health.js?v=20260319140451"></script>
-<script src="saidas/campanhas_ssot.js?v=20260319140451"></script>
-<script src="saidas/intel_ssot.js?v=20260319140451"></script>
+<script src="saidas/booked_meta.js?v=20260319142534"></script>
+<script src="saidas/todos_ssot.js?v=20260319142534"></script>
+<script src="saidas/data_health.js?v=20260319142534"></script>
+<script src="saidas/campanhas_ssot.js?v=20260319142534"></script>
+<script src="saidas/intel_ssot.js?v=20260319142534"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -533,6 +533,17 @@ async function _motorCreate(task) {
   }
 }
 
+function _shouldFallbackToSupabaseWrite() {
+  const msg = String(_getWriteError('') || '').toLowerCase();
+  return (
+    msg.includes('unauthorized') ||
+    msg.includes('jwt') ||
+    msg.includes('token') ||
+    msg.includes('403') ||
+    msg.includes('401')
+  );
+}
+
 /* ── Funções públicas (usadas pelo resto do dashboard) ──────── */
 async function apiCreate(task) {
   if (!_canWrite()) {
@@ -540,7 +551,15 @@ async function apiCreate(task) {
     toast('Faça login para criar/editar tarefas.', 'err');
     return false;
   }
-  if (_sb && _sbSession) return _motorCreate(task);
+  if (_sb && _sbSession) {
+    const okMotor = await _motorCreate(task);
+    if (okMotor) return true;
+    if (_shouldFallbackToSupabaseWrite()) {
+      console.warn('[Todos] motor create recusou auth; usando fallback direto no Supabase.');
+      return _sbCreate(task);
+    }
+    return false;
+  }
   return _motorCreate(task);
 }
 
@@ -550,7 +569,15 @@ async function apiPatch(patch) {
     toast('Faça login para criar/editar tarefas.', 'err');
     return false;
   }
-  if (_sb && _sbSession) return _motorPatch(patch);
+  if (_sb && _sbSession) {
+    const okMotor = await _motorPatch(patch);
+    if (okMotor) return true;
+    if (_shouldFallbackToSupabaseWrite()) {
+      console.warn('[Todos] motor patch recusou auth; usando fallback direto no Supabase.');
+      return _sbPatch(patch);
+    }
+    return false;
+  }
   return _motorPatch(patch);
 }
 
@@ -3466,19 +3493,24 @@ function _appendMsg(role, text, id) {
 function _appendClaudeteReplySafe(text) {
   const replyText = String(text || '');
   try {
-    _appendMsg('claudete', replyText);
-  } catch (renderErr) {
-    console.error('[Claudete chat] falha ao renderizar bubble rica:', renderErr, replyText);
-    const msgs = document.getElementById('chatMessages');
-    if (!msgs) throw renderErr;
-    const div = document.createElement('div');
-    div.className = 'chat-msg claudete';
-    div.textContent = replyText;
-    msgs.appendChild(div);
-    msgs.scrollTop = msgs.scrollHeight;
+    try {
+      _appendMsg('claudete', replyText);
+    } catch (renderErr) {
+      console.error('[Claudete chat] falha ao renderizar bubble rica:', renderErr, replyText);
+      const msgs = document.getElementById('chatMessages');
+      if (!msgs) throw renderErr;
+      const div = document.createElement('div');
+      div.className = 'chat-msg claudete';
+      div.textContent = replyText;
+      msgs.appendChild(div);
+      msgs.scrollTop = msgs.scrollHeight;
+    }
+    if (!Array.isArray(_chatHistory)) _chatHistory = [];
+    _chatHistory.push({ role: 'claudete', content: replyText });
+    if (_chatHistory.length > 50) _chatHistory = _chatHistory.slice(-50);
+  } catch (err) {
+    console.error('[Claudete chat] falha fatal ao preservar resposta:', err, replyText);
   }
-  _chatHistory.push({ role: 'claudete', content: replyText });
-  if (_chatHistory.length > 50) _chatHistory = _chatHistory.slice(-50);
 }
 
   // ── Send ──────────────────────────────────────────────
@@ -3580,7 +3612,11 @@ function _appendClaudeteReplySafe(text) {
       } else {
         if (data && data.ok && data.reply) {
           if (Array.isArray(data.created_tasks) && data.created_tasks.length) {
-            applyChatCreatedTasks(data.created_tasks);
+            try {
+              applyChatCreatedTasks(data.created_tasks);
+            } catch (createdTasksErr) {
+              console.error('[Claudete chat] falha ao aplicar created_tasks:', createdTasksErr, data.created_tasks);
+            }
           }
           _appendClaudeteReplySafe(data.reply);
         } else if (rawText) {
