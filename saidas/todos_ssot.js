@@ -2882,5 +2882,19 @@ window.WATCHDOG_TODOS = [
     "priorityRank": null,
     "updatedAt": "2026-03-19T19:57:00",
     "completedAt": null
+  },
+  {
+    "id": "t214",
+    "task": "Dar um alô para Kaka sobre KPIs",
+    "comment": "Entrar em contato com Kaka (Karina Machado) para discutir sobre KPIs",
+    "owner": "Pedro",
+    "date": "20/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-19T20:13:00",
+    "completedAt": null
   }
 ];
