@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260319143846"></script>
-<script src="saidas/todos_ssot.js?v=20260319143846"></script>
-<script src="saidas/data_health.js?v=20260319143846"></script>
-<script src="saidas/campanhas_ssot.js?v=20260319143846"></script>
-<script src="saidas/intel_ssot.js?v=20260319143846"></script>
+<script src="saidas/booked_meta.js?v=20260319144205"></script>
+<script src="saidas/todos_ssot.js?v=20260319144205"></script>
+<script src="saidas/data_health.js?v=20260319144205"></script>
+<script src="saidas/campanhas_ssot.js?v=20260319144205"></script>
+<script src="saidas/intel_ssot.js?v=20260319144205"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -2868,34 +2868,34 @@ async function _sbReconcileWithSSOT(rows, silent = true) {
   const ssotMap = new Map(ssotRows.map(r => [String(r.id), r]));
   const currentMap = new Map(currentRows.map(r => [String(r.id), r]));
 
-  const upserts = ssotRows.filter(ssotRow => {
-    const current = currentMap.get(String(ssotRow.id));
-    if (!current) return true;
-    return _sbTodoComparable(current) !== _sbTodoComparable(ssotRow);
+  // O SSOT do navegador serve apenas como bootstrap inicial.
+  // Depois que uma tarefa existe no Supabase, o estado mutável (status/tier/etc.)
+  // precisa permanecer autoritativo lá para não ressuscitar estado antigo no refresh.
+  const missingRows = ssotRows.filter(ssotRow => !currentMap.has(String(ssotRow.id)));
+  const divergentIds = ssotRows
+    .filter(ssotRow => {
+      const current = currentMap.get(String(ssotRow.id));
+      return current && _sbTodoComparable(current) !== _sbTodoComparable(ssotRow);
+    })
+    .map(r => r.id);
+
+  if (!missingRows.length) {
+    if (divergentIds.length) {
+      console.warn('[Supabase] SSOT divergence ignored (Supabase authoritative):', divergentIds);
+    }
+    return currentRows;
+  }
+
+  console.warn('[Supabase] bootstrap insert from SSOT:', {
+    missingIds: missingRows.map(r => r.id),
+    divergentIdsIgnored: divergentIds
   });
-  const phantomIds = [...currentMap.keys()].filter(id => !ssotMap.has(id));
 
-  if (!upserts.length && !phantomIds.length) return currentRows;
-
-  console.warn('[Supabase] reconcile with SSOT:', {
-    upserts: upserts.map(r => r.id),
-    phantomIds
-  });
-
-  if (upserts.length) {
-    const { error } = await _sb.from('todos').upsert(upserts, { onConflict: 'id' });
+  if (missingRows.length) {
+    const { error } = await _sb.from('todos').upsert(missingRows, { onConflict: 'id', ignoreDuplicates: true });
     if (error) {
       console.error('[Supabase] reconcile upsert error:', error);
       if (!silent) toast('Falha ao alinhar Supabase com SSOT.', 'error');
-      return currentRows;
-    }
-  }
-
-  if (phantomIds.length) {
-    const { error } = await _sb.from('todos').delete().in('id', phantomIds);
-    if (error) {
-      console.error('[Supabase] reconcile delete error:', error);
-      if (!silent) toast('Falha ao remover tarefas fantasma no Supabase.', 'error');
       return currentRows;
     }
   }
@@ -2906,7 +2906,7 @@ async function _sbReconcileWithSSOT(rows, silent = true) {
     if (!silent) toast('Supabase alinhado, mas falhou ao recarregar.', 'error');
     return currentRows;
   }
-  if (!silent) toast('Supabase reconciliado com o SSOT.', 'ok');
+  if (!silent) toast('Supabase complementado com tarefas faltantes do SSOT.', 'ok');
   return Array.isArray(refreshed) ? refreshed : currentRows;
 }
 
