@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260319102801"></script>
-<script src="saidas/todos_ssot.js?v=20260319102801"></script>
-<script src="saidas/data_health.js?v=20260319102801"></script>
-<script src="saidas/campanhas_ssot.js?v=20260319102801"></script>
-<script src="saidas/intel_ssot.js?v=20260319102801"></script>
+<script src="saidas/booked_meta.js?v=20260319103933"></script>
+<script src="saidas/todos_ssot.js?v=20260319103933"></script>
+<script src="saidas/data_health.js?v=20260319103933"></script>
+<script src="saidas/campanhas_ssot.js?v=20260319103933"></script>
+<script src="saidas/intel_ssot.js?v=20260319103933"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -1470,9 +1470,11 @@ function _mergePendingTaskMutations(list) {
 }
 
 const UI_STATE_KEY = 'watchdog_ui';
+const UI_STATE_VERSION = 2;
 function saveUiState() {
   try {
     localStorage.setItem(UI_STATE_KEY, JSON.stringify({
+      version: UI_STATE_VERSION,
       ownerFilter, taskView, sortCol, sortDir,
       winsCollapsed, bookedCollapsed, intelCollapsed, healthCollapsed
     }));
@@ -1482,6 +1484,7 @@ function loadUiState() {
   try {
     const s = JSON.parse(localStorage.getItem(UI_STATE_KEY) || 'null');
     if (!s) return;
+    if (Number(s.version || 0) !== UI_STATE_VERSION) return;
     if (s.ownerFilter !== undefined) {
       const normalizedFilter = normalizeOwnerName(s.ownerFilter);
       ownerFilter = normalizedFilter === OWNER_FALLBACK ? null : normalizedFilter;
@@ -3407,16 +3410,24 @@ document.addEventListener('DOMContentLoaded', _initUpload);
   }
 
   // ── Append message bubble ─────────────────────────────
-  function _appendMsg(role, text, id) {
-    const msgs = document.getElementById('chatMessages');
-    const div  = document.createElement('div');
-    div.className = 'chat-msg ' + role;
-    if (id) div.id = id;
+function _appendMsg(role, text, id) {
+  const msgs = document.getElementById('chatMessages');
+  const div  = document.createElement('div');
+  div.className = 'chat-msg ' + role;
+  if (id) div.id = id;
+  const renderChatRichText = role !== 'user' && role !== 'typing';
+  if (renderChatRichText) {
+    const html = esc(text || '')
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\n/g, '<br>');
+    div.innerHTML = html;
+  } else {
     div.textContent = text;
-    msgs.appendChild(div);
-    msgs.scrollTop = msgs.scrollHeight;
-    return div;
   }
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+  return div;
+}
 
   // ── Send ──────────────────────────────────────────────
   window.chatInputKeydown = function(e) {
