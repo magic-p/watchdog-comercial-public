@@ -2,16 +2,7 @@ window.WATCHDOG_BOOKED_META = {
   "month": "Mar",
   "target": 0,
   "buckets": [],
-  "wins": [
-    {
-      "emoji": "🎯",
-      "titulo": "Kaka: Instagram: AA descarte >20k + Renovação com Maria Carol + Cross Aquisição",
-      "desc": "Concluida no ciclo semanal (segunda a domingo).",
-      "dri": "Kaka",
-      "data": "19/03",
-      "tipo": "ENTREGA_CONCLUIDA"
-    }
-  ],
+  "wins": [],
   "kpis": {
     "meta_anual_escolas": 3736,
     "meta_mensal_escolas": 0,
