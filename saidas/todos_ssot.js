@@ -2889,12 +2889,12 @@ window.WATCHDOG_TODOS = [
     "comment": "Entrar em contato com Kaka (Karina Machado) para discutir sobre KPIs",
     "owner": "Pedro",
     "date": "20/mar",
-    "tier": "done",
-    "tierLabel": "Concluido",
+    "tier": "t2",
+    "tierLabel": "Fazendo",
     "warn": null,
-    "done": true,
+    "done": false,
     "priorityRank": null,
     "updatedAt": "2026-03-19T20:14:00",
-    "completedAt": "2026-03-19T20:14:00"
+    "completedAt": null
   }
 ];
