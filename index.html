@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js"></script>
-<script src="saidas/todos_ssot.js?v=20260319215009"></script>
-<script src="saidas/data_health.js"></script>
-<script src="saidas/campanhas_ssot.js"></script>
-<script src="saidas/intel_ssot.js"></script>
+<script src="saidas/booked_meta.js?v=20260319215325"></script>
+<script src="saidas/todos_ssot.js?v=20260319215325"></script>
+<script src="saidas/data_health.js?v=20260319215325"></script>
+<script src="saidas/campanhas_ssot.js?v=20260319215325"></script>
+<script src="saidas/intel_ssot.js?v=20260319215325"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -1383,6 +1383,8 @@ let _alertsRefreshQueued = false;
 let _alertsRefreshReason = 'unknown';
 let _lastAuthRefreshUserKey = '';
 let _lastAuthRefreshAt = 0;
+let _authBootstrapUserKey = '';
+let _authBootstrapUntil = 0;
 
 function _normalizeRefreshReason(reason) {
   const parts = String(reason || '')
@@ -2169,6 +2171,8 @@ function finishInitialAuthState(session = null) {
 
   const pp = document.getElementById('publicPill');
   if (session) {
+    _authBootstrapUserKey = _sessionUserKey(session);
+    _authBootstrapUntil = Date.now() + 15000;
     if (pp) pp.style.display = 'none';
     _onAuthLogin(session, { silent: true, refreshReason: 'initial_session' });
     return;
@@ -2613,12 +2617,21 @@ document.addEventListener('DOMContentLoaded', () => {
         finishInitialAuthState(session || null);
         return;
       }
+      if (_event === 'SIGNED_IN' && !_initialAuthStateResolved && session) {
+        finishInitialAuthState(session);
+        return;
+      }
       if (_event === 'SIGNED_OUT' || !session) {
         _onAuthLogout({ skipRemoteSignOut: true });
         return;
       }
+      const userKey = _sessionUserKey(session);
       const sameUser = !!_sbSession && (_sessionUserKey(_sbSession) === _sessionUserKey(session));
       if (_event === 'TOKEN_REFRESHED') {
+        _sbSession = session;
+        return;
+      }
+      if (_event === 'SIGNED_IN' && userKey && userKey === _authBootstrapUserKey && Date.now() <= _authBootstrapUntil) {
         _sbSession = session;
         return;
       }
@@ -2741,6 +2754,8 @@ function _onAuthLogout() {
   _sbSession = null;
   _lastAuthRefreshUserKey = '';
   _lastAuthRefreshAt = 0;
+  _authBootstrapUserKey = '';
+  _authBootstrapUntil = 0;
   if (_tasksRefreshTimer) clearTimeout(_tasksRefreshTimer);
   _tasksRefreshTimer = null;
   _tasksRefreshQueued = false;
