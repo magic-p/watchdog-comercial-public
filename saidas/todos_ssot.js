@@ -2854,19 +2854,5 @@ window.WATCHDOG_TODOS = [
     "priorityRank": null,
     "updatedAt": "2026-03-19T17:58:00",
     "completedAt": null
-  },
-  {
-    "id": "t212",
-    "task": "fechar versão da claudete pelo chat",
-    "comment": "Tarefa criada conforme solicitado pelo usuário",
-    "owner": "Pedro",
-    "date": "20/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
-    "warn": null,
-    "done": false,
-    "priorityRank": null,
-    "updatedAt": "2026-03-19T19:17:00",
-    "completedAt": null
   }
 ];
