@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260319230036"></script>
-<script src="saidas/todos_ssot.js?v=20260319230036"></script>
-<script src="saidas/data_health.js?v=20260319230036"></script>
-<script src="saidas/campanhas_ssot.js?v=20260319230036"></script>
-<script src="saidas/intel_ssot.js?v=20260319230036"></script>
+<script src="saidas/booked_meta.js?v=20260319235442"></script>
+<script src="saidas/todos_ssot.js?v=20260319235442"></script>
+<script src="saidas/data_health.js?v=20260319235442"></script>
+<script src="saidas/campanhas_ssot.js?v=20260319235442"></script>
+<script src="saidas/intel_ssot.js?v=20260319235442"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -3489,7 +3489,8 @@ function _appendClaudeteReplySafe(text) {
       if (!resp.ok) {
         _appendMsg('error', 'Erro ' + resp.status + ': ' + ((data && data.error) || 'resposta inválida'));
       } else {
-        if (data && data.ok && data.reply) {
+        const responseText = data && (data.reply_text || data.reply) ? String(data.reply_text || data.reply) : '';
+        if (data && data.ok && responseText) {
           if (Array.isArray(data.created_tasks) && data.created_tasks.length) {
             try {
               applyChatCreatedTasks(data.created_tasks);
@@ -3498,7 +3499,7 @@ function _appendClaudeteReplySafe(text) {
               console.error('[Claudete chat] falha ao aplicar created_tasks:', createdTasksErr, data.created_tasks);
             }
           }
-          _appendClaudeteReplySafe(data.reply);
+          _appendClaudeteReplySafe(responseText);
         } else if (rawText) {
           _appendClaudeteReplySafe(rawText);
         } else {
@@ -3512,7 +3513,7 @@ function _appendClaudeteReplySafe(text) {
       const el = document.getElementById(typingId);
       if (el) el.remove();
       if (responseReceived) {
-        const fallbackReply = data && data.reply ? String(data.reply) : rawText;
+        const fallbackReply = data && (data.reply_text || data.reply) ? String(data.reply_text || data.reply) : rawText;
         if (fallbackReply) {
           try {
             _appendClaudeteReplySafe(fallbackReply);
