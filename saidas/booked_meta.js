@@ -2,7 +2,16 @@ window.WATCHDOG_BOOKED_META = {
   "month": "Mar",
   "target": 0,
   "buckets": [],
-  "wins": [],
+  "wins": [
+    {
+      "emoji": "🎯",
+      "titulo": "Vitória: Lili: comparar taxa de RR, fechamento e conversão de escolas com mimo vs sem mimo (mesmo período/segmento) — calcular delta para decidir se mimo segue ou é suspenso",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Vitória",
+      "data": "19/03",
+      "tipo": "ENTREGA_CONCLUIDA"
+    }
+  ],
   "kpis": {
     "meta_anual_escolas": 3736,
     "meta_mensal_escolas": 0,
