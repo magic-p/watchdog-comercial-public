@@ -1937,26 +1937,26 @@ window.WATCHDOG_TODOS = [
     "comment": "Pedro trouxe dados de 51 escolas que receberam mimo: 76% RR (39/51), 30% fechamento (12/39 RR), 17% conversão (7/39 RR). O dado isolado não prova causalidade. Lili precisa puxar o grupo controle (escolas sem mimo, mesmo período e segmento) e calcular delta nas 3 métricas. Critério de decisão: se delta < 10pp em RR, recomendar suspensão do processo de mimo. Referência histórica: insight002 diz +61% agendamentos com mimo em AA Jul/Ago 2025 — confirmar se padrão se mantém em 2026.",
     "owner": "Vitória",
     "date": "18/mar",
-    "tier": "done",
-    "tierLabel": "Concluido",
+    "tier": "t1",
+    "tierLabel": "A fazer",
     "warn": null,
-    "done": true,
+    "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-19T12:50:00",
-    "completedAt": "2026-03-19T12:50:00"
+    "updatedAt": "2026-03-10T17:48:00",
+    "completedAt": null
   },
   {
     "id": "t143",
     "task": "Vitoria: implementar disparo WA utilitario para campos de contato alem do campo celular — ampliar alcance de disparo para escolas com contato em outros campos",
     "comment": "Encontro Aquisicao 04/mar/26 (Lili) - item 1.1. Hoje o disparo de WA so ocorre para o campo celular. Outros campos de contato nao recebem disparos. Impacto: melhora conversao. Custo: R$0,09 por disparo utilitario. Distinto de t122 (copy WA pre-SDR) e t121 (validacao de contatos existentes).",
     "owner": "Vitória",
-    "date": "20/mar",
+    "date": "19/mar",
     "tier": "t1",
     "tierLabel": "A fazer",
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-19T12:54:00",
+    "updatedAt": "2026-03-11T00:00:00",
     "completedAt": null
   },
   {
@@ -2735,18 +2735,18 @@ window.WATCHDOG_TODOS = [
     "comment": "Implementação técnica da decisão tomada na daily sobre limite de disparos.",
     "owner": "Vitória",
     "date": "19/mar",
-    "tier": "done",
-    "tierLabel": "Concluido",
+    "tier": "t1",
+    "tierLabel": "A fazer",
     "warn": null,
-    "done": true,
+    "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-19T12:45:00",
-    "completedAt": "2026-03-19T12:45:00"
+    "updatedAt": "2026-03-18T20:51:00",
+    "completedAt": null
   },
   {
     "id": "t204",
-    "task": "Revisar e validar vídeos do Flavio e toda a ação envolvendo o disparo na segunda",
-    "comment": "1. Revisar video\n2. Validar video \n3. Testar e-mail com links em diversos canais \n4. Validar whatsapp\n5. Preparar disparo em ordem de priorização feita pela Lili > AA 20K > HT e LT pub renovacao > AA 4k a 20k\n6. Programar disparo para segunda 23/03 8h",
+    "task": "Revisar vídeos do Flavio",
+    "comment": "Vídeos do Flavio",
     "owner": "Vitória",
     "date": "20/mar",
     "tier": "t1",
@@ -2754,7 +2754,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-19T12:51:00",
+    "updatedAt": "2026-03-18T21:31:00",
     "completedAt": null
   },
   {
@@ -2763,13 +2763,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Vídeos do flavio para validação",
     "owner": "Vitória",
     "date": "20/mar",
-    "tier": "done",
-    "tierLabel": "Concluido",
+    "tier": "t1",
+    "tierLabel": "A fazer",
     "warn": null,
-    "done": true,
+    "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-19T12:51:00",
-    "completedAt": "2026-03-19T12:51:00"
+    "updatedAt": "2026-03-18T21:38:00",
+    "completedAt": null
   },
   {
     "id": "t206",
@@ -2777,12 +2777,12 @@ window.WATCHDOG_TODOS = [
     "comment": "Priorizar renovação ht e lt pub e AA +20k",
     "owner": "Vitória",
     "date": "20/mar",
-    "tier": "done",
-    "tierLabel": "Concluido",
+    "tier": "t1",
+    "tierLabel": "A fazer",
     "warn": null,
-    "done": true,
+    "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-19T12:53:00",
-    "completedAt": "2026-03-19T12:53:00"
+    "updatedAt": "2026-03-18T21:47:00",
+    "completedAt": null
   }
 ];
