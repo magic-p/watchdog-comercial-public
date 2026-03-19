@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js"></script>
-<script src="saidas/todos_ssot.js?v=20260319214432"></script>
-<script src="saidas/data_health.js"></script>
-<script src="saidas/campanhas_ssot.js"></script>
-<script src="saidas/intel_ssot.js"></script>
+<script src="saidas/booked_meta.js?v=20260319214821"></script>
+<script src="saidas/todos_ssot.js?v=20260319214821"></script>
+<script src="saidas/data_health.js?v=20260319214821"></script>
+<script src="saidas/campanhas_ssot.js?v=20260319214821"></script>
+<script src="saidas/intel_ssot.js?v=20260319214821"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -1381,6 +1381,8 @@ let _alertsRefreshTimer = null;
 let _alertsRefreshInFlight = false;
 let _alertsRefreshQueued = false;
 let _alertsRefreshReason = 'unknown';
+let _lastAuthRefreshUserKey = '';
+let _lastAuthRefreshAt = 0;
 
 function _normalizeRefreshReason(reason) {
   const parts = String(reason || '')
@@ -2168,7 +2170,7 @@ function finishInitialAuthState(session = null) {
   const pp = document.getElementById('publicPill');
   if (session) {
     if (pp) pp.style.display = 'none';
-    _onAuthLogin(session, { silent: true });
+    _onAuthLogin(session, { silent: true, refreshReason: 'initial_session' });
     return;
   }
 
@@ -2624,7 +2626,8 @@ document.addEventListener('DOMContentLoaded', () => {
         _sbSession = session;
         return;
       }
-      _onAuthLogin(session, { silent: _event !== 'SIGNED_IN' });
+      const refreshReason = _event === 'SIGNED_IN' ? 'auth_login' : `auth_event_${String(_event || 'unknown').toLowerCase()}`;
+      _onAuthLogin(session, { silent: _event !== 'SIGNED_IN', refreshReason });
     });
   } else {
     document.getElementById('authPill').style.display = 'none';
@@ -2675,6 +2678,10 @@ function closeAuthModal() {
 function _onAuthLogin(session) {
   const opts = arguments[1] || {};
   _sbSession = session;
+  const refreshReason = String(opts.refreshReason || 'auth_login');
+  const userKey = _sessionUserKey(session);
+  const now = Date.now();
+  const shouldSkipOperationalRefresh = !!userKey && (_lastAuthRefreshUserKey === userKey) && ((now - _lastAuthRefreshAt) < 30000);
   BOOKED_META_SRC = BOOKED_META;
   _kpis = (BOOKED_META_SRC && BOOKED_META_SRC.kpis) ? BOOKED_META_SRC.kpis : {};
   const email = session.user?.email || '';
@@ -2702,8 +2709,12 @@ function _onAuthLogin(session) {
   renderBookedMeta();
   renderWins();
   renderDataHealth();
-  _scheduleTasksRefresh(true, 0, 'auth_login');
-  _scheduleAlertsRefresh(120, 'auth_login');
+  if (!shouldSkipOperationalRefresh) {
+    _lastAuthRefreshUserKey = userKey;
+    _lastAuthRefreshAt = now;
+    _scheduleTasksRefresh(true, 0, refreshReason);
+    _scheduleAlertsRefresh(120, refreshReason);
+  }
   _sbSubscribeRealtime();
 }
 
@@ -2728,6 +2739,8 @@ function _onAuthLogout() {
   if (_sb && !opts.skipRemoteSignOut) _sb.auth.signOut();
   _sbUnsubscribeRealtime();
   _sbSession = null;
+  _lastAuthRefreshUserKey = '';
+  _lastAuthRefreshAt = 0;
   if (_tasksRefreshTimer) clearTimeout(_tasksRefreshTimer);
   _tasksRefreshTimer = null;
   _tasksRefreshQueued = false;
