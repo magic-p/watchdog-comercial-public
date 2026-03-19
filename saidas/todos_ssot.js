@@ -2910,5 +2910,19 @@ window.WATCHDOG_TODOS = [
     "priorityRank": null,
     "updatedAt": null,
     "completedAt": null
+  },
+  {
+    "id": "t216",
+    "task": "Programar Email de Errata",
+    "comment": "Link: https://chat.google.com/room/AAQAHDbaBI8/8FswlCTIea0/8FswlCTIea0?cls=10",
+    "owner": "Vitória",
+    "date": "20/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-19T00:00:00",
+    "completedAt": null
   }
 ];
