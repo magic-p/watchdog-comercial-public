@@ -2844,7 +2844,7 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t211",
     "task": "Gravar vídeos para top30 de AA",
-    "comment": "Criada pela Claudete no chat (pedido direto no chat por pedro.concy@estantemagica.com.br). edição",
+    "comment": "Esperando Kaka enviar infos das Escolas",
     "owner": "Pedro",
     "date": "20/mar",
     "tier": "t2",
@@ -2908,7 +2908,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-19T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   }
 ];
