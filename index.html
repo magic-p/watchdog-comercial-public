@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260319192126"></script>
-<script src="saidas/todos_ssot.js?v=20260319192126"></script>
-<script src="saidas/data_health.js?v=20260319192126"></script>
-<script src="saidas/campanhas_ssot.js?v=20260319192126"></script>
-<script src="saidas/intel_ssot.js?v=20260319192126"></script>
+<script src="saidas/booked_meta.js?v=20260319192309"></script>
+<script src="saidas/todos_ssot.js?v=20260319192309"></script>
+<script src="saidas/data_health.js?v=20260319192309"></script>
+<script src="saidas/campanhas_ssot.js?v=20260319192309"></script>
+<script src="saidas/intel_ssot.js?v=20260319192309"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -1469,7 +1469,6 @@ let _supabaseRefreshInFlight = false;
 let _initialAuthStateResolved = false;
 let _pendingTaskMutations = new Map();
 let _taskFormBusy = false;
-let _supabaseNeedsBootstrapReconcile = false;
 
 function _clearExpiredTaskMutations() {
   const now = Date.now();
@@ -2740,7 +2739,6 @@ function _onAuthLogout() {
   if (_sb) _sb.auth.signOut();
   _sbUnsubscribeRealtime();
   _sbSession = null;
-  _supabaseNeedsBootstrapReconcile = false;
   BOOKED_META_SRC = DEMO_BOOKED_META;
   _kpis = (BOOKED_META_SRC && BOOKED_META_SRC.kpis) ? BOOKED_META_SRC.kpis : {};
   const pill = document.getElementById('authPill');
@@ -2797,106 +2795,6 @@ async function _cleanupInvalidSupabaseTasks(rows) {
   } catch (err) {
     console.error('[Supabase] cleanup invalid tasks exception:', err);
   }
-}
-
-async function _sbSeedFromSSOT() {
-  const source = TODOS_SSOT.length ? TODOS_SSOT : [];
-  if (!source.length) return;
-  const rows = source.map(t => ({
-    id:           t.id,
-	    tarefa:       t.task   || t.tarefa || '',
-	    dono:         t.owner  || t.dono   || '',
-	    prazo:        t.date   || t.prazo  || null,
-	    nota:         t.comment|| t.nota   || null,
-	    status:       isTaskDoneState(t) ? 'CONCLUIDO' : 'PENDENTE',
-	    tier:         (t.tier === 't1' || t.tier === 1) ? 1 : 2,
-	    priority_rank:t.priorityRank || null,
-	    historico:    t.historico || [],
-  }));
-  // upsert com ignoreDuplicates: insere tarefas novas sem sobrescrever status/tier existentes
-  const { error } = await _sb.from('todos').upsert(rows, { onConflict: 'id', ignoreDuplicates: true });
-  if (error) console.error('[Supabase] seed error:', error);
-  else console.log(`[Supabase] SSOT sync: ${rows.length} tarefas verificadas (novas inseridas, existentes preservadas)`);
-}
-
-function _ssotRowsForSupabase() {
-  const source = TODOS_SSOT.length ? TODOS_SSOT : [];
-  return source.map(t => ({
-    id:           t.id,
-	    tarefa:       t.task   || t.tarefa || '',
-	    dono:         t.owner  || t.dono   || '',
-	    prazo:        t.date   || t.prazo  || null,
-	    nota:         t.comment|| t.nota   || null,
-	    status:       isTaskDoneState(t) ? 'CONCLUIDO' : 'PENDENTE',
-	    tier:         (t.tier === 't1' || t.tier === 1) ? 1 : 2,
-	    priority_rank:t.priorityRank || null,
-	    historico:    Array.isArray(t.historico) ? t.historico : [],
-  }));
-}
-
-function _sbTodoComparable(row) {
-  return JSON.stringify({
-    id: String(row?.id || ''),
-    tarefa: String(row?.tarefa || ''),
-    dono: String(row?.dono || ''),
-    prazo: row?.prazo || null,
-    nota: row?.nota || null,
-    status: String(row?.status || ''),
-    tier: Number(row?.tier || 0),
-    priority_rank: row?.priority_rank || null,
-    historico: Array.isArray(row?.historico) ? row.historico : [],
-  });
-}
-
-async function _sbReconcileWithSSOT(rows, silent = true) {
-  if (!_sb || !_sbSession) return rows;
-  const ssotRows = _ssotRowsForSupabase();
-  if (!ssotRows.length) return rows;
-
-  const currentRows = Array.isArray(rows) ? rows : [];
-  const ssotMap = new Map(ssotRows.map(r => [String(r.id), r]));
-  const currentMap = new Map(currentRows.map(r => [String(r.id), r]));
-
-  // O SSOT do navegador serve apenas como bootstrap inicial.
-  // Depois que uma tarefa existe no Supabase, o estado mutável (status/tier/etc.)
-  // precisa permanecer autoritativo lá para não ressuscitar estado antigo no refresh.
-  const missingRows = ssotRows.filter(ssotRow => !currentMap.has(String(ssotRow.id)));
-  const divergentIds = ssotRows
-    .filter(ssotRow => {
-      const current = currentMap.get(String(ssotRow.id));
-      return current && _sbTodoComparable(current) !== _sbTodoComparable(ssotRow);
-    })
-    .map(r => r.id);
-
-  if (!missingRows.length) {
-    if (divergentIds.length) {
-      console.warn('[Supabase] SSOT divergence ignored (Supabase authoritative):', divergentIds);
-    }
-    return currentRows;
-  }
-
-  console.warn('[Supabase] bootstrap insert from SSOT:', {
-    missingIds: missingRows.map(r => r.id),
-    divergentIdsIgnored: divergentIds
-  });
-
-  if (missingRows.length) {
-    const { error } = await _sb.from('todos').upsert(missingRows, { onConflict: 'id', ignoreDuplicates: true });
-    if (error) {
-      console.error('[Supabase] reconcile upsert error:', error);
-      if (!silent) toast('Falha ao alinhar Supabase com SSOT.', 'error');
-      return currentRows;
-    }
-  }
-
-  const { data: refreshed, error: refreshError } = await _sb.from('todos').select('*').order('id');
-  if (refreshError) {
-    console.error('[Supabase] reconcile refresh error:', refreshError);
-    if (!silent) toast('Supabase alinhado, mas falhou ao recarregar.', 'error');
-    return currentRows;
-  }
-  if (!silent) toast('Supabase complementado com tarefas faltantes do SSOT.', 'ok');
-  return Array.isArray(refreshed) ? refreshed : currentRows;
 }
 
 async function _refreshTasksFromSupabase(silent = false, opts = {}) {
