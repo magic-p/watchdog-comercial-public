@@ -2840,5 +2840,19 @@ window.WATCHDOG_TODOS = [
     "priorityRank": null,
     "updatedAt": "2026-03-19T17:44:00",
     "completedAt": null
+  },
+  {
+    "id": "t211",
+    "task": "Gravar vídeos para top30 de AA",
+    "comment": "Criada pela Claudete no chat (pedido direto no chat por pedro.concy@estantemagica.com.br).",
+    "owner": "Pedro",
+    "date": "20/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-19T17:51:00",
+    "completedAt": null
   }
 ];
