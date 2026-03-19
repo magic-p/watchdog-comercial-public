@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260319093611"></script>
-<script src="saidas/todos_ssot.js?v=20260319093611"></script>
-<script src="saidas/data_health.js?v=20260319093611"></script>
-<script src="saidas/campanhas_ssot.js?v=20260319093611"></script>
-<script src="saidas/intel_ssot.js?v=20260319093611"></script>
+<script src="saidas/booked_meta.js?v=20260319094028"></script>
+<script src="saidas/todos_ssot.js?v=20260319094028"></script>
+<script src="saidas/data_health.js?v=20260319094028"></script>
+<script src="saidas/campanhas_ssot.js?v=20260319094028"></script>
+<script src="saidas/intel_ssot.js?v=20260319094028"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -1456,6 +1456,7 @@ let _supabaseRefreshInFlight = false;
 let _initialAuthStateResolved = false;
 let _pendingTaskMutations = new Map();
 let _taskFormBusy = false;
+let _supabaseNeedsBootstrapReconcile = true;
 
 function _clearExpiredTaskMutations() {
   const now = Date.now();
@@ -2683,7 +2684,7 @@ function _onAuthLogin(session) {
   renderBookedMeta();
   renderWins();
   renderDataHealth();
-  _refreshTasksFromSupabase(true);
+  _refreshTasksFromSupabase(true, { reconcile: true });
   _sbSubscribeRealtime();
 }
 
@@ -2692,7 +2693,7 @@ function _sbSubscribeRealtime() {
   _sbRealtimeChannel = _sb
     .channel('todos-live')
     .on('postgres_changes', { event: '*', schema: 'public', table: 'todos' },
-      () => _refreshTasksFromSupabase(true))
+      () => _refreshTasksFromSupabase(true, { reconcile: false }))
     .subscribe();
 }
 
@@ -2707,6 +2708,7 @@ function _onAuthLogout() {
   if (_sb) _sb.auth.signOut();
   _sbUnsubscribeRealtime();
   _sbSession = null;
+  _supabaseNeedsBootstrapReconcile = true;
   BOOKED_META_SRC = DEMO_BOOKED_META;
   _kpis = (BOOKED_META_SRC && BOOKED_META_SRC.kpis) ? BOOKED_META_SRC.kpis : {};
   const pill = document.getElementById('authPill');
@@ -2864,11 +2866,12 @@ async function _sbReconcileWithSSOT(rows, silent = true) {
   return Array.isArray(refreshed) ? refreshed : currentRows;
 }
 
-async function _refreshTasksFromSupabase(silent = false) {
+async function _refreshTasksFromSupabase(silent = false, opts = {}) {
   if (!_sb || !_sbSession) return;
   if (_supabaseRefreshInFlight) return;
   _supabaseRefreshInFlight = true;
   try {
+    const shouldReconcile = opts.reconcile === true || (_supabaseNeedsBootstrapReconcile && opts.reconcile !== false);
     const { data, error } = await _sb.from('todos').select('*').order('id');
     if (error) {
       console.error('[Supabase] query error:', error);
@@ -2887,13 +2890,14 @@ async function _refreshTasksFromSupabase(silent = false) {
       await _cleanupInvalidSupabaseTasks(seeded);
       tasks = _mergePendingTaskMutations(seeded.map(_sbRowToTask));
       _lastGoodSupabaseTasks = tasks.map(t => ({ ...t }));
+      _supabaseNeedsBootstrapReconcile = false;
       enforceWeeklyTop3(tasks);
       renderTasks();
       buildOwnerFilters();
       if (!silent) toast(`${seeded.length} tarefas sincronizadas`, 'ok');
       return;
     }
-    let reconciled = await _sbReconcileWithSSOT(data, silent);
+    let reconciled = shouldReconcile ? await _sbReconcileWithSSOT(data, silent) : data;
     await _cleanupInvalidSupabaseTasks(reconciled);
     const nextTasks = _mergePendingTaskMutations(reconciled.map(_sbRowToTask));
     if (!nextTasks.length && _lastGoodSupabaseTasks.length) {
@@ -2902,6 +2906,7 @@ async function _refreshTasksFromSupabase(silent = false) {
       tasks = nextTasks;
       if (tasks.length) _lastGoodSupabaseTasks = tasks.map(t => ({ ...t }));
     }
+    _supabaseNeedsBootstrapReconcile = false;
     enforceWeeklyTop3(tasks);
     renderTasks();
     buildOwnerFilters();
