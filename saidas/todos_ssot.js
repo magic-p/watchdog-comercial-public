@@ -2749,13 +2749,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Vídeos do Flavio",
     "owner": "Vitória",
     "date": "20/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-19T17:32:00",
+    "completedAt": "2026-03-19T17:32:00"
   },
   {
     "id": "t205",
