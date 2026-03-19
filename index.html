@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260319201509"></script>
-<script src="saidas/todos_ssot.js?v=20260319201509"></script>
-<script src="saidas/data_health.js?v=20260319201509"></script>
-<script src="saidas/campanhas_ssot.js?v=20260319201509"></script>
-<script src="saidas/intel_ssot.js?v=20260319201509"></script>
+<script src="saidas/booked_meta.js?v=20260319202021"></script>
+<script src="saidas/todos_ssot.js?v=20260319202021"></script>
+<script src="saidas/data_health.js?v=20260319202021"></script>
+<script src="saidas/campanhas_ssot.js?v=20260319202021"></script>
+<script src="saidas/intel_ssot.js?v=20260319202021"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -368,14 +368,20 @@ function _canWrite() {
   return IS_LOCAL || (_sb && _sbSession !== null);
 }
 
+function _makeRequestId(prefix = 'req') {
+  const rand = Math.random().toString(36).slice(2, 8);
+  return `${prefix}-${Date.now().toString(36)}-${rand}`;
+}
+
 /* ── Motor local (fallback quando IS_LOCAL) ────────────────── */
 async function _motorPatch(patch) {
   try {
     const actor = _sbSession?.user?.email?.split('@')[0] || 'dashboard';
     const authToken = _sbSession?.access_token || window.WATCHDOG_API_TOKEN || '';
+    const request_id = _makeRequestId('patch');
     const r = await fetch(`${API_URL}/api/todos/patch`, {
       method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${authToken}` },
-      body: JSON.stringify({ ...patch, actor })
+      body: JSON.stringify({ ...patch, actor, request_id })
     });
     if (!r.ok) {
       let msg = 'Motor local: erro ao salvar';
@@ -399,9 +405,10 @@ async function _motorPatch(patch) {
 async function _motorCreate(task) {
   try {
     const authToken = _sbSession?.access_token || window.WATCHDOG_API_TOKEN || '';
+    const request_id = _makeRequestId('create');
     const r = await fetch(`${API_URL}/api/todos/create`, {
       method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${authToken}` },
-      body: JSON.stringify({ id: task.id, task: task.task, owner: task.owner, date: task.date, comment: task.comment || null })
+      body: JSON.stringify({ id: task.id, task: task.task, owner: task.owner, date: task.date, comment: task.comment || null, request_id })
     });
     if (!r.ok) {
       let msg = 'Motor local: erro ao criar';
