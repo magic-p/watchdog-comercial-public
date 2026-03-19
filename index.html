@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js"></script>
-<script src="saidas/todos_ssot.js?v=20260319211204"></script>
-<script src="saidas/data_health.js"></script>
-<script src="saidas/campanhas_ssot.js"></script>
-<script src="saidas/intel_ssot.js"></script>
+<script src="saidas/booked_meta.js?v=20260319211607"></script>
+<script src="saidas/todos_ssot.js?v=20260319211607"></script>
+<script src="saidas/data_health.js?v=20260319211607"></script>
+<script src="saidas/campanhas_ssot.js?v=20260319211607"></script>
+<script src="saidas/intel_ssot.js?v=20260319211607"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -1043,6 +1043,11 @@ function _parseBackendAlert(str, idx) {
 }
 
 async function fetchBackendAlerts() {
+  if (_alertsRefreshInFlight) {
+    _alertsRefreshQueued = true;
+    return;
+  }
+  _alertsRefreshInFlight = true;
   try {
     const r = await fetch(`${API_URL}/api/computed/alerts`, {
       signal: AbortSignal.timeout(3000)
@@ -1053,6 +1058,11 @@ async function fetchBackendAlerts() {
     renderCriticalAlerts();
   } catch {
     _backendAlerts = null; // motor offline — usa fallback local
+  } finally {
+    _alertsRefreshInFlight = false;
+    if (_alertsRefreshQueued && !_alertsRefreshTimer) {
+      _scheduleAlertsRefresh(220);
+    }
   }
 }
 
@@ -1365,6 +1375,9 @@ let _taskFormBusy = false;
 let _tasksRefreshTimer = null;
 let _tasksRefreshQueued = false;
 let _tasksRefreshQueuedSilent = true;
+let _alertsRefreshTimer = null;
+let _alertsRefreshInFlight = false;
+let _alertsRefreshQueued = false;
 
 function _queueTasksRefresh(silent = true) {
   const hadQueued = _tasksRefreshQueued;
@@ -1384,6 +1397,18 @@ function _scheduleTasksRefresh(silent = true, delay = 180) {
     _tasksRefreshQueued = false;
     _tasksRefreshQueuedSilent = true;
     await _refreshTasksFromApi(runSilent);
+  }, Math.max(0, delay));
+}
+
+function _scheduleAlertsRefresh(delay = 220) {
+  _alertsRefreshQueued = true;
+  if (_alertsRefreshInFlight) return;
+  if (_alertsRefreshTimer) clearTimeout(_alertsRefreshTimer);
+  _alertsRefreshTimer = setTimeout(async () => {
+    _alertsRefreshTimer = null;
+    if (!_alertsRefreshQueued) return;
+    _alertsRefreshQueued = false;
+    await fetchBackendAlerts();
   }, Math.max(0, delay));
 }
 
@@ -2081,8 +2106,7 @@ function renderTasks() {
 
   setTaskView(taskView);
   renderTopPriorities();
-  renderCriticalAlerts(); // renderiza com fallback local; fetchBackendAlerts() atualiza em seguida
-  fetchBackendAlerts();
+  renderCriticalAlerts();
   renderDataHealth();
   renderWins();
   counter();
@@ -2116,6 +2140,7 @@ function finishInitialAuthState(session = null) {
   }
 
   renderDashboardDataFromCurrentState();
+  _scheduleAlertsRefresh(0);
   if (pp && REQUIRE_LOGIN_FOR_READ) pp.style.display = 'inline-flex';
   if (REQUIRE_LOGIN_FOR_READ) {
     toast('Modo público: tarefas fictícias (literatura). Faça login para ver as reais.', 'err');
@@ -2633,6 +2658,7 @@ function _onAuthLogin(session) {
   renderWins();
   renderDataHealth();
   _scheduleTasksRefresh(true, 0);
+  _scheduleAlertsRefresh(120);
   _sbSubscribeRealtime();
 }
 
@@ -2660,6 +2686,9 @@ function _onAuthLogout() {
   _tasksRefreshTimer = null;
   _tasksRefreshQueued = false;
   _tasksRefreshQueuedSilent = true;
+  if (_alertsRefreshTimer) clearTimeout(_alertsRefreshTimer);
+  _alertsRefreshTimer = null;
+  _alertsRefreshQueued = false;
   BOOKED_META_SRC = DEMO_BOOKED_META;
   _kpis = (BOOKED_META_SRC && BOOKED_META_SRC.kpis) ? BOOKED_META_SRC.kpis : {};
   const pill = document.getElementById('authPill');
@@ -2673,7 +2702,7 @@ function _onAuthLogout() {
     load();
     renderTasks();
     renderCriticalAlerts();
-    fetchBackendAlerts();
+    _scheduleAlertsRefresh(120);
     renderIntel();
     renderKpis();
     renderBookedMeta();
@@ -2713,6 +2742,7 @@ async function _refreshTasksFromApi(silent = false) {
       enforceWeeklyTop3(tasks);
       renderTasks();
       buildOwnerFilters();
+      _scheduleAlertsRefresh(120);
       if (!silent) toast('Sem tarefas operacionais no momento.', 'ok');
       return;
     }
@@ -2726,6 +2756,7 @@ async function _refreshTasksFromApi(silent = false) {
     enforceWeeklyTop3(tasks);
     renderTasks();
     buildOwnerFilters();
+    _scheduleAlertsRefresh(120);
     if (!silent) toast(`${remoteTasks.length} tarefas carregadas`, 'ok');
   } catch (err) {
     console.error('[Tasks API] exception in _refreshTasksFromApi:', err);
