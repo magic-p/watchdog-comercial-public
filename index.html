@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js"></script>
-<script src="saidas/todos_ssot.js?v=20260319212959"></script>
-<script src="saidas/data_health.js"></script>
-<script src="saidas/campanhas_ssot.js"></script>
-<script src="saidas/intel_ssot.js"></script>
+<script src="saidas/booked_meta.js?v=20260319213633"></script>
+<script src="saidas/todos_ssot.js?v=20260319213633"></script>
+<script src="saidas/data_health.js?v=20260319213633"></script>
+<script src="saidas/campanhas_ssot.js?v=20260319213633"></script>
+<script src="saidas/intel_ssot.js?v=20260319213633"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -1382,21 +1382,35 @@ let _alertsRefreshInFlight = false;
 let _alertsRefreshQueued = false;
 let _alertsRefreshReason = 'unknown';
 
+function _normalizeRefreshReason(reason) {
+  const parts = String(reason || '')
+    .split('+')
+    .map(s => String(s || '').trim())
+    .filter(Boolean)
+    .filter(s => s !== 'unknown');
+  return parts.length ? parts.join('+') : 'unknown';
+}
+
 function _mergeRefreshReason(current, next) {
-  const left = String(current || '').trim();
-  const right = String(next || '').trim();
-  if (!left) return right || 'unknown';
-  if (!right || right === left) return left;
-  const parts = left.split('+').map(s => s.trim()).filter(Boolean);
-  if (parts.includes(right)) return left;
-  return `${left}+${right}`;
+  const parts = new Set();
+  for (const value of [current, next]) {
+    for (const part of String(value || '').split('+')) {
+      const clean = String(part || '').trim();
+      if (clean && clean !== 'unknown') parts.add(clean);
+    }
+  }
+  return parts.size ? Array.from(parts).join('+') : 'unknown';
+}
+
+function _sessionUserKey(session) {
+  return String(session?.user?.id || session?.user?.email || '').trim().toLowerCase();
 }
 
 function _queueTasksRefresh(silent = true, reason = 'unknown') {
   const hadQueued = _tasksRefreshQueued;
   _tasksRefreshQueued = true;
   _tasksRefreshQueuedSilent = hadQueued ? (_tasksRefreshQueuedSilent && !!silent) : !!silent;
-  _tasksRefreshReason = hadQueued ? _mergeRefreshReason(_tasksRefreshReason, reason) : String(reason || 'unknown');
+  _tasksRefreshReason = hadQueued ? _mergeRefreshReason(_tasksRefreshReason, reason) : _normalizeRefreshReason(reason);
 }
 
 function _scheduleTasksRefresh(silent = true, delay = 180, reason = 'unknown') {
@@ -2597,8 +2611,20 @@ document.addEventListener('DOMContentLoaded', () => {
         finishInitialAuthState(session || null);
         return;
       }
-      if (session) _onAuthLogin(session);
-      else _onAuthLogout();
+      if (_event === 'SIGNED_OUT' || !session) {
+        _onAuthLogout({ skipRemoteSignOut: true });
+        return;
+      }
+      const sameUser = !!_sbSession && (_sessionUserKey(_sbSession) === _sessionUserKey(session));
+      if (_event === 'TOKEN_REFRESHED') {
+        _sbSession = session;
+        return;
+      }
+      if (sameUser) {
+        _sbSession = session;
+        return;
+      }
+      _onAuthLogin(session, { silent: _event !== 'SIGNED_IN' });
     });
   } else {
     document.getElementById('authPill').style.display = 'none';
@@ -2698,7 +2724,8 @@ function _sbUnsubscribeRealtime() {
 }
 
 function _onAuthLogout() {
-  if (_sb) _sb.auth.signOut();
+  const opts = arguments[0] || {};
+  if (_sb && !opts.skipRemoteSignOut) _sb.auth.signOut();
   _sbUnsubscribeRealtime();
   _sbSession = null;
   if (_tasksRefreshTimer) clearTimeout(_tasksRefreshTimer);
@@ -2808,7 +2835,6 @@ async function signInWithPassword() {
   } else {
     msg.className = 'auth-msg ok';
     msg.textContent = '✅ Login realizado.';
-    if (data?.session) _onAuthLogin(data.session);
   }
 }
 
