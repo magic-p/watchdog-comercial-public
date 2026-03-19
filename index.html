@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260319101331"></script>
-<script src="saidas/todos_ssot.js?v=20260319101331"></script>
-<script src="saidas/data_health.js?v=20260319101331"></script>
-<script src="saidas/campanhas_ssot.js?v=20260319101331"></script>
-<script src="saidas/intel_ssot.js?v=20260319101331"></script>
+<script src="saidas/booked_meta.js?v=20260319102455"></script>
+<script src="saidas/todos_ssot.js?v=20260319102455"></script>
+<script src="saidas/data_health.js?v=20260319102455"></script>
+<script src="saidas/campanhas_ssot.js?v=20260319102455"></script>
+<script src="saidas/intel_ssot.js?v=20260319102455"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -859,45 +859,24 @@ const WINS = []; // Placeholder para wins manuais via console (fonte real: saida
 /*  STATE  */
 
 const OWNER_FALLBACK = 'Lili';
-const DRI_OPTIONS = [
-  'Pedro',
-  'Kaka',
-  'Lili',
-  'Vitória',
-  'Nath Ferreira',
-  'Ana Paula Pimentel',
-  'Bebel Bertuccelli',
-  'Luana',
-  'Leo (Marketing)',
-];
-const OWNER_CANONICAL = {
-  'pedro': 'Pedro',
-  'pedro concy': 'Pedro',
-  'concy': 'Pedro',
-  'kaka': 'Kaka',
-  'karina': 'Kaka',
-  'karina machado': 'Kaka',
-  'lili': 'Lili',
-  'liliane': 'Lili',
-  'vitoria': 'Vitória',
-  'vitória': 'Vitória',
-  'vit': 'Vitória',
-  'nath': 'Nath Ferreira',
-  'nathalia': 'Nath Ferreira',
-  'nath ferreira': 'Nath Ferreira',
-  'nathalia ferreira': 'Nath Ferreira',
-  'ana paula': 'Ana Paula Pimentel',
-  'ana pimentel': 'Ana Paula Pimentel',
-  'ana paula pimentel': 'Ana Paula Pimentel',
-  'pimentel': 'Ana Paula Pimentel',
-  'bebel': 'Bebel Bertuccelli',
-  'bertuccelli': 'Bebel Bertuccelli',
-  'bebel bertuccelli': 'Bebel Bertuccelli',
-  'luana': 'Luana',
-  'lua': 'Luana',
-  'leo': 'Leo (Marketing)',
-  'leo marketing': 'Leo (Marketing)',
+const OWNER_DIRECTORY = {
+  pedro: { canonical: 'Pedro', aliases: ['Pedro', 'Pedro Concy', 'Concy'] },
+  karina: { canonical: 'Kaka', aliases: ['Kaka', 'Kaká', 'Karina', 'Karina Machado'] },
+  lili: { canonical: 'Lili', aliases: ['Lili', 'Liliane'] },
+  vitoria: { canonical: 'Vitória', aliases: ['Vit', 'Vitória', 'Vitoria', 'Riente', 'Vit Riente', 'Vitória Riente', 'Vitoria Riente'] },
+  nath: { canonical: 'Nath Ferreira', aliases: ['Nath', 'Nathalia', 'Nath Ferreira', 'Nathalia Ferreira'] },
+  ana_paula_pimentel: { canonical: 'Ana Paula Pimentel', aliases: ['Ana', 'Ana Paula', 'Ana Pimentel', 'Ana Paula Pimentel', 'Pimentel'] },
+  bebel: { canonical: 'Bebel Bertuccelli', aliases: ['Bebel', 'Bertuccelli', 'Bebel Bertuccelli'] },
+  luana: { canonical: 'Luana', aliases: ['Luana', 'Lua'] },
+  leo: { canonical: 'Leo (Marketing)', aliases: ['Leo', 'Leo Marketing'] },
 };
+const DRI_OPTIONS = Object.values(OWNER_DIRECTORY).map(cfg => cfg.canonical);
+const OWNER_CANONICAL = Object.values(OWNER_DIRECTORY).reduce((acc, cfg) => {
+  [cfg.canonical, ...(cfg.aliases || [])].forEach(alias => {
+    acc[ownerKey(alias)] = cfg.canonical;
+  });
+  return acc;
+}, {});
 
 let taskFormMode = 'create';
 let editingTaskId = null;
