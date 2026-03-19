@@ -2745,8 +2745,8 @@ window.WATCHDOG_TODOS = [
   },
   {
     "id": "t204",
-    "task": "Revisar e validar vídeos do Flavio",
-    "comment": "Vídeos do Flavio",
+    "task": "Revisar e validar vídeos do Flavio e toda a ação envolvendo o disparo na segunda",
+    "comment": "1. Revisar video\n2. Validar video \n3. Testar e-mail com links em diversos canais \n4. Validar whatsapp\n5. Preparar disparo\n6. Programar disparo para segunda 23/03 8h",
     "owner": "Vitória",
     "date": "20/mar",
     "tier": "t1",
