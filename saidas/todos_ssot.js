@@ -2868,5 +2868,19 @@ window.WATCHDOG_TODOS = [
     "priorityRank": null,
     "updatedAt": null,
     "completedAt": null
+  },
+  {
+    "id": "t213",
+    "task": "Investigar preço em lote considerando concorrência mais alta para decisão de ajuste de preços para 2º semestre",
+    "comment": "Analisar preços de lote e considerar concorrência mais alta para embasar decisão de ajuste de preços para o 2º semestre",
+    "owner": "Bebel Bertuccelli",
+    "date": "26/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-19T19:57:00",
+    "completedAt": null
   }
 ];
