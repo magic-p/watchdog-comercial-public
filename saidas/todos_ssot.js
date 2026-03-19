@@ -1937,13 +1937,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Pedro trouxe dados de 51 escolas que receberam mimo: 76% RR (39/51), 30% fechamento (12/39 RR), 17% conversão (7/39 RR). O dado isolado não prova causalidade. Lili precisa puxar o grupo controle (escolas sem mimo, mesmo período e segmento) e calcular delta nas 3 métricas. Critério de decisão: se delta < 10pp em RR, recomendar suspensão do processo de mimo. Referência histórica: insight002 diz +61% agendamentos com mimo em AA Jul/Ago 2025 — confirmar se padrão se mantém em 2026.",
     "owner": "Vitória",
     "date": "18/mar",
-    "tier": "done",
-    "tierLabel": "Concluido",
+    "tier": "t1",
+    "tierLabel": "A fazer",
     "warn": null,
-    "done": true,
+    "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-19T13:01:00",
-    "completedAt": "2026-03-19T13:01:00"
+    "updatedAt": "2026-03-10T17:48:00",
+    "completedAt": null
   },
   {
     "id": "t143",
