@@ -467,13 +467,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Merge de t034 original (ação Instagram comercial) com ações definidas na daily 26/02. Dois escopos: (1) verificar e priorizar Instagram para 283 escolas AA descarte — potencial R$8,5M; (2) sentar com Maria Carol para revisar base de renovação +20k alunos e preparar ação Instagram. Lili reenviará base 24 low touch para Karina como insumo. Lili reforçou em 27/02: AA descarte >20k (verificar se já foi feito, se não priorizar), Renovação (falar com Maria Carol se pode falar com todas as escolas). Adicionar escopo de Cross Aquisição.",
     "owner": "Kaka",
     "date": "17/mar",
-    "tier": "done",
-    "tierLabel": "Concluido",
+    "tier": "t2",
+    "tierLabel": "Fazendo",
     "warn": null,
-    "done": true,
+    "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-19T14:27:00",
-    "completedAt": "2026-03-19T14:27:00"
+    "updatedAt": "2026-02-27T00:00:00",
+    "completedAt": null
   },
   {
     "id": "t035",
