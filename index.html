@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260319194818"></script>
-<script src="saidas/todos_ssot.js?v=20260319194818"></script>
-<script src="saidas/data_health.js?v=20260319194818"></script>
-<script src="saidas/campanhas_ssot.js?v=20260319194818"></script>
-<script src="saidas/intel_ssot.js?v=20260319194818"></script>
+<script src="saidas/booked_meta.js?v=20260319195304"></script>
+<script src="saidas/todos_ssot.js?v=20260319195304"></script>
+<script src="saidas/data_health.js?v=20260319195304"></script>
+<script src="saidas/campanhas_ssot.js?v=20260319195304"></script>
+<script src="saidas/intel_ssot.js?v=20260319195304"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -368,121 +368,6 @@ function _canWrite() {
   return IS_LOCAL || (_sb && _sbSession !== null);
 }
 
-/* Supabase direto fica apenas para bootstrap/admin/debug, não como writer operacional. */
-async function _sbPatch(patch) {
-  if (!_sb || !_sbSession) return false;
-  try {
-    const updates = {};
-    const actor = _sbSession.user?.email?.split('@')[0] || 'dashboard';
-    const now = new Date();
-    const parts = new Intl.DateTimeFormat('en-CA', {
-      timeZone: 'America/Sao_Paulo',
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: false,
-    }).formatToParts(now).reduce((acc, part) => {
-      if (part.type !== 'literal') acc[part.type] = part.value;
-      return acc;
-    }, {});
-    const ts = `${parts.year}-${parts.month}-${parts.day} ${parts.hour}:${parts.minute}`;
-    if (patch.deleted) {
-      const { error } = await _sb.from('todos').delete().eq('id', patch.id);
-      if (error) {
-        console.error('[Supabase] _sbPatch delete error:', error);
-        _setWriteError('Supabase: ' + (error.message || JSON.stringify(error)));
-        toast('Erro ao excluir: ' + (error.message || JSON.stringify(error)), 'err');
-        return false;
-      }
-      _setWriteError('');
-      _refreshTasksFromSupabase(true);
-      return true;
-    }
-    if ('done' in patch) {
-      updates.status = patch.done ? 'CONCLUIDO' : 'PENDENTE';
-    }
-    if ('task'         in patch) updates.tarefa        = patch.task;
-    if ('owner'        in patch) updates.dono          = patch.owner;
-    if ('date'         in patch) updates.prazo         = patch.date;
-    if ('comment'      in patch) updates.nota          = patch.comment;
-    if ('priorityRank' in patch) updates.priority_rank = patch.priorityRank;
-    if ('tier'         in patch) {
-      const tv = String(patch.tier).toLowerCase();
-      if (tv === 'done') updates.status = 'CONCLUIDO';
-      else updates.tier = parseInt(tv.replace('t', '')) || 1;
-    }
-    // Atualiza historico com quem fez + horário
-    const needsCurrentRow = ('done' in patch) || ('tier' in patch && String(patch.tier).toLowerCase() === 'done') || ('owner' in patch);
-    let cur = null;
-    if (needsCurrentRow) {
-      const { data: curRow } = await _sb.from('todos').select('historico,dono').eq('id', patch.id).single();
-      cur = curRow || null;
-    }
-    if ('done' in patch || ('tier' in patch && String(patch.tier).toLowerCase() === 'done')) {
-      const isDone = patch.done === true || String(patch.tier).toLowerCase() === 'done';
-      const hist = Array.isArray(cur?.historico) ? [...cur.historico] : [];
-      hist.push({ data: ts, evento: isDone ? `Concluido por ${actor}` : `Reaberto por ${actor}` });
-      updates.historico = hist;
-    }
-    if ('owner' in patch) {
-      const prevOwner = normalizeOwnerName(cur?.dono || patch.previousOwner || '');
-      const nextOwner = normalizeOwnerName(patch.owner);
-      if (prevOwner && nextOwner && prevOwner !== nextOwner) {
-        const hist = Array.isArray(updates.historico) ? [...updates.historico] : (Array.isArray(cur?.historico) ? [...cur.historico] : []);
-        hist.push({ data: ts, evento: `Responsavel alterado de ${prevOwner} para ${nextOwner} por ${actor}` });
-        updates.historico = hist;
-      }
-    }
-    const { error } = await _sb.from('todos').update(updates).eq('id', patch.id);
-    if (error) {
-      console.error('[Supabase] _sbPatch error:', error);
-      _setWriteError('Supabase: ' + (error.message || JSON.stringify(error)));
-      toast('Erro ao salvar: ' + (error.message || JSON.stringify(error)), 'err');
-      return false;
-    }
-    _setWriteError('');
-    _refreshTasksFromSupabase(true); // atualiza silenciosamente para todas as sessões
-    return true;
-  } catch (err) {
-    console.error('[Supabase] _sbPatch exception:', err);
-    _setWriteError('Supabase: ' + (err?.message || String(err)));
-    toast('Erro ao salvar: ' + (err?.message || String(err)), 'err');
-    return false;
-  }
-}
-
-async function _sbCreate(task) {
-  if (!_sb || !_sbSession) return false;
-  try {
-    if (isInvalidTaskTitleText(task?.task)) {
-      _setWriteError('Supabase: tarefa invalida (titulo obrigatorio).');
-      toast('Título da tarefa é obrigatório.', 'err');
-      return false;
-    }
-    const { error } = await _sb.from('todos').insert({
-      id: task.id, tarefa: task.task, dono: task.owner,
-      prazo: task.date || null, nota: task.comment || null,
-      status: 'PENDENTE', tier: 1, historico: []
-    });
-    if (error) {
-      console.error('[Supabase] _sbCreate error:', error);
-      _setWriteError('Supabase: ' + (error.message || JSON.stringify(error)));
-      toast('Erro ao criar: ' + (error.message || JSON.stringify(error)), 'err');
-      return false;
-    }
-    _setWriteError('');
-    _refreshTasksFromSupabase(true); // atualiza silenciosamente para todas as sessões
-    return true;
-  } catch (err) {
-    console.error('[Supabase] _sbCreate exception:', err);
-    _setWriteError('Supabase: ' + (err?.message || String(err)));
-    toast('Erro ao criar: ' + (err?.message || String(err)), 'err');
-    return false;
-  }
-}
-
 /* ── Motor local (fallback quando IS_LOCAL) ────────────────── */
 async function _motorPatch(patch) {
   try {
@@ -501,8 +386,9 @@ async function _motorPatch(patch) {
       _setWriteError(msg);
       return false;
     }
+    try { await r.json(); } catch {}
     _setWriteError('');
-    if (_sb && _sbSession) _refreshTasksFromSupabase(true);
+    if (_sbSession) _refreshTasksFromApi(true);
     return true;
   } catch (err) {
     _setWriteError('Motor local: ' + (err?.message || String(err)));
@@ -526,8 +412,9 @@ async function _motorCreate(task) {
       _setWriteError(msg);
       return false;
     }
+    try { await r.json(); } catch {}
     _setWriteError('');
-    if (_sb && _sbSession) _refreshTasksFromSupabase(true);
+    if (_sbSession) _refreshTasksFromApi(true);
     return true;
   } catch (err) {
     _setWriteError('Motor local: ' + (err?.message || String(err)));
@@ -1459,7 +1346,6 @@ let taskView = 'open';
 let sortCol = 'date';
 let sortDir = 1;
 let ownerFilter = null;
-let _invalidSupabaseTaskIds = new Set();
 let winsCollapsed = true;
 let bookedCollapsed = true;
 let intelCollapsed = true;
@@ -1657,7 +1543,7 @@ function openTaskModal(mode = 'create', id = null) {
 	          _rememberTaskMutation('delete', { id: editingTaskId });
 	          tasks = tasks.filter(x => x.id !== editingTaskId);
 	          save();
-	          if (_sb && _sbSession) await _refreshTasksFromSupabase(true);
+	          if (_sbSession) await _refreshTasksFromApi(true);
 	          closeTaskModal();
 	          renderTasks();
         } finally {
@@ -2715,7 +2601,7 @@ function _onAuthLogin(session) {
   renderBookedMeta();
   renderWins();
   renderDataHealth();
-  _refreshTasksFromSupabase(true);
+  _refreshTasksFromApi(true);
   _sbSubscribeRealtime();
 }
 
@@ -2724,7 +2610,7 @@ function _sbSubscribeRealtime() {
   _sbRealtimeChannel = _sb
     .channel('todos-live')
     .on('postgres_changes', { event: '*', schema: 'public', table: 'todos' },
-      () => _refreshTasksFromSupabase(true, { reconcile: false }))
+      () => _refreshTasksFromApi(true))
     .subscribe();
 }
 
@@ -2760,69 +2646,39 @@ function _onAuthLogout() {
   }
 }
 
-function _sbRowToTask(r) {
-  return normalizeTask({
-	    id:           r.id,
-	    task:         r.tarefa || '',
-	    owner:        r.dono   || '',
-	    date:         r.prazo  || '',
-	    status:       r.status || '',
-	    done:         TODO_STATUS_DONE.has(canonicalTaskStatus(r.status)),
-	    tier:         r.tier === 1 ? 't1' : r.tier === 2 ? 't2' : (TODO_STATUS_DONE.has(canonicalTaskStatus(r.status)) ? 'done' : 't2'),
-	    comment:      r.nota   || '',
-	    priorityRank: r.priority_rank || null,
-	    completedAt:  TODO_STATUS_DONE.has(canonicalTaskStatus(r.status)) ? (r.updated_at || null) : null,
-	  });
-}
-
-async function _cleanupInvalidSupabaseTasks(rows) {
-  if (!_sb || !_sbSession || !Array.isArray(rows) || !rows.length) return;
-  const invalidIds = [...new Set(
-    rows
-      .filter(r => isInvalidTaskTitleText(r?.tarefa))
-      .map(r => String(r?.id || '').trim())
-      .filter(Boolean)
-  )].filter(id => !_invalidSupabaseTaskIds.has(id));
-  if (!invalidIds.length) return;
-  invalidIds.forEach(id => _invalidSupabaseTaskIds.add(id));
-  try {
-    const { error } = await _sb.from('todos').delete().in('id', invalidIds);
-    if (error) {
-      console.error('[Supabase] cleanup invalid tasks error:', error);
-      return;
-    }
-    console.warn('[Supabase] invalid tasks removed automatically:', invalidIds);
-  } catch (err) {
-    console.error('[Supabase] cleanup invalid tasks exception:', err);
-  }
-}
-
-async function _refreshTasksFromSupabase(silent = false, opts = {}) {
-  if (!_sb || !_sbSession) return;
+async function _refreshTasksFromApi(silent = false) {
+  if (REQUIRE_LOGIN_FOR_READ && !_sbSession) return;
   if (_supabaseRefreshInFlight) return;
   _supabaseRefreshInFlight = true;
   try {
-    const { data, error } = await _sb.from('todos').select('*').order('id');
-    if (error) {
-      console.error('[Supabase] query error:', error);
-      if (!silent) toast('Supabase erro: ' + (error.message || JSON.stringify(error)), 'error');
+    const authToken = _sbSession?.access_token || window.WATCHDOG_API_TOKEN || '';
+    const resp = await fetch(`${API_URL}/api/tasks`, {
+      headers: { 'Authorization': `Bearer ${authToken}` },
+    });
+    let data = null;
+    try {
+      data = await resp.json();
+    } catch (parseErr) {
+      console.error('[Tasks API] invalid JSON:', parseErr);
+    }
+    if (!resp.ok || !data || !data.ok) {
+      const msg = (data && data.error) || ('Erro ' + resp.status);
+      console.error('[Tasks API] read error:', msg, data);
+      if (!silent) toast('Tarefas indisponíveis: ' + msg, 'error');
       return;
     }
-    if (!data || !data.length) {
-      await _cleanupInvalidSupabaseTasks([]);
+    const remoteTasks = Array.isArray(data.tasks) ? data.tasks : [];
+    if (!remoteTasks.length) {
       _pendingTaskMutations.clear();
       tasks = _mergePendingTaskMutations([]);
       _lastGoodSupabaseTasks = [];
       enforceWeeklyTop3(tasks);
       renderTasks();
       buildOwnerFilters();
-      if (!silent) toast('Supabase sem tarefas operacionais no momento.', 'ok');
+      if (!silent) toast('Sem tarefas operacionais no momento.', 'ok');
       return;
     }
-    let reconciled = data;
-    await _cleanupInvalidSupabaseTasks(reconciled);
-    _clearPendingMutationsForTaskIds(reconciled.map(r => String(r?.id || '').trim()).filter(Boolean));
-    const nextTasks = _mergePendingTaskMutations(reconciled.map(_sbRowToTask));
+    const nextTasks = _mergePendingTaskMutations(remoteTasks.map(t => normalizeTask(t || {})));
     if (!nextTasks.length && _lastGoodSupabaseTasks.length) {
       tasks = _lastGoodSupabaseTasks.map(t => ({ ...t }));
     } else {
@@ -2832,10 +2688,10 @@ async function _refreshTasksFromSupabase(silent = false, opts = {}) {
     enforceWeeklyTop3(tasks);
     renderTasks();
     buildOwnerFilters();
-    if (!silent) toast(`${reconciled.length} tarefas carregadas`, 'ok');
+    if (!silent) toast(`${remoteTasks.length} tarefas carregadas`, 'ok');
   } catch (err) {
-    console.error('[Supabase] exception in _refreshTasksFromSupabase:', err);
-    if (!silent) toast('Supabase falhou: ' + (err?.message || String(err)), 'error');
+    console.error('[Tasks API] exception in _refreshTasksFromApi:', err);
+    if (!silent) toast('Tarefas indisponíveis: ' + (err?.message || String(err)), 'error');
   } finally {
     _supabaseRefreshInFlight = false;
   }
@@ -3492,6 +3348,7 @@ function _appendClaudeteReplySafe(text) {
           if (Array.isArray(data.created_tasks) && data.created_tasks.length) {
             try {
               applyChatCreatedTasks(data.created_tasks);
+              if (_sbSession) _refreshTasksFromApi(true);
             } catch (createdTasksErr) {
               console.error('[Claudete chat] falha ao aplicar created_tasks:', createdTasksErr, data.created_tasks);
             }
