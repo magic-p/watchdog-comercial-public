@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260319134310"></script>
-<script src="saidas/todos_ssot.js?v=20260319134310"></script>
-<script src="saidas/data_health.js?v=20260319134310"></script>
-<script src="saidas/campanhas_ssot.js?v=20260319134310"></script>
-<script src="saidas/intel_ssot.js?v=20260319134310"></script>
+<script src="saidas/booked_meta.js?v=20260319135108"></script>
+<script src="saidas/todos_ssot.js?v=20260319135108"></script>
+<script src="saidas/data_health.js?v=20260319135108"></script>
+<script src="saidas/campanhas_ssot.js?v=20260319135108"></script>
+<script src="saidas/intel_ssot.js?v=20260319135108"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -3557,17 +3557,26 @@ function _appendMsg(role, text, id) {
       if (!resp.ok) {
         _appendMsg('error', 'Erro ' + resp.status + ': ' + ((data && data.error) || 'resposta inválida'));
       } else {
-        if (data && data.ok && data.reply) {
-          if (Array.isArray(data.created_tasks) && data.created_tasks.length) {
-            applyChatCreatedTasks(data.created_tasks);
+        try {
+          if (data && data.ok && data.reply) {
+            if (Array.isArray(data.created_tasks) && data.created_tasks.length) {
+              applyChatCreatedTasks(data.created_tasks);
+            }
+            const replyText = String(data.reply || '');
+            _appendMsg('claudete', replyText);
+            _chatHistory.push({ role: 'claudete', content: replyText });
+            if (_chatHistory.length > 50) _chatHistory = _chatHistory.slice(-50);
+          } else if (rawText) {
+            _appendMsg('error', 'O motor respondeu, mas a resposta veio num formato inválido. Já registrei isso para corrigir.');
+          } else {
+            _appendMsg('error', (data && data.error) || 'Resposta vazia da Claudete.');
           }
-          _appendMsg('claudete', data.reply);
-          _chatHistory.push({ role: 'claudete', content: data.reply });
+        } catch (renderErr) {
+          console.error('[Claudete chat] falha ao renderizar resposta:', renderErr, data);
+          const fallbackReply = data && data.reply ? String(data.reply) : rawText || 'Recebi a resposta, mas a renderização falhou.';
+          _appendMsg('claudete', fallbackReply);
+          _chatHistory.push({ role: 'claudete', content: fallbackReply });
           if (_chatHistory.length > 50) _chatHistory = _chatHistory.slice(-50);
-        } else if (rawText) {
-          _appendMsg('error', 'O motor respondeu, mas a resposta veio num formato inválido. Já registrei isso para corrigir.');
-        } else {
-          _appendMsg('error', (data && data.error) || 'Resposta vazia da Claudete.');
         }
       }
       } catch (e) {
