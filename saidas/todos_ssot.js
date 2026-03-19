@@ -2826,5 +2826,19 @@ window.WATCHDOG_TODOS = [
     "priorityRank": null,
     "updatedAt": "2026-03-19T17:43:00",
     "completedAt": null
+  },
+  {
+    "id": "t210",
+    "task": "Enviar as Planilhas de Metas e Planejamento",
+    "comment": "Para inserir na Claudete",
+    "owner": "Lili",
+    "date": "20/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-19T17:44:00",
+    "completedAt": null
   }
 ];
