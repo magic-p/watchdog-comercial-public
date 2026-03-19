@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js"></script>
-<script src="saidas/todos_ssot.js?v=20260319211752"></script>
-<script src="saidas/data_health.js"></script>
-<script src="saidas/campanhas_ssot.js"></script>
-<script src="saidas/intel_ssot.js"></script>
+<script src="saidas/booked_meta.js?v=20260319212555"></script>
+<script src="saidas/todos_ssot.js?v=20260319212555"></script>
+<script src="saidas/data_health.js?v=20260319212555"></script>
+<script src="saidas/campanhas_ssot.js?v=20260319212555"></script>
+<script src="saidas/intel_ssot.js?v=20260319212555"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -394,7 +394,7 @@ async function _motorPatch(patch) {
     }
     try { await r.json(); } catch {}
     _setWriteError('');
-    if (_sbSession) _scheduleTasksRefresh(true, 120);
+    if (_sbSession) _scheduleTasksRefresh(true, 120, 'task_write');
     return true;
   } catch (err) {
     _setWriteError('Motor local: ' + (err?.message || String(err)));
@@ -421,7 +421,7 @@ async function _motorCreate(task) {
     }
     try { await r.json(); } catch {}
     _setWriteError('');
-    if (_sbSession) _scheduleTasksRefresh(true, 120);
+    if (_sbSession) _scheduleTasksRefresh(true, 120, 'task_write');
     return true;
   } catch (err) {
     _setWriteError('Motor local: ' + (err?.message || String(err)));
@@ -1042,14 +1042,15 @@ function _parseBackendAlert(str, idx) {
   return { key: `backend_${idx}_${chip}`, tag: `[CRITICO: ${chip}]`, chip, level, text };
 }
 
-async function fetchBackendAlerts() {
+async function fetchBackendAlerts(reason = 'unknown') {
   if (_alertsRefreshInFlight) {
     _alertsRefreshQueued = true;
+    _alertsRefreshReason = _mergeRefreshReason(_alertsRefreshReason, reason);
     return;
   }
   _alertsRefreshInFlight = true;
   try {
-    const r = await fetch(`${API_URL}/api/computed/alerts`, {
+    const r = await fetch(`${API_URL}/api/computed/alerts?reason=${encodeURIComponent(String(reason || 'unknown'))}`, {
       signal: AbortSignal.timeout(3000)
     });
     if (!r.ok) { _backendAlerts = null; return; }
@@ -1061,7 +1062,7 @@ async function fetchBackendAlerts() {
   } finally {
     _alertsRefreshInFlight = false;
     if (_alertsRefreshQueued && !_alertsRefreshTimer) {
-      _scheduleAlertsRefresh(220);
+      _scheduleAlertsRefresh(220, _alertsRefreshReason);
     }
   }
 }
@@ -1375,40 +1376,58 @@ let _taskFormBusy = false;
 let _tasksRefreshTimer = null;
 let _tasksRefreshQueued = false;
 let _tasksRefreshQueuedSilent = true;
+let _tasksRefreshReason = 'unknown';
 let _alertsRefreshTimer = null;
 let _alertsRefreshInFlight = false;
 let _alertsRefreshQueued = false;
+let _alertsRefreshReason = 'unknown';
 
-function _queueTasksRefresh(silent = true) {
+function _mergeRefreshReason(current, next) {
+  const left = String(current || '').trim();
+  const right = String(next || '').trim();
+  if (!left) return right || 'unknown';
+  if (!right || right === left) return left;
+  const parts = left.split('+').map(s => s.trim()).filter(Boolean);
+  if (parts.includes(right)) return left;
+  return `${left}+${right}`;
+}
+
+function _queueTasksRefresh(silent = true, reason = 'unknown') {
   const hadQueued = _tasksRefreshQueued;
   _tasksRefreshQueued = true;
   _tasksRefreshQueuedSilent = hadQueued ? (_tasksRefreshQueuedSilent && !!silent) : !!silent;
+  _tasksRefreshReason = hadQueued ? _mergeRefreshReason(_tasksRefreshReason, reason) : String(reason || 'unknown');
 }
 
-function _scheduleTasksRefresh(silent = true, delay = 180) {
+function _scheduleTasksRefresh(silent = true, delay = 180, reason = 'unknown') {
   if (REQUIRE_LOGIN_FOR_READ && !_sbSession) return;
-  _queueTasksRefresh(silent);
+  _queueTasksRefresh(silent, reason);
   if (_supabaseRefreshInFlight) return;
   if (_tasksRefreshTimer) clearTimeout(_tasksRefreshTimer);
   _tasksRefreshTimer = setTimeout(async () => {
     _tasksRefreshTimer = null;
     if (!_tasksRefreshQueued) return;
     const runSilent = _tasksRefreshQueuedSilent;
+    const runReason = _tasksRefreshReason;
     _tasksRefreshQueued = false;
     _tasksRefreshQueuedSilent = true;
-    await _refreshTasksFromApi(runSilent);
+    _tasksRefreshReason = 'unknown';
+    await _refreshTasksFromApi(runSilent, runReason);
   }, Math.max(0, delay));
 }
 
-function _scheduleAlertsRefresh(delay = 220) {
+function _scheduleAlertsRefresh(delay = 220, reason = 'unknown') {
   _alertsRefreshQueued = true;
+  _alertsRefreshReason = _mergeRefreshReason(_alertsRefreshReason, reason);
   if (_alertsRefreshInFlight) return;
   if (_alertsRefreshTimer) clearTimeout(_alertsRefreshTimer);
   _alertsRefreshTimer = setTimeout(async () => {
     _alertsRefreshTimer = null;
     if (!_alertsRefreshQueued) return;
     _alertsRefreshQueued = false;
-    await fetchBackendAlerts();
+    const runReason = _alertsRefreshReason;
+    _alertsRefreshReason = 'unknown';
+    await fetchBackendAlerts(runReason);
   }, Math.max(0, delay));
 }
 
@@ -1599,7 +1618,7 @@ function openTaskModal(mode = 'create', id = null) {
 	          _rememberTaskMutation('delete', { id: editingTaskId });
 	          tasks = tasks.filter(x => x.id !== editingTaskId);
 	          save();
-	          if (_sbSession) _scheduleTasksRefresh(true, 120);
+	          if (_sbSession) _scheduleTasksRefresh(true, 120, 'task_delete');
 	          closeTaskModal();
 	          renderTasks();
         } finally {
@@ -2140,7 +2159,7 @@ function finishInitialAuthState(session = null) {
   }
 
   renderDashboardDataFromCurrentState();
-  _scheduleAlertsRefresh(0);
+  _scheduleAlertsRefresh(0, 'initial_state');
   if (pp && REQUIRE_LOGIN_FOR_READ) pp.style.display = 'inline-flex';
   if (REQUIRE_LOGIN_FOR_READ) {
     toast('Modo público: tarefas fictícias (literatura). Faça login para ver as reais.', 'err');
@@ -2657,8 +2676,8 @@ function _onAuthLogin(session) {
   renderBookedMeta();
   renderWins();
   renderDataHealth();
-  _scheduleTasksRefresh(true, 0);
-  _scheduleAlertsRefresh(120);
+  _scheduleTasksRefresh(true, 0, 'auth_login');
+  _scheduleAlertsRefresh(120, 'auth_login');
   _sbSubscribeRealtime();
 }
 
@@ -2667,7 +2686,7 @@ function _sbSubscribeRealtime() {
   _sbRealtimeChannel = _sb
     .channel('todos-live')
     .on('postgres_changes', { event: '*', schema: 'public', table: 'todos' },
-      () => _scheduleTasksRefresh(true, 250))
+      () => _scheduleTasksRefresh(true, 250, 'realtime'))
     .subscribe();
 }
 
@@ -2702,7 +2721,7 @@ function _onAuthLogout() {
     load();
     renderTasks();
     renderCriticalAlerts();
-    _scheduleAlertsRefresh(120);
+    _scheduleAlertsRefresh(120, 'auth_logout');
     renderIntel();
     renderKpis();
     renderBookedMeta();
@@ -2710,16 +2729,16 @@ function _onAuthLogout() {
   }
 }
 
-async function _refreshTasksFromApi(silent = false) {
+async function _refreshTasksFromApi(silent = false, reason = 'unknown') {
   if (REQUIRE_LOGIN_FOR_READ && !_sbSession) return;
   if (_supabaseRefreshInFlight) {
-    _queueTasksRefresh(silent);
+    _queueTasksRefresh(silent, reason);
     return;
   }
   _supabaseRefreshInFlight = true;
   try {
     const authToken = _sbSession?.access_token || window.WATCHDOG_API_TOKEN || '';
-    const resp = await fetch(`${API_URL}/api/tasks`, {
+    const resp = await fetch(`${API_URL}/api/tasks?reason=${encodeURIComponent(String(reason || 'unknown'))}`, {
       headers: { 'Authorization': `Bearer ${authToken}` },
     });
     let data = null;
@@ -2742,7 +2761,7 @@ async function _refreshTasksFromApi(silent = false) {
       enforceWeeklyTop3(tasks);
       renderTasks();
       buildOwnerFilters();
-      _scheduleAlertsRefresh(120);
+      _scheduleAlertsRefresh(120, 'tasks_loaded');
       if (!silent) toast('Sem tarefas operacionais no momento.', 'ok');
       return;
     }
@@ -2756,7 +2775,7 @@ async function _refreshTasksFromApi(silent = false) {
     enforceWeeklyTop3(tasks);
     renderTasks();
     buildOwnerFilters();
-    _scheduleAlertsRefresh(120);
+    _scheduleAlertsRefresh(120, 'tasks_loaded');
     if (!silent) toast(`${remoteTasks.length} tarefas carregadas`, 'ok');
   } catch (err) {
     console.error('[Tasks API] exception in _refreshTasksFromApi:', err);
@@ -2764,7 +2783,7 @@ async function _refreshTasksFromApi(silent = false) {
   } finally {
     _supabaseRefreshInFlight = false;
     if (_tasksRefreshQueued && !_tasksRefreshTimer) {
-      _scheduleTasksRefresh(_tasksRefreshQueuedSilent, 120);
+      _scheduleTasksRefresh(_tasksRefreshQueuedSilent, 120, _tasksRefreshReason);
     }
   }
 }
@@ -3420,7 +3439,7 @@ function _appendClaudeteReplySafe(text) {
           if (Array.isArray(data.created_tasks) && data.created_tasks.length) {
             try {
               applyChatCreatedTasks(data.created_tasks);
-              if (_sbSession) _scheduleTasksRefresh(true, 120);
+              if (_sbSession) _scheduleTasksRefresh(true, 120, 'claudete_created_tasks');
             } catch (createdTasksErr) {
               console.error('[Claudete chat] falha ao aplicar created_tasks:', createdTasksErr, data.created_tasks);
             }
