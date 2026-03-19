@@ -5,6 +5,14 @@ window.WATCHDOG_BOOKED_META = {
   "wins": [
     {
       "emoji": "✅",
+      "titulo": "Pedro: Gravar vídeos para top30 de AA",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Pedro",
+      "data": "19/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
       "titulo": "Vitória: Configurar limite permanente de 2.500 disparos/dia no Blip para evitar sobrecarga",
       "desc": "Concluida no prazo definido.",
       "dri": "Vitória",
