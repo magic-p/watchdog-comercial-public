@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260319151642"></script>
-<script src="saidas/todos_ssot.js?v=20260319151642"></script>
-<script src="saidas/data_health.js?v=20260319151642"></script>
-<script src="saidas/campanhas_ssot.js?v=20260319151642"></script>
-<script src="saidas/intel_ssot.js?v=20260319151642"></script>
+<script src="saidas/booked_meta.js?v=20260319152615"></script>
+<script src="saidas/todos_ssot.js?v=20260319152615"></script>
+<script src="saidas/data_health.js?v=20260319152615"></script>
+<script src="saidas/campanhas_ssot.js?v=20260319152615"></script>
+<script src="saidas/intel_ssot.js?v=20260319152615"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -368,7 +368,7 @@ function _canWrite() {
   return IS_LOCAL || (_sb && _sbSession !== null);
 }
 
-/* Supabase: converte patch do motor → update do Supabase */
+/* Supabase direto fica apenas para bootstrap/admin/debug, não como writer operacional. */
 async function _sbPatch(patch) {
   if (!_sb || !_sbSession) return false;
   try {
@@ -502,6 +502,7 @@ async function _motorPatch(patch) {
       return false;
     }
     _setWriteError('');
+    if (_sb && _sbSession) _refreshTasksFromSupabase(true);
     return true;
   } catch (err) {
     _setWriteError('Motor local: ' + (err?.message || String(err)));
@@ -526,22 +527,12 @@ async function _motorCreate(task) {
       return false;
     }
     _setWriteError('');
+    if (_sb && _sbSession) _refreshTasksFromSupabase(true);
     return true;
   } catch (err) {
     _setWriteError('Motor local: ' + (err?.message || String(err)));
     return false;
   }
-}
-
-function _shouldFallbackToSupabaseWrite() {
-  const msg = String(_getWriteError('') || '').toLowerCase();
-  return (
-    msg.includes('unauthorized') ||
-    msg.includes('jwt') ||
-    msg.includes('token') ||
-    msg.includes('403') ||
-    msg.includes('401')
-  );
 }
 
 /* ── Funções públicas (usadas pelo resto do dashboard) ──────── */
@@ -551,15 +542,6 @@ async function apiCreate(task) {
     toast('Faça login para criar/editar tarefas.', 'err');
     return false;
   }
-  if (_sb && _sbSession) {
-    const okMotor = await _motorCreate(task);
-    if (okMotor) return true;
-    if (_shouldFallbackToSupabaseWrite()) {
-      console.warn('[Todos] motor create recusou auth; usando fallback direto no Supabase.');
-      return _sbCreate(task);
-    }
-    return false;
-  }
   return _motorCreate(task);
 }
 
@@ -567,15 +549,6 @@ async function apiPatch(patch) {
   if (!_canWrite()) {
     _setWriteError('Login necessário para editar tarefas.');
     toast('Faça login para criar/editar tarefas.', 'err');
-    return false;
-  }
-  if (_sb && _sbSession) {
-    const okMotor = await _motorPatch(patch);
-    if (okMotor) return true;
-    if (_shouldFallbackToSupabaseWrite()) {
-      console.warn('[Todos] motor patch recusou auth; usando fallback direto no Supabase.');
-      return _sbPatch(patch);
-    }
     return false;
   }
   return _motorPatch(patch);
@@ -1496,7 +1469,7 @@ let _supabaseRefreshInFlight = false;
 let _initialAuthStateResolved = false;
 let _pendingTaskMutations = new Map();
 let _taskFormBusy = false;
-let _supabaseNeedsBootstrapReconcile = true;
+let _supabaseNeedsBootstrapReconcile = false;
 
 function _clearExpiredTaskMutations() {
   const now = Date.now();
@@ -1527,6 +1500,13 @@ function _mergePendingTaskMutations(list) {
     if (entry.kind === 'upsert' && entry.task) merged.set(taskId, normalizeTask({ ...entry.task }));
   }
   return sanitizeTasksForUi(Array.from(merged.values()));
+}
+
+function _clearPendingMutationsForTaskIds(ids) {
+  if (!Array.isArray(ids) || !ids.length) return;
+  ids.forEach(id => {
+    if (id) _pendingTaskMutations.delete(id);
+  });
 }
 
 const UI_STATE_KEY = 'watchdog_ui';
@@ -2727,7 +2707,7 @@ function _onAuthLogin(session) {
   renderBookedMeta();
   renderWins();
   renderDataHealth();
-  _refreshTasksFromSupabase(true, { reconcile: true });
+  _refreshTasksFromSupabase(true);
   _sbSubscribeRealtime();
 }
 
@@ -2751,7 +2731,7 @@ function _onAuthLogout() {
   if (_sb) _sb.auth.signOut();
   _sbUnsubscribeRealtime();
   _sbSession = null;
-  _supabaseNeedsBootstrapReconcile = true;
+  _supabaseNeedsBootstrapReconcile = false;
   BOOKED_META_SRC = DEMO_BOOKED_META;
   _kpis = (BOOKED_META_SRC && BOOKED_META_SRC.kpis) ? BOOKED_META_SRC.kpis : {};
   const pill = document.getElementById('authPill');
@@ -2915,7 +2895,6 @@ async function _refreshTasksFromSupabase(silent = false, opts = {}) {
   if (_supabaseRefreshInFlight) return;
   _supabaseRefreshInFlight = true;
   try {
-    const shouldReconcile = opts.reconcile === true || (_supabaseNeedsBootstrapReconcile && opts.reconcile !== false);
     const { data, error } = await _sb.from('todos').select('*').order('id');
     if (error) {
       console.error('[Supabase] query error:', error);
@@ -2923,26 +2902,19 @@ async function _refreshTasksFromSupabase(silent = false, opts = {}) {
       return;
     }
     if (!data || !data.length) {
-      // Bootstrap inicial: sem registros no Supabase, semeia a partir do SSOT estático.
-      await _sbSeedFromSSOT();
-      // Supabase estava vazio — recarregar após seed
-      const { data: seeded } = await _sb.from('todos').select('*').order('id');
-      if (!seeded || !seeded.length) {
-        if (!silent) toast('Supabase: sem dados após seed', 'error');
-        return;
-      }
-      await _cleanupInvalidSupabaseTasks(seeded);
-      tasks = _mergePendingTaskMutations(seeded.map(_sbRowToTask));
-      _lastGoodSupabaseTasks = tasks.map(t => ({ ...t }));
-      _supabaseNeedsBootstrapReconcile = false;
+      await _cleanupInvalidSupabaseTasks([]);
+      _pendingTaskMutations.clear();
+      tasks = _mergePendingTaskMutations([]);
+      _lastGoodSupabaseTasks = [];
       enforceWeeklyTop3(tasks);
       renderTasks();
       buildOwnerFilters();
-      if (!silent) toast(`${seeded.length} tarefas sincronizadas`, 'ok');
+      if (!silent) toast('Supabase sem tarefas operacionais no momento.', 'ok');
       return;
     }
-    let reconciled = shouldReconcile ? await _sbReconcileWithSSOT(data, silent) : data;
+    let reconciled = data;
     await _cleanupInvalidSupabaseTasks(reconciled);
+    _clearPendingMutationsForTaskIds(reconciled.map(r => String(r?.id || '').trim()).filter(Boolean));
     const nextTasks = _mergePendingTaskMutations(reconciled.map(_sbRowToTask));
     if (!nextTasks.length && _lastGoodSupabaseTasks.length) {
       tasks = _lastGoodSupabaseTasks.map(t => ({ ...t }));
@@ -2950,7 +2922,6 @@ async function _refreshTasksFromSupabase(silent = false, opts = {}) {
       tasks = nextTasks;
       if (tasks.length) _lastGoodSupabaseTasks = tasks.map(t => ({ ...t }));
     }
-    _supabaseNeedsBootstrapReconcile = false;
     enforceWeeklyTop3(tasks);
     renderTasks();
     buildOwnerFilters();
