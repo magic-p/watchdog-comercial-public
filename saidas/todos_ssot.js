@@ -2786,20 +2786,6 @@ window.WATCHDOG_TODOS = [
     "completedAt": null
   },
   {
-    "id": "t207",
-    "task": "testeaaa",
-    "comment": "None",
-    "owner": "Pedro",
-    "date": "20/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
-    "warn": null,
-    "done": false,
-    "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
-  },
-  {
     "id": "t208",
     "task": "testebbbb",
     "comment": "None",
