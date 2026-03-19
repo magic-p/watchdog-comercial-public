@@ -2441,13 +2441,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Decisao tomada na daily 13/03. Pedro recusou aceitar o argumento de escola ocupada sem analise mais profunda. 16 mimos nao resolveram o comparecimento (insight125). Objetivo: identificar padrao de quando e por que gestoras agendam mas nao aparecem.",
     "owner": "Ana Paula Pimentel",
     "date": "18/mar",
-    "tier": "done",
-    "tierLabel": "Concluido",
+    "tier": "t2",
+    "tierLabel": "Fazendo",
     "warn": null,
-    "done": true,
+    "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-19T14:04:00",
-    "completedAt": "2026-03-19T14:04:00"
+    "updatedAt": "2026-03-13T00:00:00",
+    "completedAt": null
   },
   {
     "id": "t181",
@@ -2744,6 +2744,20 @@ window.WATCHDOG_TODOS = [
     "completedAt": null
   },
   {
+    "id": "t204",
+    "task": "Revisar vídeos do Flavio",
+    "comment": "Vídeos do Flavio",
+    "owner": "Vitória",
+    "date": "20/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-18T21:31:00",
+    "completedAt": null
+  },
+  {
     "id": "t205",
     "task": "Validar os vídeos do flavio",
     "comment": "Vídeos do flavio para validação",
@@ -2769,20 +2783,6 @@ window.WATCHDOG_TODOS = [
     "done": false,
     "priorityRank": null,
     "updatedAt": "2026-03-18T21:47:00",
-    "completedAt": null
-  },
-  {
-    "id": "t207",
-    "task": "Tirar  da régua FUP do dia (pedido da Ana pra Vit)",
-    "comment": "None",
-    "owner": "Vitória",
-    "date": "19/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
-    "warn": null,
-    "done": false,
-    "priorityRank": null,
-    "updatedAt": null,
     "completedAt": null
   }
 ];
