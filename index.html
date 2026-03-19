@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260319091533"></script>
-<script src="saidas/todos_ssot.js?v=20260319091533"></script>
-<script src="saidas/data_health.js?v=20260319091533"></script>
-<script src="saidas/campanhas_ssot.js?v=20260319091533"></script>
-<script src="saidas/intel_ssot.js?v=20260319091533"></script>
+<script src="saidas/booked_meta.js?v=20260319092409"></script>
+<script src="saidas/todos_ssot.js?v=20260319092409"></script>
+<script src="saidas/data_health.js?v=20260319092409"></script>
+<script src="saidas/campanhas_ssot.js?v=20260319092409"></script>
+<script src="saidas/intel_ssot.js?v=20260319092409"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -1454,6 +1454,38 @@ let healthCollapsed = true;
 let _lastGoodSupabaseTasks = [];
 let _supabaseRefreshInFlight = false;
 let _initialAuthStateResolved = false;
+let _pendingTaskMutations = new Map();
+
+function _clearExpiredTaskMutations() {
+  const now = Date.now();
+  for (const [taskId, entry] of _pendingTaskMutations.entries()) {
+    if (!entry || !entry.expiresAt || entry.expiresAt <= now) _pendingTaskMutations.delete(taskId);
+  }
+}
+
+function _rememberTaskMutation(kind, task) {
+  if (!task || !task.id) return;
+  _clearExpiredTaskMutations();
+  _pendingTaskMutations.set(task.id, {
+    kind,
+    task: task ? normalizeTask({ ...task }) : null,
+    expiresAt: Date.now() + 60000,
+  });
+}
+
+function _mergePendingTaskMutations(list) {
+  _clearExpiredTaskMutations();
+  const merged = new Map((Array.isArray(list) ? list : []).map(t => [t.id, normalizeTask({ ...t })]));
+  for (const [taskId, entry] of _pendingTaskMutations.entries()) {
+    if (!entry) continue;
+    if (entry.kind === 'delete') {
+      merged.delete(taskId);
+      continue;
+    }
+    if (entry.kind === 'upsert' && entry.task) merged.set(taskId, normalizeTask({ ...entry.task }));
+  }
+  return sanitizeTasksForUi(Array.from(merged.values()));
+}
 
 const UI_STATE_KEY = 'watchdog_ui';
 function saveUiState() {
@@ -1561,6 +1593,7 @@ function openTaskModal(mode = 'create', id = null) {
           'Falha ao excluir no SSOT (motor offline)'
         );
         if (!ok) return;
+        _rememberTaskMutation('delete', { id: editingTaskId });
         tasks = tasks.filter(x => x.id !== editingTaskId);
         save();
         if (_sb && _sbSession) await _refreshTasksFromSupabase(true);
@@ -1652,6 +1685,7 @@ async function submitTaskForm(e) {
       'Falha ao salvar no SSOT (motor offline)'
     );
     if (!ok) { renderTasks(); return; }
+    _rememberTaskMutation('upsert', task);
   } else {
     const _nums = tasks.map(t => parseInt(String(t.id).replace(/^t0*/,''),10)).filter(n=>!isNaN(n));
     const _next = (_nums.length ? Math.max(..._nums) : 0) + 1;
@@ -1676,6 +1710,7 @@ async function submitTaskForm(e) {
       'Falha ao criar no SSOT (motor offline)'
     );
     if (!ok) { renderTasks(); return; }
+    _rememberTaskMutation('upsert', newTask);
   }
 
   enforceWeeklyTop3(tasks);
@@ -1970,6 +2005,7 @@ function renderTasks() {
         'Falha ao salvar status no SSOT'
       );
       if (!ok) { renderTasks(); return; }
+      _rememberTaskMutation('upsert', task);
       enforceWeeklyTop3(tasks);
       save(); renderTasks();
     });
@@ -2003,6 +2039,7 @@ function renderTasks() {
         'Falha ao salvar prioridade no SSOT'
       );
       if (!ok) { renderTasks(); return; }
+      _rememberTaskMutation('upsert', task);
       enforceWeeklyTop3(tasks);
       save(); renderTasks();
     });
@@ -2035,6 +2072,7 @@ function renderTasks() {
         'Falha ao salvar conclusão no SSOT'
       );
       if (!ok) { renderTasks(); counter(); return; }
+      _rememberTaskMutation('upsert', task);
       enforceWeeklyTop3(tasks);
       save(); renderTasks(); counter();
     });
@@ -2806,7 +2844,7 @@ async function _refreshTasksFromSupabase(silent = false) {
         return;
       }
       await _cleanupInvalidSupabaseTasks(seeded);
-      tasks = sanitizeTasksForUi(seeded.map(_sbRowToTask));
+      tasks = _mergePendingTaskMutations(seeded.map(_sbRowToTask));
       _lastGoodSupabaseTasks = tasks.map(t => ({ ...t }));
       enforceWeeklyTop3(tasks);
       renderTasks();
@@ -2816,7 +2854,7 @@ async function _refreshTasksFromSupabase(silent = false) {
     }
     let reconciled = await _sbReconcileWithSSOT(data, silent);
     await _cleanupInvalidSupabaseTasks(reconciled);
-    const nextTasks = sanitizeTasksForUi(reconciled.map(_sbRowToTask));
+    const nextTasks = _mergePendingTaskMutations(reconciled.map(_sbRowToTask));
     if (!nextTasks.length && _lastGoodSupabaseTasks.length) {
       tasks = _lastGoodSupabaseTasks.map(t => ({ ...t }));
     } else {
