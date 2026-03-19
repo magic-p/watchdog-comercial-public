@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260319114806"></script>
-<script src="saidas/todos_ssot.js?v=20260319114806"></script>
-<script src="saidas/data_health.js?v=20260319114806"></script>
-<script src="saidas/campanhas_ssot.js?v=20260319114806"></script>
-<script src="saidas/intel_ssot.js?v=20260319114806"></script>
+<script src="saidas/booked_meta.js?v=20260319115216"></script>
+<script src="saidas/todos_ssot.js?v=20260319115216"></script>
+<script src="saidas/data_health.js?v=20260319115216"></script>
+<script src="saidas/campanhas_ssot.js?v=20260319115216"></script>
+<script src="saidas/intel_ssot.js?v=20260319115216"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -3506,7 +3506,7 @@ function _appendMsg(role, text, id) {
       }
     }, 15_000);
 
-    // AbortController: timeout de 90s (estratégia usa Hunter Alpha — até 55s no backend + margem)
+    // AbortController: timeout de 90s (estratégia usa o worker strategist — até 55s no backend + margem)
     const controller = new AbortController();
     const timeoutId  = setTimeout(() => controller.abort(), 90_000);
 
