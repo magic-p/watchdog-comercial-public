@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260319111426"></script>
-<script src="saidas/todos_ssot.js?v=20260319111426"></script>
-<script src="saidas/data_health.js?v=20260319111426"></script>
-<script src="saidas/campanhas_ssot.js?v=20260319111426"></script>
-<script src="saidas/intel_ssot.js?v=20260319111426"></script>
+<script src="saidas/booked_meta.js?v=20260319113702"></script>
+<script src="saidas/todos_ssot.js?v=20260319113702"></script>
+<script src="saidas/data_health.js?v=20260319113702"></script>
+<script src="saidas/campanhas_ssot.js?v=20260319113702"></script>
+<script src="saidas/intel_ssot.js?v=20260319113702"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -930,17 +930,50 @@ function normalizePriorityRanks(list) {
   });
 }
 
+const TODO_STATUS_ALIASES = {
+  ABERTO: 'PENDENTE',
+  A_FAZER: 'PENDENTE',
+  TODO: 'PENDENTE',
+  TO_DO: 'PENDENTE',
+  EM_ANDAMENTO: 'FAZENDO',
+  FAZENDO_AGORA: 'FAZENDO',
+  DONE: 'CONCLUIDO',
+  COMPLETED: 'CONCLUIDO'
+};
+const TODO_STATUS_DONE = new Set(['CONCLUIDO', 'CONCLUIDA', 'ARQUIVADA']);
+
+function canonicalTaskStatus(raw) {
+  const status = String(raw || '').trim().toUpperCase() || 'PENDENTE';
+  return TODO_STATUS_ALIASES[status] || status;
+}
+
+function isTaskDoneState(task) {
+  const status = canonicalTaskStatus(task?.status || '');
+  if (TODO_STATUS_DONE.has(status)) return true;
+  if (String(task?.tier || '').trim().toLowerCase() === 'done') return true;
+  if (task?.done === true) return true;
+  return false;
+}
+
 function normalizeTask(task) {
+  const status = canonicalTaskStatus(task?.status || '');
+  const done = isTaskDoneState({ ...task, status });
+  const tierRaw = String(task?.tier || '').trim().toLowerCase();
+  const tier = done ? 'done' : ((tierRaw === '1' || tierRaw === 't1') ? 't1' : 't2');
   return {
     ...task,
     owner: normalizeOwnerName(task.owner),
     date: formatTaskDate(task.date) || String(task.date || '').trim(),
-    priorityRank: normalizePriorityRank(task.priorityRank)
+    priorityRank: normalizePriorityRank(task.priorityRank),
+    status,
+    done,
+    tier,
+    completedAt: done ? (task.completedAt || null) : null
   };
 }
 
 function tierMeta(task) {
-  if (task.done || task.tier === 'done') return { chipClass: 'green', chipLabel: 'Conclu\u00EDdo' };
+  if (isTaskDoneState(task)) return { chipClass: 'green', chipLabel: 'Conclu\u00EDdo' };
   if (task.tier === 't1') return { chipClass: 'red', chipLabel: 'Tier 1 \u2022 A fazer' };
   return { chipClass: 'orange', chipLabel: 'Tier 2 \u2022 Fazendo' };
 }
@@ -2715,16 +2748,17 @@ function _onAuthLogout() {
 
 function _sbRowToTask(r) {
   return normalizeTask({
-    id:           r.id,
-    task:         r.tarefa || '',
-    owner:        r.dono   || '',
-    date:         r.prazo  || '',
-    done:         r.status === 'CONCLUIDO',
-    tier:         r.tier === 1 ? 't1' : r.tier === 2 ? 't2' : 'done',
-    comment:      r.nota   || '',
-    priorityRank: r.priority_rank || null,
-    completedAt:  r.status === 'CONCLUIDO' ? (r.updated_at || null) : null,
-  });
+	    id:           r.id,
+	    task:         r.tarefa || '',
+	    owner:        r.dono   || '',
+	    date:         r.prazo  || '',
+	    status:       r.status || '',
+	    done:         TODO_STATUS_DONE.has(canonicalTaskStatus(r.status)),
+	    tier:         r.tier === 1 ? 't1' : r.tier === 2 ? 't2' : (TODO_STATUS_DONE.has(canonicalTaskStatus(r.status)) ? 'done' : 't2'),
+	    comment:      r.nota   || '',
+	    priorityRank: r.priority_rank || null,
+	    completedAt:  TODO_STATUS_DONE.has(canonicalTaskStatus(r.status)) ? (r.updated_at || null) : null,
+	  });
 }
 
 async function _cleanupInvalidSupabaseTasks(rows) {
@@ -2754,14 +2788,14 @@ async function _sbSeedFromSSOT() {
   if (!source.length) return;
   const rows = source.map(t => ({
     id:           t.id,
-    tarefa:       t.task   || t.tarefa || '',
-    dono:         t.owner  || t.dono   || '',
-    prazo:        t.date   || t.prazo  || null,
-    nota:         t.comment|| t.nota   || null,
-    status:       (t.done || t.tier === 'done') ? 'CONCLUIDO' : 'PENDENTE',
-    tier:         (t.tier === 't1' || t.tier === 1) ? 1 : 2,
-    priority_rank:t.priorityRank || null,
-    historico:    t.historico || [],
+	    tarefa:       t.task   || t.tarefa || '',
+	    dono:         t.owner  || t.dono   || '',
+	    prazo:        t.date   || t.prazo  || null,
+	    nota:         t.comment|| t.nota   || null,
+	    status:       isTaskDoneState(t) ? 'CONCLUIDO' : 'PENDENTE',
+	    tier:         (t.tier === 't1' || t.tier === 1) ? 1 : 2,
+	    priority_rank:t.priorityRank || null,
+	    historico:    t.historico || [],
   }));
   // upsert com ignoreDuplicates: insere tarefas novas sem sobrescrever status/tier existentes
   const { error } = await _sb.from('todos').upsert(rows, { onConflict: 'id', ignoreDuplicates: true });
@@ -2773,14 +2807,14 @@ function _ssotRowsForSupabase() {
   const source = TODOS_SSOT.length ? TODOS_SSOT : [];
   return source.map(t => ({
     id:           t.id,
-    tarefa:       t.task   || t.tarefa || '',
-    dono:         t.owner  || t.dono   || '',
-    prazo:        t.date   || t.prazo  || null,
-    nota:         t.comment|| t.nota   || null,
-    status:       (t.done || t.tier === 'done') ? 'CONCLUIDO' : 'PENDENTE',
-    tier:         (t.tier === 't1' || t.tier === 1) ? 1 : 2,
-    priority_rank:t.priorityRank || null,
-    historico:    Array.isArray(t.historico) ? t.historico : [],
+	    tarefa:       t.task   || t.tarefa || '',
+	    dono:         t.owner  || t.dono   || '',
+	    prazo:        t.date   || t.prazo  || null,
+	    nota:         t.comment|| t.nota   || null,
+	    status:       isTaskDoneState(t) ? 'CONCLUIDO' : 'PENDENTE',
+	    tier:         (t.tier === 't1' || t.tier === 1) ? 1 : 2,
+	    priority_rank:t.priorityRank || null,
+	    historico:    Array.isArray(t.historico) ? t.historico : [],
   }));
 }
 
@@ -3033,9 +3067,9 @@ function _renderPriorityPane() {
   const counter = document.getElementById('priorityCounter');
   if (!tbody) return;
   const priorityRows = window._allTodos
-    ? window._allTodos.filter(t => t.priorityRank && t.priorityRank <= 3 && !t.done && t.tier !== 'done' && t.status !== 'CONCLUIDO')
-        .sort((a, b) => (a.priorityRank || 9) - (b.priorityRank || 9))
-    : [];
+	    ? window._allTodos.filter(t => t.priorityRank && t.priorityRank <= 3 && !isTaskDoneState(t))
+	        .sort((a, b) => (a.priorityRank || 9) - (b.priorityRank || 9))
+	    : [];
   if (counter) counter.textContent = priorityRows.length;
   tbody.innerHTML = '';
   if (priorityRows.length === 0) {
