@@ -2889,13 +2889,13 @@ window.WATCHDOG_TODOS = [
     "comment": "testeedição2 18:11 18:12",
     "owner": "Pedro",
     "date": "31/dez",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-19T00:00:00",
-    "completedAt": null
+    "updatedAt": "2026-03-19T21:17:00",
+    "completedAt": "2026-03-19T21:17:00"
   },
   {
     "id": "t216",
@@ -2908,7 +2908,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-19T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   }
 ];
