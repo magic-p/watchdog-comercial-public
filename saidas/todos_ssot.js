@@ -2854,19 +2854,5 @@ window.WATCHDOG_TODOS = [
     "priorityRank": null,
     "updatedAt": "2026-03-19T17:58:00",
     "completedAt": null
-  },
-  {
-    "id": "t212",
-    "task": "Criar nova campanha de marketing",
-    "comment": "Campanha para próxima segunda-feira",
-    "owner": "Pedro",
-    "date": "23/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
-    "warn": null,
-    "done": false,
-    "priorityRank": null,
-    "updatedAt": "2026-03-19T18:28:00",
-    "completedAt": null
   }
 ];
