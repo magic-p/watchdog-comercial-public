@@ -2784,5 +2784,19 @@ window.WATCHDOG_TODOS = [
     "priorityRank": null,
     "updatedAt": "2026-03-18T21:47:00",
     "completedAt": null
+  },
+  {
+    "id": "t207",
+    "task": "Tirar  da régua FUP do dia (pedido da Ana pra Vit)",
+    "comment": "None",
+    "owner": "Vitória",
+    "date": "19/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": null,
+    "completedAt": null
   }
 ];
