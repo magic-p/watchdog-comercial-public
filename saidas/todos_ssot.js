@@ -2763,13 +2763,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Vídeos do flavio para validação",
     "owner": "Vitória",
     "date": "20/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-19T20:27:00",
+    "completedAt": "2026-03-19T20:27:00"
   },
   {
     "id": "t206",
