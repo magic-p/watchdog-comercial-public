@@ -2886,7 +2886,7 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t214",
     "task": "Dar um alô para Kaka sobre KPIs",
-    "comment": "Entrar em contato com Kaka (Karina Machado) para discutir sobre KPIs",
+    "comment": "Entrar em contato com Kaka (Karina Machado) para discutir sobre KPIs obsteste",
     "owner": "Pedro",
     "date": "20/mar",
     "tier": "t2",
