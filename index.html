@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260319182952"></script>
-<script src="saidas/todos_ssot.js?v=20260319182952"></script>
-<script src="saidas/data_health.js?v=20260319182952"></script>
-<script src="saidas/campanhas_ssot.js?v=20260319182952"></script>
-<script src="saidas/intel_ssot.js?v=20260319182952"></script>
+<script src="saidas/booked_meta.js?v=20260319183427"></script>
+<script src="saidas/todos_ssot.js?v=20260319183427"></script>
+<script src="saidas/data_health.js?v=20260319183427"></script>
+<script src="saidas/campanhas_ssot.js?v=20260319183427"></script>
+<script src="saidas/intel_ssot.js?v=20260319183427"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -1479,6 +1479,7 @@ function _clearExpiredTaskMutations() {
 }
 
 function _rememberTaskMutation(kind, task) {
+  if (REQUIRE_LOGIN_FOR_READ && _sbSession) return;
   if (!task || !task.id) return;
   _clearExpiredTaskMutations();
   _pendingTaskMutations.set(task.id, {
@@ -1489,6 +1490,9 @@ function _rememberTaskMutation(kind, task) {
 }
 
 function _mergePendingTaskMutations(list) {
+  if (REQUIRE_LOGIN_FOR_READ && _sbSession) {
+    return sanitizeTasksForUi(Array.isArray(list) ? list : []);
+  }
   _clearExpiredTaskMutations();
   const merged = new Map((Array.isArray(list) ? list : []).map(t => [t.id, normalizeTask({ ...t })]));
   for (const [taskId, entry] of _pendingTaskMutations.entries()) {
@@ -1503,6 +1507,7 @@ function _mergePendingTaskMutations(list) {
 }
 
 function _clearPendingMutationsForTaskIds(ids) {
+  if (REQUIRE_LOGIN_FOR_READ && _sbSession) return;
   if (!Array.isArray(ids) || !ids.length) return;
   ids.forEach(id => {
     if (id) _pendingTaskMutations.delete(id);
@@ -1789,6 +1794,11 @@ function load() {
     enforceWeeklyTop3(tasks);
     return;
   }
+  if (REQUIRE_LOGIN_FOR_READ && _sbSession) {
+    tasks = [];
+    enforceWeeklyTop3(tasks);
+    return;
+  }
   if (HAS_BACKEND_TODOS) {
     tasks = sanitizeTasksForUi(SEED.map(s => ({ ...s })));
     enforceWeeklyTop3(tasks);
@@ -1826,9 +1836,8 @@ function load() {
 }
 
 function save() {
-  // Em modo SSOT: não salva localStorage como fonte primária.
-  // apiPatch() é chamado diretamente nos event listeners de mudança.
-  if (!HAS_BACKEND_TODOS) {
+  // Em runtime autenticado, tarefas nao usam localStorage como fonte ou cache de convergencia.
+  if (!REQUIRE_LOGIN_FOR_READ && !HAS_BACKEND_TODOS) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
   }
 }
