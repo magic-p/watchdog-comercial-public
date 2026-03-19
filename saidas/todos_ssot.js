@@ -2745,7 +2745,7 @@ window.WATCHDOG_TODOS = [
   },
   {
     "id": "t204",
-    "task": "Revisar vídeos do Flavio",
+    "task": "Revisar e validar vídeos do Flavio",
     "comment": "Vídeos do Flavio",
     "owner": "Vitória",
     "date": "20/mar",
@@ -2754,7 +2754,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-18T21:31:00",
+    "updatedAt": "2026-03-19T12:51:00",
     "completedAt": null
   },
   {
