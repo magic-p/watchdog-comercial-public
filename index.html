@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260319060256"></script>
-<script src="saidas/todos_ssot.js?v=20260319060256"></script>
-<script src="saidas/data_health.js?v=20260319060256"></script>
-<script src="saidas/campanhas_ssot.js?v=20260319060256"></script>
-<script src="saidas/intel_ssot.js?v=20260319060256"></script>
+<script src="saidas/booked_meta.js?v=20260319091230"></script>
+<script src="saidas/todos_ssot.js?v=20260319091230"></script>
+<script src="saidas/data_health.js?v=20260319091230"></script>
+<script src="saidas/campanhas_ssot.js?v=20260319091230"></script>
+<script src="saidas/intel_ssot.js?v=20260319091230"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -540,16 +540,7 @@ async function apiCreate(task) {
     toast('Faça login para criar/editar tarefas.', 'err');
     return false;
   }
-  if (_sb && _sbSession) {
-    const ok = await _motorCreate(task);
-    if (!ok) return false;
-    const mirrored = await _sbCreate(task);
-    if (!mirrored) {
-      console.warn('[Dashboard] create persisted in SSOT, but Supabase create failed');
-      return false;
-    }
-    return true;
-  }
+  if (_sb && _sbSession) return _motorCreate(task);
   return _motorCreate(task);
 }
 
@@ -559,16 +550,7 @@ async function apiPatch(patch) {
     toast('Faça login para criar/editar tarefas.', 'err');
     return false;
   }
-  if (_sb && _sbSession) {
-    const ok = await _motorPatch(patch);
-    if (!ok) return false;
-    const mirrored = await _sbPatch(patch);
-    if (!mirrored) {
-      console.warn('[Dashboard] patch persisted in SSOT, but Supabase patch failed');
-      return false;
-    }
-    return true;
-  }
+  if (_sb && _sbSession) return _motorPatch(patch);
   return _motorPatch(patch);
 }
 
