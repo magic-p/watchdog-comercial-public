@@ -1950,13 +1950,13 @@ window.WATCHDOG_TODOS = [
     "task": "Vitoria: implementar disparo WA utilitario para campos de contato alem do campo celular — ampliar alcance de disparo para escolas com contato em outros campos",
     "comment": "Encontro Aquisicao 04/mar/26 (Lili) - item 1.1. Hoje o disparo de WA so ocorre para o campo celular. Outros campos de contato nao recebem disparos. Impacto: melhora conversao. Custo: R$0,09 por disparo utilitario. Distinto de t122 (copy WA pre-SDR) e t121 (validacao de contatos existentes).",
     "owner": "Vitória",
-    "date": "19/mar",
+    "date": "20/mar",
     "tier": "t1",
     "tierLabel": "A fazer",
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-11T00:00:00",
+    "updatedAt": "2026-03-19T12:54:00",
     "completedAt": null
   },
   {
