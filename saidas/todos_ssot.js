@@ -2730,6 +2730,20 @@ window.WATCHDOG_TODOS = [
     "completedAt": null
   },
   {
+    "id": "t203",
+    "task": "Configurar limite permanente de 2.500 disparos/dia no Blip para evitar sobrecarga",
+    "comment": "Implementação técnica da decisão tomada na daily sobre limite de disparos.",
+    "owner": "Vitoria",
+    "date": "19/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-18T20:51:00",
+    "completedAt": null
+  },
+  {
     "id": "t204",
     "task": "Revisar vídeos do Flavio",
     "comment": "Vídeos do Flavio",
