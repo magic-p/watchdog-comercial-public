@@ -2847,12 +2847,12 @@ window.WATCHDOG_TODOS = [
     "comment": "Criada pela Claudete no chat (pedido direto no chat por pedro.concy@estantemagica.com.br).",
     "owner": "Pedro",
     "date": "20/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-19T17:51:00",
-    "completedAt": null
+    "updatedAt": "2026-03-19T17:52:00",
+    "completedAt": "2026-03-19T17:52:00"
   }
 ];
