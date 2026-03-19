@@ -2861,12 +2861,12 @@ window.WATCHDOG_TODOS = [
     "comment": "Campanha para próxima segunda-feira",
     "owner": "Pedro",
     "date": "23/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-19T18:23:00",
-    "completedAt": null
+    "updatedAt": "2026-03-19T18:27:00",
+    "completedAt": "2026-03-19T18:27:00"
   }
 ];
