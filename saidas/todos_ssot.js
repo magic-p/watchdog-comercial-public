@@ -2746,7 +2746,7 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t204",
     "task": "Revisar, validar vídeos do Flavio e outras ações envolvendo disparo do video de segunda",
-    "comment": "1. Revisar video\n2. Validar video \n3. Separar bases \n4. Seguir segmentação feita pela Lili como prioridade. AA 20K > Renv HT e LT pub > AA 4K a 20K \n5. Programar disparo para segunda",
+    "comment": "1. Revisar video\n2. Validar video \n3. Separar bases\n4. Fazer testes de link no wpp e e-mail. \n5. Testar filas na blip! \n6. Seguir segmentação feita pela Lili como prioridade. AA 20K > Renv HT e LT pub > AA 4K a 20K \n5. Programar disparo para segunda",
     "owner": "Vitória",
     "date": "20/mar",
     "tier": "t2",
