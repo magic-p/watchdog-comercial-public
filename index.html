@@ -322,11 +322,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260319103933"></script>
-<script src="saidas/todos_ssot.js?v=20260319103933"></script>
-<script src="saidas/data_health.js?v=20260319103933"></script>
-<script src="saidas/campanhas_ssot.js?v=20260319103933"></script>
-<script src="saidas/intel_ssot.js?v=20260319103933"></script>
+<script src="saidas/booked_meta.js?v=20260319104710"></script>
+<script src="saidas/todos_ssot.js?v=20260319104710"></script>
+<script src="saidas/data_health.js?v=20260319104710"></script>
+<script src="saidas/campanhas_ssot.js?v=20260319104710"></script>
+<script src="saidas/intel_ssot.js?v=20260319104710"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -3512,20 +3512,28 @@ function _appendMsg(role, text, id) {
       const el = document.getElementById(typingId);
       if (el) el.remove();
 
+      const rawText = await resp.text();
+      let data = null;
+      try {
+        data = rawText ? JSON.parse(rawText) : null;
+      } catch (parseErr) {
+        console.error('[Claudete chat] resposta não-JSON:', parseErr, rawText);
+      }
+
       if (!resp.ok) {
-        const err = await resp.json().catch(() => ({}));
-        _appendMsg('error', 'Erro ' + resp.status + ': ' + (err.error || 'resposta inválida'));
+        _appendMsg('error', 'Erro ' + resp.status + ': ' + ((data && data.error) || 'resposta inválida'));
       } else {
-        const data = await resp.json();
-        if (data.ok && data.reply) {
+        if (data && data.ok && data.reply) {
           if (Array.isArray(data.created_tasks) && data.created_tasks.length) {
             applyChatCreatedTasks(data.created_tasks);
           }
           _appendMsg('claudete', data.reply);
           _chatHistory.push({ role: 'claudete', content: data.reply });
           if (_chatHistory.length > 50) _chatHistory = _chatHistory.slice(-50);
+        } else if (rawText) {
+          _appendMsg('error', 'O motor respondeu, mas a resposta veio num formato inválido. Já registrei isso para corrigir.');
         } else {
-          _appendMsg('error', data.error || 'Resposta vazia da Claudete.');
+          _appendMsg('error', (data && data.error) || 'Resposta vazia da Claudete.');
         }
       }
     } catch (e) {
