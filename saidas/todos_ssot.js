@@ -2798,5 +2798,19 @@ window.WATCHDOG_TODOS = [
     "priorityRank": null,
     "updatedAt": null,
     "completedAt": null
+  },
+  {
+    "id": "t208",
+    "task": "Criar Copy pros disparos de 2a (Renovação HT e LT e AA 20k+)",
+    "comment": null,
+    "owner": "Pedro",
+    "date": "19/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-19T00:00:00",
+    "completedAt": null
   }
 ];
