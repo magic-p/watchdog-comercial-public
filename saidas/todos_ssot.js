@@ -2844,7 +2844,7 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t211",
     "task": "Gravar vídeos para top30 de AA",
-    "comment": "Criada pela Claudete no chat (pedido direto no chat por pedro.concy@estantemagica.com.br).",
+    "comment": "Criada pela Claudete no chat (pedido direto no chat por pedro.concy@estantemagica.com.br). edição",
     "owner": "Pedro",
     "date": "20/mar",
     "tier": "t2",
