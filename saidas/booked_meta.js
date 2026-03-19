@@ -5,6 +5,14 @@ window.WATCHDOG_BOOKED_META = {
   "wins": [
     {
       "emoji": "✅",
+      "titulo": "Pedro: mais uma tarefa teste",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Pedro",
+      "data": "19/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
       "titulo": "Vitória: Pesquisar e atualizar resultado das escolas convertidas (incluindo sem reunião) e compartilhar no grupo",
       "desc": "Concluida no prazo definido.",
       "dri": "Vitória",
