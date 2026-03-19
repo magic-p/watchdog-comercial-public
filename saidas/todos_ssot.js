@@ -2854,19 +2854,5 @@ window.WATCHDOG_TODOS = [
     "priorityRank": null,
     "updatedAt": "2026-03-19T17:58:00",
     "completedAt": null
-  },
-  {
-    "id": "t212",
-    "task": "Teste",
-    "comment": "obs teste",
-    "owner": "Pedro",
-    "date": "01/nov",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
-    "warn": null,
-    "done": false,
-    "priorityRank": null,
-    "updatedAt": "2026-03-19T19:18:00",
-    "completedAt": null
   }
 ];
