@@ -2802,7 +2802,7 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t208",
     "task": "Criar Copy pros disparos de 2a (Renovação HT e LT e AA 20k+)",
-    "comment": "Mandar pra Vit até amanhã.x.",
+    "comment": "Mandar pra Vit até amanhã.",
     "owner": "Pedro",
     "date": "19/mar",
     "tier": "t1",
@@ -2908,7 +2908,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-19T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   }
 ];
