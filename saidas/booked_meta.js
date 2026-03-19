@@ -4,6 +4,14 @@ window.WATCHDOG_BOOKED_META = {
   "buckets": [],
   "wins": [
     {
+      "emoji": "✅",
+      "titulo": "Vitória: Configurar limite permanente de 2.500 disparos/dia no Blip para evitar sobrecarga",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Vitória",
+      "data": "19/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
       "emoji": "🎯",
       "titulo": "Vitória: Lili: comparar taxa de RR, fechamento e conversão de escolas com mimo vs sem mimo (mesmo período/segmento) — calcular delta para decidir se mimo segue ou é suspenso",
       "desc": "Concluida no ciclo semanal (segunda a domingo).",
