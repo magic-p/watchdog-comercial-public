@@ -2693,13 +2693,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Novo modelo objetivo pronto para teste; selecionar quem praticará amanhã.",
     "owner": "Ana Paula Pimentel",
     "date": "19/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-20T13:35:00",
+    "completedAt": "2026-03-20T13:35:00"
   },
   {
     "id": "t201",
