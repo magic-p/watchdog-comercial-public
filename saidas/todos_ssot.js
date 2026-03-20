@@ -2898,20 +2898,6 @@ window.WATCHDOG_TODOS = [
     "completedAt": null
   },
   {
-    "id": "t218",
-    "task": "Analisar taxa de conversão de reuniões realizadas pelos SDRs para identificar gargalo",
-    "comment": "Baseado no gargalo identificado no watchdog: 'Reunião Realizada por SDR'. Necessário entender por que a cadência de contato da Renovação LT está travada.",
-    "owner": "Pedro",
-    "date": "22/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
-    "warn": null,
-    "done": false,
-    "priorityRank": null,
-    "updatedAt": "2026-03-20T06:46:00",
-    "completedAt": null
-  },
-  {
     "id": "t219",
     "task": "Criar material de apoio/script para SDRs aumentarem taxa de agendamento de reuniões",
     "comment": "Para destravar a cadência de contato da Renovação LT e avançar no objetivo de 3.736 escolas até agosto.",
