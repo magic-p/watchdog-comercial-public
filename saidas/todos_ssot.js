@@ -2908,7 +2908,21 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-20T00:00:00",
+    "updatedAt": null,
+    "completedAt": null
+  },
+  {
+    "id": "t217",
+    "task": "Revisar a copy do disparo de renovação HT e LT",
+    "comment": "Revisão da copy para o disparo de renovação de Habitualidade e LT",
+    "owner": "Pedro",
+    "date": "21/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-20T06:45:00",
     "completedAt": null
   }
 ];
