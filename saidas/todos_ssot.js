@@ -2898,20 +2898,6 @@ window.WATCHDOG_TODOS = [
     "completedAt": null
   },
   {
-    "id": "t217",
-    "task": "Revisar a copy do disparo de renovação HT e LT",
-    "comment": "Revisão da copy para o disparo de renovação de Habitualidade e LT",
-    "owner": "Pedro",
-    "date": "21/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
-    "warn": null,
-    "done": false,
-    "priorityRank": null,
-    "updatedAt": "2026-03-20T06:45:00",
-    "completedAt": null
-  },
-  {
     "id": "t218",
     "task": "Analisar taxa de conversão de reuniões realizadas pelos SDRs para identificar gargalo",
     "comment": "Baseado no gargalo identificado no watchdog: 'Reunião Realizada por SDR'. Necessário entender por que a cadência de contato da Renovação LT está travada.",
