@@ -5,6 +5,38 @@ window.WATCHDOG_BOOKED_META = {
   "wins": [
     {
       "emoji": "🎯",
+      "titulo": "Ana Paula Pimentel: Formalizar escopo de atuacao de Rania em negocios perdidos: quais bases (anteriores e novas), criterio de priorizacao por receita, script e meta semanal de contatos",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Ana Paula Pimentel",
+      "data": "20/03",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
+      "emoji": "🎯",
+      "titulo": "Ana Paula Pimentel: Liberar envio de mimos para as 10 escolas de HT Publica que deram no-show (aprovacao confirmada na daily) e executar o envio",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Ana Paula Pimentel",
+      "data": "20/03",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
+      "emoji": "🎯",
+      "titulo": "Ana Paula Pimentel: Garantir que supervisores revisem e ajustem novo discurso e enviar nome das pessoas para treinar",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Ana Paula Pimentel",
+      "data": "20/03",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
+      "emoji": "🎯",
+      "titulo": "Ana Paula Pimentel: Pimentel: usar Notebook LM para analisar audios de no-show em Renovacao e identificar padroes de cancelamento/ausencia",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Ana Paula Pimentel",
+      "data": "20/03",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
+      "emoji": "🎯",
       "titulo": "Kaka: Karina e Vitoria: avaliar janela de oportunidade para disparo adicional de Low Touch com acao de video na semana de 16/03",
       "desc": "Concluida no ciclo semanal (segunda a domingo).",
       "dri": "Kaka",
