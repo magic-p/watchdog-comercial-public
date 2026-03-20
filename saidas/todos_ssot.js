@@ -2441,13 +2441,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Decisao tomada na daily 13/03. Pedro recusou aceitar o argumento de escola ocupada sem analise mais profunda. 16 mimos nao resolveram o comparecimento (insight125). Objetivo: identificar padrao de quando e por que gestoras agendam mas nao aparecem.",
     "owner": "Ana Paula Pimentel",
     "date": "18/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-20T13:34:00",
+    "completedAt": "2026-03-20T13:34:00"
   },
   {
     "id": "t181",
@@ -2894,7 +2894,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-20T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -2922,7 +2922,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-20T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   }
 ];
