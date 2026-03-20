@@ -2910,5 +2910,19 @@ window.WATCHDOG_TODOS = [
     "priorityRank": null,
     "updatedAt": "2026-03-20T06:46:00",
     "completedAt": null
+  },
+  {
+    "id": "t220",
+    "task": "Ter realizado XXX IG+Wpp",
+    "comment": "Preencher o XXX. (acumulado de envios de wpp pelos freelas)",
+    "owner": "Kaka",
+    "date": "23/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-20T00:00:00",
+    "completedAt": null
   }
 ];
