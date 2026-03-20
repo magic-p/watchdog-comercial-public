@@ -37,6 +37,13 @@
   </div>
 </header>
 
+<div class="maintenance-banner" id="maintenanceBanner" hidden>
+  <div class="maintenance-banner-copy">
+    <strong>Uso congelado</strong>
+    <span id="maintenanceBannerText">Sistema temporariamente em manutencao.</span>
+  </div>
+</div>
+
 <!-- Modal de autenticação Supabase -->
 <div class="auth-overlay" id="authOverlay">
   <div class="auth-box">
@@ -84,7 +91,7 @@
           <span class="todos-hd-sub" id="todosHdSub">Daily Gest&atilde;o Comercial</span>
         </div>
         <div class="btn-row">
-          <button class="btn" onclick="addTask()">+ Tarefa</button>
+          <button class="btn" id="addTaskBtn" onclick="addTask()">+ Tarefa</button>
         </div>
       </div>
       <div class="todos-tabs" role="tablist" aria-label="Filtro de tarefas">
@@ -322,11 +329,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js"></script>
-<script src="saidas/todos_ssot.js?v=20260320142231"></script>
-<script src="saidas/data_health.js"></script>
-<script src="saidas/campanhas_ssot.js"></script>
-<script src="saidas/intel_ssot.js"></script>
+<script src="saidas/booked_meta.js?v=20260320160242"></script>
+<script src="saidas/todos_ssot.js?v=20260320160242"></script>
+<script src="saidas/data_health.js?v=20260320160242"></script>
+<script src="saidas/campanhas_ssot.js?v=20260320160242"></script>
+<script src="saidas/intel_ssot.js?v=20260320160242"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -383,16 +390,15 @@ async function _motorPatch(patch) {
       method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${authToken}` },
       body: JSON.stringify({ ...patch, actor, request_id })
     });
+    let payload = null;
+    try { payload = await r.json(); } catch {}
+    if (_consumeMaintenancePayload(payload)) return false;
     if (!r.ok) {
       let msg = 'Motor local: erro ao salvar';
-      try {
-        const j = await r.json();
-        if (j && j.error) msg = 'Motor local: ' + j.error;
-      } catch {}
+      if (payload && payload.error) msg = 'Motor local: ' + payload.error;
       _setWriteError(msg);
       return false;
     }
-    try { await r.json(); } catch {}
     _setWriteError('');
     if (_sbSession) _scheduleTasksRefresh(true, 120, 'task_write');
     return true;
@@ -410,16 +416,15 @@ async function _motorCreate(task) {
       method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${authToken}` },
       body: JSON.stringify({ id: task.id, task: task.task, owner: task.owner, date: task.date, comment: task.comment || null, request_id })
     });
+    let payload = null;
+    try { payload = await r.json(); } catch {}
+    if (_consumeMaintenancePayload(payload)) return false;
     if (!r.ok) {
       let msg = 'Motor local: erro ao criar';
-      try {
-        const j = await r.json();
-        if (j && j.error) msg = 'Motor local: ' + j.error;
-      } catch {}
+      if (payload && payload.error) msg = 'Motor local: ' + payload.error;
       _setWriteError(msg);
       return false;
     }
-    try { await r.json(); } catch {}
     _setWriteError('');
     if (_sbSession) _scheduleTasksRefresh(true, 120, 'task_write');
     return true;
@@ -431,6 +436,11 @@ async function _motorCreate(task) {
 
 /* ── Funções públicas (usadas pelo resto do dashboard) ──────── */
 async function apiCreate(task) {
+  if (isMaintenanceActive()) {
+    _setWriteError(maintenanceMessage());
+    toast(maintenanceMessage(), 'err');
+    return false;
+  }
   if (!_canWrite()) {
     _setWriteError('Login necessário para editar tarefas.');
     toast('Faça login para criar/editar tarefas.', 'err');
@@ -440,6 +450,11 @@ async function apiCreate(task) {
 }
 
 async function apiPatch(patch) {
+  if (isMaintenanceActive()) {
+    _setWriteError(maintenanceMessage());
+    toast(maintenanceMessage(), 'err');
+    return false;
+  }
   if (!_canWrite()) {
     _setWriteError('Login necessário para editar tarefas.');
     toast('Faça login para criar/editar tarefas.', 'err');
@@ -515,6 +530,99 @@ const INTEL_DATA = (window.WATCHDOG_INTEL && typeof window.WATCHDOG_INTEL === 'o
   ? window.WATCHDOG_INTEL : null;
 
 const FALLBACK_SEED = [];
+
+let _maintenanceState = {
+  active: false,
+  reason: '',
+  message: '',
+  started_at: '',
+  started_by: '',
+};
+
+function maintenanceMessage() {
+  const raw = String(_maintenanceState?.message || '').trim();
+  if (raw) return raw;
+  return 'Sistema temporariamente em manutencao. Uso congelado durante mudancas estruturais.';
+}
+
+function isMaintenanceActive() {
+  return !!(_maintenanceState && _maintenanceState.active);
+}
+
+function _extractMaintenanceState(payload) {
+  if (!payload || typeof payload !== 'object') return null;
+  if (payload.error === 'maintenance_mode' && payload.maintenance && typeof payload.maintenance === 'object') {
+    return payload.maintenance;
+  }
+  if (payload.maintenance && typeof payload.maintenance === 'object') {
+    return payload.maintenance;
+  }
+  return null;
+}
+
+function setMaintenanceState(state, opts = {}) {
+  const next = (state && typeof state === 'object') ? state : { active: false };
+  _maintenanceState = {
+    active: !!next.active,
+    reason: String(next.reason || '').trim(),
+    message: String(next.message || '').trim(),
+    started_at: String(next.started_at || '').trim(),
+    started_by: String(next.started_by || '').trim(),
+  };
+  const active = !!_maintenanceState.active;
+  const banner = document.getElementById('maintenanceBanner');
+  const bannerText = document.getElementById('maintenanceBannerText');
+  const addTaskBtn = document.getElementById('addTaskBtn');
+  const attachBtn = document.getElementById('chatAttachBtn');
+  const sendBtn = document.getElementById('chatSend');
+  const chatInput = document.getElementById('chatInput');
+  const fab = document.getElementById('claudeteFab');
+  document.body.classList.toggle('maintenance-mode', active);
+  if (banner) banner.hidden = !active;
+  if (bannerText) bannerText.textContent = maintenanceMessage();
+  if (addTaskBtn) addTaskBtn.disabled = active;
+  if (attachBtn) attachBtn.disabled = active;
+  if (chatInput) chatInput.disabled = active;
+  if (sendBtn) {
+    sendBtn.disabled = active || ((!chatInput?.value?.trim?.() && !window._chatAttachFile) || window._chatBusy);
+  }
+  if (fab) {
+    fab.classList.toggle('disabled', active);
+    fab.title = active ? maintenanceMessage() : 'Conversar com Claudete';
+  }
+  if (active) {
+    const drawer = document.getElementById('claudeteDrawer');
+    if (drawer) drawer.classList.remove('open');
+    _setWriteError(maintenanceMessage());
+    if (opts.toast !== false) toast(maintenanceMessage(), 'err');
+  } else if (!opts.keepWriteError) {
+    _setWriteError('');
+  }
+  if (typeof _updateSysStatus === 'function') _updateSysStatus();
+}
+
+function _consumeMaintenancePayload(payload, opts = {}) {
+  const state = _extractMaintenanceState(payload);
+  if (!state || !state.active) return false;
+  setMaintenanceState(state, opts);
+  return true;
+}
+
+async function refreshOperationalHealth(reason = 'unknown') {
+  try {
+    const r = await fetch(`${API_URL}/api/todos/health?reason=${encodeURIComponent(String(reason || 'unknown'))}`, {
+      signal: AbortSignal.timeout(3000),
+    });
+    const data = await r.json();
+    if (_consumeMaintenancePayload(data, { toast: false, keepWriteError: true })) {
+      return _maintenanceState;
+    }
+    setMaintenanceState((data && data.maintenance) || { active: false }, { toast: false, keepWriteError: true });
+    return _maintenanceState;
+  } catch {
+    return _maintenanceState;
+  }
+}
 
 const DEMO_SEED = [
   {
@@ -1043,6 +1151,7 @@ function _parseBackendAlert(str, idx) {
 }
 
 async function fetchBackendAlerts(reason = 'unknown') {
+  if (isMaintenanceActive()) return;
   if (_alertsRefreshInFlight) {
     _alertsRefreshQueued = true;
     _alertsRefreshReason = _mergeRefreshReason(_alertsRefreshReason, reason);
@@ -1053,8 +1162,10 @@ async function fetchBackendAlerts(reason = 'unknown') {
     const r = await fetch(`${API_URL}/api/computed/alerts?reason=${encodeURIComponent(String(reason || 'unknown'))}`, {
       signal: AbortSignal.timeout(3000)
     });
+    let j = null;
+    try { j = await r.json(); } catch {}
+    if (_consumeMaintenancePayload(j)) { _backendAlerts = null; return; }
     if (!r.ok) { _backendAlerts = null; return; }
-    const j = await r.json();
     _backendAlerts = (j.alerts || []).map(_parseBackendAlert).filter(Boolean);
     renderCriticalAlerts();
   } catch {
@@ -2288,6 +2399,10 @@ function editTask(id) {
 
 function addTask() {
   if (IS_READONLY) return;
+  if (isMaintenanceActive()) {
+    toast(maintenanceMessage(), 'err');
+    return;
+  }
   openTaskModal('create');
 }
 
@@ -2504,6 +2619,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Mostrar "ok" quando logado, "aguardando login" quando não.
   setSsotStatus(!REQUIRE_LOGIN_FOR_READ ? HAS_BACKEND_TODOS : !!_sbSession);
   _updateSysStatus();
+  refreshOperationalHealth('dom_ready');
   document.getElementById('headerDate').textContent =
     new Date().toLocaleDateString('pt-BR',
       {weekday:'long',year:'numeric',month:'long',day:'numeric'});
@@ -2692,6 +2808,7 @@ function _onAuthLogin(session) {
   const opts = arguments[1] || {};
   _sbSession = session;
   const refreshReason = String(opts.refreshReason || 'auth_login');
+  refreshOperationalHealth(refreshReason);
   const userKey = _sessionUserKey(session);
   const now = Date.now();
   const shouldSkipOperationalRefresh = !!userKey && (_lastAuthRefreshUserKey === userKey) && ((now - _lastAuthRefreshAt) < 30000);
@@ -2722,6 +2839,7 @@ function _onAuthLogin(session) {
   renderBookedMeta();
   renderWins();
   renderDataHealth();
+  if (isMaintenanceActive()) return;
   if (!shouldSkipOperationalRefresh) {
     _lastAuthRefreshUserKey = userKey;
     _lastAuthRefreshAt = now;
@@ -2785,6 +2903,7 @@ function _onAuthLogout() {
 }
 
 async function _refreshTasksFromApi(silent = false, reason = 'unknown') {
+  if (isMaintenanceActive()) return;
   if (REQUIRE_LOGIN_FOR_READ && !_sbSession) return;
   if (_supabaseRefreshInFlight) {
     _queueTasksRefresh(silent, reason);
@@ -2802,6 +2921,7 @@ async function _refreshTasksFromApi(silent = false, reason = 'unknown') {
     } catch (parseErr) {
       console.error('[Tasks API] invalid JSON:', parseErr);
     }
+    if (_consumeMaintenancePayload(data, { toast: !silent })) return;
     if (!resp.ok || !data || !data.ok) {
       const msg = (data && data.error) || ('Erro ' + resp.status);
       console.error('[Tasks API] read error:', msg, data);
@@ -2949,6 +3069,12 @@ function _updateSysStatus() {
   const txt = document.getElementById('sysStatusText');
   const pill = document.getElementById('sysStatusPill');
   if (!dot || !txt) return;
+  if (isMaintenanceActive()) {
+    dot.className = 'sys-status-dot maintenance';
+    txt.textContent = 'Manutencao';
+    if (pill) pill.title = maintenanceMessage();
+    return;
+  }
   const motorEl = document.getElementById('motorStatus');
   const motorOnline = motorEl && motorEl.classList.contains('online');
   const readonly = document.getElementById('readonlyPill') && document.getElementById('readonlyPill').style.display !== 'none';
@@ -3302,27 +3428,41 @@ document.addEventListener('DOMContentLoaded', _initUpload);
   const inputEl  = document.getElementById('chatInput');
   const sendBtn  = document.getElementById('chatSend');
   inputEl.addEventListener('input', () => {
-    sendBtn.disabled = (!inputEl.value.trim() && !_chatAttachFile) || _chatBusy;
+    sendBtn.disabled = isMaintenanceActive() || (!inputEl.value.trim() && !_chatAttachFile) || _chatBusy;
   });
 
   // ── Attach listeners ──────────────────────────────────
   let _chatAttachFile = null;  // File | null
+  window._chatAttachFile = null;
+  window._chatBusy = false;
 
   function _chatSetAttach(file) {
-    if (!file) { _chatAttachFile = null; document.getElementById('chatAttachPreview').style.display = 'none'; return; }
+    if (!file) {
+      _chatAttachFile = null;
+      window._chatAttachFile = null;
+      document.getElementById('chatAttachPreview').style.display = 'none';
+      return;
+    }
     const MAX = 1 * 1024 * 1024;
     if (file.size > MAX) { toast('Arquivo muito grande (máx 1 MB)', 'err'); return; }
     _chatAttachFile = file;
+    window._chatAttachFile = file;
     document.getElementById('chatAttachName').textContent = file.name;
     document.getElementById('chatAttachPreview').style.display = 'flex';
-    sendBtn.disabled = _chatBusy;
+    sendBtn.disabled = isMaintenanceActive() || _chatBusy;
   }
 
   const attachBtn  = document.getElementById('chatAttachBtn');
   const fileInput  = document.getElementById('chatFileInput');
   const attachPrev = document.getElementById('chatAttachPreview');
   attachPrev.style.display = 'none';  // hidden until file attached
-  attachBtn.addEventListener('click', () => fileInput.click());
+  attachBtn.addEventListener('click', () => {
+    if (isMaintenanceActive()) {
+      toast(maintenanceMessage(), 'err');
+      return;
+    }
+    fileInput.click();
+  });
   fileInput.addEventListener('change', () => {
     if (fileInput.files[0]) _chatSetAttach(fileInput.files[0]);
     fileInput.value = '';
@@ -3334,6 +3474,10 @@ document.addEventListener('DOMContentLoaded', _initUpload);
 
   // ── Open / Close ──────────────────────────────────────
   window.openClaudetChat = function() {
+    if (isMaintenanceActive()) {
+      toast(maintenanceMessage(), 'err');
+      return;
+    }
     document.getElementById('claudeteDrawer').classList.add('open');
     if (_chatHistory.length === 0) _renderWelcome();
     setTimeout(() => inputEl.focus(), 280);
@@ -3404,6 +3548,10 @@ function _appendClaudeteReplySafe(text) {
 
   window.sendChatMessage = async function(overrideText) {
     if (_chatBusy) return;
+    if (isMaintenanceActive()) {
+      toast(maintenanceMessage(), 'err');
+      return;
+    }
     const text = overrideText || inputEl.value.trim();
     if (!text && !_chatAttachFile) return;
 
@@ -3418,6 +3566,7 @@ function _appendClaudeteReplySafe(text) {
     _chatSetAttach(null);
     sendBtn.disabled = true;
     _chatBusy = true;
+    window._chatBusy = true;
     _setPillsBusy(true);
 
     const displayText = text || (attachFile ? attachFile.name : '');
@@ -3485,6 +3634,13 @@ function _appendClaudeteReplySafe(text) {
       } catch (parseErr) {
         console.error('[Claudete chat] resposta não-JSON:', parseErr, rawText);
       }
+      if (_consumeMaintenancePayload(data)) {
+        _chatBusy = false;
+        window._chatBusy = false;
+        _setPillsBusy(false);
+        sendBtn.disabled = isMaintenanceActive() || (!inputEl.value.trim() && !_chatAttachFile);
+        return;
+      }
 
       if (!resp.ok) {
         _appendMsg('error', 'Erro ' + resp.status + ': ' + ((data && data.error) || 'resposta inválida'));
@@ -3518,8 +3674,9 @@ function _appendClaudeteReplySafe(text) {
           try {
             _appendClaudeteReplySafe(fallbackReply);
             _chatBusy = false;
+            window._chatBusy = false;
             _setPillsBusy(false);
-            sendBtn.disabled = !inputEl.value.trim() && !_chatAttachFile;
+            sendBtn.disabled = isMaintenanceActive() || (!inputEl.value.trim() && !_chatAttachFile);
             return;
           } catch (fallbackErr) {
             console.error('[Claudete chat] fallback pós-resposta falhou:', fallbackErr, fallbackReply);
@@ -3534,8 +3691,9 @@ function _appendClaudeteReplySafe(text) {
     }
 
     _chatBusy = false;
+    window._chatBusy = false;
     _setPillsBusy(false);
-    sendBtn.disabled = !inputEl.value.trim() && !_chatAttachFile;
+    sendBtn.disabled = isMaintenanceActive() || (!inputEl.value.trim() && !_chatAttachFile);
   };
 
   // ── Show/hide FAB on auth state ───────────────────────
