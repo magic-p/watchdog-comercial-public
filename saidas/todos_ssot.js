@@ -2104,7 +2104,7 @@ window.WATCHDOG_TODOS = [
     "task": "Nath: definir protocolo formal de uso emergencial do WhatsApp para prospeccao SDR — criterios de quando usar, limite de volume diario e numero descartavel dedicado",
     "comment": "Incluir exceção para Concorrência (aprovada com reserva orçamentária) e limite de 2.000-2.500/dia definido na daily.",
     "owner": "Nath Ferreira",
-    "date": "19/mar",
+    "date": "26/mar",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
