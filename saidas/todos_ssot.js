@@ -2455,13 +2455,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Decisao pendente de avaliacao. Low Touch em 64% da meta do momento e 23% da meta do mes. Lili sugeriu campanha mais agressiva aproveitando videos. Time de MKT tem plano para responder tickets e atuar como SDR Closer para Low Touch.",
     "owner": "Kaka",
     "date": "18/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-20T10:31:00",
+    "completedAt": "2026-03-20T10:31:00"
   },
   {
     "id": "t182",
