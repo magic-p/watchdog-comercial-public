@@ -5,6 +5,14 @@ window.WATCHDOG_BOOKED_META = {
   "wins": [
     {
       "emoji": "🎯",
+      "titulo": "Kaka: Compartilhar cópia da planilha com as 19 escolas Bolsão que receberam mimos no grupo",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Kaka",
+      "data": "20/03",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
+      "emoji": "🎯",
       "titulo": "Ana Paula Pimentel: Formalizar escopo de atuacao de Rania em negocios perdidos: quais bases (anteriores e novas), criterio de priorizacao por receita, script e meta semanal de contatos",
       "desc": "Concluida no ciclo semanal (segunda a domingo).",
       "dri": "Ana Paula Pimentel",
