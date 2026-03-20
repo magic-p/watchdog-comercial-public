@@ -4,6 +4,22 @@ window.WATCHDOG_BOOKED_META = {
   "buckets": [],
   "wins": [
     {
+      "emoji": "🎯",
+      "titulo": "Kaka: Karina e Vitoria: avaliar janela de oportunidade para disparo adicional de Low Touch com acao de video na semana de 16/03",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Kaka",
+      "data": "20/03",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
+      "emoji": "🎯",
+      "titulo": "Kaka: Instagram: AA descarte >20k + Renovação com Maria Carol + Cross Aquisição",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Kaka",
+      "data": "20/03",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
       "emoji": "✅",
       "titulo": "Pedro: mais uma tarefa teste",
       "desc": "Concluida no prazo definido.",
