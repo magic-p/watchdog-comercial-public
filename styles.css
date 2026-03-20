@@ -106,6 +106,30 @@
 
     .header-right { display: flex; align-items: center; gap: 10px; }
 
+    .maintenance-banner {
+      position: sticky;
+      top: 56px;
+      z-index: 95;
+      padding: 10px 28px;
+      background: linear-gradient(90deg, #FFF3E4 0%, #FFF7EE 100%);
+      border-bottom: 1px solid rgba(255,149,0,0.20);
+      color: #8A4B00;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .maintenance-banner-copy {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .maintenance-banner strong {
+      font-weight: 600;
+      color: #6D3A00;
+      white-space: nowrap;
+    }
+
     .header-date {
       font-size: 12px;
       color: var(--t2);
@@ -560,6 +584,11 @@
       transition: background .12s, color .12s, box-shadow .12s;
       -webkit-font-smoothing: antialiased;
     }
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
     .btn:hover { background: var(--bg); color: var(--t1); }
 
     .btn.primary {
@@ -832,6 +861,12 @@
     }
     #claudeteFab:hover { transform: scale(1.08); box-shadow: 0 6px 24px rgba(0,87,255,0.40); }
     #claudeteFab.visible { display: flex; }
+    #claudeteFab.disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: 0 4px 18px rgba(0,87,255,0.18);
+    }
 
     #claudeteDrawer {
       position: fixed; top: 0; right: 0; bottom: 0;
@@ -1158,6 +1193,7 @@
     .sys-status-dot.online  { background: var(--green); }
     .sys-status-dot.offline { background: var(--red); }
     .sys-status-dot.readonly { background: var(--orange); }
+    .sys-status-dot.maintenance { background: var(--orange); }
 
     /* prefers-reduced-motion */
     @media (prefers-reduced-motion: reduce) {
@@ -1717,6 +1753,18 @@
     body.readonly .chk-wrap,
     body.readonly .tier-select,
     body.readonly .row-edit-btn { display: none !important; }
+
+    body.maintenance-mode .btn-row,
+    body.maintenance-mode .chk-wrap,
+    body.maintenance-mode .tier-select,
+    body.maintenance-mode .row-edit-btn { display: none !important; }
+
+    body.maintenance-mode .chat-input,
+    body.maintenance-mode .chat-attach-btn,
+    body.maintenance-mode .chat-send {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
 
     /*  MOTOR STATUS  */
     .motor-pill {
