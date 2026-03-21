@@ -329,11 +329,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260321192353"></script>
-<script src="saidas/todos_ssot.js?v=20260321192353"></script>
-<script src="saidas/data_health.js?v=20260321192353"></script>
-<script src="saidas/campanhas_ssot.js?v=20260321192353"></script>
-<script src="saidas/intel_ssot.js?v=20260321192353"></script>
+<script src="saidas/booked_meta.js?v=20260321192601"></script>
+<script src="saidas/todos_ssot.js?v=20260321192601"></script>
+<script src="saidas/data_health.js?v=20260321192601"></script>
+<script src="saidas/campanhas_ssot.js?v=20260321192601"></script>
+<script src="saidas/intel_ssot.js?v=20260321192601"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -3396,7 +3396,7 @@ document.addEventListener('DOMContentLoaded', _initUpload);
       </span>
     </div>
     <div class="chat-input-row">
-      <button class="chat-attach-btn" id="chatAttachBtn" title="Anexar arquivo (PDF, XLSX, CSV, TXT · até 7 MB)">
+      <button class="chat-attach-btn" id="chatAttachBtn" title="Anexar arquivo (PDF, XLSX, CSV, TXT · até 13 MB)">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
       </button>
       <input type="file" id="chatFileInput" accept=".pdf,.xlsx,.xls,.csv,.txt" multiple hidden />
@@ -3443,10 +3443,10 @@ document.addEventListener('DOMContentLoaded', _initUpload);
       document.getElementById('chatAttachPreview').style.display = 'none';
       return;
     }
-    const MAX = 7 * 1024 * 1024;
+    const MAX = 13 * 1024 * 1024;
     const fileArr = Array.from(files);
     const oversized = fileArr.filter(f => f.size > MAX);
-    if (oversized.length) { toast(`Arquivo(s) muito grande(s) — máx 7 MB cada: ${oversized.map(f => f.name).join(', ')}`, 'err'); return; }
+    if (oversized.length) { toast(`Arquivo(s) muito grande(s) — máx 13 MB cada: ${oversized.map(f => f.name).join(', ')}`, 'err'); return; }
     if (fileArr.length > 10) { toast('Máximo de 10 arquivos por envio.', 'err'); return; }
     _chatAttachFiles = fileArr;
     window._chatAttachFiles = fileArr;
