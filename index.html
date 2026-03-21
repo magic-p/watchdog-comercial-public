@@ -329,11 +329,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260321114034"></script>
-<script src="saidas/todos_ssot.js?v=20260321114034"></script>
-<script src="saidas/data_health.js?v=20260321114034"></script>
-<script src="saidas/campanhas_ssot.js?v=20260321114034"></script>
-<script src="saidas/intel_ssot.js?v=20260321114034"></script>
+<script src="saidas/booked_meta.js?v=20260321115309"></script>
+<script src="saidas/todos_ssot.js?v=20260321115309"></script>
+<script src="saidas/data_health.js?v=20260321115309"></script>
+<script src="saidas/campanhas_ssot.js?v=20260321115309"></script>
+<script src="saidas/intel_ssot.js?v=20260321115309"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -584,7 +584,7 @@ function setMaintenanceState(state, opts = {}) {
   if (attachBtn) attachBtn.disabled = active;
   if (chatInput) chatInput.disabled = active;
   if (sendBtn) {
-    sendBtn.disabled = active || ((!chatInput?.value?.trim?.() && !window._chatAttachFile) || window._chatBusy);
+    sendBtn.disabled = active || ((!chatInput?.value?.trim?.() && !window._chatAttachFiles?.length) || window._chatBusy);
   }
   if (fab) {
     fab.classList.toggle('disabled', active);
@@ -3399,7 +3399,7 @@ document.addEventListener('DOMContentLoaded', _initUpload);
       <button class="chat-attach-btn" id="chatAttachBtn" title="Anexar arquivo (PDF, XLSX, CSV, TXT · até 1 MB)">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
       </button>
-      <input type="file" id="chatFileInput" accept=".pdf,.xlsx,.xls,.csv,.txt" hidden />
+      <input type="file" id="chatFileInput" accept=".pdf,.xlsx,.xls,.csv,.txt" multiple hidden />
       <textarea id="chatInput" class="chat-input" rows="1" maxlength="1000"
         placeholder="Pergunte algo sobre a Estante Mágica…"
         onkeydown="chatInputKeydown(event)"></textarea>
@@ -3428,26 +3428,30 @@ document.addEventListener('DOMContentLoaded', _initUpload);
   const inputEl  = document.getElementById('chatInput');
   const sendBtn  = document.getElementById('chatSend');
   inputEl.addEventListener('input', () => {
-    sendBtn.disabled = isMaintenanceActive() || (!inputEl.value.trim() && !_chatAttachFile) || _chatBusy;
+    sendBtn.disabled = isMaintenanceActive() || (!inputEl.value.trim() && !_chatAttachFiles.length) || _chatBusy;
   });
 
   // ── Attach listeners ──────────────────────────────────
-  let _chatAttachFile = null;  // File | null
-  window._chatAttachFile = null;
+  let _chatAttachFiles = [];  // File[]
+  window._chatAttachFiles = [];
   window._chatBusy = false;
 
-  function _chatSetAttach(file) {
-    if (!file) {
-      _chatAttachFile = null;
-      window._chatAttachFile = null;
+  function _chatSetAttach(files) {
+    if (!files || !files.length) {
+      _chatAttachFiles = [];
+      window._chatAttachFiles = [];
       document.getElementById('chatAttachPreview').style.display = 'none';
       return;
     }
     const MAX = 1 * 1024 * 1024;
-    if (file.size > MAX) { toast('Arquivo muito grande (máx 1 MB)', 'err'); return; }
-    _chatAttachFile = file;
-    window._chatAttachFile = file;
-    document.getElementById('chatAttachName').textContent = file.name;
+    const fileArr = Array.from(files);
+    const oversized = fileArr.filter(f => f.size > MAX);
+    if (oversized.length) { toast(`Arquivo(s) muito grande(s) — máx 1 MB cada: ${oversized.map(f => f.name).join(', ')}`, 'err'); return; }
+    if (fileArr.length > 10) { toast('Máximo de 10 arquivos por envio.', 'err'); return; }
+    _chatAttachFiles = fileArr;
+    window._chatAttachFiles = fileArr;
+    const label = fileArr.length === 1 ? fileArr[0].name : `${fileArr.length} arquivos`;
+    document.getElementById('chatAttachName').textContent = label;
     document.getElementById('chatAttachPreview').style.display = 'flex';
     sendBtn.disabled = isMaintenanceActive() || _chatBusy;
   }
@@ -3464,12 +3468,12 @@ document.addEventListener('DOMContentLoaded', _initUpload);
     fileInput.click();
   });
   fileInput.addEventListener('change', () => {
-    if (fileInput.files[0]) _chatSetAttach(fileInput.files[0]);
+    if (fileInput.files.length) _chatSetAttach(fileInput.files);
     fileInput.value = '';
   });
   document.getElementById('chatAttachRemove').addEventListener('click', () => {
     _chatSetAttach(null);
-    sendBtn.disabled = !inputEl.value.trim() || _chatBusy;
+    sendBtn.disabled = isMaintenanceActive() || !inputEl.value.trim() || _chatBusy;
   });
 
   // ── Open / Close ──────────────────────────────────────
@@ -3553,7 +3557,7 @@ function _appendClaudeteReplySafe(text) {
       return;
     }
     const text = overrideText || inputEl.value.trim();
-    if (!text && !_chatAttachFile) return;
+    if (!text && !_chatAttachFiles.length) return;
 
     if (!_sbSession) {
       toast('Faça login para conversar com a Claudete', 'err');
@@ -3561,7 +3565,7 @@ function _appendClaudeteReplySafe(text) {
     }
 
     // Captura e limpa estado antes de async
-    const attachFile = _chatAttachFile;
+    const attachFiles = _chatAttachFiles.slice();
     inputEl.value = '';
     _chatSetAttach(null);
     sendBtn.disabled = true;
@@ -3569,8 +3573,13 @@ function _appendClaudeteReplySafe(text) {
     window._chatBusy = true;
     _setPillsBusy(true);
 
-    const displayText = text || (attachFile ? attachFile.name : '');
-    _appendMsg('user', displayText + (attachFile ? ` [📎 ${attachFile.name}]` : ''));
+    const attachLabel = attachFiles.length === 1
+      ? ` [📎 ${attachFiles[0].name}]`
+      : attachFiles.length > 1
+        ? ` [📎 ${attachFiles.length} arquivos]`
+        : '';
+    const displayText = text || (attachFiles.length ? attachFiles.map(f => f.name).join(', ') : '');
+    _appendMsg('user', displayText + attachLabel);
     _chatHistory.push({ role: 'user', content: displayText });
     if (_chatHistory.length > 50) _chatHistory = _chatHistory.slice(-50);
 
@@ -3592,17 +3601,13 @@ function _appendClaudeteReplySafe(text) {
     let data = null;
 
     try {
-      // Converter arquivo para base64 se houver
-      let fileData = null, fileName = null;
-      if (attachFile) {
-        fileData = await new Promise((res, rej) => {
-          const r = new FileReader();
-          r.onload = () => res(r.result);
-          r.onerror = rej;
-          r.readAsDataURL(attachFile);
-        });
-        fileName = attachFile.name;
-      }
+      // Converter arquivo(s) para base64
+      const readToBase64 = (file) => new Promise((res, rej) => {
+        const r = new FileReader();
+        r.onload = () => res(r.result);
+        r.onerror = rej;
+        r.readAsDataURL(file);
+      });
 
       // Histórico formatado para o backend (últimas 6 trocas, role user/assistant)
       const historyPayload = _chatHistory.slice(-12).map(e => ({
@@ -3611,7 +3616,16 @@ function _appendClaudeteReplySafe(text) {
       })).filter(e => e.role === 'user' || e.role === 'assistant');
 
       const body = { message: text || '', history: historyPayload };
-      if (fileData) { body.file_data = fileData; body.filename = fileName; }
+      if (attachFiles.length === 1) {
+        // formato legado — retrocompatível com backend anterior
+        body.file_data = await readToBase64(attachFiles[0]);
+        body.filename  = attachFiles[0].name;
+      } else if (attachFiles.length > 1) {
+        body.files = await Promise.all(attachFiles.map(async f => ({
+          file_data: await readToBase64(f),
+          filename:  f.name,
+        })));
+      }
 
       const resp = await fetch(MOTOR_CHAT_URL, {
         method: 'POST',
@@ -3638,7 +3652,7 @@ function _appendClaudeteReplySafe(text) {
         _chatBusy = false;
         window._chatBusy = false;
         _setPillsBusy(false);
-        sendBtn.disabled = isMaintenanceActive() || (!inputEl.value.trim() && !_chatAttachFile);
+        sendBtn.disabled = isMaintenanceActive() || (!inputEl.value.trim() && !_chatAttachFiles.length);
         return;
       }
 
@@ -3676,7 +3690,7 @@ function _appendClaudeteReplySafe(text) {
             _chatBusy = false;
             window._chatBusy = false;
             _setPillsBusy(false);
-            sendBtn.disabled = isMaintenanceActive() || (!inputEl.value.trim() && !_chatAttachFile);
+            sendBtn.disabled = isMaintenanceActive() || (!inputEl.value.trim() && !_chatAttachFiles.length);
             return;
           } catch (fallbackErr) {
             console.error('[Claudete chat] fallback pós-resposta falhou:', fallbackErr, fallbackReply);
@@ -3693,7 +3707,7 @@ function _appendClaudeteReplySafe(text) {
     _chatBusy = false;
     window._chatBusy = false;
     _setPillsBusy(false);
-    sendBtn.disabled = isMaintenanceActive() || (!inputEl.value.trim() && !_chatAttachFile);
+    sendBtn.disabled = isMaintenanceActive() || (!inputEl.value.trim() && !_chatAttachFiles.length);
   };
 
   // ── Show/hide FAB on auth state ───────────────────────
