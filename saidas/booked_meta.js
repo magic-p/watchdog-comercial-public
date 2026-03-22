@@ -4,6 +4,22 @@ window.WATCHDOG_BOOKED_META = {
   "buckets": [],
   "wins": [
     {
+      "emoji": "🎯",
+      "titulo": "Vitória: Programar Email de Errata",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Vitória",
+      "data": "22/03",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
+      "emoji": "🎯",
+      "titulo": "Vitória: Revisar, validar vídeos do Flavio e outras ações envolvendo disparo do video de segunda",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Vitória",
+      "data": "22/03",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
       "emoji": "✅",
       "titulo": "Pedro: Revisar os resultados de março",
       "desc": "Concluida no prazo definido.",
