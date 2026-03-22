@@ -2889,13 +2889,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Link: https://chat.google.com/room/AAQAHDbaBI8/8FswlCTIea0/8FswlCTIea0?cls=10",
     "owner": "Vitória",
     "date": "20/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-22T18:32:00",
+    "completedAt": "2026-03-22T18:32:00"
   },
   {
     "id": "t219",
