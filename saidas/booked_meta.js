@@ -4,6 +4,14 @@ window.WATCHDOG_BOOKED_META = {
   "buckets": [],
   "wins": [
     {
+      "emoji": "✅",
+      "titulo": "Pedro: Revisar os resultados de março",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Pedro",
+      "data": "22/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
       "emoji": "🎯",
       "titulo": "Kaka: Compartilhar cópia da planilha com as 19 escolas Bolsão que receberam mimos no grupo",
       "desc": "Concluida no ciclo semanal (segunda a domingo).",
