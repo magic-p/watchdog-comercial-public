@@ -2931,12 +2931,12 @@ window.WATCHDOG_TODOS = [
     "comment": "Revisão dos resultados operacionais de março/2026",
     "owner": "Pedro",
     "date": "23/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
     "updatedAt": "2026-03-22T16:05:00",
-    "completedAt": null
+    "completedAt": "2026-03-22T16:05:00"
   }
 ];
