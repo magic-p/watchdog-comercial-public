@@ -329,11 +329,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js"></script>
-<script src="saidas/todos_ssot.js?v=20260322183301"></script>
-<script src="saidas/data_health.js"></script>
-<script src="saidas/campanhas_ssot.js"></script>
-<script src="saidas/intel_ssot.js"></script>
+<script src="saidas/booked_meta.js?v=20260322184655"></script>
+<script src="saidas/todos_ssot.js?v=20260322184655"></script>
+<script src="saidas/data_health.js?v=20260322184655"></script>
+<script src="saidas/campanhas_ssot.js?v=20260322184655"></script>
+<script src="saidas/intel_ssot.js?v=20260322184655"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -3663,7 +3663,11 @@ function _appendClaudeteReplySafe(text) {
       }
 
       if (!resp.ok) {
-        _appendMsg('error', 'Erro ' + resp.status + ': ' + ((data && data.error) || 'resposta inválida'));
+        if (resp.status === 413) {
+          _appendMsg('error', 'Arquivos muito grandes para enviar juntos — tente enviar em partes menores.');
+        } else {
+          _appendMsg('error', 'Erro ' + resp.status + ': ' + ((data && data.error) || 'resposta inválida'));
+        }
       } else {
         const responseText = data && (data.reply_text || data.reply) ? String(data.reply_text || data.reply) : '';
         if (data && data.ok && responseText) {
