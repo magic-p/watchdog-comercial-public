@@ -2952,5 +2952,19 @@ window.WATCHDOG_TODOS = [
     "priorityRank": null,
     "updatedAt": "2026-03-22T17:11:00",
     "completedAt": null
+  },
+  {
+    "id": "t223",
+    "task": "Ver o resultado dos disparos de errata e de AA",
+    "comment": "Verificar resultados dos disparos de errata e de AA",
+    "owner": "Pedro",
+    "date": "23/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-22T17:11:00",
+    "completedAt": null
   }
 ];
