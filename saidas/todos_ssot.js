@@ -2894,7 +2894,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-22T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -2922,7 +2922,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-22T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -2938,5 +2938,19 @@ window.WATCHDOG_TODOS = [
     "priorityRank": null,
     "updatedAt": "2026-03-22T16:05:00",
     "completedAt": "2026-03-22T16:05:00"
+  },
+  {
+    "id": "t222",
+    "task": "Mandar para Pedro os documentos estratégicos para colocar na Claudete",
+    "comment": "Documentos estratégicos mencionados na conversa (Controle de Ofertas de Comercial 2026.xlsx, Daily Gestão Comercial, Fotografia, Meta Aquisição 26, Retrato_Magico)",
+    "owner": "Lili",
+    "date": "23/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-22T17:11:00",
+    "completedAt": null
   }
 ];
