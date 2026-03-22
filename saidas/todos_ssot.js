@@ -2749,13 +2749,13 @@ window.WATCHDOG_TODOS = [
     "comment": "1. Revisar video\n2. Validar video \n3. Separar bases\n4. Fazer testes de link no wpp e e-mail. \n5. Testar filas na blip! \n6. Seguir segmentação feita pela Lili como prioridade. AA 20K > Renv HT e LT pub > AA 4K a 20K \n5. Programar disparo para segunda",
     "owner": "Vitória",
     "date": "20/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-19T17:33:00",
-    "completedAt": null
+    "updatedAt": "2026-03-22T18:31:00",
+    "completedAt": "2026-03-22T18:31:00"
   },
   {
     "id": "t205",
