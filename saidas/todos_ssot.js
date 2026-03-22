@@ -1236,7 +1236,7 @@ window.WATCHDOG_TODOS = [
     "task": "Validar custos: impressão Revista, Correios, WA msg (Cerco Mágico S1)",
     "comment": "Item 5 do checklist S1 do Cerco Mágico. Orçamento total: R$ 39.697. Validar breakdown: impressão + gramatura, frete Correios por CEP, custo por mensagem WA no disparador. Confirmar que o orçamento cobre todos os custos antes de executar.",
     "owner": "Vitória",
-    "date": "20/mar",
+    "date": "23/mar",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
