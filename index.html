@@ -329,11 +329,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260322171313"></script>
-<script src="saidas/todos_ssot.js?v=20260322171313"></script>
-<script src="saidas/data_health.js?v=20260322171313"></script>
-<script src="saidas/campanhas_ssot.js?v=20260322171313"></script>
-<script src="saidas/intel_ssot.js?v=20260322171313"></script>
+<script src="saidas/booked_meta.js?v=20260322173419"></script>
+<script src="saidas/todos_ssot.js?v=20260322173419"></script>
+<script src="saidas/data_health.js?v=20260322173419"></script>
+<script src="saidas/campanhas_ssot.js?v=20260322173419"></script>
+<script src="saidas/intel_ssot.js?v=20260322173419"></script>
 <script src="saidas/api_token.js"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
@@ -3436,7 +3436,7 @@ document.addEventListener('DOMContentLoaded', _initUpload);
   window._chatAttachFiles = [];
   window._chatBusy = false;
 
-  function _chatSetAttach(files) {
+  function _chatSetAttach(files, { merge = false } = {}) {
     if (!files || !files.length) {
       _chatAttachFiles = [];
       window._chatAttachFiles = [];
@@ -3444,13 +3444,19 @@ document.addEventListener('DOMContentLoaded', _initUpload);
       return;
     }
     const MAX = 13 * 1024 * 1024;
-    const fileArr = Array.from(files);
-    const oversized = fileArr.filter(f => f.size > MAX);
+    const newFiles = Array.from(files);
+    const oversized = newFiles.filter(f => f.size > MAX);
     if (oversized.length) { toast(`Arquivo(s) muito grande(s) — máx 13 MB cada: ${oversized.map(f => f.name).join(', ')}`, 'err'); return; }
-    if (fileArr.length > 10) { toast('Máximo de 10 arquivos por envio.', 'err'); return; }
-    _chatAttachFiles = fileArr;
-    window._chatAttachFiles = fileArr;
-    const label = fileArr.length === 1 ? fileArr[0].name : `${fileArr.length} arquivos`;
+    // Mescla com arquivos já selecionados (dedup por nome), respeita cap de 10
+    const base = merge ? Array.from(_chatAttachFiles || []) : [];
+    const existingNames = new Set(base.map(f => f.name));
+    for (const f of newFiles) {
+      if (!existingNames.has(f.name)) { base.push(f); existingNames.add(f.name); }
+    }
+    if (base.length > 10) { toast('Máximo de 10 arquivos por envio.', 'err'); return; }
+    _chatAttachFiles = base;
+    window._chatAttachFiles = base;
+    const label = base.length === 1 ? base[0].name : `${base.length} arquivos`;
     document.getElementById('chatAttachName').textContent = label;
     document.getElementById('chatAttachPreview').style.display = 'flex';
     sendBtn.disabled = isMaintenanceActive() || _chatBusy;
@@ -3468,7 +3474,7 @@ document.addEventListener('DOMContentLoaded', _initUpload);
     fileInput.click();
   });
   fileInput.addEventListener('change', () => {
-    if (fileInput.files.length) _chatSetAttach(fileInput.files);
+    if (fileInput.files.length) _chatSetAttach(fileInput.files, { merge: _chatAttachFiles && _chatAttachFiles.length > 0 });
     fileInput.value = '';
   });
   document.getElementById('chatAttachRemove').addEventListener('click', () => {
