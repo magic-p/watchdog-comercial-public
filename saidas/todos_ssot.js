@@ -2548,20 +2548,6 @@ window.WATCHDOG_TODOS = [
     "completedAt": null
   },
   {
-    "id": "t189",
-    "task": "Incluir conteudo detalhado do kit (item a item) no deck comercial e no script padrao de SDR/closer — apos receber lista de Pimentel (t188)",
-    "comment": "Depende de t188. Aplicar em HT e LT PART prioritariamente, dado gargalo de conversao ativo nessas frentes.",
-    "owner": "Kaka",
-    "date": "21/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
-    "warn": null,
-    "done": false,
-    "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
-  },
-  {
     "id": "t191",
     "task": "Bebel e Pedro: avaliar viabilidade de mecanismo de incentivo temporal para fechamentos ate 30/abril (cashback, bonificacao em kit, credito em alunos extras) — em resposta ao Supercash da Superautor",
     "comment": "Janela do Supercash encerra 30/abr. Escolas em negociacao com ambas ja recebem esse argumento agora. Decisao precisa ser tomada antes da semana de 23/03 para ter impacto em marco.",
