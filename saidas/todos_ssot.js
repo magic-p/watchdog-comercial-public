@@ -1751,10 +1751,10 @@ window.WATCHDOG_TODOS = [
   },
   {
     "id": "t128",
-    "task": "Karina: criar e validar script obrigatorio para os videos personalizados 90s (Top 20)",
+    "task": "Karina: validar informações das top 30 AA pra Pedro gravar vídeo (Cerco Mágico)",
     "comment": "Video personalizado S4 e o melhor ativo da campanha - sem script validado perde metade da forca. Estrutura obrigatoria: 0-10s chamar pelo nome da escola -> 10-40s espelhar dor especifica deles -> 40-70s mostrar o que escolas similares ja conquistaram -> 70-90s CTA unico com prazo real. Rodar 1 video piloto com Kaka/Lili/Pedro para validar tempo e naturalidade antes de gravar os 20. Enviar via WA, nao email - video em email perde a intimidade que gera acao.",
     "owner": "Kaka",
-    "date": "18/mar",
+    "date": "23/mar",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
