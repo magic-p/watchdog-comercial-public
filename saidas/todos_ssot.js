@@ -1614,7 +1614,7 @@ window.WATCHDOG_TODOS = [
     "task": "Karina: aprovar arte final da Revista e enviar para gráfica (Cerco Mágico)",
     "comment": "Cerco Mágico — desbloqueador de produção. Depende de: t088 (Vitória finaliza arte), t113 (custos confirmados com Ericka), t094 (QR code criado e testado). Karina é a responsável pela aprovação final antes de enviar para gráfica. Depois da aprovação: confirmar prazo de entrega da gráfica e alinhar com envio Correios para que Revista chegue nas escolas dentro da janela do Cerco (março/abril).",
     "owner": "Kaka",
-    "date": "19/mar",
+    "date": "23/mar",
     "tier": "t1",
     "tierLabel": "A fazer",
     "warn": null,
