@@ -1919,10 +1919,10 @@ window.WATCHDOG_TODOS = [
   },
   {
     "id": "t141",
-    "task": "Revisão tags patrocínio",
+    "task": "Revisão tags patrocínio -> 2a parte (pra trás)",
     "comment": "Tags de patrocínio pouco intuitivas. Revisar cálculo com JP e garantir tags ajustadas para conversa com jurídico na 2a que vem.",
     "owner": "Nath Ferreira",
-    "date": "18/mar",
+    "date": "24/mar",
     "tier": "t1",
     "tierLabel": "A fazer",
     "warn": null,
