@@ -2805,13 +2805,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Para inserir na Claudete",
     "owner": "Lili",
     "date": "20/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-19T17:44:00",
-    "completedAt": null
+    "updatedAt": "2026-03-23T14:13:00",
+    "completedAt": "2026-03-23T14:13:00"
   },
   {
     "id": "t211",
