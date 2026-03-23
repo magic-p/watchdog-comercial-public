@@ -2258,7 +2258,7 @@ window.WATCHDOG_TODOS = [
     "task": "Nath acionar equipe de tecnologia para discutir uso do numero fixo Bina — ajudar escolas a salvarem o contato da EM",
     "comment": "Atualizacao legada: Definido na daily 11/03, adiado para proxima semana. Conecta com alerta012 e insight032.",
     "owner": "Nath Ferreira",
-    "date": "20/mar",
+    "date": "24/mar",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
