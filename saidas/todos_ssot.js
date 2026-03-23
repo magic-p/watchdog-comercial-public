@@ -2427,13 +2427,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Dados do documento mostram: LT Pública R$0,19/aluno cadastrado, HT Pública R$0,62/aluno cadastrado, LT PART R$2,69/aluno cadastrado. A diferença é uma ordem de grandeza e ainda não está formalizada como critério de decisão de alocação. Insight120 registra o padrão.",
     "owner": "Kaka",
     "date": "18/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-20T14:20:00",
-    "completedAt": null
+    "updatedAt": "2026-03-23T14:07:00",
+    "completedAt": "2026-03-23T14:07:00"
   },
   {
     "id": "t180",
