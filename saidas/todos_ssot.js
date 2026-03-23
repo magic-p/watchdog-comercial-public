@@ -2650,7 +2650,7 @@ window.WATCHDOG_TODOS = [
     "task": "Incluir AA Semana e Concorrência (semanal) na coluna de ritmo necessário/dia útil restantes",
     "comment": "A tarefa original (t197) inclui LT PART, HT PUB, Retração e Concorrência. O documento de hoje mostra AA Semana com meta em 42% e Concorrência semanal em 20% — ambas precisam de análise de ritmo para osdias restantes.",
     "owner": "Nath Ferreira",
-    "date": "19/mar",
+    "date": "24/mar",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
@@ -2922,7 +2922,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-23T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
