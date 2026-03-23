@@ -2818,7 +2818,7 @@ window.WATCHDOG_TODOS = [
     "task": "Gravar vídeos para top30 de AA",
     "comment": "Esperando Kaka enviar infos das Escolas",
     "owner": "Pedro",
-    "date": "20/mar",
+    "date": "25/mar",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
