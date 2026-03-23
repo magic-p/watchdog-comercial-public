@@ -1233,7 +1233,7 @@ window.WATCHDOG_TODOS = [
   },
   {
     "id": "t091",
-    "task": "Validar custos: impressão Revista, Correios, WA msg (Cerco Mágico S1)",
+    "task": "RAYSSA: Validar custos: impressão Revista, Correios, WA msg (Cerco Mágico S1)",
     "comment": "Item 5 do checklist S1 do Cerco Mágico. Orçamento total: R$ 39.697. Validar breakdown: impressão + gramatura, frete Correios por CEP, custo por mensagem WA no disparador. Confirmar que o orçamento cobre todos os custos antes de executar.",
     "owner": "Kaka",
     "date": "23/mar",
