@@ -2535,16 +2535,16 @@ window.WATCHDOG_TODOS = [
   },
   {
     "id": "t188",
-    "task": "Mapear itens do kit atual da Estante Magica e entregar lista detalhada para Kaka incluir no deck comercial e no script de SDR/closer",
+    "task": "Mapear itens do kit atual da Estante Magica e fazer apresentação",
     "comment": "Decisao tomada na reuniao de cliente oculto: Ciranda detalha o kit e gera pertencimento nas gestoras. Nao ha tarefa equivalente aberta. Urgente porque o discurso esta rodando sem esse argumento.",
-    "owner": "Ana Paula Pimentel",
-    "date": "20/mar",
+    "owner": "Pedro",
+    "date": "27/mar",
     "tier": "t1",
     "tierLabel": "A fazer",
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": null,
+    "updatedAt": "2026-03-23T14:05:00",
     "completedAt": null
   },
   {
@@ -2922,7 +2922,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-23T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
