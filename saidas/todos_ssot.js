@@ -2562,20 +2562,6 @@ window.WATCHDOG_TODOS = [
     "completedAt": null
   },
   {
-    "id": "t190",
-    "task": "Verificar com time de produto/operacoes se caligrafia da crianca no livro ja e opcao disponivel na Estante Magica e documentar o processo atual",
-    "comment": "Se disponivel: alimentar script de SDR/closer imediatamente. Se nao disponivel: abrir demanda formal de produto com prioridade. Resultado vai para Pedro validar.",
-    "owner": "Ana Paula Pimentel",
-    "date": "20/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
-    "warn": null,
-    "done": false,
-    "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
-  },
-  {
     "id": "t191",
     "task": "Bebel e Pedro: avaliar viabilidade de mecanismo de incentivo temporal para fechamentos ate 30/abril (cashback, bonificacao em kit, credito em alunos extras) — em resposta ao Supercash da Superautor",
     "comment": "Janela do Supercash encerra 30/abr. Escolas em negociacao com ambas ja recebem esse argumento agora. Decisao precisa ser tomada antes da semana de 23/03 para ter impacto em marco.",
