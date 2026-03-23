@@ -2689,7 +2689,7 @@ window.WATCHDOG_TODOS = [
   },
   {
     "id": "t201",
-    "task": "Dar nova previsão de finalização dos anos anteriores e criar tarefa para monitorar essa data",
+    "task": "Dar nova previsão de finalização do disparo de wpp dos anos anteriores e criar tarefa para monitorar essa data",
     "comment": "Necessário para alinhamento de expectativa de fechamento da frente.",
     "owner": "Kaka",
     "date": "20/mar",
