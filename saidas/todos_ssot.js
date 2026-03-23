@@ -2791,13 +2791,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Mandar pra Vit",
     "owner": "Pedro",
     "date": "20/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-23T14:14:00",
+    "completedAt": "2026-03-23T14:14:00"
   },
   {
     "id": "t210",
