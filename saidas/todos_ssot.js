@@ -2871,7 +2871,7 @@ window.WATCHDOG_TODOS = [
   },
   {
     "id": "t219",
-    "task": "Criar material de apoio/script para SDRs aumentarem taxa de agendamento de reuniões",
+    "task": "Criar material de apoio pra Comercial (pedido Lili)",
     "comment": "Para destravar a cadência de contato da Renovação LT e avançar no objetivo de 3.736 escolas até agosto.",
     "owner": "Pedro",
     "date": "24/mar",
