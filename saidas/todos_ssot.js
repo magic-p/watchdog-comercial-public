@@ -3008,5 +3008,19 @@ window.WATCHDOG_TODOS = [
     "priorityRank": null,
     "updatedAt": "2026-03-24T14:13:00",
     "completedAt": null
+  },
+  {
+    "id": "t229",
+    "task": "teste patrocínio até 30/jun - base outbound",
+    "comment": "Teste com Lais até 1/4. Depois escala para outras bases.",
+    "owner": "Ana Paula Pimentel",
+    "date": "31/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-24T00:00:00",
+    "completedAt": null
   }
 ];
