@@ -2987,12 +2987,12 @@ window.WATCHDOG_TODOS = [
     "comment": "até 01/04 patrocínio. até 17/04  preço",
     "owner": "Lili",
     "date": "01/abr",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "t2",
+    "tierLabel": "Fazendo",
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-24T00:00:00",
+    "updatedAt": "2026-03-24T14:04:00",
     "completedAt": null
   }
 ];
