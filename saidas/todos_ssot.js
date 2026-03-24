@@ -2894,7 +2894,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-23T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -2951,6 +2951,20 @@ window.WATCHDOG_TODOS = [
     "done": false,
     "priorityRank": null,
     "updatedAt": "2026-03-22T18:23:00",
+    "completedAt": null
+  },
+  {
+    "id": "t225",
+    "task": "Criar vídeo mostrando as facilidades de aplicação -> MAC",
+    "comment": "Criação de vídeo mostrando as facilidades da aplicação EM - O Método de Aplicação Confortável - tem o objetivo em ajudar a converter escolas que dizem que estão com cronograma fechado - muitos projetos.",
+    "owner": "Pedro",
+    "date": "24/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-24T00:00:00",
     "completedAt": null
   }
 ];
