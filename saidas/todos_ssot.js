@@ -1923,13 +1923,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Tags de patrocínio pouco intuitivas. Revisar cálculo com JP e garantir tags ajustadas para conversa com jurídico na 2a que vem.",
     "owner": "Nath Ferreira",
     "date": "24/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-24T16:28:00",
+    "completedAt": "2026-03-24T16:28:00"
   },
   {
     "id": "t142",
@@ -2894,7 +2894,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-24T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -2964,7 +2964,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-24T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -2978,7 +2978,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-24T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3020,7 +3020,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-24T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   }
 ];
