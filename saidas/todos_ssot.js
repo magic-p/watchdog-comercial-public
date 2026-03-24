@@ -1306,7 +1306,7 @@ window.WATCHDOG_TODOS = [
     "task": "Bebel: reavaliar categorização Objetivo/Consultivo com critério pré-definido",
     "comment": "Fragilidade metodológica do estudo atual: perfis foram classificados APÓS as entrevistas, gerando risco de viés de confirmação. Para o segundo ciclo (t095), Bebel deve definir o critério de classificação ANTES de olhar os resultados. Critério sugerido: duração média da ligação + número de objeções trabalhadas antes do agendamento.",
     "owner": "Bebel Bertuccelli",
-    "date": "20/mar",
+    "date": "01/abr",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
