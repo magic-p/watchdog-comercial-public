@@ -2819,12 +2819,12 @@ window.WATCHDOG_TODOS = [
     "comment": "None",
     "owner": "Lili",
     "date": "27/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "t2",
+    "tierLabel": "Fazendo",
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": null,
+    "updatedAt": "2026-03-24T13:26:00",
     "completedAt": null
   },
   {
