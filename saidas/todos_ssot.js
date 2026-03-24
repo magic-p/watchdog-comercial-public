@@ -2994,5 +2994,19 @@ window.WATCHDOG_TODOS = [
     "priorityRank": null,
     "updatedAt": "2026-03-24T14:04:00",
     "completedAt": null
+  },
+  {
+    "id": "t228",
+    "task": "Revisão curva de orçamento Mkt / investimento geral de aquisição",
+    "comment": null,
+    "owner": "Lili",
+    "date": "31/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-24T00:00:00",
+    "completedAt": null
   }
 ];
