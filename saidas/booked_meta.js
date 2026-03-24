@@ -4,6 +4,38 @@ window.WATCHDOG_BOOKED_META = {
   "buckets": [],
   "wins": [
     {
+      "emoji": "🎯",
+      "titulo": "Pedro: Ver o resultado dos disparos de errata e de AA",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Pedro",
+      "data": "24/03",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Vitória: Confirmar envios dos whatsapp utilitários",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Vitória",
+      "data": "24/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Nath Ferreira: Incluir AA Semana e Concorrência (semanal) na coluna de ritmo necessário/dia útil restantes",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Nath Ferreira",
+      "data": "24/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Nath Ferreira: Revisão tags patrocínio -> 2a parte (pra trás)",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Nath Ferreira",
+      "data": "24/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
       "emoji": "✅",
       "titulo": "Lili: Lili: documentar protocolo de cliente oculto (criacao de identidades ficticias, uso de dispositivos/numeros separados, variacao de cenarios por concorrente, intervalo minimo entre ciclos do mesmo concorrente) — protocolo deve ser aprovado antes do proximo estudo com LIV",
       "desc": "Concluida no prazo definido.",
