@@ -2931,13 +2931,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Verificar resultados dos disparos de errata e de AA",
     "owner": "Pedro",
     "date": "23/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-22T17:11:00",
-    "completedAt": null
+    "updatedAt": "2026-03-24T16:32:00",
+    "completedAt": "2026-03-24T16:32:00"
   },
   {
     "id": "t224",
