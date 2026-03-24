@@ -2894,7 +2894,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-24T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -2944,7 +2944,7 @@ window.WATCHDOG_TODOS = [
     "task": "Confirmar envios dos whatsapp utilitários",
     "comment": "Criada pela Claudete no chat (pedido direto no chat por pedro.concy@estantemagica.com.br).",
     "owner": "Vitória",
-    "date": "23/mar",
+    "date": "27/mar",
     "tier": "t1",
     "tierLabel": "A fazer",
     "warn": null,
@@ -2964,7 +2964,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-24T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   }
 ];
