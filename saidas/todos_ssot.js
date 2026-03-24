@@ -2917,13 +2917,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Documentos estratégicos mencionados na conversa (Controle de Ofertas de Comercial 2026.xlsx, Daily Gestão Comercial, Fotografia, Meta Aquisição 26, Retrato_Magico)",
     "owner": "Lili",
     "date": "23/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-22T17:11:00",
-    "completedAt": null
+    "updatedAt": "2026-03-24T13:25:00",
+    "completedAt": "2026-03-24T13:25:00"
   },
   {
     "id": "t223",
