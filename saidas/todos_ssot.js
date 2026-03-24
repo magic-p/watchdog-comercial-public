@@ -2978,6 +2978,20 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
+    "updatedAt": null,
+    "completedAt": null
+  },
+  {
+    "id": "t227",
+    "task": "Testes de preço / patrocínio - desdobrar em direcionamento geral",
+    "comment": "até 01/04 patrocínio. até 17/04  preço",
+    "owner": "Lili",
+    "date": "01/abr",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
     "updatedAt": "2026-03-24T00:00:00",
     "completedAt": null
   }
