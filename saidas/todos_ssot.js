@@ -2539,13 +2539,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Decisao tomada na reuniao de cliente oculto: Ciranda detalha o kit e gera pertencimento nas gestoras. Nao ha tarefa equivalente aberta. Urgente porque o discurso esta rodando sem esse argumento.",
     "owner": "Pedro",
     "date": "27/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-23T14:05:00",
-    "completedAt": null
+    "updatedAt": "2026-03-24T14:02:00",
+    "completedAt": "2026-03-24T14:02:00"
   },
   {
     "id": "t191",
