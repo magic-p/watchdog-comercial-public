@@ -634,5 +634,5 @@ window.WATCHDOG_CAMPANHAS = {
     "Menor taxa: Outbound Playlist com 0.1% — revisar abordagem ou qualidade da lista",
     "Caneca: Caneca Renovação converteu 1.4x mais que Caneca Anos Anteriores com copy similar — audiencia mais responsiva"
   ],
-  "updated": "2026-03-24T22:45:00.327217"
+  "updated": "2026-03-24T23:00:50.862757"
 };
