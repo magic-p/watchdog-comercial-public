@@ -2255,7 +2255,7 @@ window.WATCHDOG_TODOS = [
   },
   {
     "id": "t165",
-    "task": "Nath acionar equipe de tecnologia para discutir uso do numero fixo Bina — ajudar escolas a salvarem o contato da EM",
+    "task": "Nath acionar Goto para discutir uso do numero fixo  — ajudar escolas a salvarem o contato da EM",
     "comment": "Atualizacao legada: Definido na daily 11/03, adiado para proxima semana. Conecta com alerta012 e insight032.",
     "owner": "Nath Ferreira",
     "date": "24/mar",
@@ -3034,7 +3034,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-24T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   }
 ];
