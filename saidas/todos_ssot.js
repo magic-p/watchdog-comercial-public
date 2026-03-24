@@ -2623,13 +2623,13 @@ window.WATCHDOG_TODOS = [
     "comment": "A tarefa original (t197) inclui LT PART, HT PUB, Retração e Concorrência. O documento de hoje mostra AA Semana com meta em 42% e Concorrência semanal em 20% — ambas precisam de análise de ritmo para osdias restantes.",
     "owner": "Nath Ferreira",
     "date": "24/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-24T16:30:00",
+    "completedAt": "2026-03-24T16:30:00"
   },
   {
     "id": "t198",
