@@ -1292,7 +1292,7 @@ window.WATCHDOG_TODOS = [
     "task": "Bebel: investigar perfil SDR Objetivo vs Consultivo na base Outbound",
     "comment": "Desdobramento do estudo de perfil SDR (t069/insight068). Base Outbound não incluída na análise original. Bebel comprometeu investigação em 15 dias a partir de 05/03. Objetivo: verificar se padrão (Objetivo 67% mais eficaz que Consultivo) se repete em Outbound — ou se nesse segmento o Consultivo tem mais espaço. Entregar com mesmo formato: RR/SDR por perfil, n amostral, tx fechada.",
     "owner": "Bebel Bertuccelli",
-    "date": "20/mar",
+    "date": "01/abr",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
@@ -2894,7 +2894,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-24T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -2964,7 +2964,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-24T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   }
 ];
