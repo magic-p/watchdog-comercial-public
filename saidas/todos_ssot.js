@@ -2567,13 +2567,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Ciranda ja identificou perfil (alerta068). Proximo ciclo com LIV (escola de 400 alunos) esta planejado sem protocolo. Sem isso documentado, o metodo esta exposto.",
     "owner": "Lili",
     "date": "25/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-24T14:03:00",
+    "completedAt": "2026-03-24T14:03:00"
   },
   {
     "id": "t193",
