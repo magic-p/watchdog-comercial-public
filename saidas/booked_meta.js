@@ -4,6 +4,30 @@ window.WATCHDOG_BOOKED_META = {
   "buckets": [],
   "wins": [
     {
+      "emoji": "✅",
+      "titulo": "Lili: Lili: documentar protocolo de cliente oculto (criacao de identidades ficticias, uso de dispositivos/numeros separados, variacao de cenarios por concorrente, intervalo minimo entre ciclos do mesmo concorrente) — protocolo deve ser aprovado antes do proximo estudo com LIV",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Lili",
+      "data": "24/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Pedro: Mapear itens do kit atual da Estante Magica e fazer apresentação",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Pedro",
+      "data": "24/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "🎯",
+      "titulo": "Lili: Mandar para Pedro os documentos estratégicos para colocar na Claudete",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Lili",
+      "data": "24/03",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
       "emoji": "🎯",
       "titulo": "Pedro: Criar Copy pros disparos de 2a (Renovação HT e LT e AA 20k+)",
       "desc": "Concluida no ciclo semanal (segunda a domingo).",
