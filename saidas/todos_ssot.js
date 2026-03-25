@@ -3118,7 +3118,21 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-25T00:00:00",
+    "updatedAt": null,
+    "completedAt": null
+  },
+  {
+    "id": "t237",
+    "task": "Lili: revisar lista de demandas de CRM pós entrega AX",
+    "comment": "booked \ndemandas aquisição (doc Nath)\npatrocínio \npreço em lote no sistema\ndata mining",
+    "owner": "Lili",
+    "date": "20/abr",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": null,
     "completedAt": null
   }
 ];
