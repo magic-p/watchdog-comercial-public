@@ -2805,13 +2805,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Esperando Kaka enviar infos das Escolas",
     "owner": "Pedro",
     "date": "25/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-19T17:58:00",
-    "completedAt": null
+    "updatedAt": "2026-03-25T13:37:00",
+    "completedAt": "2026-03-25T13:37:00"
   },
   {
     "id": "t212",
@@ -3090,7 +3090,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-25T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   }
 ];
