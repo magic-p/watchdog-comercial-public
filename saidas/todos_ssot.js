@@ -2805,13 +2805,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Esperando Kaka enviar infos das Escolas",
     "owner": "Pedro",
     "date": "25/mar",
-    "tier": "done",
-    "tierLabel": "Concluido",
+    "tier": "t2",
+    "tierLabel": "Fazendo",
     "warn": null,
-    "done": true,
+    "done": false,
     "priorityRank": null,
     "updatedAt": "2026-03-25T13:37:00",
-    "completedAt": "2026-03-25T13:37:00"
+    "completedAt": null
   },
   {
     "id": "t212",
