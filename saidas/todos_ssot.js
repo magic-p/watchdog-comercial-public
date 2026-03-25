@@ -1992,7 +1992,7 @@ window.WATCHDOG_TODOS = [
     "task": "Lili: abrir conversa com Alex e Vitoria sobre enriquecimento via Tech — data mining atual esta efetivo? Ha oportunidades alem da abordagem atual?",
     "comment": "Encontro Aquisicao 04/mar/26 (Lili) - item 1.3.2. Verificar se enriquecimento via Tech (data mining) esta efetivo e se ha oportunidades alem do que ja e feito. Lili abre conversa com Alex (Tech) e Vit (Mkt Ops) para avaliar.",
     "owner": "Lili",
-    "date": "01/abr",
+    "date": "20/abr",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
