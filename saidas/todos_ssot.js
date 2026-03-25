@@ -3134,5 +3134,19 @@ window.WATCHDOG_TODOS = [
     "priorityRank": null,
     "updatedAt": null,
     "completedAt": null
+  },
+  {
+    "id": "t238",
+    "task": "Comprar de 20 vouchers de 50 reais",
+    "comment": null,
+    "owner": "Vitória",
+    "date": "26/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-25T00:00:00",
+    "completedAt": null
   }
 ];
