@@ -3106,5 +3106,19 @@ window.WATCHDOG_TODOS = [
     "priorityRank": null,
     "updatedAt": "2026-03-25T14:51:00",
     "completedAt": null
+  },
+  {
+    "id": "t236",
+    "task": "Ajustar modelo de preço em lote (nova regra, tag e implementação no sistema)",
+    "comment": null,
+    "owner": "Nath Ferreira",
+    "date": "28/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-25T00:00:00",
+    "completedAt": null
   }
 ];
