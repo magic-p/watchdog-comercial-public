@@ -3076,7 +3076,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-25T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3090,7 +3090,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-25T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3099,13 +3099,13 @@ window.WATCHDOG_TODOS = [
     "comment": "AA + Retração + Concorrência\n4.716 escolas\n(Podemos mandar até 5.000, que é a tiragem)",
     "owner": "Vitória",
     "date": "25/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-25T14:51:00",
-    "completedAt": null
+    "updatedAt": "2026-03-25T20:31:00",
+    "completedAt": "2026-03-25T20:31:00"
   },
   {
     "id": "t236",
@@ -3118,7 +3118,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-25T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3132,7 +3132,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-25T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   }
 ];
