@@ -2816,9 +2816,9 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t212",
     "task": "Pedir 2.000 patinhos pra Alpha GB (0800)",
-    "comment": "None",
+    "comment": "Alpha numa feira fora semana toda. Reunião presencial agendada para 2a feira (lili entra por meet)",
     "owner": "Lili",
-    "date": "27/mar",
+    "date": "30/mar",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
@@ -3076,7 +3076,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-25T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3090,7 +3090,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-25T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
