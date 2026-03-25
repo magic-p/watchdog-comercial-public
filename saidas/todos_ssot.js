@@ -3097,14 +3097,14 @@ window.WATCHDOG_TODOS = [
     "id": "t235",
     "task": "Enviar base da revisa pro Pedro",
     "comment": "AA + Retração + Concorrência\n4.716 escolas\n(Podemos mandar até 5.000, que é a tiragem)",
-    "owner": "Lili",
+    "owner": "Vitória",
     "date": "25/mar",
     "tier": "t1",
     "tierLabel": "A fazer",
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": null,
+    "updatedAt": "2026-03-25T14:51:00",
     "completedAt": null
   }
 ];
