@@ -3054,7 +3054,7 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t232",
     "task": "Calculo de contratiação x alocação de HC",
-    "comment": null,
+    "comment": "None",
     "owner": "Nath Ferreira",
     "date": "26/mar",
     "tier": "t1",
