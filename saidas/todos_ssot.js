@@ -3076,6 +3076,20 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
+    "updatedAt": null,
+    "completedAt": null
+  },
+  {
+    "id": "t234",
+    "task": "Plano de ação gatekeeper",
+    "comment": null,
+    "owner": "Ana Paula Pimentel",
+    "date": "27/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
     "updatedAt": "2026-03-25T00:00:00",
     "completedAt": null
   }
