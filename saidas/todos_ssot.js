@@ -2060,7 +2060,7 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t151",
     "task": "Luana + Wydi + Bebel: filtrar audios HubSpot e Gong por chamadas curtas e preparar sessao de escuta focada em gatekeepers (secretarias)",
-    "comment": "Escuta de audio 10/mar/26. Gatekeeper (secretaria que nao passa para gestora) e o maior ponto de perda do time de novas. Proxima sessao deve focar nisso. Filtrar por chamadas curtas no HubSpot e Gong (caracteristica de interacao com secretario). Luana e Bebel participam.",
+    "comment": "Escuta de audio 24/mar/26. Gatekeeper (secretaria que nao passa para gestora) e o maior ponto de perda do time de novas. Proxima sessao deve focar nisso. Filtrar por chamadas curtas no HubSpot e Gong (caracteristica de interacao com secretario). Luana e Bebel participam.",
     "owner": "Ana Paula Pimentel",
     "date": "24/mar",
     "tier": "t2",
@@ -3160,7 +3160,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-26T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   }
 ];
