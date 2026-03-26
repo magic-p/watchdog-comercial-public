@@ -2063,13 +2063,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Escuta de audio 24/mar/26. Gatekeeper (secretaria que nao passa para gestora) e o maior ponto de perda do time de novas. Proxima sessao deve focar nisso. Filtrar por chamadas curtas no HubSpot e Gong (caracteristica de interacao com secretario). Luana e Bebel participam.",
     "owner": "Ana Paula Pimentel",
     "date": "24/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-26T11:04:00",
+    "completedAt": "2026-03-26T11:04:00"
   },
   {
     "id": "t152",
