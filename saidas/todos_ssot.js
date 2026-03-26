@@ -2970,15 +2970,15 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t226",
     "task": "Criar campanha pra Webinar Antonia (material de divulgação)",
-    "comment": null,
-    "owner": "Pedro",
+    "comment": "None",
+    "owner": "Kaka",
     "date": "27/mar",
     "tier": "t1",
     "tierLabel": "A fazer",
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": null,
+    "updatedAt": "2026-03-26T20:11:00",
     "completedAt": null
   },
   {
