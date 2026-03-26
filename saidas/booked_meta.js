@@ -4,6 +4,14 @@ window.WATCHDOG_BOOKED_META = {
   "buckets": [],
   "wins": [
     {
+      "emoji": "🎯",
+      "titulo": "Ana Paula Pimentel: Luana + Wydi + Bebel: filtrar audios HubSpot e Gong por chamadas curtas e preparar sessao de escuta focada em gatekeepers (secretarias)",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Ana Paula Pimentel",
+      "data": "26/03",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
       "emoji": "✅",
       "titulo": "Vitória: Enviar base da revisa pro Pedro",
       "desc": "Concluida no prazo definido.",
