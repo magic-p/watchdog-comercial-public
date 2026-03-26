@@ -3076,7 +3076,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-26T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3090,7 +3090,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-26T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3118,7 +3118,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-26T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3132,7 +3132,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-26T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3141,13 +3141,13 @@ window.WATCHDOG_TODOS = [
     "comment": null,
     "owner": "Vitória",
     "date": "26/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-26T00:00:00",
-    "completedAt": null
+    "updatedAt": "2026-03-26T19:36:00",
+    "completedAt": "2026-03-26T19:36:00"
   },
   {
     "id": "t239",
