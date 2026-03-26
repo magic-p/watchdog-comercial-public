@@ -4,6 +4,30 @@ window.WATCHDOG_BOOKED_META = {
   "buckets": [],
   "wins": [
     {
+      "emoji": "✅",
+      "titulo": "Pedro: teste2603",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Pedro",
+      "data": "26/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
+      "emoji": "🎯",
+      "titulo": "Vitória: Vitoria: Preparar 1º disparo utilitário para base outbound (disparo sai 26/03 8h)",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Vitória",
+      "data": "26/03",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
+      "emoji": "🎯",
+      "titulo": "Kaka: Karina: aprovar arte final da Revista e enviar para gráfica (Cerco Mágico)",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Kaka",
+      "data": "26/03",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
       "emoji": "🎯",
       "titulo": "Ana Paula Pimentel: Luana + Wydi + Bebel: filtrar audios HubSpot e Gong por chamadas curtas e preparar sessao de escuta focada em gatekeepers (secretarias)",
       "desc": "Concluida no ciclo semanal (segunda a domingo).",
