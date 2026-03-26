@@ -2258,7 +2258,7 @@ window.WATCHDOG_TODOS = [
     "task": "Nath acionar Goto para discutir uso do numero fixo  — ajudar escolas a salvarem o contato da EM",
     "comment": "Atualizacao legada: Definido na daily 11/03, adiado para proxima semana. Conecta com alerta012 e insight032.",
     "owner": "Nath Ferreira",
-    "date": "24/mar",
+    "date": "27/mar",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
