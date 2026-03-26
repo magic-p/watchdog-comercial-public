@@ -2552,7 +2552,7 @@ window.WATCHDOG_TODOS = [
     "task": "Bebel e Pedro: avaliar viabilidade de mecanismo de incentivo temporal para fechamentos ate 30/abril (cashback, bonificacao em kit, credito em alunos extras) — em resposta ao Supercash da Superautor",
     "comment": "Janela do Supercash encerra 30/abr. Escolas em negociacao com ambas ja recebem esse argumento agora. Decisao precisa ser tomada antes da semana de 23/03 para ter impacto em marco.",
     "owner": "Bebel Bertuccelli",
-    "date": "23/mar",
+    "date": "27/mar",
     "tier": "t1",
     "tierLabel": "A fazer",
     "warn": null,
