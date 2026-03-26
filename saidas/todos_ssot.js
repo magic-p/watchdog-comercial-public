@@ -1951,13 +1951,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Encontro Aquisicao 04/mar/26 (Lili) - item 1.1. Hoje o disparo de WA so ocorre para o campo celular. Outros campos de contato nao recebem disparos. Impacto: melhora conversao. Custo: R$0,09 por disparo utilitario. Distinto de t122 (copy WA pre-SDR) e t121 (validacao de contatos existentes).",
     "owner": "Vitória",
     "date": "25/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-26T12:34:00",
+    "completedAt": "2026-03-26T12:34:00"
   },
   {
     "id": "t144",
