@@ -3076,7 +3076,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-26T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3090,7 +3090,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-26T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3118,7 +3118,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-26T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3132,7 +3132,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-26T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3140,6 +3140,20 @@ window.WATCHDOG_TODOS = [
     "task": "Comprar de 20 vouchers de 50 reais",
     "comment": null,
     "owner": "Vitória",
+    "date": "26/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": null,
+    "completedAt": null
+  },
+  {
+    "id": "t239",
+    "task": "teste2603",
+    "comment": null,
+    "owner": "Pedro",
     "date": "26/mar",
     "tier": "t1",
     "tierLabel": "A fazer",
