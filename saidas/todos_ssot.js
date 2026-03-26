@@ -1615,13 +1615,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Cerco Mágico — desbloqueador de produção. Depende de: t088 (Vitória finaliza arte), t113 (custos confirmados com Ericka), t094 (QR code criado e testado). Karina é a responsável pela aprovação final antes de enviar para gráfica. Depois da aprovação: confirmar prazo de entrega da gráfica e alinhar com envio Correios para que Revista chegue nas escolas dentro da janela do Cerco (março/abril).",
     "owner": "Kaka",
     "date": "23/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-26T12:04:00",
+    "completedAt": "2026-03-26T12:04:00"
   },
   {
     "id": "t119",
@@ -3076,7 +3076,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-26T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3090,7 +3090,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-26T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3118,7 +3118,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-26T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3132,7 +3132,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-26T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3146,7 +3146,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-26T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3160,7 +3160,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-26T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   }
 ];
