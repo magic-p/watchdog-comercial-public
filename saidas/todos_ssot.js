@@ -2970,7 +2970,7 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t226",
     "task": "Criar campanha pra Webinar Antonia (material de divulgação)",
-    "comment": "None",
+    "comment": "Editar LP.\nCriar briefing para criação de materiasi de divulgação.\nPorgramar publicação no feed + Story - Fazer Colab com Antônia.\nImpulsionar publicação.\nCriar copy para disparos e-mail/whatsapp - 2 vezes na semana em cada canal.",
     "owner": "Kaka",
     "date": "27/mar",
     "tier": "t1",
