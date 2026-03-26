@@ -1237,13 +1237,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Item 5 do checklist S1 do Cerco Mágico. Orçamento total: R$ 39.697. Validar breakdown: impressão + gramatura, frete Correios por CEP, custo por mensagem WA no disparador. Confirmar que o orçamento cobre todos os custos antes de executar.",
     "owner": "Kaka",
     "date": "23/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-23T19:54:00",
-    "completedAt": null
+    "updatedAt": "2026-03-26T20:13:00",
+    "completedAt": "2026-03-26T20:13:00"
   },
   {
     "id": "t092",
