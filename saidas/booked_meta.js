@@ -4,6 +4,14 @@ window.WATCHDOG_BOOKED_META = {
   "buckets": [],
   "wins": [
     {
+      "emoji": "✅",
+      "titulo": "Vitória: Enviar base da revisa pro Pedro",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Vitória",
+      "data": "25/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
       "emoji": "🎯",
       "titulo": "Pedro: Ver o resultado dos disparos de errata e de AA",
       "desc": "Concluida no ciclo semanal (segunda a domingo).",
