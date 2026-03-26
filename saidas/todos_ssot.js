@@ -2118,7 +2118,7 @@ window.WATCHDOG_TODOS = [
     "task": "Bebel: checkpoint do estudo perfil consultivo vs objetivo — supervisores estao praticando com seus times? Houve mudanca observavel no comportamento SDR?",
     "comment": "Bebel fez estudo de perfil consultivo vs objetivo na semana de 04-07/mar/26. Esta tarefa e o acompanhamento: verificar se os supervisores adotaram o framework com seus times SDR, se houve mudanca observavel nas ligacoes (pode usar sessao de escuta como evidencia) e se o estudo gerou ajuste no discurso padrao. Criterio de conclusao: Bebel confirma se o perfil mudou na pratica ou se e necessario reforco.",
     "owner": "Bebel Bertuccelli",
-    "date": "20/mar",
+    "date": "27/mar",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
