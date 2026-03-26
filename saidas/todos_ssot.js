@@ -2580,7 +2580,7 @@ window.WATCHDOG_TODOS = [
     "task": "Wydi (Comercial Closer) e Pimentel: preparar FUP com Superautor usando escola ficticia maior para testar beneficios por volume — e tentar obter conteudo detalhado do kit de autografos usando a Estante Magica como referencia de barganha",
     "comment": "Plano ja definido na reuniao. Nao ha tarefa aberta cobrindo este FUP especifico. Wydi e o DRI operacional, Pimentel coordena.",
     "owner": "Ana Paula Pimentel",
-    "date": "25/mar",
+    "date": "30/mar",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
