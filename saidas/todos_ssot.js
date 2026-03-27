@@ -3076,7 +3076,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-27T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3090,7 +3090,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-27T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3118,7 +3118,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-27T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3132,7 +3132,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-27T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3162,5 +3162,19 @@ window.WATCHDOG_TODOS = [
     "priorityRank": null,
     "updatedAt": "2026-03-26T13:30:00",
     "completedAt": "2026-03-26T13:30:00"
+  },
+  {
+    "id": "t240",
+    "task": "Organizar pendencias sobre envio de divulgação do blog",
+    "comment": "Ver com a Ericka como era feito e passar demanda para o Léo. \nPlanilha de controle > https://docs.google.com/spreadsheets/d/1cx4wkMJM44CFmdejiEciD4IZ-duif2vt/edit?gid=640071656#gid=640071656",
+    "owner": "Kaka",
+    "date": "30/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-27T00:00:00",
+    "completedAt": null
   }
 ];
