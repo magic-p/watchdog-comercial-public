@@ -1964,7 +1964,7 @@ window.WATCHDOG_TODOS = [
     "task": "Vitoria: organizar base para identificacao da ultima ligacao efetiva e melhor contato por escola — reduzir ciclo de vendas priorizando contato com maior historico de resposta",
     "comment": "Encontro Aquisicao 04/mar/26 (Lili) - item 1.2. Comercial explora todos os contatos na 1a tentativa; nas cadencias vai para os melhores. Estruturar base para que o melhor contato (ultima ligacao efetiva) seja identificavel ja na 1a tentativa. Impacto: encurtamento de ciclo de vendas.",
     "owner": "Vitória",
-    "date": "27/mar",
+    "date": "03/abr",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
