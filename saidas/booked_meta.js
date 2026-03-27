@@ -4,6 +4,22 @@ window.WATCHDOG_BOOKED_META = {
   "buckets": [],
   "wins": [
     {
+      "emoji": "🎯",
+      "titulo": "Kaka: RAYSSA: Validar custos: impressão Revista, Correios, WA msg (Cerco Mágico S1)",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Kaka",
+      "data": "26/03",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
+      "emoji": "✅",
+      "titulo": "Vitória: Comprar de 20 vouchers de 50 reais",
+      "desc": "Concluida no prazo definido.",
+      "dri": "Vitória",
+      "data": "26/03",
+      "tipo": "ENTREGA_NO_PRAZO"
+    },
+    {
       "emoji": "✅",
       "titulo": "Pedro: teste2603",
       "desc": "Concluida no prazo definido.",
