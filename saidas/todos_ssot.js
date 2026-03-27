@@ -3179,7 +3179,7 @@ window.WATCHDOG_TODOS = [
   },
   {
     "id": "t241",
-    "task": "Envio das informações da caneca para começar a produção",
+    "task": "Envio para produção | Canecas",
     "comment": "Link da planilha com as informações por escola > https://docs.google.com/spreadsheets/d/1c-Ng9j_sdEuYkm_1bB0M8h7Eok8e2Umke7k-ViCZZGA/edit?gid=91888591#gid=91888591",
     "owner": "Kaka",
     "date": "30/mar",
@@ -3188,7 +3188,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-27T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   }
 ];
