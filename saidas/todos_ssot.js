@@ -3194,7 +3194,7 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t242",
     "task": "Entender sobre operacionalização do planner para preparar envios",
-    "comment": "Escolas estão cobrando envio dos planners. \n> Realizar as compras dos planners (estilo ciranda) > personalizados de figurinhas > produção > envio . O que falta?",
+    "comment": "Escolas chateadas por nao termos enviado os planners ainda. \n> Realizar as compras dos planners (estilo ciranda) > personalizados de figurinhas > produção > envio . O que falta?\n\nPlanilha com endereços e quantidade de planners > https://docs.google.com/spreadsheets/d/1LAJUREQXYcOVFuSOcXxraT9WmfMpAkx6V2XhV8ZPB9g/edit?gid=0#gid=0",
     "owner": "Kaka",
     "date": "30/mar",
     "tier": "t1",
@@ -3216,7 +3216,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-27T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   }
 ];
