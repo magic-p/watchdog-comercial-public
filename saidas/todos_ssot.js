@@ -3202,6 +3202,20 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
+    "updatedAt": null,
+    "completedAt": null
+  },
+  {
+    "id": "t243",
+    "task": "[DIÁRIO] AX <> Marketing. Preparando o novo CRM para receber Mkt",
+    "comment": "Rotina diária de preparação de MKT no AX. \nPrimeiros pontos > \nMapeamento de informações necessárias no hubspot + banco de informações de dados anteriores \n1. Propriedades de MKT \n2. Métricas de e-mails",
+    "owner": "Vitória",
+    "date": "30/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
     "updatedAt": "2026-03-27T00:00:00",
     "completedAt": null
   }
