@@ -2006,7 +2006,7 @@ window.WATCHDOG_TODOS = [
     "task": "Vitoria: revisar reguas da etapa SDR e disparo para identificar e priorizar principal contato por escola — fase 1 (fase 2 sera AX via AI)",
     "comment": "Encontro Aquisicao 04/mar/26 (Lili) - item 1.3.3. Revisar reguas de SDR e disparo para que o sistema identifique e priorize o principal contato de cada escola. Fase 2 (AX via AI) e posterior. Conecta com t144 (ultima ligacao efetiva) e t143 (alcance de campos).",
     "owner": "Vitória",
-    "date": "27/mar",
+    "date": "10/abr",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
