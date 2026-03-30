@@ -3210,7 +3210,7 @@ window.WATCHDOG_TODOS = [
     "task": "[DIÁRIO] AX <> Marketing. Preparando o novo CRM para receber Mkt",
     "comment": "Rotina diária de preparação de MKT no AX. \nPrimeiros pontos > \nMapeamento de informações necessárias no hubspot + banco de informações de dados anteriores \n1. Propriedades de MKT \n2. Métricas de e-mails",
     "owner": "Vitória",
-    "date": "30/mar",
+    "date": "31/mar",
     "tier": "t1",
     "tierLabel": "A fazer",
     "warn": null,
