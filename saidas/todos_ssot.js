@@ -3068,7 +3068,7 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t233",
     "task": "Marcar reunião Positivo (ver pontos Aninha - ajustar preço, rever modelo parceria)",
-    "comment": "~80-90k receita/ano",
+    "comment": "~80-90k receita/ano. Lembrar de i) revisar preço ii) checar se ok escolas positivo com repasse. Se quiser me inclua nesse papo e assumo esses detalhes (Lili)",
     "owner": "Pedro",
     "date": "26/mar",
     "tier": "t1",
@@ -3076,7 +3076,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-30T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3090,7 +3090,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-30T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3118,7 +3118,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-30T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3132,7 +3132,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-30T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3174,7 +3174,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-30T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3188,7 +3188,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-30T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3202,7 +3202,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-30T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3216,7 +3216,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-30T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   }
 ];
