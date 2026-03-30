@@ -3057,13 +3057,13 @@ window.WATCHDOG_TODOS = [
     "comment": "None",
     "owner": "Nath Ferreira",
     "date": "26/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": "2026-03-25T14:51:00",
-    "completedAt": null
+    "updatedAt": "2026-03-30T13:33:00",
+    "completedAt": "2026-03-30T13:33:00"
   },
   {
     "id": "t233",
