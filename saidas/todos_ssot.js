@@ -3026,9 +3026,9 @@ window.WATCHDOG_TODOS = [
   {
     "id": "t230",
     "task": "Conferência tag patrocínio x contrato assinado",
-    "comment": null,
+    "comment": "None",
     "owner": "Nath Ferreira",
-    "date": "27/mar",
+    "date": "02/abr",
     "tier": "t2",
     "tierLabel": "Fazendo",
     "warn": null,
