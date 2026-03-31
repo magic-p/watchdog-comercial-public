@@ -2958,7 +2958,7 @@ window.WATCHDOG_TODOS = [
     "task": "Criar vídeo mostrando as facilidades de aplicação -> MAC",
     "comment": "Criação de vídeo mostrando as facilidades da aplicação EM - O Método de Aplicação Confortável - tem o objetivo em ajudar a converter escolas que dizem que estão com cronograma fechado - muitos projetos.",
     "owner": "Pedro",
-    "date": "24/mar",
+    "date": "03/abr",
     "tier": "t1",
     "tierLabel": "A fazer",
     "warn": null,
