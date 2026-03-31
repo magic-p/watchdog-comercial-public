@@ -3218,5 +3218,19 @@ window.WATCHDOG_TODOS = [
     "priorityRank": null,
     "updatedAt": "2026-03-30T19:51:00",
     "completedAt": null
+  },
+  {
+    "id": "t244",
+    "task": "Pagar Supabase da Claudete",
+    "comment": null,
+    "owner": "Pedro",
+    "date": "31/mar",
+    "tier": "t1",
+    "tierLabel": "A fazer",
+    "warn": null,
+    "done": false,
+    "priorityRank": null,
+    "updatedAt": "2026-03-31T00:00:00",
+    "completedAt": null
   }
 ];
