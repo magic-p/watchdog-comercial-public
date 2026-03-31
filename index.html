@@ -329,12 +329,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js"></script>
-<script src="saidas/todos_ssot.js?v=20260331162945"></script>
-<script src="saidas/data_health.js"></script>
-<script src="saidas/campanhas_ssot.js"></script>
-<script src="saidas/intel_ssot.js"></script>
-<script src="saidas/api_token.js"></script>
+<script src="saidas/booked_meta.js?v=20260331060229"></script>
+<script src="saidas/todos_ssot.js?v=20260331060229"></script>
+<script src="saidas/data_health.js?v=20260331060229"></script>
+<script src="saidas/campanhas_ssot.js?v=20260331060229"></script>
+<script src="saidas/intel_ssot.js?v=20260331060229"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
 /* ── Supabase client ───────────────────────────────────────── */
@@ -357,6 +356,15 @@ function _getWriteError(fallback) {
   return _lastWriteError || fallback;
 }
 
+function _hasAuthSession() {
+  return !!_sbSession?.access_token;
+}
+
+function _sessionAuthHeaders(extra = {}) {
+  if (!_hasAuthSession()) return { ...extra };
+  return { ...extra, 'Authorization': `Bearer ${_sbSession.access_token}` };
+}
+
 /* ── API layer (Supabase → motor local → readonly) ────────── */
 const API_URL = window.location.protocol === 'file:' ||
                 window.location.hostname === 'localhost' ||
@@ -372,7 +380,7 @@ const IS_LOCAL = (
 const IS_READONLY = !IS_LOCAL && !_sbConfigured;
 
 function _canWrite() {
-  return IS_LOCAL || (_sb && _sbSession !== null);
+  return _hasAuthSession();
 }
 
 function _makeRequestId(prefix = 'req') {
@@ -384,10 +392,13 @@ function _makeRequestId(prefix = 'req') {
 async function _motorPatch(patch) {
   try {
     const actor = _sbSession?.user?.email?.split('@')[0] || 'dashboard';
-    const authToken = _sbSession?.access_token || window.WATCHDOG_API_TOKEN || '';
+    if (!_hasAuthSession()) {
+      _setWriteError('Login necessário para editar tarefas.');
+      return false;
+    }
     const request_id = _makeRequestId('patch');
     const r = await fetch(`${API_URL}/api/todos/patch`, {
-      method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${authToken}` },
+      method: 'POST', headers: _sessionAuthHeaders({ 'Content-Type': 'application/json' }),
       body: JSON.stringify({ ...patch, actor, request_id })
     });
     let payload = null;
@@ -410,10 +421,13 @@ async function _motorPatch(patch) {
 
 async function _motorCreate(task) {
   try {
-    const authToken = _sbSession?.access_token || window.WATCHDOG_API_TOKEN || '';
+    if (!_hasAuthSession()) {
+      _setWriteError('Login necessário para editar tarefas.');
+      return false;
+    }
     const request_id = _makeRequestId('create');
     const r = await fetch(`${API_URL}/api/todos/create`, {
-      method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${authToken}` },
+      method: 'POST', headers: _sessionAuthHeaders({ 'Content-Type': 'application/json' }),
       body: JSON.stringify({ id: task.id, task: task.task, owner: task.owner, date: task.date, comment: task.comment || null, request_id })
     });
     let payload = null;
@@ -518,7 +532,7 @@ const BOOKED_META = (window.WATCHDOG_BOOKED_META && typeof window.WATCHDOG_BOOKE
 
 const TODOS_SSOT = Array.isArray(window.WATCHDOG_TODOS) ? window.WATCHDOG_TODOS : [];
 const HAS_BACKEND_TODOS = TODOS_SSOT.length > 0;
-const REQUIRE_LOGIN_FOR_READ = !IS_LOCAL;
+const REQUIRE_LOGIN_FOR_READ = true;
 const DATA_HEALTH = (window.WATCHDOG_DATA_HEALTH && typeof window.WATCHDOG_DATA_HEALTH === 'object')
   ? window.WATCHDOG_DATA_HEALTH
   : null;
@@ -609,8 +623,12 @@ function _consumeMaintenancePayload(payload, opts = {}) {
 }
 
 async function refreshOperationalHealth(reason = 'unknown') {
+  if (REQUIRE_LOGIN_FOR_READ && !_hasAuthSession()) {
+    return _maintenanceState;
+  }
   try {
     const r = await fetch(`${API_URL}/api/todos/health?reason=${encodeURIComponent(String(reason || 'unknown'))}`, {
+      headers: _sessionAuthHeaders(),
       signal: AbortSignal.timeout(3000),
     });
     const data = await r.json();
@@ -1152,6 +1170,11 @@ function _parseBackendAlert(str, idx) {
 
 async function fetchBackendAlerts(reason = 'unknown') {
   if (isMaintenanceActive()) return;
+  if (REQUIRE_LOGIN_FOR_READ && !_hasAuthSession()) {
+    _backendAlerts = null;
+    renderCriticalAlerts();
+    return;
+  }
   if (_alertsRefreshInFlight) {
     _alertsRefreshQueued = true;
     _alertsRefreshReason = _mergeRefreshReason(_alertsRefreshReason, reason);
@@ -1160,6 +1183,7 @@ async function fetchBackendAlerts(reason = 'unknown') {
   _alertsRefreshInFlight = true;
   try {
     const r = await fetch(`${API_URL}/api/computed/alerts?reason=${encodeURIComponent(String(reason || 'unknown'))}`, {
+      headers: _sessionAuthHeaders(),
       signal: AbortSignal.timeout(3000)
     });
     let j = null;
@@ -2481,20 +2505,20 @@ function renderIntel() {
   } else {
     summaryEl.innerHTML = `<div class="intel-summary-list">${summaries.map(row => {
       const chips = [
-        row.contagem_aprendizados ? `<span class="intel-summary-chip">${row.contagem_aprendizados} aprendizados</span>` : '',
-        row.contagem_alertas_abertos ? `<span class="intel-summary-chip">${row.contagem_alertas_abertos} riscos abertos</span>` : '',
-        row.ultima_atualizacao ? `<span class="intel-summary-chip">${row.ultima_atualizacao}</span>` : '',
+        row.contagem_aprendizados ? `<span class="intel-summary-chip">${esc(row.contagem_aprendizados)} aprendizados</span>` : '',
+        row.contagem_alertas_abertos ? `<span class="intel-summary-chip">${esc(row.contagem_alertas_abertos)} riscos abertos</span>` : '',
+        row.ultima_atualizacao ? `<span class="intel-summary-chip">${esc(row.ultima_atualizacao)}</span>` : '',
       ].filter(Boolean).join('');
       const refs = [];
-      if (Array.isArray(row.aprendizados_ids) && row.aprendizados_ids.length) refs.push(`Insights: ${row.aprendizados_ids.slice(0, 3).join(', ')}`);
-      if (Array.isArray(row.alertas_ids) && row.alertas_ids.length) refs.push(`Alertas: ${row.alertas_ids.slice(0, 2).join(', ')}`);
+      if (Array.isArray(row.aprendizados_ids) && row.aprendizados_ids.length) refs.push(`Insights: ${row.aprendizados_ids.slice(0, 3).map(esc).join(', ')}`);
+      if (Array.isArray(row.alertas_ids) && row.alertas_ids.length) refs.push(`Alertas: ${row.alertas_ids.slice(0, 2).map(esc).join(', ')}`);
       return `<div class="intel-summary-item">
         <div class="intel-summary-top">
-          <div class="intel-summary-title">${row.titulo || row.tema || 'Tema'}</div>
+          <div class="intel-summary-title">${esc(row.titulo || row.tema || 'Tema')}</div>
           <div class="intel-summary-meta">${chips}</div>
         </div>
-        <div class="intel-summary-text">${row.resumo_executivo || ''}</div>
-        ${refs.length ? `<div class="intel-summary-links">${refs.join(' • ')}</div>` : ''}
+        <div class="intel-summary-text">${esc(row.resumo_executivo || '')}</div>
+        ${refs.length ? `<div class="intel-summary-links">${refs.map(esc).join(' • ')}</div>` : ''}
       </div>`;
     }).join('')}</div>`;
   }
@@ -2911,9 +2935,8 @@ async function _refreshTasksFromApi(silent = false, reason = 'unknown') {
   }
   _supabaseRefreshInFlight = true;
   try {
-    const authToken = _sbSession?.access_token || window.WATCHDOG_API_TOKEN || '';
     const resp = await fetch(`${API_URL}/api/tasks?reason=${encodeURIComponent(String(reason || 'unknown'))}`, {
-      headers: { 'Authorization': `Bearer ${authToken}` },
+      headers: _sessionAuthHeaders(),
     });
     let data = null;
     try {
@@ -3055,9 +3078,9 @@ function _renderAlertStrip(alerts) {
   const warnSvg = `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2L14 13H2L8 2z"/><line x1="8" y1="7" x2="8" y2="10"/><line x1="8" y1="12" x2="8.01" y2="12"/></svg>`;
   items.innerHTML = alerts.slice(0, 8).map(a => {
     const parts = [];
-    if (a.task || a.tarefa) parts.push(`<span class="alert-strip-task">${a.task || a.tarefa}</span>`);
-    if (a.owner || a.dono) parts.push(`<span class="alert-strip-meta">${a.owner || a.dono}</span>`);
-    if (a.days) parts.push(`<span class="alert-strip-meta">${a.days}d</span>`);
+    if (a.task || a.tarefa) parts.push(`<span class="alert-strip-task">${esc(a.task || a.tarefa)}</span>`);
+    if (a.owner || a.dono) parts.push(`<span class="alert-strip-meta">${esc(a.owner || a.dono)}</span>`);
+    if (a.days) parts.push(`<span class="alert-strip-meta">${esc(a.days)}d</span>`);
     return `<span class="alert-strip-item">${warnSvg}${parts.join('<span class="alert-strip-meta"> \u00B7 </span>')}</span>`;
   }).join('');
   strip.style.display = '';
@@ -3174,7 +3197,7 @@ function _renderStagedChips() {
   const fmtSize = b => b < 1024 ? b + ' B' : (b / 1024).toFixed(0) + ' KB';
   list.innerHTML = _stagedFiles.map((f, i) => `
     <div class="upload-staged-chip">
-      <span class="upload-staged-chip-name" title="${f.name}">${f.name}</span>
+      <span class="upload-staged-chip-name" title="${esc(f.name)}">${esc(f.name)}</span>
       <span class="upload-staged-chip-size">${fmtSize(f.size)}</span>
       <button class="upload-staged-chip-remove" type="button" aria-label="Remover" onclick="_removeStagedFile(${i})">
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -3317,8 +3340,8 @@ function _renderUploadHistory() {
       const st = e.status || 'uploading';
       const result = e.resultSummary ? `<a class="upload-result-link" onclick="showUploadResult('${e.id}')">ver</a>` : '';
       return `<div class="upload-history-row">
-        <div class="upload-history-name" title="${e.name}">${e.name}</div>
-        <div class="upload-history-actor">${e.actor} &middot; ${fmtDate(e.ts)}</div>
+        <div class="upload-history-name" title="${esc(e.name)}">${esc(e.name)}</div>
+        <div class="upload-history-actor">${esc(e.actor)} &middot; ${esc(fmtDate(e.ts))}</div>
         <span class="upload-history-status ${st}">${statusLabels[st]||st}</span>${result}
       </div>`;
     }).join('');
@@ -3332,7 +3355,7 @@ function showUploadResult(id) {
   if (!overlay) return;
   document.getElementById('taskModalTitle').textContent = 'Análise: ' + e.name;
   document.getElementById('taskForm').innerHTML = `
-    <div style="white-space:pre-wrap;font-size:13px;line-height:1.65;max-height:60vh;overflow-y:auto;">${e.resultSummary}</div>
+    <div style="white-space:pre-wrap;font-size:13px;line-height:1.65;max-height:60vh;overflow-y:auto;">${esc(e.resultSummary)}</div>
     <div class="modal-ft" style="padding:12px 0 0;border-top:none;justify-content:flex-end;">
       <button class="btn" type="button" onclick="closeTaskModal()">Fechar</button>
     </div>`;
