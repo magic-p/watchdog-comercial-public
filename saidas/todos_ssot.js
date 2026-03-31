@@ -3169,13 +3169,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Ver com a Ericka como era feito e passar demanda para o Léo. \nPlanilha de controle > https://docs.google.com/spreadsheets/d/1cx4wkMJM44CFmdejiEciD4IZ-duif2vt/edit?gid=640071656#gid=640071656",
     "owner": "Kaka",
     "date": "30/mar",
-    "tier": "t1",
-    "tierLabel": "A fazer",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-31T14:10:00",
+    "completedAt": "2026-03-31T14:10:00"
   },
   {
     "id": "t241",
