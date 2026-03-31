@@ -5,6 +5,30 @@ window.WATCHDOG_BOOKED_META = {
   "wins": [
     {
       "emoji": "🎯",
+      "titulo": "Kaka: Dar nova previsão de finalização do disparo de wpp dos anos anteriores e criar tarefa para monitorar essa data",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Kaka",
+      "data": "31/03",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
+      "emoji": "🎯",
+      "titulo": "Kaka: Criar campanha pra Webinar Antonia (material de divulgação)",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Kaka",
+      "data": "31/03",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
+      "emoji": "🎯",
+      "titulo": "Kaka: Organizar pendencias sobre envio de divulgação do blog",
+      "desc": "Concluida no ciclo semanal (segunda a domingo).",
+      "dri": "Kaka",
+      "data": "31/03",
+      "tipo": "ENTREGA_CONCLUIDA"
+    },
+    {
+      "emoji": "🎯",
       "titulo": "Nath Ferreira: Ajustar modelo de preço em lote (nova regra, tag e implementação no sistema)",
       "desc": "Concluida no ciclo semanal (segunda a domingo).",
       "dri": "Nath Ferreira",
