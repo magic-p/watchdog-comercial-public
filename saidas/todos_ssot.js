@@ -2873,14 +2873,14 @@ window.WATCHDOG_TODOS = [
     "id": "t219",
     "task": "Criar material de apoio pra Comercial (pedido Lili)",
     "comment": "Para destravar a cadência de contato da Renovação LT e avançar no objetivo de 3.736 escolas até agosto.",
-    "owner": "Pedro",
+    "owner": "Ana Paula Pimentel",
     "date": "03/abr",
     "tier": "t1",
     "tierLabel": "A fazer",
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-20T06:46:00",
+    "updatedAt": "2026-03-31T14:01:00",
     "completedAt": null
   },
   {
