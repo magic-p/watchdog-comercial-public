@@ -2874,7 +2874,7 @@ window.WATCHDOG_TODOS = [
     "task": "Criar material de apoio pra Comercial (pedido Lili)",
     "comment": "Para destravar a cadência de contato da Renovação LT e avançar no objetivo de 3.736 escolas até agosto.",
     "owner": "Pedro",
-    "date": "24/mar",
+    "date": "03/abr",
     "tier": "t1",
     "tierLabel": "A fazer",
     "warn": null,
@@ -3076,7 +3076,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-31T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3090,7 +3090,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-31T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3132,7 +3132,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-31T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3174,7 +3174,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-31T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3188,7 +3188,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-31T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
@@ -3202,7 +3202,7 @@ window.WATCHDOG_TODOS = [
     "warn": null,
     "done": false,
     "priorityRank": null,
-    "updatedAt": "2026-03-31T00:00:00",
+    "updatedAt": null,
     "completedAt": null
   },
   {
