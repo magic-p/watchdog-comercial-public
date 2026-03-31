@@ -2679,13 +2679,13 @@ window.WATCHDOG_TODOS = [
     "comment": "Terminar Wpp+IG de AA até 6a",
     "owner": "Kaka",
     "date": "27/mar",
-    "tier": "t2",
-    "tierLabel": "Fazendo",
+    "tier": "done",
+    "tierLabel": "Concluido",
     "warn": null,
-    "done": false,
+    "done": true,
     "priorityRank": null,
-    "updatedAt": null,
-    "completedAt": null
+    "updatedAt": "2026-03-31T14:10:00",
+    "completedAt": "2026-03-31T14:10:00"
   },
   {
     "id": "t202",
