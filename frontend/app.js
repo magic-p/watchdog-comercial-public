@@ -110,6 +110,7 @@ function _onAuthLogout() {
   INTEL_SRC = DEMO_INTEL;
   DATA_HEALTH_SRC = DATA_HEALTH;
   CAMPANHAS_SRC = CAMPANHAS_DATA;
+  setOperationalState(null);
   _backendAlerts = null;
   _kpis = (BOOKED_META_SRC && BOOKED_META_SRC.kpis) ? BOOKED_META_SRC.kpis : {};
   const pill = document.getElementById('authPill');
@@ -306,6 +307,16 @@ function _updateSysStatus() {
   const motorEl = document.getElementById('motorStatus');
   const motorOnline = motorEl && motorEl.classList.contains('online');
   const readonly = document.getElementById('readonlyPill') && document.getElementById('readonlyPill').style.display !== 'none';
+  const operational = (typeof getOperationalState === 'function') ? getOperationalState() : null;
+  if (operational && operational.degraded) {
+    dot.className = 'sys-status-dot degraded';
+    txt.textContent = 'Degradado';
+    if (pill) {
+      const reasons = Array.isArray(operational.degradation_reasons) ? operational.degradation_reasons.join(' • ') : '';
+      pill.title = reasons || 'Servico autenticado degradado';
+    }
+    return;
+  }
   if (motorOnline) {
     dot.className = 'sys-status-dot online';
     txt.textContent = 'Motor online';

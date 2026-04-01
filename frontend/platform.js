@@ -287,23 +287,14 @@ function setSsotStatus(hasSsot) {
 
 /*  DATA  */
 const STORAGE_KEY = 'watchdog_v3';
-
-const BOOKED_META = (window.WATCHDOG_BOOKED_META && typeof window.WATCHDOG_BOOKED_META === 'object')
-  ? window.WATCHDOG_BOOKED_META
-  : null;
-
-const TODOS_SSOT = Array.isArray(window.WATCHDOG_TODOS) ? window.WATCHDOG_TODOS : [];
-const HAS_BACKEND_TODOS = TODOS_SSOT.length > 0;
+const PUBLIC_SHELL_MODE = 'demo_sanitized_only';
+const BOOKED_META = null;
+const TODOS_SSOT = [];
+const HAS_BACKEND_TODOS = false;
 const REQUIRE_LOGIN_FOR_READ = true;
-const DATA_HEALTH = (window.WATCHDOG_DATA_HEALTH && typeof window.WATCHDOG_DATA_HEALTH === 'object')
-  ? window.WATCHDOG_DATA_HEALTH
-  : null;
-
-const CAMPANHAS_DATA = (window.WATCHDOG_CAMPANHAS && typeof window.WATCHDOG_CAMPANHAS === 'object')
-  ? window.WATCHDOG_CAMPANHAS : null;
-
-const INTEL_DATA = (window.WATCHDOG_INTEL && typeof window.WATCHDOG_INTEL === 'object')
-  ? window.WATCHDOG_INTEL : null;
+const DATA_HEALTH = null;
+const CAMPANHAS_DATA = null;
+const INTEL_DATA = null;
 
 const FALLBACK_SEED = [];
 
@@ -313,6 +304,18 @@ let _maintenanceState = {
   message: '',
   started_at: '',
   started_by: '',
+};
+let _operationalState = {
+  degraded: false,
+  degradation_reasons: [],
+  mode: 'authenticated_api_only',
+  option_c: {
+    status: 'complete',
+    public_shell_mode: PUBLIC_SHELL_MODE,
+    public_artifacts_operational_dependency: false,
+  },
+  metrics: {},
+  runbooks: [],
 };
 
 function maintenanceMessage() {
@@ -384,6 +387,27 @@ function _consumeMaintenancePayload(payload, opts = {}) {
   return true;
 }
 
+function setOperationalState(snapshot) {
+  const next = (snapshot && typeof snapshot === 'object') ? snapshot : {};
+  _operationalState = {
+    degraded: !!next.degraded,
+    degradation_reasons: Array.isArray(next.degradation_reasons) ? next.degradation_reasons.slice(0, 6) : [],
+    mode: String(next.mode || 'authenticated_api_only'),
+    option_c: (next.option_c && typeof next.option_c === 'object') ? { ...next.option_c } : {
+      status: 'complete',
+      public_shell_mode: PUBLIC_SHELL_MODE,
+      public_artifacts_operational_dependency: false,
+    },
+    metrics: (next.metrics && typeof next.metrics === 'object') ? { ...next.metrics } : {},
+    runbooks: Array.isArray(next.runbooks) ? next.runbooks.slice(0, 6) : [],
+  };
+  if (typeof _updateSysStatus === 'function') _updateSysStatus();
+}
+
+function getOperationalState() {
+  return _operationalState;
+}
+
 async function refreshOperationalHealth(reason = 'unknown') {
   if (REQUIRE_LOGIN_FOR_READ && !_hasAuthSession()) {
     return _maintenanceState;
@@ -398,6 +422,7 @@ async function refreshOperationalHealth(reason = 'unknown') {
       return _maintenanceState;
     }
     setMaintenanceState((data && data.maintenance) || { active: false }, { toast: false, keepWriteError: true });
+    setOperationalState(data && data.operational);
     return _maintenanceState;
   } catch {
     return _maintenanceState;
@@ -640,7 +665,7 @@ const CAMPANHA_TAXA_AZUL  = _kpis.campanha_taxa_azul    ?? 1.0;
 /*  MENSAGENS COBRANA  */
 
 /*  WINS DA SEMANA  */
-const WINS = []; // Placeholder para wins manuais via console (fonte real: saidas/booked_meta.js)
+const WINS = []; // Placeholder para wins manuais via console (fonte real: bootstrap autenticado)
 
 /*  STATE  */
 
