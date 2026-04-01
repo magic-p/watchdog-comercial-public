@@ -1194,6 +1194,7 @@
     .sys-status-dot.offline { background: var(--red); }
     .sys-status-dot.readonly { background: var(--orange); }
     .sys-status-dot.maintenance { background: var(--orange); }
+    .sys-status-dot.degraded { background: #f59e0b; }
 
     /* prefers-reduced-motion */
     @media (prefers-reduced-motion: reduce) {
