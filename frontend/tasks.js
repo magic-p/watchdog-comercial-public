@@ -316,6 +316,9 @@ function _applyDashboardBootstrapPayload(payload) {
   if (payload.campanhas && typeof payload.campanhas === 'object') {
     CAMPANHAS_SRC = payload.campanhas;
   }
+  if (payload.operational && typeof payload.operational === 'object') {
+    setOperationalState(payload.operational);
+  }
   if (Array.isArray(payload.tasks)) {
     const remoteTasks = payload.tasks.map(t => normalizeTask(t || {}));
     const nextTasks = _mergePendingTaskMutations(remoteTasks);
@@ -584,7 +587,7 @@ function renderDataHealth() {
       <div class="health-meta">
         ${metaChips.map(chip => `<span class="intel-summary-chip">${esc(chip)}</span>`).join('')}
       </div>
-      <div class="health-note">Este bloco serve como check-up rápido da base: o que está atrasado, sem histórico, provável duplicado e se a publicação pública está espelhada corretamente.</div>
+      <div class="health-note">Este bloco serve como check-up rápido da base: o que está atrasado, sem histórico, provável duplicado e se o shell público sanitizado continua coerente com a Option C.</div>
     </div>`;
 }
 
@@ -1120,7 +1123,7 @@ function renderIntel() {
 
   const intelSource = (REQUIRE_LOGIN_FOR_READ && !_sbSession) ? DEMO_INTEL : INTEL_SRC;
   if (!intelSource) {
-    const msg = '<span style="color:var(--t3);font-size:12px">intel_ssot.js não carregado.</span>';
+    const msg = '<span style="color:var(--t3);font-size:12px">Intel autenticada indisponivel no bootstrap.</span>';
     summaryEl.innerHTML = msg;
     criticasEl.innerHTML = msg;
     criticasArchEl.innerHTML = msg;
@@ -1269,8 +1272,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const pp = document.getElementById('publicPill');
   const deferProtectedRender = REQUIRE_LOGIN_FOR_READ && _sbConfigured;
   if (pp && REQUIRE_LOGIN_FOR_READ && !_sbSession && !deferProtectedRender) pp.style.display = 'inline-flex';
-  // No GitHub Pages: SSOT vem do Supabase (após login), não de arquivo local.
-  // Mostrar "ok" quando logado, "aguardando login" quando não.
+  // Option C: o shell publico usa demo sanitizada; dado real vem apenas da API autenticada.
   setSsotStatus(!REQUIRE_LOGIN_FOR_READ ? HAS_BACKEND_TODOS : !!_sbSession);
   _updateSysStatus();
   refreshOperationalHealth('dom_ready');
