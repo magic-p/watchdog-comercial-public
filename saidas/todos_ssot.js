@@ -1,1 +1,0 @@
-window.WATCHDOG_TODOS = [];
