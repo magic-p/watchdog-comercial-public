@@ -347,6 +347,10 @@ const _sb = _sbConfigured
 let _sbSession = null;
 let _sbRealtimeChannel = null;
 let _lastWriteError = '';
+let _sessionRefreshPromise = null;
+let _lastSessionRefreshAttemptAt = 0;
+const _SESSION_MIN_VALIDITY_MS = 90_000;
+const _SESSION_REFRESH_THROTTLE_MS = 10_000;
 
 function _setWriteError(msg) {
   _lastWriteError = msg || '';
@@ -360,9 +364,101 @@ function _hasAuthSession() {
   return !!_sbSession?.access_token;
 }
 
-function _sessionAuthHeaders(extra = {}) {
-  if (!_hasAuthSession()) return { ...extra };
-  return { ...extra, 'Authorization': `Bearer ${_sbSession.access_token}` };
+function _sessionExpiresAtMs(session) {
+  const exp = Number(session?.expires_at || 0);
+  return Number.isFinite(exp) && exp > 0 ? exp * 1000 : 0;
+}
+
+function _sessionExpiresSoon(session, minValidityMs = _SESSION_MIN_VALIDITY_MS) {
+  const expiresAt = _sessionExpiresAtMs(session);
+  if (!expiresAt) return false;
+  return (expiresAt - Date.now()) <= Math.max(5_000, Number(minValidityMs) || _SESSION_MIN_VALIDITY_MS);
+}
+
+async function _readCurrentSession() {
+  if (!_sb) return _sbSession;
+  try {
+    const { data, error } = await _sb.auth.getSession();
+    if (error) throw error;
+    if (data?.session) {
+      _sbSession = data.session;
+      return data.session;
+    }
+    _sbSession = null;
+    return null;
+  } catch (err) {
+    console.warn('[Auth] getSession falhou:', err);
+    return _sbSession;
+  }
+}
+
+async function _ensureFreshSession(reason = 'unknown', opts = {}) {
+  if (!_sb) return _sbSession;
+  const force = !!opts.force;
+  const minValidityMs = Number(opts.minValidityMs) || _SESSION_MIN_VALIDITY_MS;
+  let session = _sbSession;
+  if (!session) session = await _readCurrentSession();
+  if (!session) return null;
+  const needsRefresh = force || _sessionExpiresSoon(session, minValidityMs);
+  if (!needsRefresh) return session;
+  if (_sessionRefreshPromise) return _sessionRefreshPromise;
+  const now = Date.now();
+  if (!force && (now - _lastSessionRefreshAttemptAt) < _SESSION_REFRESH_THROTTLE_MS) {
+    return _sbSession || session;
+  }
+  _lastSessionRefreshAttemptAt = now;
+  _sessionRefreshPromise = (async () => {
+    try {
+      const { data, error } = await _sb.auth.refreshSession();
+      if (error) throw error;
+      if (data?.session) {
+        _sbSession = data.session;
+        return data.session;
+      }
+    } catch (err) {
+      console.warn(`[Auth] refreshSession falhou (${reason}):`, err);
+    } finally {
+      _sessionRefreshPromise = null;
+    }
+    return _readCurrentSession();
+  })();
+  return _sessionRefreshPromise;
+}
+
+async function _sessionAuthHeaders(extra = {}, reason = 'unknown', opts = {}) {
+  const session = await _ensureFreshSession(reason, opts);
+  if (!session?.access_token) return { ...extra };
+  return { ...extra, 'Authorization': `Bearer ${session.access_token}` };
+}
+
+async function _fetchWithAuthRetry(url, fetchOptions = {}, authOptions = {}) {
+  const baseHeaders = fetchOptions.headers || {};
+  const reason = String(authOptions.reason || 'protected_fetch');
+  const headers = await _sessionAuthHeaders(baseHeaders, reason, authOptions);
+  let response = await fetch(url, { ...fetchOptions, headers });
+  if (response.status !== 401 || !_sb) return response;
+  const retryHeaders = await _sessionAuthHeaders(
+    baseHeaders,
+    _mergeRefreshReason(reason, 'retry_401'),
+    { ...authOptions, force: true, minValidityMs: 30_000 },
+  );
+  const oldAuth = String(headers.Authorization || '');
+  const newAuth = String(retryHeaders.Authorization || '');
+  if (!newAuth || newAuth === oldAuth) return response;
+  return fetch(url, { ...fetchOptions, headers: retryHeaders });
+}
+
+function _authFailureMessage(payload, fallback = 'Faça login novamente para continuar.') {
+  const raw = String(payload?.error || '').trim();
+  if (!raw) return fallback;
+  const normalized = raw.toLowerCase();
+  if (normalized.includes('jwt invalido') || normalized.includes('jwt inválido') || normalized.includes('expirado')) {
+    return 'Sua sessão expirou ou ainda não conseguiu ser renovada. Recarregue a página e faça login novamente.';
+  }
+  if (normalized.includes('unauthorized')) {
+    return 'Autenticação indisponível no momento. Recarregue a página e tente novamente.';
+  }
+  return raw;
 }
 
 /* ── API layer (Supabase → motor local → readonly) ────────── */
@@ -391,16 +487,18 @@ function _makeRequestId(prefix = 'req') {
 /* ── Motor local (fallback quando IS_LOCAL) ────────────────── */
 async function _motorPatch(patch) {
   try {
-    const actor = _sbSession?.user?.email?.split('@')[0] || 'dashboard';
-    if (!_hasAuthSession()) {
+    const session = await _ensureFreshSession('task_patch_preflight');
+    const actor = session?.user?.email?.split('@')[0] || 'dashboard';
+    if (!session?.access_token) {
       _setWriteError('Login necessário para editar tarefas.');
       return false;
     }
     const request_id = _makeRequestId('patch');
-    const r = await fetch(`${API_URL}/api/todos/patch`, {
-      method: 'POST', headers: _sessionAuthHeaders({ 'Content-Type': 'application/json' }),
+    const r = await _fetchWithAuthRetry(`${API_URL}/api/todos/patch`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ ...patch, actor, request_id })
-    });
+    }, { reason: 'task_patch' });
     let payload = null;
     try { payload = await r.json(); } catch {}
     if (_consumeMaintenancePayload(payload)) return false;
@@ -421,15 +519,17 @@ async function _motorPatch(patch) {
 
 async function _motorCreate(task) {
   try {
-    if (!_hasAuthSession()) {
+    const session = await _ensureFreshSession('task_create_preflight');
+    if (!session?.access_token) {
       _setWriteError('Login necessário para editar tarefas.');
       return false;
     }
     const request_id = _makeRequestId('create');
-    const r = await fetch(`${API_URL}/api/todos/create`, {
-      method: 'POST', headers: _sessionAuthHeaders({ 'Content-Type': 'application/json' }),
+    const r = await _fetchWithAuthRetry(`${API_URL}/api/todos/create`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id: task.id, task: task.task, owner: task.owner, date: task.date, comment: task.comment || null, request_id })
-    });
+    }, { reason: 'task_create' });
     let payload = null;
     try { payload = await r.json(); } catch {}
     if (_consumeMaintenancePayload(payload)) return false;
@@ -627,10 +727,10 @@ async function refreshOperationalHealth(reason = 'unknown') {
     return _maintenanceState;
   }
   try {
-    const r = await fetch(`${API_URL}/api/todos/health?reason=${encodeURIComponent(String(reason || 'unknown'))}`, {
-      headers: _sessionAuthHeaders(),
+    const r = await _fetchWithAuthRetry(`${API_URL}/api/todos/health?reason=${encodeURIComponent(String(reason || 'unknown'))}`, {
+      headers: {},
       signal: AbortSignal.timeout(3000),
-    });
+    }, { reason: `health_${reason}` });
     const data = await r.json();
     if (_consumeMaintenancePayload(data, { toast: false, keepWriteError: true })) {
       return _maintenanceState;
@@ -1182,10 +1282,10 @@ async function fetchBackendAlerts(reason = 'unknown') {
   }
   _alertsRefreshInFlight = true;
   try {
-    const r = await fetch(`${API_URL}/api/computed/alerts?reason=${encodeURIComponent(String(reason || 'unknown'))}`, {
-      headers: _sessionAuthHeaders(),
+    const r = await _fetchWithAuthRetry(`${API_URL}/api/computed/alerts?reason=${encodeURIComponent(String(reason || 'unknown'))}`, {
+      headers: {},
       signal: AbortSignal.timeout(3000)
-    });
+    }, { reason: `alerts_${reason}` });
     let j = null;
     try { j = await r.json(); } catch {}
     if (_consumeMaintenancePayload(j)) { _backendAlerts = null; return; }
@@ -2935,9 +3035,9 @@ async function _refreshTasksFromApi(silent = false, reason = 'unknown') {
   }
   _supabaseRefreshInFlight = true;
   try {
-    const resp = await fetch(`${API_URL}/api/tasks?reason=${encodeURIComponent(String(reason || 'unknown'))}`, {
-      headers: _sessionAuthHeaders(),
-    });
+    const resp = await _fetchWithAuthRetry(`${API_URL}/api/tasks?reason=${encodeURIComponent(String(reason || 'unknown'))}`, {
+      headers: {},
+    }, { reason: `tasks_${reason}` });
     let data = null;
     try {
       data = await resp.json();
@@ -3220,7 +3320,8 @@ function _cancelStaged() {
 
 async function _submitStagedFiles() {
   if (!_stagedFiles.length) return;
-  if (!_sbSession) { toast('Faça login para enviar arquivos.', 'err'); return; }
+  const session = await _ensureFreshSession('upload_batch_preflight');
+  if (!session?.access_token) { toast('Faça login para enviar arquivos.', 'err'); return; }
   const context = document.getElementById('uploadContextField')?.value?.trim() || '';
   const btn = document.getElementById('uploadSendBtn');
   if (btn) btn.disabled = true;
@@ -3245,28 +3346,28 @@ function _queueUpload(file, context = '') {
 
 async function _doUpload(file, entry, context = '') {
   try {
-    if (!_sbSession) throw new Error('Faça login para enviar arquivos.');
+    const session = await _ensureFreshSession('upload_preflight');
+    if (!session?.access_token) throw new Error('Faça login para enviar arquivos.');
     const b64 = await new Promise((res, rej) => {
       const fr = new FileReader();
       fr.onload = () => res(fr.result);
       fr.onerror = rej;
       fr.readAsDataURL(file);
     });
-    const resp = await fetch(API_URL + '/api/inbox/upload', {
+    const resp = await _fetchWithAuthRetry(API_URL + '/api/inbox/upload', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + _sbSession.access_token,
       },
       body: JSON.stringify({ filename: file.name, data: b64, context }),
-    });
+    }, { reason: 'upload_submit' });
     const json = await resp.json();
     if (resp.status === 409) {
       _setUploadStatus(entry.id, 'concluido', 'Arquivo já processado anteriormente.');
       toast(`${file.name}: já analisado`, 'ok');
       return;
     }
-    if (!json.ok) throw new Error(json.error || 'erro desconhecido');
+    if (!json.ok) throw new Error(resp.status === 401 ? _authFailureMessage(json) : (json.error || 'erro desconhecido'));
     if (json.upload_id) entry.uploadServerId = json.upload_id;
     _setUploadStatus(entry.id, 'received');
     toast(`${file.name} enviado`, 'ok');
@@ -3588,7 +3689,8 @@ function _appendClaudeteReplySafe(text) {
     const text = overrideText || inputEl.value.trim();
     if (!text && !_chatAttachFiles.length) return;
 
-    if (!_sbSession) {
+    const session = await _ensureFreshSession('claudete_chat_preflight');
+    if (!session?.access_token) {
       toast('Faça login para conversar com a Claudete', 'err');
       return;
     }
@@ -3656,15 +3758,14 @@ function _appendClaudeteReplySafe(text) {
         })));
       }
 
-      const resp = await fetch(MOTOR_CHAT_URL, {
+      const resp = await _fetchWithAuthRetry(MOTOR_CHAT_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + _sbSession.access_token,
         },
         body: JSON.stringify(body),
         signal: controller.signal,
-      });
+      }, { reason: 'claudete_chat' });
       responseReceived = true;
       clearTimeout(thinkingTimer);
       clearTimeout(timeoutId);
@@ -3689,7 +3790,10 @@ function _appendClaudeteReplySafe(text) {
         if (resp.status === 413) {
           _appendMsg('error', 'Arquivos muito grandes para enviar juntos — tente enviar em partes menores.');
         } else {
-          _appendMsg('error', 'Erro ' + resp.status + ': ' + ((data && data.error) || 'resposta inválida'));
+          const detail = resp.status === 401
+            ? _authFailureMessage(data, 'Faça login novamente para conversar com a Claudete.')
+            : ((data && data.error) || 'resposta inválida');
+          _appendMsg('error', 'Erro ' + resp.status + ': ' + detail);
         }
       } else {
         const responseText = data && (data.reply_text || data.reply) ? String(data.reply_text || data.reply) : '';
