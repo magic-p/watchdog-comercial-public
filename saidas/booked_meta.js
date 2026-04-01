@@ -1,7 +1,7 @@
 window.WATCHDOG_BOOKED_META = {
   "public_mode": "sanitized",
   "notice": "Dados reais disponiveis apenas com login.",
-  "month": "Mar",
+  "month": "Abr",
   "target": 0,
   "buckets": [],
   "wins": [],
