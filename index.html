@@ -329,11 +329,11 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="saidas/booked_meta.js?v=20260401124939"></script>
-<script src="saidas/todos_ssot.js?v=20260401124939"></script>
-<script src="saidas/data_health.js?v=20260401124939"></script>
-<script src="saidas/campanhas_ssot.js?v=20260401124939"></script>
-<script src="saidas/intel_ssot.js?v=20260401124939"></script>
+<script src="saidas/booked_meta.js?v=20260401135021"></script>
+<script src="saidas/todos_ssot.js?v=20260401135021"></script>
+<script src="saidas/data_health.js?v=20260401135021"></script>
+<script src="saidas/campanhas_ssot.js?v=20260401135021"></script>
+<script src="saidas/intel_ssot.js?v=20260401135021"></script>
 <script src="saidas/supabase_config.js"></script>
 <script>
 /* ── Supabase client ───────────────────────────────────────── */
@@ -966,6 +966,10 @@ const DEMO_BOOKED_META = {
 const SEED = (REQUIRE_LOGIN_FOR_READ ? [] : (HAS_BACKEND_TODOS ? TODOS_SSOT : FALLBACK_SEED));
 
 let BOOKED_META_SRC = (REQUIRE_LOGIN_FOR_READ && !_sbSession) ? DEMO_BOOKED_META : BOOKED_META;
+let INTEL_SRC = (REQUIRE_LOGIN_FOR_READ && !_sbSession) ? DEMO_INTEL : INTEL_DATA;
+let DATA_HEALTH_SRC = DATA_HEALTH;
+let CAMPANHAS_SRC = CAMPANHAS_DATA;
+let _dashboardBootstrapCache = null;
 let _kpis = (BOOKED_META_SRC && BOOKED_META_SRC.kpis) ? BOOKED_META_SRC.kpis : {};
 const ZOMBIE_DAYS         = _kpis.zombie_days          ?? 3;
 const CAMPANHA_TAXA_VERDE = _kpis.campanha_taxa_verde   ?? 2.0;
@@ -1302,6 +1306,80 @@ async function fetchBackendAlerts(reason = 'unknown') {
   }
 }
 
+function _applyDashboardBootstrapPayload(payload) {
+  if (!payload || typeof payload !== 'object') return false;
+  if (payload.maintenance && typeof payload.maintenance === 'object') {
+    setMaintenanceState(payload.maintenance, { toast: false, keepWriteError: true });
+  }
+  if (payload.booked_meta && typeof payload.booked_meta === 'object') {
+    BOOKED_META_SRC = payload.booked_meta;
+    _kpis = (BOOKED_META_SRC && BOOKED_META_SRC.kpis) ? BOOKED_META_SRC.kpis : {};
+  }
+  if (payload.intel && typeof payload.intel === 'object') {
+    INTEL_SRC = payload.intel;
+  }
+  if (payload.data_health && typeof payload.data_health === 'object') {
+    DATA_HEALTH_SRC = payload.data_health;
+  }
+  if (payload.campanhas && typeof payload.campanhas === 'object') {
+    CAMPANHAS_SRC = payload.campanhas;
+  }
+  if (Array.isArray(payload.tasks)) {
+    const remoteTasks = payload.tasks.map(t => normalizeTask(t || {}));
+    const nextTasks = _mergePendingTaskMutations(remoteTasks);
+    tasks = sanitizeTasksForUi(nextTasks);
+    if (tasks.length) _lastGoodSupabaseTasks = tasks.map(t => ({ ...t }));
+    enforceWeeklyTop3(tasks);
+  }
+  if (Array.isArray(payload.alerts)) {
+    _backendAlerts = payload.alerts.map(_parseBackendAlert).filter(Boolean);
+  }
+  _dashboardBootstrapCache = payload;
+  renderTasks();
+  renderCriticalAlerts();
+  renderIntel();
+  renderKpis();
+  renderBookedMeta();
+  renderWins();
+  renderDataHealth();
+  return true;
+}
+
+async function _fetchDashboardBootstrap(silent = false, reason = 'dashboard_bootstrap') {
+  if (isMaintenanceActive()) return false;
+  if (REQUIRE_LOGIN_FOR_READ && !_hasAuthSession()) return false;
+  try {
+    const resp = await _fetchWithAuthRetry(
+      `${API_URL}/api/dashboard/bootstrap?reason=${encodeURIComponent(String(reason || 'unknown'))}`,
+      {
+        headers: {},
+        signal: AbortSignal.timeout(5000),
+      },
+      { reason: `dashboard_bootstrap_${reason}` },
+    );
+    let payload = null;
+    try {
+      payload = await resp.json();
+    } catch (parseErr) {
+      console.error('[Dashboard bootstrap] invalid JSON:', parseErr);
+    }
+    if (_consumeMaintenancePayload(payload, { toast: !silent, keepWriteError: true })) return false;
+    if (!resp.ok || !payload || !payload.ok) {
+      const msg = (payload && payload.error) || ('Erro ' + resp.status);
+      console.error('[Dashboard bootstrap] read error:', msg, payload);
+      if (!silent) toast('Dashboard indisponivel: ' + _authFailureMessage(payload, msg), 'error');
+      return false;
+    }
+    _applyDashboardBootstrapPayload(payload);
+    if (!silent) toast('Dashboard autenticado carregado', 'ok');
+    return true;
+  } catch (err) {
+    console.error('[Dashboard bootstrap] exception:', err);
+    if (!silent) toast('Dashboard indisponivel: ' + (err?.message || String(err)), 'error');
+    return false;
+  }
+}
+
 function buildCriticalAlerts(list) {
   const out = [];
   const today = new Date();
@@ -1446,8 +1524,8 @@ function buildDataHealthFallback(list) {
 
 function getDataHealthSnapshot() {
   const fallback = buildDataHealthFallback(tasks);
-  if (!DATA_HEALTH) return fallback;
-  const fromFile = JSON.parse(JSON.stringify(DATA_HEALTH));
+  if (!DATA_HEALTH_SRC) return fallback;
+  const fromFile = JSON.parse(JSON.stringify(DATA_HEALTH_SRC));
   fromFile.tarefas = Object.assign({}, fromFile.tarefas || {}, {
     total: fallback.tarefas.total,
     pendentes: fallback.tarefas.pendentes,
@@ -2588,7 +2666,7 @@ function renderIntel() {
   const arquivadosEl   = document.getElementById('aprendizadosArchivedList');
   if (!summaryEl || !criticasEl || !criticasArchEl || !aprendizadosEl || !arquivadosEl) return;
 
-  const intelSource = (REQUIRE_LOGIN_FOR_READ && !_sbSession) ? DEMO_INTEL : INTEL_DATA;
+  const intelSource = (REQUIRE_LOGIN_FOR_READ && !_sbSession) ? DEMO_INTEL : INTEL_SRC;
   if (!intelSource) {
     const msg = '<span style="color:var(--t3);font-size:12px">intel_ssot.js não carregado.</span>';
     summaryEl.innerHTML = msg;
@@ -2936,7 +3014,11 @@ function _onAuthLogin(session) {
   const userKey = _sessionUserKey(session);
   const now = Date.now();
   const shouldSkipOperationalRefresh = !!userKey && (_lastAuthRefreshUserKey === userKey) && ((now - _lastAuthRefreshAt) < 30000);
-  BOOKED_META_SRC = BOOKED_META;
+  _dashboardBootstrapCache = null;
+  BOOKED_META_SRC = DEMO_BOOKED_META;
+  INTEL_SRC = DEMO_INTEL;
+  DATA_HEALTH_SRC = buildDataHealthFallback([]);
+  CAMPANHAS_SRC = CAMPANHAS_DATA;
   _kpis = (BOOKED_META_SRC && BOOKED_META_SRC.kpis) ? BOOKED_META_SRC.kpis : {};
   const email = session.user?.email || '';
   const name  = email.split('@')[0];
@@ -2957,6 +3039,10 @@ function _onAuthLogin(session) {
     load();
     renderTasks();
     renderCriticalAlerts();
+  } else {
+    load();
+    renderTasks();
+    renderCriticalAlerts();
   }
   renderIntel();
   renderKpis();
@@ -2967,8 +3053,17 @@ function _onAuthLogin(session) {
   if (!shouldSkipOperationalRefresh) {
     _lastAuthRefreshUserKey = userKey;
     _lastAuthRefreshAt = now;
-    _scheduleTasksRefresh(true, 0, refreshReason);
-    _scheduleAlertsRefresh(120, refreshReason);
+    Promise.resolve()
+      .then(() => _fetchDashboardBootstrap(!!opts.silent, refreshReason))
+      .then((bootstrapped) => {
+        if (!bootstrapped) {
+          _scheduleTasksRefresh(true, 0, refreshReason);
+          _scheduleAlertsRefresh(120, refreshReason);
+          return;
+        }
+        _scheduleTasksRefresh(true, 60000, refreshReason);
+        _scheduleAlertsRefresh(60000, refreshReason);
+      });
   }
   _sbSubscribeRealtime();
 }
@@ -3005,7 +3100,12 @@ function _onAuthLogout() {
   if (_alertsRefreshTimer) clearTimeout(_alertsRefreshTimer);
   _alertsRefreshTimer = null;
   _alertsRefreshQueued = false;
+  _dashboardBootstrapCache = null;
   BOOKED_META_SRC = DEMO_BOOKED_META;
+  INTEL_SRC = DEMO_INTEL;
+  DATA_HEALTH_SRC = DATA_HEALTH;
+  CAMPANHAS_SRC = CAMPANHAS_DATA;
+  _backendAlerts = null;
   _kpis = (BOOKED_META_SRC && BOOKED_META_SRC.kpis) ? BOOKED_META_SRC.kpis : {};
   const pill = document.getElementById('authPill');
   pill.textContent = '👤 Entrar';
