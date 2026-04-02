@@ -153,7 +153,7 @@ async function _refreshTasksFromApi(silent = false, reason = 'unknown') {
     if (_consumeMaintenancePayload(data, { toast: !silent })) return;
     if (!resp.ok || !data || !data.ok) {
       const msg = (data && data.error) || ('Erro ' + resp.status);
-      console.error('[Tasks API] read error:', msg, data);
+      console.error('[Tasks API] read error:', msg);
       if (!silent) toast('Tarefas indisponíveis: ' + msg, 'error');
       return;
     }
@@ -207,7 +207,7 @@ async function signInWithPassword() {
   btn.textContent = 'Entrar com senha';
   if (error) {
     msg.className = 'auth-msg err';
-    console.error('[Supabase] signInWithPassword error:', error);
+    console.error('[Supabase] signInWithPassword error:', String(error?.message ?? error));
     msg.textContent = 'Erro: ' + error.message;
   } else {
     msg.className = 'auth-msg ok';
@@ -769,7 +769,7 @@ function _appendClaudeteReplySafe(text) {
     try {
       _appendMsg('claudete', replyText);
     } catch (renderErr) {
-      console.error('[Claudete chat] falha ao renderizar bubble rica:', renderErr, replyText);
+      console.error('[Claudete chat] falha ao renderizar bubble rica:', renderErr);
       const msgs = document.getElementById('chatMessages');
       if (!msgs) throw renderErr;
       const div = document.createElement('div');
@@ -782,7 +782,7 @@ function _appendClaudeteReplySafe(text) {
     _chatHistory.push({ role: 'claudete', content: replyText });
     if (_chatHistory.length > 50) _chatHistory = _chatHistory.slice(-50);
   } catch (err) {
-    console.error('[Claudete chat] falha fatal ao preservar resposta:', err, replyText);
+    console.error('[Claudete chat] falha fatal ao preservar resposta:', err);
   }
 }
 
@@ -892,7 +892,7 @@ function _appendClaudeteReplySafe(text) {
       try {
         data = rawText ? JSON.parse(rawText) : null;
       } catch (parseErr) {
-        console.error('[Claudete chat] resposta não-JSON:', parseErr, rawText);
+        console.error('[Claudete chat] resposta não-JSON:', parseErr);
       }
       if (_consumeMaintenancePayload(data)) {
         _chatBusy = false;
@@ -919,7 +919,7 @@ function _appendClaudeteReplySafe(text) {
               applyChatCreatedTasks(data.created_tasks);
               if (_sbSession) _scheduleTasksRefresh(true, 120, 'claudete_created_tasks');
             } catch (createdTasksErr) {
-              console.error('[Claudete chat] falha ao aplicar created_tasks:', createdTasksErr, data.created_tasks);
+              console.error('[Claudete chat] falha ao aplicar created_tasks:', createdTasksErr);
             }
           }
           _appendClaudeteReplySafe(responseText);
@@ -946,7 +946,7 @@ function _appendClaudeteReplySafe(text) {
             sendBtn.disabled = isMaintenanceActive() || (!inputEl.value.trim() && !_chatAttachFiles.length);
             return;
           } catch (fallbackErr) {
-            console.error('[Claudete chat] fallback pós-resposta falhou:', fallbackErr, fallbackReply);
+            console.error('[Claudete chat] fallback pós-resposta falhou:', fallbackErr);
           }
         }
       }
