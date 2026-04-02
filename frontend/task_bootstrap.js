@@ -61,7 +61,7 @@ async function _fetchDashboardBootstrap(silent = false, reason = 'dashboard_boot
     if (_consumeMaintenancePayload(payload, { toast: !silent, keepWriteError: true })) return false;
     if (!resp.ok || !payload || !payload.ok) {
       const msg = (payload && payload.error) || ('Erro ' + resp.status);
-      console.error('[Dashboard bootstrap] read error:', msg, payload);
+      console.error('[Dashboard bootstrap] read error:', msg);
       if (!silent) toast('Dashboard indisponivel: ' + _authFailureMessage(payload, msg), 'error');
       return false;
     }
