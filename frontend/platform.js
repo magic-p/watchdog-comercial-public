@@ -49,7 +49,7 @@ async function _readCurrentSession() {
     _sbSession = null;
     return null;
   } catch (err) {
-    console.warn('[Auth] getSession falhou:', err);
+    console.warn('[Auth] getSession falhou:', String(err?.message ?? err));
     return _sbSession;
   }
 }
@@ -78,7 +78,7 @@ async function _ensureFreshSession(reason = 'unknown', opts = {}) {
         return data.session;
       }
     } catch (err) {
-      console.warn(`[Auth] refreshSession falhou (${reason}):`, err);
+      console.warn(`[Auth] refreshSession falhou (${reason}):`, String(err?.message ?? err));
     } finally {
       _sessionRefreshPromise = null;
     }
