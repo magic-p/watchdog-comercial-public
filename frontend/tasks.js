@@ -1,12 +1,4 @@
-function ownerKey(owner) {
-  return String(owner || '')
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-zA-Z0-9\s]/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim()
-    .toLowerCase();
-}
+// ownerKey está definida em platform.js, que carrega antes deste arquivo.
 
 function normalizeOwnerName(owner) {
   const base = String(owner || '').replace(/\s+/g, ' ').trim();
