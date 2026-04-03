@@ -669,6 +669,18 @@ const WINS = []; // Placeholder para wins manuais via console (fonte real: boots
 
 /*  STATE  */
 
+// ownerKey deve ficar aqui porque platform.js carrega antes de tasks.js
+// e OWNER_CANONICAL (abaixo) precisa dela na hora da definição do módulo.
+function ownerKey(owner) {
+  return String(owner || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-zA-Z0-9\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+}
+
 const OWNER_FALLBACK = 'Lili';
 const OWNER_DIRECTORY = {
   pedro: { canonical: 'Pedro', aliases: ['Pedro', 'Pedro Concy', 'Concy'] },
