@@ -71,6 +71,31 @@ function _onAuthLogin(session) {
       });
   }
   _sbSubscribeRealtime();
+  _applyUrlChatPrefill();
+}
+
+// Lê parâmetro ?chat= da URL e pré-preenche o input do chat se presente
+function _applyUrlChatPrefill() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const prefill = params.get('chat');
+    if (!prefill) return;
+    // Tenta abrir o painel de chat
+    if (typeof window.openClaudetChat === 'function') window.openClaudetChat();
+    // Preenche o input — usa o id real do textarea do chat
+    const chatInput = document.getElementById('chatInput');
+    if (chatInput) {
+      chatInput.value = decodeURIComponent(prefill);
+      chatInput.focus();
+      // Dispara eventos para frameworks que observam o input
+      chatInput.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+    // Remove o parâmetro da URL sem recarregar (mantém histórico limpo)
+    const cleanUrl = window.location.pathname + window.location.hash;
+    window.history.replaceState({}, '', cleanUrl);
+  } catch (e) {
+    // Silencioso — não quebra nada se falhar
+  }
 }
 
 function _sbSubscribeRealtime() {
